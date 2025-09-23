@@ -1,6 +1,5 @@
 Quy tắc viết code (HTML, CSS, JS)
  1. HTML
-    - Thụt dòng: 2 hoặc 4 spaces, thống nhất toàn dự án.
     - Tag: luôn viết chữ thường.
     - Thuộc tính: viết trong dấu nháy đôi " ".
 2. CSS

@@ -1,8 +1,4 @@
-/* Style chung */
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-}
+
 
 /* Responsive (tablet, mobile) */
 @media (max-width: 1024px) {

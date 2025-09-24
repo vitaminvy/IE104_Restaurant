@@ -1,3 +1,7 @@
+body {
+  margin: 0;
+}
+
 #statistics {
   background-color: #0d0d0d;
   padding: 40px 20px;
@@ -14,9 +18,9 @@
 }
 
 .stat-item {
-  display: flex;               /* icon + text ngang */
-  align-items: center;         /* căn giữa dọc */
-  gap: 15px;                   /* khoảng cách icon và text */
+  display: flex; /* icon  */
+  align-items: center; 
+  gap: 15px; /* space between icon and text */
   min-width: 220px;
 }
 

@@ -4,17 +4,72 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Restaurant Website</title>
-  <link rel="stylesheet" href="style.css">
+
+  <link rel="stylesheet" href="../style/style.css">
+  <link rel="stylesheet" href="../style/component/homepage/header.css">
+  <link rel="stylesheet" href="../style//component/homepage/hero.css">
 </head>
 <body>
 
   <!-- ========== 1. HEADER ========== -->
-  <header id="header">
+  <header id="header" class="header">
+    <div class="header__container">
+      <nav class="header__nav">
+        <ul class="header__nav-list">
+          <li class="header__nav-item">
+            <a href="#" class="header__nav-link header__nav-link--active">Home</a>
+          </li>
+          <li class="header__nav-item">
+            <a href="#" class="header__nav-link">Menu</a>
+          </li>
+          <li class="header__nav-item">
+            <a href="#" class="header__nav-link">Blog</a>
+          </li>
+          <li class="header__nav-item">
+            <a href="#" class="header__nav-link">Pages</a>
+          </li>
+          <li class="header__nav-item">
+            <a href="#" class="header__nav-link">Contact</a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="header__left-panel">
+        <img src="../assets/images/ci_menu-alt-05.png" alt="Menu">
+      </div>
+
+      <div class="header__logo">
+        <img src="../assets/images/nav-vect.svg" alt="Restaurant Logo">
+      </div>
+
+      <div class="header__right-panel">
+        <span class="header__open-status" id="openStatus">11:24 we're open</span>
+        <a href="#" class="header__reservation-btn">Table Reservation</a>
+      </div>
+    </div>
   </header>
 
-  <!-- ========== 1. HERO / BANNER ========== -->
-  <section id="hero">
+  <!-- ========== 2. HERO / BANNER ========== -->
+  <section id="hero" class="hero">
     <!-- Slogan + Hình ảnh đầu trang -->
+    <div class="hero__container">
+      <div class="hero__image-wrapper hero__image-wrapper--left">
+        <img src="../assets/images/image 78.png" alt="Pasta dish" class="hero__image">
+      </div>
+
+      <div class="hero__content">
+        <p class="hero__subtitle">Welcome to Our Restaurant</p>
+        <h1 class="hero__title">The Best Food For The Best Moments</h1>
+        <p class="hero__description">
+          We've got famous chefs and stars—Julia Child, Sophia Loren, Virginia Woolf—to thank for some of the greatest food quotes of all time.
+        </p>
+        <a href="#" class="hero__view-more-btn">View more</a>
+      </div>
+
+      <div class="hero__image-wrapper hero__image-wrapper--right">
+        <img src="../assets//images//image 77.png" alt="Steak dish" class="hero__image">
+      </div>
+    </div>
   </section>
 
   <!-- ========== 2. ABOUT / INTRODUCTION ========== -->

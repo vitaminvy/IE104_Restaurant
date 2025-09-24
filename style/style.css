@@ -21,6 +21,17 @@
 
 
 }
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #000000;
+  overflow-x: hidden;
+  margin: 0;
+}
+
 /* Body text (default) */
 body, p {
   font-family: var(--font-body);

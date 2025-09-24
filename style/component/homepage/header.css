@@ -1,0 +1,220 @@
+:root {
+  --primary-color: #e58f00;
+  --text-color: #ffffff;
+  --text-secondary-color: #cccccc;
+  --background-color: #121212;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: 'Poppins', sans-serif; /* Giả định font đã được import */
+}
+
+/* ========== 1. HEADER ========== */
+.header {
+  width: 100%;
+  padding: 2rem 4rem;
+}
+
+.header__container {
+  display: flex;
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* --- Các thành phần trong Header --- */
+
+/* --- Desktop Navigation --- */
+.header__nav {
+  display: flex;
+}
+
+.header__nav-list {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.header__nav-item:not(:last-child) {
+  margin-right: 2.5rem;
+}
+
+.header__nav-link {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.header__nav-link:hover,
+.header__nav-link--active {
+  color: var(--primary-color);
+}
+
+.header__left-panel {
+  display: none;
+  justify-content: flex-start;
+}
+
+.header__menu-toggle-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.header__menu-toggle-btn img {
+  display: block;
+  width: 32px; /* Kích thước icon hamburger */
+  height: auto;
+}
+
+/* Nút đóng menu mobile (mặc định ẩn) */
+.header__nav-close {
+  display: none;
+}
+
+/* --- Logo --- */
+.header__logo {
+  display: flex;
+  justify-content: center;
+  transform: translate(-50px, 0);
+}
+
+.header__logo img {
+  height: 60px;
+}
+
+/* --- Right Panel --- */
+.header__right-panel {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.header__open-status {
+  margin-right: 2.5rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary-color);
+  white-space: nowrap;
+}
+
+.header__reservation-btn {
+  padding-bottom: 0.25rem;
+  border-bottom: 2px solid var(--text-secondary-color);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-color);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.header__reservation-btn:hover {
+  border-bottom-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 1024px) {
+  .header {
+    padding: 1.5rem 2rem;
+  }
+  
+  /* === FIX QUAN TRỌNG: Xử lý hiển thị cho mobile === */
+  
+  /* 1. Ẩn menu list của desktop */
+  .header__nav-list {
+    display: none;
+  }
+  
+  /* 2. Biến đổi NAV thành menu trượt bên ngoài luồng (flow) */
+  .header__nav {
+    position: fixed;
+    top: 0;
+    left: -100%; /* Ẩn menu ra ngoài màn hình */
+    z-index: 1000;
+    
+    display: flex; /* Cần display để hiện */
+    width: 80%;
+    max-width: 400px;
+    height: 100vh;
+    padding-top: 5rem;
+    
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    
+    background-color: var(--background-color);
+    transition: left 0.4s ease-in-out;
+    
+    /* Reset flex để không ảnh hưởng layout header bar */
+    flex: initial; 
+  }
+
+  /* Class để hiện menu mobile */
+  .header__nav--mobile-open {
+    left: 0;
+  }
+  
+  /* 3. Hiện lại nav list bên trong menu trượt */
+  .header__nav--mobile-open .header__nav-list {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .header__nav--mobile-open .header__nav-item:not(:last-child) {
+    margin-right: 0;
+    margin-bottom: 2rem;
+  }
+  
+  .header__nav--mobile-open .header__nav-link {
+    font-size: 1.5rem;
+  }
+
+  /* 4. Hiện nút hamburger */
+  .header__left-panel {
+    display: flex;
+  }
+
+  /* 5. Ẩn giờ mở cửa & Hiện nút đóng */
+  .header__open-status {
+    display: none;
+  }
+
+  .header__nav-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+    z-index: 1001;
+    display: block;
+    border: none;
+    font-size: 3rem;
+    color: var(--text-color);
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .header__logo {
+    transform: translate(50px, 0);
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 1.5rem 1rem;
+  }
+  .header__logo img {
+    height: 50px;
+  }
+  .header__reservation-btn {
+    font-size: 0.9rem;
+  }
+}

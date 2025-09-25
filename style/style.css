@@ -1,28 +1,29 @@
 :root {
-/* Font family */
-  --font-body: 'Plus Jakarta Sans', sans-serif;
-  --font-heading: 'Libre Bodoni', serif;
+  /* Font family */
+  --font-body: "Plus Jakarta Sans", sans-serif;
+  --font-heading: "Libre Bodoni", serif;
 
-/* Font size */
+  /* Font size */
   --font-size-body: 16px;
   --line-height-body: 26px;
   --font-weight-regular: 400;
 
-
+  /* Font style h2 */
   --font-size-h2: 32px;
   --line-height-h2: 40px;
   --font-weight-h2: 500;
-  
 
-/* Colors */
+  /* Colors */
   --color-white: #ffffff;
   --color-white-80: rgba(255, 255, 255, 0.8);
-  --color-dark-orange: #FB8F2C;
-
-
+  --color-dark-orange: #fb8f2c;
+}
+body {
+  background: var(--Dark, #111114);
 }
 /* Body text (default) */
-body, p {
+body,
+p {
   font-family: var(--font-body);
   font-size: var(--font-size-body);
   line-height: var(--line-height-body);

@@ -16,8 +16,8 @@ section {
 .content-frame {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  align-items: center; /* center horizontally */
+  justify-content: center; /* center vertically */
   gap: 2rem;
   padding: 2rem 0;
   text-align: center;
@@ -25,7 +25,7 @@ section {
 
 .about__image {
   position: relative;
-  order: 2; /* ảnh xuống dưới ở mobile */
+  order: 1; /* ảnh xuống dưới ở mobile */
   width: 100%;
   max-width: 16rem; /* 256px */
 }

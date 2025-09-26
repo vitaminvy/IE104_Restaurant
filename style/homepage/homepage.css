@@ -1,0 +1,59 @@
+#service-features {
+  display: flex;
+  justify-content: center; /* căn giữa theo chiều ngang */
+  align-items: center;     /* căn giữa theo chiều dọc */
+  gap: 80px;
+  padding: 80px 0;
+  max-width: 1440px;
+  margin: 0 auto;
+  min-height: 664px;
+  background: #0E0E0E;
+}
+
+#service-features .service-column {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  text-align: center;
+  width: 294px;
+}
+
+#service-features .service-item {
+  width: 100%;
+  min-height: 222px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+#service-features .service-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#service-features .service-item .icon {
+  width: 70px;
+  height: 70px;
+  margin-bottom: 15px;
+}
+
+#service-features .service-item h4 {
+  font-family: 'Libre Bodoni', serif;
+  font-size: 30px;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+#service-features .service-item p {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: #b3b3b3;
+  line-height: 1.5;
+}
+
+#service-features .service-image img {
+  max-width: 350px;
+  border-radius: 12px;
+}

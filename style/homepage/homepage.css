@@ -6,10 +6,72 @@
   padding: 5rem 1.5rem; /* trên dưới 5rem, trái phải 24px */
   width: 100%;
   max-width: 1536px;   /* theo chuẩn Tailwind 2xl */
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
   min-height: 664px;
- 
+  flex-wrap: nowrap;
+}
+
+
+/* sm (≥40rem) */
+@media (min-width: 40rem) {
+  #service-features {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem 1rem;
+  }
+  #service-features .service-column {
+    width: 100%;
+    max-width: 320px;
+  }
+  #service-features .service-image img {
+    max-width: 100%;
+  }
+}
+
+/* md (≥48rem) */
+@media (min-width: 48rem) {
+  #service-features {
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+    padding: 3rem 1rem;
+  }
+  #service-features .service-image img {
+    max-width: 320px;
+  }
+}
+
+/* lg (≥64rem) */
+@media (min-width: 64rem) {
+  #service-features {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 4rem;
+    padding: 4rem 2rem;
+  }
+  #service-features .service-image img {
+    max-width: 320px;
+  }
+}
+
+/* xl (≥80rem) */
+@media (min-width: 80rem) {
+  #service-features {
+    gap: 5rem;
+    padding: 5rem 2rem;
+  }
+  #service-features .service-image img {
+    max-width: 350px;
+  }
+}
+
+/* 2xl (≥96rem) */
+@media (min-width: 96rem) {
+  #service-features {
+    max-width: 1536px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 #service-features .service-column {

@@ -24,7 +24,10 @@
     max-width: 320px;
   }
   #service-features .service-image img {
-    max-width: 100%;
+    width: 18.5rem;
+    height: 17rem;
+    object-fit: cover;
+    border-radius: 0.75rem; /* 12px */
   }
 }
 
@@ -37,7 +40,10 @@
     padding: 3rem 1rem;
   }
   #service-features .service-image img {
-    max-width: 320px;
+    width: 18.5rem;
+    height: 17rem;
+    object-fit: cover;
+    border-radius: 0.75rem; /* 12px */
   }
 }
 

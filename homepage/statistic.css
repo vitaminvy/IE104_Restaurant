@@ -1,37 +1,49 @@
 /* ================== Stats Section ================== */
 .stats {
   width: 100%;
-  max-width: 1536px;
   margin-left: auto;
   margin-right: auto;
   padding: 3rem 1.5rem;
-  background: var(--color-bg-dark);
 }
 
 .stats__grid {
   display: grid;
+  /* default mobile just show 1 col */
   grid-template-columns: 1fr;
   gap: 2rem;
-  text-align: center;
 }
 
 .stats__item {
   display: flex;
+  /* items and text center vertical */
   align-items: center;
+  /* items and text center horizonal */
   justify-content: center;
   gap: 1rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+/* hover -> scale */
+.stats__item:hover {
+  /* scale */
+  transform: scale(1.05); 
+  /* organe shadow */
+  box-shadow: 0 8px 25px rgba(251, 143, 44, 0.2); 
 }
 
 .stats__icon {
-  width: 3rem;
-  height: 3rem;
+  /* 48x48px */
+  width: 4rem;
+  height: 4rem;
   object-fit: contain;
-  filter: brightness(0) saturate(100%) invert(66%) sepia(56%) saturate(684%)
-    hue-rotate(356deg) brightness(100%) contrast(91%); /* chuyển svg sang màu cam */
 }
 
 .stats__info {
   display: flex;
+  /* info vertical */
   flex-direction: column;
   align-items: flex-start;
 }
@@ -53,40 +65,31 @@
 
 /* ========== Responsive Breakpoints ========== */
 
-/* md (≥768px) : 2 cột */
+/* md (≥768px): 2 col */
 @media (min-width: 768px) {
   .stats__grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 3rem;
+    gap: 2rem 3rem;
     text-align: left;
   }
   .stats__item {
-    justify-content: flex-start;
-  }
-  .stats__number {
-    font-size: 2rem; /* 32px */
+    justify-content: center;
   }
 }
 
-/* lg (≥1024px) */
+/* lg (≥1024px): 4 col */
 @media (min-width: 1024px) {
-  .stats {
-    padding: 4rem 2rem;
-  }
   .stats__grid {
-    gap: 4rem;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
   }
-  .stats__number {
-    font-size: 2.25rem; /* 36px */
-  }
-}
 
-/* xl (≥1280px) */
-@media (min-width: 1280px) {
-  .stats__grid {
-    gap: 6rem;
+  .stats__item {
+    flex-direction: row;
+    justify-content: center;
   }
+
   .stats__number {
-    font-size: 2.5rem; /* 40px */
+    font-size: 2rem;
   }
 }

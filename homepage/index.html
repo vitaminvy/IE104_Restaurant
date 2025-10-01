@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../style/reset.css" />
     <link rel="stylesheet" href="../style/style.css" />
     <link rel="stylesheet" href="./about.css" />
-    <link rel="stylesheet" href="../style/component/header.css"/>
+    <link rel="stylesheet" href="../style/component/header.css" />
   </head>
   <body>
     <!-- ========== 1. HEADER ========== -->
@@ -25,12 +25,12 @@
         <!-- Images -->
         <div class="about__image">
           <img
-            src="../assets/images/about-banner.png"
+            src="../assets/images/AboutSection/about-banner.png"
             alt="Restaurant interior"
           />
           <img
             class="frame-rectangular"
-            src="../assets/images/about-frame.png"
+            src="../assets/images/AboutSection/about-frame.png"
             alt="Decor Frame"
           />
         </div>
@@ -69,54 +69,60 @@
     </section>
 
     <!-- ========== 7.  STATISTICS / ACHIEVEMENTS ========== -->
-    <section id="statistics">
-
-      <div class="stats-container">
-        <div class="stat-item">
+    <section id="stats" class="stats">
+      <div class="stats__grid">
+        <!-- Happy Customers -->
+        <div class="stats__item">
           <img
-            src="../assets/images/customer.svg"
+            src="../assets/images/StatisticSection/happy-customer.svg"
             alt="Happy Customers"
-            class="stat-icon"
+            class="stats__icon"
           />
-          <div class="stat-text">
-            <h3>7500+</h3>
-            <p>Happy Customers</p>
+          <div class="stats__info">
+            <h3 class="stats__number">7500+</h3>
+            <p class="stats__label">Happy Customers</p>
           </div>
         </div>
 
-        <div class="stat-item">
-          <img src="../assets/images/chef.svg" alt="Chefs" class="stat-icon" />
-          <div class="stat-text">
-            <h3>39</h3>
-            <p>Passionate Chefs</p>
-          </div>
-        </div>
-
-        <div class="stat-item">
+        <!-- Passionate Chef’s -->
+        <div class="stats__item">
           <img
-            src="../assets/images/dishes.svg"
+            src="../assets/images/StatisticSection/passionate-chef.svg"
+            alt="Passionate Chefs"
+            class="stats__icon"
+          />
+          <div class="stats__info">
+            <h3 class="stats__number">39</h3>
+            <p class="stats__label">Passionate Chef’s</p>
+          </div>
+        </div>
+
+        <!-- Dishes -->
+        <div class="stats__item">
+          <img
+            src="../assets/images/StatisticSection/dishes.svg"
             alt="Dishes"
-            class="stat-icon"
+            class="stats__icon"
           />
-          <div class="stat-text">
-            <h3>286</h3>
-            <p>Delicious Dishes</p>
+          <div class="stats__info">
+            <h3 class="stats__number">286</h3>
+            <p class="stats__label">Dishes</p>
           </div>
         </div>
 
-        <div class="stat-item">
+        <!-- Customer Rating-->
+        <div class="stats__item">
           <img
-            src="../assets/images/rating.svg"
-            alt="Rating"
-            class="stat-icon"
+            src="../assets/images/StatisticSection/custom-rating.svg"
+            alt="Custom Rating"
+            class="stats__icon"
           />
-          <div class="stat-text">
-            <h3>4.5</h3>
-            <p>Customer Rating</p>
+          <div class="stats__info">
+            <h3 class="stats__number">4.5</h3>
+            <p class="stats__label">Customer Rating</p>
           </div>
         </div>
       </div>
-
     </section>
 
     <!-- ========== 8. CHEF INTRODUCTION ========== -->

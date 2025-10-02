@@ -10,7 +10,7 @@
 /* overlay css */
 .reservation__overlay {
   width: 100%;
-  padding: 1rem 1.5rem; /* inside padding between content and bg-div */
+  padding: 1rem 1rem; /* inside padding between content and bg-div */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -30,9 +30,17 @@
 
 .reservation__title {
   font-family: var(--font-heading);
-  font-size: 3rem;
   font-weight: 600;
-  margin-bottom: 0.5rem;
+  line-height: 1.2;
+  margin-bottom: 0.1rem;
+  color: var(--color-white);
+  text-align: center;
+  font-size: 1.8rem; /* default for mobile */
+}
+
+/* mobile view */
+.reservation__title span {
+  display: inline; /* title in 1 line */
 }
 
 .reservation__subtitle {
@@ -90,7 +98,7 @@
 
 /* hidden default icons */
 .reservation__field select {
-  appearance: none; 
+  appearance: none;
 }
 
 .reservation__icon {
@@ -146,10 +154,20 @@
 }
 
 /* ========== Responsive ========== */
-/* md (≥768px) */
-@media (min-width: 768px) {
-  .reservation__overlay {
-    padding: 2rem 1.5rem;
+/* sm (≥640px):  */
+@media (min-width: 40rem) {
+  .reservation__title {
+    font-size: 2rem;
+  }
+}
+
+/* md (≥768px): tablet */
+@media (min-width: 48rem) {
+  .reservation__title {
+    font-size: 2.5rem;
+  }
+  .reservation__title span {
+    display: block; /* each span in 1 line */
   }
   .reservation__row {
     flex-direction: row;
@@ -157,9 +175,23 @@
   }
 }
 
-/* md (≥768px) */
-@media (min-width: 1024px) {
-  .reservation__overlay {
-    padding: 3rem 1.5rem;
+/* lg (≥1024px): desktop */
+@media (min-width: 64rem) {
+  .reservation__title {
+    font-size: 3rem;
+  }
+}
+
+/* xl (≥1280px): desktop */
+@media (min-width: 80rem) {
+  .reservation__title {
+    font-size: 3.5rem;
+  }
+}
+
+/* 2xl (≥1536px): large desktop */
+@media (min-width: 96rem) {
+  .reservation__title {
+    font-size: 4rem;
   }
 }

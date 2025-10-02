@@ -10,7 +10,7 @@
 /* overlay css */
 .reservation__overlay {
   width: 100%;
-  padding: 5rem 1.5rem; /* khoảng cách trong */
+  padding: 1rem 1.5rem; /* inside padding between content and bg-div */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -88,8 +88,9 @@
   color: rgba(255, 255, 255, 0.6);
 }
 
+/* hidden default icons */
 .reservation__field select {
-  appearance: none; /* ẩn mũi tên mặc định */
+  appearance: none; 
 }
 
 .reservation__icon {
@@ -116,9 +117,9 @@
   position: relative;
   transition: all 0.3s ease;
   /* css for underline when hover */
-  width: fit-content; 
-  margin-left: auto; 
-  margin-right: auto; 
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* hover effect */
@@ -145,11 +146,20 @@
 }
 
 /* ========== Responsive ========== */
-
 /* md (≥768px) */
 @media (min-width: 768px) {
+  .reservation__overlay {
+    padding: 2rem 1.5rem;
+  }
   .reservation__row {
     flex-direction: row;
     gap: 1.5rem;
+  }
+}
+
+/* md (≥768px) */
+@media (min-width: 1024px) {
+  .reservation__overlay {
+    padding: 3rem 1.5rem;
   }
 }

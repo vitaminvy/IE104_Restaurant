@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="./about.css" />
     <!-- statistic section -->
     <link rel="stylesheet" href="./statistic.css" />
+    <!-- reservation section -->
+    <link rel="stylesheet" href="./reservation.css" />
     <link rel="stylesheet" href="../style/component/header.css" />
   </head>
   <body>
@@ -28,12 +30,12 @@
         <!-- Images -->
         <div class="about__image">
           <img
-            src="../assets/images/AboutSection/about-banner.png"
+            src="../assets/images/HomePage/AboutSection/about-banner.png"
             alt="Restaurant interior"
           />
           <img
             class="frame-rectangular"
-            src="../assets/images/AboutSection/about-frame.png"
+            src="../assets/images/HomePage/AboutSection/about-frame.png"
             alt="Decor Frame"
           />
         </div>
@@ -77,7 +79,7 @@
         <!-- Happy Customers -->
         <div class="stats__item">
           <img
-            src="../assets/images/StatisticSection/happy-customer.svg"
+            src="../assets/images/HomePage/StatisticSection/happy-customer.svg"
             alt="Happy Customers"
             class="stats__icon"
           />
@@ -90,7 +92,7 @@
         <!-- Passionate Chef’s -->
         <div class="stats__item">
           <img
-            src="../assets/images/StatisticSection/passionate-chef.svg"
+            src="../assets/images/HomePage/StatisticSection/passionate-chef.svg"
             alt="Passionate Chefs"
             class="stats__icon"
           />
@@ -103,7 +105,7 @@
         <!-- Dishes -->
         <div class="stats__item">
           <img
-            src="../assets/images/StatisticSection/dishes.svg"
+            src="../assets/images/HomePage/StatisticSection/dishes.svg"
             alt="Dishes"
             class="stats__icon"
           />
@@ -116,7 +118,7 @@
         <!-- Customer Rating-->
         <div class="stats__item">
           <img
-            src="../assets/images/StatisticSection/custom-rating.svg"
+            src="../assets/images/HomePage/StatisticSection/custom-rating.svg"
             alt="Custom Rating"
             class="stats__icon"
           />
@@ -144,8 +146,93 @@
     </section>
 
     <!-- ========== 10. RESERVATION SECTION ========== -->
-    <section id="reservation">
-      <!-- Online Reservation Form -->
+    <section id="reservation" class="reservation">
+      <div class="reservation__overlay">
+        <div class="reservation__content">
+          <h2 class="reservation__title">
+            <span class="title--online">Online</span>
+            <span class="title--reservation">Reservation</span>
+          </h2>
+          <p class="reservation__subtitle">
+            Book your table for lunch or dinner.
+          </p>
+
+          <form action="#" class="reservation__form">
+            <!-- input field: name/phone/email adress -->
+            <div class="reservation__row">
+              <!-- customer name -->
+              <div class="reservation__field">
+                <input type="text" placeholder="Your name" required />
+                <img
+                  src="../assets/images/HomePage/ReservationSection/profile.svg"
+                  alt="profile icon"
+                  class="reservation__icon"
+                />
+              </div>
+              <!-- phone number -->
+              <div class="reservation__field">
+                <input type="tel" placeholder="Phone number" required />
+                <img
+                  src="../assets/images/HomePage/ReservationSection/phone.svg"
+                  alt="phone icon"
+                  class="reservation__icon"
+                />
+              </div>
+              <!-- email -->
+              <div class="reservation__field">
+                <input type="email" placeholder="Email address" required />
+                <img
+                  src="../assets/images/HomePage/ReservationSection/message.svg"
+                  alt="email icon"
+                  class="reservation__icon"
+                />
+              </div>
+            </div>
+
+            <!-- time for reservating -->
+            <div class="reservation__row">
+              <div class="reservation__field">
+                <!-- person - maximum is 5 person -->
+                <select required>
+                  <option value="">1 Person</option>
+                  <option value="2">2 Persons</option>
+                  <option value="3">3 Persons</option>
+                  <option value="4">4 Persons</option>
+                  <option value="4">5 Persons</option>
+                </select>
+                <img
+                  src="../assets/images/HomePage/ReservationSection/arrow-down.svg"
+                  alt="arrow down"
+                  class="reservation__icon"
+                />
+              </div>
+              <!-- date -->
+              <div class="reservation__field">
+                <input type="date" required />
+                <img
+                  src="../assets/images/HomePage/ReservationSection/calendar.svg"
+                  alt="calendar icon"
+                  class="reservation__icon"
+                />
+              </div>
+              <!-- time -->
+              <div class="reservation__field">
+                <input type="time" required />
+                <img
+                  src="../assets/images/HomePage/ReservationSection/clock.svg"
+                  alt="clock icon"
+                  class="reservation__icon"
+                />
+              </div>
+            </div>
+
+            <!-- submit -->
+            <button type="submit" class="reservation__btn">
+              Reserve Your Table Now
+            </button>
+          </form>
+        </div>
+      </div>
     </section>
 
     <!-- ========== 11. / EXPLORE ========== -->

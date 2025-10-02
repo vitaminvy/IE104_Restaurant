@@ -149,14 +149,16 @@
     <section id="reservation" class="reservation">
       <div class="reservation__overlay">
         <div class="reservation__content">
-          <h2 class="reservation__title">Online Reservation</h2>
+          <h2 class="reservation__title">Online</h2>
+          <h2 class="reservation__title">Reservation</h2>
           <p class="reservation__subtitle">
             Book your table for lunch or dinner.
           </p>
 
           <form action="#" class="reservation__form">
-            <!-- Row 1 -->
+            <!-- input field: name/phone/email adress -->
             <div class="reservation__row">
+              <!-- customer name -->
               <div class="reservation__field">
                 <input type="text" placeholder="Your name" required />
                 <img
@@ -165,6 +167,7 @@
                   class="reservation__icon"
                 />
               </div>
+              <!-- phone number -->
               <div class="reservation__field">
                 <input type="tel" placeholder="Phone number" required />
                 <img
@@ -173,6 +176,7 @@
                   class="reservation__icon"
                 />
               </div>
+              <!-- email -->
               <div class="reservation__field">
                 <input type="email" placeholder="Email address" required />
                 <img
@@ -183,14 +187,16 @@
               </div>
             </div>
 
-            <!-- Row 2 -->
+            <!-- time for reservating -->
             <div class="reservation__row">
               <div class="reservation__field">
+                <!-- person - maximum is 5 person -->
                 <select required>
                   <option value="">1 Person</option>
                   <option value="2">2 Persons</option>
                   <option value="3">3 Persons</option>
                   <option value="4">4 Persons</option>
+                  <option value="4">5 Persons</option>
                 </select>
                 <img
                   src="../assets/images/HomePage/ReservationSection/arrow-down.svg"
@@ -198,6 +204,7 @@
                   class="reservation__icon"
                 />
               </div>
+              <!-- date -->
               <div class="reservation__field">
                 <input type="date" required />
                 <img
@@ -206,6 +213,7 @@
                   class="reservation__icon"
                 />
               </div>
+              <!-- time -->
               <div class="reservation__field">
                 <input type="time" required />
                 <img
@@ -216,7 +224,7 @@
               </div>
             </div>
 
-            <!-- Submit -->
+            <!-- submit -->
             <button type="submit" class="reservation__btn">
               Reserve Your Table Now
             </button>

@@ -1,16 +1,16 @@
 /* ========== Reservation Section ========== */
 .reservation {
-  width: 100%;
   position: relative;
-  background: url("../assets/images/HomePage/ReservationSection/reservation-background.png")
-    center/cover no-repeat;
+  /* gradient overlay + props bg */
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.62), rgba(28, 28, 28, 0.62)),
+    url("../assets/images/HomePage/ReservationSection/reservation-background.png")
+      center/cover no-repeat;
 }
 
+/* overlay css */
 .reservation__overlay {
-  background: rgba(0, 0, 0, 0.6); /* lớp overlay tối mờ */
   width: 100%;
-  height: 100%;
-  padding: 5rem 1.5rem;
+  padding: 5rem 1.5rem; /* khoảng cách trong */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -30,12 +30,14 @@
 
 .reservation__title {
   font-family: var(--font-heading);
-  font-size: 2.5rem;
+  font-size: 3rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
 }
 
 .reservation__subtitle {
+  font-size: 0.75rem;
+  font-weight: 400;
   font-family: var(--font-body);
   color: rgba(255, 255, 255, 0.8);
   margin-bottom: 2rem;
@@ -58,16 +60,28 @@
   flex: 1;
 }
 
+/* input field */
 .reservation__field input,
 .reservation__field select {
   width: 100%;
   padding: 0.75rem 3rem 0.75rem 1rem;
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 0.25rem;
-  background: rgba(255, 255, 255, 0.05);
+  /* css(#hex, #hex, #hex, tansparent) */
+  background: rgba(255, 255, 255, 0.2);
   color: var(--color-white);
   font-family: var(--font-body);
   font-size: 0.95rem;
+}
+
+/* hidden default icon of date/time input type */
+.reservation__field input[type="date"]::-webkit-calendar-picker-indicator,
+.reservation__field input[type="time"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
 }
 
 .reservation__field input::placeholder {
@@ -88,7 +102,7 @@
   pointer-events: none;
 }
 
-/* Button */
+/* submit btn */
 .reservation__btn {
   display: inline-block;
   margin-top: 1rem;
@@ -101,8 +115,13 @@
   cursor: pointer;
   position: relative;
   transition: all 0.3s ease;
+  /* css for underline when hover */
+  width: fit-content; 
+  margin-left: auto; 
+  margin-right: auto; 
 }
 
+/* hover effect */
 .reservation__btn::after {
   content: "";
   position: absolute;

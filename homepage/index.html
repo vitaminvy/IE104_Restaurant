@@ -4,13 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Restaurant Website</title>
-    <link rel="stylesheet" href="../style/style.css" />
     <link rel="stylesheet" href="../style/reset.css" />
-    <link rel="stylesheet" href="../style/HomePage/homepage.css" />
+    <link rel="stylesheet" href="../style/style.css" />
+
+    <!-- about section -->
+    <link rel="stylesheet" href="./about.css" />
     <!-- service section -->
     <link rel="stylesheet" href="./service.css" />
-    <!-- menu section-->
-    <link rel="stylesheet" href="./service.css" />
+    <!-- statistic section -->
+    <link rel="stylesheet" href="./statistic.css" />
+    <!-- reservation section -->
+    <link rel="stylesheet" href="./reservation.css" />
+    <link rel="stylesheet" href="../style/component/header.css" />
 
     <link
       href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
@@ -27,65 +32,96 @@
     </section>
 
     <!-- ========== 2. ABOUT / INTRODUCTION ========== -->
-    <section id="about">
-      <!-- Giới thiệu nhà hàng -->
+    <section id="about" class="about">
+      <!-- About Restaurant -->
+      <div class="content-frame">
+        <!-- Images -->
+        <div class="about__image">
+          <img
+            src="../assets/images/HomePage/AboutSection/about-banner.png"
+            alt="Restaurant interior"
+          />
+          <img
+            class="frame-rectangular"
+            src="../assets/images/HomePage/AboutSection/about-frame.png"
+            alt="Decor Frame"
+          />
+        </div>
+
+        <!-- Content -->
+        <div class="about__content">
+          <h2 class="about__title">
+            We Are A Mexican Restaurant Makes Delicious.
+          </h2>
+          <p class="about__text">
+            Hi! Our Restaurant has been present for over 20 years in the market.
+            We make the most of all our customers.
+          </p>
+          <a href="#about" class="about__link">About Us</a>
+        </div>
+      </div>
     </section>
 
-    <!-- ========== 3.SERVICE FEATURES ========== -->
-    <section id="service-features">
-      <!-- Door Delivery | Fine Dining | Outdoor Catering | Banquets Hall -->
-      <div class="service-column">
-        <div class="service-item">
+    <!-- ========== 3. SERVICE FEATURES ========== -->
+    <section id="service-features" class="features">
+      <div class="features__column">
+        <!-- Door Delivery -->
+        <div class="features__item">
           <img
-            src="../assets/icons/door-delivery.svg"
+            src="../assets/icons/ServiceSection/door-delivery.svg"
             alt="Door Delivery"
-            class="icon"
+            class="features__icon"
           />
-          <h4>Door Delivery</h4>
-          <p>
+          <h4 class="features__title">Door Delivery</h4>
+          <p class="features__desc">
             Desire that they all cannot foresee the pain and trouble that are
             bound to ensue.
           </p>
         </div>
-        <div class="service-item">
+
+        <!-- Outdoor Catering -->
+        <div class="features__item">
           <img
-            src="../assets/icons/outdoor-catering.svg"
+            src="../assets/icons/ServiceSection/outdoor-catering.svg"
             alt="Outdoor Catering"
-            class="icon"
+            class="features__icon"
           />
-          <h4>Outdoor Catering</h4>
-          <p>
+          <h4 class="features__title">Outdoor Catering</h4>
+          <p class="features__desc">
             Obligations of business it will frequently occur that pleasures have
             to be repudiated.
           </p>
         </div>
       </div>
 
-      <div class="service-image">
-        <img src="../assets/images/curry.png" alt="Dish" />
+      <!-- Fine Dining -->
+      <div class="features__image">
+        <img src="../assets/images/ServiceSection/service-banner.png" alt="Dish" />
       </div>
 
-      <div class="service-column">
-        <div class="service-item">
+      <div class="features__column">
+        <div class="features__item">
           <img
-            src="../assets/icons/fine-dining.svg"
+            src="../assets/icons/ServiceSection/fine-dining.svg"
             alt="Fine Dining"
-            class="icon"
+            class="features__icon"
           />
-          <h4>Fine Dining</h4>
-          <p>
+          <h4 class="features__title">Fine Dining</h4>
+          <p class="features__desc">
             Explain you how this mistakens denouncing pleasure & praising pain
             will give you complete.
           </p>
         </div>
-        <div class="service-item">
+
+        <!-- Banquets Hall -->
+        <div class="features__item">
           <img
-            src="../assets/icons/banquets-hall.svg"
+            src="../assets/icons/ServiceSection/banquets-hall.svg"
             alt="Banquets Hall"
-            class="icon"
+            class="features__icon"
           />
-          <h4>Banquets Hall</h4>
-          <p>
+          <h4 class="features__title">Banquets Hall</h4>
+          <p class="features__desc">
             The wise man therefore always holds in these matters this principles
             of selection greater.
           </p>
@@ -97,6 +133,7 @@
     <section id="service-quality">
       <!-- Our Service Means Satisfy + bullet points -->
     </section>
+
     <!-- ========== 5.Scrolling-strip. ========== -->
     <section id="feature-marquee">
       <!-- Self Services + Best Foof + FastFood -->
@@ -188,8 +225,60 @@
     </section>
 
     <!-- ========== 7.  STATISTICS / ACHIEVEMENTS ========== -->
-    <section id="statistics">
-      <!-- 7500+ Customers | 39 Chefs | 286 Dishes | 4.5 Rating -->
+    <section id="stats" class="stats">
+      <div class="stats__grid">
+        <!-- Happy Customers -->
+        <div class="stats__item">
+          <img
+            src="../assets/icons/StatisticSection/happy-customer.svg"
+            alt="Happy Customers"
+            class="stats__icon"
+          />
+          <div class="stats__info">
+            <h3 class="stats__number">7500+</h3>
+            <p class="stats__label">Happy Customers</p>
+          </div>
+        </div>
+
+        <!-- Passionate Chef’s -->
+        <div class="stats__item">
+          <img
+            src="../assets/icons/StatisticSection/passionate-chef.svg"
+            alt="Passionate Chefs"
+            class="stats__icon"
+          />
+          <div class="stats__info">
+            <h3 class="stats__number">39</h3>
+            <p class="stats__label">Passionate Chef’s</p>
+          </div>
+        </div>
+
+        <!-- Dishes -->
+        <div class="stats__item">
+          <img
+            src="../assets/icons/StatisticSection/dishes.svg"
+            alt="Dishes"
+            class="stats__icon"
+          />
+          <div class="stats__info">
+            <h3 class="stats__number">286</h3>
+            <p class="stats__label">Delicious Dishes</p>
+          </div>
+        </div>
+
+        <!-- Customer Rating-->
+        <div class="stats__item">
+          <img
+            src="../assets/icons/StatisticSection/custom-rating.svg"
+            alt="Custom Rating"
+            class="stats__icon"
+          />
+          <div class="stats__info">
+            <h3 class="stats__number">4.5</h3>
+            <p class="stats__label">Customer Rating</p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- ========== 8. CHEF INTRODUCTION ========== -->
@@ -208,8 +297,93 @@
     </section>
 
     <!-- ========== 10. RESERVATION SECTION ========== -->
-    <section id="reservation">
-      <!-- Online Reservation Form -->
+    <section id="reservation" class="reservation">
+      <div class="reservation__overlay">
+        <div class="reservation__content">
+          <h2 class="reservation__title">
+            <span class="title--online">Online</span>
+            <span class="title--reservation">Reservation</span>
+          </h2>
+          <p class="reservation__subtitle">
+            Book your table for lunch or dinner.
+          </p>
+
+          <form action="#" class="reservation__form">
+            <!-- input field: name/phone/email adress -->
+            <div class="reservation__row">
+              <!-- customer name -->
+              <div class="reservation__field">
+                <input type="text" placeholder="Your name" required />
+                <img
+                  src="../assets/icons/ReservationSection/profile.svg"
+                  alt="profile icon"
+                  class="reservation__icon"
+                />
+              </div>
+              <!-- phone number -->
+              <div class="reservation__field">
+                <input type="tel" placeholder="Phone number" required />
+                <img
+                  src="../assets/icons/ReservationSection/phone.svg"
+                  alt="phone icon"
+                  class="reservation__icon"
+                />
+              </div>
+              <!-- email -->
+              <div class="reservation__field">
+                <input type="email" placeholder="Email address" required />
+                <img
+                  src="../assets/icons/ReservationSection/message.svg"
+                  alt="email icon"
+                  class="reservation__icon"
+                />
+              </div>
+            </div>
+
+            <!-- time for reservating -->
+            <div class="reservation__row">
+              <div class="reservation__field">
+                <!-- person - maximum is 5 person -->
+                <select required>
+                  <option value="">1 Person</option>
+                  <option value="2">2 Persons</option>
+                  <option value="3">3 Persons</option>
+                  <option value="4">4 Persons</option>
+                  <option value="4">5 Persons</option>
+                </select>
+                <img
+                  src="../assets/icons/ReservationSection/arrow-down.svg"
+                  alt="arrow down"
+                  class="reservation__icon"
+                />
+              </div>
+              <!-- date -->
+              <div class="reservation__field">
+                <input type="date" required />
+                <img
+                  src="../assets/icons/ReservationSection/calendar.svg"
+                  alt="calendar icon"
+                  class="reservation__icon"
+                />
+              </div>
+              <!-- time -->
+              <div class="reservation__field">
+                <input type="time" required />
+                <img
+                  src="../assets/icons/ReservationSection/clock.svg"
+                  alt="clock icon"
+                  class="reservation__icon"
+                />
+              </div>
+            </div>
+
+            <!-- submit -->
+            <button type="submit" class="reservation__btn">
+              Reserve Your Table Now
+            </button>
+          </form>
+        </div>
+      </div>
     </section>
 
     <!-- ========== 11. / EXPLORE ========== -->

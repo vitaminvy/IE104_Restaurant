@@ -13,9 +13,14 @@
     <link rel="stylesheet" href="./service.css" />
     <!-- statistic section -->
     <link rel="stylesheet" href="./statistic.css" />
+    <!-- menu section-->
+    <link rel="stylesheet" href="./menu.css" />
+
     <!-- reservation section -->
     <link rel="stylesheet" href="./reservation.css" />
     <link rel="stylesheet" href="../style/component/header.css" />
+
+    ``
 
     <link
       href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
@@ -96,7 +101,10 @@
 
       <!-- Fine Dining -->
       <div class="features__image">
-        <img src="../assets/images/ServiceSection/service-banner.png" alt="Dish" />
+        <img
+          src="../assets/images/ServiceSection/service-banner.png"
+          alt="Dish"
+        />
       </div>
 
       <div class="features__column">
@@ -140,11 +148,16 @@
     </section>
 
     <!-- ========== 6.MENU SECTION ========== -->
-    <section id="menu">
-      <h2 class="menu__tittle">Check out our menu</h2>
-      <p class="menu__subtitle">
-        We love to serve the quality food as always. Check our foodbook below.
-      </p>
+    <section id="menu-features">
+      <div class="menu__header">
+        <div class="menu__header-text">
+          <h2 class="menu__title">Check out our menu</h2>
+          <p class="menu__subtitle">
+            We love to serve the quality food as always. Check our foodbook
+            below.
+          </p>
+        </div>
+      </div>
       <nav class="menu__filter">
         <a href="#" class="menu__filter-item menu__filter-item--active">All</a>
         <a href="#" class="menu__filter-item">Donuts</a>
@@ -152,76 +165,74 @@
         <a href="#" class="menu__filter-item">Drinks</a>
         <a href="#" class="menu__filter-item">Sandwich</a>
       </nav>
-      <img
-        src="../assets/icons/arrown-left.svg"
-        alt="Previous"
-        class="menu__arrow menu__arrow--left"
-      />
-      <div class="menu__grid">
-        <!-- Card 1 -->
-        <div class="menu__card">
-          <img
-            src="../assets/images/HomePage/Menu/noodles.png"
-            alt="Schezwam Noodles"
-            class="menu__card-image"
-          />
-          <h3 class="menu__card-title">Schezwam Noodles</h3>
-          <p class="menu__card-desc">
-            Fresh toasted sourdough bread with olive oil and pomegranate.
-          </p>
-          <div class="menu__card-footer">
-            <a href="#" class="menu__card-btn"
-              >Order Now <img src=../assets/icons/arrown.svg alt="Go to order"
-              class="menu__card-btn-icon">
-            </a>
-            <span class="menu__card-price">$49</span>
+      <div class="menu__slider">
+        <button class="menu__arrow menu__arrow--left">
+          <img src="../assets/icons/arrown-left.svg" alt="Previous" />
+        </button>
+        <div class="menu__grid">
+          <!-- Card 1 -->
+          <div class="menu__card">
+            <img
+              src="../assets/images/HomePage/Menu/noodles.png"
+              alt="Crispy Chicken"
+              class="menu__card-image"
+            />
+            <h3 class="menu__card-title">Schezwam Noodles</h3>
+            <p class="menu__card-desc">
+              Fresh toasted sourdough bread with olive oil and pomegranate.
+            </p>
+            <div class="menu__card-footer">
+              <a href="#" class="menu__card-btn"
+                >Order Now <img src=../assets/icons/arrown.svg alt="Go to order"
+                class="menu__card-btn-icon">
+              </a>
+              <span class="menu__card-price">$49</span>
+            </div>
           </div>
-        </div>
 
-        <!-- Card 2 -->
-        <div class="menu__card">
-          <img
-            src="../assets/images/HomePage/Menu/chicken.png"
-            alt="Crispy Chicken"
-            class="menu__card-image"
-          />
-          <h3 class="menu__card-title">Crispy Chicken Breasts</h3>
-          <p class="menu__card-desc">
-            Fresh toasted sourdough bread with olive oil and pomegranate.
-          </p>
-          <div class="menu__card-footer">
-            <a href="#" class="menu__card-btn"
-              >Order Now <img src=../assets/icons/arrown.svg alt="Go to order"
-              class="menu__card-btn-icon">
-            </a>
-            <span class="menu__card-price">$54</span>
+          <!-- Card 2 -->
+          <div class="menu__card">
+            <img
+              src="../assets/images/HomePage/Menu/chicken.png"
+              alt="Crispy Chicken"
+              class="menu__card-image"
+            />
+            <h3 class="menu__card-title">Crispy Chicken Breasts</h3>
+            <p class="menu__card-desc">
+              Fresh toasted sourdough bread with olive oil and pomegranate.
+            </p>
+            <div class="menu__card-footer">
+              <a href="#" class="menu__card-btn"
+                >Order Now <img src=../assets/icons/arrown.svg alt="Go to order"
+                class="menu__card-btn-icon">
+              </a>
+              <span class="menu__card-price">$54</span>
+            </div>
+          </div>
+          <!--Card 3-->
+          <div class="menu__card">
+            <img
+              src="../assets/images/HomePage/Menu/new-lubina.png"
+              alt="New Lubina Marinada"
+              class="menu__card-image"
+            />
+            <h3 class="menu__card-title">Crispy Chicken Breasts</h3>
+            <p class="menu__card-desc">
+              Fresh toasted sourdough bread with olive oil and pomegranate.
+            </p>
+            <div class="menu__card-footer">
+              <a href="#" class="menu__card-btn"
+                >Order Now <img src=../assets/icons/arrown.svg alt="Go to order"
+                class="menu__card-btn-icon">
+              </a>
+              <span class="menu__card-price">$54</span>
+            </div>
           </div>
         </div>
-        <!--Card 3-->
-        <div class="menu__card">
-          <img
-            src="../assets/images/HomePage/Menu/new-lubina.png"
-            alt="New Lubina Marinada"
-            class="menu__card-image"
-          />
-          <h3 class="menu__card-title">Crispy Chicken Breasts</h3>
-          <p class="menu__card-desc">
-            Fresh toasted sourdough bread with olive oil and pomegranate.
-          </p>
-          <div class="menu__card-footer">
-            <a href="#" class="menu__card-btn"
-              >Order Now <img src=../assets/icons/arrown.svg alt="Go to order"
-              class="menu__card-btn-icon">
-            </a>
-            <span class="menu__card-price">$54</span>
-          </div>
-        </div>
+        <button class="menu__arrow menu__arrow--right">
+          <img src="../assets/icons/arrown-right.svg" alt="Next" />
+        </button>
       </div>
-      <img
-        src="../assets/icons/arrown-right.svg"
-        alt="Previous"
-        class="menu__arrow menu__arrow--right"
-      />
     </section>
 
     <!-- ========== 7.  STATISTICS / ACHIEVEMENTS ========== -->

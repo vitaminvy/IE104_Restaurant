@@ -1,12 +1,16 @@
 .features {
+  /* layout flex box */
   display: flex;
+  /* cross axis" vertical */
   align-items: center;
+  /* main axis: horizontal */
   justify-content: center;
   gap: 2rem;
   padding: 2rem 1rem;
   width: 100%;
-  max-width: 1536px; /* Tailwind 2xl */
+  max-width: 1536px; /* tailwind 2xl container*/
   margin: 0 auto;
+  /* mobile view -> column rearrangment */
   flex-direction: column;
   text-align: center;
 }
@@ -14,8 +18,9 @@
 .features__column {
   display: flex;
   flex-direction: column;
-  gap: 2.5rem;
+  gap: 2rem;
   width: 100%;
+  /* size of 1 feature column div */
   max-width: 20rem; /* ~320px */
 }
 
@@ -23,7 +28,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.75rem;
+  /* gap between icon - title - description */
+  gap: 0.5rem;
   min-height: 220px;
 }
 
@@ -73,7 +79,7 @@
   }
 }
 
-/* lg (≥1024px): 3 cột (2 col text + 1 col image ở giữa) */
+/* lg (≥1024px): 3 cols (2 cols text + 1 col image in middle) */
 @media (min-width: 64rem) {
   .features {
     flex-direction: row;

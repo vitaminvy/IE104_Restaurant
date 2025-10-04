@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="./statistic.css" />
     <!-- reservation section -->
     <link rel="stylesheet" href="./reservation.css" />
+    <!-- newsletter section -->
+    <link rel="stylesheet" href="./newsletter.css" />
     <link rel="stylesheet" href="../style/component/header.css" />
 
     <link
@@ -313,7 +315,30 @@
 
     <!-- ========== 12. NEWSLETTER ========== -->
     <section id="newsletter">
-      <!-- Subscribe to Newsletter -->
+        <div class="newsletter-container">
+            <!-- Cột chứa hình ảnh món ăn và icon trang trí -->
+            <div class="newsletter-image-wrapper">
+                <img src="../assets/images/Newsletter/dish.png" alt="Một đĩa cá hồi nướng với bông cải xanh và diêm mạch trên nền màu cam." class="newsletter-dish-image">
+                <img src="../assets/icons/NewsletterSection/Vector.svg" alt="Biểu tượng trang trí hình ngôi sao" class="newsletter-star-icon">
+            </div>
+
+            <!-- Cột chứa nội dung văn bản và form đăng ký -->
+            <div class="newsletter-content">
+                <h2 class="newsletter-title">Subscribe Newsletter<br>& Get Latest News</h2>
+                <p class="newsletter-description">
+                    Get insider access to news around the innovations, unique cooking techniques, culinary concepts, insights, and more.
+                </p>
+                <!-- Form đăng ký email -->
+                <form class="subscription-form" action="#" method="post">
+                    <input type="email" name="email" placeholder="Enter your email address" required>
+                    <button type="submit" aria-label="Subscribe">
+                        <svg width="32" height="16" viewBox="0 0 32 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0 8H30.5M30.5 8L23.5 1M30.5 8L23.5 15" stroke="white" stroke-width="1.5"/>
+                        </svg>
+                    </button>
+                </form>
+            </div>
+        </div>
     </section>
 
     <!-- ========== 13. FOOTER ========== -->

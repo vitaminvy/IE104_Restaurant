@@ -1,0 +1,129 @@
+#newsletter {
+  padding: 80px 24px 80px 38px;
+  overflow: hidden;
+}
+
+.newsletter-container {
+  display: flex;
+  align-items: center;
+  gap: 64px;
+}
+
+/* 
+ * Kiểu dáng cho cột hình ảnh bên trái
+ */
+.newsletter-image-wrapper {
+  flex: 1;
+  min-width: 300px;
+  position: relative; /* Đặt làm gốc cho định vị tuyệt đối của icon */
+}
+
+.newsletter-dish-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Kiểu dáng cho icon ngôi sao trang trí */
+.newsletter-star-icon {
+  width: 90px;
+  height: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(-40%, -40%); /* Dịch chuyển icon ra ngoài góc trên bên trái */
+}
+
+/* 
+ * Kiểu dáng cho cột nội dung bên phải
+ */
+.newsletter-content {
+  flex: 1; 
+  min-width: 300px;
+}
+
+.newsletter-title {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: 3.5rem;
+  line-height: 1.25;
+  color: var(--color-white);
+  margin: 0 0 24px 0;
+}
+
+.newsletter-description {
+  font-size: 1rem;
+  line-height: 1.625;
+  margin: 0 0 48px 0; /* Tăng khoảng cách dưới */
+  max-width: 480px;
+}
+
+/* Kiểu dáng cho form đăng ký */
+.subscription-form {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #FFFFFFFF;
+  padding-bottom: 12px;
+}
+
+.subscription-form input {
+  flex-grow: 1; /* Cho phép input chiếm hết không gian còn lại */
+  background: transparent;
+  border: none;
+  color: var(--color-white);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  outline: none; /* Bỏ viền khi focus */
+}
+
+.subscription-form input::placeholder {
+  color: var(--color-white-80);
+  opacity: 0.8;
+}
+
+.subscription-form button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0 0 0 16px; /* Tạo khoảng cách giữa input và nút */
+  transition: transform 0.3s ease;
+}
+
+.subscription-form button:hover {
+  transform: translateX(5px); /* Hiệu ứng di chuyển nhẹ khi hover */
+}
+
+/*
+ * Responsive
+ */
+@media (max-width: 991px) {
+  #newsletter {
+    padding: 40px 38px
+  }
+
+  .newsletter-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 48px;
+  }
+
+  .newsletter-description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .subscription-form {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 576px) {
+  .newsletter-title {
+    font-size: 2.5rem;
+  }
+
+  .newsletter-star-icon {
+    width: 70px;
+  }
+}

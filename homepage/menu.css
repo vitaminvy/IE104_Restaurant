@@ -6,6 +6,11 @@
   text-align: center;
   margin-bottom: 4rem;
 }
+.menu__title {
+  font-size: 2.5rem;
+  line-height: 1;
+  padding-bottom: 1rem;
+}
 
 .menu__filter {
   display: flex;
@@ -51,15 +56,15 @@
 
 .menu__grid {
   display: grid;
-  grid-template-columns: repeat(3, 23rem); /*370px*/
+  grid-template-columns: 1fr;
   justify-content: center;
-  gap: 2rem;
+  gap: 1.5rem;
 }
 .menu__slider {
   position: relative;
 }
 .menu__arrow {
-  z-index: 1;
+  z-index: 10;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -73,18 +78,57 @@
   justify-content: center;
   cursor: pointer;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-  transition: background 0.3s;
+  display: none;
 }
 .menu__arrow:hover {
   background: #f39c12;
 }
 
 .menu__arrow--left {
-  left: 7rem;
+  left: 6rem;
+  transform: translate(-50%, -50%);
 }
 
 .menu__arrow--right {
-  right: 7rem;
+  right: 6rem;
+  transform: translate(50%, -50%);
+}
+/* Dot Navigation */
+.menu__dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem; /* khoảng cách giữa các dot */
+  margin-top: 1.5rem;
+}
+
+.menu__dot {
+  width: 0.75rem;
+  height: 0.75rem;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu__dot img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.menu__dot:hover {
+  background: rgba(255, 255, 255, 0.5);
+  transform: scale(1.1);
+}
+
+.menu__dot--active {
+  background: #ffffff;
+  transform: scale(1.2);
 }
 
 .menu__card {
@@ -94,7 +138,8 @@
   flex-direction: column;
   gap: 1rem;
   height: 36rem;
-  width: 23rem;
+  width: 100%;
+  max-width: 23rem;
   transition: transform 0.3s, box-shadow 0.3s;
 }
 .menu__card:hover {
@@ -180,22 +225,66 @@
   color: #f39c12;
 }
 
-/* Responsive */
-@media (max-width: 64rem) {
+/* Responsive Mobile-first */
+/* Base: 1 column (already set) */
+
+@media (min-width: 40rem) {
+  /* sm: 2 columns, increase filter font-size */
   .menu__grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-@media (max-width: 40rem) {
-  .menu__grid {
-    grid-template-columns: 1fr;
-  }
-  .menu__filter {
-    flex-wrap: wrap;
-    gap: 1rem;
+    gap: 1.75rem;
   }
   .menu__filter-item {
-    min-width: auto;
-    font-size: 1.25rem;
+    font-size: 1.35rem;
+  }
+  .menu__arrow {
+    display: none;
+  }
+}
+
+@media (min-width: 48rem) {
+  /* md: 2 columns */
+  .menu__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+  }
+  .menu__card {
+    max-width: 26rem;
+  }
+  .menu__arrow {
+    display: none;
+  }
+}
+
+@media (min-width: 64rem) {
+  /* lg: 3 columns, center content, adjust card width */
+  .menu__grid {
+    grid-template-columns: repeat(3, 23rem);
+    justify-content: center;
+    gap: 2rem;
+  }
+  .menu__card {
+    max-width: 23rem;
+  }
+  .menu__arrow {
+    display: none;
+  }
+}
+
+@media (min-width: 80rem) {
+  /* xl: 3 columns, increase padding and gap */
+  .menu__grid {
+    grid-template-columns: repeat(3, 23rem);
+    gap: 3rem;
+  }
+  .menu__card {
+    max-width: 28rem;
+    padding: 2rem;
+  }
+
+  .menu__arrow {
+    display: block;
+  }
+  .menu__dots {
+    display: none;
   }
 }

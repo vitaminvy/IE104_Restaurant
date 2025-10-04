@@ -1,0 +1,228 @@
+/*
+ * ----------------------------------------
+ * Kiểu dáng cho phần giới thiệu đầu bếp
+ * ----------------------------------------
+ */
+
+#chef-intro {
+  color: var(--color-white);
+  padding: 80px 24px 80px 0; 
+  overflow: hidden; /* Ngăn chặn các thành phần con tràn ra ngoài */
+}
+
+.chef-container {
+  display: flex;
+  align-items: center; 
+  gap: 64px; 
+}
+
+.chef-image-wrapper {
+  flex: 1; /* Cho phép cột hình ảnh co giãn */
+  min-width: 300px; /* Chiều rộng tối thiểu trước khi xuống dòng */
+}
+
+.chef-image-wrapper img {
+  width: 100%;
+  height: auto;
+  display: block; /* Loại bỏ khoảng trắng thừa bên dưới hình ảnh */
+}
+
+/* 
+ * Kiểu dáng cho cột chứa văn bản 
+ */
+.chef-text-content {
+  flex: 1; /* Cho phép cột văn bản co giãn */
+  min-width: 300px; /* Chiều rộng tối thiểu */
+}
+
+/* Kiểu dáng cho tiêu đề */
+.chef-title {
+  font-family: var(--font-heading);
+  font-weight: 400; 
+  font-size: 2.5rem;
+  line-height: 1.3;
+  color: var(--color-white);
+  margin: 0 0 24px 0; 
+}
+
+.chef-name {
+  display: block; /* Hiển thị tên trên một dòng mới */
+  font-size: 3.5rem;
+  font-weight: 500;
+}
+
+/* Kiểu dáng cho đoạn mô tả */
+.chef-description {
+  font-size: 1rem;
+  line-height: 1.625;
+  color: var(--color-white-80);
+  margin: 0 0 32px 0;
+  max-width: 480px; /* Giới hạn chiều rộng để dễ đọc */
+}
+
+/* Kiểu dáng cho liên kết "Meet Our Team" */
+.team-link {
+  display: inline-block; /* Cho phép đặt lề và padding */
+  color: var(--color-white);
+  font-weight: 700;
+  text-decoration: none;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #FB8F2C; /* Tạo gạch chân tùy chỉnh */
+  transition: color 0.3s ease, border-color 0.3s ease; 
+}
+
+.team-link:hover {
+  color: var(--color-underline-hover);
+  border-bottom-color: var(--color-underline-hover);
+}
+
+/*
+ * Responsive
+ */
+@media (max-width: 991px) {
+  .chef-container {
+    flex-direction: column;
+    text-align: center; 
+    gap: 40px; 
+  }
+
+  .chef-description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 576px) {
+  .chef-title {
+    font-size: 2rem; 
+  }
+
+  .chef-name {
+    font-size: 2.8rem; 
+  }
+
+  .chef-description {
+    max-width: 420px
+  }
+}
+
+/*
+ * ----------------------------------------
+ * Kiểu dáng cho phần Ưu đãi đặc biệt
+ * ----------------------------------------
+ */
+
+#feature-offer {
+  padding: 80px 24px 160px 0;
+  overflow: hidden;
+}
+
+.feature-container {
+  display: flex;
+  align-items: center;
+  gap: 64px;
+}
+
+/* 
+ * Kiểu dáng cho cột văn bản bên trái
+ */
+.feature-text {
+  flex: 1; /* Chiếm 1 phần không gian flex */
+  min-width: 300px;
+}
+
+.feature-title {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: 3.75rem; /* Cỡ chữ lớn cho tiêu đề chính */
+  line-height: 1.2;
+  color: var(--color-white);
+  margin: 0 0 24px 0;
+}
+
+.feature-description {
+  font-size: 1rem;
+  line-height: 1.625;
+  margin: 0 0 32px 0;
+  max-width: 480px; /* Giới hạn chiều rộng để dễ đọc hơn */
+}
+
+.discover-menu-link {
+  display: inline-block;
+  color: var(--color-white);
+  font-weight: 700;
+  text-decoration: none;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #FB8F2C;
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.discover-menu-link:hover {
+  color: var(--color-underline-hover);
+  border-bottom-color: var(--color-underline-hover);
+}
+
+/* 
+ * Kiểu dáng cho cột hình ảnh bên phải
+ */
+.feature-image-wrapper {
+  flex: 1; 
+  min-width: 300px;
+  position: relative;
+}
+
+.feature-dish-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px; 
+}
+
+/* Kiểu dáng cho icon bông hoa trang trí */
+.feature-flower-icon {
+  width: 80px;
+  height: auto;
+  position: absolute; 
+  top: 0;
+  right: 0;
+  /* Dịch chuyển icon ra ngoài góc trên bên phải */
+  transform: translate(30%, -40%);
+  filter:-webkit-filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.5)); /* Thêm bóng đổ nhẹ */
+    filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.5));
+}
+
+
+/*
+ * Responsive 
+ */
+@media (max-width: 991px) {
+  .feature-container {
+    flex-direction: column-reverse; /* Đảo ngược thứ tự, ảnh lên trên văn bản */
+    text-align: center;
+    gap: 48px;
+  }
+
+  .feature-description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 576px) {
+  #feature-offer {
+    padding: 0 0 80px 0;
+  } 0 80px 0;
+
+  .feature-title {
+    font-size: 2.5rem;
+  }
+
+  .feature-description {
+    max-width: 420px
+  }
+
+  .feature-flower-icon {
+    width: 60px;
+    transform: translate(20%, -35%);
+  }
+}

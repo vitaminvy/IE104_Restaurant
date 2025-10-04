@@ -83,7 +83,7 @@
   #chef-intro {
     padding: 80px 38px;
   }
-  
+
   .chef-container {
     flex-direction: column;
     text-align: center; 
@@ -201,8 +201,8 @@
  */
 @media (max-width: 991px) {
   #feature-offer {
-    padding: 20px 38px 80px 38px;
-  };
+    padding: 40px 38px 90px 38px;
+  }
 
   .feature-container {
     flex-direction: column-reverse; /* Đảo ngược thứ tự, ảnh lên trên văn bản */

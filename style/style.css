@@ -1,43 +1,85 @@
-:root {
-/* Font family */
-  --font-body: 'Plus Jakarta Sans', sans-serif;
-  --font-heading: 'Libre Bodoni', serif;
-
-/* Font size */
-  --font-size-body: 16px;
-  --line-height-body: 26px;
-  --font-weight-regular: 400;
-
-
-  --font-size-h2: 32px;
-  --line-height-h2: 40px;
-  --font-weight-h2: 500;
-  
-
-/* Colors */
-  --color-white: #ffffff;
-  --color-white-80: rgba(255, 255, 255, 0.8);
-  --color-dark-orange: #FB8F2C;
-
-
-}
-
-* {
-  box-sizing: border-box;
-}
-
 body {
-  background-color: #000000;
-  overflow-x: hidden;
   margin: 0;
 }
 
+#statistics {
+  background-color: #0d0d0d;
+  padding: 40px 20px;
+  color: #fff;
+}
+
+.stats-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.stat-item {
+  display: flex; /* icon  */
+  align-items: center; 
+  gap: 15px; /* space between icon and text */
+  min-width: 220px;
+}
+
+.stat-icon {
+  width: 40px;
+  height: auto;
+}
+
+.stat-text h3 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #f5a623;
+  margin: 0;
+}
+
+.stat-text p {
+  font-size: 15px;
+  color: #aaa;
+  margin: 2px 0 0;
+}
+
+html {
+  font-size: 16px;
+}
+
+:root {
+  /* Font family */
+  --font-body: "Plus Jakarta Sans", sans-serif;
+  --font-heading: "Libre Bodoni", serif;
+  /* Body */
+  --font-size-body: 1rem;
+  --line-height-body: 1.625;
+  --font-weight-body: 400;
+
+  /* H2 */
+  --font-size-h2: 2rem;
+  --line-height-h2: 1.25;
+  --font-weight-h2: 500;
+
+  /* H4 */
+  --font-size-h4: 1.875rem;
+  --line-height-h4: 1.333;
+  --font-weight-h4: 500;
+
+  /* Colors */
+  --color-white: #ffffff;
+  --color-white-80: rgba(255, 255, 255, 0.8);
+  --color-dark-orange: #fb8f2c;
+}
+body {
+  background: var(--Dark, #111114);
+}
 /* Body text (default) */
-body, p {
+body,
+p {
   font-family: var(--font-body);
   font-size: var(--font-size-body);
   line-height: var(--line-height-body);
-  font-weight: 400;
+  font-weight: var(--font-weight-body);
   color: var(--color-white-80);
 }
 
@@ -46,6 +88,13 @@ h2 {
   font-family: var(--font-heading);
   font-size: var(--font-size-h2);
   line-height: var(--line-height-h2);
-  font-weight: 700;
+  font-weight: var(--font-weight-h2);
+  color: var(--color-white);
+}
+h4 {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-h4);
+  line-height: var(--line-height-h4);
+  font-weight: var(--font-weight-h4);
   color: var(--color-white);
 }

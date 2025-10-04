@@ -1,16 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Restaurant Website</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Restaurant Website</title>
+    <link rel="stylesheet" href="../style/reset.css" />
+    <link rel="stylesheet" href="../style/style.css" />
 
-  <link rel="stylesheet" href="../style/style.css">
-  <link rel="stylesheet" href="../style/component/homepage/header.css">
-  <link rel="stylesheet" href="../style//component/homepage/hero.css">
-</head>
-<body>
+    <link rel="stylesheet" href="./header.css" />
+    <!-- hero section -->
+    <link rel="stylesheet" href="./hero.css" />
+    <!-- about section -->
+    <link rel="stylesheet" href="./about.css" />
+    <!-- service section -->
+    <link rel="stylesheet" href="./service.css" />
+    <!-- statistic section -->
+    <link rel="stylesheet" href="./statistic.css" />
+    <!-- reservation section -->
+    <link rel="stylesheet" href="./reservation.css" />
 
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
   <!-- ========== 1. HEADER ========== -->
   <header id="header" class="header">
     <div class="header__container">
@@ -35,11 +49,11 @@
       </nav>
 
       <div class="header__left-panel">
-        <img src="../assets/images/ci_menu-alt-05.png" alt="Menu">
+        <img src="../assets/images/Header/ci_menu-alt-05.png" alt="Menu">
       </div>
 
       <div class="header__logo">
-        <img src="../assets/images/nav-vect.svg" alt="Restaurant Logo">
+        <img src="../assets/icons/Header/nav-vect.svg" alt="Restaurant Logo">
       </div>
 
       <div class="header__right-panel">
@@ -54,7 +68,7 @@
     <!-- Slogan + Hình ảnh đầu trang -->
     <div class="hero__container">
       <div class="hero__image-wrapper hero__image-wrapper--left">
-        <img src="../assets/images/image 78.png" alt="Pasta dish" class="hero__image">
+        <img src="../assets/images/HomePage/HeroSection/image 78.png" alt="Pasta dish" class="hero__image">
       </div>
 
       <div class="hero__content">
@@ -67,80 +81,299 @@
       </div>
 
       <div class="hero__image-wrapper hero__image-wrapper--right">
-        <img src="../assets//images//image 77.png" alt="Steak dish" class="hero__image">
+        <img src="../assets//images/HomePage/HeroSection/image 77.png" alt="Steak dish" class="hero__image">
       </div>
     </div>
   </section>
 
-  <!-- ========== 2. ABOUT / INTRODUCTION ========== -->
-  <section id="about">
-    <!-- Giới thiệu nhà hàng -->
-  </section>
+    <!-- ========== 2. ABOUT / INTRODUCTION ========== -->
+    <section id="about" class="about">
+      <!-- About Restaurant -->
+      <div class="content-frame">
+        <!-- Images -->
+        <div class="about__image">
+          <img
+            src="../assets/images/HomePage/AboutSection/about-banner.png"
+            alt="Restaurant interior"
+          />
+          <img
+            class="frame-rectangular"
+            src="../assets/images/HomePage/AboutSection/about-frame.png"
+            alt="Decor Frame"
+          />
+        </div>
 
-  <!-- ========== 3.SERVICE FEATURES ========== -->
-  <section id="service-features">
-    <!-- Door Delivery | Fine Dining | Outdoor Catering | Banquets Hall -->
-  </section>
+        <!-- Content -->
+        <div class="about__content">
+          <h2 class="about__title">
+            We Are A Mexican Restaurant Makes Delicious.
+          </h2>
+          <p class="about__text">
+            Hi! Our Restaurant has been present for over 20 years in the market.
+            We make the most of all our customers.
+          </p>
+          <a href="#about" class="about__link">About Us</a>
+        </div>
+      </div>
+    </section>
 
-  <!-- ========== 4.SERVICE QUALITY ========== -->
-  <section id="service-quality">
-    <!-- Our Service Means Satisfy + bullet points -->
-  </section>
+    <!-- ========== 3. SERVICE FEATURES ========== -->
+    <section id="service-features" class="features">
+      <div class="features__column">
+        <!-- Door Delivery -->
+        <div class="features__item">
+          <img
+            src="../assets/icons/ServiceSection/door-delivery.svg"
+            alt="Door Delivery"
+            class="features__icon"
+          />
+          <h4 class="features__title">Door Delivery</h4>
+          <p class="features__desc">
+            Desire that they all cannot foresee the pain and trouble that are
+            bound to ensue.
+          </p>
+        </div>
+
+        <!-- Outdoor Catering -->
+        <div class="features__item">
+          <img
+            src="../assets/icons/ServiceSection/outdoor-catering.svg"
+            alt="Outdoor Catering"
+            class="features__icon"
+          />
+          <h4 class="features__title">Outdoor Catering</h4>
+          <p class="features__desc">
+            Obligations of business it will frequently occur that pleasures have
+            to be repudiated.
+          </p>
+        </div>
+      </div>
+
+      <!-- Fine Dining -->
+      <div class="features__image">
+        <img src="../assets/images/ServiceSection/service-banner.png" alt="Dish" />
+      </div>
+
+      <div class="features__column">
+        <div class="features__item">
+          <img
+            src="../assets/icons/ServiceSection/fine-dining.svg"
+            alt="Fine Dining"
+            class="features__icon"
+          />
+          <h4 class="features__title">Fine Dining</h4>
+          <p class="features__desc">
+            Explain you how this mistakens denouncing pleasure & praising pain
+            will give you complete.
+          </p>
+        </div>
+
+        <!-- Banquets Hall -->
+        <div class="features__item">
+          <img
+            src="../assets/icons/ServiceSection/banquets-hall.svg"
+            alt="Banquets Hall"
+            class="features__icon"
+          />
+          <h4 class="features__title">Banquets Hall</h4>
+          <p class="features__desc">
+            The wise man therefore always holds in these matters this principles
+            of selection greater.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 4.SERVICE QUALITY ========== -->
+    <section id="service-quality">
+      <!-- Our Service Means Satisfy + bullet points -->
+    </section>
+
     <!-- ========== 5.Scrolling-strip. ========== -->
-     <section id="feature-marquee">
-    <!-- Self Services + Best Foof + FastFood -->
-     </section>
+    <section id="feature-marquee">
+      <!-- Self Services + Best Foof + FastFood -->
+    </section>
 
+    <!-- ========== 6.MENU SECTION ========== -->
+    <section id="menu">
+      <!-- Check Out Our Menu -->
+    </section>
 
+    <!-- ========== 7.  STATISTICS / ACHIEVEMENTS ========== -->
+    <section id="stats" class="stats">
+      <div class="stats__grid">
+        <!-- Happy Customers -->
+        <div class="stats__item">
+          <img
+            src="../assets/icons/StatisticSection/happy-customer.svg"
+            alt="Happy Customers"
+            class="stats__icon"
+          />
+          <div class="stats__info">
+            <h3 class="stats__number">7500+</h3>
+            <p class="stats__label">Happy Customers</p>
+          </div>
+        </div>
 
+        <!-- Passionate Chef’s -->
+        <div class="stats__item">
+          <img
+            src="../assets/icons/StatisticSection/passionate-chef.svg"
+            alt="Passionate Chefs"
+            class="stats__icon"
+          />
+          <div class="stats__info">
+            <h3 class="stats__number">39</h3>
+            <p class="stats__label">Passionate Chef’s</p>
+          </div>
+        </div>
 
+        <!-- Dishes -->
+        <div class="stats__item">
+          <img
+            src="../assets/icons/StatisticSection/dishes.svg"
+            alt="Dishes"
+            class="stats__icon"
+          />
+          <div class="stats__info">
+            <h3 class="stats__number">286</h3>
+            <p class="stats__label">Delicious Dishes</p>
+          </div>
+        </div>
 
-  <!-- ========== 6.MENU SECTION ========== -->
-  <section id="menu">
-    <!-- Check Out Our Menu -->
-  </section>
+        <!-- Customer Rating-->
+        <div class="stats__item">
+          <img
+            src="../assets/icons/StatisticSection/custom-rating.svg"
+            alt="Custom Rating"
+            class="stats__icon"
+          />
+          <div class="stats__info">
+            <h3 class="stats__number">4.5</h3>
+            <p class="stats__label">Customer Rating</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <!-- ========== 7.  STATISTICS / ACHIEVEMENTS ========== -->
-  <section id="statistics">
-    <!-- 7500+ Customers | 39 Chefs | 286 Dishes | 4.5 Rating -->
-  </section>
-
-  <!-- ========== 8. CHEF INTRODUCTION ========== -->
-  <section id="chef-intro">
-    <!-- Experience Chef -->
-  </section>
+    <!-- ========== 8. CHEF INTRODUCTION ========== -->
+    <section id="chef-intro">
+      <!-- Experience Chef -->
+    </section>
 
     <!-- ========== 8. CHEF INTRODUCTION ========== -->
     <section id="feature-offer">
-        <!-- Tiêu đề + mô tả + CTA (Discover Menu) + Hình món đặc biệt -->
+      <!-- Tiêu đề + mô tả + CTA (Discover Menu) + Hình món đặc biệt -->
+    </section>
 
-    </section>  
+    <!-- ========== 9. DAILY OFFERS ========== -->
+    <section id="daily-offers">
+      <!-- Specials / Discounts -->
+    </section>
 
+    <!-- ========== 10. RESERVATION SECTION ========== -->
+    <section id="reservation" class="reservation">
+      <div class="reservation__overlay">
+        <div class="reservation__content">
+          <h2 class="reservation__title">
+            <span class="title--online">Online</span>
+            <span class="title--reservation">Reservation</span>
+          </h2>
+          <p class="reservation__subtitle">
+            Book your table for lunch or dinner.
+          </p>
 
-  <!-- ========== 9. DAILY OFFERS ========== -->
-  <section id="daily-offers">
-    <!-- Specials / Discounts -->
-  </section>
+          <form action="#" class="reservation__form">
+            <!-- input field: name/phone/email adress -->
+            <div class="reservation__row">
+              <!-- customer name -->
+              <div class="reservation__field">
+                <input type="text" placeholder="Your name" required />
+                <img
+                  src="../assets/icons/ReservationSection/profile.svg"
+                  alt="profile icon"
+                  class="reservation__icon"
+                />
+              </div>
+              <!-- phone number -->
+              <div class="reservation__field">
+                <input type="tel" placeholder="Phone number" required />
+                <img
+                  src="../assets/icons/ReservationSection/phone.svg"
+                  alt="phone icon"
+                  class="reservation__icon"
+                />
+              </div>
+              <!-- email -->
+              <div class="reservation__field">
+                <input type="email" placeholder="Email address" required />
+                <img
+                  src="../assets/icons/ReservationSection/message.svg"
+                  alt="email icon"
+                  class="reservation__icon"
+                />
+              </div>
+            </div>
 
-  <!-- ========== 10. RESERVATION SECTION ========== -->
-  <section id="reservation">
-    <!-- Online Reservation Form -->
-  </section>
+            <!-- time for reservating -->
+            <div class="reservation__row">
+              <div class="reservation__field">
+                <!-- person - maximum is 5 person -->
+                <select required>
+                  <option value="">1 Person</option>
+                  <option value="2">2 Persons</option>
+                  <option value="3">3 Persons</option>
+                  <option value="4">4 Persons</option>
+                  <option value="4">5 Persons</option>
+                </select>
+                <img
+                  src="../assets/icons/ReservationSection/arrow-down.svg"
+                  alt="arrow down"
+                  class="reservation__icon"
+                />
+              </div>
+              <!-- date -->
+              <div class="reservation__field">
+                <input type="date" required />
+                <img
+                  src="../assets/icons/ReservationSection/calendar.svg"
+                  alt="calendar icon"
+                  class="reservation__icon"
+                />
+              </div>
+              <!-- time -->
+              <div class="reservation__field">
+                <input type="time" required />
+                <img
+                  src="../assets/icons/ReservationSection/clock.svg"
+                  alt="clock icon"
+                  class="reservation__icon"
+                />
+              </div>
+            </div>
 
-  <!-- ========== 11. / EXPLORE ========== -->
-  <section id="blog">
-    <!-- Bài viết, tin tức -->
-  </section>
+            <!-- submit -->
+            <button type="submit" class="reservation__btn">
+              Reserve Your Table Now
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
 
-  <!-- ========== 12. NEWSLETTER ========== -->
-  <section id="newsletter">
-    <!-- Subscribe to Newsletter -->
-  </section>
+    <!-- ========== 11. / EXPLORE ========== -->
+    <section id="blog">
+      <!-- Bài viết, tin tức -->
+    </section>
 
-  <!-- ========== 13. FOOTER ========== -->
-  <footer id="footer">
-    <!-- Thông tin liên hệ, social, copyright -->
-  </footer>
+    <!-- ========== 12. NEWSLETTER ========== -->
+    <section id="newsletter">
+      <!-- Subscribe to Newsletter -->
+    </section>
 
-</body>
+    <!-- ========== 13. FOOTER ========== -->
+    <footer id="footer">
+      <!-- Thông tin liên hệ, social, copyright -->
+    </footer>
+  </body>
 </html>

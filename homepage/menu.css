@@ -23,8 +23,10 @@
   margin-bottom: 4rem;
 }
 .menu__title {
+
   line-height: 1;
   padding-bottom: 1rem;
+  font-size: 4rem;
 }
 
 /* =========================================================

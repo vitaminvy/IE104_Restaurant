@@ -1,5 +1,14 @@
+.content-frame {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* center horizontally */
+  justify-content: center; /* center vertically */
+  gap: 2rem;
+  padding: 2rem 0;
+  text-align: center;
+}
 .features--menu {
-  flex-direction: row; /* hoặc layout riêng cho menu */
+  flex-direction: row;
   text-align: left;
 }
 .menu__header {
@@ -15,8 +24,10 @@
 .menu__filter {
   display: flex;
   justify-content: space-evenly;
+  flex-wrap: wrap;
   margin: 0 auto 3rem auto;
   max-width: 800px;
+  row-gap: 0.75rem;
 }
 .menu__filter-item {
   color: var(--color-white-80);
@@ -58,6 +69,8 @@
   display: grid;
   grid-template-columns: 1fr;
   justify-content: center;
+  align-items: center; /* thêm để canh giữa dọc nếu cần */
+  justify-items: center;
   gap: 1.5rem;
 }
 .menu__slider {
@@ -132,7 +145,7 @@
 }
 
 .menu__card {
-  padding: 1.5rem;
+  padding: 1rem;
   text-align: left;
   display: flex;
   flex-direction: column;
@@ -244,11 +257,16 @@
 @media (min-width: 48rem) {
   /* md: 2 columns */
   .menu__grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2.5rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* chia đều toàn khung */
+    width: 100%;
+    justify-content: center; /* chia đều toàn khung */
+    align-items: start;
+    gap: 2rem;
   }
   .menu__card {
-    max-width: 26rem;
+    width: 100%;
+    max-width: none; /* bỏ giới hạn cứng */
   }
   .menu__arrow {
     display: none;
@@ -258,14 +276,17 @@
 @media (min-width: 64rem) {
   /* lg: 3 columns, center content, adjust card width */
   .menu__grid {
-    grid-template-columns: repeat(3, 23rem);
-    justify-content: center;
-    gap: 2rem;
+    grid-template-columns: repeat(3, 20rem);
+    gap: 1rem;
   }
   .menu__card {
-    max-width: 23rem;
+    max-width: 28rem;
+    padding: 1rem;
   }
   .menu__arrow {
+    display: block;
+  }
+  .menu__dots {
     display: none;
   }
 }

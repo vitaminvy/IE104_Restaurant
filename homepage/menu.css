@@ -81,30 +81,36 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: #fff;
+  background: transparent;
   border: none;
-  border-radius: 50%;
-  width: 3rem;
-  height: 3rem;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   display: none;
 }
-.menu__arrow:hover {
-  background: #f39c12;
+.menu__arrow img {
+  display: block; /* bỏ khoảng trống inline mặc định */
+  width: 5rem; /* kích thước icon */
+  height: 5rem;
+  object-fit: contain; /* tránh méo */
+  margin: auto; /* ép nằm giữa trong flexbox */
 }
 
 .menu__arrow--left {
-  left: 6rem;
+  left: 3rem;
   transform: translate(-50%, -50%);
+}
+.menu__arrow--left:hover {
+  transform: translate(-55%, -50%) scale(1.1);
 }
 
 .menu__arrow--right {
-  right: 6rem;
+  right: 3rem;
   transform: translate(50%, -50%);
+}
+.menu__arrow--right:hover {
+  transform: translate(55%, -50%) scale(1.1);
 }
 /* Dot Navigation */
 .menu__dots {
@@ -241,14 +247,20 @@
 /* Responsive Mobile-first */
 /* Base: 1 column (already set) */
 
+/* Mobile: chỉ hiển thị card đầu tiên */
+@media (max-width: 39.99rem) {
+  .menu__card:not(:first-child) {
+    display: none;
+  }
+}
+
 @media (min-width: 40rem) {
   /* sm: 2 columns, increase filter font-size */
-  .menu__grid {
-    gap: 1.75rem;
-  }
+
   .menu__filter-item {
     font-size: 1.35rem;
   }
+
   .menu__arrow {
     display: none;
   }
@@ -260,8 +272,8 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* chia đều toàn khung */
     width: 100%;
-    justify-content: center; /* chia đều toàn khung */
     align-items: start;
+    justify-items: stretch;
     gap: 2rem;
   }
   .menu__card {
@@ -276,15 +288,27 @@
 @media (min-width: 64rem) {
   /* lg: 3 columns, center content, adjust card width */
   .menu__grid {
-    grid-template-columns: repeat(3, 20rem);
-    gap: 1rem;
+    grid-template-columns: repeat(
+      3,
+      minmax(0, 1fr)
+    ); /* 3 cột giãn đều, full khung */
+    justify-items: stretch; /* card lấp đầy cell */
+    gap: 2rem;
+    width: 100%;
   }
   .menu__card {
-    max-width: 28rem;
+    width: 100%;
+    max-width: none; /* bỏ giới hạn cứng để khớp 1fr */
     padding: 1rem;
   }
   .menu__arrow {
     display: block;
+  }
+  .menu__arrow--left {
+    left: 0;
+  }
+  .menu__arrow--right {
+    right: 0;
   }
   .menu__dots {
     display: none;
@@ -294,11 +318,17 @@
 @media (min-width: 80rem) {
   /* xl: 3 columns, increase padding and gap */
   .menu__grid {
-    grid-template-columns: repeat(3, 23rem);
-    gap: 3rem;
+    grid-template-columns: repeat(
+      3,
+      minmax(0, 1fr)
+    ); /* vẫn 3 cột đều trên desktop lớn */
+    justify-items: stretch;
+    gap: 2.5rem;
+    width: 100%;
   }
   .menu__card {
-    max-width: 28rem;
+    width: 100%;
+    max-width: none;
     padding: 2rem;
   }
 

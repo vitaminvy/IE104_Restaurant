@@ -29,8 +29,8 @@
     <!-- ========== 1. HEADER ========== -->
     <header id="header" class="header">
       <div class="header__container">
-        <!-- Left panel (Menu icon for mobile) -->
         <div class="header__left">
+          <!-- Left panel (Menu icon for mobile) -->
           <button class="header__menu-btn" aria-label="Toggle menu">
             <img
               src="../assets/images/Header/ci_menu-alt-05.png"
@@ -38,20 +38,8 @@
               class="header__menu-icon"
             />
           </button>
-        </div>
 
-        <!-- Center (Logo) -->
-        <div class="header__center">
-          <a href="#" class="header__logo">
-            <img
-              src="../assets/icons/Header/nav-vect.svg"
-              alt="Restaurant Logo"
-            />
-          </a>
-        </div>
-
-        <!-- Right (Nav links + Status + CTA) -->
-        <div class="header__right">
+          <!-- Left panel (Menu list for desktop) -->
           <nav class="header__nav">
             <ul class="header__nav-list">
               <li class="header__nav-item">
@@ -73,7 +61,20 @@
               </li>
             </ul>
           </nav>
+        </div>
 
+        <!-- Center (Logo) -->
+        <div class="header__center">
+          <a href="#" class="header__logo">
+            <img
+              src="../assets/icons/Header/nav-vect.svg"
+              alt="Restaurant Logo"
+            />
+          </a>
+        </div>
+
+        <!-- Right (Nav links + Status + CTA) -->
+        <div class="header__right">
           <div class="header__status">
             <time datetime="11:24">11:24</time> we're open
           </div>
@@ -82,6 +83,8 @@
         </div>
       </div>
     </header>
+    <!-- open sidebar in mobile view -->
+    <script src="../assets/script/header.js"></script>
 
     <!-- ========== 2. HERO / BANNER ========== -->
     <section id="hero" class="hero">

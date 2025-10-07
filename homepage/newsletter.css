@@ -1,118 +1,169 @@
+/* =============================
+ * Newsletter Section Container
+ * ============================= */
+
 #newsletter {
+  /* Box model */
   padding: 80px 24px 80px 38px;
   overflow: hidden;
 }
 
+/* =============================
+ * Flex container for image & content columns
+ * ============================= */
 .newsletter-container {
+  /* Box model */
   display: flex;
   align-items: center;
   gap: 64px;
 }
 
-/* 
- * Kiểu dáng cho cột hình ảnh bên trái
- */
+/* =============================
+ * Left column: image section
+ * ============================= */
 .newsletter-image-wrapper {
+  /* Position */
+  position: relative;
+
+  /* Box model */
   flex: 1;
   min-width: 300px;
-  position: relative; /* Đặt làm gốc cho định vị tuyệt đối của icon */
 }
 
+/* Main dish image inside the image column */
 .newsletter-dish-image {
+  /* Box model */
+  display: block;
   width: 100%;
   height: auto;
-  display: block;
 }
 
-/* Kiểu dáng cho icon ngôi sao trang trí */
+/* Decorative star icon positioned at top-left corner */
 .newsletter-star-icon {
-  width: 90px;
-  height: auto;
+  /* Position */
   position: absolute;
   top: 0;
   left: 0;
-  transform: translate(-40%, -40%); /* Dịch chuyển icon ra ngoài góc trên bên trái */
+
+  /* Box model */
+  width: 90px;
+  height: auto;
+
+  /* Others */
+  transform: translate(-40%, -40%);
 }
 
-/* 
- * Kiểu dáng cho cột nội dung bên phải
- */
+/* =============================
+ * Right column: content section
+ * ============================= */
 .newsletter-content {
-  flex: 1; 
+  /* Box model */
+  flex: 1;
   min-width: 300px;
 }
 
+/* Newsletter title text */
 .newsletter-title {
+  /* Box model */
+  margin: 0 0 24px 0;
+
+  /* Typography */
   font-family: var(--font-heading);
   font-weight: 500;
   font-size: 3.5rem;
   line-height: 1.25;
   color: var(--color-white);
-  margin: 0 0 24px 0;
 }
 
+/* Newsletter description paragraph */
 .newsletter-description {
+  /* Box model */
+  margin: 0 0 48px 0;
+  max-width: 480px;
+
+  /* Typography */
   font-size: 1rem;
   line-height: 1.625;
-  margin: 0 0 48px 0; /* Tăng khoảng cách dưới */
-  max-width: 480px;
 }
 
-/* Kiểu dáng cho form đăng ký */
+/* =============================
+ * Subscription form section
+ * ============================= */
 .subscription-form {
+  /* Box model */
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #FFFFFFFF;
   padding-bottom: 12px;
+  border-bottom: 1px solid #ffffffff;
 }
 
+/* Input field inside subscription form */
 .subscription-form input {
-  flex-grow: 1; /* Cho phép input chiếm hết không gian còn lại */
-  background: transparent;
+  /* Box model */
+  flex-grow: 1;
   border: none;
-  color: var(--color-white);
+
+  /* Typography */
   font-family: var(--font-body);
   font-size: 1rem;
-  outline: none; /* Bỏ viền khi focus */
+  color: var(--color-white);
+
+  /* Background / others */
+  background: transparent;
+  outline: none;
 }
 
+/* Placeholder styling */
 .subscription-form input::placeholder {
+  /* Typography */
   color: var(--color-white-80);
   opacity: 0.8;
 }
 
+/* Submit button styling */
 .subscription-form button {
-  background: transparent;
+  /* Box model */
+  padding: 0 0 0 16px;
   border: none;
+
+  /* Background / others */
+  background: transparent;
   cursor: pointer;
-  padding: 0 0 0 16px; /* Tạo khoảng cách giữa input và nút */
   transition: transform 0.3s ease;
 }
 
+/* Hover animation for submit button */
 .subscription-form button:hover {
-  transform: translateX(5px); /* Hiệu ứng di chuyển nhẹ khi hover */
+  /* Animation */
+  transform: translateX(5px);
 }
 
-/*
- * Responsive
- */
+/* =============================
+ * Responsive design
+ * ============================= */
 @media (max-width: 991px) {
   #newsletter {
-    padding: 40px 38px
+    /* Box model */
+    padding: 40px 38px;
   }
 
   .newsletter-container {
+    /* Box model */
     flex-direction: column;
-    text-align: center;
     gap: 48px;
+
+    /* Typography */
+    text-align: center;
   }
 
   .newsletter-description {
+    /* Box model */
     margin-left: auto;
     margin-right: auto;
   }
 
   .subscription-form {
+    /* Box model */
     max-width: 400px;
     margin: 0 auto;
   }
@@ -120,10 +171,12 @@
 
 @media (max-width: 576px) {
   .newsletter-title {
+    /* Typography */
     font-size: 2.5rem;
   }
 
   .newsletter-star-icon {
+    /* Box model */
     width: 70px;
   }
 }

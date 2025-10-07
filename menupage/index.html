@@ -1,8 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WowWraps Menu</title>
-  <!--menu page css-->
-  <link rel="stylesheet" href="../style/menupage/style.css" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WowWraps Menu</title>
+    <!-- menu page css -->
+    <link rel="stylesheet" href="../style/menupage/style.css" />
+
+    <link rel="stylesheet" href="../style/style.css" />
+    <link rel="stylesheet" href="../style/reset.css" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <section id="breakfast" class="menu">
+      <div class="content-frame">
+        <h2 class="menu__title">Breakfast</h2>
+
+        <div class="menu__slider">
+          <button class="slider__arrow slider__arrow--left">
+            <img src="../assets/icons/common/arrown-left.svg" alt="Previous" />
+          </button>
+
+          <div class="menu__cards">
+            <!-- Card 1-->
+            <article class="card">
+              <img
+                src="../assets/images/menupage/egg.png"
+                alt="Egg Frittata Muffins"
+                class="card__image"
+              />
+              <h3 class="card__title">Egg Frittata Muffins. PIN IT</h3>
+              <p class="card__desc">
+                Fresh toasted sourdough bread with olive oil and pomegranate.
+              </p>
+              <div class="card__footer">
+                <a href="#" class="card__btn">
+                  Order Now
+                  <img
+                    src="../assets/icons/common/arrown.svg"
+                    alt="Go to order"
+                    class="card__btn--icon"
+                  />
+                </a>
+                <span class="card__price">$24</span>
+              </div>
+            </article>
+            <!-- Card 2-->
+            <article class="card">
+              <img
+                src="../assets/images/menupage/breadbar.png"
+                alt="Breakfast Bars. PIN IT"
+                class="card__image"
+              />
+              <h3 class="card__title">Breakfast Bars. PIN IT</h3>
+              <p class="card__desc">
+                Fresh toasted sourdough bread with olive oil and pomegranate.
+              </p>
+              <div class="card__footer">
+                <a href="#" class="card__btn">
+                  Order Now
+                  <img
+                    src="../assets/icons/common/arrown.svg"
+                    alt="Go to order"
+                    class="card__btn--icon"
+                  />
+                </a>
+                <span class="card__price">$29</span>
+              </div>
+            </article>
+            <!-- Card 3 -->
+            <article class="card">
+              <img
+                src="../assets/images/menupage/sandwich.png"
+                alt="Breakfast Sandwiches"
+                class="card__image"
+              />
+              <h3 class="card__title">Breakfast Sandwiches</h3>
+              <p class="card__desc">
+                Fresh toasted sourdough bread with olive oil and pomegranate.
+              </p>
+              <div class="card__footer">
+                <a href="#" class="card__btn">
+                  Order Now
+                  <img
+                    src="../assets/icons/common/arrown.svg"
+                    alt="Go to order"
+                    class="card__btn--icon"
+                  />
+                </a>
+                <span class="card__price">$19</span>
+              </div>
+            </article>
+          </div>
+
+          <button class="slider__arrow slider__arrow--right">
+            <img src="../assets/icons/common/arrown-right.svg" alt="Next" />
+          </button>
+        </div>
+      </div>
+    </section>
+  </body>
 </html>

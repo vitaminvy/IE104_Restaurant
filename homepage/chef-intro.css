@@ -1,96 +1,125 @@
 /*
  * ----------------------------------------
- * Kiểu dáng cho phần giới thiệu đầu bếp
+ * Styles for Chef Introduction Section
  * ----------------------------------------
  */
 
 #chef-intro {
+  /* Box model */
+  padding: 80px 24px 80px 38px;
+  overflow: hidden; /* Prevent content from overflowing */
+
+  /* Typography */
   color: var(--color-white);
-  padding: 80px 24px 80px 38px; 
-  overflow: hidden; /* Ngăn chặn các thành phần con tràn ra ngoài */
 }
 
 .chef-container {
+  /* Box model */
   display: flex;
-  align-items: center; 
-  gap: 64px; 
+  align-items: center;
+  gap: 64px;
 }
 
 .chef-image-wrapper {
-  flex: 1; /* Cho phép cột hình ảnh co giãn */
-  min-width: 300px; /* Chiều rộng tối thiểu trước khi xuống dòng */
+  /* Box model */
+  flex: 1;
+  min-width: 300px; /* Minimum width before wrapping */
 }
 
 .chef-image-wrapper img {
+  /* Box model */
+  display: block;
   width: 100%;
-  height: auto;
-  display: block; /* Loại bỏ khoảng trắng thừa bên dưới hình ảnh */
+  height: auto; /* Maintain aspect ratio */
 }
 
 /* 
- * Kiểu dáng cho cột chứa văn bản 
+ * Text column styles 
  */
 .chef-text-content {
-  flex: 1; /* Cho phép cột văn bản co giãn */
-  min-width: 300px; /* Chiều rộng tối thiểu */
+  /* Box model */
+  flex: 1;
+  min-width: 300px;
 }
 
-/* Kiểu dáng cho tiêu đề */
+/* Title styling */
 .chef-title {
+  /* Box model */
+  margin: 0 0 24px 0;
+
+  /* Typography */
   font-family: var(--font-heading);
-  font-weight: 400; 
+  font-weight: 400;
   font-size: 2.5rem;
   line-height: 1.3;
   color: var(--color-white);
-  margin: 0 0 24px 0; 
 }
 
 .chef-name {
-  display: block; /* Hiển thị tên trên một dòng mới */
+  /* Box model */
+  display: block;
+
+  /* Typography */
   font-size: 3.5rem;
   font-weight: 500;
 }
 
-/* Kiểu dáng cho đoạn mô tả */
+/* Description styling */
 .chef-description {
+  /* Box model */
+  margin: 0 0 32px 0;
+  max-width: 480px;
+
+  /* Typography */
   font-size: 1rem;
   line-height: 1.625;
   color: var(--color-white-80);
-  margin: 0 0 32px 0;
-  max-width: 480px; /* Giới hạn chiều rộng để dễ đọc */
 }
 
-/* Kiểu dáng cho liên kết "Meet Our Team" */
+/* "Meet Our Team" link styling */
 .team-link {
-  display: inline-block; /* Cho phép đặt lề và padding */
+  /* Box model */
+  display: inline-block;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #FB8F2C;
+
+  /* Typography */
   color: var(--color-white);
   font-weight: 700;
   text-decoration: none;
-  padding-bottom: 8px;
-  border-bottom: 2px solid #FB8F2C; /* Tạo gạch chân tùy chỉnh */
-  transition: color 0.3s ease, border-color 0.3s ease; 
+
+  /* Animation / others */
+  transition: color 0.3s ease, border-color 0.3s ease;
 }
 
 .team-link:hover {
+  /* Typography */
   color: var(--color-underline-hover);
+
+  /* Box model */
   border-bottom-color: var(--color-underline-hover);
 }
 
 /*
- * Responsive
+ * Responsive adjustments
  */
 @media (max-width: 991px) {
   #chef-intro {
+    /* Box model */
     padding: 80px 38px;
   }
 
   .chef-container {
+    /* Box model */
     flex-direction: column;
-    text-align: center; 
-    gap: 40px; 
+    gap: 40px;
+
+    /* Typography */
+    text-align: center;
   }
 
   .chef-description {
+    /* Box model */
     margin-left: auto;
     margin-right: auto;
   }
@@ -98,119 +127,150 @@
 
 @media (max-width: 576px) {
   .chef-title {
-    font-size: 2rem; 
+    /* Typography */
+    font-size: 2rem;
   }
 
   .chef-name {
-    font-size: 2.8rem; 
+    /* Typography */
+    font-size: 2.8rem;
   }
 
   .chef-description {
-    max-width: 420px
+    /* Box model */
+    max-width: 420px;
   }
 }
 
 /*
  * ----------------------------------------
- * Kiểu dáng cho phần Ưu đãi đặc biệt
+ * Styles for Feature Offer Section
  * ----------------------------------------
  */
 
 #feature-offer {
+  /* Box model */
   padding: 80px 38px 160px 38px;
   overflow: hidden;
 }
 
 .feature-container {
+  /* Box model */
   display: flex;
   align-items: center;
   gap: 64px;
 }
 
 /* 
- * Kiểu dáng cho cột văn bản bên trái
+ * Text column on the left 
  */
 .feature-text {
-  flex: 1; /* Chiếm 1 phần không gian flex */
+  /* Box model */
+  flex: 1;
   min-width: 300px;
 }
 
 .feature-title {
+  /* Box model */
+  margin: 0 0 24px 0;
+
+  /* Typography */
   font-family: var(--font-heading);
   font-weight: 500;
-  font-size: 3.75rem; /* Cỡ chữ lớn cho tiêu đề chính */
+  font-size: 3.75rem;
   line-height: 1.2;
   color: var(--color-white);
-  margin: 0 0 24px 0;
 }
 
 .feature-description {
+  /* Box model */
+  margin: 0 0 32px 0;
+  max-width: 480px;
+
+  /* Typography */
   font-size: 1rem;
   line-height: 1.625;
-  margin: 0 0 32px 0;
-  max-width: 480px; /* Giới hạn chiều rộng để dễ đọc hơn */
 }
 
 .discover-menu-link {
+  /* Box model */
   display: inline-block;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #FB8F2C;
+
+  /* Typography */
   color: var(--color-white);
   font-weight: 700;
   text-decoration: none;
-  padding-bottom: 8px;
-  border-bottom: 2px solid #FB8F2C;
+
+  /* Animation / others */
   transition: color 0.3s ease, border-color 0.3s ease;
 }
 
 .discover-menu-link:hover {
+  /* Typography */
   color: var(--color-underline-hover);
+
+  /* Box model */
   border-bottom-color: var(--color-underline-hover);
 }
 
 /* 
- * Kiểu dáng cho cột hình ảnh bên phải
+ * Image column on the right 
  */
 .feature-image-wrapper {
-  flex: 1; 
-  min-width: 300px;
+  /* Position */
   position: relative;
+
+  /* Box model */
+  flex: 1;
+  min-width: 300px;
 }
 
 .feature-dish-image {
+  /* Box model */
+  display: block;
   width: 100%;
   height: auto;
-  display: block;
-  border-radius: 8px; 
+  border-radius: 8px;
 }
 
-/* Kiểu dáng cho icon bông hoa trang trí */
+/* Decorative flower icon */
 .feature-flower-icon {
-  width: 80px;
-  height: auto;
-  position: absolute; 
+  /* Position */
+  position: absolute;
   top: 0;
   right: 0;
-  /* Dịch chuyển icon ra ngoài góc trên bên phải */
+
+  /* Box model */
+  width: 80px;
+  height: auto;
+
+  /* Others */
   transform: translate(30%, -40%);
-  filter:-webkit-filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.5)); /* Thêm bóng đổ nhẹ */
-    filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.5));
+  filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.5));
 }
 
-
 /*
- * Responsive 
+ * Responsive adjustments
  */
 @media (max-width: 991px) {
   #feature-offer {
+    /* Box model */
     padding: 40px 38px 90px 38px;
   }
 
   .feature-container {
-    flex-direction: column-reverse; /* Đảo ngược thứ tự, ảnh lên trên văn bản */
-    text-align: center;
+    /* Box model */
+    flex-direction: column-reverse;
     gap: 48px;
+
+    /* Typography */
+    text-align: center;
   }
 
   .feature-description {
+    /* Box model */
     margin-left: auto;
     margin-right: auto;
   }
@@ -218,15 +278,20 @@
 
 @media (max-width: 576px) {
   .feature-title {
+    /* Typography */
     font-size: 2.5rem;
   }
 
   .feature-description {
-    max-width: 420px
+    /* Box model */
+    max-width: 420px;
   }
 
   .feature-flower-icon {
+    /* Box model */
     width: 60px;
+
+    /* Others */
     transform: translate(20%, -35%);
   }
 }

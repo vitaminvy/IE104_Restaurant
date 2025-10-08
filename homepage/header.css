@@ -67,8 +67,8 @@
 .header__nav {
   position: fixed;
   top: 0;
-  left: -100%;              /* ẩn hoàn toàn */
-  width: 100%;              /* phủ toàn màn hình mobile */
+  left: -100%;              /* hidden in desktop view */
+  width: 100%;              /* show full view in mobile */
   height: 100vh;
   background: rgba(18, 18, 18, 0.98);
   display: flex;
@@ -77,14 +77,14 @@
   justify-content: center;
   transition: left 0.5s ease-in-out;
   z-index: 100;
-  opacity: 0;               /* ẩn luôn ban đầu */
-  pointer-events: none;     /* không nhận click khi đóng */
+  opacity: 0;               /* initially will hide */
+  pointer-events: none;     /* unenable to click */
 }
 
-/* Khi click mở menu */
+/* mobile nave effect */
 .header__nav--open {
-  left: 0;                  /* trượt từ trái qua */
-  opacity: 1;               /* hiện ra */
+  left: 0;                  /* slide from left to right */
+  opacity: 1;               /* show */
   pointer-events: auto;
 }
 

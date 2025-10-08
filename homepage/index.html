@@ -7,6 +7,10 @@
     <link rel="stylesheet" href="../style/reset.css" />
     <link rel="stylesheet" href="../style/style.css" />
 
+    <!-- header section -->
+    <link rel="stylesheet" href="./header.css" />
+    <!-- hero section -->
+    <link rel="stylesheet" href="./hero.css" />
     <!-- about section -->
     <link rel="stylesheet" href="./about.css" />
     <!-- service section -->
@@ -15,7 +19,6 @@
     <link rel="stylesheet" href="./statistic.css" />
     <!-- reservation section -->
     <link rel="stylesheet" href="./reservation.css" />
-    <link rel="stylesheet" href="../style/component/header.css" />
 
     <link
       href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
@@ -24,11 +27,97 @@
   </head>
   <body>
     <!-- ========== 1. HEADER ========== -->
-    <header id="header"></header>
+    <header id="header" class="header">
+      <div class="header__container">
+        <div class="header__left">
+          <!-- Left panel (Menu icon for mobile) -->
+          <button class="header__menu-btn" aria-label="Toggle menu">
+            <img
+              src="../assets/icons/Header/hamburger.svg"
+              alt="Menu Icon"
+              class="header__menu-icon"
+            />
+          </button>
 
-    <!-- ========== 1. HERO / BANNER ========== -->
-    <section id="hero">
-      <!-- Slogan + Hình ảnh đầu trang -->
+          <!-- Left panel (Menu list for desktop) -->
+          <nav class="header__nav">
+            <ul class="header__nav-list">
+              <li class="header__nav-item">
+                <a href="#" class="header__nav-link header__nav-link--active"
+                  >Home</a
+                >
+              </li>
+              <li class="header__nav-item">
+                <a href="#" class="header__nav-link">Menu</a>
+              </li>
+              <li class="header__nav-item">
+                <a href="#" class="header__nav-link">Blog</a>
+              </li>
+              <li class="header__nav-item">
+                <a href="#" class="header__nav-link">Pages</a>
+              </li>
+              <li class="header__nav-item">
+                <a href="#" class="header__nav-link">Contact</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+        <!-- Center (Logo) -->
+        <div class="header__center">
+          <a href="#" class="header__logo">
+            <img
+              src="../assets/icons/Header/nav-vect.svg"
+              alt="Restaurant Logo"
+            />
+          </a>
+        </div>
+
+        <!-- Right (Nav links + Status + CTA) -->
+        <div class="header__right">
+          <div class="header__status">
+            <time datetime="11:24">11:24</time> we're open
+          </div>
+
+          <a href="#" class="header__btn">Table Reservation</a>
+        </div>
+      </div>
+    </header>
+    <!-- open sidebar in mobile view -->
+    <script src="../assets/script/header.js"></script>
+
+    <!-- ========== 2. HERO / BANNER ========== -->
+    <section id="hero" class="hero">
+      <div class="hero__container">
+        <!-- Left image -->
+        <div class="hero__image-wrapper hero__image-wrapper--left">
+          <img
+            src="../assets/images/HomePage/HeroSection/left-hero-banner-1.png"
+            alt="Pasta Dish"
+            class="hero__image"
+          />
+        </div>
+
+        <!-- Content -->
+        <div class="hero__content">
+          <p class="hero__subtitle">Welcome to Our Restaurant</p>
+          <h1 class="hero__title">The Best Food For The Best Moments</h1>
+          <p class="hero__description">
+            We've got famous chefs and stars—Julia Child, Sophia Loren, Virginia
+            Woolf—to thank for some of the greatest food quotes of all time.
+          </p>
+          <a href="#" class="hero__btn">View More</a>
+        </div>
+
+        <!-- Right image -->
+        <div class="hero__image-wrapper hero__image-wrapper--right">
+          <img
+            src="../assets/images/HomePage/HeroSection/right-hero-banner-1.png"
+            alt="Steak Dish"
+            class="hero__image"
+          />
+        </div>
+      </div>
     </section>
 
     <!-- ========== 2. ABOUT / INTRODUCTION ========== -->
@@ -96,7 +185,10 @@
 
       <!-- Fine Dining -->
       <div class="features__image">
-        <img src="../assets/images/ServiceSection/service-banner.png" alt="Dish" />
+        <img
+          src="../assets/images/ServiceSection/service-banner.png"
+          alt="Dish"
+        />
       </div>
 
       <div class="features__column">

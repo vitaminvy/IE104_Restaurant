@@ -1,0 +1,97 @@
+/* ============================= 
+  Pagination Section
+============================= */
+.pagination {
+  /* Box model */
+  display: flex;
+  justify-content: space-between; /* prev/next ra ngoài, numbers căn giữa */
+  align-items: center;
+  padding: 40px 0;
+  gap: 20px;
+
+  /* Typography */
+  font-family: var(--font-body);
+}
+
+/* ----------------------------------------
+  Prev / Next buttons
+---------------------------------------- */
+.pagination .prev,
+.pagination .next {
+  /* Typography */
+  color: var(--color-white);
+  font-weight: 500;
+  font-size: 16px;
+  text-decoration: none;
+
+  /* Box model */
+  padding: 6px 0;
+
+  /* Others */
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.pagination .prev:hover,
+.pagination .next:hover {
+  color: var(--color-dark-orange);
+}
+
+/* ----------------------------------------
+  Page Numbers Container
+---------------------------------------- */
+.pagination .page-numbers-container {
+  /* Box model */
+  display: flex;
+  gap: 12px; 
+  flex: 1; /* chiếm hết khoảng giữa prev/next */
+
+  /* Alignment */
+  justify-content: center; /* luôn căn giữa */
+}
+
+/* ----------------------------------------
+  Individual Page Numbers
+---------------------------------------- */
+.pagination .page-numbers {
+  /* Box model */
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  padding: 0 8px;
+
+  /* Typography */
+  color: var(--color-white);
+  font-size: 0.95rem;
+  text-decoration: none;
+
+  /* Others */
+  transition: background-color 0.3s ease;
+}
+
+.pagination .page-numbers:hover {
+  background-color: #333;
+}
+
+.pagination .page-numbers.current {
+  background-color: var(--color-dark-orange);
+  color: #fff;
+  font-weight: 600;
+}
+
+/* ============================= 
+  Responsive
+============================= */
+@media (max-width: 768px) {
+  .pagination .page-numbers-container {
+    gap: 8px;
+  }
+
+  .pagination .page-numbers {
+    min-width: 28px;
+    height: 28px;
+    font-size: 0.85rem;
+  }
+}

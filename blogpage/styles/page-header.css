@@ -1,0 +1,45 @@
+/* ----------------------------------------
+  Page Header Section (trong main)
+---------------------------------------- */
+
+.page-header {
+  /* Box model */
+  text-align: center;
+}
+
+.page-header h1 {
+  /* Typography */
+  font-family: var(--font-heading);
+  font-size: 69px;
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--color-white);
+  letter-spacing: 0.5px;
+  word-break: break-word;
+  text-align: left;
+
+  /* Box model */
+  padding: 30px 0;
+  margin-bottom: 50px;
+  border-bottom: 1px solid #fff;
+  border-top: 1px solid #fff;
+}
+
+/* ===============================
+  Responsive adjustments
+=============================== */
+
+/* Medium screens */
+@media (max-width: 992px) {
+  .page-header h1 {
+    padding: 30px 0;
+    font-size: 2.5rem;
+  }
+}
+
+/* Small screens */
+@media (max-width: 768px) {
+  .page-header h1 {
+    font-size: 2.25rem;
+  }
+}

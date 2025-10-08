@@ -1,0 +1,71 @@
+/* =============================
+ * Find Us Section Container
+ * ============================= */
+#find-us {
+  /* Box model */
+  display: flex;
+  gap: 60px;
+  align-items: center;
+}
+
+/* Left Column: Text Content */
+.find-us__content {
+  /* Box model */
+  flex: 1;
+}
+
+/* Contact Details Block */
+.contact-details {
+  /* Box model */
+  margin: 30px 0;
+}
+
+/* Individual Contact Item */
+.contact-item {
+  /* Box model */
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+
+  /* Typography */
+  color: var(--color-white-80);
+}
+
+/* Contact Icons */
+.contact-icon {
+  /* Box model */
+  width: 24px;
+  height: 24px;
+}
+
+/* Right Column: Image Container */
+.find-us__image-container {
+  /* Position */
+  position: relative;
+
+  /* Box model */
+  flex: 1;
+}
+
+/* Image inside Image Container */
+.find-us__image {
+  /* Box model */
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+
+  /* Others */
+  object-fit: cover;
+}
+
+/* =============================
+ * Responsive Design
+ * ============================= */
+@media (max-width: 992px) {
+  #find-us {
+    /* Box model */
+    flex-direction: column;
+    gap: 40px;
+  }
+}

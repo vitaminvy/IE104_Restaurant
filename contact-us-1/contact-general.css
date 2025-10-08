@@ -1,0 +1,81 @@
+/* =============================
+ * General Styles for Contact Page
+ * ============================= */
+
+/* =============================
+ * Section Titles
+ * ============================= */
+.section-title {
+  /* Box model */
+  margin-bottom: 24px;
+
+  /* Typography */
+  font-family: var(--font-heading);
+  font-size: 48px;
+  font-weight: 700;
+}
+
+/* Section Paragraph Text */
+.section-text {
+  /* Box model */
+  margin-bottom: 20px;
+
+  /* Typography */
+  color: var(--color-white-80);
+  line-height: 1.6;
+}
+
+/* =============================
+ * Buttons
+ * ============================= */
+.btn {
+  /* Box model */
+  display: inline-block;
+  padding: 14px 28px;
+  border-radius: 4px;
+  border: none;
+
+  /* Typography */
+  font-family: var(--font-body);
+  font-weight: bold;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+
+  /* Background / Others */
+  background-color: var(--color-dark-orange);
+  color: #000;
+  cursor: pointer;
+}
+
+/* Text Links */
+.link {
+  /* Typography */
+  font-weight: bold;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+
+  /* Background / Others */
+  color: var(--color-dark-orange);
+}
+
+/* =============================
+ * Container Overrides (Contact Page Specific)
+ * ============================= */
+.container {
+  /* Box model */
+  max-width: 1450px;
+  width: 90%;
+  margin: 0 auto;
+  padding: 80px 0;
+}
+
+/* =============================
+ * Responsive Design
+ * ============================= */
+@media (max-width: 576px) {
+  .section-title {
+    /* Typography */
+    font-size: 46px;
+  }
+}

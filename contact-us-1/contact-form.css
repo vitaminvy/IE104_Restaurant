@@ -1,0 +1,160 @@
+/* =============================
+ * Contact Form Section Container
+ * ============================= */
+#contact-form {
+  /* Box model */
+  display: flex;
+  gap: 120px; /* Increased gap for better separation */
+  align-items: flex-start;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+/* =============================
+ * Left Column: Contact Info
+ * ============================= */
+.contact-form__info {
+  /* Box model */
+  flex: 1;
+}
+
+/* Section Title */
+.contact-form__info .section-title {
+  /* Box model */
+  margin-bottom: 40px;
+}
+
+/* Contact Info Items */
+.contact-info__item {
+  /* Box model */
+  margin-bottom: 16px;
+
+  /* Typography */
+  color: var(--grey-text, #c2c2c2);
+  line-height: 1.6;
+}
+
+/* Telephone number spacing */
+.contact-info__tel {
+  /* Box model */
+  margin-bottom: 40px;
+}
+
+/* Opening Hours Block */
+.opening-hours {
+  /* Box model */
+  margin-bottom: 40px;
+}
+
+/* Individual opening hours paragraph */
+.opening-hours p {
+  /* Box model */
+  margin-bottom: 12px;
+
+  /* Typography */
+  color: var(--grey-text, #c2c2c2);
+}
+
+/* Remove margin for last child */
+.opening-hours p:last-child {
+  /* Box model */
+  margin-bottom: 0;
+}
+
+/* Online Reservation Form Column */
+.contact-form__form {
+  /* Box model */
+  flex: 1.2;
+  margin-top: 10px; /* Align form fields visually with content */
+}
+
+/* Form Row: Name & Email */
+.form-row {
+  /* Box model */
+  display: flex;
+  gap: 40px;
+}
+
+/* Individual Form Group */
+.form-group {
+  /* Box model */
+  flex: 1;
+  width: 100%;
+  margin-bottom: 50px; /* Spacing between form field groups */
+}
+
+/* Form Labels */
+.form-group label {
+  /* Box model */
+  display: block;
+  margin-bottom: 12px;
+
+  /* Typography */
+  color: var(--text-color, #f5f5f5);
+  font-size: 16px;
+}
+
+/* Input & Textarea Fields */
+.form-group input,
+.form-group textarea {
+  /* Box model */
+  width: 100%;
+  padding: 12px 5px;
+  border: none;
+  border-bottom: 1px solid var(--border-color, #555);
+  
+  /* Typography */
+  font-family: inherit;
+  font-size: 16px;
+  color: var(--text-color, #f5f5f5);
+
+  /* Background / Others */
+  background-color: transparent;
+}
+
+/* Input & Textarea Focus State */
+.form-group input:focus,
+.form-group textarea:focus {
+  /* Box model */
+  outline: none;
+  border-bottom-color: var(--accent-color, #e8a03c);
+}
+
+/* Textarea Specific */
+.form-group textarea {
+  /* Box model */
+  resize: vertical;
+  min-height: 50px;
+}
+
+/* Submit Button */
+#contact-form .btn {
+  /* Box model */
+  width: auto;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+/* =============================
+ * Responsive Design
+ * ============================= */
+@media (max-width: 992px) {
+  #contact-form {
+    /* Box model */
+    flex-direction: column;
+    gap: 60px;
+  }
+}
+
+@media (max-width: 576px) {
+  .form-row {
+    /* Box model */
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .form-group {
+    /* Box model */
+    margin-bottom: 40px;
+  }
+}

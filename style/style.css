@@ -19,7 +19,7 @@ body {
 
 .stat-item {
   display: flex; /* icon  */
-  align-items: center; 
+  align-items: center;
   gap: 15px; /* space between icon and text */
   min-width: 220px;
 }
@@ -69,6 +69,7 @@ html {
   --color-white: #ffffff;
   --color-white-80: rgba(255, 255, 255, 0.8);
   --color-dark-orange: #fb8f2c;
+  --color-dark-orange-80: rgba(251, 143, 44, 0.8);
 }
 body {
   background: var(--Dark, #111114);

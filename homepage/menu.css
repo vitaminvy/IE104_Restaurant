@@ -4,8 +4,8 @@
 .content-frame {
   display: flex;
   flex-direction: column;
-  align-items: center; /* center horizontally */
-  justify-content: center; /* center vertically */
+  align-items: center;
+  justify-content: center;
   gap: 2rem;
   padding: 2rem 0;
   text-align: center;
@@ -42,7 +42,6 @@
 .menu__filter-item {
   color: var(--color-white-80);
   font-family: var(--font-heading);
-
   font-size: 1.25rem;
   min-width: 135px;
   height: 40px;
@@ -76,113 +75,37 @@
 }
 
 /* =========================================================
-   4. MENU GRID & SLIDER
+   4. MENU SLIDER CONTAINER
 ========================================================= */
-.menu__grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  justify-content: center;
-  align-items: center; /* thêm để canh giữa dọc nếu cần */
-  justify-items: center;
-  gap: 1.5rem;
-}
 .menu__slider {
   position: relative;
-}
-
-/* =========================================================
-   5. ARROW NAVIGATION
-========================================================= */
-.menu__arrow {
-  z-index: 10;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: transparent;
-  border: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  display: none;
-}
-.menu__arrow img {
-  display: block; /* bỏ khoảng trống inline mặc định */
-  width: 5rem; /* kích thước icon */
-  height: 5rem;
-  object-fit: contain; /* tránh méo */
-  margin: auto; /* ép nằm giữa trong flexbox */
-}
-
-.menu__arrow--left {
-  left: 3rem;
-  transform: translate(-50%, -50%);
-}
-.menu__arrow--left:hover {
-  transform: translate(-55%, -50%) scale(1.1);
-}
-
-.menu__arrow--right {
-  right: 3rem;
-  transform: translate(50%, -50%);
-}
-.menu__arrow--right:hover {
-  transform: translate(55%, -50%) scale(1.1);
-}
-
-/* =========================================================
-   6. DOT NAVIGATION
-========================================================= */
-/* Dot Navigation */
-.menu__dots {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.75rem; /* khoảng cách giữa các dot */
-  margin-top: 1.5rem;
-}
-
-.menu__dot {
-  width: 0.75rem;
-  height: 0.75rem;
-  border: none;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.3);
-  cursor: pointer;
-  transition: all 0.3s ease;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.menu__dot img {
   width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-.menu__dot:hover {
-  background: rgba(255, 255, 255, 0.5);
-  transform: scale(1.1);
-}
-
-.menu__dot--active {
-  background: #ffffff;
-  transform: scale(1.2);
+  overflow: hidden; /* Ẩn phần card thừa */
+  padding: 0 1rem;
 }
 
 /* =========================================================
-   7. CARD LAYOUT & HOVER EFFECTS
+   5. MENU GRID (FLEXBOX SLIDER)
+========================================================= */
+.menu__grid {
+  display: flex;
+  gap: 2rem;
+  transition: transform 0.5s ease;
+  will-change: transform;
+}
+
+/* =========================================================
+   6. MENU CARD
 ========================================================= */
 .menu__card {
+  flex: 0 0 100%; /* Mobile: 1 card = 100% width */
+  min-width: 0;
   padding: 1rem;
   text-align: left;
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  height: 36rem;
-  width: 100%;
-  max-width: 23rem;
+  height: auto;
   transition: transform 0.3s, box-shadow 0.3s;
 }
 .menu__card:hover {
@@ -193,8 +116,9 @@
 .menu__card-img-wrapper {
   position: relative;
   width: 100%;
-  height: 24rem;
+  height: 20rem;
   overflow: hidden;
+  border-radius: 8px;
 }
 .menu__card-img-wrapper::after {
   content: "";
@@ -210,17 +134,16 @@
 
 .menu__card-image {
   width: 100%;
-  height: 24rem;
+  height: 100%;
   object-fit: cover;
   transition: transform 0.4s ease;
-  position: relative;
 }
 .menu__card:hover .menu__card-image {
   transform: scale(1.05);
 }
 
 /* =========================================================
-   8. CARD CONTENT & FOOTER
+   7. CARD CONTENT
 ========================================================= */
 .menu__card-title {
   font-size: 1.5rem;
@@ -230,7 +153,6 @@
   margin: 0;
   transition: color 0.3s;
 }
-
 .menu__card:hover .menu__card-title {
   color: var(--color-dark-orange);
 }
@@ -239,21 +161,16 @@
   font-size: 0.875rem;
   color: var(--color-white-80);
   line-height: 1.5;
-}
-
-.menu__card-content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  margin: 0;
 }
 
 .menu__card-footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-top: 1px solid rgba(255, 255, 255, 0.2); /*line phân cách footer*/
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
   padding-top: 1rem;
+  margin-top: auto;
 }
 
 .menu__card-price {
@@ -262,11 +179,11 @@
   font-weight: bold;
   color: var(--color-white);
 }
-  
+
 .menu__card-btn {
-  display: inline-flex; /* chữ và icon là flex-item => nằm cạnh  nhau */
-  align-items: center; /* icon thẳng hàng với chữ */
-  gap: 0.5rem; /* khoảng cách giữa chữ và icon */
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
   text-decoration: none;
   font-size: 0.875rem;
   color: #fff;
@@ -276,101 +193,158 @@
   color: #f39c12;
 }
 
-/* =========================================================
-   9. RESPONSIVE (MOBILE, TABLET, DESKTOP, XL)
-========================================================= */
-/* Responsive Mobile-first */
-/* Base: 1 column (already set) */
-
-/* Mobile: chỉ hiển thị card đầu tiên */
-@media (max-width: 39.99rem) {
-  .menu__card:not(:first-child) {
-    display: none;
-  }
+.menu__card-btn-icon {
+  width: 1rem;
+  height: 1rem;
+  transition: transform 0.3s;
+}
+.menu__card-btn:hover .menu__card-btn-icon {
+  transform: translateX(4px);
 }
 
-@media (min-width: 40rem) {
-  /* sm: 2 columns, increase filter font-size */
+/* =========================================================
+   8. ARROW NAVIGATION
+========================================================= */
+.menu__arrow {
+  display: none; /* Ẩn mặc định trên mobile */
+  z-index: 10;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.menu__arrow img {
+  display: block;
+  width: 6rem;
+  height: 6rem;
+  object-fit: contain;
+}
+
+.menu__arrow--left {
+  left: -1rem;
+}
+.menu__arrow--left:hover {
+  transform: translateY(-50%) translateX(-5px) scale(1.1);
+}
+
+.menu__arrow--right {
+  right: -1rem;
+}
+.menu__arrow--right:hover {
+  transform: translateY(-50%) translateX(5px) scale(1.1);
+}
+
+/* =========================================================
+   9. DOT NAVIGATION
+========================================================= */
+.menu__dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem; 
+}
+
+.menu__dot {
+  width: 0.75rem;
+  height: 0.75rem;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.menu__dot img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: none; /* Ẩn icon, dùng background */
+}
+
+.menu__dot:hover {
+  background: rgba(255, 255, 255, 0.5);
+  transform: scale(1.1);
+}
+
+.menu__dot--active {
+  background: #ffffff;
+  transform: scale(1.3);
+}
+
+/* =========================================================
+   10. RESPONSIVE
+========================================================= */
+
+/* Tablet: 2 cards visible */
+@media (min-width: 48rem) {
+  .menu__slider {
+    padding: 0 2rem;
+  }
+
+  .menu__card {
+    flex: 0 0 calc(50% - 1rem); /* 2 cards, trừ gap */
+  }
 
   .menu__filter-item {
     font-size: 1.35rem;
   }
-
-  .menu__arrow {
-    display: none;
-  }
 }
 
-@media (min-width: 48rem) {
-  /* md: 2 columns */
-  .menu__grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* chia đều toàn khung */
-    width: 100%;
-    align-items: start;
-    justify-items: stretch;
-    gap: 2rem;
-  }
-  .menu__card {
-    width: 100%;
-    max-width: none; /* bỏ giới hạn cứng */
-  }
-  .menu__arrow {
-    display: none;
-  }
-}
-
+/* Desktop: 3 cards visible, show arrows */
 @media (min-width: 64rem) {
-  /* lg: 3 columns, center content, adjust card width */
-  .menu__grid {
-    grid-template-columns: repeat(
-      3,
-      minmax(0, 1fr)
-    ); /* 3 cột giãn đều, full khung */
-    justify-items: stretch; /* card lấp đầy cell */
-    gap: 2rem;
-    width: 100%;
+  .menu__slider {
+    padding: 0 4rem;
   }
+
   .menu__card {
-    width: 100%;
-    max-width: none; /* bỏ giới hạn cứng để khớp 1fr */
-    padding: 1rem;
+    flex: 0 0 calc(33.333% - 1.5rem); /* 3 cards, trừ gap */
   }
+
   .menu__arrow {
-    display: block;
+    display: flex; /* Hiện arrow trên desktop */
   }
+
   .menu__arrow--left {
     left: 0;
   }
+
   .menu__arrow--right {
     right: 0;
   }
+
   .menu__dots {
-    display: none;
+    display: none; /* Ẩn dots trên desktop */
+  }
+
+  .menu__card-img-wrapper {
+    height: 24rem;
   }
 }
 
+/* Large Desktop: wider spacing */
 @media (min-width: 80rem) {
-  /* xl: 3 columns, increase padding and gap */
-  .menu__grid {
-    grid-template-columns: repeat(
-      3,
-      minmax(0, 1fr)
-    ); /* vẫn 3 cột đều trên desktop lớn */
-    justify-items: stretch;
-    gap: 2.5rem;
-    width: 100%;
-  }
-  .menu__card {
-    width: 100%;
-    max-width: none;
-    padding: 2rem;
+  .menu__slider {
+    padding: 0 6rem;
   }
 
-  .menu__arrow {
-    display: block;
+  .menu__arrow img {
+    width: 6rem;
+    height: 6rem;
   }
-  .menu__dots {
-    display: none;
+
+  .menu__arrow--left {
+    left: 1rem;
+  }
+
+  .menu__arrow--right {
+    right: 1rem;
   }
 }

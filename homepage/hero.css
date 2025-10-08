@@ -2,7 +2,6 @@
 .hero {
   position: relative;
   width: 100%;
-  background: var(--color-bg-dark);
   color: var(--color-white);
   overflow: hidden;
   padding: 2rem 0;
@@ -40,7 +39,7 @@
 /* ========== Text Content ========== */
 .hero__content {
   text-align: center;
-  max-width: 20rem; /* increased from 36rem */
+  max-width: 21rem;
   padding: 0 1.5rem;
 }
 
@@ -67,7 +66,7 @@
   line-height: 1.6;
   margin-bottom: 1.5rem;
   min-width: 22rem;
-  margin-left: -15%;
+  margin-left: -10%;
 }
 
 /* ========== CTA Button ========== */
@@ -109,6 +108,12 @@
     order: 2;
     padding: 0 2rem;
     z-index: 1;
+    max-width: 30rem;
+  }
+
+  .hero__description {
+    min-width: none;
+    margin-left: 0;
   }
 
   .hero__image-wrapper--left,

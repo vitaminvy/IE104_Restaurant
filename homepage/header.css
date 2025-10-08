@@ -1,7 +1,6 @@
 /* ===================== HEADER SECTION ===================== */
 .header {
   width: 100%;
-  background: var(--color-bg-dark);
   color: var(--color-white);
   position: relative;
   z-index: 50;
@@ -14,7 +13,8 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  max-width: 1536px; 
+  /* limit width */
+  max-width: 1536px; /* 2xl max-widhth */
   margin: 0 auto;
   padding: 1rem 1.5rem; /* mobile default: 16–24px */
 }
@@ -26,6 +26,7 @@
   justify-content: flex-start;
 }
 
+/* hamburger btn in mobile view */
 .header__menu-btn {
   background: none;
   border: none;
@@ -36,7 +37,9 @@
 .header__menu-icon {
   width: 1.75rem;
   height: 1.75rem;
-  filter: brightness(0) invert(1); 
+  /* make icon white */
+  filter: brightness(0) invert(1);
+  /* hover to scale */
   transition: transform 0.3s ease;
 }
 
@@ -67,8 +70,8 @@
 .header__nav {
   position: fixed;
   top: 0;
-  left: -100%;              /* hidden in desktop view */
-  width: 100%;              /* show full view in mobile */
+  left: -100%; /* hidden in desktop view */
+  width: 100%; /* show full view in mobile */
   height: 100vh;
   background: rgba(18, 18, 18, 0.98);
   display: flex;
@@ -77,14 +80,14 @@
   justify-content: center;
   transition: left 0.5s ease-in-out;
   z-index: 100;
-  opacity: 0;               /* initially will hide */
-  pointer-events: none;     /* unenable to click */
+  opacity: 0; /* initially will hide */
+  pointer-events: none; /* unenable to click */
 }
 
-/* mobile nave effect */
+/* mobile nave effect: JS add this class when click hamburger btn */
 .header__nav--open {
-  left: 0;                  /* slide from left to right */
-  opacity: 1;               /* show */
+  left: 0; /* slide from left to right */
+  opacity: 1; /* show */
   pointer-events: auto;
 }
 
@@ -98,7 +101,7 @@
 }
 
 .header__nav--open {
-  left: 0; 
+  left: 0;
 }
 
 .header__nav-list {
@@ -126,7 +129,7 @@
 .header__status {
   font-size: 0.875rem;
   color: rgba(255, 255, 255, 0.7);
-  display: none; 
+  display: none;
 }
 
 .header__btn {
@@ -137,7 +140,6 @@
   text-decoration: none;
   padding-bottom: 0.25rem;
   transition: all 0.3s ease;
-  
 }
 
 .header__btn:hover {
@@ -163,7 +165,7 @@
 
 /* lg (≥1024px): desktop view */
 @media (min-width: 64rem) {
- .header__nav {
+  .header__nav {
     position: static;
     width: auto;
     height: auto;

@@ -1,0 +1,127 @@
+/* ----------------------------------------
+  Featured Post Section
+---------------------------------------- */
+
+.featured-post {
+  /* Box model */
+  display: flex;
+  gap: 60px;
+  align-items: center;
+  margin-bottom: 50px;
+  padding-bottom: 50px;
+  border-bottom: 1px solid #fff;
+  flex-wrap: wrap;
+}
+
+/* Post image container */
+.featured-post .post-image {
+  /* Box model */
+  flex: 2 1 400px;
+  overflow: hidden;
+}
+
+.featured-post .post-image img {
+  /* Box model */
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Post content */
+.featured-post .post-content {
+  /* Box model */
+  flex: 1 1 300px;
+  min-width: 200px;
+}
+
+/* Post title */
+.featured-post .post-content h2 {
+  /* Typography */
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 4vw, 2.75rem);
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--color-white);
+
+  /* Box model */
+  margin-bottom: 20px;
+}
+
+/* Post description */
+.featured-post .post-content p {
+  /* Typography */
+  font-size: clamp(0.9rem, 1.5vw, 1rem);
+  line-height: 1.6;
+  color: var(--color-white-80);
+
+  /* Box model */
+  margin-bottom: 25px;
+}
+
+/* Read more link */
+.read-more {
+  /* Box model */
+  position: relative;
+  display: inline-block;
+  padding-bottom: 8px; 
+
+  /* Typography */
+  color: var(--color-white);
+  font-weight: 300;
+  text-decoration: none;
+
+  /* Animation */
+  transition: color 0.3s ease;
+}
+
+/* Pseudo-element để tạo border-bottom */
+.read-more::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 100%; /* ban đầu full width */
+  background-color: #FB8F2C;
+  transform-origin: right; /* bắt đầu animation từ phải */
+  transform: scaleX(1);
+  transition: transform 0.3s ease;
+}
+
+/* Hover effect */
+.read-more:hover {
+  color: var(--color-underline-hover);
+}
+
+.read-more:hover::after {
+  transform-origin: left; /* kéo vào từ phải sang trái */
+  transform: scaleX(0); /* thu hẹp về 0 */
+}
+
+/* ===============================
+  Responsive adjustments
+=============================== */
+
+/* Medium screens */
+@media (max-width: 1280px) {
+  .featured-post {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .featured-post .post-image,
+  .featured-post .post-content {
+    flex: 1 1 100%;
+  }
+
+  .featured-post .post-image {
+    height: 300px;
+  }
+}
+
+/* Small screens */
+@media (max-width: 992px) {
+  .featured-post {
+    gap: 30px;
+  }
+}

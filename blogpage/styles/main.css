@@ -1,0 +1,22 @@
+/* ----------------------------------------
+  Global / Main Styles
+---------------------------------------- */
+
+.container {
+  /* Box model */
+  max-width: 1450px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 80px;
+  box-sizing: border-box;
+}
+
+/* ===============================
+  Responsive adjustments
+=============================== */
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 20px;
+  }
+}

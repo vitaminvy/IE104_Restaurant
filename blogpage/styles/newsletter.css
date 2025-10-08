@@ -1,0 +1,182 @@
+/* =============================
+ * Newsletter Section Container
+ * ============================= */
+
+#newsletter {
+  /* Box model */
+  padding: 80px 24px 80px 38px;
+  overflow: hidden;
+}
+
+/* =============================
+ * Flex container for image & content columns
+ * ============================= */
+.newsletter-container {
+  /* Box model */
+  display: flex;
+  align-items: center;
+  gap: 64px;
+}
+
+/* =============================
+ * Left column: image section
+ * ============================= */
+.newsletter-image-wrapper {
+  /* Position */
+  position: relative;
+
+  /* Box model */
+  flex: 1;
+  min-width: 300px;
+}
+
+/* Main dish image inside the image column */
+.newsletter-dish-image {
+  /* Box model */
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Decorative star icon positioned at top-left corner */
+.newsletter-star-icon {
+  /* Position */
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  /* Box model */
+  width: 90px;
+  height: auto;
+
+  /* Others */
+  transform: translate(-40%, -40%);
+}
+
+/* =============================
+ * Right column: content section
+ * ============================= */
+.newsletter-content {
+  /* Box model */
+  flex: 1;
+  min-width: 300px;
+}
+
+/* Newsletter title text */
+.newsletter-title {
+  /* Box model */
+  margin: 0 0 24px 0;
+
+  /* Typography */
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: 3.5rem;
+  line-height: 1.25;
+  color: var(--color-white);
+}
+
+/* Newsletter description paragraph */
+.newsletter-description {
+  /* Box model */
+  margin: 0 0 48px 0;
+  max-width: 480px;
+
+  /* Typography */
+  font-size: 1rem;
+  line-height: 1.625;
+}
+
+/* =============================
+ * Subscription form section
+ * ============================= */
+.subscription-form {
+  /* Box model */
+  display: flex;
+  align-items: center;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #ffffffff;
+}
+
+/* Input field inside subscription form */
+.subscription-form input {
+  /* Box model */
+  flex-grow: 1;
+  border: none;
+
+  /* Typography */
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--color-white);
+
+  /* Background / others */
+  background: transparent;
+  outline: none;
+}
+
+/* Placeholder styling */
+.subscription-form input::placeholder {
+  /* Typography */
+  color: var(--color-white-80);
+  opacity: 0.8;
+}
+
+/* Submit button styling */
+.subscription-form button {
+  /* Box model */
+  padding: 0 0 0 16px;
+  border: none;
+
+  /* Background / others */
+  background: transparent;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+/* Hover animation for submit button */
+.subscription-form button:hover {
+  /* Animation */
+  transform: translateX(5px);
+}
+
+/* =============================
+ * Responsive design
+ * ============================= */
+@media (max-width: 991px) {
+  #newsletter {
+    /* Box model */
+    padding: 40px 32px;
+  }
+
+  .newsletter-container {
+    /* Box model */
+    flex-direction: column;
+    gap: 48px;
+
+    /* Typography */
+    text-align: center;
+  }
+
+  .newsletter-description {
+    /* Box model */
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .subscription-form {
+    /* Box model */
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 576px) {
+  .newsletter-title {
+    /* Typography */
+    font-size: 2.5rem;
+  }
+
+  .newsletter-star-icon {
+    /* Box model */
+    width: 70px;
+  }
+}

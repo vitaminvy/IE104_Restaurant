@@ -3,7 +3,7 @@ Quy tắc viết code (HTML, CSS, JS)
     - Tag: luôn viết chữ thường.
     - Thuộc tính: viết trong dấu nháy đôi " ".
 2. CSS
-    - Đặt tên class: theo chuẩn BEM (Block__Element–Modifier).
+    - Đặt tên class: theo chuẩn BEM (Block__Element–-Modifier).
     - Sắp xếp rule trong mỗi class:
       + Vị trí (position, top/right/bottom/left, z-index)
       + Box model (display, width, height, margin, padding, border)

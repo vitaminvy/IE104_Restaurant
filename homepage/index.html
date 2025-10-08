@@ -236,6 +236,7 @@
     <!-- ========== 6.MENU SECTION ========== -->
     <section id="menu">
       <div class="menu-frame">
+        <!-- ========== HEADER ========== -->
         <div class="menu__header">
           <div class="menu__header-text">
             <!-- title -->
@@ -247,38 +248,69 @@
             </p>
           </div>
         </div>
-        <!-- filter field -->
-        <nav class="menu__filter">
+
+        <!-- ========== FILTER FIELD ========== -->
+        <nav class="menu__filter" aria-label="Menu categories">
           <!-- breakfast -->
-          <a href="#" class="menu__filter-item menu__filter-item--active"
+          <a
+            href="#"
+            class="menu__filter-item menu__filter-item--active"
+            data-category="breakfast"
+            role="button"
+            aria-current="true"
             >Breakfast</a
           >
           <!-- lunch -->
-          <a href="#" class="menu__filter-item">Lunch</a>
+          <a
+            href="#"
+            class="menu__filter-item"
+            data-category="lunch"
+            role="button"
+            >Lunch</a
+          >
           <!-- dinner -->
-          <a href="#" class="menu__filter-item">Dinner</a>
+          <a
+            href="#"
+            class="menu__filter-item"
+            data-category="dinner"
+            role="button"
+            >Dinner</a
+          >
           <!-- staters -->
-          <a href="#" class="menu__filter-item">Stater</a>
+          <a
+            href="#"
+            class="menu__filter-item"
+            data-category="starters"
+            role="button"
+            >Starters</a
+          >
         </nav>
-        <!-- slider field-->
+
+        <!-- ========== SLIDER FIELD ========== -->
         <div class="menu__slider">
           <!--left arrown button-->
-          <button class="menu__arrow menu__arrow--left">
+          <button
+            class="menu__arrow menu__arrow--left"
+            aria-label="Previous slide"
+          >
             <img
               src="../assets/icons/MenuSection/arrown-left.svg"
               alt="Previous"
             />
           </button>
+
           <!--menu grid-->
           <div class="menu__grid">
             <!-- Card 1 -->
-            <div class="menu__card">
+            <article class="menu__card">
               <!-- card image -->
-              <img
-                src="../assets/images/HomePage/Menu/noodles.png"
-                alt="Crispy Chicken"
-                class="menu__card-image"
-              />
+              <div class="menu__card-img-wrapper">
+                <img
+                  src="../assets/images/HomePage/Menu/noodles.png"
+                  alt="Schezwam Noodles"
+                  class="menu__card-image"
+                />
+              </div>
               <!-- card title -->
               <h3 class="menu__card-title">Schezwam Noodles</h3>
               <!-- card description -->
@@ -288,23 +320,29 @@
               <!-- card footer -->
               <div class="menu__card-footer">
                 <!-- order button-->
-                <a href="#" class="menu__card-btn"
-                  >Order Now <img src=../assets/icons/MenuSection/arrown.svg
-                  alt="Go to order" class="menu__card-btn-icon">
+                <a href="#" class="menu__card-btn">
+                  Order Now
+                  <img
+                    src="../assets/icons/MenuSection/arrown.svg"
+                    alt="Go to order"
+                    class="menu__card-btn-icon"
+                  />
                 </a>
                 <!-- food price-->
                 <span class="menu__card-price">$49</span>
               </div>
-            </div>
+            </article>
 
             <!-- Card 2 -->
-            <div class="menu__card">
+            <article class="menu__card">
               <!-- card image -->
-              <img
-                src="../assets/images/HomePage/Menu/chicken.png"
-                alt="Crispy Chicken"
-                class="menu__card-image"
-              />
+              <div class="menu__card-img-wrapper">
+                <img
+                  src="../assets/images/HomePage/Menu/chicken.png"
+                  alt="Crispy Chicken Breasts"
+                  class="menu__card-image"
+                />
+              </div>
               <!-- card title -->
               <h3 class="menu__card-title">Crispy Chicken Breasts</h3>
               <!-- card description -->
@@ -314,24 +352,31 @@
               <!-- card footer -->
               <div class="menu__card-footer">
                 <!-- order button -->
-                <a href="#" class="menu__card-btn"
-                  >Order Now <img src=../assets/icons/MenuSection/arrown.svg
-                  alt="Go to order" class="menu__card-btn-icon">
+                <a href="#" class="menu__card-btn">
+                  Order Now
+                  <img
+                    src="../assets/icons/MenuSection/arrown.svg"
+                    alt="Go to order"
+                    class="menu__card-btn-icon"
+                  />
                 </a>
                 <!-- food price-->
                 <span class="menu__card-price">$54</span>
               </div>
-            </div>
+            </article>
+
             <!--Card 3-->
-            <div class="menu__card">
+            <article class="menu__card">
               <!--card image-->
-              <img
-                src="../assets/images/HomePage/Menu/new-lubina.png"
-                alt="New Lubina Marinada"
-                class="menu__card-image"
-              />
+              <div class="menu__card-img-wrapper">
+                <img
+                  src="../assets/images/HomePage/Menu/new-lubina.png"
+                  alt="New Lubina Marinada"
+                  class="menu__card-image"
+                />
+              </div>
               <!-- card title -->
-              <h3 class="menu__card-title">Crispy Chicken Breasts</h3>
+              <h3 class="menu__card-title">New Lubina Marinada</h3>
               <!-- card description -->
               <p class="menu__card-desc">
                 Fresh toasted sourdough bread with olive oil and pomegranate.
@@ -339,40 +384,59 @@
               <!-- card footer-->
               <div class="menu__card-footer">
                 <!-- order button -->
-                <a href="#" class="menu__card-btn"
-                  >Order Now <img src=../assets/icons/MenuSection/arrown.svg
-                  alt="Go to order" class="menu__card-btn-icon">
+                <a href="#" class="menu__card-btn">
+                  Order Now
+                  <img
+                    src="../assets/icons/MenuSection/arrown.svg"
+                    alt="Go to order"
+                    class="menu__card-btn-icon"
+                  />
                 </a>
                 <!--food price-->
-                <span class="menu__card-price">$54</span>
+                <span class="menu__card-price">$59</span>
               </div>
-            </div>
+            </article>
           </div>
-          <!--right arrown button-->
 
-          <button class="menu__arrow menu__arrow--right">
+          <!--right arrown button-->
+          <button
+            class="menu__arrow menu__arrow--right"
+            aria-label="Next slide"
+          >
             <img
               src="../assets/icons/MenuSection/arrown-right.svg"
               alt="Next"
             />
           </button>
+
           <!--Dot navigation for moblide and ipad-->
-          <div class="menu__dots">
+          <div
+            class="menu__dots"
+            role="tablist"
+            aria-label="Menu slides navigation"
+          >
             <!--active dot -->
-            <button class="menu__dot menu__dot--active" aria-label="Slide 1">
-              <img src="../assets/icons/MenuSection/active-dot.svg" />
+            <button
+              class="menu__dot menu__dot--active"
+              aria-label="Slide 1"
+              aria-current="true"
+            >
+              <img
+                src="../assets/icons/MenuSection/active-dot.svg"
+                alt="Active"
+              />
             </button>
             <button class="menu__dot" aria-label="Slide 2">
-              <img src="../assets/icons/MenuSection/dot.svg" />
+              <img src="../assets/icons/MenuSection/dot.svg" alt="Inactive" />
             </button>
             <button class="menu__dot" aria-label="Slide 3">
-              <img src="../assets/icons/MenuSection/dot.svg" />
+              <img src="../assets/icons/MenuSection/dot.svg" alt="Inactive" />
             </button>
             <button class="menu__dot" aria-label="Slide 4">
-              <img src="../assets/icons/MenuSection/dot.svg" />
+              <img src="../assets/icons/MenuSection/dot.svg" alt="Inactive" />
             </button>
             <button class="menu__dot" aria-label="Slide 5">
-              <img src="../assets/icons/MenuSection/dot.svg" />
+              <img src="../assets/icons/MenuSection/dot.svg" alt="Inactive" />
             </button>
           </div>
         </div>

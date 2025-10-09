@@ -3,7 +3,7 @@
   position: relative;
   width: 100%;
   color: var(--color-white);
-  overflow: hidden;
+  overflow: visible;
   padding: 2rem 0;
 }
 

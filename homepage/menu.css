@@ -9,9 +9,7 @@
   font-size: 4rem;
 }
 
-/* =========================================================
-   1. FILTER BAR
-========================================================= */
+/* FILTER BAR */
 .menu__filter {
   display: flex;
   /* divide items equally on both sides. */
@@ -53,18 +51,14 @@
   width: 100%;
 }
 
-/* =========================================================
-   2. MENU SLIDER CONTAINER
-========================================================= */
+/*  MENU SLIDER CONTAINER */
 .menu__slider {
   position: relative;
   width: 100%;
   overflow: hidden;
 }
 
-/* =========================================================
-   3. MENU GRID (FLEXBOX SLIDER)
-========================================================= */
+/* MENU GRID (FLEXBOX SLIDER) */
 .menu__grid {
   display: flex;
   gap: 2rem;
@@ -73,9 +67,7 @@
   will-change: transform;
 }
 
-/* =========================================================
-   3. MENU CARD
-========================================================= */
+/* MENU CARD */
 .menu__card {
   flex: 0 0 100%; /* mobile: 1 card = 100% width */
   min-width: 0;
@@ -121,9 +113,7 @@
   transform: scale(1.05);
 }
 
-/* =========================================================
-   4. CARD CONTENT
-========================================================= */
+/* CARD CONTENT */
 .menu__card-title {
   font-size: 1.5rem;
   font-family: var(--font-heading);
@@ -181,11 +171,9 @@
   transform: translateX(4px);
 }
 
-/* =========================================================
-   5. ARROW NAVIGATION
-========================================================= */
+/* ARROW NAVIGATION */
 .menu__arrow {
-  display: none; /* Ẩn mặc định trên mobile */
+  display: none; /* hide in mobile view */
   z-index: 10;
   position: absolute;
   top: 50%;
@@ -218,9 +206,7 @@
   transform: translateY(-80%) translateX(5px) scale(1.1);
 }
 
-/* =========================================================
-   6. DOT NAVIGATION
-========================================================= */
+/* DOT NAVIGATION */
 .menu__dots {
   display: flex;
   justify-content: center;
@@ -245,7 +231,7 @@
   width: 100%;
   height: 100%;
   object-fit: contain;
-  display: none; /* Ẩn icon, dùng background */
+  display: none; /* hide icon, use background */
 }
 
 .menu__dot:hover {
@@ -259,7 +245,7 @@
 }
 
 /* =========================================================
-   10. RESPONSIVE
+  RESPONSIVE
 ========================================================= */
 
 /* Tablet: 2 cards visible */

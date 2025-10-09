@@ -1,23 +1,4 @@
-/* =========================================================
-   1. GLOBAL LAYOUT & CONTAINER
-========================================================= */
-.content-frame {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 2rem;
-  padding: 2rem 0;
-  text-align: center;
-}
-.features--menu {
-  flex-direction: row;
-  text-align: left;
-}
-
-/* =========================================================
-   2. MENU HEADER & TITLE
-========================================================= */
+/* ========== MENU Section ========== */
 .menu__header {
   text-align: center;
   margin-bottom: 4rem;
@@ -29,10 +10,11 @@
 }
 
 /* =========================================================
-   3. FILTER BAR
+   1. FILTER BAR
 ========================================================= */
 .menu__filter {
   display: flex;
+  /* divide items equally on both sides. */
   justify-content: space-evenly;
   flex-wrap: wrap;
   margin: 0 auto 3rem auto;
@@ -50,6 +32,7 @@
   transition: all 0.3s;
   position: relative;
 }
+/* underline hover effect */
 .menu__filter-item::after {
   content: "";
   position: absolute;
@@ -69,36 +52,32 @@
 .menu__filter-item--active::after {
   width: 100%;
 }
-.menu__filter-item:focus {
-  color: #fff;
-  border-bottom: 2px solid #fff;
-}
 
 /* =========================================================
-   4. MENU SLIDER CONTAINER
+   2. MENU SLIDER CONTAINER
 ========================================================= */
 .menu__slider {
   position: relative;
   width: 100%;
-  overflow: hidden; /* Ẩn phần card thừa */
-  padding: 0 1rem;
+  overflow: hidden;
 }
 
 /* =========================================================
-   5. MENU GRID (FLEXBOX SLIDER)
+   3. MENU GRID (FLEXBOX SLIDER)
 ========================================================= */
 .menu__grid {
   display: flex;
   gap: 2rem;
   transition: transform 0.5s ease;
+  /* optimize render */
   will-change: transform;
 }
 
 /* =========================================================
-   6. MENU CARD
+   3. MENU CARD
 ========================================================= */
 .menu__card {
-  flex: 0 0 100%; /* Mobile: 1 card = 100% width */
+  flex: 0 0 100%; /* mobile: 1 card = 100% width */
   min-width: 0;
   padding: 1rem;
   text-align: left;
@@ -143,7 +122,7 @@
 }
 
 /* =========================================================
-   7. CARD CONTENT
+   4. CARD CONTENT
 ========================================================= */
 .menu__card-title {
   font-size: 1.5rem;
@@ -203,14 +182,14 @@
 }
 
 /* =========================================================
-   8. ARROW NAVIGATION
+   5. ARROW NAVIGATION
 ========================================================= */
 .menu__arrow {
   display: none; /* Ẩn mặc định trên mobile */
   z-index: 10;
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(-80%);
   background: transparent;
   border: none;
   align-items: center;
@@ -229,18 +208,18 @@
   left: -1rem;
 }
 .menu__arrow--left:hover {
-  transform: translateY(-50%) translateX(-5px) scale(1.1);
+  transform: translateY(-80%) translateX(-5px) scale(1.1);
 }
 
 .menu__arrow--right {
   right: -1rem;
 }
 .menu__arrow--right:hover {
-  transform: translateY(-50%) translateX(5px) scale(1.1);
+  transform: translateY(-80%) translateX(5px) scale(1.1);
 }
 
 /* =========================================================
-   9. DOT NAVIGATION
+   6. DOT NAVIGATION
 ========================================================= */
 .menu__dots {
   display: flex;
@@ -248,7 +227,7 @@
   align-items: center;
   gap: 0.75rem;
   margin-top: 2rem;
-  margin-bottom: 1rem; 
+  margin-bottom: 1rem;
 }
 
 .menu__dot {
@@ -290,7 +269,8 @@
   }
 
   .menu__card {
-    flex: 0 0 calc(50% - 1rem); /* 2 cards, trừ gap */
+    flex: 0 0 calc((100% - 2rem) / 2);
+    max-width: calc((100% - 2rem) / 2);
   }
 
   .menu__filter-item {
@@ -300,16 +280,13 @@
 
 /* Desktop: 3 cards visible, show arrows */
 @media (min-width: 64rem) {
-  .menu__slider {
-    padding: 0 4rem;
-  }
-
   .menu__card {
-    flex: 0 0 calc(33.333% - 1.5rem); /* 3 cards, trừ gap */
+    flex: 0 0 calc((100% - 4rem) / 3);
+    max-width: calc((100% - 4rem) / 3);
   }
 
   .menu__arrow {
-    display: flex; /* Hiện arrow trên desktop */
+    display: flex; /* show arrow on desktop */
   }
 
   .menu__arrow--left {
@@ -321,7 +298,7 @@
   }
 
   .menu__dots {
-    display: none; /* Ẩn dots trên desktop */
+    display: none; /* hide dots on desktop */
   }
 
   .menu__card-img-wrapper {
@@ -331,13 +308,9 @@
 
 /* Large Desktop: wider spacing */
 @media (min-width: 80rem) {
-  .menu__slider {
-    padding: 0 6rem;
-  }
-
   .menu__arrow img {
-    width: 6rem;
-    height: 6rem;
+    width: 8rem;
+    height: 8rem;
   }
 
   .menu__arrow--left {

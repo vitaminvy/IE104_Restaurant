@@ -1,107 +1,103 @@
-// =========================================================
-// MENU SLIDER NAVIGATION
-// =========================================================
 
+// MENU SLIDER NAVIGATION  (Slide by group: 1–2–3 cards)
+
+// IIFE to avoid polluting global scope
 (function () {
-    // ========== DOM ELEMENTS ==========
+    //  DOM ELEMENTS
     const menuGrid = document.querySelector('.menu__grid');
     const cards = document.querySelectorAll('.menu__card');
     const leftArrow = document.querySelector('.menu__arrow--left');
     const rightArrow = document.querySelector('.menu__arrow--right');
     const dots = document.querySelectorAll('.menu__dot');
 
-    // ========== STATE ==========
-    let currentIndex = 0;
-    let cardsPerView = 1; // Mặc định mobile: 1 card
-    let totalCards = cards.length;
+    // STATE VARIABLES
+    let currentIndex = 0;     // current page index (0-based)
+    let cardsPerView = 1;     // number of cards visible per slide
+    const totalCards = cards.length;
 
-    // ========== CALCULATE CARDS PER VIEW (responsive) ==========
+    // RESPONSIVE CARD COUNT
+    // decide how many cards show per view depending on screen width
     function updateCardsPerView() {
         const width = window.innerWidth;
 
+        // large desktop 3 cards, table 2 cards, mobile 1 card
         if (width >= 1024) {
-            // Desktop: 3 cards
             cardsPerView = 3;
         } else if (width >= 768) {
-            // Tablet: 2 cards
             cardsPerView = 2;
         } else {
-            // Mobile: 1 card
             cardsPerView = 1;
         }
 
-        // Reset về slide đầu khi resize
+        // Reset slider to first page on resize
         currentIndex = 0;
         updateSlider();
         updateDots();
     }
 
-    // ========== UPDATE SLIDER POSITION ==========
+
+    // TOTAL PAGE COUNT
+    // calculate how many pages exist based on cardsPerView
+    // use for indicators (ex: 9 card ->  3 pages if 3 cards view)
+    function getTotalPages() {
+        return Math.ceil(totalCards / cardsPerView);
+    }
+
+    // UPDATE SLIDER POSITION
+    // move the grid using translateX
     function updateSlider() {
-        // Tính toán số cards tối đa có thể slide
-        const maxIndex = Math.max(0, totalCards - cardsPerView);
+        const cardWidth = cards[0].offsetWidth; // Actual rendered width
+        const gap = parseFloat(getComputedStyle(menuGrid).gap) || 0;
 
-        // Giới hạn currentIndex
-        if (currentIndex > maxIndex) {
-            currentIndex = maxIndex;
-        }
-        if (currentIndex < 0) {
-            currentIndex = 0;
-        }
-
-        // Tính toán translateX
-        // Mỗi card chiếm (100% / cardsPerView) + gap
-        const cardWidthPx = cards[0].offsetWidth;
-        const gapPx = parseFloat(getComputedStyle(menuGrid).gap) || 0;
-        const translateX = -(currentIndex * (cardWidthPx + gapPx));
+        // Each page translates by (cardsPerView * (cardWidth + gap))
+        const translateX = -(currentIndex * cardsPerView * (cardWidth + gap));
 
         menuGrid.style.transform = `translateX(${translateX}px)`;
+        menuGrid.style.transition = 'transform 0.4s ease-in-out';
 
-        // Update arrow states
         updateArrowStates();
     }
 
-    // ========== UPDATE ARROW STATES (disable when at end) ==========
+    //  UPDATE ARROW STATES
+    // when at start/end -> disable the arrow
     function updateArrowStates() {
-        const maxIndex = Math.max(0, totalCards - cardsPerView);
+        const totalPages = getTotalPages();
 
-        // Left arrow
+        // Left arrow (disabled on first page)
         if (leftArrow) {
-            if (currentIndex <= 0) {
-                leftArrow.style.opacity = '0.3';
-                leftArrow.style.pointerEvents = 'none';
-            } else {
-                leftArrow.style.opacity = '1';
-                leftArrow.style.pointerEvents = 'auto';
-            }
+            const atStart = currentIndex <= 0;
+            leftArrow.style.opacity = atStart ? '0.3' : '1';
+            leftArrow.style.pointerEvents = atStart ? 'none' : 'auto';
         }
 
-        // Right arrow
+        // Right arrow (disabled on last page)
         if (rightArrow) {
-            if (currentIndex >= maxIndex) {
-                rightArrow.style.opacity = '0.3';
-                rightArrow.style.pointerEvents = 'none';
-            } else {
-                rightArrow.style.opacity = '1';
-                rightArrow.style.pointerEvents = 'auto';
-            }
+            const atEnd = currentIndex >= totalPages - 1;
+            rightArrow.style.opacity = atEnd ? '0.3' : '1';
+            rightArrow.style.pointerEvents = atEnd ? 'none' : 'auto';
         }
     }
 
-    // ========== UPDATE DOTS (for mobile/tablet) ==========
+
+    // UPDATE DOT NAVIGATION
+    // highlight the active dot & show correct amount of dots
     function updateDots() {
+        const totalPages = getTotalPages();
+
         dots.forEach((dot, index) => {
-            if (index === currentIndex) {
-                dot.classList.add('menu__dot--active');
-                dot.setAttribute('aria-current', 'true');
+            if (index < totalPages) {
+                dot.style.display = 'block';
+                const isActive = index === currentIndex;
+                dot.classList.toggle('menu__dot--active', isActive);
+                dot.setAttribute('aria-current', isActive ? 'true' : 'false');
             } else {
-                dot.classList.remove('menu__dot--active');
-                dot.setAttribute('aria-current', 'false');
+                dot.style.display = 'none';
             }
         });
     }
 
-    // ========== NAVIGATION: PREVIOUS ==========
+    // 8. NAVIGATION FUNCTIONS
+    // go to previous group
     function goToPrev() {
         if (currentIndex > 0) {
             currentIndex--;
@@ -110,58 +106,51 @@
         }
     }
 
-    // ========== NAVIGATION: NEXT ==========
+    // go to next group
     function goToNext() {
-        const maxIndex = Math.max(0, totalCards - cardsPerView);
-        if (currentIndex < maxIndex) {
+        const totalPages = getTotalPages();
+        if (currentIndex < totalPages - 1) {
             currentIndex++;
             updateSlider();
             updateDots();
         }
     }
 
-    // ========== NAVIGATION: GO TO SPECIFIC SLIDE (for dots) ==========
-    function goToSlide(index) {
-        const maxIndex = Math.max(0, totalCards - cardsPerView);
-        currentIndex = Math.min(index, maxIndex);
+    // go directly to a specific page (used for dots)
+    // in mobile show only 1 dot for 1 card 
+    function goToSlide(pageIndex) {
+        const totalPages = getTotalPages();
+        currentIndex = Math.min(Math.max(0, pageIndex), totalPages - 1);
         updateSlider();
         updateDots();
     }
 
-    // ========== EVENT LISTENERS ==========
+    // EVENT LISTENERS
+    // --- Arrow buttons ---
+    leftArrow?.addEventListener('click', goToPrev);
+    rightArrow?.addEventListener('click', goToNext);
 
-    // Arrow navigation
-    if (leftArrow) {
-        leftArrow.addEventListener('click', goToPrev);
-    }
-    if (rightArrow) {
-        rightArrow.addEventListener('click', goToNext);
-    }
+    // --- Dot navigation ---
+    dots.forEach((dot, index) =>
+        dot.addEventListener('click', () => goToSlide(index))
+    );
 
-    // Dot navigation
-    dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => goToSlide(index));
-    });
-
-    // Keyboard navigation
+    // --- Keyboard support (left/right arrow keys) ---
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowLeft') {
-            goToPrev();
-        } else if (e.key === 'ArrowRight') {
-            goToNext();
-        }
+        if (e.key === 'ArrowLeft') goToPrev();
+        if (e.key === 'ArrowRight') goToNext();
     });
 
-    // Window resize
+    // --- responsive resize (debounce) ---
+    // wait 250ms after resize to avide call "updateCardsPerView" too oftenr
     let resizeTimer;
     window.addEventListener('resize', () => {
         clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(() => {
-            updateCardsPerView();
-        }, 250);
+        resizeTimer = setTimeout(updateCardsPerView, 250);
     });
 
-    // Touch/Swipe support for mobile
+    // TOUCH / SWIPE SUPPORT
+    // works for mobile drag gestures
     let touchStartX = 0;
     let touchEndX = 0;
 
@@ -175,22 +164,16 @@
     }, { passive: true });
 
     function handleSwipe() {
-        const swipeThreshold = 50; // Minimum swipe distance
+        const swipeThreshold = 50; // Minimum px to trigger slide
 
         if (touchStartX - touchEndX > swipeThreshold) {
-            // Swipe left: next
-            goToNext();
-        }
-
-        if (touchEndX - touchStartX > swipeThreshold) {
-            // Swipe right: prev
-            goToPrev();
+            goToNext(); // Swipe left → next slide
+        } else if (touchEndX - touchStartX > swipeThreshold) {
+            goToPrev(); // Swipe right → previous slide
         }
     }
 
-    // ========== INITIALIZE ==========
+    //INITIALIZATION
     updateCardsPerView();
     updateDots();
-
-    console.log('✅ Menu slider initialized');
-})(); s
+})();

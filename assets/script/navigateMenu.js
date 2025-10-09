@@ -1,0 +1,179 @@
+
+// MENU SLIDER NAVIGATION  (Slide by group: 1–2–3 cards)
+
+// IIFE to avoid polluting global scope
+(function () {
+    //  DOM ELEMENTS
+    const menuGrid = document.querySelector('.menu__grid');
+    const cards = document.querySelectorAll('.menu__card');
+    const leftArrow = document.querySelector('.menu__arrow--left');
+    const rightArrow = document.querySelector('.menu__arrow--right');
+    const dots = document.querySelectorAll('.menu__dot');
+
+    // STATE VARIABLES
+    let currentIndex = 0;     // current page index (0-based)
+    let cardsPerView = 1;     // number of cards visible per slide
+    const totalCards = cards.length;
+
+    // RESPONSIVE CARD COUNT
+    // decide how many cards show per view depending on screen width
+    function updateCardsPerView() {
+        const width = window.innerWidth;
+
+        // large desktop 3 cards, table 2 cards, mobile 1 card
+        if (width >= 1024) {
+            cardsPerView = 3;
+        } else if (width >= 768) {
+            cardsPerView = 2;
+        } else {
+            cardsPerView = 1;
+        }
+
+        // Reset slider to first page on resize
+        currentIndex = 0;
+        updateSlider();
+        updateDots();
+    }
+
+
+    // TOTAL PAGE COUNT
+    // calculate how many pages exist based on cardsPerView
+    // use for indicators (ex: 9 card ->  3 pages if 3 cards view)
+    function getTotalPages() {
+        return Math.ceil(totalCards / cardsPerView);
+    }
+
+    // UPDATE SLIDER POSITION
+    // move the grid using translateX
+    function updateSlider() {
+        const cardWidth = cards[0].offsetWidth; // Actual rendered width
+        const gap = parseFloat(getComputedStyle(menuGrid).gap) || 0;
+
+        // Each page translates by (cardsPerView * (cardWidth + gap))
+        const translateX = -(currentIndex * cardsPerView * (cardWidth + gap));
+
+        menuGrid.style.transform = `translateX(${translateX}px)`;
+        menuGrid.style.transition = 'transform 0.4s ease-in-out';
+
+        updateArrowStates();
+    }
+
+    //  UPDATE ARROW STATES
+    // when at start/end -> disable the arrow
+    function updateArrowStates() {
+        const totalPages = getTotalPages();
+
+        // Left arrow (disabled on first page)
+        if (leftArrow) {
+            const atStart = currentIndex <= 0;
+            leftArrow.style.opacity = atStart ? '0.3' : '1';
+            leftArrow.style.pointerEvents = atStart ? 'none' : 'auto';
+        }
+
+        // Right arrow (disabled on last page)
+        if (rightArrow) {
+            const atEnd = currentIndex >= totalPages - 1;
+            rightArrow.style.opacity = atEnd ? '0.3' : '1';
+            rightArrow.style.pointerEvents = atEnd ? 'none' : 'auto';
+        }
+    }
+
+
+    // UPDATE DOT NAVIGATION
+    // highlight the active dot & show correct amount of dots
+    function updateDots() {
+        const totalPages = getTotalPages();
+
+        dots.forEach((dot, index) => {
+            if (index < totalPages) {
+                dot.style.display = 'block';
+                const isActive = index === currentIndex;
+                dot.classList.toggle('menu__dot--active', isActive);
+                dot.setAttribute('aria-current', isActive ? 'true' : 'false');
+            } else {
+                dot.style.display = 'none';
+            }
+        });
+    }
+
+    // 8. NAVIGATION FUNCTIONS
+    // go to previous group
+    function goToPrev() {
+        if (currentIndex > 0) {
+            currentIndex--;
+            updateSlider();
+            updateDots();
+        }
+    }
+
+    // go to next group
+    function goToNext() {
+        const totalPages = getTotalPages();
+        if (currentIndex < totalPages - 1) {
+            currentIndex++;
+            updateSlider();
+            updateDots();
+        }
+    }
+
+    // go directly to a specific page (used for dots)
+    // in mobile show only 1 dot for 1 card 
+    function goToSlide(pageIndex) {
+        const totalPages = getTotalPages();
+        currentIndex = Math.min(Math.max(0, pageIndex), totalPages - 1);
+        updateSlider();
+        updateDots();
+    }
+
+    // EVENT LISTENERS
+    // --- Arrow buttons ---
+    leftArrow?.addEventListener('click', goToPrev);
+    rightArrow?.addEventListener('click', goToNext);
+
+    // --- Dot navigation ---
+    dots.forEach((dot, index) =>
+        dot.addEventListener('click', () => goToSlide(index))
+    );
+
+    // --- Keyboard support (left/right arrow keys) ---
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') goToPrev();
+        if (e.key === 'ArrowRight') goToNext();
+    });
+
+    // --- responsive resize (debounce) ---
+    // wait 250ms after resize to avide call "updateCardsPerView" too oftenr
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(updateCardsPerView, 250);
+    });
+
+    // TOUCH / SWIPE SUPPORT
+    // works for mobile drag gestures
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    menuGrid.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    menuGrid.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+    }, { passive: true });
+
+    function handleSwipe() {
+        const swipeThreshold = 50; // Minimum px to trigger slide
+
+        if (touchStartX - touchEndX > swipeThreshold) {
+            goToNext(); // Swipe left → next slide
+        } else if (touchEndX - touchStartX > swipeThreshold) {
+            goToPrev(); // Swipe right → previous slide
+        }
+    }
+
+    //INITIALIZATION
+    updateCardsPerView();
+    updateDots();
+})();

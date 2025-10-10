@@ -13,6 +13,7 @@ section {
 }
 
 /* ================== About Section ================== */
+
 .about__container {
   display: flex;
   flex-direction: column;
@@ -25,7 +26,7 @@ section {
 
 .about__image {
   position: relative;
-  order: 1;
+  order: 1; /* ảnh xuống dưới ở mobile */
   width: 100%;
   max-width: 16rem; /* 256px */
 }

@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="./styles/main.css">
 
     <!-- Header Section styles -->
-    <link rel="stylesheet" href="./styles/page-header.css">
+    <link rel="stylesheet" href="./styles/header.css">
 
     <!-- Featured Post Section styles -->
     <link rel="stylesheet" href="./styles/featured-post.css">
@@ -38,10 +38,65 @@
 </head>
 
 <body>
-    <!-- ========== 1. HEADER (EMPTY / NEW) ========== -->
-    <header id="header">
-        <!-- Có thể thêm nav, logo, menu ở đây sau -->
+    <!-- ========== 1. HEADER ========== -->
+    <header id="header" class="header">
+      <div class="header__container">
+        <div class="header__left">
+          <!-- Left panel (Menu icon for mobile) -->
+          <button class="header__menu-btn" aria-label="Toggle menu">
+            <img
+              src="../assets/icons/Header/hamburger.svg"
+              alt="Menu Icon"
+              class="header__menu-icon"
+            />
+          </button>
+
+          <!-- Left panel (Menu list for desktop) -->
+          <nav class="header__nav">
+            <ul class="header__nav-list">
+              <li class="header__nav-item">
+                <a href="#" class="header__nav-link header__nav-link--active"
+                  >Home</a
+                >
+              </li>
+              <li class="header__nav-item">
+                <a href="#" class="header__nav-link">Menu</a>
+              </li>
+              <li class="header__nav-item">
+                <a href="#" class="header__nav-link">Blog</a>
+              </li>
+              <li class="header__nav-item">
+                <a href="#" class="header__nav-link">Pages</a>
+              </li>
+              <li class="header__nav-item">
+                <a href="#" class="header__nav-link">Contact</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+        <!-- Center (Logo) -->
+        <div class="header__center">
+          <a href="#" class="header__logo">
+            <img
+              src="../assets/icons/Header/nav-vect.svg"
+              alt="Restaurant Logo"
+            />
+          </a>
+        </div>
+
+        <!-- Right (Nav links + Status + CTA) -->
+        <div class="header__right">
+          <div class="header__status">
+            <time datetime="11:24">11:24</time> we're open
+          </div>
+
+          <a href="#" class="header__btn">Table Reservation</a>
+        </div>
+      </div>
     </header>
+    <!-- open sidebar in mobile view -->
+    <script src="../assets/script/header.js"></script>
 
     <!-- ========== 2. MAIN CONTENT AREA ========== -->
     <main class="container">

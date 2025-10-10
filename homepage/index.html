@@ -4,6 +4,12 @@
     <meta charset="UTF-8" frame-rectangular />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Restaurant Website</title>
+    <!-- Font Awesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
     <link rel="stylesheet" href="../style/reset.css" />
     <link rel="stylesheet" href="../style/style.css" />
 
@@ -18,7 +24,8 @@
     <link rel="stylesheet" href="../style/component/header.css" />
     <!-- service-means section -->
     <link rel="stylesheet" href="./service_means.css" />
-
+    <!-- newsletter section -->
+    <link rel="stylesheet" href="./newsletter.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
       rel="stylesheet"
@@ -357,6 +364,42 @@
     <!-- ========== 12. NEWSLETTER ========== -->
     <section id="newsletter">
       <!-- Subscribe to Newsletter -->
+      <div class="newsletter__container">
+        <!-- newsletter image -->
+        <div class="newsletter__image">
+          <img
+            src="../assets/images/HomePage/Newsletter/newsletter_dish.png"
+            alt="Healthy food plate"
+            loading="lazy"
+          />
+          <img
+            src="../assets/images/HomePage/Newsletter/newsletter_star.svg"
+            alt="decoration"
+            class="newsletter__star"
+          />
+        </div>
+        <!-- newsletter body content -->
+        <div class="newsletter__content">
+          <h2 class="newsletter__title">
+            Subscribe Newsletter & Get Latest News
+          </h2>
+          <p class="newsletter__subtitle">
+            Get insider access to news around the innovations, unique cooking
+            techniques, culinary concepts, insights, and more
+          </p>
+
+          <form class="newsletter__form">
+            <input
+              type="email"
+              placeholder="Enter your email address"
+              required
+            />
+            <button type="submit" class="newsletter__submit">
+              <i class="fa-solid fa-paper-plane"></i>
+            </button>
+          </form>
+        </div>
+      </div>
     </section>
 
     <!-- ========== 13. FOOTER ========== -->

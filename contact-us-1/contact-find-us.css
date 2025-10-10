@@ -4,7 +4,6 @@
 #find-us {
   /* Box model */
   display: flex;
-  gap: 60px;
   align-items: center;
 }
 
@@ -67,5 +66,6 @@
     /* Box model */
     flex-direction: column;
     gap: 40px;
+    margin: 40px 0;
   }
 }

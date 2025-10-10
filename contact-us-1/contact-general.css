@@ -64,18 +64,32 @@
  * ============================= */
 .container {
   /* Box model */
-  max-width: 1450px;
-  width: 90%;
+  max-width: 1536px; /* 2xl max-widhth */
   margin: 0 auto;
-  padding: 80px 0;
+  padding: 1rem 1.5rem; /* mobile default: 16–24px */
 }
 
 /* =============================
  * Responsive Design
  * ============================= */
-@media (max-width: 576px) {
-  .section-title {
-    /* Typography */
-    font-size: 46px;
+
+/* sm (≥640px) */
+@media (min-width: 40rem) {
+  .container {
+    padding: 1.5rem 2rem;
+  }
+}
+
+/* md (≥768px) */
+@media (min-width: 48rem) {
+  .container {
+    padding: 1.75rem 3rem;
+  }
+}
+
+/* 2xl (≥1536px) */
+@media (min-width: 96rem) {
+  .container {
+    padding: 2rem 3rem;
   }
 }

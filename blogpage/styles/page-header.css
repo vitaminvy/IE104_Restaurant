@@ -5,6 +5,7 @@
 .page-header {
   /* Box model */
   text-align: center;
+  margin: 60px 0 0;
 }
 
 .page-header h1 {
@@ -29,11 +30,28 @@
   Responsive adjustments
 =============================== */
 
+/* Big screens */
+@media (max-width: 1536px) {
+  .page-header h1 {
+    /* Typography */
+    font-size: 60px;
+  }
+}
+
+
 /* Medium screens */
 @media (max-width: 992px) {
   .page-header h1 {
-    padding: 30px 0;
+    /* Typography */
     font-size: 2.5rem;
+
+    /* Box model */
+    margin-bottom: 40px;
+  }
+
+  .page-header {
+    /* Box model */
+    margin: 40px 0 0;
   }
 }
 

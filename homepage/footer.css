@@ -1,142 +1,244 @@
-/* ====== FOOTER BASE ====== */
-.footer__container {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 56px 24px;
-  display: grid;
-  grid-template-columns: 1.6fr 1fr 1fr 1fr 1fr;
-  gap: 48px;
+/* ================== GLOBAL ================== */
+html {
+  scroll-behavior: smooth;
 }
 
+/* ================== FOOTER BASE ================== */
+#footer {
+  padding: 0 24px;
+  margin-top: 50px;
+}
+
+.footer__container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 65px 1rem 60px;
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1.7fr)
+    minmax(0, 0.8fr)
+    minmax(0, 1fr)
+    minmax(0, 0.8fr)
+    minmax(0, 1.2fr);
+  gap: clamp(24px, 6vw, 77px);
+  align-items: start;
+}
+
+/* Typography */
 .footer__title {
-  color: #fff;
-  font-size: 18px;
-  font-weight: 600;
-  margin: 8px 0 16px;
+  font-family: var(--font-body);
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 24px;
+  line-height: 1.3;
+  color: var(--color-white);
 }
 
 .footer__list {
   list-style: none;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 .footer__list li + li {
-  margin-top: 12px;
+  margin-top: 16px;
 }
 
-.footer__link {
-  display: inline-block;
-  font-size: 15px;
+.footer__link,
+.footer__addr,
+.footer__text {
+  font-family: var(--font-body);
+  font-size: 16px;
   line-height: 1.6;
-  color: rgba(255, 255, 255, 0.8);
+  font-weight: 400;
+  color: var(--color-white-80);
   text-decoration: none;
   border-bottom: 1px solid transparent;
-  transition: color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  transition: color 0.2s, border-color 0.2s, transform 0.2s;
 }
-.footer__link:hover {
-  color: #fff;
+.footer__link:hover,
+.footer__link:focus-visible {
+  color: var(--color-white);
   border-color: rgba(255, 255, 255, 0.35);
   transform: translateY(-1px);
 }
-/* .footer__link--accent {
-  color: #ffcc66;
-} */
 .footer__link--accent:hover {
-  color: #ffd88a;
+  color: var(--color-dark-orange);
   border-color: transparent;
 }
 
-.footer__addr {
-  font-style: normal;
-  margin-bottom: 10px;
-  line-height: 1.7;
-}
-
-/* ====== BRAND BLOCK ====== */
+/* ================== BRAND ================== */
 .footer__brand {
   display: grid;
   align-content: start;
-  gap: 18px;
+  gap: 76px;
 }
-.footer__logo {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  text-decoration: none;
-}
+
 .footer__logo img {
   width: 100%;
-  max-width: 12.5rem;
-  object-fit: contain;
+  max-width: 200px;
+  height: auto;
+  display: block;
 }
-.footer__logo-text {
-  color: #fff;
-  font-family: "Libre Bodoni", serif;
-  font-size: 28px;
-  font-weight: 600;
+
+/* Download area */
+.footer__download {
+  display: grid;
+  gap: 18px;
 }
 
 .footer__app-copy {
-  margin-top: 6px;
-  max-width: 320px;
+  max-width: 211px;
+  color: var(--color-white-80);
 }
 
 .footer__badges {
   display: flex;
-  gap: 12px;
-  margin-top: 6px;
+  flex-wrap: nowrap;
+  gap: 18px;
+  min-width: 0;
 }
 .footer__badge img {
-  height: 40px;
   width: auto;
-  display: block;
+  height: clamp(24px, 4vw, 40px);
   filter: saturate(0.9) brightness(0.95);
-  transition: transform 0.2s ease, filter 0.2s ease;
+  transition: transform 0.2s, filter 0.2s;
 }
 .footer__badge:hover img {
   transform: translateY(-2px);
   filter: none;
 }
 
-/* ====== LEGAL ====== */
-.footer__legal .footer__text {
-  margin: 0 0 10px;
+.footer__list,
+.footer__link,
+.footer__text,
+.footer__addr {
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
-/* ====== BOTTOM STRIP (tùy chọn) ====== */
-.footer__bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  margin-top: 28px;
-}
+/* =============== RESPONSIVE BREAKPOINTS =================== */
 
-/* ====== RESPONSIVE ====== */
-@media (max-width: 1024px) {
+/* sm (≥640px) */
+@media (min-width: 640px) {
   .footer__container {
-    grid-template-columns: 1.2fr 1fr 1fr 1fr; /* gộp Legal */
+    gap: 30px;
+    padding: 30px 1rem 30px;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
   }
-  .footer__legal {
-    grid-column: span 1;
+  .footer__title {
+    font-size: 16px;
+  }
+  .footer__link {
+    font-size: 14px;
   }
 }
 
-@media (max-width: 768px) {
+/* md (≥768px) */
+@media (min-width: 768px) {
   .footer__container {
-    grid-template-columns: 1fr 1fr;
-    row-gap: 36px;
+    grid-template-columns:
+      minmax(0, 1.7fr)
+      minmax(0, 1fr)
+      minmax(0, 1fr)
+      minmax(0, 0.8fr);
+    gap: clamp(32px, 5vw, 56px);
   }
   .footer__brand {
-    grid-column: 1 / -1;
+    grid-column: 1 / 2;
+    gap: 66px;
+  }
+  .footer__badge img {
+    height: 38px;
   }
 }
 
-@media (max-width: 480px) {
+/* lg (≥1024px) */
+@media (min-width: 1024px) {
   .footer__container {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1.7fr 0.8fr 1fr 0.8fr 1.2fr;
+    gap: 50px;
+  }
+  .footer__title {
+    font-size: 18px;
+  }
+  .footer__link {
+    font-size: 15px;
+  }
+}
+
+/* xl (≥1280px) */
+@media (min-width: 1280px) {
+  .footer__container {
+    gap: 77px;
+    padding: 45px 1rem 45px;
+  }
+  .footer__title {
+    font-size: 20px;
+  }
+  .footer__link {
+    font-size: 16px;
+  }
+}
+
+/* 2xl (≥1536px) */
+@media (min-width: 1536px) {
+  .footer__container {
+    gap: 90px;
+  }
+  .footer__logo img {
+    max-width: 14rem; /* 224px */
+  }
+}
+
+/* =============== MOBILE (max-width: 639.5px) =============== */
+
+@media (max-width: 639.5px) {
+  .footer__container {
+    grid-template-columns: 0.9fr 1.2fr;
+    grid-template-areas:
+      "brand brand"
+      "useful contact"
+      "follow follow"
+      "legal legal"
+      "badges badges";
+    gap: 34px;
+    padding: 26px 18px;
+  }
+
+  .footer__brand {
+    display: contents;
+  }
+  .footer__logo {
+    grid-area: brand;
+  }
+  .footer__download {
+    grid-area: badges;
+  }
+  .footer__links {
+    grid-area: useful;
+  }
+  .footer__contact {
+    grid-area: contact;
+  }
+  .footer__social {
+    grid-area: follow;
+  }
+  .footer__legal {
+    grid-area: legal;
+  }
+
+  .footer__logo {
+    margin-bottom: 16px;
   }
   .footer__badges {
-    gap: 10px;
+    justify-content: flex-start;
+    margin-top: 4px;
   }
   .footer__badge img {
     height: 36px;
+  }
+  #footer {
+    padding: 0;
   }
 }

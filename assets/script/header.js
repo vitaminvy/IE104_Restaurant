@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// chnage header style when scroll
+// change header style when scroll
 window.addEventListener("scroll", () => {
   const header = document.getElementById("header")
 
@@ -32,3 +32,18 @@ window.addEventListener("scroll", () => {
     header.classList.remove("header--scrolled")
   }
 })
+
+// update current time
+function updateTime() {
+  const now = new Date();
+  const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  const day = days[now.getDay()];
+  const hours = String(now.getHours()).padStart(2, '0');
+  const minutes = String(now.getMinutes()).padStart(2, '0');
+  const timeElem = document.getElementById('current-time');
+  if (timeElem) {
+    timeElem.textContent = `${day} ${hours}:${minutes}`;
+  }
+}
+updateTime();
+setInterval(updateTime, 60000);

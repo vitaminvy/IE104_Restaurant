@@ -1,0 +1,240 @@
+/* =============================
+ * Blog Detail Section Container
+ * ============================= */
+.blog-header h1 {
+  /* Box model */
+  margin-bottom: 20px;
+
+  /* Typography */
+  font-family: var(--font-heading);
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-h2);
+  line-height: var(--line-height-h1);
+  color: var(--color-white);
+}
+
+.blog-header p {
+  /* Box model */
+  max-width: 970px;
+}
+
+/* =============================
+ * Main Image Container
+ * ============================= */
+.main-image-container {
+  /* Position */
+  position: relative;
+
+  /* Box model */
+  margin-top: 40px;
+}
+
+/* Decorative star icon positioned at top-right corner */
+.star-icon {
+  /* Position */
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  /* Box model */
+  width: 60px;
+  height: auto;
+
+  /* Animation / Others */
+  transform: translate(50%, -40%);
+}
+
+
+/* =============================
+ * Meta Information Section
+ * ============================= */
+.meta-info {
+  /* Box model */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--color-border);
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.social-links {
+  /* Box model */
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.copy-link {
+  /* Box model */
+  background: transparent;
+  border: 1px solid #fff;
+  padding: 8px 15px;
+  border-radius: 20px;
+
+  /* Typography */
+  color: var(--color-white);
+  font-family: var(--font-body);
+
+  /* Animation / Others */
+  cursor: pointer;
+}
+
+.social-links a {
+  /* Typography */
+  color: var(--color-white-80);
+  font-size: 1.2rem;
+
+  /* Animation / Others */
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  /* Typography */
+  color: var(--color-white);
+}
+
+/* =============================
+ * Content Section
+ * ============================= */
+.content-section {
+  /* Box model */
+  margin-top: 40px;
+  margin-bottom: 80px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #fff;
+}
+
+.content-section h2 {
+  /* Box model */
+  margin-top: 40px;
+  margin-bottom: 20px;
+
+  /* Typography */
+  font-family: var(--font-heading);
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-h2);
+  line-height: var(--line-height-h2);
+  color: var(--color-white);
+}
+
+.first-letter {
+  /* Box model */
+  float: left;
+  margin-right: 10px;
+
+  /* Typography */
+  font-size: 4rem;
+  line-height: 1;
+  font-family: var(--font-heading);
+  color: var(--color-white);
+}
+
+.content-section p {
+  /* Box model */
+  margin-bottom: 20px;
+}
+
+.content-section img {
+  /* Box model */
+  margin: 40px 0;
+}
+
+.quote {
+  /* Box model */
+  padding: 30px;
+  margin: 40px 0;
+  border-left: 3px solid #fff;
+
+  /* Background / Others */
+  background-color: #1a1a1d;
+}
+
+.quote p {
+  /* Typography */
+  font-style: italic;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* =============================
+ * Content List Section
+ * ============================= */
+.content-section ul {
+  /* Box model */
+  list-style: none;
+  padding-left: 0;
+}
+
+.content-section ul li {
+  /* Position */
+  position: relative;
+
+  /* Box model */
+  margin-bottom: 20px;
+  padding-left: 25px;
+}
+
+.content-section ul li::before {
+  /* Position */
+  position: absolute;
+  left: 0;
+  top: -5px;
+
+  /* Typography */
+  content: "•";
+  color: var(--color-yellow);
+  font-size: 1.5rem;
+}
+
+.content-section ul li strong {
+  /* Typography */
+  color: var(--color-white);
+}
+
+/* =============================
+ * Responsive Design
+ * ============================= */
+@media (max-width: 768px) {
+  .blog-header h1 {
+    /* Typography */
+    font-size: 1.5rem;
+  }
+  
+  .content-section h2 {
+    /* Typography */
+    font-size: 1.5rem;
+  }
+  
+  .star-icon {
+    /* Box model */
+    width: 50px;
+  }
+
+  .content-section {
+    /* Box model */
+    margin-bottom: 60px;
+    padding-bottom: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .meta-info {
+    /* Box model */
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .star-icon {
+    /* Box model */
+    width: 40px;
+  }
+  
+  .content-section {
+    /* Box model */
+    padding-bottom: 10px;
+  }
+}

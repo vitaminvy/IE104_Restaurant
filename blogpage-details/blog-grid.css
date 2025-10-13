@@ -1,0 +1,149 @@
+/* =============================
+ * Blog Grid Section
+ * ============================= */
+
+/* =============================
+ * Blog Grid Container
+ * ============================= */
+.blog-grid {
+  /* Box model */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 60px;
+  row-gap: 50px;
+  margin-bottom: 60px;
+}
+
+/* =============================
+ * Individual Post Card
+ * ============================= */
+.blog-grid .post {
+  /* Box model */
+  padding-bottom: 50px;
+  border-bottom: 1px solid #fff;
+}
+
+/* =============================
+ * Post Image Container
+ * ============================= */
+.blog-grid .post-image {
+  /* Box model */
+  width: 100%;
+  height: 540px;
+  overflow: hidden;
+  margin-bottom: 25px;
+}
+
+.blog-grid .post-image img {
+  /* Box model */
+  width: 100%;
+  height: 100%;
+  display: block;
+
+  /* Others */
+  object-fit: cover;
+}
+
+/* =============================
+ * Post Content
+ * ============================= */
+.blog-grid .post-content h3 {
+  /* Box model */
+  margin-bottom: 15px;
+
+  /* Typography */
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--color-white);
+}
+
+.blog-grid .post-meta {
+  /* Box model */
+  margin-bottom: 25px;
+
+  /* Typography */
+  font-size: 1rem;
+  color: var(--color-white-80);
+}
+
+/* =============================
+ * Read More Link
+ * ============================= */
+.read-more {
+  /* Position */
+  position: relative;
+
+  /* Box model */
+  display: inline-block;
+  padding-bottom: 8px;
+
+  /* Typography */
+  color: var(--color-white);
+  font-weight: 300;
+  text-decoration: none;
+
+  /* Animation */
+  transition: color 0.3s ease;
+}
+
+/* Pseudo-element for border-bottom animation */
+.read-more::after {
+  /* Position */
+  position: absolute;
+  left: 0;
+  bottom: 0;
+
+  /* Box model */
+  height: 2px;
+  width: 100%;
+
+  /* Animation / Others */
+  background-color: #FB8F2C;
+  transform-origin: right;
+  transform: scaleX(1);
+  transition: transform 0.3s ease;
+  content: '';
+}
+
+/* =============================
+ * Hover Effects
+ * ============================= */
+.read-more:hover {
+  /* Typography */
+  color: var(--color-underline-hover);
+}
+
+.read-more:hover::after {
+  /* Animation */
+  transform-origin: left;
+  transform: scaleX(0);
+}
+
+
+/* =============================
+ * Responsive Design
+ * ============================= */
+
+/* Medium screens */
+@media (max-width: 1280px) {
+  .blog-grid .post-image {
+    /* Box model */
+    height: 340px;
+  }
+}
+
+/* Small screens */
+@media (max-width: 768px) {
+  .blog-grid {
+    /* Box model */
+    grid-template-columns: 1fr;
+    row-gap: 40px;
+  }
+
+  .blog-grid .post-content h3 {
+    /* Typography */
+    font-size: 2rem;
+  }
+}

@@ -2,7 +2,6 @@
 #newsletter {
   padding-top: clamp(3rem, 8vw, 6rem);
   padding-bottom: clamp(3rem, 8vw, 6rem);
-  background-color: #0f0f0f;
 }
 
 .newsletter__container {

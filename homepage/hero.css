@@ -4,7 +4,7 @@
   width: 100%;
   color: var(--color-white);
   overflow: visible;
-  padding: 2rem 0;
+ padding-top: 6rem;
 }
 
 /* ========== Container ========== */
@@ -92,7 +92,7 @@
 /* md (≥768px) */
 @media (min-width: 48rem) {
   .hero {
-    padding: 4rem 0;
+    padding-top: 7rem;
   }
 
   .hero__container {
@@ -150,7 +150,7 @@
 /* lg (≥1024px) */
 @media (min-width: 64rem) {
   .hero {
-    padding: 5rem 0;
+    padding-top: 10rem;
   }
 
   .hero__content {
@@ -182,7 +182,7 @@
   }
 
   .hero__title {
-    font-size: 2rem;
+    font-size: 3.6rem;
   }
 }
 

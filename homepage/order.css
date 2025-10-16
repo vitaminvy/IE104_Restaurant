@@ -98,7 +98,7 @@
    4. RESPONSIVE DESIGN
 ========================================================= */
 
-/* sm (≥640px): slightly larger mobile */
+/* sm (≥640px) */
 @media (min-width: 40rem) {
   #offers {
     padding: 5rem 1.5rem;
@@ -111,7 +111,7 @@
   }
 }
 
-/* md (≥768px): iPad vertical / small tablet */
+/* md (≥768px) */
 @media (min-width: 48rem) and (max-width: 63.9375rem) {
   #offers {
     text-align: left;

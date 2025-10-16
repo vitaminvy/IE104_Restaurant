@@ -4,6 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Restaurant Website</title>
+    <!-- Font Awesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
     <link rel="stylesheet" href="../style/reset.css" />
     <link rel="stylesheet" href="../style/style.css" />
 
@@ -23,7 +29,8 @@
     <link rel="stylesheet" href="./reservation.css" />
     <!-- footer section -->
     <link rel="stylesheet" href="./footer.css" />
-
+    <!-- newsletter section -->
+    <link rel="stylesheet" href="./newsletter.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
       rel="stylesheet"
@@ -80,7 +87,8 @@
         <!-- Right (Nav links + Status + CTA) -->
         <div class="header__right">
           <div class="header__status">
-            <time datetime="11:24">11:24</time> we're open
+            <span id="current-time"></span> we're open
+           
           </div>
 
           <a href="#" class="header__btn">Table Reservation</a>
@@ -135,7 +143,7 @@
             alt="Restaurant interior"
           />
           <img
-            class="frame-rectangular"
+            class="about__frameRect"
             src="../assets/images/HomePage/AboutSection/about-frame.png"
             alt="Decor Frame"
           />
@@ -156,7 +164,7 @@
     </section>
 
     <!-- ========== 3. SERVICE FEATURES ========== -->
-    <section id="service-features" class="features">
+    <section id="service__features" class="features">
       <div class="features__column">
         <!-- Door Delivery -->
         <div class="features__item">
@@ -226,12 +234,12 @@
     </section>
 
     <!-- ========== 4.SERVICE QUALITY ========== -->
-    <section id="service-quality">
+    <section id="service__quality">
       <!-- Our Service Means Satisfy + bullet points -->
     </section>
 
     <!-- ========== 5.Scrolling-strip. ========== -->
-    <section id="feature-marquee">
+    <section id="feature__marquee">
       <!-- Self Services + Best Foof + FastFood -->
     </section>
 
@@ -570,17 +578,17 @@
     </section>
 
     <!-- ========== 8. CHEF INTRODUCTION ========== -->
-    <section id="chef-intro">
+    <section id="chef__intro">
       <!-- Experience Chef -->
     </section>
 
     <!-- ========== 8. CHEF INTRODUCTION ========== -->
-    <section id="feature-offer">
+    <section id="feature__offer">
       <!-- Tiêu đề + mô tả + CTA (Discover Menu) + Hình món đặc biệt -->
     </section>
 
     <!-- ========== 9. DAILY OFFERS ========== -->
-    <section id="daily-offers">
+    <section id="daily__offers">
       <!-- Specials / Discounts -->
     </section>
 
@@ -682,6 +690,42 @@
     <!-- ========== 12. NEWSLETTER ========== -->
     <section id="newsletter">
       <!-- Subscribe to Newsletter -->
+      <div class="newsletter__container">
+        <!-- newsletter image -->
+        <div class="newsletter__image">
+          <img
+            src="../assets/images/HomePage/Newsletter/newsletter_dish.png"
+            alt="Healthy food plate"
+            loading="lazy"
+          />
+          <img
+            src="../assets/images/HomePage/Newsletter/newsletter_star.svg"
+            alt="decoration"
+            class="newsletter__star"
+          />
+        </div>
+        <!-- newsletter body content -->
+        <div class="newsletter__content">
+          <h2 class="newsletter__title">
+            Subscribe Newsletter & Get Latest News
+          </h2>
+          <p class="newsletter__subtitle">
+            Get insider access to news around the innovations, unique cooking
+            techniques, culinary concepts, insights, and more
+          </p>
+
+          <form class="newsletter__form">
+            <input
+              type="email"
+              placeholder="Enter your email address"
+              required
+            />
+            <button type="submit" class="newsletter__submit">
+              <i class="fa-solid fa-paper-plane"></i>
+            </button>
+          </form>
+        </div>
+      </div>
     </section>
 
     <!-- ========== 13. FOOTER ========== -->

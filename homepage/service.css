@@ -8,7 +8,7 @@
   gap: 2rem;
   padding: 2rem 1rem;
   width: 100%;
-  max-width: 1536px; /* tailwind 2xl container*/
+  max-width: 1280px; /* tailwind 2xl container*/
   margin: 0 auto;
   /* mobile view -> column rearrangment */
   flex-direction: column;

@@ -192,5 +192,31 @@ export const menuItems = [
     image: "../assets/images/HomePage/Menu/chicken.png",
     category: "lunch",
   },
+  {
+    id: 16,
+    title: "Pancake Stack",
+    desc: "Fluffy pancakes with maple syrup and butter.",
+    price: 5.99,
+    image: "../assets/images/HomePage/Menu/noodles.png",
+    category: "dinner",
+  },
+  {
+    id: 17,
+    title: "Avocado Toast",
+    desc: "Wholegrain toast with avocado and poached eggs.",
+    price: 7.5,
+    image: "../assets/images/HomePage/Menu/new-lubina.png",
+    category: "starters",
+  },
+  {
+    id: 18,
+    title: "Grilled Chicken Bowl",
+    desc: "Healthy rice bowl with grilled chicken and veggies.",
+    price: 9.99,
+    image: "../assets/images/HomePage/Menu/chicken.png",
+    category: "dinner",
+  },
+
+  
   
 ];

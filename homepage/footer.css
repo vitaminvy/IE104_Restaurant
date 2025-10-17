@@ -5,7 +5,7 @@ html {
 
 /* ================== FOOTER BASE ================== */
 #footer {
-  padding: 0 24px;
+  padding: 0;
   margin-top: 50px;
   background-color: var(--vanilla-dark);
 }
@@ -144,8 +144,8 @@ html {
   .footer__container {
     grid-template-columns:
       minmax(0, 1.8fr)
-      minmax(0, 1.2fr)
       minmax(0, 1fr)
+      minmax(0, 1.2fr)
       minmax(0, 0.9fr);
     gap: clamp(40px, 6vw, 70px);
     align-items: start;
@@ -163,7 +163,7 @@ html {
 /* lg (≥1024px) */
 @media (min-width: 1024px) {
   .footer__container {
-    grid-template-columns: 1.7fr 0.8fr 1fr 0.8fr 1.2fr;
+    grid-template-columns: 1.7fr 0.8fr 1.1fr 0.7fr 1.2fr;
     gap: 50px;
   }
   .footer__title {

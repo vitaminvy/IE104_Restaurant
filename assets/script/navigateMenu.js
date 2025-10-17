@@ -1,3 +1,4 @@
+import { menuItems } from "../data/mockdata.js";
 
 // MENU SLIDER NAVIGATION  (Slide by group: 1–2–3 cards)
 
@@ -5,15 +6,48 @@
 (function () {
     //  DOM ELEMENTS
     const menuGrid = document.querySelector('.menu__grid');
-    const cards = document.querySelectorAll('.menu__card');
     const leftArrow = document.querySelector('.menu__arrow--left');
     const rightArrow = document.querySelector('.menu__arrow--right');
     const dots = document.querySelectorAll('.menu__dot');
+    const filterItems = document.querySelectorAll('.menu__filter-item');
 
     // STATE VARIABLES
     let currentIndex = 0;     // current page index (0-based)
     let cardsPerView = 1;     // number of cards visible per slide
-    const totalCards = cards.length;
+    let cards = [];
+
+    let totalCards = 0;
+
+    // CREATE CARD HTML
+    function createCardHTML(item) {
+        return `
+        <article class="menu__card">
+            <div class="menu__card-img-wrapper">
+                <img src="${item.image}" alt="${item.title}" class="menu__card-image" />
+            </div>
+            <h3 class="menu__card-title">${item.title}</h3>
+            <p class="menu__card-desc">${item.desc}</p>
+            <div class="menu__card-footer">
+                <a href="#" class="menu__card-btn">
+                    Order Now
+                    <img src="../assets/icons/MenuSection/arrown.svg" alt="" class="menu__card-btn-icon" />
+                </a>
+                <span class="menu__card-price">$${item.price}</span>
+            </div>
+        </article>`;
+    }
+
+    // RENDER MENU BY CATEGORY
+    function renderMenu(category) {
+        const filtered = category === 'all'
+            ? menuItems
+            : menuItems.filter((item) => item.category === category);
+
+        menuGrid.innerHTML = filtered.map(createCardHTML).join('');
+        cards = Array.from(menuGrid.querySelectorAll('.menu__card'));
+        totalCards = cards.length;
+        currentIndex = 0;
+    }
 
     // RESPONSIVE CARD COUNT
     // decide how many cards show per view depending on screen width
@@ -46,6 +80,11 @@
     // UPDATE SLIDER POSITION
     // move the grid using translateX
     function updateSlider() {
+        if (!cards.length) {
+            menuGrid.style.transform = 'translateX(0)';
+            updateArrowStates();
+            return;
+        }
         const cardWidth = cards[0].offsetWidth; // Actual rendered width
         const gap = parseFloat(getComputedStyle(menuGrid).gap) || 0;
 
@@ -126,6 +165,29 @@
     }
 
     // EVENT LISTENERS
+    // --- Filter items ---
+    function setActiveFilter(target) {
+        filterItems.forEach((item) => {
+            const isActive = item === target;
+            item.classList.toggle('menu__filter-item--active', isActive);
+            item.setAttribute('aria-current', isActive ? 'true' : 'false');
+        });
+    }
+
+    filterItems.forEach((item) => {
+        item.addEventListener('click', (event) => {
+            event.preventDefault();
+            if (item.classList.contains('menu__filter-item--active')) return;
+            setActiveFilter(item);
+
+            const category = item.dataset.category;
+            renderMenu(category);
+            updateCardsPerView();
+            updateDots();
+            updateSlider();
+        });
+    });
+
     // --- Arrow buttons ---
     leftArrow?.addEventListener('click', goToPrev);
     rightArrow?.addEventListener('click', goToNext);
@@ -174,6 +236,15 @@
     }
 
     //INITIALIZATION
+    const initiallyActive = document.querySelector('.menu__filter-item--active');
+    const defaultCategory = initiallyActive?.dataset.category || 'breakfast';
+
+    if (initiallyActive) {
+        setActiveFilter(initiallyActive);
+    }
+
+    renderMenu(defaultCategory);
     updateCardsPerView();
     updateDots();
+    updateSlider();
 })();

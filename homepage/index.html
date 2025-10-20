@@ -29,6 +29,8 @@
     <link rel="stylesheet" href="./reservation.css" />
     <!-- service-means section -->
     <link rel="stylesheet" href="./service_means.css" />
+    <!-- footer section -->
+    <link rel="stylesheet" href="./footer.css" />
     <!--offer daily section-->
     <link rel="stylesheet" href="./order.css" />
     <!-- newsletter section -->
@@ -631,8 +633,97 @@
     </section>
 
     <!-- ========== 13. FOOTER ========== -->
-    <footer id="footer">
-      <!-- Thông tin liên hệ, social, copyright -->
+    <footer
+      id="footer"
+      class="footer"
+      role="contentinfo"
+      aria-label="WowWraps main footer"
+    >
+      <div class="footer__container">
+        <!-- BRAND / APP -->
+        <div class="footer__brand">
+          <a href="#" class="footer__logo">
+            <img
+              src="../assets/images/HomePage/FooterSection/logo-wow-wraps.svg"
+              alt="WowWraps logo"
+            />
+          </a>
+
+          <div class="footer__download">
+            <p class="footer__app-copy">Download the WowWraps app today.</p>
+            <div class="footer__badges">
+              <a class="footer__badge" href="#" aria-label="Get on App Store">
+                <img
+                  src="../assets/images/HomePage/FooterSection/app-store.svg"
+                  alt="App Store"
+                />
+              </a>
+              <a class="footer__badge" href="#" aria-label="Get on Google Play">
+                <img
+                  src="../assets/images/HomePage/FooterSection/google-play.svg"
+                  alt="Google Play"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- USEFUL LINKS -->
+        <nav class="footer__links">
+          <h4 class="footer__title">Useful Links</h4>
+          <ul class="footer__list">
+            <li><a href="#header" class="footer__link">Home</a></li>
+            <li><a href="#about" class="footer__link">About Us</a></li>
+            <li>
+              <a href="#service-features" class="footer__link">Services</a>
+            </li>
+            <li><a href="#!" class="footer__link">Booking</a></li>
+            <li><a href="#!" class="footer__link">Menu</a></li>
+          </ul>
+        </nav>
+
+        <!-- CONTACT INFO -->
+        <div class="footer__contact">
+          <h4 class="footer__title">Contact Info</h4>
+          <ul class="footer__list">
+            <li>
+              <address class="footer__addr">
+                Silk St, Barbican, London EC2Y 8DS, UK
+              </address>
+            </li>
+            <li>
+              <a
+                href="mailto:info@example.com"
+                class="footer__link footer__link--accent"
+                >info@example.com</a
+              >
+            </li>
+            <li>
+              <a href="tel:80012345678" class="footer__link">800–123–45–678</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- FOLLOW US -->
+        <div class="footer__social">
+          <h4 class="footer__title">Follow us</h4>
+          <ul class="footer__list">
+            <li><a href="#!" class="footer__link">Facebook</a></li>
+            <li><a href="#!" class="footer__link">Instagram</a></li>
+            <li><a href="#!" class="footer__link">LinkedIn</a></li>
+            <li><a href="#!" class="footer__link">Twitter</a></li>
+          </ul>
+        </div>
+
+        <!-- LEGAL -->
+        <div class="footer__legal">
+          <h4 class="footer__title">Legal</h4>
+          <ul class="footer__list">
+            <li><p class="footer__text">Website by UIT.com</p></li>
+            <li><p class="footer__text">©2025. All Rights Reserved</p></li>
+          </ul>
+        </div>
+      </div>
     </footer>
   </body>
 </html>

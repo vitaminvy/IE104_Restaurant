@@ -70,9 +70,6 @@ q:before, q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
-<<<<<<< HEAD
-}
-=======
 }
 
 
@@ -91,4 +88,3 @@ xl desktop
 
 96rem (1536px)
 2xl
->>>>>>> main

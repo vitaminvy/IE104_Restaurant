@@ -1,4 +1,4 @@
-Trong CSS Flexbox:
+***CSS Flexbox:***
 
 flex-direction: column; ⇒ trục chính (main axis) là dọc (top → bottom), còn trục chéo (cross axis) là ngang (left ↔ right).
 
@@ -70,4 +70,25 @@ q:before, q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
+<<<<<<< HEAD
 }
+=======
+}
+
+
+***Responsive Layer***
+40rem (640px)
+tablet nhỏ
+
+48rem (768px)
+tablet lớn
+
+64rem (1024px)
+desktop
+
+80rem (1280px)
+xl desktop
+
+96rem (1536px)
+2xl
+>>>>>>> main

@@ -6,7 +6,6 @@
   display: flex;
   justify-content: space-between; /* prev/next ra ngoài, numbers căn giữa */
   align-items: center;
-  padding: 40px 0;
   gap: 20px;
 
   /* Typography */

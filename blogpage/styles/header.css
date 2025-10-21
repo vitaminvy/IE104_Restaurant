@@ -2,8 +2,21 @@
 .header {
   width: 100%;
   color: var(--color-white);
-  position: relative;
+  /* sticky header */
+  position: fixed;
+  top: 0;
+  left: 0;
   z-index: 50;
+  /* transition for smooth background change */
+  transition: background-color 0.3s ease, backdrop-filter 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* scrolled state with liquid/blur background */
+.header--scrolled {
+  background: rgba(18, 18, 18, 0.85);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 /* ========== Container layout ========== */
@@ -17,6 +30,14 @@
   max-width: 1536px; /* 2xl max-widhth */
   margin: 0 auto;
   padding: 1rem 1.5rem; /* mobile default: 16–24px */
+  /* transition for smooth padding change */
+  transition: padding 0.3s ease;
+  box-sizing: border-box;
+}
+
+/* reduce padding when scrolled for compact look */
+.header--scrolled .header__container {
+  padding: 0.75rem 1.5rem;
 }
 
 /* ========== Left panel ========== */
@@ -56,6 +77,13 @@
 .header__logo img {
   width: auto;
   height: 2.75rem; /* ~44px */
+  /* transition for smooth logo size change */
+  transition: height 0.3s ease;
+}
+
+/* slightly smaller logo when scrolled */
+.header--scrolled .header__logo img {
+  height: 2.25rem;
 }
 
 /* ========== Right panel ========== */
@@ -154,12 +182,20 @@
   .header__container {
     padding: 1.5rem 2rem;
   }
+
+  .header--scrolled .header__container {
+    padding: 1rem 2rem;
+  }
 }
 
 /* md (≥768px) */
 @media (min-width: 48rem) {
   .header__container {
     padding: 1.75rem 3rem;
+  }
+
+  .header--scrolled .header__container {
+    padding: 1.25rem 3rem;
   }
 }
 
@@ -203,11 +239,19 @@
   .header__logo img {
     height: 3rem;
   }
+
+  .header--scrolled .header__logo img {
+    height: 2.5rem;
+  }
 }
 
 /* 2xl (≥1536px) */
 @media (min-width: 96rem) {
   .header__container {
     padding: 2rem 3rem;
+  }
+
+  .header--scrolled .header__container {
+    padding: 1.5rem 3rem;
   }
 }

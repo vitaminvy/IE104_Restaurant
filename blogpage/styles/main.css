@@ -1,37 +1,43 @@
-/* ----------------------------------------
-  Global / Main Styles
----------------------------------------- */
-
+/* =============================
+ * Layout / Container Section
+ * ============================= */
 .container {
   /* Box model */
-  max-width: 1536px; /* 2xl max-widhth */
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  max-width: 43.125rem;
   margin: 0 auto;
-  padding: 1rem 1.5rem; /* mobile default: 16–24px */
+  padding: 7rem 1.5rem 0 1.5rem;
   box-sizing: border-box;
 }
 
-/* ===============================
-  Responsive adjustments
-=============================== */
-
-/* sm (≥640px) */
-@media (min-width: 40rem) {
-  .container {
-    padding: 1.5rem 2rem;
-  }
-}
+/* =========================================================
+   4. RESPONSIVE DESIGN
+========================================================= */
 
 /* md (≥768px) */
 @media (min-width: 48rem) {
   .container {
-    padding: 1.75rem 3rem;
+    padding: 7rem 2rem 0 2rem;
+    max-width: 45rem;
   }
 }
 
-/* 2xl (≥1536px) */
-@media (min-width: 96rem) {
+/* lg (≥1024px): desktop */
+@media (min-width: 64rem) {
   .container {
-    padding: 2rem 3rem;
+    padding: 7rem 3rem 0 3rem;
+    max-width: 60rem;
+  }
+}
+
+/* xl (≥1280px): large desktop */
+@media (min-width: 80rem) {
+  .container {
+    padding: 8rem 4rem 0 4rem;
+    max-width: 70rem;
   }
 }

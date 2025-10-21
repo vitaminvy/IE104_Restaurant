@@ -1,182 +1,195 @@
-/* =============================
- * Newsletter Section Container
- * ============================= */
-
+/* ================== Newsletter Section ================== */
 #newsletter {
-  /* Box model */
-  padding: 80px 24px 80px 38px;
-  overflow: hidden;
+  padding-top: clamp(3rem, 8vw, 6rem);
+  padding-bottom: clamp(3rem, 8vw, 6rem);
 }
 
-/* =============================
- * Flex container for image & content columns
- * ============================= */
-.newsletter-container {
-  /* Box model */
+.newsletter__container {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 64px;
+  justify-content: center;
+  gap: 2rem;
+  text-align: center;
+  width: 100%;
+  max-width: 1536px;
 }
 
-/* =============================
- * Left column: image section
- * ============================= */
-.newsletter-image-wrapper {
-  /* Position */
+/* ============ Image ============ */
+.newsletter__image {
   position: relative;
-
-  /* Box model */
-  flex: 1;
-  min-width: 300px;
+  order: 1;
+  width: 100%;
+  max-width: 19rem; /* 304px */
 }
 
-/* Main dish image inside the image column */
-.newsletter-dish-image {
-  /* Box model */
-  display: block;
+.newsletter__image img:first-child {
   width: 100%;
   height: auto;
+  object-fit: cover;
+  z-index: 1;
+  position: relative;
+  border-radius: 10px;
 }
 
-/* Decorative star icon positioned at top-left corner */
-.newsletter-star-icon {
-  /* Position */
+.newsletter__star {
   position: absolute;
-  top: 0;
-  left: 0;
-
-  /* Box model */
-  width: 90px;
+  top: -7%;
+  left: -9%;
+  width: 18%;
+  max-width: 104px;
   height: auto;
-
-  /* Others */
-  transform: translate(-40%, -40%);
 }
 
-/* =============================
- * Right column: content section
- * ============================= */
-.newsletter-content {
-  /* Box model */
-  flex: 1;
-  min-width: 300px;
+/* ============ Content ============ */
+.newsletter__content {
+  max-width: 28rem;
+  text-align: center;
 }
 
-/* Newsletter title text */
-.newsletter-title {
-  /* Box model */
-  margin: 0 0 24px 0;
-
-  /* Typography */
-  font-family: var(--font-heading);
-  font-weight: 500;
-  font-size: 3.5rem;
+.newsletter__title {
+  font-size: 2rem; /* 32px */
+  font-weight: 600;
   line-height: 1.25;
-  color: var(--color-white);
+  margin-bottom: 1rem;
 }
 
-/* Newsletter description paragraph */
-.newsletter-description {
-  /* Box model */
-  margin: 0 0 48px 0;
-  max-width: 480px;
-
-  /* Typography */
+.newsletter__subtitle {
+  color: rgba(255, 255, 255, 0.8);
   font-size: 1rem;
-  line-height: 1.625;
+  line-height: 1.6;
+  margin-bottom: 3rem;
 }
 
-/* =============================
- * Subscription form section
- * ============================= */
-.subscription-form {
-  /* Box model */
+/* ============ Form ============ */
+.newsletter__form {
   display: flex;
   align-items: center;
-  padding-bottom: 12px;
-  border-bottom: 1px solid #ffffffff;
+  justify-content: center;
+  gap: 12px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.6);
+  padding-bottom: 8px;
+  margin-top: 2rem;
 }
 
-/* Input field inside subscription form */
-.subscription-form input {
-  /* Box model */
-  flex-grow: 1;
+.newsletter__form input {
+  flex: 1;
+  background: none;
   border: none;
-
-  /* Typography */
-  font-family: var(--font-body);
+  color: #fff;
   font-size: 1rem;
-  color: var(--color-white);
-
-  /* Background / others */
-  background: transparent;
   outline: none;
+  /* min-width: 0; */
 }
 
-/* Placeholder styling */
-.subscription-form input::placeholder {
-  /* Typography */
-  color: var(--color-white-80);
-  opacity: 0.8;
+.newsletter__form input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
 }
 
-/* Submit button styling */
-.subscription-form button {
-  /* Box model */
-  padding: 0 0 0 16px;
+.newsletter__submit {
+  background: none;
   border: none;
-
-  /* Background / others */
-  background: transparent;
+  color: #fff;
+  font-size: 1.2rem;
   cursor: pointer;
-  transition: transform 0.3s ease;
+  transition: transform 0.25s ease, opacity 0.25s ease;
 }
 
-/* Hover animation for submit button */
-.subscription-form button:hover {
-  /* Animation */
-  transform: translateX(5px);
+.newsletter__submit:hover {
+  opacity: 0.85;
 }
 
-/* =============================
- * Responsive design
- * ============================= */
-@media (max-width: 991px) {
-  #newsletter {
-    /* Box model */
-    padding: 40px 32px;
-  }
+/* ================== Responsive ================== */
 
-  .newsletter-container {
-    /* Box model */
-    flex-direction: column;
-    gap: 48px;
-
-    /* Typography */
-    text-align: center;
-  }
-
-  .newsletter-description {
-    /* Box model */
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .subscription-form {
-    /* Box model */
-    max-width: 400px;
-    margin: 0 auto;
-  }
-}
-
-@media (max-width: 576px) {
-  .newsletter-title {
-    /* Typography */
+/* sm (≥640px) */
+@media (min-width: 640px) {
+  .newsletter__title {
     font-size: 2.5rem;
   }
+  .newsletter__image {
+    max-width: 20rem;
+  }
+}
 
-  .newsletter-star-icon {
-    /* Box model */
-    width: 70px;
+/* md (≥768px) */
+@media (min-width: 768px) {
+  .newsletter__container {
+    flex-direction: row;
+    text-align: left;
+    gap: 4rem;
+  }
+
+  .newsletter__content {
+    text-align: left;
+    max-width: 32rem;
+  }
+
+  .newsletter__image {
+    order: unset;
+    max-width: 20rem;
+  }
+
+  .newsletter__title {
+    font-size: 2rem;
+  }
+
+  .newsletter__subtitle {
+    font-size: 1rem;
+    margin-bottom: 4rem;
+  }
+
+  .newsletter__form {
+    justify-content: flex-start;
+  }
+}
+
+/* lg (≥1024px) */
+@media (min-width: 1024px) {
+  .newsletter__container {
+    gap: 6rem;
+    /* min-height: 650px; */
+    /* padding: 0 16px; */
+  }
+  .newsletter__title {
+    font-size: 2.5rem;
+  }
+  .newsletter__subtitle {
+    margin-bottom: 5rem;
+  }
+}
+
+/* xl (≥1280px) */
+@media (min-width: 1280px) {
+  .newsletter__container {
+    gap: 8rem;
+  }
+  .newsletter__content {
+    max-width: 35rem;
+  }
+  .newsletter__title {
+    font-size: 3.5rem;
+  }
+  .newsletter__image {
+    max-width: 28rem;
+  }
+  .newsletter__subtitle {
+    margin-bottom: 6rem;
+  }
+}
+
+/* 2xl (≥1536px) */
+@media (min-width: 1536px) {
+  .newsletter__container {
+    gap: 10rem;
+  }
+  .newsletter__title {
+    font-size: 4rem;
+    max-width: 40rem;
+  }
+  .newsletter__content {
+    max-width: 40rem;
+  }
+  .newsletter__subtitle {
+    margin-bottom: 7rem;
   }
 }

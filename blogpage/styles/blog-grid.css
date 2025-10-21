@@ -8,7 +8,7 @@
   grid-template-columns: repeat(2, 1fr);
   column-gap: 60px;
   row-gap: 50px;
-  margin-bottom: 60px;
+  margin-bottom: 20px;
 }
 
 /* Individual post card */
@@ -64,7 +64,7 @@
 /* Medium screens */
 @media (max-width: 1280px) {
   .blog-grid .post-image {
-    height: 340px;
+    height: 300px;
   }
 }
 
@@ -73,6 +73,7 @@
   .blog-grid {
     grid-template-columns: 1fr;
     row-gap: 40px;
+    margin-bottom: 10px;
   }
 
   .blog-grid .post-content h3 {

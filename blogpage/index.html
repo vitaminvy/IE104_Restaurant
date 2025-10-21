@@ -2,167 +2,241 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Restaurant Management & Growth Blog</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Restaurant Management & Growth Blog</title>
 
-    <!-- Global / Main styles -->
-    <link rel="stylesheet" href="./styles/main.css">
+  <!-- Global / Main styles -->
+  <link rel="stylesheet" href="./styles/main.css">
 
-    <!-- Header Section styles -->
-    <link rel="stylesheet" href="./styles/header.css">
+  <!-- Header Section styles -->
+  <link rel="stylesheet" href="./styles/header.css">
 
-    <!-- Header Page Section styles -->
-    <link rel="stylesheet" href="./styles/page-header.css">
+  <!-- Footer Section styles -->
+  <link rel="stylesheet" href="./styles/footer.css">
 
-    <!-- Featured Post Section styles -->
-    <link rel="stylesheet" href="./styles/featured-post.css">
+  <!-- Header Page Section styles -->
+  <link rel="stylesheet" href="./styles/page-header.css">
 
-    <!-- Blog Grid Section styles -->
-    <link rel="stylesheet" href="./styles/blog-grid.css">
+  <!-- Featured Post Section styles -->
+  <link rel="stylesheet" href="./styles/featured-post.css">
 
-    <!-- Pagination Section styles -->
-    <link rel="stylesheet" href="./styles/pagination.css">
+  <!-- Blog Grid Section styles -->
+  <link rel="stylesheet" href="./styles/blog-grid.css">
 
-    <!-- Newsletter styles -->
-    <link rel="stylesheet" href="./styles/newsletter.css">
+  <!-- Pagination Section styles -->
+  <link rel="stylesheet" href="./styles/pagination.css">
 
-    <!-- Reset and global styles -->
-    <link rel="stylesheet" href="../style/reset.css" />
-    <link rel="stylesheet" href="../style/style.css" />
+  <!-- Newsletter styles -->
+  <link rel="stylesheet" href="./styles/newsletter.css">
 
-    <!-- Google Fonts -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
-        rel="stylesheet" />
+  <!-- Reset and global styles -->
+  <link rel="stylesheet" href="../style/reset.css" />
+  <link rel="stylesheet" href="../style/style.css" />
 
-    <!-- Main JS module -->
-    <script type="module" src="./scripts/main.js"></script>
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+    rel="stylesheet" />
+
+  <!-- Main JS module -->
+  <script type="module" src="./scripts/main.js"></script>
 </head>
 
 <body>
-    <!-- ========== 1. HEADER ========== -->
-    <header id="header" class="header">
-      <div class="header__container">
-        <div class="header__left">
-          <!-- Left panel (Menu icon for mobile) -->
-          <button class="header__menu-btn" aria-label="Toggle menu">
-            <img
-              src="../assets/icons/Header/hamburger.svg"
-              alt="Menu Icon"
-              class="header__menu-icon"
-            />
-          </button>
+  <!-- ========== 1. HEADER ========== -->
+  <header id="header" class="header">
+    <div class="header__container">
+      <div class="header__left">
+        <!-- Left panel (Menu icon for mobile) -->
+        <button class="header__menu-btn" aria-label="Toggle menu">
+          <img src="../assets/icons/Header/hamburger.svg" alt="Menu Icon" class="header__menu-icon" />
+        </button>
 
-          <!-- Left panel (Menu list for desktop) -->
-          <nav class="header__nav">
-            <ul class="header__nav-list">
-              <li class="header__nav-item">
-                <a href="#" class="header__nav-link header__nav-link--active"
-                  >Home</a
-                >
-              </li>
-              <li class="header__nav-item">
-                <a href="#" class="header__nav-link">Menu</a>
-              </li>
-              <li class="header__nav-item">
-                <a href="#" class="header__nav-link">Blog</a>
-              </li>
-              <li class="header__nav-item">
-                <a href="#" class="header__nav-link">Pages</a>
-              </li>
-              <li class="header__nav-item">
-                <a href="#" class="header__nav-link">Contact</a>
-              </li>
-            </ul>
-          </nav>
+        <!-- Left panel (Menu list for desktop) -->
+        <nav class="header__nav">
+          <ul class="header__nav-list">
+            <li class="header__nav-item">
+              <a href="#" class="header__nav-link header__nav-link--active">Home</a>
+            </li>
+            <li class="header__nav-item">
+              <a href="#" class="header__nav-link">Menu</a>
+            </li>
+            <li class="header__nav-item">
+              <a href="#" class="header__nav-link">Blog</a>
+            </li>
+            <li class="header__nav-item">
+              <a href="#" class="header__nav-link">Pages</a>
+            </li>
+            <li class="header__nav-item">
+              <a href="#" class="header__nav-link">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- Center (Logo) -->
+      <div class="header__center">
+        <a href="#" class="header__logo">
+          <img src="../assets/icons/Header/nav-vect.svg" alt="Restaurant Logo" />
+        </a>
+      </div>
+
+      <!-- Right (Nav links + Status + CTA) -->
+      <div class="header__right">
+        <div class="header__status">
+          <time datetime="11:24">11:24</time> we're open
         </div>
 
-        <!-- Center (Logo) -->
-        <div class="header__center">
-          <a href="#" class="header__logo">
-            <img
-              src="../assets/icons/Header/nav-vect.svg"
-              alt="Restaurant Logo"
-            />
-          </a>
+        <a href="#" class="header__btn">Table Reservation</a>
+      </div>
+    </div>
+  </header>
+  <!-- open sidebar in mobile view -->
+  <script src="../assets/script/header.js"></script>
+
+  <!-- ========== 2. MAIN CONTENT AREA ========== -->
+  <main class="container">
+
+    <!-- ========== 2.1 PAGE HEADER CONTENT ========== -->
+    <div class="page-header">
+      <h1>Restaurant Management & Growth Blog</h1>
+    </div>
+
+    <!-- ========== 2.2 FEATURED POST SECTION ========== -->
+    <section id="featured-post" class="featured-post">
+      <!-- Featured post sẽ được JS render vào đây -->
+    </section>
+
+    <!-- ========== 2.3 BLOG GRID SECTION ========== -->
+    <section id="blog-grid" class="blog-grid">
+      <!-- Các bài blog sẽ được JS render vào đây -->
+    </section>
+
+    <!-- ========== 2.4 PAGINATION NAVIGATION ========== -->
+    <nav id="pagination" class="pagination"></nav>
+
+    <!-- ========== 2.5 NEWSLETTER SECTION ========== -->
+    <section id="newsletter">
+      <!-- Subscribe to Newsletter -->
+      <div class="newsletter__container">
+        <!-- newsletter image -->
+        <div class="newsletter__image">
+          <img
+            src="../assets/images/HomePage/Newsletter/newsletter_dish.png"
+            alt="Healthy food plate"
+            loading="lazy"
+          />
+          <img
+            src="../assets/images/HomePage/Newsletter/newsletter_star.svg"
+            alt="decoration"
+            class="newsletter__star"
+          />
         </div>
+        <!-- newsletter body content -->
+        <div class="newsletter__content">
+          <h2 class="newsletter__title">
+            Subscribe Newsletter & Get Latest News
+          </h2>
+          <p class="newsletter__subtitle">
+            Get insider access to news around the innovations, unique cooking
+            techniques, culinary concepts, insights, and more
+          </p>
 
-        <!-- Right (Nav links + Status + CTA) -->
-        <div class="header__right">
-          <div class="header__status">
-            <time datetime="11:24">11:24</time> we're open
-          </div>
-
-          <a href="#" class="header__btn">Table Reservation</a>
+          <form class="newsletter__form">
+            <input
+              type="email"
+              placeholder="Enter your email address"
+              required
+            />
+            <button type="submit" class="newsletter__submit">
+              <i class="fa-solid fa-paper-plane"></i>
+            </button>
+          </form>
         </div>
       </div>
-    </header>
-    <!-- open sidebar in mobile view -->
-    <script src="../assets/script/header.js"></script>
+    </section>
+  </main>
 
-    <!-- ========== 2. MAIN CONTENT AREA ========== -->
-    <main class="container">
+  <!-- ========== 2.6 FOOTER PLACEHOLDER ========== -->
+  <footer id="footer" class="footer" role="contentinfo" aria-label="WowWraps main footer">
+    <div class="footer__container">
+      <!-- BRAND / APP -->
+      <div class="footer__brand">
+        <a href="#" class="footer__logo">
+          <img src="../assets/images/HomePage/FooterSection/logo-wow-wraps.svg" alt="WowWraps logo" />
+        </a>
 
-        <!-- ========== 2.1 PAGE HEADER CONTENT ========== -->
-        <div class="page-header">
-            <h1>Restaurant Management & Growth Blog</h1>
+        <div class="footer__download">
+          <p class="footer__app-copy">Download the WowWraps app today.</p>
+          <div class="footer__badges">
+            <a class="footer__badge" href="#" aria-label="Get on App Store">
+              <img src="../assets/images/HomePage/FooterSection/app-store.svg" alt="App Store" />
+            </a>
+            <a class="footer__badge" href="#" aria-label="Get on Google Play">
+              <img src="../assets/images/HomePage/FooterSection/google-play.svg" alt="Google Play" />
+            </a>
+          </div>
         </div>
+      </div>
 
-        <!-- ========== 2.2 FEATURED POST SECTION ========== -->
-        <section id="featured-post" class="featured-post">
-            <!-- Featured post sẽ được JS render vào đây -->
-        </section>
+      <!-- USEFUL LINKS -->
+      <nav class="footer__links">
+        <h4 class="footer__title">Useful Links</h4>
+        <ul class="footer__list">
+          <li><a href="#header" class="footer__link">Home</a></li>
+          <li><a href="#about" class="footer__link">About Us</a></li>
+          <li>
+            <a href="#service-features" class="footer__link">Services</a>
+          </li>
+          <li><a href="#!" class="footer__link">Booking</a></li>
+          <li><a href="#!" class="footer__link">Menu</a></li>
+        </ul>
+      </nav>
 
-        <!-- ========== 2.3 BLOG GRID SECTION ========== -->
-        <section id="blog-grid" class="blog-grid">
-            <!-- Các bài blog sẽ được JS render vào đây -->
-        </section>
+      <!-- CONTACT INFO -->
+      <div class="footer__contact">
+        <h4 class="footer__title">Contact Info</h4>
+        <ul class="footer__list">
+          <li>
+            <address class="footer__addr">
+              Silk St, Barbican, London EC2Y 8DS, UK
+            </address>
+          </li>
+          <li>
+            <a href="mailto:info@example.com" class="footer__link footer__link--accent">info@example.com</a>
+          </li>
+          <li>
+            <a href="tel:80012345678" class="footer__link">800–123–45–678</a>
+          </li>
+        </ul>
+      </div>
 
-        <!-- ========== 2.4 PAGINATION NAVIGATION ========== -->
-        <nav id="pagination" class="pagination"></nav>
+      <!-- FOLLOW US -->
+      <div class="footer__social">
+        <h4 class="footer__title">Follow us</h4>
+        <ul class="footer__list">
+          <li><a href="#!" class="footer__link">Facebook</a></li>
+          <li><a href="#!" class="footer__link">Instagram</a></li>
+          <li><a href="#!" class="footer__link">LinkedIn</a></li>
+          <li><a href="#!" class="footer__link">Twitter</a></li>
+        </ul>
+      </div>
 
-        <!-- ========== 2.5 NEWSLETTER SECTION ========== -->
-        <section id="newsletter">
-            <div class="newsletter-container">
-                <!-- Image Column -->
-                <div class="newsletter-image-wrapper">
-                    <img src="../assets/images/BlogPage/newsletter-dish.png"
-                        alt="A plate of grilled salmon served with broccoli and quinoa on an orange background."
-                        class="newsletter-dish-image">
-                    <img src="../assets/icons/BlogPage/newsletter-star.svg" alt="Decorative star icon"
-                        class="newsletter-star-icon">
-                </div>
-
-                <!-- Text Column -->
-                <div class="newsletter-content">
-                    <h2 class="newsletter-title">
-                        Subscribe Newsletter<br>& Get Latest News
-                    </h2>
-                    <p class="newsletter-description">
-                        Get insider access to the latest innovations, unique cooking techniques, culinary concepts,
-                        insights, and
-                        more.
-                    </p>
-
-                    <!-- Email subscription form -->
-                    <form class="subscription-form" action="#" method="post">
-                        <input type="email" name="email" placeholder="Enter your email address" required>
-                        <button type="submit" aria-label="Subscribe">
-                            <img src="../assets/icons/BlogPage/newsletter-right-arrow-forward.svg"
-                                alt="Arrow icon for submit button" width="32" height="16">
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </section>
-
-        <!-- ========== 2.6 FOOTER PLACEHOLDER ========== -->
-        <footer id="footer">
-            <!-- Footer content sẽ thêm sau -->
-        </footer>
-
-    </main>
+      <!-- LEGAL -->
+      <div class="footer__legal">
+        <h4 class="footer__title">Legal</h4>
+        <ul class="footer__list">
+          <li>
+            <p class="footer__text">Website by UIT.com</p>
+          </li>
+          <li>
+            <p class="footer__text">©2025. All Rights Reserved</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </footer>
 </body>
 
 </html>

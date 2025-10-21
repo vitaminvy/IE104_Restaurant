@@ -2,185 +2,252 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact Us - The Patio Time Cafe</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us - The Patio Time Cafe</title>
 
-    <!-- Reset & Global Styles -->
-    <link rel="stylesheet" href="../style/reset.css" />
-    <link rel="stylesheet" href="../style/style.css" />
+  <!-- Reset & Global Styles -->
+  <link rel="stylesheet" href="../style/reset.css" />
+  <link rel="stylesheet" href="../style/style.css" />
 
-    <!-- Contact Page Specific Styles -->
-    <link rel="stylesheet" href="./contact-general.css" />
-    <link rel="stylesheet" href="./contact-find-us.css" />
-    <link rel="stylesheet" href="./contact-form.css" />
+  <!-- Contact Page Specific Styles -->
+  <link rel="stylesheet" href="./contact-general.css" />
+  <link rel="stylesheet" href="./contact-find-us.css" />
+  <link rel="stylesheet" href="./contact-form.css" />
 
-    <!-- header section -->
-    <link rel="stylesheet" href="./header.css" />
+  <!-- header section -->
+  <link rel="stylesheet" href="./header.css" />
+  <!-- footer section -->
+  <link rel="stylesheet" href="./footer.css" />
 
-    <!-- Fonts -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400;0,700&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap"
-        rel="stylesheet" />
+  <!-- Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400;0,700&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap"
+    rel="stylesheet" />
 </head>
 
 <body>
-    <!-- ========== 1. HEADER ========== -->
-    <header id="header" class="header">
-      <div class="header__container">
-        <div class="header__left">
-          <!-- Left panel (Menu icon for mobile) -->
-          <button class="header__menu-btn" aria-label="Toggle menu">
-            <img
-              src="../assets/icons/Header/hamburger.svg"
-              alt="Menu Icon"
-              class="header__menu-icon"
-            />
-          </button>
+  <!-- ========== 1. HEADER ========== -->
+  <header id="header" class="header">
+    <div class="header__container">
+      <div class="header__left">
+        <!-- Left panel (Menu icon for mobile) -->
+        <button class="header__menu-btn" aria-label="Toggle menu">
+          <img src="../assets/icons/Header/hamburger.svg" alt="Menu Icon" class="header__menu-icon" />
+        </button>
 
-          <!-- Left panel (Menu list for desktop) -->
-          <nav class="header__nav">
-            <ul class="header__nav-list">
-              <li class="header__nav-item">
-                <a href="#" class="header__nav-link header__nav-link--active"
-                  >Home</a
-                >
-              </li>
-              <li class="header__nav-item">
-                <a href="#" class="header__nav-link">Menu</a>
-              </li>
-              <li class="header__nav-item">
-                <a href="#" class="header__nav-link">Blog</a>
-              </li>
-              <li class="header__nav-item">
-                <a href="#" class="header__nav-link">Pages</a>
-              </li>
-              <li class="header__nav-item">
-                <a href="#" class="header__nav-link">Contact</a>
-              </li>
-            </ul>
-          </nav>
+        <!-- Left panel (Menu list for desktop) -->
+        <nav class="header__nav">
+          <ul class="header__nav-list">
+            <li class="header__nav-item">
+              <a href="#" class="header__nav-link header__nav-link--active">Home</a>
+            </li>
+            <li class="header__nav-item">
+              <a href="#" class="header__nav-link">Menu</a>
+            </li>
+            <li class="header__nav-item">
+              <a href="#" class="header__nav-link">Blog</a>
+            </li>
+            <li class="header__nav-item">
+              <a href="#" class="header__nav-link">Pages</a>
+            </li>
+            <li class="header__nav-item">
+              <a href="#" class="header__nav-link">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- Center (Logo) -->
+      <div class="header__center">
+        <a href="#" class="header__logo">
+          <img src="../assets/icons/Header/nav-vect.svg" alt="Restaurant Logo" />
+        </a>
+      </div>
+
+      <!-- Right (Nav links + Status + CTA) -->
+      <div class="header__right">
+        <div class="header__status">
+          <time datetime="11:24">11:24</time> we're open
         </div>
 
-        <!-- Center (Logo) -->
-        <div class="header__center">
-          <a href="#" class="header__logo">
-            <img
-              src="../assets/icons/Header/nav-vect.svg"
-              alt="Restaurant Logo"
-            />
-          </a>
-        </div>
+        <a href="#" class="header__btn">Table Reservation</a>
+      </div>
+    </div>
+  </header>
+  <!-- open sidebar in mobile view -->
+  <script src="../assets/script/header.js"></script>
 
-        <!-- Right (Nav links + Status + CTA) -->
-        <div class="header__right">
-          <div class="header__status">
-            <time datetime="11:24">11:24</time> we're open
+  <main class="container">
+    <!-- ========== 2. WHERE TO FIND US SECTION ========== -->
+    <section id="find-us" class="container">
+      <!-- Text Content -->
+      <div class="find-us__content">
+        <h2 class="section-title">Where To Find Us</h2>
+        <p class="section-text">
+          The Patio Time Cafe is located on Silk Street, in the heart of London city, on the edge of Soho.
+        </p>
+        <p class="section-text">
+          Additional info about location and opening style.
+        </p>
+
+        <!-- Contact Details -->
+        <div class="contact-details">
+          <div class="contact-item">
+            <img src="../assets/icons/ContactUs/location.svg" alt="Location Icon" class="contact-icon" />
+            <span>Silk St, Barbican, London EC2Y 8DS, UK</span>
           </div>
+          <div class="contact-item">
+            <img src="../assets/icons/ContactUs/email.svg" alt="Email Icon" class="contact-icon" />
+            <span>gmail1234@gmail.com</span>
+          </div>
+          <div class="contact-item">
+            <img src="../assets/icons/ContactUs/phone.svg" alt="Phone Icon" class="contact-icon" />
+            <span>+00-0000-00000</span>
+          </div>
+        </div>
 
-          <a href="#" class="header__btn">Table Reservation</a>
+        <!-- CTA Button -->
+        <a href="#" class="btn">View in Google Maps</a>
+      </div>
+
+      <!-- Image Content -->
+      <div class="find-us__image-container">
+        <img src="../assets/images/ContactUs/find-us.png" alt="Interior of a retro diner" class="find-us__image" />
+      </div>
+    </section>
+
+    <!-- ========== 3. CONTACT FORM SECTION ========== -->
+    <section id="contact-form" class="container">
+      <!-- Contact Information -->
+      <div class="contact-form__info">
+        <h2 class="section-title">Contact Us</h2>
+        <p class="contact-info__item">For general enquiries please email: info@gmail.com</p>
+        <p>Reserve by email: gmail1234@gmail.com</p>
+        <p class="contact-info__item contact-info__tel">Tel: +00 000 0000</p>
+
+        <!-- Opening Hours -->
+        <div class="opening-hours">
+          <p><strong>Opening hours:</strong></p>
+          <p>Mon - Thu: 10:00 am - 01:00 am</p>
+          <p>Fri - Sun: 10:00 am - 02:00 am</p>
+        </div>
+
+        <!-- Online Reservation Link -->
+        <a href="#" class="link">Online Reservation</a>
+      </div>
+
+      <!-- Contact Form -->
+      <form class="contact-form__form">
+        <!-- Name & Email Fields -->
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Your name *</label>
+            <input type="text" id="name" name="name" value="" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email address *</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+        </div>
+
+        <!-- Subject Field -->
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <input type="text" id="subject" name="subject" />
+        </div>
+
+        <!-- Review / Message Field -->
+        <div class="form-group">
+          <label for="review">Write review *</label>
+          <textarea id="review" name="review" rows="4" required></textarea>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn">Submit</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- ========== 4. FOOTER ========== -->
+  <footer id="footer" class="footer" role="contentinfo" aria-label="WowWraps main footer">
+    <div class="footer__container">
+      <!-- BRAND / APP -->
+      <div class="footer__brand">
+        <a href="#" class="footer__logo">
+          <img src="../assets/images/HomePage/FooterSection/logo-wow-wraps.svg" alt="WowWraps logo" />
+        </a>
+
+        <div class="footer__download">
+          <p class="footer__app-copy">Download the WowWraps app today.</p>
+          <div class="footer__badges">
+            <a class="footer__badge" href="#" aria-label="Get on App Store">
+              <img src="../assets/images/HomePage/FooterSection/app-store.svg" alt="App Store" />
+            </a>
+            <a class="footer__badge" href="#" aria-label="Get on Google Play">
+              <img src="../assets/images/HomePage/FooterSection/google-play.svg" alt="Google Play" />
+            </a>
+          </div>
         </div>
       </div>
-    </header>
-    <!-- open sidebar in mobile view -->
-    <script src="../assets/script/header.js"></script>
 
-    <main>
-        <!-- ========== 2. WHERE TO FIND US SECTION ========== -->
-        <section id="find-us" class="container">
-            <!-- Text Content -->
-            <div class="find-us__content">
-                <h2 class="section-title">Where To Find Us</h2>
-                <p class="section-text">
-                    The Patio Time Cafe is located on Silk Street, in the heart of London city, on the edge of Soho.
-                </p>
-                <p class="section-text">
-                    Additional info about location and opening style.
-                </p>
+      <!-- USEFUL LINKS -->
+      <nav class="footer__links">
+        <h4 class="footer__title">Useful Links</h4>
+        <ul class="footer__list">
+          <li><a href="#header" class="footer__link">Home</a></li>
+          <li><a href="#about" class="footer__link">About Us</a></li>
+          <li>
+            <a href="#service-features" class="footer__link">Services</a>
+          </li>
+          <li><a href="#!" class="footer__link">Booking</a></li>
+          <li><a href="#!" class="footer__link">Menu</a></li>
+        </ul>
+      </nav>
 
-                <!-- Contact Details -->
-                <div class="contact-details">
-                    <div class="contact-item">
-                        <img src="../assets/icons/ContactUs/location.svg" alt="Location Icon" class="contact-icon" />
-                        <span>Silk St, Barbican, London EC2Y 8DS, UK</span>
-                    </div>
-                    <div class="contact-item">
-                        <img src="../assets/icons/ContactUs/email.svg" alt="Email Icon" class="contact-icon" />
-                        <span>gmail1234@gmail.com</span>
-                    </div>
-                    <div class="contact-item">
-                        <img src="../assets/icons/ContactUs/phone.svg" alt="Phone Icon" class="contact-icon" />
-                        <span>+00-0000-00000</span>
-                    </div>
-                </div>
+      <!-- CONTACT INFO -->
+      <div class="footer__contact">
+        <h4 class="footer__title">Contact Info</h4>
+        <ul class="footer__list">
+          <li>
+            <address class="footer__addr">
+              Silk St, Barbican, London EC2Y 8DS, UK
+            </address>
+          </li>
+          <li>
+            <a href="mailto:info@example.com" class="footer__link footer__link--accent">info@example.com</a>
+          </li>
+          <li>
+            <a href="tel:80012345678" class="footer__link">800–123–45–678</a>
+          </li>
+        </ul>
+      </div>
 
-                <!-- CTA Button -->
-                <a href="#" class="btn">View in Google Maps</a>
-            </div>
+      <!-- FOLLOW US -->
+      <div class="footer__social">
+        <h4 class="footer__title">Follow us</h4>
+        <ul class="footer__list">
+          <li><a href="#!" class="footer__link">Facebook</a></li>
+          <li><a href="#!" class="footer__link">Instagram</a></li>
+          <li><a href="#!" class="footer__link">LinkedIn</a></li>
+          <li><a href="#!" class="footer__link">Twitter</a></li>
+        </ul>
+      </div>
 
-            <!-- Image Content -->
-            <div class="find-us__image-container">
-                <img src="../assets/images/ContactUs/find-us.png" alt="Interior of a retro diner"
-                    class="find-us__image" />
-            </div>
-        </section>
-
-        <!-- ========== 3. CONTACT FORM SECTION ========== -->
-        <section id="contact-form" class="container">
-            <!-- Contact Information -->
-            <div class="contact-form__info">
-                <h2 class="section-title">Contact Us</h2>
-                <p class="contact-info__item">For general enquiries please email: info@gmail.com</p>
-                <p>Reserve by email: gmail1234@gmail.com</p>
-                <p class="contact-info__item contact-info__tel">Tel: +00 000 0000</p>
-
-                <!-- Opening Hours -->
-                <div class="opening-hours">
-                    <p><strong>Opening hours:</strong></p>
-                    <p>Mon - Thu: 10:00 am - 01:00 am</p>
-                    <p>Fri - Sun: 10:00 am - 02:00 am</p>
-                </div>
-
-                <!-- Online Reservation Link -->
-                <a href="#" class="link">Online Reservation</a>
-            </div>
-
-            <!-- Contact Form -->
-            <form class="contact-form__form">
-                <!-- Name & Email Fields -->
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="name">Your name *</label>
-                        <input type="text" id="name" name="name" value="" required />
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email address *</label>
-                        <input type="email" id="email" name="email" required />
-                    </div>
-                </div>
-
-                <!-- Subject Field -->
-                <div class="form-group">
-                    <label for="subject">Subject</label>
-                    <input type="text" id="subject" name="subject" />
-                </div>
-
-                <!-- Review / Message Field -->
-                <div class="form-group">
-                    <label for="review">Write review *</label>
-                    <textarea id="review" name="review" rows="4" required></textarea>
-                </div>
-
-                <!-- Submit Button -->
-                <button type="submit" class="btn">Submit</button>
-            </form>
-        </section>
-    </main>
-
-    <!-- ========== 4. FOOTER ========== -->
-    <footer id="footer">
-        <!-- Footer content: contact info, social links, copyright -->
-    </footer>
+      <!-- LEGAL -->
+      <div class="footer__legal">
+        <h4 class="footer__title">Legal</h4>
+        <ul class="footer__list">
+          <li>
+            <p class="footer__text">Website by UIT.com</p>
+          </li>
+          <li>
+            <p class="footer__text">©2025. All Rights Reserved</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </footer>
 </body>
 
 </html>

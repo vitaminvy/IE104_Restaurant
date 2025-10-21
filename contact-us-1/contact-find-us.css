@@ -5,6 +5,7 @@
   /* Box model */
   display: flex;
   align-items: center;
+  padding: 8rem 0 0 0;
 }
 
 /* Left Column: Text Content */

@@ -43,7 +43,7 @@ section {
   transform: scale(1.05);
 }
 
-.about__image .frame-rectangular {
+.about__image .about__frameRect {
   position: absolute;
   top: 1rem;
   left: 1rem;

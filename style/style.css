@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  overflow-x: hidden;
 }
 
 #statistics {
@@ -19,7 +20,7 @@ body {
 
 .stat-item {
   display: flex; /* icon  */
-  align-items: center; 
+  align-items: center;
   gap: 15px; /* space between icon and text */
   min-width: 220px;
 }
@@ -69,6 +70,7 @@ html {
   --color-white: #ffffff;
   --color-white-80: rgba(255, 255, 255, 0.8);
   --color-dark-orange: #fb8f2c;
+  --vanilla-dark: #000;
 }
 body {
   background: var(--Dark, #111114);

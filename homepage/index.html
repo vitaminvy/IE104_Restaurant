@@ -4,6 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Restaurant Website</title>
+    <!-- Font Awesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
     <link rel="stylesheet" href="../style/reset.css" />
     <link rel="stylesheet" href="../style/style.css" />
 
@@ -21,7 +27,14 @@
     <link rel="stylesheet" href="./menu.css" />
     <!-- reservation section -->
     <link rel="stylesheet" href="./reservation.css" />
-
+    <!-- service-means section -->
+    <link rel="stylesheet" href="./service_means.css" />
+    <!-- footer section -->
+    <link rel="stylesheet" href="./footer.css" />
+    <!--offer daily section-->
+    <link rel="stylesheet" href="./order.css" />
+    <!-- newsletter section -->
+    <link rel="stylesheet" href="./newsletter.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
       rel="stylesheet"
@@ -78,7 +91,7 @@
         <!-- Right (Nav links + Status + CTA) -->
         <div class="header__right">
           <div class="header__status">
-            <time datetime="11:24">11:24</time> we're open
+            <span id="current-time"></span> we're open
           </div>
 
           <a href="#" class="header__btn">Table Reservation</a>
@@ -133,7 +146,7 @@
             alt="Restaurant interior"
           />
           <img
-            class="frame-rectangular"
+            class="about__frameRect"
             src="../assets/images/HomePage/AboutSection/about-frame.png"
             alt="Decor Frame"
           />
@@ -154,7 +167,7 @@
     </section>
 
     <!-- ========== 3. SERVICE FEATURES ========== -->
-    <section id="service-features" class="features">
+    <section id="service__features" class="features">
       <div class="features__column">
         <!-- Door Delivery -->
         <div class="features__item">
@@ -224,291 +237,163 @@
     </section>
 
     <!-- ========== 4.SERVICE QUALITY ========== -->
-    <section id="service-quality">
+    <section id="service__quality">
       <!-- Our Service Means Satisfy + bullet points -->
+      <div class="service__container">
+        <!-- Service header -->
+        <div class="service__content">
+          <h2 class="service__title">Our Service Means Satisfy</h2>
+          <p class="service__subtitle">
+            Located in downtown Burlington near the shores of Lake Champlain, we
+            give you space.
+          </p>
+        </div>
+
+        <!-- Left: image -->
+        <div class="service__body">
+          <div class="service__media">
+            <img
+              class="service__image"
+              src="../assets/images/HomePage/Service-Means-Section/service-dish.png"
+              alt="Signature nachos with sauce"
+            />
+          </div>
+
+          <!-- Right: content -->
+          <div class="service__satisfy">
+            <ul class="service__list" role="list">
+              <li class="service__item">Quality &amp; Quantity Top Notch.</li>
+              <li class="service__item">Fresh &amp; Healthy Food.</li>
+              <li class="service__item">Satisfying Taste.</li>
+              <li class="service__item">On Demand Food Services.</li>
+              <li class="service__item">Green &amp; Safety Ingredient.</li>
+            </ul>
+          </div>
+        </div>
+        <!-- end service-means -->
+      </div>
     </section>
 
     <!-- ========== 5.Scrolling-strip. ========== -->
-    <section id="feature-marquee">
+    <section id="feature__marquee">
       <!-- Self Services + Best Foof + FastFood -->
     </section>
 
     <!-- ========== 6.MENU SECTION ========== -->
     <section id="menu">
       <div class="menu-frame">
-        <!-- ========== HEADER ========== -->
-        <div class="menu__header">
-          <div class="menu__header-text">
-            <!-- title -->
-            <h2 class="menu__title">Check out our menu</h2>
-            <!-- subtitle-->
-            <p class="menu__subtitle">
-              We love to serve the quality food as always. Check our foodbook
-              below.
-            </p>
-          </div>
+      <!-- ========== HEADER ========== -->
+      <div class="menu__header">
+        <div class="menu__header-text">
+          <!-- title -->
+          <h2 class="menu__title">Check out our menu</h2>
+          <!-- subtitle-->
+          <p class="menu__subtitle">
+            We love to serve the quality food as always. Check our foodbook
+            below.
+          </p>
         </div>
+      </div>
 
-        <!-- ========== FILTER FIELD ========== -->
-        <nav class="menu__filter" aria-label="Menu categories">
-          <!-- breakfast -->
-          <a
-            href="#"
-            class="menu__filter-item menu__filter-item--active"
-            data-category="breakfast"
-            role="button"
+      <!-- ========== FILTER FIELD ========== -->
+      <nav class="menu__filter" aria-label="Menu categories">
+        <!-- breakfast -->
+        <a
+          href="#"
+          class="menu__filter-item menu__filter-item--active"
+          data-category="breakfast"
+          role="button"
+          aria-current="true"
+          >Breakfast</a
+        >
+        <!-- lunch -->
+        <a
+          href="#"
+          class="menu__filter-item"
+          data-category="lunch"
+          role="button"
+          >Lunch</a
+        >
+        <!-- dinner -->
+        <a
+          href="#"
+          class="menu__filter-item"
+          data-category="dinner"
+          role="button"
+          >Dinner</a
+        >
+        <!-- staters -->
+        <a
+          href="#"
+          class="menu__filter-item"
+          data-category="starters"
+          role="button"
+          >Starters</a
+        >
+      </nav>
+
+      <!-- ========== SLIDER FIELD ========== -->
+      <div class="menu__slider">
+        <!--left arrown button-->
+        <button
+          class="menu__arrow menu__arrow--left"
+          aria-label="Previous slide"
+        >
+          <img
+            src="../assets/icons/MenuSection/arrown-left.svg"
+            alt="Previous"
+          />
+        </button>
+
+        <!--menu grid-->
+        <div class="menu__grid"></div>
+
+        <!--right arrown button-->
+        <button
+          class="menu__arrow menu__arrow--right"
+          aria-label="Next slide"
+        >
+          <img
+            src="../assets/icons/MenuSection/arrown-right.svg"
+            alt="Next"
+          />
+        </button>
+
+        <!--Dot navigation for moblide and ipad-->
+        <div
+          class="menu__dots"
+          role="tablist"
+          aria-label="Menu slides navigation"
+        >
+          <!--active dot -->
+          <button
+            class="menu__dot menu__dot--active"
+            aria-label="Slide 1"
             aria-current="true"
-            >Breakfast</a
-          >
-          <!-- lunch -->
-          <a
-            href="#"
-            class="menu__filter-item"
-            data-category="lunch"
-            role="button"
-            >Lunch</a
-          >
-          <!-- dinner -->
-          <a
-            href="#"
-            class="menu__filter-item"
-            data-category="dinner"
-            role="button"
-            >Dinner</a
-          >
-          <!-- staters -->
-          <a
-            href="#"
-            class="menu__filter-item"
-            data-category="starters"
-            role="button"
-            >Starters</a
-          >
-        </nav>
-
-        <!-- ========== SLIDER FIELD ========== -->
-        <div class="menu__slider">
-          <!--left arrown button-->
-          <button
-            class="menu__arrow menu__arrow--left"
-            aria-label="Previous slide"
           >
             <img
-              src="../assets/icons/MenuSection/arrown-left.svg"
-              alt="Previous"
+              src="../assets/icons/MenuSection/active-dot.svg"
+              alt="Active"
             />
           </button>
-
-          <!--menu grid-->
-          <div class="menu__grid">
-            <!-- Card 1 -->
-            <article class="menu__card">
-              <!-- card image -->
-              <div class="menu__card-img-wrapper">
-                <img
-                  src="../assets/images/HomePage/Menu/noodles.png"
-                  alt="Schezwam Noodles"
-                  class="menu__card-image"
-                />
-              </div>
-              <!-- card title -->
-              <h3 class="menu__card-title">Schezwam Noodles</h3>
-              <!-- card description -->
-              <p class="menu__card-desc">
-                Fresh toasted sourdough bread with olive oil and pomegranate.
-              </p>
-              <!-- card footer -->
-              <div class="menu__card-footer">
-                <!-- order button-->
-                <a href="#" class="menu__card-btn">
-                  Order Now
-                  <img
-                    src="../assets/icons/MenuSection/arrown.svg"
-                    alt="Go to order"
-                    class="menu__card-btn-icon"
-                  />
-                </a>
-                <!-- food price-->
-                <span class="menu__card-price">$49</span>
-              </div>
-            </article>
-
-            <!-- Card 2 -->
-            <article class="menu__card">
-              <!-- card image -->
-              <div class="menu__card-img-wrapper">
-                <img
-                  src="../assets/images/HomePage/Menu/chicken.png"
-                  alt="Crispy Chicken Breasts"
-                  class="menu__card-image"
-                />
-              </div>
-              <!-- card title -->
-              <h3 class="menu__card-title">Crispy Chicken Breasts</h3>
-              <!-- card description -->
-              <p class="menu__card-desc">
-                Fresh toasted sourdough bread with olive oil and pomegranate.
-              </p>
-              <!-- card footer -->
-              <div class="menu__card-footer">
-                <!-- order button -->
-                <a href="#" class="menu__card-btn">
-                  Order Now
-                  <img
-                    src="../assets/icons/MenuSection/arrown.svg"
-                    alt="Go to order"
-                    class="menu__card-btn-icon"
-                  />
-                </a>
-                <!-- food price-->
-                <span class="menu__card-price">$54</span>
-              </div>
-            </article>
-
-            <!--Card 3-->
-            <article class="menu__card">
-              <!--card image-->
-              <div class="menu__card-img-wrapper">
-                <img
-                  src="../assets/images/HomePage/Menu/new-lubina.png"
-                  alt="New Lubina Marinada"
-                  class="menu__card-image"
-                />
-              </div>
-              <!-- card title -->
-              <h3 class="menu__card-title">New Lubina Marinada</h3>
-              <!-- card description -->
-              <p class="menu__card-desc">
-                Fresh toasted sourdough bread with olive oil and pomegranate.
-              </p>
-              <!-- card footer-->
-              <div class="menu__card-footer">
-                <!-- order button -->
-                <a href="#" class="menu__card-btn">
-                  Order Now
-                  <img
-                    src="../assets/icons/MenuSection/arrown.svg"
-                    alt="Go to order"
-                    class="menu__card-btn-icon"
-                  />
-                </a>
-                <!--food price-->
-                <span class="menu__card-price">$59</span>
-              </div>
-            </article>
-
-            <!-- mock data for testing -->
-            <!--Card 3-->
-            <article class="menu__card">
-              <!--card image-->
-              <div class="menu__card-img-wrapper">
-                <img
-                  src="../assets/images/HomePage/Menu/new-lubina.png"
-                  alt="New Lubina Marinada"
-                  class="menu__card-image"
-                />
-              </div>
-              <!-- card title -->
-              <h3 class="menu__card-title">New Lubina Marinada</h3>
-              <!-- card description -->
-              <p class="menu__card-desc">
-                Fresh toasted sourdough bread with olive oil and pomegranate.
-              </p>
-              <!-- card footer-->
-              <div class="menu__card-footer">
-                <!-- order button -->
-                <a href="#" class="menu__card-btn">
-                  Order Now
-                  <img
-                    src="../assets/icons/MenuSection/arrown.svg"
-                    alt="Go to order"
-                    class="menu__card-btn-icon"
-                  />
-                </a>
-                <!--food price-->
-                <span class="menu__card-price">$59</span>
-              </div>
-            </article>
-            <!--Card 3-->
-            <article class="menu__card">
-              <!--card image-->
-              <div class="menu__card-img-wrapper">
-                <img
-                  src="../assets/images/HomePage/Menu/new-lubina.png"
-                  alt="New Lubina Marinada"
-                  class="menu__card-image"
-                />
-              </div>
-              <!-- card title -->
-              <h3 class="menu__card-title">New Lubina Marinada</h3>
-              <!-- card description -->
-              <p class="menu__card-desc">
-                Fresh toasted sourdough bread with olive oil and pomegranate.
-              </p>
-              <!-- card footer-->
-              <div class="menu__card-footer">
-                <!-- order button -->
-                <a href="#" class="menu__card-btn">
-                  Order Now
-                  <img
-                    src="../assets/icons/MenuSection/arrown.svg"
-                    alt="Go to order"
-                    class="menu__card-btn-icon"
-                  />
-                </a>
-                <!--food price-->
-                <span class="menu__card-price">$59</span>
-              </div>
-            </article>
-          </div>
-
-          <!--right arrown button-->
-          <button
-            class="menu__arrow menu__arrow--right"
-            aria-label="Next slide"
-          >
-            <img
-              src="../assets/icons/MenuSection/arrown-right.svg"
-              alt="Next"
-            />
+          <button class="menu__dot" aria-label="Slide 2">
+            <img src="../assets/icons/MenuSection/dot.svg" alt="Inactive" />
           </button>
-
-          <!--Dot navigation for moblide and ipad-->
-          <div
-            class="menu__dots"
-            role="tablist"
-            aria-label="Menu slides navigation"
-          >
-            <!--active dot -->
-            <button
-              class="menu__dot menu__dot--active"
-              aria-label="Slide 1"
-              aria-current="true"
-            >
-              <img
-                src="../assets/icons/MenuSection/active-dot.svg"
-                alt="Active"
-              />
-            </button>
-            <button class="menu__dot" aria-label="Slide 2">
-              <img src="../assets/icons/MenuSection/dot.svg" alt="Inactive" />
-            </button>
-            <button class="menu__dot" aria-label="Slide 3">
-              <img src="../assets/icons/MenuSection/dot.svg" alt="Inactive" />
-            </button>
-            <button class="menu__dot" aria-label="Slide 4">
-              <img src="../assets/icons/MenuSection/dot.svg" alt="Inactive" />
-            </button>
-            <button class="menu__dot" aria-label="Slide 5">
-              <img src="../assets/icons/MenuSection/dot.svg" alt="Inactive" />
-            </button>
-          </div>
+          <button class="menu__dot" aria-label="Slide 3">
+            <img src="../assets/icons/MenuSection/dot.svg" alt="Inactive" />
+          </button>
+          <button class="menu__dot" aria-label="Slide 4">
+            <img src="../assets/icons/MenuSection/dot.svg" alt="Inactive" />
+          </button>
+          <button class="menu__dot" aria-label="Slide 5">
+            <img src="../assets/icons/MenuSection/dot.svg" alt="Inactive" />
+          </button>
         </div>
       </div>
     </section>
 
     <!-- navigate menu  -->
-    <script src="../assets/script/navigateMenu.js"></script>
+    <script type="module" src="../assets/script/navigateMenu.js"></script>
 
     <!-- ========== 7.  STATISTICS / ACHIEVEMENTS ========== -->
     <section id="stats" class="stats">
@@ -568,18 +453,47 @@
     </section>
 
     <!-- ========== 8. CHEF INTRODUCTION ========== -->
-    <section id="chef-intro">
+    <section id="chef__intro">
       <!-- Experience Chef -->
     </section>
 
     <!-- ========== 8. CHEF INTRODUCTION ========== -->
-    <section id="feature-offer">
+    <section id="feature__offer">
       <!-- Tiêu đề + mô tả + CTA (Discover Menu) + Hình món đặc biệt -->
     </section>
 
     <!-- ========== 9. DAILY OFFERS ========== -->
-    <section id="daily-offers">
-      <!-- Specials / Discounts -->
+    <section id="offers">
+      <div class="offer__container">
+        <!-- Left: offer content-->
+        <div class="offer__content">
+          <h2 class="offer__title">
+            Michelin Lunch, <br />
+            Dinner Or Both?
+          </h2>
+          <p class="offer__desc">
+            It’s the story of an everlasting love affair, Dieter Delicioz and
+            the Atlantic Ocean. Our proximity to the abundant riches of the sea
+            and Portugal’s excellent produce has provided a constant source of
+            inspiration for Chef L'delicio.
+          </p>
+          <!-- route to menu page -->
+          <a
+            href="#menu"
+            class="offer__link"
+            aria-label="Discover our menu section"
+            >Discover Menu</a
+          >
+        </div>
+
+        <!-- Right: offer seciton's banner -->
+        <div class="offer__image">
+          <img
+            src="../assets/images/food/sandwich.png"
+            alt="Michelin Sandwich"
+          />
+        </div>
+      </div>
     </section>
 
     <!-- ========== 10. RESERVATION SECTION ========== -->
@@ -680,11 +594,136 @@
     <!-- ========== 12. NEWSLETTER ========== -->
     <section id="newsletter">
       <!-- Subscribe to Newsletter -->
+      <div class="newsletter__container">
+        <!-- newsletter image -->
+        <div class="newsletter__image">
+          <img
+            src="../assets/images/HomePage/Newsletter/newsletter_dish.png"
+            alt="Healthy food plate"
+            loading="lazy"
+          />
+          <img
+            src="../assets/images/HomePage/Newsletter/newsletter_star.svg"
+            alt="decoration"
+            class="newsletter__star"
+          />
+        </div>
+        <!-- newsletter body content -->
+        <div class="newsletter__content">
+          <h2 class="newsletter__title">
+            Subscribe Newsletter & Get Latest News
+          </h2>
+          <p class="newsletter__subtitle">
+            Get insider access to news around the innovations, unique cooking
+            techniques, culinary concepts, insights, and more
+          </p>
+
+          <form class="newsletter__form">
+            <input
+              type="email"
+              placeholder="Enter your email address"
+              required
+            />
+            <button type="submit" class="newsletter__submit">
+              <i class="fa-solid fa-paper-plane"></i>
+            </button>
+          </form>
+        </div>
+      </div>
     </section>
 
     <!-- ========== 13. FOOTER ========== -->
-    <footer id="footer">
-      <!-- Thông tin liên hệ, social, copyright -->
+    <footer
+      id="footer"
+      class="footer"
+      role="contentinfo"
+      aria-label="WowWraps main footer"
+    >
+      <div class="footer__container">
+        <!-- BRAND / APP -->
+        <div class="footer__brand">
+          <a href="#" class="footer__logo">
+            <img
+              src="../assets/images/HomePage/FooterSection/logo-wow-wraps.svg"
+              alt="WowWraps logo"
+            />
+          </a>
+
+          <div class="footer__download">
+            <p class="footer__app-copy">Download the WowWraps app today.</p>
+            <div class="footer__badges">
+              <a class="footer__badge" href="#" aria-label="Get on App Store">
+                <img
+                  src="../assets/images/HomePage/FooterSection/app-store.svg"
+                  alt="App Store"
+                />
+              </a>
+              <a class="footer__badge" href="#" aria-label="Get on Google Play">
+                <img
+                  src="../assets/images/HomePage/FooterSection/google-play.svg"
+                  alt="Google Play"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- USEFUL LINKS -->
+        <nav class="footer__links">
+          <h4 class="footer__title">Useful Links</h4>
+          <ul class="footer__list">
+            <li><a href="#header" class="footer__link">Home</a></li>
+            <li><a href="#about" class="footer__link">About Us</a></li>
+            <li>
+              <a href="#service-features" class="footer__link">Services</a>
+            </li>
+            <li><a href="#!" class="footer__link">Booking</a></li>
+            <li><a href="#!" class="footer__link">Menu</a></li>
+          </ul>
+        </nav>
+
+        <!-- CONTACT INFO -->
+        <div class="footer__contact">
+          <h4 class="footer__title">Contact Info</h4>
+          <ul class="footer__list">
+            <li>
+              <address class="footer__addr">
+                Silk St, Barbican, London EC2Y 8DS, UK
+              </address>
+            </li>
+            <li>
+              <a
+                href="mailto:info@example.com"
+                class="footer__link footer__link--accent"
+                >info@example.com</a
+              >
+            </li>
+            <li>
+              <a href="tel:80012345678" class="footer__link">800–123–45–678</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- FOLLOW US -->
+        <div class="footer__social">
+          <h4 class="footer__title">Follow us</h4>
+          <ul class="footer__list">
+            <li><a href="#!" class="footer__link">Facebook</a></li>
+            <li><a href="#!" class="footer__link">Instagram</a></li>
+            <li><a href="#!" class="footer__link">LinkedIn</a></li>
+            <li><a href="#!" class="footer__link">Twitter</a></li>
+          </ul>
+        </div>
+
+        <!-- LEGAL -->
+        <div class="footer__legal">
+          <h4 class="footer__title">Legal</h4>
+          <ul class="footer__list">
+            <li><p class="footer__text">Website by UIT.com</p></li>
+            <li><p class="footer__text">©2025. All Rights Reserved</p></li>
+          </ul>
+        </div>
+      </div>
     </footer>
   </body>
 </html>

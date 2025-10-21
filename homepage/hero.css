@@ -4,7 +4,7 @@
   width: 100%;
   color: var(--color-white);
   overflow: visible;
- padding-top: 6rem;
+  padding-top: 6rem;
 }
 
 /* ========== Container ========== */
@@ -127,13 +127,13 @@
   .hero__image-wrapper--left {
     order: 1;
     justify-content: flex-start;
-    margin-left: -22%;
+    /* margin-left: -22%; */
   }
 
   .hero__image-wrapper--right {
     order: 3;
     justify-content: flex-end;
-    margin-right: -22%;
+    /* margin-right: -22%; */
   }
 
   .hero__image {
@@ -172,13 +172,13 @@
   .hero__image-wrapper--left {
     order: 1;
     justify-content: flex-start;
-    margin-left: -20%;
+    /* margin-left: -20%; */
   }
 
   .hero__image-wrapper--right {
     order: 3;
     justify-content: flex-end;
-    margin-right: -23%;
+    /* margin-right: -23%; */
   }
 
   .hero__title {

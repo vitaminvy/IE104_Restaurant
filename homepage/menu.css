@@ -38,13 +38,12 @@
   bottom: 0;
   width: 0%;
   height: 2px;
-  background: #fff;
+  background: var(--color-dark-orange);
   transition: width 0.3s;
 }
 .menu__filter-item:hover,
 .menu__filter-item--active {
-  color: #fff;
-  border-bottom: 2px solid #fff;
+  color: var(--color-dark-orange);
 }
 .menu__filter-item:hover::after,
 .menu__filter-item--active::after {

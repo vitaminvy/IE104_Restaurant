@@ -72,7 +72,7 @@
 .chef-title {
   /* Typography */
   font-family: var(--font-heading);
-  font-weight: 400;
+  font-weight: 500;
   font-size: 2rem;
   line-height: 1.3;
   color: var(--color-white);
@@ -194,7 +194,7 @@
     max-width: 520px; 
     text-align: right; 
     margin-left: auto; 
-    margin-right: 60px;
+    margin-right: 130px;
   }
 
   .chef-title {

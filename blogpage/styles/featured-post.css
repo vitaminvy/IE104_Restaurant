@@ -101,7 +101,7 @@
 =============================== */
 
 /* Medium screens */
-@media (max-width: 1280px) {
+@media (max-width: 80rem) {
   .featured-post {
     flex-direction: column;
     text-align: center;
@@ -118,7 +118,7 @@
 }
 
 /* Small screens */
-@media (max-width: 992px) {
+@media (max-width: 64rem) {
   .featured-post {
     gap: 30px;
   }

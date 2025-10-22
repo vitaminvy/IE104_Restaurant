@@ -144,7 +144,7 @@
 }
 
 /* lg (≥1024px) */
-@media (min-width: 1024px) {
+@media (min-width: 64rem) {
   .newsletter__container {
     gap: 6rem;
     /* min-height: 650px; */
@@ -159,7 +159,7 @@
 }
 
 /* xl (≥1280px) */
-@media (min-width: 1280px) {
+@media (min-width: 80rem) {
   .newsletter__container {
     gap: 8rem;
   }
@@ -178,7 +178,7 @@
 }
 
 /* 2xl (≥1536px) */
-@media (min-width: 1536px) {
+@media (min-width: 96rem) {
   .newsletter__container {
     gap: 10rem;
   }

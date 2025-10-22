@@ -31,7 +31,7 @@
 =============================== */
 
 /* Big screens */
-@media (max-width: 1536px) {
+@media (max-width: 96rem) {
   .page-header h1 {
     /* Typography */
     font-size: 60px;
@@ -40,7 +40,7 @@
 
 
 /* Medium screens */
-@media (max-width: 992px) {
+@media (max-width: 64rem) {
   .page-header h1 {
     /* Typography */
     font-size: 2.5rem;
@@ -56,7 +56,7 @@
 }
 
 /* Small screens */
-@media (max-width: 768px) {
+@media (max-width: 48rem) {
   .page-header h1 {
     font-size: 2.25rem;
   }

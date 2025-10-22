@@ -62,14 +62,14 @@
 =============================== */
 
 /* Medium screens */
-@media (max-width: 1280px) {
+@media (max-width: 80rem) {
   .blog-grid .post-image {
     height: 300px;
   }
 }
 
 /* Small screens */
-@media (max-width: 768px) {
+@media (max-width: 48rem) {
   .blog-grid {
     grid-template-columns: 1fr;
     row-gap: 40px;

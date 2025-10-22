@@ -6,8 +6,7 @@
   display: flex;
   gap: 120px; /* Increased gap for better separation */
   align-items: flex-start;
-  padding-top: 100px;
-  padding-bottom: 100px;
+  padding: 100px 3rem;
 }
 
 /* =============================
@@ -138,6 +137,15 @@
 /* =============================
  * Responsive Design
  * ============================= */
+
+/* 2xl breakpoint (≤1536px) */
+@media (max-width: 96rem) {
+  #contact-form {
+    /* Box model */
+    padding: 100px 0;
+  }
+}
+
 @media (max-width: 64rem) {
   #contact-form {
     /* Box model */

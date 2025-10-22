@@ -93,6 +93,7 @@
   #find-us {
     /* Box model */
     flex-direction: column-reverse;
+    align-items: unset;
     gap: 40px;
     margin: 40px 0;
     padding: 4rem 0 0 0;
@@ -111,8 +112,7 @@
 
   .find-us__image {
     /* Box model */
-    max-width: 90%;
-    max-height: 90%;
+    max-width: 74%;
     height: auto;
   }
 }
@@ -126,7 +126,6 @@
 
   .find-us__image {
     /* Box model */
-    max-width: 100%;
     border-radius: 8px;
     box-shadow: none;
   }

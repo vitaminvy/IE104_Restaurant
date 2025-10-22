@@ -1,4 +1,4 @@
-import { featuredPost } from './data.js';
+import { featuredPost } from '../../assets/data/blogpage.js';
 
 export function renderFeaturedPost() {
     const featuredContainer = document.getElementById('featured-post');

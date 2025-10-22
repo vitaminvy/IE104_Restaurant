@@ -1,4 +1,4 @@
-import { blogPosts } from './data.js';
+import { blogPosts } from '../../assets/data/blogpage.js';
 
 export function renderBlogGrid() {
     const blogGrid = document.getElementById('blog-grid');

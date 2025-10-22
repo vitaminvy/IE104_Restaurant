@@ -1,0 +1,249 @@
+:root {
+  /* Colors */
+  --bg-box: #18181b;
+  --color-white-60: rgba(255, 255, 255, 0.6);
+  --color-white-45: rgba(255, 255, 255, 0.45);
+  --color-white-10: rgba(255, 255, 255, 0.1);
+  --line: rgba(255, 255, 255, 0.08);
+
+  /* Sizing */
+  --radius: 12px;
+  --radius-lg: 16px;
+  --space-1: 6px;
+  --space-2: 10px;
+  --space-3: 14px;
+  --space-4: 20px;
+  --space-6: 28px;
+  --space-8: 36px;
+
+  --input-h: 44px;
+  --container: min(1120px, 92vw);
+  --shadow: 0 0 0 1px var(--line), 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+/* CSS Global */
+* {
+  box-sizing: border-box;
+}
+
+a {
+  all: unset;
+  cursor: pointer;
+}
+
+.container {
+  max-width: 1024px;
+  width: 100%;
+  margin: 0 auto;
+  padding: clamp(16px, 3vw, 32px) 0 64px;
+}
+
+/* Layout */
+.checkout {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 130px;
+}
+
+/* BILLING */
+.billing__title,
+.summary__title {
+  color: var(--color-white);
+  font-family: var(--font-heading);
+  font-weight: 500;
+  line-height: 1.333;
+  margin: 0 0 28px;
+  font-size: 30px;
+}
+
+.form__label,
+.form__input,
+.form__select,
+.payment__label,
+.order-table td {
+  color: var(--color-white);
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.625;
+}
+
+.form__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.form__group {
+  margin-bottom: 24px;
+}
+.form__label {
+  display: block;
+  margin-bottom: 14px;
+}
+
+.form__input,
+.form__select {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--line);
+  color: var(--color-white-80);
+  outline: none;
+  transition: border-color 0.25s ease;
+  padding: 0 0 14px;
+}
+
+.form__input::placeholder {
+  color: var(--color-white-60);
+}
+
+.form__input:focus {
+  outline: none;
+  border-color: var(--color-dark-orange);
+  box-shadow: 0 1px 0 0 var(--color-dark-orange);
+}
+
+.form__input:hover {
+  border-color: var(--color-white-45);
+}
+
+/* Payment*/
+.payment {
+  margin-top: 60px;
+  border: 2px solid var(--line);
+  background: var(--bg-box);
+  padding: 34px 28px;
+}
+
+.payment__option {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  margin-bottom: 14px;
+}
+
+.payment__head {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 10px 0;
+}
+
+.payment__radio {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid var(--color-white-60);
+  display: grid;
+  place-items: center;
+}
+.payment__radio:checked {
+  border-color: var(--color-dark-orange);
+  box-shadow: 0 0 0 3px rgba(247, 166, 0, 0.2);
+}
+.payment__radio:checked::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-dark-orange);
+}
+
+.payment__hint {
+  display: none;
+  color: var(--color-white-80);
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.71;
+  margin-top: 14px;
+}
+
+.payment__option:last-of-type .payment__hint {
+  margin-bottom: 24px;
+}
+
+.payment__privacy {
+  margin: 14px 0 28px;
+  color: var(--color-white-60);
+  font-size: 14px;
+}
+.link {
+  color: var(--color-dark-orange);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* Button */
+.btn {
+  display: flex;
+  max-width: 454px;
+  width: 100%;
+  padding: 8px 30px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  color: var(--color-white);
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.62;
+  cursor: pointer;
+}
+.btn--primary {
+  background: var(--color-dark-orange);
+}
+
+.btn--primary:active {
+  transform: translateY(1px);
+}
+
+/* Summary */
+.order-table {
+  width: 100%;
+  background: var(--bg-box);
+  overflow: hidden;
+}
+
+.order-table th {
+  color: var(--color-white);
+  /* 18 */
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.55;
+}
+
+.order-table td {
+  color: var(--color-white-80);
+}
+
+.order-table th,
+.order-table td {
+  padding: 14px 18px;
+  text-align: left;
+  border-bottom: 1px solid var(--line);
+}
+.order-table th:last-child,
+.order-table td:last-child {
+  text-align: right;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .checkout {
+    grid-template-columns: 1fr;
+  }
+  .summary {
+    order: -1;
+  }
+}
+@media (max-width: 640px) {
+  .form__row {
+    grid-template-columns: 1fr;
+  }
+  .payment {
+    padding: var(--space-4);
+  }
+}

@@ -1,5 +1,5 @@
 /* =========================================================
-   HIGHLIGHT BANNER SECTION - FULL RESPONSIVE
+   HIGHLIGHT BANNER SECTION 
 ========================================================= */
 
 .highlight-banner {
@@ -87,8 +87,8 @@
   }
 }
 
-/* sm (≥480px to <768px): small tablet / landscape phone */
-@media (min-width: 30rem) and (max-width: 48rem) {
+/* sm (≥480px to <768px):  */
+@media (min-width: 30rem) {
   .highlight-banner__item {
     font-size: 1.05rem;
     margin: 0 2rem;
@@ -121,7 +121,7 @@
   }
 }
 
-/* lg (≥1024px): laptop / desktop */
+/* lg (≥1024px): desktop */
 @media (min-width: 64rem) {
   .highlight-banner__item {
     font-size: 1.6rem;
@@ -159,7 +159,7 @@
   }
 }
 
-/* 2xl (≥1536px): very large screens / 4K */
+/* 2xl (≥1536px): large screens  */
 @media (min-width: 96rem) {
   .highlight-banner__item {
     font-size: 2rem;

@@ -31,9 +31,9 @@ a {
 }
 
 .container {
-  max-width: 1024px;
-  width: 100%;
-  margin: 0 auto;
+  width: min(100%, 92vw); /* co mềm theo viewport */
+  max-width: 1280px; /* vẫn giữ giới hạn tối đa */
+  margin-inline: auto;
   padding: clamp(16px, 3vw, 32px) 0 64px;
 }
 
@@ -178,7 +178,7 @@ a {
 /* Button */
 .btn {
   display: flex;
-  max-width: 454px;
+  max-width: 100%;
   width: 100%;
   padding: 8px 30px;
   justify-content: center;
@@ -208,7 +208,6 @@ a {
 
 .order-table th {
   color: var(--color-white);
-  /* 18 */
   font-family: var(--font-body);
   font-size: 18px;
   font-weight: 600;
@@ -219,31 +218,141 @@ a {
   color: var(--color-white-80);
 }
 
-.order-table th,
-.order-table td {
-  padding: 14px 18px;
+.order-table td,
+.order-table th {
+  padding: 24px 28px;
   text-align: left;
   border-bottom: 1px solid var(--line);
 }
+
+.order-table th {
+  padding: 18px 28px;
+}
+
 .order-table th:last-child,
 .order-table td:last-child {
   text-align: right;
 }
 
-/* Responsive */
-@media (max-width: 992px) {
+/* ================== Responsive Breakpoints ================== */
+
+/* md (≥768px) */
+@media (max-width: 991.98px) {
   .checkout {
     grid-template-columns: 1fr;
+    gap: 70px;
   }
+
   .summary {
-    order: -1;
+    order: 3;
+  }
+
+  .billing {
+    order: 1;
+  }
+
+  .payment {
+    order: 2;
+  }
+
+  .container {
+    padding: 40px 20px;
+  }
+
+  /* input 1 column */
+  .form__row {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .order-table th,
+  .order-table td {
+    padding: 18px 20px;
+  }
+
+  .payment {
+    margin-top: 50px;
+    padding: 24px 20px;
+  }
+
+  .payment__head {
+    gap: 20px;
+  }
+
+  .btn {
+    max-width: 100%;
+    padding: 12px 24px;
   }
 }
+
+/* sm (≤640px) */
 @media (max-width: 640px) {
+  .container {
+    padding: 28px 16px;
+  }
+
+  .billing__title,
+  .summary__title {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+
+  .form__label {
+    font-size: 14px;
+  }
+
+  .form__input,
+  .form__select {
+    font-size: 14px;
+    padding: 0 0 12px;
+  }
+
+  .payment {
+    padding: 20px 16px;
+  }
+
+  .payment__label {
+    font-size: 15px;
+  }
+
+  .payment__hint {
+    font-size: 13px;
+    margin-top: 8px;
+  }
+
+  .order-table {
+    font-size: 14px;
+  }
+
+  .order-table th,
+  .order-table td {
+    padding: 14px 16px;
+  }
+
+  /* Nút order full width */
+  .btn {
+    width: 100%;
+    font-size: 15px;
+    padding: 12px;
+  }
+}
+
+/* xs (≤480px) */
+@media (max-width: 480px) {
   .form__row {
     grid-template-columns: 1fr;
   }
+
   .payment {
-    padding: var(--space-4);
+    padding: 16px 14px;
+  }
+
+  .payment__label {
+    font-size: 14px;
+  }
+
+  .order-table th,
+  .order-table td {
+    padding: 12px 14px;
   }
 }

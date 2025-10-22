@@ -1,15 +1,19 @@
 /*
  * ----------------------------------------
- * Kiểu dáng cho phần giới thiệu đầu bếp
+ * Chef Introduction Section Styles
  * ----------------------------------------
  */
 
 #chef-intro {
+  /* Box model */
   padding: 4rem 1rem 0 1rem;
+
+  /* Typography */
   text-align: center;
 }
 
 .chef-container {
+  /* Box model */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -19,86 +23,123 @@
   margin: 0 auto;
 }
 
+/* ----------------------------------------
+ * Chef Image Wrapper
+ * ---------------------------------------- */
 .chef-image-wrapper {
-  flex: 1;
+  /* Position */
   position: relative;
+
+  /* Box model */
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 0 1rem;
   max-width: 600px;
-  overflow: hidden; /* 🔹 Giúp ẩn phần ảnh bị phóng to vượt ra ngoài */
+  overflow: hidden; /* Ensures zoomed image does not overflow */
 }
 
 .chef-image-wrapper img {
+  /* Box model */
   width: 100%;
   max-width: 500px;
+
+  /* Background / Others */
   object-fit: cover;
-  transition: transform 0.5s ease; /* 🔹 Hiệu ứng mượt khi transform */
+  transition: transform 0.5s ease; /* Smooth scale effect */
 }
 
-/* Hiệu ứng khi hover */
+/* Hover effect for image */
 .chef-image-wrapper:hover img {
-  transform: scale(1.05); /* 🔹 Phóng to ảnh thêm 5% */
+  transform: scale(1.05); /* Slight zoom on hover */
 }
 
-/* 
- * Kiểu dáng cho cột chứa văn bản 
- */
+/* ----------------------------------------
+ * Chef Text Content
+ * ---------------------------------------- */
 .chef-text-content {
-  flex: 1; /* Cho phép cột văn bản co giãn */
+  /* Box model */
+  flex: 1;
 
+  /* Typography */
   font-size: 0.8rem;
 }
 
-/* Kiểu dáng cho tiêu đề */
+/* ----------------------------------------
+ * Title and Name
+ * ---------------------------------------- */
 .chef-title {
+  /* Typography */
   font-family: var(--font-heading);
-  font-weight: 400; 
+  font-weight: 400;
   font-size: 2rem;
   line-height: 1.3;
   color: var(--color-white);
-  margin: 0 0 24px 0; 
+
+  /* Box model */
+  margin: 0 0 24px 0;
 }
 
 .chef-name {
-  display: block; /* Hiển thị tên trên một dòng mới */
+  /* Box model */
+  display: block;
+
+  /* Typography */
   font-size: 2.5rem;
   font-weight: 500;
 }
 
-/* Kiểu dáng cho đoạn mô tả */
+/* ----------------------------------------
+ * Chef Description
+ * ---------------------------------------- */
 .chef-description {
+  /* Box model */
+  margin: 0 0 32px 0;
+  max-width: 480px;
+
+  /* Typography */
   font-size: 1rem;
   line-height: 1.625;
   color: var(--color-white-80);
-  margin: 0 0 32px 0;
-  max-width: 480px; /* Giới hạn chiều rộng để dễ đọc */
 }
 
-/* Kiểu dáng cho liên kết "Meet Our Team" */
+/* ----------------------------------------
+ * "Meet Our Team" Link
+ * ---------------------------------------- */
 .team-link {
+  /* Box model */
   display: inline-block;
+  position: relative;
+
+  /* Typography */
   font-family: var(--font-body);
-  color: #ffffff;
   font-weight: 500;
   font-size: 0.8rem;
+  color: #ffffff;
   text-decoration: none;
-  position: relative;
+
+  /* Background / Others */
   transition: color 0.3s ease;
 }
 
 .team-link::after {
-  content: "";
+  /* Position */
   position: absolute;
   bottom: -2px;
   left: 0;
+
+  /* Box model */
+  content: "";
   width: 100%;
   height: 2px;
+
+  /* Background / Others */
   background-color: #fb8f2c;
   transition: width 0.3s ease;
 }
 
+/* Hover states */
 .team-link:hover {
   color: #fb8f2c;
 }
@@ -108,7 +149,7 @@
 }
 
 /* =========================================================
-   4. RESPONSIVE DESIGN
+   Responsive Design
 ========================================================= */
 
 /* sm (≥640px) */
@@ -116,9 +157,11 @@
   #chef-intro {
     padding: 5rem 1.5rem 0 1.5rem;
   }
+
   .chef-title {
     font-size: 2.4rem;
   }
+
   .chef-container {
     gap: 3rem;
   }
@@ -143,19 +186,19 @@
   .chef-text-content {
     flex: 1;
     text-align: left;
-  } 
+  }
 
   .chef-description {
     font-size: 0.8rem;
   }
-    
+
   .chef-title {
     font-size: 2rem;
     line-height: 1.2;
   }
 }
 
-/* lg (≥1024px): desktop */
+/* lg (≥1024px) - desktop */
 @media (min-width: 64rem) {
   #chef-intro {
     text-align: left;
@@ -164,16 +207,17 @@
 
   .chef-title {
     font-family: var(--font-heading);
-    font-weight: 400; 
+    font-weight: 400;
     font-size: 2.5rem;
     line-height: 1.3;
     color: var(--color-white);
-    margin: 0 0 24px 0; 
+    margin: 0 0 24px 0;
   }
 
   .chef-description {
     font-size: 1rem;
   }
+
   .chef-name {
     display: block;
     font-size: 3.5rem;
@@ -197,7 +241,7 @@
   }
 }
 
-/* xl (≥1280px): large desktop */
+/* xl (≥1280px) - large desktop */
 @media (min-width: 80rem) {
   #chef-intro {
     padding: 8rem 4rem 0 4rem;

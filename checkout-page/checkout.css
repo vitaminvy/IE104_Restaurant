@@ -225,13 +225,8 @@ a {
   border-bottom: 1px solid var(--line);
 }
 
-.order-table th {
-  padding: 18px 28px;
-}
-
-.order-table th:last-child,
-.order-table td:last-child {
-  text-align: right;
+.order-table td {
+  padding: 18px 10px 18px 28px;
 }
 
 /* ================== Responsive Breakpoints ================== */
@@ -259,15 +254,19 @@ a {
     padding: 40px 20px;
   }
 
+  .form__group {
+    margin-bottom: 20px;
+  }
+
   /* input 1 column */
   .form__row {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 0;
   }
 
   .order-table th,
   .order-table td {
-    padding: 18px 20px;
+    padding: 18px 10px 18px 20px;
   }
 
   .payment {
@@ -322,11 +321,21 @@ a {
 
   .order-table {
     font-size: 14px;
+    table-layout: fixed;
   }
 
   .order-table th,
   .order-table td {
-    padding: 14px 16px;
+    padding: 14px 10px 14px 16px;
+  }
+
+  .order-table td:first-child,
+  .order-table th:first-child {
+    width: 55%;
+  }
+  .order-table td:last-child,
+  .order-table th:last-child {
+    width: 45%;
   }
 
   /* Nút order full width */
@@ -353,6 +362,6 @@ a {
 
   .order-table th,
   .order-table td {
-    padding: 12px 14px;
+    padding: 12px 10px 12px 14px;
   }
 }

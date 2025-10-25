@@ -1,5 +1,5 @@
-// === Cấu hình ngày đếm ngược (ví dụ 01/01/2026) ===
-const launchDate = new Date("2026-01-01T00:00:00").getTime();
+// === Cấu hình ngày đếm ngược (ví dụ 26/11/2025) ===
+const launchDate = new Date("2025-11-26T00:00:00").getTime();
 
 // === Cập nhật mỗi giây ===
 const timer = setInterval(() => {

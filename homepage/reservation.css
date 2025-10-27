@@ -189,14 +189,16 @@
 
 /* xl (≥1280px): desktop */
 @media (min-width: 80rem) {
-  .reservation__title {
-    font-size: 3.5rem;
+  .reservation {
+    margin-top: 7rem;
   }
-}
 
-/* 2xl (≥1536px): large desktop */
-@media (min-width: 96rem) {
   .reservation__title {
     font-size: 4rem;
   }
+
+  .reservation__subtitle {
+    font-size: 1rem;
+  }
 }
+

@@ -1,5 +1,6 @@
 /* ========== Reservation Section ========== */
 .reservation {
+  margin-top: 3rem;
   position: relative;
   /* gradient overlay + props bg */
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.62), rgba(28, 28, 28, 0.62)),
@@ -179,7 +180,7 @@
 /* lg (≥1024px): desktop */
 @media (min-width: 64rem) {
   .reservation {
-    margin-top: 5rem;
+    margin-top: 6rem;
   }
   .reservation__title {
     font-size: 3rem;

@@ -9,7 +9,7 @@
 }
 
 .daily-offers__container {
-  max-width: 1536px;
+  max-width: 1280px;
   margin: 0 auto;
 }
 
@@ -121,7 +121,7 @@
 /* Desktop ≥1024px */
 @media (min-width: 64rem) {
   .daily-offers__title {
-    font-size: 3rem;
+    font-size: 4rem;
   }
 
   .daily-offers__promo-link {
@@ -149,6 +149,7 @@
 @media (min-width: 80rem) {
   .daily-offers__container {
     max-width: 1400px;
+    margin-top: 5rem;
   }
 
   .daily-offers__content {

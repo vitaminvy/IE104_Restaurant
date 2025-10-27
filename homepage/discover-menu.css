@@ -1,13 +1,13 @@
 /* =========================================================
-   1. OFFER SECTION (Feature Offer / Discover Menu)
+   1. DISCOVER MENU SECTION
 ========================================================= */
 
-#offers {
+#discover {
   padding: 4rem 1rem;
   text-align: center;
 }
 
-.offer__container {
+.discover__container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -20,13 +20,13 @@
 /* ---------------------- */
 /* 2. LEFT CONTENT AREA   */
 /* ---------------------- */
-.offer__content {
+.discover__content {
   flex: 1;
   max-width: 600px;
   padding: 0 1rem;
 }
 
-.offer__title {
+.discover__title {
   margin-bottom: 2rem;
   font-size: 2rem;
   font-family: var(--font-heading);
@@ -34,14 +34,14 @@
   line-height: 1.2;
 }
 
-.offer__desc {
+.discover__desc {
   margin-bottom: 1.75rem;
   color: rgba(255, 255, 255, 0.85);
   font-family: var(--font-body);
   line-height: 1.6;
 }
 
-.offer__link {
+.discover__link {
   display: inline-block;
   font-family: var(--font-body);
   color: #ffffff;
@@ -51,7 +51,7 @@
   transition: color 0.3s ease;
 }
 
-.offer__link::after {
+.discover__link::after {
   content: "";
   position: absolute;
   bottom: -2px;
@@ -62,18 +62,18 @@
   transition: width 0.3s ease;
 }
 
-.offer__link:hover {
+.discover__link:hover {
   color: #fb8f2c;
 }
 
-.offer__link:hover::after {
+.discover__link:hover::after {
   width: 40%;
 }
 
 /* ---------------------- */
 /* 3. RIGHT IMAGE AREA    */
 /* ---------------------- */
-.offer__image {
+.discover__image {
   flex: 1;
   position: relative;
   display: flex;
@@ -83,14 +83,14 @@
   max-width: 600px;
 }
 
-.offer__image img {
+.discover__image img {
   width: 100%;
   max-width: 500px;
   object-fit: cover;
   transition: transform 0.4s ease;
 }
 
-.offer__image img:hover {
+.discover__image img:hover {
   transform: scale(1.03);
 }
 
@@ -100,25 +100,27 @@
 
 /* sm (≥640px) */
 @media (min-width: 40rem) {
-  #offers {
+  #discover {
     padding: 5rem 1.5rem;
   }
-  .offer__title {
+
+  .discover__title {
     font-size: 2.4rem;
   }
-  .offer__container {
+
+  .discover__container {
     gap: 3rem;
   }
 }
 
 /* md (≥768px) */
 @media (min-width: 48rem) and (max-width: 63.9375rem) {
-  #offers {
+  #discover {
     text-align: left;
     padding: 6rem 2rem;
   }
 
-  .offer__container {
+  .discover__container {
     flex-direction: row;
     align-items: center;
     justify-content: center;
@@ -127,25 +129,25 @@
     margin: 0 auto;
   }
 
-  .offer__content {
+  .discover__content {
     flex: 1;
     padding-right: 2rem;
     max-width: 440px;
   }
 
-  .offer__image {
+  .discover__image {
     flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
-  .offer__title {
+  .discover__title {
     font-size: 2rem;
     line-height: 1.2;
   }
 
-  .offer__desc {
+  .discover__desc {
     font-size: 0.8rem;
     line-height: 1.6;
     color: rgba(255, 255, 255, 0.85);
@@ -154,12 +156,12 @@
 
 /* lg (≥1024px): desktop */
 @media (min-width: 64rem) {
-  #offers {
+  #discover {
     text-align: left;
     padding: 7rem 3rem;
   }
 
-  .offer__container {
+  .discover__container {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
@@ -167,23 +169,24 @@
     max-width: 1200px;
   }
 
-  .offer__title {
+  .discover__title {
     font-size: 3rem;
   }
 }
 
 /* xl (≥1280px): large desktop */
 @media (min-width: 80rem) {
-  #offers {
-    padding: 8rem 4rem;
+  #discover {
+    padding: 0rem 4rem;
+    margin-top: 7rem;
   }
 
-  .offer__container {
+  .discover__container {
     gap: 6rem;
     max-width: 1400px;
   }
 
-  .offer__title {
+  .discover__title {
     font-size: 3.8rem;
   }
 }

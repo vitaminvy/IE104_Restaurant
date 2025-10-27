@@ -239,7 +239,8 @@
 /* xl (≥1280px) - large desktop */
 @media (min-width: 80rem) {
   #chef-intro {
-    padding: 8rem 4rem 0 4rem;
+    padding: 0 4rem;
+    margin-top: 5rem;
   }
 
   .chef-container {

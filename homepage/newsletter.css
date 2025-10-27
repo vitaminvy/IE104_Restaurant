@@ -1,6 +1,6 @@
 /* ================== Newsletter Section ================== */
 #newsletter {
-  padding-top: clamp(3rem, 8vw, 6rem);
+  margin-top: 5rem;
   padding-bottom: clamp(3rem, 8vw, 6rem);
 }
 
@@ -164,6 +164,7 @@
 @media (min-width: 1280px) {
   .newsletter__container {
     gap: 8rem;
+    margin-top: 7rem;
   }
   .newsletter__content {
     max-width: 35rem;

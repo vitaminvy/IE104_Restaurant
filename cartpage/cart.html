@@ -43,14 +43,22 @@
             <table>
               <thead>
                 <tr>
-                  <th class="cart__col-remove" aria-label="Remove"></th>
+                  <th
+                    scope="col"
+                    class="cart__col-remove"
+                    aria-label="Remove"
+                  ></th>
                   <!-- NEW -->
-                  <th class="cart__col-image" aria-label="Image"></th>
+                  <th
+                    scope="col"
+                    class="cart__col-image"
+                    aria-label="Image"
+                  ></th>
                   <!-- thêm class -->
-                  <th class="cart__col-name">Food</th>
-                  <th class="cart__col-price">Price</th>
-                  <th class="cart__col-qty">Quantity</th>
-                  <th class="cart__col-subtotal">Subtotal</th>
+                  <th scope="col" class="cart__col-name">Food</th>
+                  <th scope="col" class="cart__col-price">Price</th>
+                  <th scope="col" class="cart__col-qty">Quantity</th>
+                  <th scope="col" class="cart__col-subtotal">Subtotal</th>
                 </tr>
               </thead>
               <!-- body table -->
@@ -58,7 +66,11 @@
                 <tr>
                   <!-- NEW: remove button -->
                   <td class="cart__remove">
-                    <button class="remove__btn" aria-label="Remove item">
+                    <button
+                      class="remove__btn"
+                      aria-label="Remove item"
+                      type="button"
+                    >
                       <i class="fa-solid fa-trash"></i>
                     </button>
                   </td>
@@ -77,14 +89,26 @@
                   <!-- NEW: quantity group styled like design -->
                   <td data-label="Quantity">
                     <div class="cart__qty">
-                      <button class="qty__btn" aria-label="Decrease">−</button>
+                      <button
+                        class="qty__btn"
+                        aria-label="Decrease"
+                        type="button"
+                      >
+                        −
+                      </button>
                       <input
                         class="qty__input"
                         type="number"
                         value="1"
                         min="1"
                       />
-                      <button class="qty__btn" aria-label="Increase">+</button>
+                      <button
+                        class="qty__btn"
+                        aria-label="Increase"
+                        type="button"
+                      >
+                        +
+                      </button>
                     </div>
                   </td>
 
@@ -131,9 +155,11 @@
                   type="text"
                   placeholder="Coupon code"
                 />
-                <button class="btn btn--brand">Apply coupon</button>
+                <button class="btn btn--brand" type="button">
+                  Apply coupon
+                </button>
               </div>
-              <button class="btn btn--ghost">Update Cart</button>
+              <button class="btn btn--ghost" type="button">Update Cart</button>
             </div>
           </div>
 
@@ -152,8 +178,8 @@
                   <th scope="row" class="totals__left">Shipping</th>
                   <td class="totals__right">
                     <p class="shipping__desc">
-                      <span>Flat rate: <strong>$6.00</strong><br /></span>
-                      <span>Shipping to <strng>New South Wales</strng>.</span>
+                      <span>Flat rate: <strong>$6.00</strong></span>
+                      <span>Shipping to <strong>New South Wales</strong>.</span>
                     </p>
                     <p class="shipping__address">Change address</p>
                     <form class="addrForm" action="#" method="post">
@@ -202,7 +228,9 @@
             </table>
 
             <div class="totals__footer">
-              <button class="btn btn--block">Proceed to Checkout</button>
+              <button class="btn btn--block" type="button">
+                Proceed to Checkout
+              </button>
             </div>
           </aside>
         </div>

@@ -1,0 +1,96 @@
+{
+  "hero": {
+    "subtitle": "Welcome to Our Restaurant",
+    "title": "The Best Food For The Best Moments",
+    "description": "We've got famous chefs and stars—Julia Child, Sophia Loren, Virginia Woolf—to thank for some of the greatest food quotes of all time.",
+    "cta": "View More"
+  },
+  "highlight": {
+    "self_services": "Self Services",
+    "best_food": "Best Food",
+    "fast_delivery": "Fast Delivery",
+    "super_taste": "Super Taste"
+  },
+  "about": {
+    "title": "We Are A Mexican Restaurant Makes Delicious.",
+    "text": "Hi! Our Restaurant has been present for over 20 years in the market. We make the most of all our customers.",
+    "link": "About Us"
+  },
+  "features": {
+    "door_delivery": {
+      "title": "Door Delivery",
+      "desc": "Desire that they all cannot foresee the pain and trouble that are bound to ensue."
+    },
+    "outdoor_catering": {
+      "title": "Outdoor Catering",
+      "desc": "Obligations of business it will frequently occur that pleasures have to be repudiated."
+    },
+    "fine_dining": {
+      "title": "Fine Dining",
+      "desc": "Explain you how this mistakens denouncing pleasure & praising pain will give you complete."
+    },
+    "banquets_hall": {
+      "title": "Banquets Hall",
+      "desc": "The wise man therefore always holds in these matters this principles of selection greater."
+    }
+  },
+  "service_means": {
+    "title": "Our Service Means Satisfy",
+    "subtitle": "Located in downtown Burlington near the shores of Lake Champlain, we give you space.",
+    "list": [
+      "Quality & Quantity Top Notch.",
+      "Fresh & Healthy Food.",
+      "Satisfying Taste.",
+      "On Demand Food Services.",
+      "Green & Safety Ingredient."
+    ]
+  },
+  "menu": {
+    "title": "Check out our menu",
+    "subtitle": "We love to serve the quality food as always. Check our foodbook below.",
+    "filter": {
+      "breakfast": "Breakfast",
+      "lunch": "Lunch",
+      "dinner": "Dinner",
+      "starters": "Starters"
+    }
+  },
+  "stats": {
+    "happy_customers": "Happy Customers",
+    "passionate_chefs": "Passionate Chef’s",
+    "delicious_dishes": "Delicious Dishes",
+    "customer_rating": "Customer Rating"
+  },
+  "chef": {
+    "title": "Experience Chef",
+    "description": "Everyday Chef Delicioz sets himself the challenge to start from scratch – his tools: ingenuity, curiosity, enthusiasm, unparalleled talent and the highest craftsmanship.",
+    "team_link": "Meet Our Team"
+  },
+  "discover": {
+    "title": "Michelin Lunch, <br /> Dinner Or Both?",
+    "desc": "It’s the story of an everlasting love affair, Dieter Delicioz and the Atlantic Ocean. Our proximity to the abundant riches of the sea and Portugal’s excellent produce has provided a constant source of inspiration for Chef L'delicio.",
+    "link": "Discover Menu"
+  },
+  "offers": {
+    "title": "Our Daily Offers"
+  },
+  "reservation": {
+    "title_online": "Online",
+    "title_reservation": "Reservation",
+    "subtitle": "Book your table for lunch or dinner.",
+    "placeholder_name": "Your name",
+    "placeholder_phone": "Phone number",
+    "placeholder_email": "Email address",
+    "person_1": "1 Person",
+    "person_2": "2 Persons",
+    "person_3": "3 Persons",
+    "person_4": "4 Persons",
+    "person_5": "5 Persons",
+    "submit": "Reserve Your Table Now"
+  },
+  "newsletter": {
+    "title": "Subscribe Newsletter & Get Latest News",
+    "subtitle": "Get insider access to news around the innovations, unique cooking techniques, culinary concepts, insights, and more",
+    "placeholder_email": "Enter your email address"
+  }
+}

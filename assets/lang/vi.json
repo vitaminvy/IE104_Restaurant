@@ -1,0 +1,96 @@
+{
+  "hero": {
+    "subtitle": "Chào mừng đến với nhà hàng của chúng tôi",
+    "title": "Món ngon cho những khoảnh khắc tuyệt vời nhất",
+    "description": "Chúng ta biết ơn những đầu bếp và ngôi sao như Julia Child, Sophia Loren, Virginia Woolf — vì những câu nói bất hủ về ẩm thực.",
+    "cta": "Xem thêm"
+  },
+  "highlight": {
+    "self_services": "Tự phục vụ",
+    "best_food": "Món ngon nhất",
+    "fast_delivery": "Giao nhanh",
+    "super_taste": "Vị ngon tuyệt"
+  },
+  "about": {
+    "title": "Chúng tôi là nhà hàng Mexico với món ăn tuyệt hảo.",
+    "text": "Xin chào! Nhà hàng của chúng tôi đã có mặt hơn 20 năm trên thị trường. Chúng tôi luôn mang đến trải nghiệm tốt nhất cho khách hàng.",
+    "link": "Về chúng tôi"
+  },
+  "features": {
+    "door_delivery": {
+      "title": "Giao tận cửa",
+      "desc": "Những điều không lường trước được đôi khi gây phiền toái và khó khăn."
+    },
+    "outdoor_catering": {
+      "title": "Tiệc ngoài trời",
+      "desc": "Trong kinh doanh, đôi khi phải từ chối những thú vui để hoàn thành trách nhiệm."
+    },
+    "fine_dining": {
+      "title": "Ẩm thực cao cấp",
+      "desc": "Giải thích cách việc tránh xa khoái lạc và đề cao nỗ lực mang lại sự trọn vẹn."
+    },
+    "banquets_hall": {
+      "title": "Sảnh yến tiệc",
+      "desc": "Người khôn ngoan luôn biết chọn lựa điều tốt hơn trong mọi trường hợp."
+    }
+  },
+  "service_means": {
+    "title": "Dịch vụ của chúng tôi là sự hài lòng",
+    "subtitle": "Nằm ở trung tâm thành phố Burlington gần hồ Champlain, chúng tôi cho bạn không gian.",
+    "list": [
+      "Chất lượng & số lượng đều hạng nhất.",
+      "Thực phẩm tươi & lành mạnh.",
+      "Hương vị thỏa mãn.",
+      "Dịch vụ theo yêu cầu.",
+      "Nguyên liệu xanh & an toàn."
+    ]
+  },
+  "menu": {
+    "title": "Khám phá thực đơn",
+    "subtitle": "Chúng tôi luôn phục vụ món ăn chất lượng. Xem sổ thực đơn bên dưới.",
+    "filter": {
+      "breakfast": "Bữa sáng",
+      "lunch": "Bữa trưa",
+      "dinner": "Bữa tối",
+      "starters": "Khai vị"
+    }
+  },
+  "stats": {
+    "happy_customers": "Khách hàng hài lòng",
+    "passionate_chefs": "Đầu bếp nhiệt huyết",
+    "delicious_dishes": "Món ngon đa dạng",
+    "customer_rating": "Đánh giá khách hàng"
+  },
+  "chef": {
+    "title": "Bếp trưởng",
+    "description": "Mỗi ngày Chef Delicioz tự đặt mục tiêu bắt đầu từ con số 0 — công cụ: sáng tạo, tò mò, nhiệt huyết, tài năng vượt trội và tay nghề cao nhất.",
+    "team_link": "Gặp gỡ đội ngũ"
+  },
+  "discover": {
+    "title": "Bữa trưa Michelin, <br /> bữa tối hay cả hai?",
+    "desc": "Đó là câu chuyện tình dài lâu giữa Dieter Delicioz và Đại Tây Dương. Sự gần gũi với biển cả cùng nông sản Bồ Đào Nha tuyệt hảo luôn truyền cảm hứng cho Chef L'delicio.",
+    "link": "Khám phá thực đơn"
+  },
+  "offers": {
+    "title": "Ưu đãi hằng ngày"
+  },
+  "reservation": {
+    "title_online": "Trực tuyến",
+    "title_reservation": "Đặt bàn",
+    "subtitle": "Đặt bàn cho bữa trưa hoặc bữa tối.",
+    "placeholder_name": "Họ và tên",
+    "placeholder_phone": "Số điện thoại",
+    "placeholder_email": "Địa chỉ email",
+    "person_1": "1 người",
+    "person_2": "2 người",
+    "person_3": "3 người",
+    "person_4": "4 người",
+    "person_5": "5 người",
+    "submit": "Đặt bàn ngay"
+  },
+  "newsletter": {
+    "title": "Đăng ký nhận tin & cập nhật mới nhất",
+    "subtitle": "Nhận thông tin nội bộ về đổi mới, kỹ thuật nấu ăn độc đáo, ý tưởng ẩm thực và nhiều hơn nữa",
+    "placeholder_email": "Nhập email của bạn"
+  }
+}

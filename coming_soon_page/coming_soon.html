@@ -26,226 +26,85 @@
     <link rel="stylesheet" href="../homepage/footer.css" />
     <!-- Comming Soon Style -->
     <link rel="stylesheet" href="./coming_soon.css" />
+
+    <!-- link html footer and header -->
+    <script src="../assets/script/includePartials.js" defer></script>
+    <script src="../assets/script/header.js"></script>
   </head>
   <body>
     <!-- ========== 1. HEADER ========== -->
-    <header id="header" class="header">
-      <div class="header__container">
-        <div class="header__left">
-          <!-- Left panel (Menu icon for mobile) -->
-          <button class="header__menu-btn" aria-label="Toggle menu">
-            <img
-              src="../assets/icons/Header/hamburger.svg"
-              alt="Menu Icon"
-              class="header__menu-icon"
-            />
-          </button>
-
-          <!-- Left panel (Menu list for desktop) -->
-          <nav class="header__nav">
-            <ul class="header__nav-list">
-              <li class="header__nav-item">
-                <a href="#" class="header__nav-link header__nav-link--active"
-                  >Home</a
-                >
-              </li>
-              <li class="header__nav-item">
-                <a href="#" class="header__nav-link">Menu</a>
-              </li>
-              <li class="header__nav-item">
-                <a href="#" class="header__nav-link">Blog</a>
-              </li>
-              <li class="header__nav-item">
-                <a href="#" class="header__nav-link">Pages</a>
-              </li>
-              <li class="header__nav-item">
-                <a href="#" class="header__nav-link">Contact</a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-
-        <!-- Center (Logo) -->
-        <div class="header__center">
-          <a href="#" class="header__logo">
-            <img
-              src="../assets/icons/Header/nav-vect.svg"
-              alt="Restaurant Logo"
-            />
-          </a>
-        </div>
-
-        <!-- Right (Nav links + Status + CTA) -->
-        <div class="header__right">
-          <div class="header__status">
-            <span id="current-time"></span> we're open
-          </div>
-
-          <a href="#" class="header__btn">Table Reservation</a>
-        </div>
-      </div>
-    </header>
-    <!-- open sidebar in mobile view -->
-    <script src="../assets/script/header.js"></script>
+    <div data-include="/partials/header.html"></div>
 
     <!-- Coming Soon -->
-    <section class="comingsoon">
-      <div class="comingsoon__content">
-        <h1 class="comingsoon__title">
-          Subscribe Newsletter & Get Latest News
-        </h1>
-        <p class="comingsoon__desc">
-          Our being able to do what we like best, every pleasure is to be
-          welcomed and every pain avoided certain.
-        </p>
+    <main>
+      <section class="coming__soon">
+        <div class="comingsoon__content">
+          <h1 class="comingsoon__title">
+            Subscribe Newsletter & Get Latest News
+          </h1>
+          <p class="comingsoon__desc">
+            Our being able to do what we like best, every pleasure is to be
+            welcomed and every pain avoided certain.
+          </p>
 
-        <form class="comingsoon__form">
-          <input
-            type="email"
-            class="comingsoon__input"
-            placeholder="Enter your email address"
-            required
-          />
-          <button
-            class="comingsoon__button"
-            type="submit"
-            aria-label="Subscribe"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="55"
-              height="25"
-              viewBox="0 0 55 25"
-              fill="none"
+          <form class="comingsoon__form">
+            <input
+              type="email"
+              class="comingsoon__input"
+              placeholder="Enter your email address"
+              required
+            />
+            <button
+              class="comingsoon__button"
+              type="submit"
+              aria-label="Subscribe"
             >
-              <path
-                d="M0.5 12.5H54.5M54.5 12.5C50.4091 11.86 42.2273 8.564 42.2273 0.5M54.5 12.5C50.4091 13.14 42.2273 16.436 42.2273 24.5"
-                stroke="white"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </button>
-        </form>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="55"
+                height="25"
+                viewBox="0 0 55 25"
+                fill="none"
+              >
+                <path
+                  d="M0.5 12.5H54.5M54.5 12.5C50.4091 11.86 42.2273 8.564 42.2273 0.5M54.5 12.5C50.4091 13.14 42.2273 16.436 42.2273 24.5"
+                  stroke="white"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+          </form>
 
-        <div class="comingsoon__timer">
-          <div class="comingsoon__timebox">
-            <span class="comingsoon__number" id="days"></span>
-            <p class="comingsoon__label">Days</p>
+          <div class="comingsoon__timer">
+            <div class="comingsoon__timebox">
+              <span class="comingsoon__number" id="days"></span>
+              <p class="comingsoon__label">Days</p>
+            </div>
+            <div class="comingsoon__timebox">
+              <span class="comingsoon__number" id="hours"></span>
+              <p class="comingsoon__label">Hour</p>
+            </div>
+            <div class="comingsoon__timebox">
+              <span class="comingsoon__number" id="minutes"></span>
+              <p class="comingsoon__label">Minutes</p>
+            </div>
+            <div class="comingsoon__timebox">
+              <span class="comingsoon__number" id="seconds"></span>
+              <p class="comingsoon__label">Seconds</p>
+            </div>
           </div>
-          <div class="comingsoon__timebox">
-            <span class="comingsoon__number" id="hours"></span>
-            <p class="comingsoon__label">Hour</p>
-          </div>
-          <div class="comingsoon__timebox">
-            <span class="comingsoon__number" id="minutes"></span>
-            <p class="comingsoon__label">Minutes</p>
-          </div>
-          <div class="comingsoon__timebox">
-            <span class="comingsoon__number" id="seconds"></span>
-            <p class="comingsoon__label">Seconds</p>
-          </div>
+
+          <a href="../homepage/index.html" class="comingsoon__link"
+            >Go to Home</a
+          >
         </div>
-
-        <a href="../homepage/index.html" class="comingsoon__link">Go to Home</a>
-      </div>
-    </section>
+      </section>
+    </main>
 
     <script src="coming_soon.js"></script>
 
-    <!-- footer -->
     <!-- ========== 13. FOOTER ========== -->
-    <footer
-      id="footer"
-      class="footer"
-      role="contentinfo"
-      aria-label="WowWraps main footer"
-    >
-      <div class="footer__container">
-        <!-- BRAND / APP -->
-        <div class="footer__brand">
-          <a href="#" class="footer__logo">
-            <img
-              src="../assets/images/HomePage/FooterSection/logo-wow-wraps.svg"
-              alt="WowWraps logo"
-            />
-          </a>
-
-          <div class="footer__download">
-            <p class="footer__app-copy">Download the WowWraps app today.</p>
-            <div class="footer__badges">
-              <a class="footer__badge" href="#" aria-label="Get on App Store">
-                <img
-                  src="../assets/images/HomePage/FooterSection/app-store.svg"
-                  alt="App Store"
-                />
-              </a>
-              <a class="footer__badge" href="#" aria-label="Get on Google Play">
-                <img
-                  src="../assets/images/HomePage/FooterSection/google-play.svg"
-                  alt="Google Play"
-                />
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- USEFUL LINKS -->
-        <nav class="footer__links">
-          <h4 class="footer__title">Useful Links</h4>
-          <ul class="footer__list">
-            <li><a href="#header" class="footer__link">Home</a></li>
-            <li><a href="#about" class="footer__link">About Us</a></li>
-            <li>
-              <a href="#service-features" class="footer__link">Services</a>
-            </li>
-            <li><a href="#!" class="footer__link">Booking</a></li>
-            <li><a href="#!" class="footer__link">Menu</a></li>
-          </ul>
-        </nav>
-
-        <!-- CONTACT INFO -->
-        <div class="footer__contact">
-          <h4 class="footer__title">Contact Info</h4>
-          <ul class="footer__list">
-            <li>
-              <address class="footer__addr">
-                Silk St, Barbican, London EC2Y 8DS, UK
-              </address>
-            </li>
-            <li>
-              <a
-                href="mailto:info@example.com"
-                class="footer__link footer__link--accent"
-                >info@example.com</a
-              >
-            </li>
-            <li>
-              <a href="tel:80012345678" class="footer__link">800–123–45–678</a>
-            </li>
-          </ul>
-        </div>
-
-        <!-- FOLLOW US -->
-        <div class="footer__social">
-          <h4 class="footer__title">Follow us</h4>
-          <ul class="footer__list">
-            <li><a href="#!" class="footer__link">Facebook</a></li>
-            <li><a href="#!" class="footer__link">Instagram</a></li>
-            <li><a href="#!" class="footer__link">LinkedIn</a></li>
-            <li><a href="#!" class="footer__link">Twitter</a></li>
-          </ul>
-        </div>
-
-        <!-- LEGAL -->
-        <div class="footer__legal">
-          <h4 class="footer__title">Legal</h4>
-          <ul class="footer__list">
-            <li><p class="footer__text">Website by UIT.com</p></li>
-            <li><p class="footer__text">©2025. All Rights Reserved</p></li>
-          </ul>
-        </div>
-      </div>
-    </footer>
+    <div data-include="/partials/footer.html"></div>
   </body>
 </html>

@@ -10,9 +10,9 @@
 }
 
 /* ===== comingsoon ===== */
-.comingsoon {
+.coming__soon {
   position: relative;
-  background: url("../assets/images/Comming_Soon_Page/bg-comming-soon.png")
+  background: url("../assets/images/Coming_Soon_Page/bg-coming-soon.png")
     center/cover no-repeat;
   display: flex;
   /* align-items: center; */

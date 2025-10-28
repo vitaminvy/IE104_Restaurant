@@ -79,6 +79,9 @@
 
 /* lg (≥1024px): 4 col */
 @media (min-width: 1024px) {
+  .stats {
+    margin-top: 3rem;
+  }
   .stats__grid {
     grid-template-columns: repeat(4, 1fr);
     gap: 0;

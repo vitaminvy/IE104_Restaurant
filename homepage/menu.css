@@ -5,8 +5,13 @@
 }
 .menu__title {
   line-height: 1;
-  padding-bottom: 1rem;
-  font-size: 4rem;
+  font-size: 2rem;
+}
+
+.menu__subtitle {
+  line-height: 1;
+  margin-top: 10px;
+  font-size: 1rem;
 }
 
 /* FILTER BAR */
@@ -15,7 +20,7 @@
   /* divide items equally on both sides. */
   justify-content: space-evenly;
   flex-wrap: wrap;
-  margin: 0 auto 3rem auto;
+  margin: 0 auto 1rem auto;
   max-width: 800px;
   row-gap: 0.75rem;
 }
@@ -249,6 +254,14 @@
 
 /* Tablet: 2 cards visible */
 @media (min-width: 48rem) {
+  .menu__title {
+    font-size: 3rem;
+  }
+
+  .menu__subtitle {
+    margin-top: 10px;
+  }
+
   .menu__slider {
     padding: 0 2rem;
   }
@@ -293,6 +306,11 @@
 
 /* Large Desktop: wider spacing */
 @media (min-width: 80rem) {
+  .menu__title {
+    font-size: 4rem;
+  }
+
+
   .menu__arrow img {
     width: 8rem;
     height: 8rem;

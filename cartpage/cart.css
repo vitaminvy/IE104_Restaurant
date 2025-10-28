@@ -228,18 +228,12 @@
   padding: 8px 30px;
   gap: 10px;
   background: var(--color-dark-orange);
-  color: var(--White, #fff);
+  color: var(--color-white);
   /* 16 semi-bold */
   font-family: var(--font-body);
   font-size: 16px;
   font-weight: 600;
   line-height: 1.6;
-}
-
-.btn--ghost,
-.btn--brand,
-.btn--block {
-  opacity: 0.7;
 }
 
 .btn--ghost:hover,
@@ -258,7 +252,7 @@
 }
 
 .totals__header {
-  color: var(--White, #fff);
+  color: var(--color-white);
   font-family: var(--font-heading);
   font-size: 30px;
   font-weight: 500;
@@ -278,7 +272,7 @@
   vertical-align: top;
   border-bottom: 1px solid #333;
   padding: 28px 20px 28px 28px;
-  color: var(--White, #fff);
+  color: var(--color-white);
   font-family: var(--font-body);
   font-size: 16px;
   font-weight: 400;
@@ -304,6 +298,9 @@
 
 .shipping__address {
   margin-bottom: 32px;
+  color: var(--color-white);
+  font-style: italic;
+  font-weight: bold;
 }
 
 .addrForm {

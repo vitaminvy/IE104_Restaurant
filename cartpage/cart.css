@@ -6,18 +6,13 @@
   --line-2: #3a3a3a;
 }
 
-/* ================== Base ================== */
-.section {
-  padding: 72px 0;
-}
-
 /* ================== Cart Layout (Desktop) ================== */
 .cart__container {
   display: flex;
   flex-direction: column;
   gap: 80px;
   max-width: 1170px;
-  margin: 3rem auto;
+  margin: 7rem auto;
   padding: 0 24px;
 }
 

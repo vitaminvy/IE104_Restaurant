@@ -13,16 +13,28 @@
       rel="stylesheet"
     />
 
+    <!-- Css header -->
+    <link rel="stylesheet" href="../homepage/header.css" />
+
     <!-- CSS CartPage -->
     <link rel="stylesheet" href="./cart.css" />
     <script
       src="https://kit.fontawesome.com/eef96f1e29.js"
       crossorigin="anonymous"
     ></script>
-
     <script src="./cart.js"></script>
+
+    <!-- Css footer -->
+    <link rel="stylesheet" href="../homepage/footer.css" />
+
+    <!-- link header and footer -->
+    <script src="../assets/script/includePartials.js" defer></script>
+    <script src="../assets/script/header.js"></script>
   </head>
   <body>
+    <!-- ========== 1. HEADER ========== -->
+    <div data-include="/partials/header.html"></div>
+
     <section class="section">
       <div class="cart__container">
         <!-- ================= LEFT: CART TABLE ================= -->
@@ -184,5 +196,8 @@
         </aside>
       </div>
     </section>
+
+    <!-- ========== 15. FOOTER ========== -->
+    <div data-include="/partials/footer.html"></div>
   </body>
 </html>

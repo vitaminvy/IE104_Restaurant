@@ -99,7 +99,7 @@
   max-width: 480px;
 
   /* Typography */
-  font-size: 1rem;
+  font-size: 14px;
   line-height: 1.625;
   color: var(--color-white-80);
 }
@@ -115,7 +115,7 @@
   /* Typography */
   font-family: var(--font-body);
   font-weight: 500;
-  font-size: 0.8rem;
+  font-size: 1rem;
   color: #ffffff;
   text-decoration: none;
 
@@ -239,7 +239,8 @@
 /* xl (≥1280px) - large desktop */
 @media (min-width: 80rem) {
   #chef-intro {
-    padding: 8rem 4rem 0 4rem;
+    padding: 0 4rem;
+    margin-top: 5rem;
   }
 
   .chef-container {

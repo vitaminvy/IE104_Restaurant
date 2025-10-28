@@ -33,77 +33,29 @@
     <link rel="stylesheet" href="./footer.css" />
     <!-- chef intro section -->
     <link rel="stylesheet" href="./chef-intro.css" />
-    <!--offer daily section-->
-    <link rel="stylesheet" href="./order.css" />
+    <!--discover menu section-->
+    <link rel="stylesheet" href="./discover-menu.css" />
     <!-- newsletter section -->
     <link rel="stylesheet" href="./newsletter.css" />
     <!-- hightlight banner -->
     <link rel="stylesheet" href="./highlight_banner.css" />
+    <!-- daily  offer -->
+    <link rel="stylesheet" href="./daily-offer.css" />
+    <!-- explore blog -->
+    <link rel="stylesheet" href="./explore-blog.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
       rel="stylesheet"
     />
   </head>
   <body>
-    <!-- ========== 1. HEADER ========== -->
-    <header id="header" class="header">
-      <div class="header__container">
-        <div class="header__left">
-          <!-- Left panel (Menu icon for mobile) -->
-          <button class="header__menu-btn" aria-label="Toggle menu">
-            <img
-              src="../assets/icons/Header/hamburger.svg"
-              alt="Menu Icon"
-              class="header__menu-icon"
-            />
-          </button>
-
-          <!-- Left panel (Menu list for desktop) -->
-          <nav class="header__nav">
-            <ul class="header__nav-list">
-              <li class="header__nav-item">
-                <a href="#" class="header__nav-link header__nav-link--active"
-                  >Home</a
-                >
-              </li>
-              <li class="header__nav-item">
-                <a href="#" class="header__nav-link">Menu</a>
-              </li>
-              <li class="header__nav-item">
-                <a href="#" class="header__nav-link">Blog</a>
-              </li>
-              <li class="header__nav-item">
-                <a href="#" class="header__nav-link">Pages</a>
-              </li>
-              <li class="header__nav-item">
-                <a href="#" class="header__nav-link">Contact</a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-
-        <!-- Center (Logo) -->
-        <div class="header__center">
-          <a href="#" class="header__logo">
-            <img
-              src="../assets/icons/Header/nav-vect.svg"
-              alt="Restaurant Logo"
-            />
-          </a>
-        </div>
-
-        <!-- Right (Nav links + Status + CTA) -->
-        <div class="header__right">
-          <div class="header__status">
-            <span id="current-time"></span> we're open
-          </div>
-
-          <a href="#" class="header__btn">Table Reservation</a>
-        </div>
-      </div>
-    </header>
-    <!-- open sidebar in mobile view -->
+    <!-- logic for header and footer -->
+    <script src="../assets/script/includePartials.js" defer></script>
     <script src="../assets/script/header.js"></script>
+
+    <!-- ========== 1. HEADER ========== -->
+    <div data-include="/partials/header.html"></div>
+    <!-- open sidebar in mobile view -->
 
     <!-- ========== 2. HERO / BANNER ========== -->
     <section id="hero" class="hero">
@@ -211,8 +163,7 @@
         </div>
       </div>
     </section>
-
-    <!-- ========== 2. ABOUT / INTRODUCTION ========== -->
+    <!-- ========== 4. ABOUT / INTRODUCTION ========== -->
     <section id="about" class="about">
       <!-- About Restaurant -->
       <div class="about__container">
@@ -243,7 +194,7 @@
       </div>
     </section>
 
-    <!-- ========== 3. SERVICE FEATURES ========== -->
+    <!-- ========== 5. SERVICE FEATURES ========== -->
     <section id="service__features" class="features">
       <div class="features__column">
         <!-- Door Delivery -->
@@ -313,7 +264,7 @@
       </div>
     </section>
 
-    <!-- ========== 4.SERVICE QUALITY ========== -->
+    <!-- ========== 6.SERVICE QUALITY ========== -->
     <section id="service__quality">
       <!-- Our Service Means Satisfy + bullet points -->
       <div class="service__container">
@@ -351,12 +302,7 @@
       </div>
     </section>
 
-    <!-- ========== 5.Scrolling-strip. ========== -->
-    <section id="feature__marquee">
-      <!-- Self Services + Best Foof + FastFood -->
-    </section>
-
-    <!-- ========== 6.MENU SECTION ========== -->
+    <!-- ========== 7.MENU SECTION ========== -->
     <section id="menu">
       <!-- ========== HEADER ========== -->
       <div class="menu__header">
@@ -465,7 +411,7 @@
     <!-- navigate menu  -->
     <script type="module" src="../assets/script/navigateMenu.js"></script>
 
-    <!-- ========== 7.  STATISTICS / ACHIEVEMENTS ========== -->
+    <!-- ========== 8.  STATISTICS / ACHIEVEMENTS ========== -->
     <section id="stats" class="stats">
       <div class="stats__grid">
         <!-- Happy Customers -->
@@ -522,42 +468,42 @@
       </div>
     </section>
 
-    <!-- ========== 8. CHEF INTRODUCTION ========== -->
+    <!-- ========== 9. CHEF INTRODUCTION ========== -->
     <section id="chef-intro">
-        <div class="chef-container">
-            <!--  Chef's  banner -->
-            <div class="chef-image-wrapper">
-                <img src="../assets/images/ChefIntroSection/aaliyah.png" alt="Đầu bếp đang tỉ mỉ chuẩn bị món ăn dưới ánh đèn ấm áp.">
-            </div>
-            <!-- Introduction content -->
-            <div class="chef-text-content">
-                <h2 class="chef-title">
-                    Experience Chef
-                    <span class="chef-name">Aaliyah Williams</span>
-                </h2>
-                <p class="chef-description">
-                    Everyday Chef Delicioz sets himself the challenge to start from scratch – his tools: ingenuity, curiosity, enthusiasm, unparalleled talent and the highest craftsmanship.
-                </p>
-                <a href="#team" class="team-link">Meet Our Team</a>
-            </div>
+      <div class="chef-container">
+        <!--  Chef's  banner -->
+        <div class="chef-image-wrapper">
+          <img
+            src="../assets/images/ChefIntroSection/aaliyah.png"
+            alt="Đầu bếp đang tỉ mỉ chuẩn bị món ăn dưới ánh đèn ấm áp."
+          />
         </div>
+        <!-- Introduction content -->
+        <div class="chef-text-content">
+          <h2 class="chef-title">
+            Experience Chef
+            <span class="chef-name">Aaliyah Williams</span>
+          </h2>
+          <p class="chef-description">
+            Everyday Chef Delicioz sets himself the challenge to start from
+            scratch – his tools: ingenuity, curiosity, enthusiasm, unparalleled
+            talent and the highest craftsmanship.
+          </p>
+          <a href="#team" class="team-link">Meet Our Team</a>
+        </div>
+      </div>
     </section>
 
-    <!-- ========== 8. CHEF INTRODUCTION ========== -->
-    <section id="feature__offer">
-      <!-- Tiêu đề + mô tả + CTA (Discover Menu) + Hình món đặc biệt -->
-    </section>
-
-    <!-- ========== 9. DAILY OFFERS ========== -->
-    <section id="offers">
-      <div class="offer__container">
-        <!-- Left: offer content-->
-        <div class="offer__content">
-          <h2 class="offer__title">
+    <!-- ========== 10. DISCOVER MENU SECTION ========== -->
+    <section id="discover">
+      <div class="discover__container">
+        <!-- Left: text content -->
+        <div class="discover__content">
+          <h2 class="discover__title">
             Michelin Lunch, <br />
             Dinner Or Both?
           </h2>
-          <p class="offer__desc">
+          <p class="discover__desc">
             It’s the story of an everlasting love affair, Dieter Delicioz and
             the Atlantic Ocean. Our proximity to the abundant riches of the sea
             and Portugal’s excellent produce has provided a constant source of
@@ -566,14 +512,14 @@
           <!-- route to menu page -->
           <a
             href="#menu"
-            class="offer__link"
+            class="discover__link"
             aria-label="Discover our menu section"
             >Discover Menu</a
           >
         </div>
 
-        <!-- Right: offer seciton's banner -->
-        <div class="offer__image">
+        <!-- Right: banner image -->
+        <div class="discover__image">
           <img
             src="../assets/images/food/sandwich.png"
             alt="Michelin Sandwich"
@@ -582,7 +528,80 @@
       </div>
     </section>
 
-    <!-- ========== 10. RESERVATION SECTION ========== -->
+    <!-- ========== 11. DAILY OFFERS ========== -->
+    <section id="daily-offers" class="daily-offers">
+      <div class="daily-offers__container">
+        <h2 class="daily-offers__title">Our Daily Offers</h2>
+
+        <div class="daily-offers__content">
+          <!-- LEFT: Promo Banner click to route to order page -->
+          <a
+            href="#order"
+            class="daily-offers__promo-link"
+            aria-label="Go to Order Page"
+          >
+            <img
+              src="../assets/images/HomePage/DailyOffer/daily-offer-banner.png"
+              alt="Lunch Time 30% Off"
+              class="daily-offers__promo-img"
+            />
+          </a>
+
+          <!-- RIGHT: Offer List -->
+          <div class="daily-offers__list">
+            <div class="daily-offers__item">
+              <img
+                src="../assets/images/HomePage/DailyOffer/spicy-club.png"
+                alt="Spicy Club"
+                class="daily-offers__item-img"
+              />
+              <div class="daily-offers__item-info">
+                <h3 class="daily-offers__item-title">Spicy Club</h3>
+                <p class="daily-offers__item-desc">
+                  Pork, chicken and vegetable fried rolls served with lettuce
+                  wraps
+                </p>
+              </div>
+              <span class="daily-offers__item-price">$42</span>
+            </div>
+
+            <div class="daily-offers__item">
+              <img
+                src="../assets/images/HomePage/DailyOffer/baked-brie.png"
+                alt="Almond Baked Brie"
+                class="daily-offers__item-img"
+              />
+              <div class="daily-offers__item-info">
+                <h3 class="daily-offers__item-title">Almond Baked Brie</h3>
+                <p class="daily-offers__item-desc">
+                  Pork, chicken and vegetable fried rolls served with lettuce
+                  wraps
+                </p>
+              </div>
+              <span class="daily-offers__item-price">$38</span>
+            </div>
+
+            <div class="daily-offers__item">
+              <img
+                src="../assets/images/HomePage/DailyOffer/flat-bread.png"
+                alt="Tuscan Flatbread"
+                class="daily-offers__item-img"
+              />
+              <div class="daily-offers__item-info">
+                <h3 class="daily-offers__item-title">Tuscan Flatbread</h3>
+                <p class="daily-offers__item-desc">
+                  Pork, chicken and vegetable fried rolls served with lettuce
+                  wraps
+                </p>
+              </div>
+              <span class="daily-offers__item-price">$49</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 12. RESERVATION SECTION ========== -->
     <section id="reservation" class="reservation">
       <div class="reservation__overlay">
         <div class="reservation__content">
@@ -672,12 +691,79 @@
       </div>
     </section>
 
-    <!-- ========== 11. / EXPLORE ========== -->
-    <section id="blog">
-      <!-- Bài viết, tin tức -->
+    <!-- ========== 13. EXPLORE BLOGS ========== -->
+    <section id="blogs" class="blogs">
+      <div class="blogs__container">
+        <!-- Header -->
+        <div class="blogs__header">
+          <div class="blogs__header-left">
+            <h2 class="blogs__title">Explore Blogs</h2>
+            <p class="blogs__subtitle">
+              Explore the most popular blogs from the WowWraps community. A
+              constantly updating list of the best minds in restaurant.
+            </p>
+          </div>
+          <a href="#all-blogs" class="blogs__header-link link-underline">
+            Explore All Blogs <span class="blogs__arrow">→</span>
+          </a>
+        </div>
+
+        <!-- Blog cards -->
+        <div class="blogs__grid">
+          <!-- Blog 1 -->
+          <article class="blog-card">
+            <div class="blog-card__image-wrapper">
+              <img
+                src="../assets/images/HomePage/ExploreSection/blog-drink.png"
+                alt="New Restaurant In Town"
+                class="blog-card__image"
+              />
+            </div>
+            <div class="blog-card__content">
+              <h3 class="blog-card__title">
+                New Restaurant In Town That Looking Think That
+              </h3>
+              <div class="blog-card__meta">
+                <span>August 6, 2022</span>
+                <span class="blog-card__dot">•</span>
+                <span>By Admin</span>
+              </div>
+              <hr class="blog-card__divider" />
+              <a href="#" class="blog-card__readmore link-underline">
+                Read more <span class="blog-card__arrow">→</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Blog 2 -->
+          <article class="blog-card">
+            <div class="blog-card__image-wrapper">
+              <img
+                src="../assets/images/HomePage/ExploreSection/blog-restaurant.png"
+                alt="Summer Drink With Raspberries"
+                class="blog-card__image"
+              />
+            </div>
+            <div class="blog-card__content">
+              <h3 class="blog-card__title">
+                Summer Drink With Raspberries, Lime And Ice
+              </h3>
+              <div class="blog-card__meta">
+                <span>August 6, 2022</span>
+                <span class="blog-card__dot">•</span>
+                <span>By Admin</span>
+              </div>
+              <hr class="blog-card__divider" />
+              <a href="#" class="blog-card__readmore link-underline">
+                Read more <span class="blog-card__arrow">→</span>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
     </section>
 
-    <!-- ========== 12. NEWSLETTER ========== -->
+    <!-- ========== 14. NEWSLETTER ========== -->
     <section id="newsletter">
       <!-- Subscribe to Newsletter -->
       <div class="newsletter__container">
@@ -718,98 +804,7 @@
       </div>
     </section>
 
-    <!-- ========== 13. FOOTER ========== -->
-    <footer
-      id="footer"
-      class="footer"
-      role="contentinfo"
-      aria-label="WowWraps main footer"
-    >
-      <div class="footer__container">
-        <!-- BRAND / APP -->
-        <div class="footer__brand">
-          <a href="#" class="footer__logo">
-            <img
-              src="../assets/images/HomePage/FooterSection/logo-wow-wraps.svg"
-              alt="WowWraps logo"
-            />
-          </a>
-
-          <div class="footer__download">
-            <p class="footer__app-copy">Download the WowWraps app today.</p>
-            <div class="footer__badges">
-              <a class="footer__badge" href="#" aria-label="Get on App Store">
-                <img
-                  src="../assets/images/HomePage/FooterSection/app-store.svg"
-                  alt="App Store"
-                />
-              </a>
-              <a class="footer__badge" href="#" aria-label="Get on Google Play">
-                <img
-                  src="../assets/images/HomePage/FooterSection/google-play.svg"
-                  alt="Google Play"
-                />
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- USEFUL LINKS -->
-        <nav class="footer__links">
-          <h4 class="footer__title">Useful Links</h4>
-          <ul class="footer__list">
-            <li><a href="#header" class="footer__link">Home</a></li>
-            <li><a href="#about" class="footer__link">About Us</a></li>
-            <li>
-              <a href="#service-features" class="footer__link">Services</a>
-            </li>
-            <li><a href="#!" class="footer__link">Booking</a></li>
-            <li><a href="#!" class="footer__link">Menu</a></li>
-          </ul>
-        </nav>
-
-        <!-- CONTACT INFO -->
-        <div class="footer__contact">
-          <h4 class="footer__title">Contact Info</h4>
-          <ul class="footer__list">
-            <li>
-              <address class="footer__addr">
-                Silk St, Barbican, London EC2Y 8DS, UK
-              </address>
-            </li>
-            <li>
-              <a
-                href="mailto:info@example.com"
-                class="footer__link footer__link--accent"
-                >info@example.com</a
-              >
-            </li>
-            <li>
-              <a href="tel:80012345678" class="footer__link">800–123–45–678</a>
-            </li>
-          </ul>
-        </div>
-
-        <!-- FOLLOW US -->
-        <div class="footer__social">
-          <h4 class="footer__title">Follow us</h4>
-          <ul class="footer__list">
-            <li><a href="#!" class="footer__link">Facebook</a></li>
-            <li><a href="#!" class="footer__link">Instagram</a></li>
-            <li><a href="#!" class="footer__link">LinkedIn</a></li>
-            <li><a href="#!" class="footer__link">Twitter</a></li>
-          </ul>
-        </div>
-
-        <!-- LEGAL -->
-        <div class="footer__legal">
-          <h4 class="footer__title">Legal</h4>
-          <ul class="footer__list">
-            <li><p class="footer__text">Website by UIT.com</p></li>
-            <li><p class="footer__text">©2025. All Rights Reserved</p></li>
-          </ul>
-        </div>
-      </div>
-    </footer>
+    <!-- ========== 15. FOOTER ========== -->
+    <div data-include="/partials/footer.html"></div>
   </body>
 </html>

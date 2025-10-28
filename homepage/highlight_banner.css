@@ -10,7 +10,7 @@
   padding: 1.25rem 0;
   overflow: hidden;
   box-sizing: border-box;
-  margin-top: 2rem;
+  margin-top: 3rem;
 }
 
 /* Track = container for scrolling list */
@@ -142,7 +142,7 @@
 @media (min-width: 80rem) {
   .highlight-banner {
     padding: 2rem 0;
-    margin-top: 3rem;
+    margin-top: 5rem;
   }
   .highlight-banner__item {
     font-size: 1.75rem;

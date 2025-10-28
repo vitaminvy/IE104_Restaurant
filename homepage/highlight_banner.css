@@ -9,7 +9,6 @@
   background: var(--color-dark-orange);
   padding: 1.25rem 0;
   overflow: hidden;
-  box-sizing: border-box;
   margin-top: 3rem;
 }
 

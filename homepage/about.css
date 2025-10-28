@@ -1,8 +1,4 @@
 /* =================== Common Style ===================== */
-* {
-  box-sizing: border-box;
-}
-
 section {
   width: 100%;
   max-width: 1536px; /* = 2xl theo chuẩn Tailwind */

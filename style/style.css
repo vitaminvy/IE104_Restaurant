@@ -3,6 +3,10 @@ body {
   overflow-x: hidden;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 #statistics {
   background-color: #0d0d0d;
   padding: 40px 20px;

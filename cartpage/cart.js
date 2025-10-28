@@ -1,37 +1,3 @@
-// // Chờ DOM load xong
-// document.addEventListener("DOMContentLoaded", () => {
-//   // Chọn tất cả nhóm quantity
-//   const qtyGroups = document.querySelectorAll(".cart__qty");
-
-//   qtyGroups.forEach((group) => {
-//     const input = group.querySelector(".qty__input");
-//     const btnDecrease = group.querySelectorAll(".qty__btn")[0];
-//     const btnIncrease = group.querySelectorAll(".qty__btn")[1];
-
-//     // Giảm số lượng
-//     btnDecrease.addEventListener("click", () => {
-//       let current = parseInt(input.value);
-//       if (current > 1) {
-//         input.value = current - 1;
-//       }
-//     });
-
-//     // Tăng số lượng
-//     btnIncrease.addEventListener("click", () => {
-//       let current = parseInt(input.value);
-//       input.value = current + 1;
-//     });
-
-//     // Kiểm soát nhập tay: không cho nhỏ hơn 1
-//     input.addEventListener("input", () => {
-//       let val = parseInt(input.value);
-//       if (isNaN(val) || val < 1) {
-//         input.value = 1;
-//       }
-//     });
-//   });
-// });
-
 // =============== CART LOGIC ===============
 document.addEventListener("DOMContentLoaded", () => {
   const shippingCost = 6.0; // phí ship cố định (theo thiết kế)

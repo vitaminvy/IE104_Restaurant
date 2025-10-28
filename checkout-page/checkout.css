@@ -31,10 +31,11 @@ a {
 }
 
 .container {
-  width: min(100%, 92vw); /* co mềm theo viewport */
-  max-width: 1280px; /* vẫn giữ giới hạn tối đa */
+  width: min(100%, 92vw);
+  max-width: 1280px;
   margin-inline: auto;
   padding: clamp(16px, 3vw, 32px) 0 64px;
+  margin: 6rem auto;
 }
 
 /* Layout */

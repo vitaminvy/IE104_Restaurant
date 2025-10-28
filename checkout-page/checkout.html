@@ -17,8 +17,20 @@
       href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Style header and footer -->
+     <link rel="stylesheet" href="../homepage/header.css">
+     <link rel="stylesheet" href="../homepage/footer.css">
+
+
+    <!-- link header and footer html -->
+     <script src="../assets/script/includePartials.js" defer></script>
+     <script src="../assets/script/header.js"></script>
   </head>
   <body class="page">
+    <!-- Header -->
+    <div data-include="/partials/header.html"></div>
+
     <main class="checkout container">
       <!-- LEFT: BILLING FORM -->
       <section class="billing">
@@ -221,8 +233,10 @@
       </aside>
     </main>
 
+    <!-- Footer -->
+    <div data-include="/partials/footer.html"></div>
 
-<!-- Logic appear hint -->
+  <!-- Logic appear hint -->
     <script>
   const radios = document.querySelectorAll('.payment__radio');
   radios.forEach(radio => {

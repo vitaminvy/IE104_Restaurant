@@ -3,13 +3,12 @@
 ========================================================= */
 
 .daily-offers {
-  padding: 3rem 1.5rem;
   background-color: var(--color-bg-dark);
   color: var(--color-white);
 }
 
 .daily-offers__container {
-  max-width: 1536px;
+  max-width: 1280px;
   margin: 0 auto;
 }
 
@@ -17,7 +16,7 @@
 .daily-offers__title {
   text-align: center;
   font-family: var(--font-heading);
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 700;
   margin-bottom: 3.5rem;
 }
@@ -26,7 +25,7 @@
 .daily-offers__content {
   display: flex;
   flex-direction: column;
-  align-items: center; 
+  align-items: center;
   gap: 2.5rem;
 }
 
@@ -107,7 +106,7 @@
 @media (min-width: 48rem) {
   .daily-offers__content {
     flex-direction: row;
-    align-items: center; 
+    align-items: center;
     justify-content: center;
     gap: 4rem;
   }
@@ -120,6 +119,9 @@
 
 /* Desktop ≥1024px */
 @media (min-width: 64rem) {
+  .daily-offers__container {
+    margin-top: 5rem;
+  }
   .daily-offers__title {
     font-size: 3rem;
   }
@@ -149,6 +151,7 @@
 @media (min-width: 80rem) {
   .daily-offers__container {
     max-width: 1400px;
+    margin-top: 8rem;
   }
 
   .daily-offers__content {

@@ -5,12 +5,12 @@
 .blogs {
   background-color: var(--color-bg-dark);
   color: var(--color-white);
-  padding: 6rem 1.5rem;
+  padding: 0rem 1.5rem;
 }
 
 .blogs__container {
   max-width: 1536px;
-  margin: 0 auto;
+  margin-top: 3rem;
 }
 
 /* ========== HEADER ========== */
@@ -142,6 +142,10 @@
 
 /* Desktop (≥1024px) */
 @media (min-width: 64rem) {
+  .blogs__container {
+    margin-top: 5rem;
+  }
+
   .blogs__title {
     font-size: 3rem;
   }
@@ -157,8 +161,12 @@
 
 /* XL (≥1280px) */
 @media (min-width: 80rem) {
+  .blogs__title {
+    font-size: 4rem;
+  }
   .blogs__container {
     max-width: 1400px;
+    margin-top: 7rem;
   }
 
   .blogs__grid {

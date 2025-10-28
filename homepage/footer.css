@@ -14,7 +14,7 @@ html {
   width: 100%;
   max-width: 1280px;
   margin: 0 auto;
-  padding: 65px 1rem 60px;
+  padding: 65px 0.5rem 60px;
   display: grid;
   grid-template-columns:
     minmax(0, 1.7fr)
@@ -182,7 +182,7 @@ html {
 @media (min-width: 1280px) {
   .footer__container {
     gap: 77px;
-    padding: 45px 1rem 45px;
+    padding: 45px 0.5rem 45px;
   }
   .footer__title {
     font-size: 20px;

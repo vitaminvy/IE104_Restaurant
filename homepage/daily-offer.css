@@ -1,0 +1,164 @@
+/* =========================================================
+   DAILY OFFERS SECTION
+========================================================= */
+
+.daily-offers {
+  background-color: var(--color-bg-dark);
+  color: var(--color-white);
+}
+
+.daily-offers__container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* Title */
+.daily-offers__title {
+  text-align: center;
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 3.5rem;
+}
+
+/* Layout */
+.daily-offers__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+/* ========== LEFT BANNER ========== */
+.daily-offers__promo-link {
+  display: block;
+  width: 100%;
+  max-width: 600px;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.daily-offers__promo-link:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+}
+
+.daily-offers__promo-img {
+  width: 100%;
+  display: block;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* ========== RIGHT OFFER LIST ========== */
+.daily-offers__list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+  max-width: 600px;
+}
+
+.daily-offers__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+}
+
+.daily-offers__item-img {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 4px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.daily-offers__item-info {
+  flex: 1;
+}
+
+.daily-offers__item-title {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  margin-bottom: 0.25rem;
+}
+
+.daily-offers__item-desc {
+  font-size: 0.7rem;
+  color: var(--color-white-80);
+  line-height: 1.4;
+}
+
+.daily-offers__item-price {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+/* Tablet ≥768px */
+@media (min-width: 48rem) {
+  .daily-offers__content {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+  }
+
+  .daily-offers__promo-link,
+  .daily-offers__list {
+    flex: 1;
+  }
+}
+
+/* Desktop ≥1024px */
+@media (min-width: 64rem) {
+  .daily-offers__container {
+    margin-top: 5rem;
+  }
+  .daily-offers__title {
+    font-size: 3rem;
+  }
+
+  .daily-offers__promo-link {
+    max-width: 620px;
+  }
+
+  .daily-offers__item-img {
+    width: 5.5rem;
+    height: 5.5rem;
+  }
+  .daily-offers__item-title {
+    font-size: 1.7rem;
+  }
+  .daily-offers__item-desc {
+    font-size: 0.9rem;
+    margin-top: 5px;
+    padding-right: 2rem;
+  }
+  .daily-offers__item-price {
+    font-size: 1.5rem;
+  }
+}
+
+/* XL ≥1280px */
+@media (min-width: 80rem) {
+  .daily-offers__container {
+    max-width: 1400px;
+    margin-top: 8rem;
+  }
+
+  .daily-offers__content {
+    gap: 6rem;
+  }
+
+  .daily-offers__list {
+    gap: 6rem;
+  }
+}

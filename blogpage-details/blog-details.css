@@ -65,11 +65,14 @@
 
 .copy-link {
   /* Box model */
+  display: inline-block;
   padding: 0.375rem 0.75rem;
   border: 1px solid var(--color-white-40, rgba(255,255,255,0.4));
   border-radius: 20px;
   background-color: transparent;
   cursor: pointer;
+  overflow: hidden;
+  position: relative;
 
   /* Typography */
   font-size: 0.625rem;
@@ -78,7 +81,6 @@
   font-weight: 500;
 
   /* Layout */
-  display: inline-flex;
   align-items: center;
   gap: 0.4rem;
 
@@ -91,11 +93,28 @@
   transition: transform 0.3s ease;
 }
 
+.copy-link::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
 /* Hover effect */
 .copy-link:hover {
-  background-color: var(--color-accent, #fb8f2c);
-  color: #fff;
-  border-color: var(--color-accent, #fb8f2c);
+  background-color: var(--color-dark-orange);
+  border-color: var(--color-dark-orange);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(251, 143, 44, 0.3);
 }
 
 .copy-link:hover i {

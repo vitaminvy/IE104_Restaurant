@@ -29,7 +29,7 @@
 .blog-grid .post-image {
   /* Box model */
   width: 100%;
-  height: 540px;
+  height: 480px;
   overflow: hidden;
   margin-bottom: 25px;
 }

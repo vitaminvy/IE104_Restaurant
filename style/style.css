@@ -3,6 +3,10 @@ body {
   overflow-x: hidden;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 #statistics {
   background-color: #0d0d0d;
   padding: 40px 20px;
@@ -99,4 +103,39 @@ h4 {
   line-height: var(--line-height-h4);
   font-weight: var(--font-weight-h4);
   color: var(--color-white);
+}
+
+/* =========================================================
+   GLOBAL LINK HOVER STYLE (Unified underline animation)
+========================================================= */
+
+.link-underline {
+  display: inline-block;
+  font-family: var(--font-body);
+  color: #ffffff;
+  font-weight: 500;
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+/* Orange underline appears smoothly */
+.link-underline::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #fb8f2c;
+  transition: width 0.3s ease;
+}
+
+/* Hover: change text + draw underline 40% */
+.link-underline:hover {
+  color: #fb8f2c;
+}
+
+.link-underline:hover::after {
+  width: 100%;
 }

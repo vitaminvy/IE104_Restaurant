@@ -1,6 +1,6 @@
 /* ================== Newsletter Section ================== */
 #newsletter {
-  padding-top: clamp(3rem, 8vw, 6rem);
+  margin-top: 5rem;
   padding-bottom: clamp(3rem, 8vw, 6rem);
 }
 
@@ -13,6 +13,7 @@
   text-align: center;
   width: 100%;
   max-width: 1536px;
+  padding: 0 1rem;
 }
 
 /* ============ Image ============ */
@@ -96,6 +97,7 @@
 }
 
 .newsletter__submit:hover {
+  transform: translateX(5px);
   opacity: 0.85;
 }
 
@@ -144,14 +146,14 @@
 }
 
 /* lg (≥1024px) */
-@media (min-width: 64rem) {
+@media (min-width: 1024px) {
   .newsletter__container {
     gap: 6rem;
     /* min-height: 650px; */
     /* padding: 0 16px; */
   }
   .newsletter__title {
-    font-size: 2.5rem;
+    font-size: 3rem;
   }
   .newsletter__subtitle {
     margin-bottom: 5rem;
@@ -159,9 +161,10 @@
 }
 
 /* xl (≥1280px) */
-@media (min-width: 80rem) {
+@media (min-width: 1280px) {
   .newsletter__container {
     gap: 8rem;
+    margin-top: 7rem;
   }
   .newsletter__content {
     max-width: 35rem;
@@ -178,7 +181,7 @@
 }
 
 /* 2xl (≥1536px) */
-@media (min-width: 96rem) {
+@media (min-width: 1536px) {
   .newsletter__container {
     gap: 10rem;
   }

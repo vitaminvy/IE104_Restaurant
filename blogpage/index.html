@@ -6,6 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Restaurant Management & Growth Blog</title>
 
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
   <!-- Global / Main styles -->
   <link rel="stylesheet" href="./styles/main.css">
 
@@ -44,56 +47,13 @@
 </head>
 
 <body>
-  <!-- ========== 1. HEADER ========== -->
-  <header id="header" class="header">
-    <div class="header__container">
-      <div class="header__left">
-        <!-- Left panel (Menu icon for mobile) -->
-        <button class="header__menu-btn" aria-label="Toggle menu">
-          <img src="../assets/icons/Header/hamburger.svg" alt="Menu Icon" class="header__menu-icon" />
-        </button>
-
-        <!-- Left panel (Menu list for desktop) -->
-        <nav class="header__nav">
-          <ul class="header__nav-list">
-            <li class="header__nav-item">
-              <a href="#" class="header__nav-link header__nav-link--active">Home</a>
-            </li>
-            <li class="header__nav-item">
-              <a href="#" class="header__nav-link">Menu</a>
-            </li>
-            <li class="header__nav-item">
-              <a href="#" class="header__nav-link">Blog</a>
-            </li>
-            <li class="header__nav-item">
-              <a href="#" class="header__nav-link">Pages</a>
-            </li>
-            <li class="header__nav-item">
-              <a href="#" class="header__nav-link">Contact</a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-
-      <!-- Center (Logo) -->
-      <div class="header__center">
-        <a href="#" class="header__logo">
-          <img src="../assets/icons/Header/nav-vect.svg" alt="Restaurant Logo" />
-        </a>
-      </div>
-
-      <!-- Right (Nav links + Status + CTA) -->
-      <div class="header__right">
-        <div class="header__status">
-          <time datetime="11:24">11:24</time> we're open
-        </div>
-
-        <a href="#" class="header__btn">Table Reservation</a>
-      </div>
-    </div>
-  </header>
-  <!-- open sidebar in mobile view -->
+  <!-- logic for header and footer -->
+  <script src="../assets/script/includePartials.js" defer></script>
   <script src="../assets/script/header.js"></script>
+
+  <!-- ========== 1. HEADER ========== -->
+  <div data-include="/partials/header.html"></div>
+  <!-- open sidebar in mobile view -->
 
   <!-- ========== 2. MAIN CONTENT AREA ========== -->
   <main class="container">
@@ -122,16 +82,9 @@
       <div class="newsletter__container">
         <!-- newsletter image -->
         <div class="newsletter__image">
-          <img
-            src="../assets/images/HomePage/Newsletter/newsletter_dish.png"
-            alt="Healthy food plate"
-            loading="lazy"
-          />
-          <img
-            src="../assets/images/HomePage/Newsletter/newsletter_star.svg"
-            alt="decoration"
-            class="newsletter__star"
-          />
+          <img src="../assets/images/HomePage/Newsletter/newsletter_dish.png" alt="Healthy food plate" loading="lazy" />
+          <img src="../assets/images/HomePage/Newsletter/newsletter_star.svg" alt="decoration"
+            class="newsletter__star" />
         </div>
         <!-- newsletter body content -->
         <div class="newsletter__content">
@@ -144,11 +97,7 @@
           </p>
 
           <form class="newsletter__form">
-            <input
-              type="email"
-              placeholder="Enter your email address"
-              required
-            />
+            <input type="email" placeholder="Enter your email address" required />
             <button type="submit" class="newsletter__submit">
               <i class="fa-solid fa-paper-plane"></i>
             </button>
@@ -159,84 +108,7 @@
   </main>
 
   <!-- ========== 2.6 FOOTER PLACEHOLDER ========== -->
-  <footer id="footer" class="footer" role="contentinfo" aria-label="WowWraps main footer">
-    <div class="footer__container">
-      <!-- BRAND / APP -->
-      <div class="footer__brand">
-        <a href="#" class="footer__logo">
-          <img src="../assets/images/HomePage/FooterSection/logo-wow-wraps.svg" alt="WowWraps logo" />
-        </a>
-
-        <div class="footer__download">
-          <p class="footer__app-copy">Download the WowWraps app today.</p>
-          <div class="footer__badges">
-            <a class="footer__badge" href="#" aria-label="Get on App Store">
-              <img src="../assets/images/HomePage/FooterSection/app-store.svg" alt="App Store" />
-            </a>
-            <a class="footer__badge" href="#" aria-label="Get on Google Play">
-              <img src="../assets/images/HomePage/FooterSection/google-play.svg" alt="Google Play" />
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- USEFUL LINKS -->
-      <nav class="footer__links">
-        <h4 class="footer__title">Useful Links</h4>
-        <ul class="footer__list">
-          <li><a href="#header" class="footer__link">Home</a></li>
-          <li><a href="#about" class="footer__link">About Us</a></li>
-          <li>
-            <a href="#service-features" class="footer__link">Services</a>
-          </li>
-          <li><a href="#!" class="footer__link">Booking</a></li>
-          <li><a href="#!" class="footer__link">Menu</a></li>
-        </ul>
-      </nav>
-
-      <!-- CONTACT INFO -->
-      <div class="footer__contact">
-        <h4 class="footer__title">Contact Info</h4>
-        <ul class="footer__list">
-          <li>
-            <address class="footer__addr">
-              Silk St, Barbican, London EC2Y 8DS, UK
-            </address>
-          </li>
-          <li>
-            <a href="mailto:info@example.com" class="footer__link footer__link--accent">info@example.com</a>
-          </li>
-          <li>
-            <a href="tel:80012345678" class="footer__link">800–123–45–678</a>
-          </li>
-        </ul>
-      </div>
-
-      <!-- FOLLOW US -->
-      <div class="footer__social">
-        <h4 class="footer__title">Follow us</h4>
-        <ul class="footer__list">
-          <li><a href="#!" class="footer__link">Facebook</a></li>
-          <li><a href="#!" class="footer__link">Instagram</a></li>
-          <li><a href="#!" class="footer__link">LinkedIn</a></li>
-          <li><a href="#!" class="footer__link">Twitter</a></li>
-        </ul>
-      </div>
-
-      <!-- LEGAL -->
-      <div class="footer__legal">
-        <h4 class="footer__title">Legal</h4>
-        <ul class="footer__list">
-          <li>
-            <p class="footer__text">Website by UIT.com</p>
-          </li>
-          <li>
-            <p class="footer__text">©2025. All Rights Reserved</p>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </footer>
+  <div data-include="/partials/footer.html"></div>
 </body>
 
 </html>

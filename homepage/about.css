@@ -1,8 +1,4 @@
 /* =================== Common Style ===================== */
-* {
-  box-sizing: border-box;
-}
-
 section {
   width: 100%;
   max-width: 1536px; /* = 2xl theo chuẩn Tailwind */
@@ -20,8 +16,8 @@ section {
   align-items: center; /* center horizontally */
   justify-content: center; /* center vertically */
   gap: 2rem;
-  padding: 2rem 0;
   text-align: center;
+  margin-top: 3rem;
 }
 
 .about__image {
@@ -138,7 +134,6 @@ section {
     flex-direction: row;
     text-align: left;
     gap: 4rem;
-    min-height: 600px;
   }
   .about__image {
     order: unset;
@@ -161,7 +156,7 @@ section {
 @media (min-width: 1024px) {
   .about__container {
     gap: 6rem;
-    min-height: 650px;
+    margin-top: 6rem;
   }
   .about__title {
     font-size: 3.5rem; /* 56px */
@@ -172,7 +167,6 @@ section {
 @media (min-width: 1280px) {
   .about__container {
     gap: 8rem;
-    min-height: 752px;
   }
   .about__title {
     font-size: 4rem; /* 64px */

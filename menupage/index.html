@@ -12,73 +12,24 @@
     <link rel="stylesheet" href="../style/style.css" />
     <link rel="stylesheet" href="../style/reset.css" />
 
+    <!-- footer-->
+    <link rel="stylesheet" href="../homepage/footer.css" />
+
     <link
       href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
       rel="stylesheet"
     />
   </head>
   <body>
-    <!-- ========== 1. HEADER ========== -->
-    <header id="header" class="header">
-      <div class="header__container">
-        <div class="header__left">
-          <!-- Left panel (Menu icon for mobile) -->
-          <button class="header__menu-btn" aria-label="Toggle menu">
-            <img
-              src="../assets/icons/Header/hamburger.svg"
-              alt="Menu Icon"
-              class="header__menu-icon"
-            />
-          </button>
-
-          <!-- Left panel (Menu list for desktop) -->
-          <nav class="header__nav">
-            <ul class="header__nav-list">
-              <li class="header__nav-item">
-                <a href="#" class="header__nav-link header__nav-link--active"
-                  >Home</a
-                >
-              </li>
-              <li class="header__nav-item">
-                <a href="#" class="header__nav-link">Menu</a>
-              </li>
-              <li class="header__nav-item">
-                <a href="#" class="header__nav-link">Blog</a>
-              </li>
-              <li class="header__nav-item">
-                <a href="#" class="header__nav-link">Pages</a>
-              </li>
-              <li class="header__nav-item">
-                <a href="#" class="header__nav-link">Contact</a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-
-        <!-- Center (Logo) -->
-        <div class="header__center">
-          <a href="#" class="header__logo">
-            <img
-              src="../assets/icons/Header/nav-vect.svg"
-              alt="Restaurant Logo"
-            />
-          </a>
-        </div>
-
-        <!-- Right (Nav links + Status + CTA) -->
-        <div class="header__right">
-          <div class="header__status">
-            <span id="current-time"></span> we're open
-          </div>
-
-          <a href="#" class="header__btn">Table Reservation</a>
-        </div>
-      </div>
-    </header>
-    <!-- open sidebar in mobile view -->
+    <!-- logic for header and footer -->
+    <script src="../assets/script/includePartials.js" defer></script>
     <script src="../assets/script/header.js"></script>
+    <!-- ========== 1. HEADER ========== -->
+    <div data-include="/partials/header.html"></div>
+    <!-- open sidebar in mobile view -->
 
     <!-- ========== FILTER FIELD ========== -->
+
     <nav class="menu__filter" aria-label="Menu categories">
       <!-- breakfast -->
       <a
@@ -107,6 +58,9 @@
       >
     </nav>
 
+    <!-- ===== Unified container where JS will render cards ===== -->
+    <div id="menu-card-container" class="menu__grid" role="list"></div>
+
     <!-- ========== MENU FIELD ========== -->
 
     <section id="breakfast" class="menu">
@@ -114,7 +68,7 @@
         <h2 class="menu__title">Breakfast</h2>
         <img
           class="decor-icon"
-          src="../assets/icons/menupage/decor.svg"
+          src="../assets/icons/MenuPage/decor.svg"
           alt="Decor icon"
         />
         <!-- ========== SLIDER FIELD ========== -->
@@ -181,7 +135,7 @@
         <h2 class="menu__title">Lunch</h2>
         <img
           class="decor-icon"
-          src="../assets/icons/menupage/decor.svg"
+          src="../assets/icons/MenuPage/decor.svg"
           alt="Decor icon"
         />
         <!-- ========== SLIDER FIELD ========== -->
@@ -242,7 +196,7 @@
         <h2 class="menu__title">Dinner</h2>
         <img
           class="decor-icon"
-          src="../assets/icons/menupage/decor.svg"
+          src="../assets/icons/MenuPage/decor.svg"
           alt="Decor icon"
         />
         <!-- ========== SLIDER FIELD ========== -->
@@ -296,13 +250,13 @@
         </div>
       </div>
     </section>
-    <!-- Staters-->
-    <section id="staters" class="menu">
+    <!-- Starters-->
+    <section id="starters" class="menu">
       <div class="menu-frame">
-        <h2 class="menu__title">Staters</h2>
+        <h2 class="menu__title">Starters</h2>
         <img
           class="decor-icon"
-          src="../assets/icons/menupage/decor.svg"
+          src="../assets/icons/MenuPage/decor.svg"
           alt="Decor icon"
         />
         <!-- ========== SLIDER FIELD ========== -->
@@ -356,7 +310,11 @@
         </div>
       </div>
     </section>
+    <!-- ==========  FOOTER ========== -->
+    <div data-include="/partials/footer.html"></div>
+
     <!-- navigate menu  -->
     <script type="module" src="../assets/script/navigateMenu.js"></script>
+    <script type="module" src="../assets/script/menupage.js"></script>
   </body>
 </html>

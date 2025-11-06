@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coming Soon | WowWraps</title>
+
+    <!-- Style Global -->
+    <link rel="stylesheet" href="../style/reset.css" />
+    <link rel="stylesheet" href="../style/style.css" />
+    <!-- Link font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Link font Playball for timebox -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playball&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Header style -->
+    <link rel="stylesheet" href="../homepage/header.css" />
+    <!-- Footer style -->
+    <link rel="stylesheet" href="../homepage/footer.css" />
+    <!-- Comming Soon Style -->
+    <link rel="stylesheet" href="./coming-soon.css" />
+    <!-- highlight banner -->
+    <link rel="stylesheet" href="../homepage/highlight-banner.css" />
+
+    <!-- link html footer and header -->
+    <script src="../assets/script/includePartials.js" defer></script>
+    <script src="../assets/script/header.js" defer></script>
+  </head>
+  <body>
+    <!-- ========== 1. HEADER ========== -->
+    <div data-include="/partials/header.html"></div>
+
+    <!-- Coming Soon -->
+    <main>
+      <section class="comingsoon">
+        <div class="comingsoon__content">
+          <h1 class="comingsoon__title">
+            Subscribe Newsletter & Get Latest News
+          </h1>
+          <p class="comingsoon__desc">
+            Our being able to do what we like best, every pleasure is to be
+            welcomed and every pain avoided certain.
+          </p>
+
+          <form class="comingsoon__form">
+            <input
+              type="email"
+              class="comingsoon__input"
+              placeholder="Enter your email address"
+              required
+            />
+            <button
+              class="comingsoon__button"
+              type="submit"
+              aria-label="Subscribe"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="55"
+                height="25"
+                viewBox="0 0 55 25"
+                fill="none"
+              >
+                <path
+                  d="M0.5 12.5H54.5M54.5 12.5C50.4091 11.86 42.2273 8.564 42.2273 0.5M54.5 12.5C50.4091 13.14 42.2273 16.436 42.2273 24.5"
+                  stroke="white"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+          </form>
+
+          <div class="comingsoon__timer">
+            <div class="comingsoon__timebox">
+              <span class="comingsoon__number" id="days"></span>
+              <p class="comingsoon__label">Days</p>
+            </div>
+            <div class="comingsoon__timebox">
+              <span class="comingsoon__number" id="hours"></span>
+              <p class="comingsoon__label">Hour</p>
+            </div>
+            <div class="comingsoon__timebox">
+              <span class="comingsoon__number" id="minutes"></span>
+              <p class="comingsoon__label">Minutes</p>
+            </div>
+            <div class="comingsoon__timebox">
+              <span class="comingsoon__number" id="seconds"></span>
+              <p class="comingsoon__label">Seconds</p>
+            </div>
+          </div>
+
+          <a
+            href="../homepage/index.html"
+            class="comingsoon__link link-underline"
+            >Go to Home</a
+          >
+        </div>
+      </section>
+
+      <!-- ========== 1. HIGHLIGHT BANNER SECTION ========== -->
+      <section
+        id="highlight-banner"
+        class="highlight-banner"
+        style="margin-top: 0"
+      >
+        <div class="highlight-banner__track">
+          <div class="highlight-banner__list">
+            <!-- Main 4 items -->
+            <div class="highlight-banner__item">
+              <img
+                src="../assets/images/HomePage/HighlightBanner/self_service.svg"
+                alt="Self Services"
+              />
+              <span>Self Services</span>
+            </div>
+
+            <div class="highlight-banner__item">
+              <img
+                src="../assets/images/HomePage/HighlightBanner/best_food.svg"
+                alt="Best Food"
+              />
+              <span>Best Food</span>
+            </div>
+
+            <div class="highlight-banner__item">
+              <img
+                src="../assets/images/HomePage/HighlightBanner/fast_delivery.svg"
+                alt="Fast Delivery"
+              />
+              <span>Fast Delivery</span>
+            </div>
+
+            <div class="highlight-banner__item">
+              <img
+                src="../assets/images/HomePage/HighlightBanner/super_taste.svg"
+                alt="Super Taste"
+              />
+              <span>Super Taste</span>
+            </div>
+
+            <!-- Duplicate set for infinite loop -->
+            <div class="highlight-banner__item">
+              <img
+                src="../assets/images/HomePage/HighlightBanner/self_service.svg"
+                alt="Self Services"
+              />
+              <span>Self Services</span>
+            </div>
+
+            <div class="highlight-banner__item">
+              <img
+                src="../assets/images/HomePage/HighlightBanner/best_food.svg"
+                alt="Best Food"
+              />
+              <span>Best Food</span>
+            </div>
+
+            <div class="highlight-banner__item">
+              <img
+                src="../assets/images/HomePage/HighlightBanner/fast_delivery.svg"
+                alt="Fast Delivery"
+              />
+              <span>Fast Delivery</span>
+            </div>
+
+            <div class="highlight-banner__item">
+              <img
+                src="../assets/images/HomePage/HighlightBanner/super_taste.svg"
+                alt="Super Taste"
+              />
+              <span>Super Taste</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="coming-soon.js" defer></script>
+
+    <!-- ========== 13. FOOTER ========== -->
+    <div data-include="/partials/footer.html"></div>
+  </body>
+</html>

@@ -167,6 +167,7 @@ h4 {
   text-decoration: none;
   position: relative;
   transition: color 0.3s ease;
+  padding-bottom: 6px;
 }
 
 /* Orange underline appears smoothly */

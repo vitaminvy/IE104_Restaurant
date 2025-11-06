@@ -10,12 +10,11 @@
 }
 
 /* ===== comingsoon ===== */
-.coming__soon {
+.comingsoon {
   position: relative;
   background: url("../assets/images/Coming_Soon_Page/bg-coming-soon.png")
     center/cover no-repeat;
   display: flex;
-  /* align-items: center; */
   justify-content: center;
   text-align: center;
   padding-top: var(--header-height);
@@ -76,7 +75,6 @@
   background: none;
   border: none;
   color: #fff;
-  font-size: 1.2rem;
   cursor: pointer;
   transition: 0.3s;
 }
@@ -122,7 +120,7 @@
   border-color: var(--color-white);
 }
 
-/* ===== Responsive Breakpoints (Tailwind 5 levels) ===== */
+/* ===== Responsive Breakpoints  ===== */
 
 /* sm ≥ 640px */
 @media (min-width: 640px) {
@@ -251,7 +249,12 @@
     margin-bottom: 70px;
   }
 
-  /* Bộ đếm thời gian */
+  .comingsoon__button svg {
+    width: 35px;
+    height: 16px;
+  }
+
+  /* timer */
   .comingsoon__timer {
     display: grid;
     grid-template-columns: repeat(2, 0.4fr);
@@ -272,7 +275,7 @@
   }
 }
 
-/* fix lại footer */
+/* fix footer */
 
 #footer {
   margin-top: 0;

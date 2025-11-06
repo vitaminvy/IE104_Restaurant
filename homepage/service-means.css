@@ -1,8 +1,4 @@
 /* =================== Common Style ===================== */
-* {
-  box-sizing: border-box;
-}
-
 #service__quality {
   width: 100%;
   max-width: 1536px;

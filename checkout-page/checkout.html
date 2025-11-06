@@ -19,13 +19,15 @@
     />
 
     <!-- Style header and footer -->
-     <link rel="stylesheet" href="../homepage/header.css">
-     <link rel="stylesheet" href="../homepage/footer.css">
-
+    <link rel="stylesheet" href="../homepage/header.css" />
+    <link rel="stylesheet" href="../homepage/footer.css" />
 
     <!-- link header and footer html -->
-     <script src="../assets/script/includePartials.js" defer></script>
-     <script src="../assets/script/header.js"></script>
+    <script src="../assets/script/includePartials.js" defer></script>
+    <script src="../assets/script/header.js"></script>
+
+    <!-- link script appear hint -->
+    <script src="./hint.js" defer></script>
   </head>
   <body class="page">
     <!-- Header -->
@@ -59,8 +61,6 @@
               />
             </div>
           </div>
-
-          <div class="form__group"> 
 
           <div class="form__group">
             <label class="form__label" for="country">Country / Region *</label>
@@ -123,10 +123,8 @@
 
           <!-- PAYMENT METHODS -->
           <fieldset class="payment">
-            <!-- <legend class="payment__legend">Payment</legend> -->
-
-            <label class="payment__option">
-              <div class="payment__head">
+            <div class="payment__option">
+              <label class="payment__head">
                 <input
                   class="payment__radio"
                   type="radio"
@@ -134,17 +132,16 @@
                   value="bank"
                 />
                 <span class="payment__label">Direct bank transfer</span>
-              </div>
+              </label>
               <p class="payment__hint">
-              Make your payment directly into our bank account. Please use your
-              Order ID as the payment reference. Your order will not be shipped
-              until the funds have cleared in our account.
-            </p>
-            </label>
-            
+                Make your payment directly into our bank account. Please use
+                your Order ID as the payment reference. Your order will not be
+                shipped until the funds have cleared in our account.
+              </p>
+            </div>
 
-            <label class="payment__option">
-             <div class="payment__head">
+            <div class="payment__option">
+              <label class="payment__head">
                 <input
                   class="payment__radio"
                   type="radio"
@@ -152,12 +149,15 @@
                   value="check"
                 />
                 <span class="payment__label">Check payments</span>
-             </div>
-              <p class="payment__hint">Pay using check, your order will be processed after verification.</p>
-            </label>
+              </label>
+              <p class="payment__hint">
+                Pay using check, your order will be processed after
+                verification.
+              </p>
+            </div>
 
-            <label class="payment__option">
-              <div class="payment__head">
+            <div class="payment__option">
+              <label class="payment__head">
                 <input
                   class="payment__radio"
                   type="radio"
@@ -165,12 +165,14 @@
                   value="cod"
                 />
                 <span class="payment__label">Cash on delivery</span>
-              </div>
-              <p class="payment__hint">Pay with cash when your order is delivered.</p>
-            </label>
+              </label>
+              <p class="payment__hint">
+                Pay with cash when your order is delivered.
+              </p>
+            </div>
 
-            <label class="payment__option">
-              <div class="payment__head">
+            <div class="payment__option">
+              <label class="payment__head">
                 <input
                   class="payment__radio"
                   type="radio"
@@ -178,9 +180,12 @@
                   value="paypal"
                 />
                 <span class="payment__label">PayPal</span>
-              </div>
-              <p class="payment__hint">You will be redirected to PayPal to complete your purchase securely.</p>
-            </label>
+              </label>
+              <p class="payment__hint">
+                You will be redirected to PayPal to complete your purchase
+                securely.
+              </p>
+            </div>
 
             <p class="payment__privacy">
               Your personal data will be used to process your order, support
@@ -188,9 +193,7 @@
               described in our <a href="#!" class="link">privacy policy</a>.
             </p>
 
-            <button class="btn btn--primary" type="submit">
-              <a href="#!">Place order</a>
-            </button>
+            <button class="btn btn--primary" type="submit">Place order</button>
           </fieldset>
         </form>
       </section>
@@ -235,17 +238,5 @@
 
     <!-- Footer -->
     <div data-include="/partials/footer.html"></div>
-
-  <!-- Logic appear hint -->
-    <script>
-  const radios = document.querySelectorAll('.payment__radio');
-  radios.forEach(radio => {
-    radio.addEventListener('change', () => {
-      document.querySelectorAll('.payment__hint').forEach(hint => hint.style.display = 'none');
-      const hint = radio.closest('.payment__option').querySelector('.payment__hint');
-      if (hint) hint.style.display = 'block';
-    });
-  });
-    </script>
   </body>
 </html>

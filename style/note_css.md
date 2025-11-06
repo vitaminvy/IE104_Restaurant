@@ -88,3 +88,11 @@ xl desktop
 
 96rem (1536px)
 2xl
+
+
+	•	File JS: kebab-case
+navigate-menu.js, handle-cart.js
+	•	Biến & hàm: camelCase
+updateCart(), renderCheckoutForm()
+	•	Class: PascalCase
+class CartPage { ... }

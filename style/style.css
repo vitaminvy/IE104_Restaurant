@@ -75,12 +75,62 @@ html {
   --color-white-80: rgba(255, 255, 255, 0.8);
   --color-dark-orange: #fb8f2c;
   --vanilla-dark: #000;
+  --bg-box: #18181b;
+  --color-white-60: rgba(255, 255, 255, 0.6);
+  --color-white-45: rgba(255, 255, 255, 0.45);
+  --color-white-10: rgba(255, 255, 255, 0.1);
+  --line: rgba(255, 255, 255, 0.08);
+
+  /* Sizing */
+  --radius: 12px;
+  --radius-lg: 16px;
+  --space-1: 6px;
+  --space-2: 10px;
+  --space-3: 14px;
+  --space-4: 20px;
+  --space-6: 28px;
+  --space-8: 36px;
+
+  --input-h: 44px;
+  --container: min(1120px, 92vw);
+  --shadow: 0 0 0 1px var(--line), 0 8px 24px rgba(0, 0, 0, 0.35); /* Colors */
+  --bg-box: #18181b;
+  --color-white-60: rgba(255, 255, 255, 0.6);
+  --color-white-45: rgba(255, 255, 255, 0.45);
+  --color-white-10: rgba(255, 255, 255, 0.1);
+  --line: rgba(255, 255, 255, 0.08);
+
+  /* Sizing */
+  --radius: 12px;
+  --radius-lg: 16px;
+  --space-1: 6px;
+  --space-2: 10px;
+  --space-3: 14px;
+  --space-4: 20px;
+  --space-6: 28px;
+  --space-8: 36px;
+
+  --input-h: 44px;
+  --container: min(1120px, 92vw);
+  --shadow: 0 0 0 1px var(--line), 0 8px 24px rgba(0, 0, 0, 0.35);
 }
+
 body {
   background: var(--Dark, #111114);
 }
-/* Body text (default) */
-body,
+
+a {
+  all: unset;
+  cursor: pointer;
+}
+
+.container {
+  width: min(100%, 92vw);
+  max-width: 1280px;
+  margin-inline: auto;
+  padding: clamp(16px, 3vw, 32px) 0 64px;
+  margin: 6rem auto;
+}
 p {
   font-family: var(--font-body);
   font-size: var(--font-size-body);
@@ -117,6 +167,7 @@ h4 {
   text-decoration: none;
   position: relative;
   transition: color 0.3s ease;
+  padding-bottom: 6px;
 }
 
 /* Orange underline appears smoothly */

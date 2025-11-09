@@ -82,6 +82,7 @@
 
   /* Box model */
   display: inline-block;
+  padding-bottom: 4px;
 
   /* Typography */
   color: #ffffff;

@@ -1,0 +1,273 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===== comingsoon ===== */
+.comingsoon {
+  position: relative;
+  background: url("../assets/images/comming-soon-page/bg-coming-soon.png")
+    center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding-top: 140px;
+  padding-bottom: 40px;
+}
+
+.comingsoon__content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  width: 100%;
+  padding: 20px;
+}
+
+/* ===== Typography ===== */
+.comingsoon__title {
+  font-family: var(--font-heading);
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 20px;
+  color: var(--color-white);
+}
+
+.comingsoon__desc {
+  margin-bottom: 60px;
+}
+
+/* ===== Form ===== */
+.comingsoon__form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 110px;
+  border-bottom: 1px solid var(--color-white);
+  padding-bottom: 5px;
+}
+
+.comingsoon__input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--color-white);
+  width: 100%;
+  padding: 8px 0;
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.625;
+}
+
+.comingsoon__input::placeholder {
+  color: var(--color-white-80);
+}
+
+.comingsoon__button {
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.comingsoon__button:hover {
+  color: var(--color-dark-orange);
+}
+
+/* ===== Timer ===== */
+.comingsoon__timer {
+  display: flex;
+  justify-content: center;
+  gap: 64px;
+  margin-bottom: 40px;
+}
+
+.comingsoon__timebox {
+  text-align: center;
+}
+
+.comingsoon__number {
+  color: var(--color-dark-orange);
+  display: block;
+  -webkit-text-stroke-width: 1.15px;
+  -webkit-text-stroke-color: var(--color-dark-orange);
+  font-family: Playball;
+  font-size: 58px;
+  font-weight: 500;
+  line-height: 1.06;
+}
+
+/* ===== Link ===== */
+.comingsoon__link {
+  padding-bottom: 6px;
+  transition: 0.3s;
+}
+
+/* ===== Responsive Breakpoints  ===== */
+
+/* sm ≥ 640px */
+@media (min-width: 640px) {
+  .comingsoon__title {
+    font-size: 40px;
+  }
+
+  .comingsoon__desc {
+    font-size: 12px;
+    margin: 0 auto 50px;
+  }
+
+  .comingsoon__form {
+    margin-bottom: 80px;
+  }
+
+  .comingsoon__timer {
+    gap: 48px;
+  }
+
+  .comingsoon__number {
+    font-size: 52px;
+  }
+  .comingsoon__button svg {
+    width: 42px;
+    height: 22px;
+  }
+}
+
+/* md ≥ 768px */
+@media (min-width: 768px) {
+  .comingsoon__title {
+    font-size: 48px;
+  }
+
+  .comingsoon__desc {
+    font-size: 14px;
+  }
+
+  .comingsoon__form {
+    margin-bottom: 90px;
+  }
+
+  .comingsoon__number {
+    font-size: 56px;
+  }
+
+  .comingsoon__timer {
+    gap: 56px;
+  }
+}
+
+/* lg ≥ 1024px */
+@media (min-width: 1024px) {
+  .comingsoon__title {
+    font-size: 56px;
+  }
+
+  .comingsoon__desc {
+    font-size: 16px;
+    padding: 0 50px;
+  }
+
+  .comingsoon__form {
+    margin-bottom: 100px;
+  }
+
+  .comingsoon__timer {
+    gap: 64px;
+  }
+
+  .comingsoon__number {
+    font-size: 60px;
+  }
+}
+
+/* xl ≥ 1280px */
+@media (min-width: 1280px) {
+  .comingsoon__title {
+    font-size: 64px;
+  }
+
+  .comingsoon__timer {
+    gap: 72px;
+  }
+
+  .comingsoon__number {
+    font-size: 64px;
+  }
+}
+
+/* 2xl ≥ 1536px */
+@media (min-width: 1536px) {
+  .comingsoon__timer {
+    gap: 80px;
+  }
+
+  .comingsoon__number {
+    font-size: 70px;
+  }
+}
+
+/* ===== Mobile (≤576px) ===== */
+@media (max-width: 639.5px) {
+  .comingsoon {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .comingsoon__content {
+    max-width: 100%;
+    padding: 0 10px;
+  }
+
+  .comingsoon__title {
+    font-size: 34px;
+    margin-bottom: 14px;
+  }
+
+  .comingsoon__desc {
+    font-size: 14px;
+    margin-bottom: 50px;
+  }
+
+  .comingsoon__input {
+    font-size: 16px;
+  }
+
+  .comingsoon__form {
+    margin-bottom: 70px;
+  }
+
+  .comingsoon__button svg {
+    width: 35px;
+    height: 16px;
+  }
+
+  /* timer */
+  .comingsoon__timer {
+    display: grid;
+    grid-template-columns: repeat(2, 0.4fr);
+    gap: 24px 48px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+  }
+
+  .comingsoon__timebox {
+    text-align: center;
+  }
+
+  .comingsoon__link {
+    font-size: 14px;
+    border-bottom: 1px solid var(--color-dark-orange);
+    padding-bottom: 3px;
+  }
+}
+
+/* fix footer */
+
+#footer {
+  margin-top: 0;
+}

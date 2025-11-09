@@ -55,3 +55,68 @@ import { menuItems } from "../data/mockdata.js";
 
   render();
 })();
+(function rippleOnClick(){
+  const root = document.getElementById("menu-card-container");
+  if(!root) return;
+  root.addEventListener("click", (e) => {
+    const btn = e.target.closest(".menu__card-btn");
+    if(!btn) return;
+    const rect = btn.getBoundingClientRect();
+    const r = document.createElement("span");
+    r.className = "ripple";
+    const size = Math.max(rect.width, rect.height);
+    r.style.width = r.style.height = size + "px";
+    r.style.left = (e.clientX - rect.left - size/2) + "px";
+    r.style.top  = (e.clientY - rect.top  - size/2) + "px";
+    btn.appendChild(r);
+    r.addEventListener("animationend", () => r.remove());
+  });
+})();
+
+// Toast helper
+(function setupToast(){
+  let root = document.getElementById("toast-root");
+  if(!root){
+    root = document.createElement("div");
+    root.id = "toast-root";
+    document.body.appendChild(root);
+  }
+  window.showToast = function(message, type = "success", duration = 1800){
+    const el = document.createElement("div");
+    el.className = `toast toast--${type}`;
+    const msg = document.createElement("span");
+    msg.textContent = message;
+    const close = document.createElement("span");
+    close.className = "toast__close";
+    close.setAttribute("role","button");
+    close.setAttribute("aria-label","Close");
+    close.textContent = "×";
+    close.onclick = () => dismiss();
+    el.appendChild(close);
+    el.appendChild(msg);
+    root.appendChild(el);
+
+    requestAnimationFrame(()=> el.classList.add("is-visible"));
+
+    const t = setTimeout(dismiss, duration);
+    function dismiss(){
+      clearTimeout(t);
+      el.classList.remove("is-visible");
+      el.addEventListener("transitionend", ()=> el.remove(), { once:true });
+    }
+  };
+})();
+
+(function bindToastOnOrder(){
+  const root = document.getElementById("menu-card-container");
+  if (!root) return;
+  root.addEventListener("click", (e) => {
+    const btn = e.target.closest(".menu__card-btn");
+    if (!btn) return;
+    const card  = btn.closest(".menu__card");
+    const title = (card?.querySelector(".menu__card-title")?.textContent || "Item").trim();
+    if (typeof window.showToast === "function") {
+      window.showToast(`Added “${title}” to cart`, "success", 1800);
+    }
+  });
+})();

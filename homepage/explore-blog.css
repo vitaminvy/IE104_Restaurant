@@ -6,12 +6,12 @@
   background-color: var(--color-bg-dark);
   color: var(--color-white);
   padding: 0rem 1.5rem;
+  max-width: 1536px; /* = 2xl Tailwind */
 }
 
 .blogs__container {
   max-width: 1536px;
   margin-top: 3rem;
-  margin-left: 3rem;
 }
 
 /* ========== HEADER ========== */
@@ -145,6 +145,7 @@
 @media (min-width: 64rem) {
   .blogs__container {
     margin-top: 5rem;
+    margin-left: 3rem;
   }
 
   .blogs__title {

@@ -143,7 +143,9 @@
 }
 
 /* CARD CONTENT */
-
+.menu__card-content {
+  padding: 0 0.75rem;
+}
 .menu__card-title {
   font-size: 1.05rem;
   font-family: var(--font-heading);
@@ -197,34 +199,23 @@
 
 /* ===== BANNER (optional) ===== */
 .banner {
-  background: url("../../assets/images/MenuPage/banner.png") center/cover
+  background: url("../../assets/images/menu-page/banner.png") center/cover
     no-repeat;
   height: 24rem;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.banner__content {
+.menu-banner__content {
   text-align: center;
   background: rgba(0, 0, 0, 0.6);
   padding: 2rem;
   border-radius: 1rem;
 }
-.banner__content h2 {
+.menu-banner__content h2 {
   margin-bottom: 1rem;
 }
-.btn--primary {
-  background: var(--color-dark-orange-80);
-  text-decoration: none;
-  color: var(--color-white);
-  padding: 8px 30px;
-  width: 145px;
-  height: 42px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 8px;
-}
+
 
 /* =======================
    TOAST
@@ -276,6 +267,50 @@
 }
 .toast__close:hover {
   opacity: 1;
+}
+
+/* =======================
+   PAGINATION
+======================= */
+.menu__pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 2rem 0 4rem;
+}
+
+.page-btn {
+  background: transparent;
+  color: var(--color-white-80);
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  font-size: 1rem;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+.page-btn:hover:not(:disabled) {
+  background: var(--color-dark-orange);
+  border-color: var(--color-dark-orange);
+  color: #000;
+  transform: translateY(-2px);
+}
+.page-btn.active {
+  background: var(--color-dark-orange);
+  color: #000;
+  border-color: var(--color-dark-orange);
+}
+.page-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.page-dots {
+  color: var(--color-white-60);
+  font-weight: 600;
+  padding: 0 0.4rem;
 }
 
 /* =======================

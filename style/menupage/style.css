@@ -97,12 +97,28 @@
 .menu__card {
   background: var(--color-bg-dark, #1b1b1b);
   border-radius: 12px;
+  position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
   height: auto;
   transition: transform 0.3s, box-shadow 0.3s;
+}
+.menu__card-btn .ripple {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  animation: menu-ripple 600ms ease-out;
+  background: currentColor;
+  opacity: 0.2;
+  pointer-events: none;
+}
+@keyframes menu-ripple {
+  to {
+    transform: scale(12);
+    opacity: 0;
+  }
 }
 .menu__card:hover {
   transform: translateY(-6px);
@@ -209,7 +225,57 @@
   justify-content: center;
   border-radius: 8px;
 }
-
+/* =======================
+   TOAST
+======================= */
+#toast-root {
+  position: fixed;
+  top: calc(var(--header-height, 56px) + 12px);
+  right: 16px;
+  z-index: 9999;
+  display: grid;
+  gap: 10px;
+  pointer-events: none;
+}
+.toast {
+  pointer-events: auto;
+  min-width: 220px;
+  max-width: min(92vw, 360px);
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: #1f2937; /* neutral-800 */
+  color: #fff;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.2);
+  border-left: 4px solid #10b981; /* success */
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  font: 500 14px/1.4 "Plus Jakarta Sans", system-ui, -apple-system, Segoe UI,
+    Roboto, sans-serif;
+}
+.toast.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.toast--success {
+  border-left-color: #10b981;
+}
+.toast--error {
+  border-left-color: #ef4444;
+}
+.toast--info {
+  border-left-color: #3b82f6;
+}
+.toast__close {
+  float: right;
+  margin-left: 10px;
+  font-weight: 700;
+  opacity: 0.7;
+  cursor: pointer;
+}
+.toast__close:hover {
+  opacity: 1;
+}
 /* =======================
    RESPONSIVE
 ======================= */

@@ -3,15 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Menu</title>
+
+    <link rel="stylesheet" href="../style/reset.css" />
+    <link rel="stylesheet" href="../style/style.css" />
+
+    <!-- menu page css -->
+    <link rel="stylesheet" href="./menu.css" />
     <!-- header section -->
     <link rel="stylesheet" href="../homepage/header.css" />
-    <title>Menu</title>
-    <!-- menu page css -->
-    <link rel="stylesheet" href="../style/menupage/style.css" />
-
-    <link rel="stylesheet" href="../style/style.css" />
-    <link rel="stylesheet" href="../style/reset.css" />
-
     <!-- footer-->
     <link rel="stylesheet" href="../homepage/footer.css" />
 
@@ -19,13 +20,15 @@
       href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
       rel="stylesheet"
     />
-  </head>
+  </head>s
   <body>
     <!-- logic for header and footer -->
-    <script src="../assets/script/includePartials.js" defer></script>
-    <script src="../assets/script/header.js"></script>
+    <script src="../assets/script/include-partials.js" defer></script>
+    <script src="../assets/script/header.js" defer></script>
+
     <!-- ========== 1. HEADER ========== -->
     <div data-include="/partials/header.html"></div>
+
     <!-- open sidebar in mobile view -->
 
     <!-- ========== FILTER FIELD ========== -->
@@ -61,260 +64,11 @@
     <!-- ===== Unified container where JS will render cards ===== -->
     <div id="menu-card-container" class="menu__grid" role="list"></div>
 
-    <!-- ========== MENU FIELD ========== -->
-
-    <section id="breakfast" class="menu">
-      <div class="menu-frame">
-        <h2 class="menu__title">Breakfast</h2>
-        <img
-          class="decor-icon"
-          src="../assets/icons/MenuPage/decor.svg"
-          alt="Decor icon"
-        />
-        <!-- ========== SLIDER FIELD ========== -->
-
-        <div class="menu__slider">
-          <!--left arrown button-->
-          <button
-            class="menu__arrow menu__arrow--left"
-            aria-label="Previous slide"
-          >
-            <img src="../assets/icons/Common/arrown-left.svg" alt="Previous" />
-          </button>
-
-          <!--menu grid-->
-          <div class="menu__grid"></div>
-
-          <!--right arrown button-->
-          <button
-            class="menu__arrow menu__arrow--right"
-            aria-label="Next slide"
-          >
-            <img src="../assets/icons/Common/arrown-right.svg" alt="Next" />
-          </button>
-        </div>
-        <!--Dot navigation for moblide and ipad-->
-        <div
-          class="menu__dots"
-          role="tablist"
-          aria-label="Menu slides navigation"
-        >
-          <!--active dot -->
-          <button
-            class="menu__dot menu__dot--active"
-            aria-label="Slide 1"
-            aria-current="true"
-          >
-            <img src="../assets/icons/Common/active-dot.svg" alt="Active" />
-          </button>
-          <button class="menu__dot" aria-label="Slide 2">
-            <img src="../assets/icons/Common/dot.svg" alt="Inactive" />
-          </button>
-          <button class="menu__dot" aria-label="Slide 3">
-            <img src="../assets/icons/Common/dot.svg" alt="Inactive" />
-          </button>
-          <button class="menu__dot" aria-label="Slide 4">
-            <img src="../assets/icons/Common/dot.svg" alt="Inactive" />
-          </button>
-          <button class="menu__dot" aria-label="Slide 5">
-            <img src="../assets/icons/Common/dot.svg" alt="Inactive" />
-          </button>
-        </div>
-      </div>
-    </section>
-    <!-- BANNER MID -->
-    <section class="banner">
-      <div class="banner__content">
-        <h2>Food Is Not Just Eating Energy<br />It’s an Experience.</h2>
-        <a href="#" class="btn btn--primary">Order Now</a>
-      </div>
-    </section>
-    <!-- Lunch -->
-    <section id="lunch" class="menu">
-      <div class="menu-frame">
-        <h2 class="menu__title">Lunch</h2>
-        <img
-          class="decor-icon"
-          src="../assets/icons/MenuPage/decor.svg"
-          alt="Decor icon"
-        />
-        <!-- ========== SLIDER FIELD ========== -->
-
-        <div class="menu__slider">
-          <!--left arrown button-->
-          <button
-            class="menu__arrow menu__arrow--left"
-            aria-label="Previous slide"
-          >
-            <img src="../assets/icons/Common/arrown-left.svg" alt="Previous" />
-          </button>
-
-          <!--menu grid-->
-          <div class="menu__grid"></div>
-
-          <!--right arrown button-->
-          <button
-            class="menu__arrow menu__arrow--right"
-            aria-label="Next slide"
-          >
-            <img src="../assets/icons/Common/arrown-right.svg" alt="Next" />
-          </button>
-        </div>
-        <!--Dot navigation for moblide and ipad-->
-        <div
-          class="menu__dots"
-          role="tablist"
-          aria-label="Menu slides navigation"
-        >
-          <!--active dot -->
-          <button
-            class="menu__dot menu__dot--active"
-            aria-label="Slide 1"
-            aria-current="true"
-          >
-            <img src="../assets/icons/Common/active-dot.svg" alt="Active" />
-          </button>
-          <button class="menu__dot" aria-label="Slide 2">
-            <img src="../assets/icons/Common/dot.svg" alt="Inactive" />
-          </button>
-          <button class="menu__dot" aria-label="Slide 3">
-            <img src="../assets/icons/Common/dot.svg" alt="Inactive" />
-          </button>
-          <button class="menu__dot" aria-label="Slide 4">
-            <img src="../assets/icons/Common/dot.svg" alt="Inactive" />
-          </button>
-          <button class="menu__dot" aria-label="Slide 5">
-            <img src="../assets/icons/Common/dot.svg" alt="Inactive" />
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <!-- Dinner -->
-    <section id="dinner" class="menu">
-      <div class="menu-frame">
-        <h2 class="menu__title">Dinner</h2>
-        <img
-          class="decor-icon"
-          src="../assets/icons/MenuPage/decor.svg"
-          alt="Decor icon"
-        />
-        <!-- ========== SLIDER FIELD ========== -->
-
-        <div class="menu__slider">
-          <!--left arrown button-->
-          <button
-            class="menu__arrow menu__arrow--left"
-            aria-label="Previous slide"
-          >
-            <img src="../assets/icons/Common/arrown-left.svg" alt="Previous" />
-          </button>
-
-          <!--menu grid-->
-          <div class="menu__grid"></div>
-
-          <!--right arrown button-->
-          <button
-            class="menu__arrow menu__arrow--right"
-            aria-label="Next slide"
-          >
-            <img src="../assets/icons/Common/arrown-right.svg" alt="Next" />
-          </button>
-        </div>
-        <!--Dot navigation for moblide and ipad-->
-        <div
-          class="menu__dots"
-          role="tablist"
-          aria-label="Menu slides navigation"
-        >
-          <!--active dot -->
-          <button
-            class="menu__dot menu__dot--active"
-            aria-label="Slide 1"
-            aria-current="true"
-          >
-            <img src="../assets/icons/Common/active-dot.svg" alt="Active" />
-          </button>
-          <button class="menu__dot" aria-label="Slide 2">
-            <img src="../assets/icons/Common/dot.svg" alt="Inactive" />
-          </button>
-          <button class="menu__dot" aria-label="Slide 3">
-            <img src="../assets/icons/Common/dot.svg" alt="Inactive" />
-          </button>
-          <button class="menu__dot" aria-label="Slide 4">
-            <img src="../assets/icons/Common/dot.svg" alt="Inactive" />
-          </button>
-          <button class="menu__dot" aria-label="Slide 5">
-            <img src="../assets/icons/Common/dot.svg" alt="Inactive" />
-          </button>
-        </div>
-      </div>
-    </section>
-    <!-- Starters-->
-    <section id="starters" class="menu">
-      <div class="menu-frame">
-        <h2 class="menu__title">Starters</h2>
-        <img
-          class="decor-icon"
-          src="../assets/icons/MenuPage/decor.svg"
-          alt="Decor icon"
-        />
-        <!-- ========== SLIDER FIELD ========== -->
-
-        <div class="menu__slider">
-          <!--left arrown button-->
-          <button
-            class="menu__arrow menu__arrow--left"
-            aria-label="Previous slide"
-          >
-            <img src="../assets/icons/Common/arrown-left.svg" alt="Previous" />
-          </button>
-
-          <!--menu grid-->
-          <div class="menu__grid"></div>
-
-          <!--right arrown button-->
-          <button
-            class="menu__arrow menu__arrow--right"
-            aria-label="Next slide"
-          >
-            <img src="../assets/icons/Common/arrown-right.svg" alt="Next" />
-          </button>
-        </div>
-        <!--Dot navigation for moblide and ipad-->
-        <div
-          class="menu__dots"
-          role="tablist"
-          aria-label="Menu slides navigation"
-        >
-          <!--active dot -->
-          <button
-            class="menu__dot menu__dot--active"
-            aria-label="Slide 1"
-            aria-current="true"
-          >
-            <img src="../assets/icons/Common/active-dot.svg" alt="Active" />
-          </button>
-          <button class="menu__dot" aria-label="Slide 2">
-            <img src="../assets/icons/Common/dot.svg" alt="Inactive" />
-          </button>
-          <button class="menu__dot" aria-label="Slide 3">
-            <img src="../assets/icons/Common/dot.svg" alt="Inactive" />
-          </button>
-          <button class="menu__dot" aria-label="Slide 4">
-            <img src="../assets/icons/Common/dot.svg" alt="Inactive" />
-          </button>
-          <button class="menu__dot" aria-label="Slide 5">
-            <img src="../assets/icons/Common/dot.svg" alt="Inactive" />
-          </button>
-        </div>
-      </div>
-    </section>
     <!-- ==========  FOOTER ========== -->
     <div data-include="/partials/footer.html"></div>
 
     <!-- navigate menu  -->
-    <script type="module" src="../assets/script/navigateMenu.js"></script>
-    <script type="module" src="../assets/script/menupage.js"></script>
+    <script type="module" src="../assets/script/navigate-menu.js" defer></script>
+    <script type="module" src="../assets/script/menupage.js" defer></script>
   </body>
 </html>

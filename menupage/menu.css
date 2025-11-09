@@ -33,15 +33,15 @@
 .menu__filter-item {
   color: var(--color-white-80);
   font-family: var(--font-heading);
-  font-size: 1rem;
+  font-size: 1.5rem;
   min-width: auto;
-  height: 30px;
   text-align: center;
   align-items: center;
   text-decoration: none;
   transition: all 0.3s;
   position: relative;
-  line-height: 40px;
+  padding-bottom: 5px;
+  padding-top: 2px;
 }
 .menu__filter-item::after {
   content: "";
@@ -318,12 +318,14 @@
 
 /* =======================
    LEGACY — FORCE HIDE SLIDER
+ Hide legacy slider sections (replaced by dynamic menu cards in menupage.js) 
 ======================= */
 .menu__slider,
 .menu__arrow,
 .menu__dots {
   display: none !important;
 }
+
 #breakfast,
 #lunch,
 #dinner,

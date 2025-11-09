@@ -102,7 +102,7 @@
     boot();
   }
 
-  // Nếu includePartials.js có bắn sự kiện này, mình cũng bắt vào cho chắc
+  // Nếu include-partials.js có bắn sự kiện này, mình cũng bắt vào cho chắc
   document.addEventListener("partials:loaded", () => {
     initMenu();
     initScrollStyle();

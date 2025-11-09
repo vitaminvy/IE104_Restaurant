@@ -116,37 +116,10 @@
   font-family: var(--font-body);
   font-weight: 500;
   font-size: 1rem;
-  color: #ffffff;
+  /* color: #ffffff; */
   text-decoration: none;
-
-  /* Background / Others */
-  transition: color 0.3s ease;
 }
 
-.team-link::after {
-  /* Position */
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-
-  /* Box model */
-  content: "";
-  width: 100%;
-  height: 2px;
-
-  /* Background / Others */
-  background-color: #fb8f2c;
-  transition: width 0.3s ease;
-}
-
-/* Hover states */
-.team-link:hover {
-  color: #fb8f2c;
-}
-
-.team-link:hover::after {
-  width: 40%;
-}
 
 /* =========================================================
    Responsive Design

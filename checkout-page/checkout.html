@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Checkout • WowWraps</title>
+
+    <!-- link style CSS global -->
+    <link rel="stylesheet" href="../style/reset.css" />
+    <link rel="stylesheet" href="../style/style.css" />
+
+    <!-- style CSS checkout page -->
+    <link rel="stylesheet" href="./checkout.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Style header and footer -->
+    <link rel="stylesheet" href="../homepage/header.css" />
+    <link rel="stylesheet" href="../homepage/footer.css" />
+
+    <!-- link header and footer html -->
+    <script src="../assets/script/include-partials.js" defer></script>
+    <script src="../assets/script/header.js"></script>
+
+    <!-- link script appear hint -->
+    <script src="./hint.js" defer></script>
+  </head>
+  <body class="page">
+    <!-- Header -->
+    <div data-include="/partials/header.html"></div>
+
+    <main class="checkout container">
+      <!-- LEFT: BILLING FORM -->
+      <section class="billing">
+        <h1 class="billing__title">Billing details</h1>
+
+        <form class="form" action="#" method="post" novalidate>
+          <div class="form__row">
+            <div class="form__group">
+              <label class="form__label" for="firstName">Your name *</label>
+              <input
+                id="firstName"
+                class="form__input"
+                type="text"
+                placeholder=""
+                required
+              />
+            </div>
+            <div class="form__group">
+              <label class="form__label" for="lastName">Last name *</label>
+              <input
+                id="lastName"
+                class="form__input"
+                type="text"
+                placeholder=""
+                required
+              />
+            </div>
+          </div>
+
+          <div class="form__group">
+            <label class="form__label" for="country">Country / Region *</label>
+            <select id="country" class="form__select" required>
+              <option value="au">Australia</option>
+              <option value="us">United States</option>
+              <option value="vn">Viet Nam</option>
+            </select>
+          </div>
+
+          <div class="form__group">
+            <label class="form__label" for="street1">Street address *</label>
+            <input
+              id="street1"
+              class="form__input"
+              type="text"
+              placeholder=""
+              required
+            />
+          </div>
+
+          <div class="form__group">
+            <label class="form__label" for="street2">Street address *</label>
+            <input
+              id="street2"
+              class="form__input"
+              type="text"
+              placeholder=""
+            />
+          </div>
+
+          <div class="form__row">
+            <div class="form__group">
+              <label class="form__label" for="city">Town / City *</label>
+              <input id="city" class="form__input" type="text" required />
+            </div>
+            <div class="form__group">
+              <label class="form__label" for="district">District *</label>
+              <input id="district" class="form__input" type="text" required />
+            </div>
+          </div>
+
+          <div class="form__row">
+            <div class="form__group">
+              <label class="form__label" for="zip"
+                >Postcode / ZIP (optional)</label
+              >
+              <input id="zip" class="form__input" type="text" />
+            </div>
+            <div class="form__group">
+              <label class="form__label" for="phone">Phone *</label>
+              <input id="phone" class="form__input" type="tel" required />
+            </div>
+          </div>
+
+          <div class="form__group">
+            <label class="form__label" for="email">Email address *</label>
+            <input id="email" class="form__input" type="email" required />
+          </div>
+
+          <!-- PAYMENT METHODS -->
+          <fieldset class="payment">
+            <div class="payment__option">
+              <label class="payment__head">
+                <input
+                  class="payment__radio"
+                  type="radio"
+                  name="payment"
+                  value="bank"
+                />
+                <span class="payment__label">Direct bank transfer</span>
+              </label>
+              <p class="payment__hint">
+                Make your payment directly into our bank account. Please use
+                your Order ID as the payment reference. Your order will not be
+                shipped until the funds have cleared in our account.
+              </p>
+            </div>
+
+            <div class="payment__option">
+              <label class="payment__head">
+                <input
+                  class="payment__radio"
+                  type="radio"
+                  name="payment"
+                  value="check"
+                />
+                <span class="payment__label">Check payments</span>
+              </label>
+              <p class="payment__hint">
+                Pay using check, your order will be processed after
+                verification.
+              </p>
+            </div>
+
+            <div class="payment__option">
+              <label class="payment__head">
+                <input
+                  class="payment__radio"
+                  type="radio"
+                  name="payment"
+                  value="cod"
+                />
+                <span class="payment__label">Cash on delivery</span>
+              </label>
+              <p class="payment__hint">
+                Pay with cash when your order is delivered.
+              </p>
+            </div>
+
+            <div class="payment__option">
+              <label class="payment__head">
+                <input
+                  class="payment__radio"
+                  type="radio"
+                  name="payment"
+                  value="paypal"
+                />
+                <span class="payment__label">PayPal</span>
+              </label>
+              <p class="payment__hint">
+                You will be redirected to PayPal to complete your purchase
+                securely.
+              </p>
+            </div>
+
+            <p class="payment__privacy">
+              Your personal data will be used to process your order, support
+              your experience throughout this website, and for other purposes
+              described in our <a href="#!" class="link">privacy policy</a>.
+            </p>
+
+            <button class="btn btn--primary" type="submit">Place order</button>
+          </fieldset>
+        </form>
+      </section>
+
+      <!-- RIGHT: ORDER SUMMARY -->
+      <aside class="summary" aria-label="Order summary">
+        <h2 class="summary__title">Your order</h2>
+        <table class="order-table">
+          <thead>
+            <tr>
+              <th>Food</th>
+              <th>Subtotal</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Crispy chicken breasts × 1</td>
+              <td>$24.99</td>
+            </tr>
+            <tr>
+              <td>Spaghetti Napoletana × 1</td>
+              <td>$59.00</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <th>Subtotal</th>
+              <td>$83.99</td>
+            </tr>
+            <tr>
+              <th>Shipping</th>
+              <td>Flat rate: $6.00</td>
+            </tr>
+            <tr class="order-table__total">
+              <th>Total</th>
+              <td>$89.99</td>
+            </tr>
+          </tfoot>
+        </table>
+      </aside>
+    </main>
+
+    <!-- Footer -->
+    <div data-include="/partials/footer.html"></div>
+  </body>
+</html>

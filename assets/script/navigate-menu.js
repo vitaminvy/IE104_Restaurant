@@ -30,7 +30,7 @@ import { menuItems } from "../data/mockdata.js";
             <div class="menu__card-footer">
                 <a href="#" class="menu__card-btn">
                     Order Now
-                    <img src="../assets/icons/MenuSection/arrown.svg" alt="" class="menu__card-btn-icon" />
+                    <img src="../assets/icons/home-page/menu-section/arrown.svg" alt="" class="menu__card-btn-icon" />
                 </a>
                 <span class="menu__card-price">$${item.price}</span>
             </div>

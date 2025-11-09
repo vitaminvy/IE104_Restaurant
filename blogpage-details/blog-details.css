@@ -205,22 +205,88 @@
   transform: scale(1.03);
 }
 
-.quote {
+/* =============================
+ * Blog Quote Section
+ * ============================= */
+.blog-quote {
   /* Box model */
-  padding: 30px;
-  margin: 40px 0;
+  padding: 1.5rem;
+  margin: 2rem 0;
   border-left: 3px solid #fff;
 
   /* Background / Others */
   background-color: #1a1a1d;
 }
 
-.quote p {
+/* Typography inside blockquote */
+.blog-quote p {
   /* Typography */
   font-style: italic;
-  font-size: 1.1rem;
+  font-size: 1rem;
   line-height: 1.7;
   margin: 0;
+}
+
+/* =============================
+ * Content Section
+ * ============================= */
+.content-section {
+  /* Box model */
+  margin: 2rem 0;
+  padding-bottom: 0.625rem;
+  border-bottom: 1px solid #fff;
+}
+
+.content-section h2 {
+  /* Box model */
+  margin-top: 2rem;
+  margin-bottom: 1.25rem;
+
+  /* Typography */
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: var(--font-weight-h2);
+  line-height: var(--line-height-h2);
+  color: var(--color-white);
+}
+
+.content-section p {
+  /* Box model */
+  margin-bottom: 1.25rem;
+
+  /* Typography */
+  font-size: 0.875rem;
+}
+
+.first-letter {
+  /* Box model */
+  float: left;
+  margin-right: 0.625rem;
+
+  /* Typography */
+  font-size: 3rem;
+  line-height: 1;
+  font-family: var(--font-heading);
+  color: var(--color-white);
+  transform: translate(0, 4px);
+}
+
+.content-section img {
+  /* Box model */
+  position: relative;
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 1.5rem auto;
+  object-fit: cover;
+  box-sizing: border-box;
+
+  /* Animation */
+  transition: transform 0.4s ease;
+}
+
+.content-section img:hover {
+  transform: scale(1.03);
 }
 
 /* =============================
@@ -237,9 +303,10 @@
   position: relative;
 
   /* Box model */
-  margin-bottom: 20px;
-  padding-left: 25px;
+  margin-bottom: 1rem;
+  padding-left: 1.25rem;
 
+  /* Typography */
   color: var(--color-white-80) !important;
   line-height: 1.6;
   font-family: var(--font-body);
@@ -254,7 +321,7 @@
   /* Typography */
   content: "•";
   color: var(--color-yellow);
-  font-size: 1.5rem;
+  font-size: 1.25rem;
 }
 
 .content-section ul li strong {
@@ -264,11 +331,11 @@
 }
 
 /* =============================
- * Responsive Design
+ * Responsive Design (Mobile-First, min-width)
  * ============================= */
 
-/* sm (≤640px): small mobile */
-@media (max-width: 40rem) {
+/* sm (≥640px) */
+@media (min-width: 40rem) {
   .blog-header h1 {
     /* Typography */
     font-size: 1.5rem;
@@ -278,25 +345,16 @@
     /* Typography */
     font-size: 0.875rem;
   }
-  
+
   .content-section h2 {
-    /* Typography */
     font-size: 1.5rem;
   }
 
-  .content-section {
-    /* Box model */
-    margin: 2rem 0;
-    padding-bottom: 0.625rem;
-  }
-
   .content-section p {
-    /* Typography */
     font-size: 0.875rem;
   }
 
   .first-letter {
-    /* Typography */
     font-size: 3rem;
   }
 
@@ -308,7 +366,6 @@
   }
 
   .meta-info span {
-    /* Typography */
     font-size: 0.75rem;
   }
 
@@ -320,82 +377,71 @@
     font-size: 0.625rem;
   }
 
-  .content-section ul {
-    /* Typography */
-    font-size: 0.875rem;
-  }
-
   .content-section ul li {
-    /* Box model */
     margin-bottom: 1rem;
     padding-left: 1.25rem;
   }
 
   .content-section ul li::before {
-    /* Typography */
     font-size: 1.25rem;
   }
 
-  .quote {
-    /* Box model */
+  .blog-quote {
     padding: 1.5rem;
     margin: 2rem 0;
   }
 
-  .quote p {
-    /* Typography */
+  .blog-quote p {
     font-size: 1rem;
-  }
-
-  .content-section img {
-    /* Box model */
-    margin: 1.5rem auto;
   }
 }
 
-/* md (≤768px): tablet */
-@media (max-width: 48rem) {
+/* md (≥768px) */
+@media (min-width: 48rem) {
   .blog-header h1 {
-    /* Typography */
     font-size: 1.75rem;
   }
 
   .content-section h2 {
-    /* Typography */
     font-size: 1.75rem;
   }
 
   .meta-info {
-    /* Box model */
     gap: 1rem;
   }
 
   .copy-link {
-    /* Box model */
     padding: 0.5rem 0.875rem;
-
-    /* Typography */
     font-size: 0.75rem;
+  }
+
+  .blog-quote {
+    padding: 1.75rem;
+  }
+
+  .blog-quote p {
+    font-size: 1rem;
   }
 }
 
-/* lg (≤1024px): small desktop */
-@media (max-width: 64rem) {
+/* lg (≥1024px) */
+@media (min-width: 64rem) {
   .blog-header {
-    /* Box model */
     margin-bottom: 1.5rem;
   }
 
   .content-section {
-    /* Box model */
+    margin: 2.5rem 0;
+  }
+
+  .blog-quote {
     margin: 2.5rem 0;
   }
 }
 
-/* xl (≤1280px): large desktop */
-@media (max-width: 80rem) {
+/* xl (≥1280px) */
+@media (min-width: 80rem) {
   .content-section img {
-    /* Box model */
     max-width: 64rem;
   }
 }

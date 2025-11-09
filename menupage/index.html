@@ -29,10 +29,7 @@
     <!-- ========== 1. HEADER ========== -->
     <div data-include="/partials/header.html"></div>
 
-    <!-- open sidebar in mobile view -->
-
     <!-- ========== FILTER FIELD ========== -->
-
     <nav class="menu__filter" aria-label="Menu categories">
       <!-- breakfast -->
       <a
@@ -64,8 +61,16 @@
     <!-- ===== Unified container where JS will render cards ===== -->
     <div id="menu-card-container" class="menu__grid" role="list"></div>
 
+    <!-- BANNER MID -->
+    <section class="banner">
+      <div class="banner__content">
+        <h2>Food Is Not Just Eating Energy<br />It’s an Experience.</h2>
+        <a href="#" class="btn btn--primary">Order Now</a>
+      </div>
+    </section>
+
     <!-- ==========  FOOTER ========== -->
-    <div data-include="/partials/footer.html"></div>
+    <div class="footer-wrapper" data-include="/partials/footer.html" style="margin-top: 0;"></div>
 
     <!-- navigate menu  -->
     <script type="module" src="../assets/script/navigate-menu.js" defer></script>

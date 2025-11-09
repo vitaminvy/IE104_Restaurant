@@ -199,7 +199,7 @@
 .banner {
   background: url("../../assets/images/MenuPage/banner.png") center/cover
     no-repeat;
-  height: 20rem;
+  height: 24rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -225,6 +225,7 @@
   justify-content: center;
   border-radius: 8px;
 }
+
 /* =======================
    TOAST
 ======================= */
@@ -276,6 +277,7 @@
 .toast__close:hover {
   opacity: 1;
 }
+
 /* =======================
    RESPONSIVE
 ======================= */
@@ -307,28 +309,12 @@
 @media (min-width: 80rem) {
   .menu__filter {
     top: 91px;
+    gap: 12rem;
   }
   .menu__grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
   .menu__card-img-wrapper {
-    height: 13.75rem;
+    height: 17.75rem;
   }
-}
-
-/* =======================
-   LEGACY — FORCE HIDE SLIDER
- Hide legacy slider sections (replaced by dynamic menu cards in menupage.js) 
-======================= */
-.menu__slider,
-.menu__arrow,
-.menu__dots {
-  display: none !important;
-}
-
-#breakfast,
-#lunch,
-#dinner,
-#starters {
-  display: none;
 }

@@ -1,7 +1,6 @@
 /* =================== Common Style ===================== */
 section {
   width: 100%;
-  max-width: 1536px; /* = 2xl theo chuẩn Tailwind */
   margin-left: auto;
   margin-right: auto;
   padding-left: 1.5rem; /* 24px */

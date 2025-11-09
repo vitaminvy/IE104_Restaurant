@@ -28,7 +28,14 @@
 /* =============================
  * Buttons
  * ============================= */
+/* =============================
+ * Button Styles
+ * ============================= */
 .btn {
+  /* Position */
+  position: relative;
+  overflow: hidden;
+
   /* Box model */
   display: inline-block;
   padding: 14px 28px;
@@ -41,53 +48,15 @@
   font-size: 16px;
   text-align: center;
   text-decoration: none;
+  color: var(--color-white);
 
   /* Background / Others */
   background-color: var(--color-dark-orange);
-  color: #000;
   cursor: pointer;
-
-  transition: background-color 0.3s ease, color 0.3s ease,
-    transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.btn {
-  display: inline-block;
-  background-color: var(--color-dark-orange); /* lighter orange tone */
-  color: #000;
-  transform: translateY(-2px);
+  transform: translateY(0);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
-}
-
-.btn::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.2),
-    transparent
-  );
-  transition: left 0.5s;
-}
-
-.btn:hover::before {
-  left: 100%;
-}
-
-.btn:hover {
-  background-color: var(--color-dark-orange);
-  border-color: var(--color-dark-orange);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(251, 143, 44, 0.3);
+  transition: background-color 0.3s ease, color 0.3s ease,
+              transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 /* Text Links */
@@ -118,6 +87,30 @@
 
 .link:hover::after {
   width: 40%;
+}
+
+textarea {
+  /* Box model */
+  width: 100%;
+  padding: 12px 14px;
+  border: 2px solid color(--color-white:);
+  border-radius: 6px;
+  resize: vertical;
+
+  /* Typography */
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: #333;
+
+  /* Transition */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Khi người dùng click vào textarea */
+textarea:focus {
+  border-color: var(--color-dark-orange); /* Màu chủ đạo của bạn */
+  box-shadow: 0 0 6px rgba(255, 140, 0, 0.4); /* hiệu ứng ánh sáng */
+  outline: none; /* bỏ viền xanh mặc định */
 }
 
 /* =============================

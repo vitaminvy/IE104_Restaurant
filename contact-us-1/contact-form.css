@@ -6,7 +6,7 @@
   display: flex;
   gap: 120px; /* Increased gap for better separation */
   align-items: flex-start;
-  padding: 100px 3rem;
+  padding: 100px 0;
 }
 
 /* =============================
@@ -78,7 +78,6 @@
 .form-group {
   /* Box model */
   flex: 1;
-  width: 100%;
   margin-bottom: 50px; /* Spacing between form field groups */
 }
 
@@ -151,6 +150,12 @@
     /* Box model */
     flex-direction: column;
     gap: 60px;
+    widhth: 100%;
+  }
+
+  .contact-form__form {
+    width: 100%;
+    flex: unset; /* reset flex để chiếm toàn bộ chiều ngang */
   }
 }
 

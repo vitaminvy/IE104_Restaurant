@@ -5,7 +5,7 @@
   /* Box model */
   display: flex;
   align-items: center;
-  padding: 8rem 3rem 0 3rem;
+  padding: 8rem 0 0 0;
 }
 
 /* Left Column: Text Content */
@@ -112,7 +112,7 @@
 
   .find-us__image {
     /* Box model */
-    max-width: 74%;
+    max-width: 100%;
     height: auto;
   }
 }

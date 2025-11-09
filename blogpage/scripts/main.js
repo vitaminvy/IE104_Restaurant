@@ -1,5 +1,5 @@
-import { renderFeaturedPost } from './renderFeatured.js';
-import { renderBlogGrid } from './renderBlogGrid.js';
+import { renderFeaturedPost } from './render-feature-post.js';
+import { renderBlogGrid } from './render-blog-grid.js';
 import { initPagination } from './pagination.js';
 
 document.addEventListener('DOMContentLoaded', () => {

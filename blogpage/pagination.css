@@ -4,9 +4,10 @@
 .pagination {
   /* Box model */
   display: flex;
-  justify-content: space-between; /* prev/next ra ngoài, numbers căn giữa */
+  justify-content: space-between; /* prev/next on edges, page numbers centered */
   align-items: center;
   gap: 20px;
+  width: 100%;
 
   /* Typography */
   font-family: var(--font-body);
@@ -42,10 +43,10 @@
   /* Box model */
   display: flex;
   gap: 12px; 
-  flex: 1; /* chiếm hết khoảng giữa prev/next */
+  flex: 1; /* occupy all space between prev and next */
 
   /* Alignment */
-  justify-content: center; /* luôn căn giữa */
+  justify-content: center; /* always center page numbers */
 }
 
 /* ----------------------------------------
@@ -80,6 +81,17 @@
   font-weight: 600;
 }
 
+/* Ellipsis for skipped pages */
+.pagination .ellipsis {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 12px;
+  height: 32px;
+  color: var(--color-white);
+  font-size: 0.95rem;
+}
+
 /* ============================= 
   Responsive
 ============================= */
@@ -89,7 +101,7 @@
   }
 
   .pagination .page-numbers {
-    min-width: 28px;
+    min-width: 8px;
     height: 28px;
     font-size: 0.85rem;
   }

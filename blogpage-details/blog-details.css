@@ -235,6 +235,10 @@
   /* Box model */
   margin-bottom: 20px;
   padding-left: 25px;
+
+  color: var(--color-white-80) !important;
+  line-height: 1.6;
+  font-family: var(--font-body);
 }
 
 .content-section ul li::before {
@@ -252,6 +256,7 @@
 .content-section ul li strong {
   /* Typography */
   color: var(--color-white);
+  font-weight: 800;
 }
 
 /* =============================

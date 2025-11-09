@@ -1,9 +1,10 @@
 /* ========== PRODUCT DETAIL SECTION ========== */
 #product-detail {
-  margin-top: 2rem;
+  margin-top: 5rem;
   background-color: var(--color-bg-dark, #111);
-  padding: clamp(4rem, 8vw, 7rem) 1.5rem;
   color: var(--color-white);
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .product-detail__container {
@@ -154,13 +155,14 @@
 
 /* sm (≥640px): tăng spacing, size text */
 @media (min-width: 640px) {
-  #product-detail {
-    padding: clamp(5rem, 7vw, 8rem) 2rem;
-  }
 }
 
 /* md (≥768px): chia 2 cột */
 @media (min-width: 768px) {
+  #product-detail {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
   .product-detail__img {
     max-width: 70%;
   }
@@ -169,20 +171,23 @@
 /* lg (≥1024px): tinh chỉnh font và padding */
 @media (min-width: 1024px) {
   #product-detail {
-    padding: 6rem 3rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
   }
-
   .product-detail__title {
     font-size: 3rem;
   }
 
   .product-detail__img {
-    max-width: 100%;
+    max-width: 70%;
   }
 }
 
 /* xl (≥1280px): full layout centered, tăng gap */
 @media (min-width: 1280px) {
+  #product-detail {
+    margin-top: 10rem;
+  }
   .product-detail__container {
     grid-template-columns: 1fr 1fr;
     gap: clamp(2rem, 3vw, 4rem);

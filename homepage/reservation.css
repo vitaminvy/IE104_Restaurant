@@ -1,11 +1,15 @@
 /* ========== Reservation Section ========== */
 .reservation {
-  margin-top: 3rem;
   position: relative;
-  /* gradient overlay + props bg */
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.62), rgba(28, 28, 28, 0.62)),
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.65), rgba(28, 28, 28, 0.65)),
     url("../assets/images/home-page/reservation-section/reservation-background.png")
       center/cover no-repeat;
+  background-attachment: fixed; /* parallax effect */
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-white);
 }
 
 /* overlay css */
@@ -42,6 +46,7 @@
 
 /* mobile view */
 .reservation__title span {
+  font-size: 2rem;
   display: inline; /* title in 1 line */
 }
 
@@ -172,6 +177,10 @@
   .reservation__title {
     font-size: 2rem;
   }
+  .reservation {
+    margin-top: 6rem;
+    min-height: 25vh;
+  }
 }
 
 /* md (≥768px): tablet */
@@ -192,16 +201,22 @@
 @media (min-width: 64rem) {
   .reservation {
     margin-top: 6rem;
+    min-height: 25vh;
   }
-  .reservation__title {
+  .reservation__title span{
     font-size: 3rem;
   }
 }
 
 /* xl (≥1280px): desktop */
 @media (min-width: 80rem) {
+  .reservation__title span {
+    font-size: 4rem;
+  }
+
   .reservation {
     margin-top: 7rem;
+    min-height: 25vh;
   }
 
   .reservation__title {

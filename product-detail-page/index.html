@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Menu</title>
+
+    <link rel="stylesheet" href="../style/reset.css" />
+    <link rel="stylesheet" href="../style/style.css" />
+
+    <!-- header section -->
+    <link rel="stylesheet" href="../homepage/header.css" />
+    <!-- footer section-->
+    <link rel="stylesheet" href="../homepage/footer.css" />
+
+    <!-- menu page css -->
+    <link rel="stylesheet" href="./product-detail.css" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+      rel="stylesheet"
+    />
+    <script src="./product-add.js" defer></script>
+  </head>
+
+  <body>
+    <!-- logic for header and footer -->
+    <script src="../assets/script/include-partials.js" defer></script>
+    <script src="../assets/script/header.js" defer></script>
+
+    <!-- ========== HEADER ========== -->
+    <div data-include="/partials/header.html"></div>
+
+    <!-- ========== PRODUCT DETAIL SECTION ========== -->
+    <section id="product-detail" class="product-detail section">
+      <div class="product-detail__container">
+        <!-- IMAGE -->
+        <div class="product-detail__image">
+          <img
+            src="../assets/images/product-detail-page/product-image.png"
+            alt="Crispy Chicken Breasts"
+            class="product-detail__img"
+          />
+        </div>
+
+        <!-- INFO -->
+        <div class="product-detail__info">
+          <h1 class="product-detail__title">Crispy Chicken Breasts</h1>
+
+          <!-- Rating -->
+          <div class="product-detail__rating">
+            <div class="stars">
+              <img
+                src="../assets/icons/product-detail-page/star-icon.svg"
+                alt="Star"
+              />
+              <img
+                src="../assets/icons/product-detail-page/star-icon.svg"
+                alt="Star"
+              />
+              <img
+                src="../assets/icons/product-detail-page/star-icon.svg"
+                alt="Star"
+              />
+              <img
+                src="../assets/icons/product-detail-page/star-icon.svg"
+                alt="Star"
+              />
+              <img
+                src="../assets/icons/product-detail-page/star-icon.svg"
+                alt="Star"
+              />
+            </div>
+            <span class="review-count">(1 customer review)</span>
+          </div>
+
+          <p class="product-detail__price">$54.00</p>
+
+          <p class="product-detail__desc">
+            Aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum
+            exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid
+            ex ea commodi consequatur quis autem vel eum iure reprehenderit.
+          </p>
+
+          <!-- Quantity + Add to Cart -->
+          <div class="product-detail__actions">
+            <div class="quantity">
+              <button class="qty-btn minus">−</button>
+              <input
+                type="number"
+                value="1"
+                min="1"
+                max="99"
+                class="qty-input"
+              />
+              <button class="qty-btn plus">+</button>
+            </div>
+            <a href="/cartpage/cart.html" class="btn btn--primary">ADD TO CART</a>
+          </div>
+
+          <!-- Meta Info -->
+          <ul class="product-detail__meta">
+            <li><strong>SKU:</strong> PT322</li>
+            <li><strong>CATEGORY:</strong> Lunch</li>
+            <li><strong>TAGS:</strong> Sweets, Ghevar</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========  FOOTER ========== -->
+    <div class="footer-wrapper" data-include="/partials/footer.html"></div>
+  </body>
+</html>

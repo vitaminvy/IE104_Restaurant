@@ -199,7 +199,7 @@
 
 /* ===== BANNER (optional) ===== */
 .banner {
-  background: url("../../assets/images/menu-page/banner.png") center/cover
+  background: url("../../assets/images/menu-page/menu-page-banner.png") center/cover
     no-repeat;
   height: 24rem;
   display: flex;

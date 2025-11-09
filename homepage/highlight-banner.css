@@ -66,10 +66,6 @@
 
 /* xs (mobile <480px) */
 @media (max-width: 30rem) {
-  .highlight-banner {
-    padding: 0.75rem 0;
-  }
-
   .highlight-banner__item {
     font-size: 0.9rem;
     margin: 0 1.25rem;

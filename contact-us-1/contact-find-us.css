@@ -1,0 +1,197 @@
+/* =============================
+ * Find Us Section Container
+ * ============================= */
+#find-us {
+  /* Box model */
+  display: flex;
+  align-items: center;
+  padding: 8rem 0 0 0;
+}
+
+/* Left Column: Text Content */
+.find-us__content {
+  /* Box model */
+  flex: 1;
+}
+
+/* Contact Details Block */
+.contact-details {
+  /* Box model */
+  margin: 30px 0;
+}
+
+/* Individual Contact Item */
+.contact-item {
+  /* Box model */
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+
+  /* Typography */
+  color: var(--color-white-80);
+}
+
+/* Contact Icons */
+.contact-icon {
+  /* Box model */
+  width: 24px;
+  height: 24px;
+}
+
+/* =============================
+ * Right Column: Image Container
+ * ============================= */
+.find-us__image-container {
+  /* Position */
+  position: relative;
+
+  /* Box model */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Visual */
+  border-radius: 12px;
+  overflow: hidden;
+
+  /* Transition for subtle movement on resize or hover */
+  transition: transform 0.3s ease;
+}
+
+.find-us__image-container:hover {
+  transform: scale(1.02);
+}
+
+/* Image inside Image Container */
+.find-us__image {
+  /* Box model */
+  width: 100%;
+  height: auto;
+  max-width: 600px;
+  border-radius: inherit;
+
+  /* Others */
+  object-fit: cover;
+  transition: opacity 0.3s ease;
+}
+
+/* === Popup (modal) container === */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  display: none; /* hidden by default */
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+/* === Popup content box === */
+.popup-content {
+  position: relative;
+
+  background: #222;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  width: 90%;
+  max-width: 600px;
+  animation: fadeIn 0.3s ease;
+}
+
+/* === Close button === */
+.popup-close {
+  position: absolute;  
+  padding: 0 6px;
+  top: 10px;
+  right: 10px;
+  background-color: rgba(0,0,0,0.3);
+  border-radius: 100%;
+  border: none;
+  color: var(--color-white);
+  font-size: 24px;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.popup-close:hover {
+  color: #fb8f2c;
+}
+
+/* === Image inside popup === */
+.popup-content img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* === Animation === */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* =============================
+ * Responsive Design
+ * ============================= */
+
+/* 2xl breakpoint (≤1536px) */
+@media (max-width: 96rem) {
+  #find-us {
+    /* Box model */
+    padding: 8rem 0 0 0;
+  }
+}
+
+/* lg breakpoint (≤1024px) */
+@media (max-width: 64rem) {
+  #find-us {
+    /* Box model */
+    flex-direction: column-reverse;
+    align-items: unset;
+    gap: 40px;
+    margin: 40px 0;
+    padding: 4rem 0 0 0;
+  }
+
+  .find-us__image-container {
+    /* Box model */
+    width: 100%;
+    padding-left: 0;
+    order: -1; /* Show image above text on tablet/mobile */
+    justify-content: center;
+
+    /* Visual */
+    border-radius: 10px;
+  }
+
+  .find-us__image {
+    /* Box model */
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* sm breakpoint (≤640px) — small mobile */
+@media (max-width: 40rem) {
+  .find-us__image-container {
+    /* Box model */
+    margin-top: 1rem;
+  }
+
+  .find-us__image {
+    /* Box model */
+    border-radius: 8px;
+    box-shadow: none;
+  }
+}

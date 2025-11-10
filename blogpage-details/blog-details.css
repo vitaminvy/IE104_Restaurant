@@ -1,21 +1,23 @@
 /* =============================
- * Blog Detail Section Container
+ * BASE STYLES (Mobile < 40rem)
  * ============================= */
+
 .blog-header h1 {
-  /* Box model */
+  /* Typography */
+  font-size: 2rem;
+  /* Các thuộc tính từ desktop-base được kế thừa nếu cần */
   margin-bottom: 10px;
   max-width: 60rem;
-
-  /* Typography */
   font-family: var(--font-heading);
-  font-size: 4rem;
   font-weight: var(--font-weight-h2);
   line-height: 1.2;
   color: var(--color-white);
 }
 
 .blog-header p {
-  /* Box model */
+  /* Typography */
+  font-size: 0.875rem;
+  /* Thuộc tính từ desktop-base */
   max-width: 1170px;
 }
 
@@ -48,16 +50,22 @@
 .meta-info {
   /* Box model */
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 20px;
-  padding-bottom: 20px;
   border-bottom: 1px solid var(--color-border);
   flex-wrap: wrap;
-  gap: 15px;
+  /* Mobile-specific */
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-top: 20px;
+  padding-bottom: 20px;
 
   color: var(--color-white-80) !important;
   font-family: var(--font-body);
+}
+
+.meta-info span {
+  /* Typography */
+  font-size: 0.75rem;
 }
 
 .social-links {
@@ -70,19 +78,21 @@
 .copy-link {
   /* Box model */
   display: inline-block;
-  padding: 0.375rem 0.75rem;
-  border: 1px solid var(--color-white-40, rgba(255,255,255,0.4));
+  border: 1px solid var(--color-white-40, rgba(255, 255, 255, 0.4));
   border-radius: 20px;
   background-color: transparent;
   cursor: pointer;
   overflow: hidden;
   position: relative;
+  /* Mobile-specific */
+  padding: 0.375rem 0.75rem;
 
   /* Typography */
-  font-size: 0.625rem;
-  color: var(--color-white-80, rgba(255,255,255,0.8));
+  color: var(--color-white-80, rgba(255, 255, 255, 0.8));
   font-family: var(--font-body);
   font-weight: 500;
+  /* Mobile-specific */
+  font-size: 0.625rem;
 
   /* Layout */
   align-items: center;
@@ -131,7 +141,6 @@
   background-color: #e67e22;
 }
 
-
 .social-links a {
   /* Typography */
   color: var(--color-white-80);
@@ -151,10 +160,11 @@
  * ============================= */
 .content-section {
   /* Box model */
-  margin-top: 40px;
-  margin-bottom: 80px;
-  padding-bottom: 30px;
   border-bottom: 1px solid #fff;
+  /* Mobile-specific */
+  margin: 2rem 0;
+  padding-bottom: 0.625rem;
+  margin-bottom: 80px; /* Thêm lại từ base-desktop nếu bị mobile-base ghi đè */
 }
 
 .content-section h2 {
@@ -164,10 +174,11 @@
 
   /* Typography */
   font-family: var(--font-heading);
-  font-size: var(--font-size-h2);
   font-weight: var(--font-weight-h2);
   line-height: var(--line-height-h2);
   color: var(--color-white);
+  /* Mobile-specific */
+  font-size: 1.5rem;
 }
 
 .first-letter {
@@ -176,10 +187,11 @@
   margin-right: 10px;
 
   /* Typography */
-  font-size: 4rem;
   line-height: 1;
   font-family: var(--font-heading);
   color: var(--color-white);
+  /* Mobile-specific */
+  font-size: 3rem;
 
   transform: translate(0, 4px);
 }
@@ -187,6 +199,8 @@
 .content-section p {
   /* Box model */
   margin-bottom: 20px;
+  /* Mobile-specific */
+  font-size: 0.875rem;
 }
 
 .content-section img {
@@ -198,21 +212,20 @@
   object-fit: cover;
   transition: transform 0.4s ease;
   box-sizing: border-box;
-  margin: 0 auto;
+  /* Mobile-specific */
+  margin: 1.5rem auto;
 }
 
 .content-section img:hover {
   transform: scale(1.03);
 }
 
-/* =============================
- * Blog Quote Section
- * ============================= */
 .blog-quote {
   /* Box model */
+  border-left: 3px solid #fff;
+  /* Mobile-specific */
   padding: 1.5rem;
   margin: 2rem 0;
-  border-left: 3px solid #fff;
 
   /* Background / Others */
   background-color: #1a1a1d;
@@ -222,71 +235,10 @@
 .blog-quote p {
   /* Typography */
   font-style: italic;
-  font-size: 1rem;
   line-height: 1.7;
   margin: 0;
-}
-
-/* =============================
- * Content Section
- * ============================= */
-.content-section {
-  /* Box model */
-  margin: 2rem 0;
-  padding-bottom: 0.625rem;
-  border-bottom: 1px solid #fff;
-}
-
-.content-section h2 {
-  /* Box model */
-  margin-top: 2rem;
-  margin-bottom: 1.25rem;
-
-  /* Typography */
-  font-family: var(--font-heading);
-  font-size: 1.5rem;
-  font-weight: var(--font-weight-h2);
-  line-height: var(--line-height-h2);
-  color: var(--color-white);
-}
-
-.content-section p {
-  /* Box model */
-  margin-bottom: 1.25rem;
-
-  /* Typography */
-  font-size: 0.875rem;
-}
-
-.first-letter {
-  /* Box model */
-  float: left;
-  margin-right: 0.625rem;
-
-  /* Typography */
-  font-size: 3rem;
-  line-height: 1;
-  font-family: var(--font-heading);
-  color: var(--color-white);
-  transform: translate(0, 4px);
-}
-
-.content-section img {
-  /* Box model */
-  position: relative;
-  display: block;
-  width: 100%;
-  height: auto;
-  margin: 1.5rem auto;
-  object-fit: cover;
-  box-sizing: border-box;
-
-  /* Animation */
-  transition: transform 0.4s ease;
-}
-
-.content-section img:hover {
-  transform: scale(1.03);
+  /* Mobile-specific */
+  font-size: 1rem;
 }
 
 /* =============================
@@ -296,17 +248,17 @@
   /* Box model */
   list-style: none;
   padding-left: 0;
+  /* Mobile-specific */
+  font-size: 0.875rem;
 }
 
 .content-section ul li {
   /* Position */
   position: relative;
-
-  /* Box model */
+  /* Mobile-specific */
   margin-bottom: 1rem;
   padding-left: 1.25rem;
 
-  /* Typography */
   color: var(--color-white-80) !important;
   line-height: 1.6;
   font-family: var(--font-body);
@@ -321,6 +273,7 @@
   /* Typography */
   content: "•";
   color: var(--color-yellow);
+  /* Mobile-specific */
   font-size: 1.25rem;
 }
 
@@ -331,87 +284,38 @@
 }
 
 /* =============================
- * Responsive Design (Mobile-First, min-width)
+ * Responsive Design (Mobile-First)
  * ============================= */
 
-/* sm (≥640px) */
-@media (min-width: 40rem) {
+/* md (≥768px): tablet */
+@media (min-width: 40rem) { /* Tương đương max-width: 48rem cũ */
   .blog-header h1 {
     /* Typography */
-    font-size: 1.5rem;
-  }
-
-  .blog-header p {
-    /* Typography */
-    font-size: 0.875rem;
-  }
-
-  .content-section h2 {
-    font-size: 1.5rem;
-  }
-
-  .content-section p {
-    font-size: 0.875rem;
-  }
-
-  .first-letter {
-    font-size: 3rem;
-  }
-
-  .meta-info {
-    /* Box model */
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.75rem;
-  }
-
-  .meta-info span {
-    font-size: 0.75rem;
-  }
-
-  .copy-link {
-    /* Box model */
-    padding: 0.375rem 0.75rem;
-
-    /* Typography */
-    font-size: 0.625rem;
-  }
-
-  .content-section ul li {
-    margin-bottom: 1rem;
-    padding-left: 1.25rem;
-  }
-
-  .content-section ul li::before {
-    font-size: 1.25rem;
-  }
-
-  .blog-quote {
-    padding: 1.5rem;
-    margin: 2rem 0;
-  }
-
-  .blog-quote p {
-    font-size: 1rem;
-  }
-}
-
-/* md (≥768px) */
-@media (min-width: 48rem) {
-  .blog-header h1 {
     font-size: 1.75rem;
   }
 
   .content-section h2 {
+    /* Typography */
     font-size: 1.75rem;
   }
 
   .meta-info {
+    /* Box model */
+    flex-direction: row; /* Quay lại layout hàng */
+    justify-content: space-between; /* Thêm từ base-desktop */
+    align-items: center; /* Thêm từ base-desktop */
     gap: 1rem;
   }
+  
+  .meta-info span {
+    font-size: inherit; /* Reset về font-size mặc định của .meta-info */
+  }
 
   .copy-link {
+    /* Box model */
     padding: 0.5rem 0.875rem;
+
+    /* Typography */
     font-size: 0.75rem;
   }
 
@@ -422,16 +326,52 @@
   .blog-quote p {
     font-size: 1rem;
   }
+  
+  /* Reset các style mobile về desktop-base */
+  .blog-header p {
+     font-size: inherit;
+  }
+  .content-section {
+    margin-top: 40px; /* Thêm từ base-desktop */
+    margin-bottom: 80px; /* Thêm từ base-desktop */
+    padding-bottom: 30px; /* Thêm từ base-desktop */
+  }
+   .content-section p {
+    font-size: inherit;
+  }
+  .first-letter {
+    font-size: 4rem; /* Thêm từ base-desktop */
+  }
+  .content-section ul {
+    font-size: inherit;
+  }
+  .content-section ul li {
+    margin-bottom: 20px; /* Thêm từ base-desktop */
+    padding-left: 25px; /* Thêm từ base-desktop */
+  }
+  .content-section ul li::before {
+    font-size: 1.5rem; /* Thêm từ base-desktop */
+  }
+   .content-section img {
+    margin: 0 auto; /* Thêm từ base-desktop */
+  }
 }
 
-/* lg (≥1024px) */
-@media (min-width: 64rem) {
+/* lg (≥1024px): small desktop */
+@media (min-width: 48rem) { /* Tương đương max-width: 64rem cũ */
   .blog-header {
+    /* Box model */
     margin-bottom: 1.5rem;
   }
 
+  .blog-header h1 {
+    font-size: 2.4rem;
+  }
+
   .content-section {
+    /* Box model */
     margin: 2.5rem 0;
+    margin-bottom: 80px; /* Ghi đè lại từ base-desktop */
   }
 
   .blog-quote {
@@ -439,9 +379,111 @@
   }
 }
 
-/* xl (≥1280px) */
-@media (min-width: 80rem) {
+/* xl (≥1280px): large desktop */
+@media (min-width: 64rem) { /* Tương đương max-width: 80rem cũ */
   .content-section img {
+    /* Box model */
     max-width: 64rem;
+  }
+  
+  /* Reset các style từ media query trước đó về desktop-base */
+  .blog-header {
+     margin-bottom: inherit; /* Reset về giá trị của (min-width: 80rem) sẽ áp dụng */
+  }
+
+  .blog-header h1 {
+    font-size: 3.6rem;
+  }
+  
+  .content-section {
+     margin-top: 40px; /* Thêm từ base-desktop */
+     margin-bottom: 80px; /* Thêm từ base-desktop */
+  }
+  .blog-quote {
+    margin: 40px 0; /* Thêm từ base-desktop */
+  }
+}
+
+/* xxl (≥1280px) */
+@media (min-width: 80rem) { /* Áp dụng các style base-desktop gốc */
+  .blog-header h1 {
+    /* Box model */
+    margin-bottom: 10px;
+    max-width: 60rem;
+
+    /* Typography */
+    font-size: 4rem;
+    line-height: 1.2;
+  }
+
+  .blog-header p {
+    /* Box model */
+    max-width: 1170px;
+  }
+  
+  .meta-info {
+    /* Box model */
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    padding-bottom: 20px;
+    gap: 15px;
+  }
+
+  .copy-link {
+    /* Box model */
+    padding: 0.375rem 0.75rem;
+    /* Typography */
+    font-size: 0.625rem;
+  }
+
+  .content-section {
+    /* Box model */
+    margin-top: 40px;
+    margin-bottom: 80px;
+    padding-bottom: 30px;
+  }
+
+  .content-section h2 {
+    /* Box model */
+    margin-top: 40px;
+    margin-bottom: 20px;
+    /* Typography */
+    font-size: var(--font-size-h2);
+  }
+
+  .first-letter {
+    /* Typography */
+    font-size: 4rem;
+  }
+
+  .content-section img {
+    /* Box model */
+    margin: 0 auto;
+    max-width: 100%; /* Reset từ media query (min-width: 64rem) */
+  }
+
+  .blog-quote {
+    /* Box model */
+    padding: 30px;
+    margin: 40px 0;
+  }
+
+  .blog-quote p {
+    /* Typography */
+    font-size: 1.1rem;
+  }
+  
+  .content-section ul li {
+    /* Box model */
+    margin-bottom: 20px;
+    padding-left: 25px;
+  }
+
+  .content-section ul li::before {
+    /* Position */
+    top: -5px;
+    /* Typography */
+    font-size: 1.5rem;
   }
 }

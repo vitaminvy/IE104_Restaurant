@@ -118,6 +118,7 @@
 .qty-btn:hover {
   background: rgba(255, 255, 255, 0.1);
 }
+
 .btn--primary {
   background: var(--color-dark-orange, #fb8f2c);
   color: #ffffff;

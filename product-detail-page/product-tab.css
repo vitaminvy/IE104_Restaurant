@@ -1,3 +1,6 @@
+.container {
+    max-width: 1536px;
+}
 .product-tab {
   font-family: "Plus Jakarta Sans", sans-serif;
   color: var(--color-white, #fff);

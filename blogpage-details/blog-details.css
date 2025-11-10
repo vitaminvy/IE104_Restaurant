@@ -5,7 +5,7 @@
 .blog-header h1 {
   /* Typography */
   font-size: 2rem;
-  /* Các thuộc tính từ desktop-base được kế thừa nếu cần */
+  /* Inherit properties from desktop-base if needed */
   margin-bottom: 10px;
   max-width: 60rem;
   font-family: var(--font-heading);
@@ -17,7 +17,7 @@
 .blog-header p {
   /* Typography */
   font-size: 0.875rem;
-  /* Thuộc tính từ desktop-base */
+  /* Properties from desktop-base */
   max-width: 1170px;
 }
 
@@ -164,7 +164,7 @@
   /* Mobile-specific */
   margin: 2rem 0;
   padding-bottom: 0.625rem;
-  margin-bottom: 80px; /* Thêm lại từ base-desktop nếu bị mobile-base ghi đè */
+  margin-bottom: 80px; /* Re-add from base-desktop if overridden by mobile-base */
 }
 
 .content-section h2 {
@@ -288,7 +288,7 @@
  * ============================= */
 
 /* md (≥768px): tablet */
-@media (min-width: 40rem) { /* Tương đương max-width: 48rem cũ */
+@media (min-width: 40rem) { /* Equivalent to old max-width: 48rem */
   .blog-header h1 {
     /* Typography */
     font-size: 1.75rem;
@@ -301,14 +301,14 @@
 
   .meta-info {
     /* Box model */
-    flex-direction: row; /* Quay lại layout hàng */
-    justify-content: space-between; /* Thêm từ base-desktop */
-    align-items: center; /* Thêm từ base-desktop */
+    flex-direction: row; /* Return to row layout */
+    justify-content: space-between; /* Added from base-desktop */
+    align-items: center; /* Added from base-desktop */
     gap: 1rem;
   }
   
   .meta-info span {
-    font-size: inherit; /* Reset về font-size mặc định của .meta-info */
+    font-size: inherit; /* Reset to .meta-info default */
   }
 
   .copy-link {
@@ -327,38 +327,38 @@
     font-size: 1rem;
   }
   
-  /* Reset các style mobile về desktop-base */
+  /* Reset mobile styles to desktop-base */
   .blog-header p {
      font-size: inherit;
   }
   .content-section {
-    margin-top: 40px; /* Thêm từ base-desktop */
-    margin-bottom: 80px; /* Thêm từ base-desktop */
-    padding-bottom: 30px; /* Thêm từ base-desktop */
+    margin-top: 40px; /* Added from base-desktop */
+    margin-bottom: 80px; /* Added from base-desktop */
+    padding-bottom: 30px; /* Added from base-desktop */
   }
    .content-section p {
     font-size: inherit;
   }
   .first-letter {
-    font-size: 4rem; /* Thêm từ base-desktop */
+    font-size: 4rem; /* Added from base-desktop */
   }
   .content-section ul {
     font-size: inherit;
   }
   .content-section ul li {
-    margin-bottom: 20px; /* Thêm từ base-desktop */
-    padding-left: 25px; /* Thêm từ base-desktop */
+    margin-bottom: 20px; /* Added from base-desktop */
+    padding-left: 25px; /* Added from base-desktop */
   }
   .content-section ul li::before {
-    font-size: 1.5rem; /* Thêm từ base-desktop */
+    font-size: 1.5rem; /* Added from base-desktop */
   }
    .content-section img {
-    margin: 0 auto; /* Thêm từ base-desktop */
+    margin: 0 auto; /* Added from base-desktop */
   }
 }
 
 /* lg (≥1024px): small desktop */
-@media (min-width: 48rem) { /* Tương đương max-width: 64rem cũ */
+@media (min-width: 48rem) { /* Equivalent to old max-width: 64rem */
   .blog-header {
     /* Box model */
     margin-bottom: 1.5rem;
@@ -371,7 +371,7 @@
   .content-section {
     /* Box model */
     margin: 2.5rem 0;
-    margin-bottom: 80px; /* Ghi đè lại từ base-desktop */
+    margin-bottom: 80px; /* Override from base-desktop */
   }
 
   .blog-quote {
@@ -380,15 +380,15 @@
 }
 
 /* xl (≥1280px): large desktop */
-@media (min-width: 64rem) { /* Tương đương max-width: 80rem cũ */
+@media (min-width: 64rem) { /* Equivalent to old max-width: 80rem */
   .content-section img {
     /* Box model */
     max-width: 64rem;
   }
   
-  /* Reset các style từ media query trước đó về desktop-base */
+  /* Reset styles from previous media queries back to desktop-base */
   .blog-header {
-     margin-bottom: inherit; /* Reset về giá trị của (min-width: 80rem) sẽ áp dụng */
+     margin-bottom: inherit; /* Reset to value of (min-width: 80rem) */
   }
 
   .blog-header h1 {
@@ -396,16 +396,16 @@
   }
   
   .content-section {
-     margin-top: 40px; /* Thêm từ base-desktop */
-     margin-bottom: 80px; /* Thêm từ base-desktop */
+     margin-top: 40px; /* Added from base-desktop */
+     margin-bottom: 80px; /* Added from base-desktop */
   }
   .blog-quote {
-    margin: 40px 0; /* Thêm từ base-desktop */
+    margin: 40px 0; /* Added from base-desktop */
   }
 }
 
 /* xxl (≥1280px) */
-@media (min-width: 80rem) { /* Áp dụng các style base-desktop gốc */
+@media (min-width: 80rem) { /* Apply base-desktop styles */
   .blog-header h1 {
     /* Box model */
     margin-bottom: 10px;
@@ -460,7 +460,7 @@
   .content-section img {
     /* Box model */
     margin: 0 auto;
-    max-width: 100%; /* Reset từ media query (min-width: 64rem) */
+    max-width: 100%; /* Reset from (min-width: 64rem) */
   }
 
   .blog-quote {

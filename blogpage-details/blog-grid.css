@@ -6,19 +6,16 @@
  * Blog Grid Container
  * ============================= */
 .blog-grid {
-  /* Box model */
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  column-gap: 60px;
-  row-gap: 50px;
-  margin-bottom: 60px;
+  grid-template-columns: 1fr; /* Mobile default: 1 column */
+  gap: 2.5rem;
+  margin-bottom: 2.5rem;
 }
 
 /* =============================
  * Individual Post Card
  * ============================= */
 .post-content .post-meta {
-  /* Box model */
   padding-bottom: 20px;
   border-bottom: 1px solid #fff;
 }
@@ -27,20 +24,16 @@
  * Post Image Container
  * ============================= */
 .blog-grid .post-image {
-  /* Box model */
   width: 100%;
-  height: 480px;
+  height: 17.5rem;
   overflow: hidden;
-  margin-bottom: 25px;
+  margin-bottom: 1.25rem;
 }
 
 .blog-grid .post-image img {
-  /* Box model */
   width: 100%;
   height: 100%;
   display: block;
-
-  /* Others */
   object-fit: cover;
 }
 
@@ -48,171 +41,129 @@
  * Post Content
  * ============================= */
 .blog-grid .post-content h3 {
-  /* Box model */
   margin-bottom: 15px;
-
-  /* Typography */
   font-family: var(--font-heading);
-  font-size: 1.5rem;
+  font-size: 1.25rem; /* mobile default */
   font-weight: 500;
-  line-height: 1.2;
+  line-height: 1.3;
   color: var(--color-white);
 }
 
 .blog-grid .post-meta {
-  /* Box model */
-  margin-bottom: 25px;
-
-  /* Typography */
-  font-size: 0.8rem;
+  margin-bottom: 1.25rem;
+  font-size: 0.75rem;
   color: var(--color-white-80);
 }
 
 .blog-grid .read-more {
-  /* Typography */
-  font-size: 0.8rem;
+  font-size: 0.75rem;
 }
 
 /* =============================
  * Read More Link
  * ============================= */
 .read-more {
-  /* Position */
   position: relative;
-
-  /* Box model */
   display: inline-block;
   padding-bottom: 4px;
-
-  /* Typography */
   color: #ffffff;
   font-weight: 300;
   text-decoration: none;
   font-family: var(--font-body);
-
-  /* Animation */
   transition: color 0.3s ease;
 }
 
-/* Pseudo-element for border-bottom animation */
 .read-more::after {
-  /* Position */
   position: absolute;
   bottom: -2px;
   left: 0;
-
-  /* Box model */
   height: 2px;
   width: 100%;
-
-  /* Animation / Others */
   background-color: #fb8f2c;
   transition: width 0.3s ease;
   content: '';
 }
 
-/* =============================
- * Hover Effects
- * ============================= */
 .read-more:hover {
-  /* Typography */
   color: #fb8f2c;
 }
 
 .read-more:hover::after {
-  /* Animation */
   width: 40%;
 }
 
-
 /* =============================
- * Responsive Design
+ * Responsive Design (min-width)
  * ============================= */
 
-/* sm (≤640px): small mobile */
-@media (max-width: 40rem) {
+/* sm (≥640px): small mobile and up */
+@media (min-width: 40rem) {
   .blog-grid {
-    /* Box model */
     grid-template-columns: 1fr;
     gap: 2.5rem;
     margin-bottom: 2.5rem;
   }
 
-  .blog-grid .post {
-    /* Box model */
-    padding-bottom: 2.5rem;
-  }
-
   .blog-grid .post-image {
-    /* Box model */
     height: 17.5rem;
-    margin-bottom: 1.25rem;
   }
 
   .blog-grid .post-content h3 {
-    /* Typography */
     font-size: 1.25rem;
     line-height: 1.3;
   }
 
   .blog-grid .post-meta {
-    /* Typography */
     font-size: 0.75rem;
-    margin-bottom: 1.25rem;
   }
 
   .read-more {
-    /* Typography */
     font-size: 0.75rem;
   }
 }
 
-/* md (≤768px): tablet */
-@media (max-width: 48rem) {
+/* md (≥768px): tablet and up */
+@media (min-width: 48rem) {
   .blog-grid {
-    /* Box model */
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 60px;
+    row-gap: 50px;
+    margin-bottom: 60px;
   }
 
   .blog-grid .post-image {
-    /* Box model */
     height: 20rem;
+    margin-bottom: 25px;
   }
 
   .blog-grid .post-content h3 {
-    /* Typography */
     font-size: 1.375rem;
   }
 
   .blog-grid .post-meta {
-    /* Typography */
     font-size: 0.8125rem;
+    margin-bottom: 25px;
   }
 
   .read-more {
-    /* Typography */
     font-size: 0.8125rem;
   }
 }
 
-/* lg (≤1024px): small desktop */
-@media (max-width: 64rem) {
+/* lg (≥1024px): small desktop and up */
+@media (min-width: 64rem) {
   .blog-grid {
-    /* Box model */
     gap: 3rem 2.5rem;
   }
 
   .blog-grid .post-image {
-    /* Box model */
     height: 22.5rem;
   }
 }
 
-/* xl (≤1280px): large desktop */
-@media (max-width: 80rem) {
+/* xl (≥1280px): large desktop and up */
+@media (min-width: 80rem) {
   .blog-grid .post-image {
-    /* Box model */
     height: 21.25rem;
   }
 }

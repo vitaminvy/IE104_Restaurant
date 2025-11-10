@@ -30,7 +30,7 @@
 @media (min-width: 64rem) {
   .container {
     padding: 7rem 3rem 0 3rem;
-    max-width: 55rem;
+    max-width: 60rem;
   }
 }
 
@@ -38,6 +38,6 @@
 @media (min-width: 80rem) {
   .container {
     padding: 8rem 4rem 0 4rem;
-    max-width: 70rem;
+    max-width: 80rem;
   }
 }

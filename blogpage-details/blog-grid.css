@@ -81,7 +81,7 @@
   width: 100%;
   background-color: #fb8f2c;
   transition: width 0.3s ease;
-  content: '';
+  content: "";
 }
 
 .read-more:hover {
@@ -152,6 +152,17 @@
 
 /* lg (≥1024px): small desktop and up */
 @media (min-width: 64rem) {
+  .blog-grid .post-meta {
+    font-size: 1rem;
+  }
+
+  .blog-grid .read-more {
+    font-size: 1rem;
+  }
+
+  .blog-grid .post-content h3 {
+    font-size: 2.5rem; /* mobile default */
+  }
   .blog-grid {
     gap: 3rem 2.5rem;
   }

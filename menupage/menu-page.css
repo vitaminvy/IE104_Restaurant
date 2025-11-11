@@ -147,7 +147,7 @@
 .menu__card-content {
   display: flex;
   flex-direction: column;
-  flex-grow: 1; /* phần giữa chiếm không gian còn lại */
+  flex-grow: 1;
   justify-content: space-between;
   padding: 0 0.75rem;
 }

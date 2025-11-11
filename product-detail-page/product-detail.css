@@ -74,6 +74,7 @@
   font-size: 1rem;
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.8);
+  text-align: justify;
 }
 
 /* ACTIONS */
@@ -145,6 +146,7 @@
 .product-detail__meta strong {
   color: var(--color-white);
   margin-right: 0.5rem;
+  font-family: var(--font-body);
 }
 .product-detail__meta li {
   margin-top: 0.75rem;

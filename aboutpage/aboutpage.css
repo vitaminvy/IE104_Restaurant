@@ -1,0 +1,133 @@
+.about-intro {
+  padding: clamp(48px, 7vw, 96px) clamp(28px, 8vw, 120px);
+}
+
+.about-intro__container {
+  width: min(1180px, 92vw);
+  margin-inline: auto;
+  margin-top: 4rem;
+}
+
+.about-intro__header {
+  margin-bottom: clamp(28px, 6vw, 56px);
+}
+
+.about-intro__title {
+  font-size: 4rem;
+  margin: 0 0 1rem;
+}
+
+/* --- horizontal separator under the intro text --- */
+.about-intro__divider {
+  width: 100%;
+  height: 0.5px;
+  background: var(--color-white-80);
+  margin: clamp(24px, 4vw, 48px) 0;
+}
+/* ===== Lưới hình & story ===== */
+.about-intro__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  column-gap: clamp(18px, 3vw, 36px);
+  row-gap: clamp(4px, 0.8vw, 14px);
+  align-items: start;
+  grid-template-rows: auto auto auto;
+}
+.about-intro__photo img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* tỉ lệ ảnh (bám gần kích thước Figma) */
+.about-intro__photo--a {
+  /* ~570x501 */
+  aspect-ratio: 570 / 501;
+  align-self: start;
+}
+.about-intro__photo--b {
+  /* ~570x670 (cao hơn) */
+  aspect-ratio: 570 / 670;
+  align-self: start;
+}
+.about-intro__photo--c {
+  /* ~470x590 (hẹp hơn, đặt lệch trái) */
+  aspect-ratio: 470 / 590;
+  width: 90%;
+  justify-self: start; /* co nhỏ so với cột, canh trái để tạo nhịp độ */
+  margin-left: clamp(6px, 1.2vw, 18px);
+  align-self: start;
+}
+
+/* explicit placement to avoid tall-B creating large gap under A */
+.about-intro__photo--a {
+  grid-column: 1;
+  grid-row: 1;
+}
+.about-intro__photo--b {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+}
+.about-intro__photo--c {
+  grid-column: 1;
+  grid-row: 2;
+  justify-self: end; /* canh phải của cột */
+  margin-left: 0;
+  margin-right: 0;
+}
+.about-intro__story {
+  grid-column: 2;
+  grid-row: 3;
+}
+
+/* khối story */
+.about-intro__story {
+  padding: clamp(18px, 3vw, 28px);
+}
+
+.about-intro__story-title {
+  font-weight: 800;
+  line-height: 1.15;
+  margin: 0 0 12px;
+  font-size: 4rem;
+  color: var(--color-white);
+}
+
+.about-intro__story-text {
+  font-size: clamp(12px, 1.3vw, 14px);
+  line-height: 1.7;
+  max-width: 60ch;
+}
+
+@media (max-width: 900px) {
+  .about-intro__grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "img-a"
+      "img-b"
+      "img-c"
+      "story";
+  }
+  .about-intro__photo--c {
+    margin-top: 30px;
+    width: 100%;
+  }
+  .about-intro__photo--a,
+  .about-intro__photo--b,
+  .about-intro__photo--c,
+  .about-intro__story {
+    grid-column: auto;
+    grid-row: auto;
+  }
+}
+
+@media (min-width: 1200px) {
+  .about-intro__grid {
+    grid-template-columns: 570px 570px; /* mỗi cột ~570px */
+    gap: 28px;
+  }
+  .about-intro__photo--c {
+    width: 470px;
+  } /* khớp kích cỡ ảnh C Figma */
+}

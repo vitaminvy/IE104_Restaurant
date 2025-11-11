@@ -1,9 +1,5 @@
 @import "../style/style.css";
 
-* {
-  box-sizing: border-box;
-}
-
 /* Layout */
 .checkout {
   display: grid;

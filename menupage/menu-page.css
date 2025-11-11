@@ -101,6 +101,7 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   gap: 0.75rem;
   height: auto;
   transition: transform 0.3s, box-shadow 0.3s;
@@ -144,8 +145,13 @@
 
 /* CARD CONTENT */
 .menu__card-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* phần giữa chiếm không gian còn lại */
+  justify-content: space-between;
   padding: 0 0.75rem;
 }
+
 .menu__card-title {
   font-size: 1.05rem;
   font-family: var(--font-heading);
@@ -373,6 +379,9 @@
   }
   .menu__grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+    max-width: 1536px;
+    gap: 4rem 4rem;
+    padding: 2rem 4rem;
   }
   .menu__card-img-wrapper {
     height: 17.75rem;

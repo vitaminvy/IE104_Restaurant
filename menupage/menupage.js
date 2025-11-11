@@ -1,5 +1,5 @@
 // /assets/script/menupage.js
-import { menuItems } from "../data/mockdata.js";
+import { menuItems } from "../assets/data/mockdata.js";
 
 
 (function () {

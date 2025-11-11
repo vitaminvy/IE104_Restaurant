@@ -6,11 +6,11 @@
   background-color: var(--color-bg-dark);
   color: var(--color-white);
   padding: 0rem 1.5rem;
-  max-width: 1536px; /* = 2xl Tailwind */
+  max-width: 1536px;
+  margin: 0 auto;
 }
 
 .blogs__container {
-  max-width: 1536px;
   margin-top: 3rem;
 }
 
@@ -167,7 +167,7 @@
     font-size: 4rem;
   }
   .blogs__container {
-    max-width: 1400px;
+    /* max-width: 1400px; */
     margin-top: 7rem;
   }
 

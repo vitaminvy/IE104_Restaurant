@@ -1,5 +1,6 @@
 .about-intro {
-  padding: clamp(48px, 7vw, 96px) 8rem;
+  /* Mobile-first: small horizontal padding to avoid narrow text column */
+  padding: clamp(32px, 6vw, 72px) 1.25rem;
 }
 
 .about-intro__container {
@@ -14,8 +15,11 @@
 }
 
 .about-intro__title {
-  font-size: 4rem;
+  font-size: 2.25rem;
   margin: 0 0 1rem;
+}
+.about-intro__lead {
+  font-size: 0.875rem;
 }
 
 /* --- horizontal separator under the intro text --- */
@@ -26,16 +30,26 @@
   margin: 0.5rem auto 4rem;
 }
 /* ===== Lưới hình & story ===== */
+
 .about-intro__grid {
-  margin: 6rem auto 0;
   width: min(1180px, 92vw);
+  margin: 6rem auto 0;
   display: grid;
-  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
-  column-gap: clamp(18px, 3vw, 36px);
-  row-gap: clamp(4px, 0.8vw, 14px);
-  align-items: start;
-  grid-template-rows: auto auto auto;
+  grid-template-columns: 1fr; /* 1 cột mặc định */
+  grid-template-areas:
+    "story"
+    "imgA"
+    "imgB"
+    "imgC";
+  row-gap: 16px;
+  column-gap: 0;
 }
+/* map items to grid-areas (mobile-first: story on top) */
+.about-intro__photo--a { grid-area: imgA; }
+.about-intro__photo--b { grid-area: imgB; }
+.about-intro__photo--c { grid-area: imgC; }
+.about-intro__story    { grid-area: story; }
+
 .about-intro__photo img {
   width: 100%;
   height: 100%;
@@ -63,31 +77,10 @@
   align-self: start;
 }
 
-/* explicit placement to avoid tall-B creating large gap under A */
-.about-intro__photo--a {
-  grid-column: 1;
-  grid-row: 1;
-}
-.about-intro__photo--b {
-  grid-column: 2;
-  grid-row: 1 / span 2;
-}
-.about-intro__photo--c {
-  grid-column: 1;
-  grid-row: 2;
-  justify-self: end; /* canh phải của cột */
-  margin-left: 0;
-  margin-right: 0;
-}
-.about-intro__story {
-  grid-column: 2;
-  grid-row: 3;
-}
-
 /* khối story */
 .about-intro__story {
   /* pull the story block up to sit snug under image B */
-  margin-top: calc(-1 * clamp(60px, 32vw, 400px));
+  margin-top: 2rem;
   position: relative;
   z-index: 1;
 }
@@ -95,13 +88,12 @@
 .about-intro__story-title {
   font-weight: 800;
   line-height: 1.15;
-  margin: 0 0 12px;
-  font-size: 4rem;
+  font-size: 2.25rem;
   color: var(--color-white);
 }
 
 .about-intro__story-text {
-  font-size: clamp(12px, 1.3vw, 14px);
+  font-size: 0.875rem;
   line-height: 1.7;
   max-width: 60ch;
 }
@@ -120,7 +112,7 @@
 }
 
 .vision__title {
-  font-size: 4rem;
+  font-size: 2.25rem;
   margin: 0 0 12px;
 }
 
@@ -136,43 +128,6 @@
   display: grid;
   gap: clamp(20px, 3.5vw, 40px);
   align-items: start;
-}
-
-@media (max-width: 900px) {
-  .about-intro__grid {
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      "img-a"
-      "img-b"
-      "img-c"
-      "story";
-  }
-  .about-intro__photo--c {
-    margin-top: 30px;
-    width: 100%;
-  }
-  .about-intro__photo--a,
-  .about-intro__photo--b,
-  .about-intro__photo--c,
-  .about-intro__story {
-    grid-column: auto;
-    grid-row: auto;
-  }
-}
-
-@media (min-width: 1200px) {
-  .about-intro__grid {
-    grid-template-columns: 570px 570px; /* mỗi cột ~570px */
-    gap: 28px;
-  }
-  .about-intro__photo--c {
-    width: 470px;
-  } /* khớp kích cỡ ảnh C Figma */
-}
-@media (min-width: 980px) {
-  .vision__grid {
-    grid-template-columns: 1.1fr 1fr;
-  }
 }
 
 .vision__features {
@@ -191,17 +146,17 @@
 }
 
 .vision__badge {
-  width: 82px;
-  height: 82px;
+  width: 56px;
+  height: 56px;
   border-radius: 50%;
-
   display: grid;
   place-items: center;
 }
 .vision__badge img {
-  width: 82x;
-  height: 82px;
+  width: 28px;
+  height: 28px;
   object-fit: contain;
+  display: block;
 }
 
 .vision__feature-title {
@@ -316,4 +271,122 @@
   color: var(--color-white-80);
   font-size: 1.125rem;
   margin: 0;
+}
+
+/* ===== Responsive: 48rem, 64rem, 80rem ===== */
+/* >=48rem (768px) */
+@media (min-width: 48rem) {
+  .about-intro {
+    padding: clamp(40px, 6vw, 72px) 2rem;
+  }
+
+  .about-intro__grid {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 24px;
+    row-gap: 16px;
+    grid-template-areas:
+      "imgA imgB"
+      "imgC story";
+  }
+
+  .about-intro__photo--c {
+    width: 100%;
+    justify-self: start;
+    margin-left: 0;
+  }
+  .about-intro__story {
+    /* pull the story block up to sit snug under image B */
+    margin-top: 4rem;
+    position: relative;
+    z-index: 1;
+  }
+  .vision__features {
+    gap: 24px;
+  }
+  .vision__feature {
+    gap: 20px;
+    grid-template-columns: 56px 1fr;
+  }
+  .team__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* >=64rem (1024px) */
+@media (min-width: 64rem) {
+  .about-intro {
+    padding: clamp(48px, 7vw, 96px) 4rem;
+  }
+  .about-intro__grid {
+    grid-template-columns: 570px 570px;
+    gap: 28px;
+    grid-template-areas:
+      "imgA imgB"
+      "imgC story";
+  }
+  .about-intro__title {
+    font-size: 4rem;
+    margin: 0 0 1rem;
+  }
+  .about-intro__lead {
+    font-size: 1rem;
+  }
+  .about-intro__story {
+    margin-top: 3rem;
+    position: relative;
+    z-index: 1;
+  }
+  .about-intro__story-title {
+    font-size: 4rem;
+  }
+  .about-intro__story-text {
+    font-size: 1rem;
+  }
+  .vision__grid {
+    grid-template-columns: 1.1fr 1fr;
+  }
+  .vision__title {
+    font-size: 4rem;
+    margin: 0 0 12px;
+  }
+  .vision__badge {
+    width: 64px;
+    height: 64px;
+  }
+  .vision__badge img {
+    width: 30px;
+    height: 30px;
+  }
+  .vision__feature {
+    gap: 24px;
+    grid-template-columns: 64px 1fr;
+  }
+  .team__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .team-card__media img {
+    height: 500px;
+  }
+}
+
+/* >=80rem (1280px) */
+@media (min-width: 80rem) {
+  .about-intro {
+    padding: clamp(48px, 7vw, 96px) 8rem;
+  }
+  .vision__badge {
+    width: 82px;
+    height: 82px;
+  }
+  .vision__badge img {
+    width: 32px;
+    height: 32px;
+  }
+  .vision__feature {
+    gap: 28px;
+    grid-template-columns: 82px 1fr;
+  }
+  .team-card__media img {
+    height: 540px;
+  }
 }

@@ -1,4 +1,4 @@
-@import '../style/style.css';
+@import "../style/style.css";
 
 /* Layout */
 .checkout {
@@ -54,6 +54,11 @@
   outline: none;
   transition: border-color 0.25s ease;
   padding: 0 0 14px;
+}
+
+.form__select option {
+  color: #111;
+  background-color: var(--color-white);
 }
 
 .form__input::placeholder {
@@ -301,7 +306,7 @@
     width: 45%;
   }
 
-  /* Nút order full width */
+  /* order button full width */
   .btn {
     width: 100%;
     font-size: 15px;
@@ -327,4 +332,21 @@
   .order-table td {
     padding: 12px 10px 12px 14px;
   }
+}
+
+/* ===== Fix autofill Chrome, Edge, Safari ===== */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: none;
+  /* text color  */
+  -webkit-text-fill-color: var(--color-white-80);
+  transition: background-color 5000s ease-in-out 0s;
+  caret-color: var(--color-white);
 }

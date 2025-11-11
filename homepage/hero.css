@@ -74,16 +74,7 @@
   display: inline-block;
   font-family: var(--font-body);
   font-size: 0.95rem;
-  color: var(--color-dark-orange);
-  border-bottom: 2px solid var(--color-dark-orange);
   text-decoration: none;
-  transition: all 0.3s ease;
-  padding-bottom: 0.25rem;
-}
-
-.hero__btn:hover {
-  color: var(--color-white);
-  border-bottom-color: var(--color-white);
 }
 
 /* ========================================================= */

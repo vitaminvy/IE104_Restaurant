@@ -1,0 +1,668 @@
+/* ================== Design Tokens ================== */
+:root {
+  --panel: #1a1a1a;
+  --line: #2a2a2a;
+  --shadow: 0 2px 0 0 rgba(255, 255, 255, 0.05) inset;
+  --line-2: #3a3a3a;
+}
+
+/* ================== Cart Layout (Desktop) ================== */
+.cart__container {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+  max-width: 1170px;
+  margin: 7rem auto;
+  padding: 0 24px;
+}
+
+/* ================== Table ================== */
+.cart__table {
+  border: 1px solid var(--line);
+  overflow: hidden;
+  background: var(--panel);
+  width: 100%;
+  max-width: 1170px;
+}
+.cart__table table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+/* ===== Column widths ===== */
+.cart__col-remove {
+  width: 40px;
+}
+.cart__col-image {
+  width: 90px;
+}
+.cart__col-name {
+  width: 150px;
+}
+.cart__col-price {
+  width: 50px;
+  text-align: right;
+}
+.cart__col-qty {
+  width: 130px;
+  text-align: left;
+}
+.cart__col-subtotal {
+  width: 80px;
+  text-align: right;
+}
+
+.cart__table thead th {
+  color: var(--color-white);
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.55;
+  text-align: left;
+  padding: 18px 10px;
+  border-bottom: 1px solid var(--line);
+}
+.cart__table tbody td {
+  padding: 28px 10px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: middle;
+}
+
+/* food cell */
+.cart__item-media {
+  max-width: 130px;
+  max-height: 130px;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: var(--shadow);
+}
+
+.cart__price,
+.cart__subtotal,
+.cart__item-name,
+.qty__input {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.62;
+  white-space: nowrap;
+  color: white;;
+}
+.cart__qty {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cart__table thead th:nth-child(5),
+.cart__table tbody td:nth-child(5) {
+  text-align: center;
+}
+
+.cart__qty {
+  margin: 0 auto;
+}
+
+.cart__table thead th:nth-child(4),
+.cart__table tbody td:nth-child(4),
+.cart__table thead th:nth-child(6),
+.cart__table tbody td:nth-child(6) {
+  text-align: left;
+}
+
+/* ===== cột remove ===== */
+.cart__table tbody .cart__remove {
+  text-align: center;
+  vertical-align: middle;
+  padding: 0 10px;
+  line-height: 0;
+}
+
+.remove__btn {
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  place-items: center;
+  border-radius: 6px;
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--color-white);
+  cursor: pointer;
+}
+
+.remove__btn i {
+  display: block;
+  line-height: 1;
+}
+
+.remove__btn:hover {
+  border-color: var(--line);
+  background: #191919;
+}
+
+/* ===== quantity group ===== */
+.cart__qty {
+  display: inline-grid;
+  grid-template-columns: 40px 56px 40px;
+  height: 40px;
+  border: 1px solid var(--line-2);
+  border-radius: 2px;
+  overflow: hidden;
+  background: transparent;
+}
+
+.qty__btn {
+  border: 0;
+  background: transparent;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  color: var(--color-white);
+  font-size: 18px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.qty__btn:first-child {
+  border-right: 1px solid var(--line-2);
+}
+.qty__btn:last-child {
+  border-left: 1px solid var(--line-2);
+}
+
+.qty__input {
+  width: 100%;
+  height: 40px;
+  border: 0;
+  background: transparent;
+  color: var(--color-white);
+  text-align: center;
+  appearance: textfield;
+}
+
+.qty__input:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.qty__input::-webkit-outer-spin-button,
+.qty__input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.cart__actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  background: var(--panel);
+}
+.coupon {
+  display: flex;
+  gap: 26px;
+  align-items: center;
+  align-items: stretch;
+}
+.coupon__input {
+  display: flex;
+  padding: 7px 30px 7px 12px;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--color-white);
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  padding: 8px 30px;
+  gap: 10px;
+  background: var(--color-dark-orange);
+  color: var(--color-white);
+  /* 16 semi-bold */
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.6;
+}
+
+.btn--ghost:hover,
+.btn--brand:hover,
+.btn--block:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+/* =============== Total Table================= */
+.totals {
+  align-self: flex-end;
+  align-items: flex-end;
+  max-width: 570px;
+  width: 100%;
+}
+
+.totals__header {
+  color: var(--color-white);
+  font-family: var(--font-heading);
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 1.33;
+  margin-bottom: 30px;
+}
+
+.totals__table {
+  background-color: #1a1a1a;
+  border: 1px solid #333;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.totals__table th,
+.totals__table td {
+  vertical-align: top;
+  border-bottom: 1px solid #333;
+  padding: 28px 20px 28px 28px;
+  color: var(--color-white);
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.62;
+}
+
+.totals__left {
+  text-align: left;
+  width: 40%;
+}
+
+.totals__right {
+  text-align: left;
+  width: 60%;
+}
+
+.shipping__desc {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 30px;
+}
+
+.shipping__address {
+  margin-bottom: 32px;
+  color: var(--color-white);
+  font-style: italic;
+  font-weight: bold;
+}
+
+.addrForm {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: left;
+}
+
+.addrForm__select,
+.addrForm__field {
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--color-white);
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+  padding: 8px 0;
+  appearance: none;
+  outline: none;
+}
+
+.addrForm__select {
+  background-image: url("data:image/svg+xml;charset=UTF-8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'><path d='M1 1L6 6L11 1' stroke='white' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 4px center;
+  background-size: 12px;
+  cursor: pointer;
+}
+
+.addrForm__select option {
+  background-color: var(--panel);
+  color: var(--color-white);
+}
+
+.addrForm__select:focus,
+.addrForm__field:focus {
+  border-bottom-color: var(--color-dark-orange);
+  color: var(--color-white);
+}
+
+.addrForm__field::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.addrForm__update {
+  background-color: var(--color-white);
+  color: #000;
+  font-weight: 600;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  width: fit-content;
+}
+
+.addrForm {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.addrForm__update {
+  display: inline-flex;
+  padding: 8px 30px;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.btn--block {
+  width: 100%;
+  max-width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.totals__footer {
+  margin-bottom: 158px;
+  margin-top: 22px;
+}
+
+/* Ngăn chặn trình duyệt tự động ép CSS */
+.addrForm__field:-webkit-autofill,
+.addrForm__field:-webkit-autofill:hover,
+.addrForm__field:-webkit-autofill:focus,
+.addrForm__field:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0px 1000px #1a1a1a inset !important; /* màu nền panel */
+  -webkit-text-fill-color: #fff !important; /* chữ trắng */
+  caret-color: #fff; /* con trỏ trắng */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
+  transition: background-color 5000s ease-in-out 0s; /* fix nháy xanh */
+}
+
+/* ====================== RESPONSIVE FIX ====================== */
+/* Tablet & Mobile chung (≤1023px) */
+@media (max-width: 1023px) {
+  .cart__container {
+    flex-direction: column;
+    gap: 48px;
+    padding: 0 20px;
+  }
+
+  .cart__table {
+    max-width: 900px;
+  }
+
+  .cart__table table {
+    table-layout: auto;
+  }
+
+  .cart__table thead th {
+    font-size: 16px;
+    padding: 14px 8px;
+  }
+
+  .cart__table tbody td {
+    padding: 18px 8px;
+    font-size: 18px;
+  }
+
+  .cart__item-media {
+    max-width: 100px;
+    height: auto;
+    border-radius: 8px;
+  }
+
+  .cart__qty {
+    grid-template-columns: 36px 50px 36px;
+    height: 38px;
+  }
+
+  .cart__actions {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .coupon {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .coupon__input {
+    text-align: center;
+  }
+
+  .btn {
+    font-size: 15px;
+    padding: 6px 20px;
+  }
+
+  .totals {
+    align-self: center;
+    max-width: 600px;
+  }
+
+  .totals__header {
+    text-align: center;
+    font-size: 26px;
+  }
+
+  .totals__table th,
+  .totals__table td {
+    padding: 20px 14px;
+    font-size: 15px;
+  }
+
+  .btn--block {
+    max-width: 100%;
+  }
+}
+
+/* ================== Responsive width cho Cart ================== */
+
+/* lg (≥1024px) */
+@media (min-width: 1024px) {
+  .cart__container,
+  .cart__table {
+    max-width: 992px;
+  }
+}
+
+/* xl (≥1280px) */
+@media (min-width: 1280px) {
+  .cart__container,
+  .cart__table {
+    max-width: 1100px;
+  }
+}
+
+/* 2xl (≥1536px) */
+@media (min-width: 1536px) {
+  .cart__container,
+  .cart__table {
+    max-width: 1280px;
+  }
+}
+
+/* ========== MOBILE CARD  ========== */
+@media (max-width: 768px) {
+  .cart__table thead {
+    display: none;
+  }
+
+  .cart__table {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .cart__table table {
+    width: 100%;
+    min-width: unset;
+    border-collapse: collapse;
+    table-layout: auto;
+  }
+
+  .cart__table tbody {
+    display: flex;
+    flex-direction: column;
+  }
+  .cart__table tbody td {
+    border-bottom: none;
+  }
+
+  .cart__table tr {
+    display: grid;
+    grid-template-rows: 1fr;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    padding: 16px;
+    position: relative;
+  }
+
+  .cart__item-media,
+  .cart__col-image,
+  .cart__table td:nth-child(2) {
+    display: none !important;
+  }
+
+  /* Hàng 1: thùng rác */
+  .cart__remove {
+    grid-row: 1;
+    align-self: start;
+    padding: 0;
+  }
+
+  .remove__btn {
+    background: transparent;
+    border: none;
+    color: var(--color-white);
+    font-size: 18px;
+  }
+
+  /* Hàng 2–5: nội dung */
+  .cart__table td {
+    border: none;
+    padding: 6px 0;
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 15px;
+  }
+
+  /* Tên món */
+  td[data-label="Food"] {
+    grid-row: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* Giá */
+  td[data-label="Price"] {
+    grid-row: 3;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* Số lượng */
+  td[data-label="Quantity"] {
+    grid-row: 4;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  td[data-label="Quantity"] .cart__qty {
+    grid-template-columns: 32px 48px 32px;
+  }
+
+  /* Subtotal */
+  td[data-label="Subtotal"] {
+    grid-row: 5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .cart__table td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .cart__qty {
+    margin: 0;
+  }
+
+  /* Coupon và button */
+  .cart__actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    margin-top: 12px;
+  }
+
+  .coupon {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 15px;
+  }
+
+  .coupon__input {
+    flex: 1;
+  }
+
+  .btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .coupon__input,
+  .coupon .btn {
+    flex: 1;
+    width: 100%;
+  }
+
+  .btn--brand {
+    align-items: center;
+  }
+
+  .totals {
+    width: 100%;
+    max-width: none;
+    margin-top: 24px;
+  }
+
+  .totals__header {
+    font-size: 22px;
+    text-align: left;
+  }
+
+  .totals__table th,
+  .totals__table td {
+    padding: 14px 10px;
+    font-size: 15px;
+  }
+}

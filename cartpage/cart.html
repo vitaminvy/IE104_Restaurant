@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cart Page | IE104 Restaurant</title>
+
+    <!-- CSS global -->
+    <link rel="stylesheet" href="../style/reset.css" />
+    <link rel="stylesheet" href="../style/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS header -->
+    <link rel="stylesheet" href="../homepage/header.css" />
+
+    <!-- CSS CartPage -->
+    <link rel="stylesheet" href="./cart.css" />
+    <script
+      src="https://kit.fontawesome.com/eef96f1e29.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./cart.js"></script>
+
+    <!-- Css footer -->
+    <link rel="stylesheet" href="../homepage/footer.css" />
+
+    <!-- link header and footer -->
+    <script src="../assets/script/include-partials.js" defer></script>
+    <script src="../assets/script/header.js"></script>
+  </head>
+  <body>
+    <!-- ========== 1. HEADER ========== -->
+    <div data-include="/partials/header.html"></div>
+
+    <main class="cart__container">
+      <!-- ================= LEFT: CART TABLE ================= -->
+      <div class="cart__table">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col" class="cart__col-remove" aria-label="Remove"></th>
+              <!-- NEW -->
+              <th scope="col" class="cart__col-image" aria-label="Image"></th>
+              <!-- thêm class -->
+              <th scope="col" class="cart__col-name">Food</th>
+              <th scope="col" class="cart__col-price">Price</th>
+              <th scope="col" class="cart__col-qty">Quantity</th>
+              <th scope="col" class="cart__col-subtotal">Subtotal</th>
+            </tr>
+          </thead>
+          <!-- body table -->
+          <tbody>
+            <tr>
+              <!-- NEW: remove button -->
+              <td class="cart__remove">
+                <button
+                  class="remove__btn"
+                  aria-label="Remove item"
+                  type="button"
+                >
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </td>
+              <td>
+                <img
+                  class="cart__item-media"
+                  src="../assets/images/cart-page/donut.png"
+                  alt="Crispy chicken breasts"
+                />
+              </td>
+              <td data-label="Food">
+                <span class="cart__item-name">Crispy chicken breasts</span>
+              </td>
+              <td data-label="Price" class="cart__price">$24.99</td>
+
+              <!-- NEW: quantity group styled like design -->
+              <td data-label="Quantity">
+                <div class="cart__qty">
+                  <button class="qty__btn" aria-label="Decrease" type="button">
+                    −
+                  </button>
+                  <input class="qty__input" type="number" value="1" min="1" />
+                  <button class="qty__btn" aria-label="Increase" type="button">
+                    +
+                  </button>
+                </div>
+              </td>
+
+              <td data-label="Subtotal" class="cart__subtotal">$24.99</td>
+            </tr>
+            <tr>
+              <td class="cart__remove">
+                <button class="remove__btn" aria-label="Remove item">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </td>
+              <td>
+                <img
+                  class="cart__item-media"
+                  src="../assets/images/cart-page/hamburger.png"
+                  alt="Spaghetti Napoletana"
+                />
+              </td>
+              <td data-label="Food">
+                <span class="cart__item-name">Spaghetti Napoletana</span>
+              </td>
+              <td data-label="Price" class="cart__price">$59.00</td>
+              <td data-label="Quantity">
+                <div class="cart__qty">
+                  <button class="qty__btn" aria-label="Decrease">−</button>
+                  <input class="qty__input" type="number" value="1" min="1" />
+                  <button class="qty__btn" aria-label="Increase">+</button>
+                </div>
+              </td>
+              <td data-label="Subtotal" class="cart__subtotal">$59.00</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="cart__actions">
+          <div class="coupon">
+            <input
+              class="coupon__input"
+              type="text"
+              placeholder="Coupon code"
+            />
+            <button class="btn btn--brand" type="button">Apply coupon</button>
+          </div>
+          <button class="btn btn--ghost" type="button">Update Cart</button>
+        </div>
+      </div>
+
+      <!-- ================= RIGHT: CART TOTALS ================= -->
+
+      <aside class="totals">
+        <h2 class="totals__header">Cart totals</h2>
+        <table class="totals__table">
+          <tbody>
+            <tr>
+              <th scope="row" class="totals__left">Subtotal</th>
+              <td class="totals__right">$83.99</td>
+            </tr>
+
+            <tr class="totals__shipping">
+              <th scope="row" class="totals__left">Shipping</th>
+              <td class="totals__right">
+                <p class="shipping__desc">
+                  <span>Flat rate: <strong>$6.00</strong></span>
+                  <span>Shipping to <strong>New South Wales</strong>.</span>
+                </p>
+                <p class="shipping__address">Change address</p>
+                <form class="addrForm" action="#" method="post">
+                  <select
+                    id="country"
+                    class="addrForm__select"
+                    aria-label="Country"
+                  >
+                    <option>Australia</option>
+                    <option value="Việt Nam">Việt Nam</option>
+                  </select>
+
+                  <select
+                    id="state"
+                    class="addrForm__select"
+                    aria-label="State"
+                  >
+                    <option>New South Wales</option>
+                    <option>Bình Định Đất Võ</option>
+                  </select>
+
+                  <input
+                    class="addrForm__field"
+                    type="text"
+                    placeholder="Suburb"
+                    aria-label="Suburb"
+                  />
+                  <input
+                    class="addrForm__field"
+                    type="text"
+                    placeholder="Postcode"
+                    aria-label="Postcode"
+                  />
+                  <button class="btn addrForm__update" type="button">
+                    Update
+                  </button>
+                </form>
+              </td>
+            </tr>
+
+            <tr class="totals__total">
+              <th scope="row" class="totals__left">Total</th>
+              <td class="totals__right">$89.99</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="totals__footer">
+          <button class="btn btn--block" type="button">
+            Proceed to Checkout
+          </button>
+        </div>
+      </aside>
+    </main>
+
+    <!-- ========== 15. FOOTER ========== -->
+    <div data-include="/partials/footer.html"></div>
+  </body>
+</html>

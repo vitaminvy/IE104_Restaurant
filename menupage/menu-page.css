@@ -190,7 +190,7 @@
   text-decoration: none;
   font-size: 0.875rem;
   background: var(--color-dark-orange);
-  color: #000;
+  color: white;
   padding: 0.45rem 0.8rem;
   border-radius: 6px;
   border: none;
@@ -205,8 +205,8 @@
 
 /* ===== BANNER (optional) ===== */
 .banner {
-  background: url("../../assets/images/menu-page/menu-page-banner.png") center/cover
-    no-repeat;
+  background: url("../../assets/images/menu-page/menu-page-banner.png")
+    center/cover no-repeat;
   height: 24rem;
   display: flex;
   justify-content: center;
@@ -249,7 +249,7 @@
 ======================= */
 #toast-root {
   position: fixed;
-  top: calc(var(--header-height, 56px) + 12px);
+  top: calc(var(--header-height, 56px) + 160px);
   right: 16px;
   z-index: 9999;
   display: grid;
@@ -341,6 +341,52 @@
 }
 
 /* =======================
+   CART ICON
+======================= */
+.cart-icon-wrapper {
+  position: fixed;
+  top: 100px;
+  right: 15px;
+  z-index: 1000;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.cart-icon-wrapper:hover {
+  transform: scale(1.1);
+}
+.cart-icon {
+  width: 44px;
+  height: 44px;
+  filter: brightness(1.1);
+}
+.cart-count {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: #d57d1f;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 50%;
+  line-height: 1;
+  min-width: 18px;
+  text-align: center;
+}
+
+/* Animation “fly to cart” */
+.fly-img {
+  position: fixed;
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+  object-fit: cover;
+  z-index: 999;
+  pointer-events: none;
+  transition: transform 0.8s cubic-bezier(0.45, 0, 0.55, 1), opacity 0.8s ease;
+}
+
+/* =======================
    RESPONSIVE
 ======================= */
 @media (min-width: 48rem) {
@@ -356,8 +402,16 @@
   .menu__card-img-wrapper {
     height: 15rem;
   }
+  .cart-icon-wrapper {
+    top: 100px;
+    right: 15px;
+  }
 }
 @media (min-width: 64rem) {
+  .cart-icon-wrapper {
+    top: 100px;
+    right: 24px;
+  }
   .menu__filter {
     top: 79.1px;
   }
@@ -373,6 +427,10 @@
   }
 }
 @media (min-width: 80rem) {
+  .cart-icon-wrapper {
+    top: 110px;
+    right: 24px;
+  }
   .menu__filter {
     top: 91px;
     gap: 12rem;

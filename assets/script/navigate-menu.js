@@ -28,7 +28,7 @@ import { menuItems } from "../data/mockdata.js";
             <h3 class="menu__card-title">${item.title}</h3>
             <p class="menu__card-desc">${item.desc}</p>
             <div class="menu__card-footer">
-                <a href="#" class="menu__card-btn">
+                <a href="/cartpage/cart.html" class="menu__card-btn">
                     Order Now
                     <img src="../assets/icons/home-page/menu-section/arrown.svg" alt="" class="menu__card-btn-icon" />
                 </a>

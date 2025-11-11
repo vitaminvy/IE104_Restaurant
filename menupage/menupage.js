@@ -191,7 +191,7 @@ import { menuItems } from "../assets/data/mockdata.js";
     });
   }
 
-  // Lắng nghe nút Order Now
+  // listen Order Now
   const container = document.getElementById("menu-card-container");
   container.addEventListener("click", (e) => {
     const btn = e.target.closest(".menu__card-btn");
@@ -200,7 +200,7 @@ import { menuItems } from "../assets/data/mockdata.js";
     cartCount++;
     countEl.textContent = cartCount;
 
-    // lấy ảnh từ card hoặc fallback ảnh placeholder
+    // lget image from card and fallback image
     const card = btn.closest(".menu__card");
     const imgEl = card?.querySelector(".menu__card-image");
     const src = imgEl?.src || "../assets/images/home-page/menu-section/noodles.png";
@@ -208,7 +208,7 @@ import { menuItems } from "../assets/data/mockdata.js";
     animateToCart(src, e.clientX, e.clientY);
   });
 
-  // Hiệu ứng bay ảnh
+  // animation image fly into cart logo
   function animateToCart(src, x, y) {
     const img = document.createElement("img");
     img.src = src;

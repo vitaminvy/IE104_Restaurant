@@ -355,8 +355,8 @@
   transform: scale(1.1);
 }
 .cart-icon {
-  width: 44px;
-  height: 44px;
+  width: 36px;
+  height: 36px;
   filter: brightness(1.1);
 }
 .cart-count {
@@ -408,6 +408,10 @@
   }
 }
 @media (min-width: 64rem) {
+  .cart-icon {
+    width: 44px;
+    height: 44px;
+  }
   .cart-icon-wrapper {
     top: 100px;
     right: 24px;

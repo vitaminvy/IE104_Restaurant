@@ -1,5 +1,5 @@
 // /assets/script/menupage.js
-import { menuItems } from "../data/mockdata.js";
+import { menuItems } from "../assets/data/mockdata.js";
 
 
 (function () {
@@ -25,7 +25,7 @@ import { menuItems } from "../data/mockdata.js";
         <p class="menu__card-desc">${item.desc}</p>
         <div class="menu__card-meta">
           <span class="menu__card-price">${formatPrice(item.price)}</span>
-          <button class="menu__card-btn">Order Now →</button>
+          <button class="menu__card-btn">Order Now +</button>
         </div>
       </div>
     </article>`;
@@ -109,4 +109,123 @@ import { menuItems } from "../data/mockdata.js";
   }));
 
   render();
+})();
+
+(function rippleOnClick() {
+  const root = document.getElementById("menu-card-container");
+  if (!root) return;
+  root.addEventListener("click", (e) => {
+    const btn = e.target.closest(".menu__card-btn");
+    if (!btn) return;
+    const rect = btn.getBoundingClientRect();
+    const r = document.createElement("span");
+    r.className = "ripple";
+    const size = Math.max(rect.width, rect.height);
+    r.style.width = r.style.height = size + "px";
+    r.style.left = (e.clientX - rect.left - size / 2) + "px";
+    r.style.top = (e.clientY - rect.top - size / 2) + "px";
+    btn.appendChild(r);
+    r.addEventListener("animationend", () => r.remove());
+  });
+})();
+
+// Toast helper
+(function setupToast() {
+  let root = document.getElementById("toast-root");
+  if (!root) {
+    root = document.createElement("div");
+    root.id = "toast-root";
+    document.body.appendChild(root);
+  }
+  window.showToast = function (message, type = "success", duration = 1800) {
+    const el = document.createElement("div");
+    el.className = `toast toast--${type}`;
+    const msg = document.createElement("span");
+    msg.textContent = message;
+    const close = document.createElement("span");
+    close.className = "toast__close";
+    close.setAttribute("role", "button");
+    close.setAttribute("aria-label", "Close");
+    close.textContent = "×";
+    close.onclick = () => dismiss();
+    el.appendChild(close);
+    el.appendChild(msg);
+    root.appendChild(el);
+
+    requestAnimationFrame(() => el.classList.add("is-visible"));
+
+    const t = setTimeout(dismiss, duration);
+    function dismiss() {
+      clearTimeout(t);
+      el.classList.remove("is-visible");
+      el.addEventListener("transitionend", () => el.remove(), { once: true });
+    }
+  };
+})();
+
+(function bindToastOnOrder() {
+  const root = document.getElementById("menu-card-container");
+  if (!root) return;
+  root.addEventListener("click", (e) => {
+    const btn = e.target.closest(".menu__card-btn");
+    if (!btn) return;
+    const card = btn.closest(".menu__card");
+    const title = (card?.querySelector(".menu__card-title")?.textContent || "Item").trim();
+    if (typeof window.showToast === "function") {
+      window.showToast(`Added “${title}” to cart`, "success", 1800);
+    }
+  });
+})();
+
+// shopping cart
+
+(function cartSystem() {
+  const cartIcon = document.getElementById("cart-icon");
+  const countEl = document.getElementById("cart-count");
+  let cartCount = 0;
+
+  // Route to cart page
+  if (cartIcon) {
+    cartIcon.addEventListener("click", () => {
+      window.location.href = "/cartpage/cart.html";
+    });
+  }
+
+  // listen Order Now
+  const container = document.getElementById("menu-card-container");
+  container.addEventListener("click", (e) => {
+    const btn = e.target.closest(".menu__card-btn");
+    if (!btn) return;
+
+    cartCount++;
+    countEl.textContent = cartCount;
+
+    // lget image from card and fallback image
+    const card = btn.closest(".menu__card");
+    const imgEl = card?.querySelector(".menu__card-image");
+    const src = imgEl?.src || "../assets/images/home-page/menu-section/noodles.png";
+
+    animateToCart(src, e.clientX, e.clientY);
+  });
+
+  // animation image fly into cart logo
+  function animateToCart(src, x, y) {
+    const img = document.createElement("img");
+    img.src = src;
+    img.className = "fly-img";
+    img.style.left = x - 50 + "px";
+    img.style.top = y - 50 + "px";
+    document.body.appendChild(img);
+
+    const cartRect = cartIcon.getBoundingClientRect();
+    const deltaX = cartRect.left - x + 20;
+    const deltaY = cartRect.top - y + 20;
+
+    requestAnimationFrame(() => {
+      img.style.transform = `translate(${deltaX}px, ${deltaY}px) scale(0.1)`;
+      img.style.opacity = "0";
+    });
+
+    img.addEventListener("transitionend", () => img.remove());
+  }
 })();

@@ -88,7 +88,7 @@
   font-weight: 400;
   line-height: 1.62;
   white-space: nowrap;
-  color: white;;
+  color: white;
 }
 .cart__qty {
   display: flex;
@@ -112,7 +112,7 @@
   text-align: left;
 }
 
-/* ===== cột remove ===== */
+/* ===== col remove ===== */
 .cart__table tbody .cart__remove {
   text-align: center;
   vertical-align: middle;
@@ -378,6 +378,7 @@
   max-width: 100%;
   align-items: center;
   justify-content: center;
+  padding: 8px 0px;
 }
 
 .totals__footer {
@@ -385,20 +386,20 @@
   margin-top: 22px;
 }
 
-/* Ngăn chặn trình duyệt tự động ép CSS */
+/* Fix chrome auto add css */
 .addrForm__field:-webkit-autofill,
 .addrForm__field:-webkit-autofill:hover,
 .addrForm__field:-webkit-autofill:focus,
 .addrForm__field:-webkit-autofill:active {
-  -webkit-box-shadow: 0 0 0px 1000px #1a1a1a inset !important; /* màu nền panel */
-  -webkit-text-fill-color: #fff !important; /* chữ trắng */
-  caret-color: #fff; /* con trỏ trắng */
+  -webkit-box-shadow: 0 0 0px 1000px #1a1a1a inset !important;
+  -webkit-text-fill-color: #fff !important;
+  caret-color: #fff;
   border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
-  transition: background-color 5000s ease-in-out 0s; /* fix nháy xanh */
+  transition: background-color 5000s ease-in-out 0s;
 }
 
 /* ====================== RESPONSIVE FIX ====================== */
-/* Tablet & Mobile chung (≤1023px) */
+/* Tablet & Mobile  (≤1023px) */
 @media (max-width: 1023px) {
   .cart__container {
     flex-direction: column;
@@ -455,6 +456,10 @@
     padding: 6px 20px;
   }
 
+  .btn--block {
+    padding: 6px 0px;
+  }
+
   .totals {
     align-self: center;
     max-width: 600px;
@@ -476,7 +481,7 @@
   }
 }
 
-/* ================== Responsive width cho Cart ================== */
+/* ================== Responsive width Cart ================== */
 
 /* lg (≥1024px) */
 @media (min-width: 1024px) {
@@ -558,7 +563,7 @@
     font-size: 18px;
   }
 
-  /* Hàng 2–5: nội dung */
+  /* Row 2–5: content */
   .cart__table td {
     border: none;
     padding: 6px 0;
@@ -567,7 +572,7 @@
     font-size: 15px;
   }
 
-  /* Tên món */
+  /* food name */
   td[data-label="Food"] {
     grid-row: 2;
     display: flex;
@@ -575,7 +580,7 @@
     align-items: center;
   }
 
-  /* Giá */
+  /* price */
   td[data-label="Price"] {
     grid-row: 3;
     display: flex;
@@ -583,7 +588,7 @@
     align-items: center;
   }
 
-  /* Số lượng */
+  /* quantity */
   td[data-label="Quantity"] {
     grid-row: 4;
     display: flex;
@@ -595,7 +600,7 @@
     grid-template-columns: 32px 48px 32px;
   }
 
-  /* Subtotal */
+  /* subtotal */
   td[data-label="Subtotal"] {
     grid-row: 5;
     display: flex;
@@ -613,7 +618,7 @@
     margin: 0;
   }
 
-  /* Coupon và button */
+  /* Coupon & button */
   .cart__actions {
     flex-direction: column;
     align-items: stretch;

@@ -15,7 +15,7 @@
 }
 
 .about-intro__title {
-  font-size: 2.25rem;
+  font-size: 2.5rem;
   margin: 0 0 1rem;
 }
 .about-intro__lead {
@@ -99,7 +99,7 @@
 .about-intro__story-title {
   font-weight: 800;
   line-height: 1.15;
-  font-size: 2.25rem;
+  font-size: 2.5rem;
   color: var(--color-white);
 }
 
@@ -119,11 +119,10 @@
 
 .vision__header {
   text-align: center;
-  margin-bottom: clamp(28px, 5.8vw, 60px);
 }
 
 .vision__title {
-  font-size: 2.25rem;
+  font-size: 2.5rem;
   margin: 0 0 12px;
 }
 
@@ -146,7 +145,7 @@
   gap: 22px;
   list-style: none;
   padding: 0;
-  margin-top: 8rem;
+  /* margin-top: 8rem; */
 }
 
 .vision__feature {
@@ -164,8 +163,8 @@
   place-items: center;
 }
 .vision__badge img {
-  width: 28px;
-  height: 28px;
+  width: 36px;
+  height: 36px;
   object-fit: contain;
   display: block;
 }
@@ -180,7 +179,45 @@
   font-size: 1rem;
   line-height: 1.6;
 }
+/* =======================
+   VISION HOVER EFFECTS
+======================= */
+.vision__feature {
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  border-radius: 10px;
+  padding: 0.5rem 0.75rem;
+}
 
+/* Khi hover toàn dòng */
+.vision__feature:hover {
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateX(6px);
+}
+
+/* Badge icon: ánh sáng và xoay nhẹ */
+.vision__badge {
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.vision__feature:hover .vision__badge {
+  transform: scale(1.08) rotate(8deg);
+}
+
+/* Text highlight nhẹ */
+.vision__feature:hover .vision__feature-title {
+  color: var(--color-dark-orange);
+  transition: color 0.3s ease;
+}
+
+/* Ảnh lớn bên phải: zoom in mượt */
+.vision__photo img {
+  transition: transform 0.6s ease, filter 0.4s ease;
+}
+.vision__photo:hover img {
+  transform: scale(1.05);
+  filter: brightness(1.08);
+}
 .vision__photo {
   border-radius: 14px;
   overflow: hidden;
@@ -205,10 +242,9 @@
 }
 .team__header {
   text-align: center;
-  margin-bottom: clamp(24px, 5vw, 48px);
 }
 .team__title {
-  font-size: 4rem;
+  font-size: 2.5rem;
   margin: 0 0 10px;
 }
 .team__subtitle {
@@ -219,6 +255,7 @@
 .team__grid {
   display: grid;
   gap: clamp(18px, 3vw, 28px);
+  margin-top: 1rem;
 }
 @media (min-width: 960px) {
   .team__grid {
@@ -318,11 +355,12 @@
     grid-template-columns: 56px 1fr;
   }
   .team__grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    display: grid;
+    gap: clamp(18px, 3vw, 28px);
   }
   .about-intro__photo--c {
     width: 90%;
-    margin-top: calc(-1 * clamp(60px, 32vw, 85px));
+    margin-top: calc(-1 * clamp(60px, 32vw, 92px));
     position: relative;
     z-index: 1;
   }
@@ -340,6 +378,10 @@
     grid-template-areas:
       "imgA imgB"
       "imgC story";
+  }
+  .team__title {
+    font-size: 4rem;
+    margin: 0 0 10px;
   }
 
   .about-intro__title {
@@ -360,8 +402,17 @@
   .about-intro__story-text {
     font-size: 1rem;
   }
+
+  .about-intro__photo--c {
+    margin-top: calc(-1 * clamp(60px, 32vw, 128px));
+  }
+
   .vision__grid {
     grid-template-columns: 1.1fr 1fr;
+  }
+  .vision__header {
+    text-align: center;
+    margin-bottom: clamp(28px, 5.8vw, 60px);
   }
   .vision__title {
     font-size: 4rem;
@@ -372,15 +423,19 @@
     height: 64px;
   }
   .vision__badge img {
-    width: 30px;
-    height: 30px;
+    width: 64px;
+    height: 64px;
   }
   .vision__feature {
     gap: 24px;
     grid-template-columns: 64px 1fr;
   }
+  .vision__features {
+    margin-top: 8rem;
+  }
   .team__grid {
     grid-template-columns: repeat(3, 1fr);
+    margin-top: 2rem;
   }
   .team-card__media img {
     height: 500px;
@@ -396,10 +451,7 @@
     width: 82px;
     height: 82px;
   }
-  .vision__badge img {
-    width: 32px;
-    height: 32px;
-  }
+
   .vision__feature {
     gap: 28px;
     grid-template-columns: 82px 1fr;

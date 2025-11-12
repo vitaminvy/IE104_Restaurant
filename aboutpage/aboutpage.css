@@ -30,9 +30,12 @@
   margin: 0.5rem auto 4rem;
 }
 /* ===== Lưới hình & story ===== */
+.about-intro__story {
+}
 
 .about-intro__grid {
   width: min(1180px, 92vw);
+  max-width: 1536px;
   margin: 6rem auto 0;
   display: grid;
   grid-template-columns: 1fr; /* 1 cột mặc định */
@@ -44,11 +47,20 @@
   row-gap: 16px;
   column-gap: 0;
 }
+
 /* map items to grid-areas (mobile-first: story on top) */
-.about-intro__photo--a { grid-area: imgA; }
-.about-intro__photo--b { grid-area: imgB; }
-.about-intro__photo--c { grid-area: imgC; }
-.about-intro__story    { grid-area: story; }
+.about-intro__photo--a {
+  grid-area: imgA;
+}
+.about-intro__photo--b {
+  grid-area: imgB;
+}
+.about-intro__photo--c {
+  grid-area: imgC;
+}
+.about-intro__story {
+  grid-area: story;
+}
 
 .about-intro__photo img {
   width: 100%;
@@ -71,8 +83,7 @@
 .about-intro__photo--c {
   /* ~470x590 (hẹp hơn, đặt lệch trái) */
   aspect-ratio: 470 / 590;
-  width: 90%;
-  justify-self: start; /* co nhỏ so với cột, canh trái để tạo nhịp độ */
+  justify-self: end; /* co nhỏ so với cột, canh trái để tạo nhịp độ */
   margin-left: clamp(6px, 1.2vw, 18px);
   align-self: start;
 }
@@ -291,12 +302,11 @@
 
   .about-intro__photo--c {
     width: 100%;
-    justify-self: start;
     margin-left: 0;
   }
   .about-intro__story {
     /* pull the story block up to sit snug under image B */
-    margin-top: 4rem;
+    margin-top: 2rem;
     position: relative;
     z-index: 1;
   }
@@ -310,6 +320,12 @@
   .team__grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+  .about-intro__photo--c {
+    width: 90%;
+    margin-top: calc(-1 * clamp(60px, 32vw, 85px));
+    position: relative;
+    z-index: 1;
+  }
 }
 
 /* >=64rem (1024px) */
@@ -318,12 +334,14 @@
     padding: clamp(48px, 7vw, 96px) 4rem;
   }
   .about-intro__grid {
-    grid-template-columns: 570px 570px;
+    grid-template-columns: 442px 442px;
     gap: 28px;
+    max-width: 1024px;
     grid-template-areas:
       "imgA imgB"
       "imgC story";
   }
+
   .about-intro__title {
     font-size: 4rem;
     margin: 0 0 1rem;
@@ -332,12 +350,12 @@
     font-size: 1rem;
   }
   .about-intro__story {
-    margin-top: 3rem;
+    margin-top: 3rem;
     position: relative;
     z-index: 1;
   }
   .about-intro__story-title {
-    font-size: 4rem;
+    font-size: 3rem;
   }
   .about-intro__story-text {
     font-size: 1rem;
@@ -388,5 +406,11 @@
   }
   .team-card__media img {
     height: 540px;
+  }
+  .about-intro__photo--c {
+    width: 90%;
+    margin-top: calc(-1 * clamp(60px, 32vw, 132px));
+    position: relative;
+    z-index: 1;
   }
 }

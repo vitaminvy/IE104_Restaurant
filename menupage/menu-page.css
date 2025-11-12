@@ -358,6 +358,12 @@
   width: 36px;
   height: 36px;
   filter: brightness(1.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.fa-cart-shopping {
+  width: 100%;
 }
 .cart-count {
   position: absolute;
@@ -406,6 +412,9 @@
     top: 100px;
     right: 15px;
   }
+  .cart-icon {
+    font-size: 24px;
+  }
 }
 @media (min-width: 64rem) {
   .cart-icon {
@@ -428,6 +437,9 @@
 
   .menu-banner__content h2 {
     font-size: 3rem;
+  }
+  .cart-icon {
+    font-size: 32px;
   }
 }
 @media (min-width: 80rem) {

@@ -1,8 +1,9 @@
 /* ========================================
- * MENU ITEMS DATA WITH DIETARY INFORMATION
+ * ENHANCED MENU DATA WITH DIETARY INFO
  * ======================================== */
 
-export const menuItems = [
+// Enhanced menu items with dietary badges and allergen information
+export const enhancedMenuItems = [
   {
     id: 1,
     title: "Pancake Stack",
@@ -14,6 +15,8 @@ export const menuItems = [
     badges: ["popular", "vegetarian"],
     // Allergen information
     allergens: ["gluten", "dairy", "eggs"],
+    // Pairing suggestions
+    pairsWith: [2, 3, 5],
     spiceLevel: 0,
   },
   {
@@ -25,6 +28,7 @@ export const menuItems = [
     category: "breakfast",
     badges: ["vegan", "chef-special"],
     allergens: ["gluten"],
+    pairsWith: [1, 4],
     spiceLevel: 0,
   },
   {
@@ -36,40 +40,44 @@ export const menuItems = [
     category: "lunch",
     badges: ["gluten-free", "popular"],
     allergens: [],
+    pairsWith: [1, 6],
     spiceLevel: 1,
   },
   {
     id: 4,
-    title: "Pancake Stack",
-    desc: "Fluffy pancakes with maple syrup and butter.",
-    price: 5.99,
+    title: "Spicy Ramen",
+    desc: "Traditional ramen with spicy broth and fresh vegetables.",
+    price: 8.99,
     image: "../assets/images/home-page/menu-section/noodles.png",
-    category: "breakfast",
-    badges: ["popular", "vegetarian"],
-    allergens: ["gluten", "dairy", "eggs"],
-    spiceLevel: 0,
+    category: "lunch",
+    badges: ["spicy", "popular"],
+    allergens: ["gluten", "soy"],
+    pairsWith: [2, 5],
+    spiceLevel: 3,
   },
   {
     id: 5,
-    title: "Avocado Toast",
-    desc: "Wholegrain toast with avocado and poached eggs.",
-    price: 7.5,
+    title: "Vegan Buddha Bowl",
+    desc: "Colorful mix of quinoa, roasted vegetables, and tahini.",
+    price: 10.5,
     image: "../assets/images/home-page/menu-section/new-lubina.png",
-    category: "breakfast",
-    badges: ["vegan", "chef-special"],
-    allergens: ["gluten"],
+    category: "lunch",
+    badges: ["vegan", "gluten-free"],
+    allergens: ["sesame"],
+    pairsWith: [1, 3],
     spiceLevel: 0,
   },
   {
     id: 6,
-    title: "Grilled Chicken Bowl",
-    desc: "Healthy rice bowl with grilled chicken and veggies.",
-    price: 9.99,
+    title: "Steak & Fries",
+    desc: "Juicy grilled steak served with crispy french fries.",
+    price: 15.99,
     image: "../assets/images/home-page/menu-section/chicken.png",
-    category: "lunch",
-    badges: ["gluten-free", "popular"],
+    category: "dinner",
+    badges: ["chef-special", "gluten-free"],
     allergens: [],
-    spiceLevel: 1,
+    pairsWith: [3, 7],
+    spiceLevel: 0,
   },
   {
     id: 7,
@@ -80,6 +88,7 @@ export const menuItems = [
     category: "dinner",
     badges: ["gluten-free", "popular"],
     allergens: ["fish", "soy"],
+    pairsWith: [5, 6],
     spiceLevel: 0,
   },
   {
@@ -91,6 +100,7 @@ export const menuItems = [
     category: "dinner",
     badges: ["vegetarian", "popular"],
     allergens: ["gluten", "dairy"],
+    pairsWith: [2, 4],
     spiceLevel: 0,
   },
   {
@@ -102,6 +112,7 @@ export const menuItems = [
     category: "starters",
     badges: ["spicy", "gluten-free"],
     allergens: ["dairy"],
+    pairsWith: [3, 8],
     spiceLevel: 3,
   },
   {
@@ -113,95 +124,8 @@ export const menuItems = [
     category: "starters",
     badges: ["vegan", "popular"],
     allergens: ["peanuts", "soy"],
+    pairsWith: [4, 5],
     spiceLevel: 1,
-  },
-  {
-    id: 11,
-    title: "French Toast",
-    desc: "Golden brioche with berries and maple syrup.",
-    price: 8.99,
-    image: "../assets/images/home-page/menu-section/noodles.png",
-    category: "breakfast",
-    badges: ["vegetarian", "chef-special"],
-    allergens: ["gluten", "dairy", "eggs"],
-    spiceLevel: 0,
-  },
-  {
-    id: 12,
-    title: "Quinoa Salad",
-    desc: "Protein-packed quinoa with mixed greens and vinaigrette.",
-    price: 9.5,
-    image: "../assets/images/home-page/menu-section/new-lubina.png",
-    category: "lunch",
-    badges: ["vegan", "gluten-free"],
-    allergens: [],
-    spiceLevel: 0,
-  },
-  {
-    id: 13,
-    title: "Cheese Omelette",
-    desc: "Fluffy three-egg omelette with cheddar cheese.",
-    price: 7.99,
-    image: "../assets/images/home-page/menu-section/noodles.png",
-    category: "breakfast",
-    badges: ["vegetarian", "gluten-free"],
-    allergens: ["eggs", "dairy"],
-    spiceLevel: 0,
-  },
-  {
-    id: 14,
-    title: "Veggie Wrap",
-    desc: "Grilled vegetables with hummus in a whole wheat wrap.",
-    price: 8.5,
-    image: "../assets/images/home-page/menu-section/new-lubina.png",
-    category: "lunch",
-    badges: ["vegan"],
-    allergens: ["gluten", "sesame"],
-    spiceLevel: 0,
-  },
-  {
-    id: 15,
-    title: "BBQ Ribs",
-    desc: "Slow-cooked pork ribs with house BBQ sauce.",
-    price: 17.99,
-    image: "../assets/images/home-page/menu-section/chicken.png",
-    category: "dinner",
-    badges: ["chef-special", "gluten-free"],
-    allergens: [],
-    spiceLevel: 2,
-  },
-  {
-    id: 16,
-    title: "Nachos Supreme",
-    desc: "Tortilla chips loaded with cheese, jalapeños, and salsa.",
-    price: 9.99,
-    image: "../assets/images/home-page/menu-section/noodles.png",
-    category: "starters",
-    badges: ["spicy", "vegetarian"],
-    allergens: ["dairy", "gluten"],
-    spiceLevel: 2,
-  },
-  {
-    id: 17,
-    title: "Smoothie Bowl",
-    desc: "Acai smoothie topped with granola and fresh fruits.",
-    price: 9.5,
-    image: "../assets/images/home-page/menu-section/new-lubina.png",
-    category: "breakfast",
-    badges: ["vegan", "gluten-free"],
-    allergens: [],
-    spiceLevel: 0,
-  },
-  {
-    id: 18,
-    title: "Fish & Chips",
-    desc: "Beer-battered cod with crispy chips and tartar sauce.",
-    price: 13.99,
-    image: "../assets/images/home-page/menu-section/chicken.png",
-    category: "dinner",
-    badges: ["popular"],
-    allergens: ["fish", "gluten"],
-    spiceLevel: 0,
   },
 ];
 
@@ -245,5 +169,52 @@ export const dietaryBadges = {
     icon: "⭐",
     color: "#eab308",
     description: "Recommended by our chef",
+  },
+};
+
+/* ========================================
+ * ALLERGEN INFORMATION
+ * ======================================== */
+
+export const allergenInfo = {
+  gluten: {
+    name: "Gluten",
+    icon: "⚠️",
+    severity: "high",
+  },
+  dairy: {
+    name: "Dairy",
+    icon: "🥛",
+    severity: "medium",
+  },
+  eggs: {
+    name: "Eggs",
+    icon: "🥚",
+    severity: "medium",
+  },
+  nuts: {
+    name: "Tree Nuts",
+    icon: "🌰",
+    severity: "high",
+  },
+  peanuts: {
+    name: "Peanuts",
+    icon: "🥜",
+    severity: "high",
+  },
+  soy: {
+    name: "Soy",
+    icon: "⚠️",
+    severity: "low",
+  },
+  fish: {
+    name: "Fish",
+    icon: "🐟",
+    severity: "medium",
+  },
+  sesame: {
+    name: "Sesame",
+    icon: "⚠️",
+    severity: "medium",
   },
 };

@@ -61,7 +61,7 @@
 
 .hero__description {
   font-family: var(--font-body);
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: rgba(255, 255, 255, 0.75);
   line-height: 1.6;
   margin-bottom: 1.5rem;
@@ -73,7 +73,7 @@
 .hero__btn {
   display: inline-block;
   font-family: var(--font-body);
-  font-size: 0.95rem;
+  font-size: 1rem;
   text-decoration: none;
 }
 
@@ -134,7 +134,7 @@
   }
 
   .hero__title {
-    font-size: 2.4rem;
+    font-size: 2.1rem;
   }
 }
 
@@ -146,7 +146,7 @@
 
   .hero__content {
     flex: 0 1 50%;
-    max-width: 40rem;
+    max-width: 24rem;
     padding: 0 0rem;
   }
 
@@ -173,7 +173,7 @@
   }
 
   .hero__title {
-    font-size: 3.6rem;
+    font-size: 2.6rem;
   }
 }
 
@@ -205,6 +205,6 @@
   }
 
   .hero__content {
-    max-width: 48rem;
+    max-width: 44rem;
   }
 }

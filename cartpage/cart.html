@@ -16,15 +16,14 @@
     <!-- CSS header -->
     <link rel="stylesheet" href="../homepage/header.css" />
 
-    <!-- CSS CartPage -->
-    <link rel="stylesheet" href="./cart.css" />
-    <link rel="stylesheet" href="./cart-enhancements.css" />
+    <!-- CSS CartPage (Unified - Combined cart.css + cart-enhancements.css) -->
+    <link rel="stylesheet" href="./cart-unified.css" />
     <script
       src="https://kit.fontawesome.com/eef96f1e29.js"
       crossorigin="anonymous"
     ></script>
     <!-- Enhanced cart logic with localStorage and coupons -->
-    <script src="./cart-enhanced.js"></script>
+    <script src="./cart.js"></script>
 
     <!-- Css footer -->
     <link rel="stylesheet" href="../homepage/footer.css" />
@@ -93,7 +92,6 @@
                   <button class="qty__btn" aria-label="Increase">+</button>
                 </div>
               </td>
-              <td data-label="Subtotal" class="cart__subtotal">$59.00</td>
             </tr>
           </tbody>
         </table>
@@ -113,8 +111,7 @@
 
       <!-- ================= RIGHT: CART TOTALS ================= -->
 
-      <aside class="totals">
-        <h2 class="totals__header">Cart totals</h2>
+      <aside class="totals"> 
         <table class="totals__table">
           <tbody>
             <!-- Subtotal row -->

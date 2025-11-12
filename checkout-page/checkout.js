@@ -179,8 +179,8 @@
     // Add coupon description if applied
     if (coupon && coupon.description) {
       footerHTML += `
-        <tr class="coupon-row">
-          <th>Coupon Applied</th>
+        <tr class="">
+          <th style="color: #4CAF50; font-size: 0.9em;">Coupon Applied</th>
           <td style="color: #4CAF50; font-size: 0.9em;">${coupon.code}: ${coupon.description}</td>
         </tr>
       `;

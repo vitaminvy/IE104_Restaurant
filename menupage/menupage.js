@@ -29,7 +29,7 @@ import { menuItems } from "../assets/data/mockdata.js";
         <p class="menu__card-desc">${item.desc}</p>
         <div class="menu__card-meta">
           <span class="menu__card-price">${formatPrice(item.price)}</span>
-          <button class="menu__card-btn">Order Now →</button>
+          <button class="menu__card-btn">Order Now +</button>
         </div>
       </div>
     </article>`;

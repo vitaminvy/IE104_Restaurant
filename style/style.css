@@ -160,26 +160,26 @@ h4 {
 ========================================================= */
 
 .link-underline {
-  display: inline-block;
-  font-family: var(--font-body);
-  color: #ffffff;
-  font-weight: 500;
-  text-decoration: none;
   position: relative;
+  display: inline-block;
+  padding-bottom: 4px;
+  color: #ffffff;
+  font-weight: 300;
+  text-decoration: none;
+  font-family: var(--font-body);
   transition: color 0.3s ease;
-  padding-bottom: 6px;
 }
 
 /* Orange underline appears smoothly */
 .link-underline::after {
-  content: "";
   position: absolute;
   bottom: -2px;
   left: 0;
-  width: 0%;
   height: 2px;
+  width: 100%;
   background-color: #fb8f2c;
   transition: width 0.3s ease;
+  content: "";
 }
 
 /* Hover: change text + draw underline 40% */
@@ -188,7 +188,7 @@ h4 {
 }
 
 .link-underline:hover::after {
-  width: 100%;
+  width: 40%;
 }
 
 /* =============================

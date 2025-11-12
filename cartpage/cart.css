@@ -579,7 +579,7 @@
 .totals__footer {
   /* Box model */
   margin-top: 22px;
-  margin-bottom: 158px;
+  margin-bottom: 2rem; /* Reduced from 158px to fix large screen spacing */
 }
 
 /* =============================

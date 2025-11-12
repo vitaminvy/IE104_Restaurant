@@ -151,17 +151,6 @@
   transform-origin: right;
 }
 
-.link-underline::after {
-  content: "";
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 0%;
-  height: 2px;
-  background-color: #fb8f2c;
-  transition: width 0.3s ease;
-}
-
 .reservation__btn:hover::after {
   transform: scaleX(1);
   transform-origin: left;

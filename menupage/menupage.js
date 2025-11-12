@@ -294,8 +294,15 @@ import { menuItems } from "../assets/data/mockdata.js";
     const itemId = card.dataset.itemId;
     if (!itemId) return;
 
-    // Navigate to product detail page with item ID
-    window.location.href = `../product-detail-page/index.html?id=${itemId}`;
+    // Show global loader
+    if (window.GlobalLoader) {
+      window.GlobalLoader.show('Loading product...');
+    }
+
+    // Navigate to product detail page with item ID after brief delay
+    setTimeout(() => {
+      window.location.href = `../product-detail-page/index.html?id=${itemId}`;
+    }, 200);
   });
 
   // Add visual feedback on hover (except for button)

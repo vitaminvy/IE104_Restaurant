@@ -71,6 +71,35 @@
     setInterval(updateTime, 60_000);
   }
 
+  // ----- SETUP NAVIGATION WITH LOADER -----
+  function setupNavigationLoader() {
+    const navLinks = document.querySelectorAll(".header__nav-link");
+    if (!navLinks.length) return;
+
+    navLinks.forEach(link => {
+      // Skip hash links (same page)
+      const href = link.getAttribute("href");
+      if (!href || href.startsWith("#")) return;
+
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        // Get link text for message
+        const linkText = link.textContent.trim();
+        
+        // Show global loader
+        if (window.GlobalLoader) {
+          window.GlobalLoader.show(`Loading ${linkText}...`);
+        }
+
+        // Navigate after brief delay
+        setTimeout(() => {
+          window.location.href = href;
+        }, 200);
+      });
+    });
+  }
+
   // ----- SET ACTIVE NAV LINK -----
   function setActiveNavLink() {
     const navLinks = document.querySelectorAll(".header__nav-link");
@@ -128,6 +157,7 @@
     initScrollStyle();
     startClockIfReady();
     setActiveNavLink();
+    setupNavigationLoader();
     // nếu cả 3 đã sẵn sàng thì disconnect
     if (menuInited && scrollInited && clockStarted) observer.disconnect();
   });
@@ -139,6 +169,7 @@
       initScrollStyle();
       startClockIfReady();
       setActiveNavLink();
+      setupNavigationLoader();
     }
     // nếu chưa đủ thì quan sát DOM để chờ partial
     if (!(menuInited && scrollInited && clockStarted)) {
@@ -159,5 +190,6 @@
     initScrollStyle();
     startClockIfReady();
     setActiveNavLink();
+    setupNavigationLoader();
   });
 })();

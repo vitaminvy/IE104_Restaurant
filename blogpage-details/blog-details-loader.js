@@ -246,12 +246,21 @@ function showError(message) {
 /* ========================================
  * LOAD BLOG POST
  * ======================================== */
-function loadBlogPost() {
+async function loadBlogPost() {
+  // Show loading overlay
+  if (window.GlobalLoader) {
+    window.GlobalLoader.show('Loading article...');
+  }
+
+  // Small delay to show loader
+  await new Promise(resolve => setTimeout(resolve, 300));
+
   // Get blog ID from URL
   const blogId = getUrlParameter('id');
 
   // Check if ID is provided
   if (!blogId) {
+    if (window.GlobalLoader) window.GlobalLoader.hide(0);
     showError('Blog Post Not Found');
     console.error('No blog ID provided in URL');
     return;
@@ -262,9 +271,15 @@ function loadBlogPost() {
 
   // Check if post exists
   if (!post) {
+    if (window.GlobalLoader) window.GlobalLoader.hide(0);
     showError('Blog Post Not Found');
     console.error(`Blog post with ID ${blogId} not found`);
     return;
+  }
+
+  // Update loader message
+  if (window.GlobalLoader) {
+    window.GlobalLoader.updateMessage('Preparing content...');
   }
 
   // Render all components
@@ -274,11 +289,21 @@ function loadBlogPost() {
     renderMainImage(post);
     renderMetaInfo(post);
     renderBlogContent(post);
+    
+    // Wait a bit before loading related posts
+    await new Promise(resolve => setTimeout(resolve, 200));
+    
     renderRelatedPosts(post.id);
+
+    // Hide loader
+    if (window.GlobalLoader) {
+      window.GlobalLoader.hide(400);
+    }
 
     console.log('📰 Blog post loaded successfully:', post.title);
   } catch (error) {
     console.error('Error rendering blog post:', error);
+    if (window.GlobalLoader) window.GlobalLoader.hide(0);
     showError('Error Loading Blog Post');
   }
 }

@@ -37,6 +37,24 @@ function renderFeaturedPost() {
       <a href="../blogpage-details/index.html?id=${post.id}" class="read-more">Read more</a>
     </div>
   `;
+
+  // Add click handler to featured post link
+  const featuredLink = featuredContainer.querySelector('.read-more');
+  if (featuredLink) {
+    featuredLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      
+      // Show global loader
+      if (window.GlobalLoader) {
+        window.GlobalLoader.show('Loading article...');
+      }
+      
+      // Navigate after brief delay
+      setTimeout(() => {
+        window.location.href = featuredLink.href;
+      }, 200);
+    });
+  }
 }
 
 /* ========================================
@@ -72,6 +90,25 @@ function renderBlogGrid(page = 1) {
         <a href="../blogpage-details/index.html?id=${post.id}" class="read-more">Read more</a>
       </div>
     `;
+    
+    // Add click handler for smooth navigation
+    const readMoreLink = article.querySelector('.read-more');
+    if (readMoreLink) {
+      readMoreLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        // Show global loader
+        if (window.GlobalLoader) {
+          window.GlobalLoader.show('Loading article...');
+        }
+        
+        // Navigate after brief delay
+        setTimeout(() => {
+          window.location.href = readMoreLink.href;
+        }, 200);
+      });
+    }
+    
     blogGrid.appendChild(article);
   });
 
@@ -222,13 +259,26 @@ function attachPaginationListeners() {
  * INITIALIZATION
  * ======================================== */
 function init() {
-  // Render featured post
-  renderFeaturedPost();
-  
-  // Render blog grid with first page
-  renderBlogGrid(1);
-  
-  console.log('📰 Blog page loaded successfully');
+  // Show loader immediately
+  if (window.GlobalLoader) {
+    window.GlobalLoader.show('Loading blog posts...');
+  }
+
+  // Use setTimeout for rendering
+  setTimeout(() => {
+    // Render featured post
+    renderFeaturedPost();
+    
+    // Render blog grid with first page
+    renderBlogGrid(1);
+    
+    // Hide loader
+    if (window.GlobalLoader) {
+      window.GlobalLoader.hide(300);
+    }
+    
+    console.log('📰 Blog page loaded successfully');
+  }, 100);
 }
 
 // Initialize when DOM is ready

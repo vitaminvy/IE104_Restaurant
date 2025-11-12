@@ -824,80 +824,19 @@ import { menuItems, dietaryBadges } from "../assets/data/mockdata.js";
       card.style.filter = "brightness(1)";
     });
 
-    // Add click handler with ultra-smooth transition
+    // Add click handler with global loader transition
     card.addEventListener("click", (e) => {
       e.preventDefault();
       
-      // Create full-screen overlay for smooth crossfade
-      const overlay = document.createElement("div");
-      overlay.style.cssText = `
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        z-index: 99999;
-        background: linear-gradient(135deg, rgba(251, 143, 44, 0.95), rgba(255, 180, 100, 0.95));
-        opacity: 0;
-        transition: opacity 0.4s ease-out;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        backdrop-filter: blur(0px);
-      `;
-      document.body.appendChild(overlay);
-
-      // Create simple loading indicator
-      const indicator = document.createElement("div");
-      indicator.style.cssText = `
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 1.5rem;
-        color: white;
-        font-family: var(--font-heading);
-        opacity: 0;
-        transition: opacity 0.3s ease-out 0.2s;
-      `;
-      indicator.innerHTML = `
-        <div style="
-          width: 60px;
-          height: 60px;
-          border: 4px solid rgba(255, 255, 255, 0.3);
-          border-top-color: white;
-          border-radius: 50%;
-          animation: spin 0.8s linear infinite;
-        "></div>
-        <div style="text-align: center;">
-          <div style="font-size: 0.9rem; opacity: 0.9; margin-bottom: 0.5rem;">Loading</div>
-          <div style="font-size: 1.3rem; font-weight: 600;">${item.title}</div>
-        </div>
-      `;
-      overlay.appendChild(indicator);
-
-      // Add spin animation
-      const spinStyle = document.createElement("style");
-      spinStyle.textContent = `
-        @keyframes spin {
-          to { transform: rotate(360deg); }
-        }
-      `;
-      if (!document.getElementById("spin-animation")) {
-        spinStyle.id = "spin-animation";
-        document.head.appendChild(spinStyle);
+      // Show global loader with item name
+      if (window.GlobalLoader) {
+        window.GlobalLoader.show(`Loading ${item.title}...`);
       }
 
-      // Fade in overlay smoothly
-      setTimeout(() => {
-        overlay.style.opacity = "1";
-        overlay.style.backdropFilter = "blur(10px)";
-        indicator.style.opacity = "1";
-      }, 10);
-
-      // Navigate after smooth fade
+      // Navigate after brief delay
       setTimeout(() => {
         window.location.href = `./index.html?id=${item.id}`;
-      }, 500);
+      }, 300);
     });
 
     // Image

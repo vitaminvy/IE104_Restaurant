@@ -2,8 +2,8 @@
 #newsletter {
   margin-top: 5rem;
   padding-bottom: clamp(3rem, 8vw, 6rem);
-    max-width: 1536px; /* = 2xl Tailwind */
-
+  max-width: 1536px; /* = 2xl Tailwind */
+  margin: 0 auto;
 }
 
 .newsletter__container {

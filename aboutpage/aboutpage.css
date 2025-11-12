@@ -1,0 +1,468 @@
+.about-intro {
+  /* Mobile-first: small horizontal padding to avoid narrow text column */
+  padding: clamp(32px, 6vw, 72px) 1.25rem;
+}
+
+.about-intro__container {
+  max-width: 1536px;
+  width: 100%;
+  margin-inline: auto;
+  margin-top: 4rem;
+}
+
+.about-intro__header {
+  margin-bottom: clamp(28px, 6vw, 56px);
+}
+
+.about-intro__title {
+  font-size: 2.5rem;
+  margin: 0 0 1rem;
+}
+.about-intro__lead {
+  font-size: 0.875rem;
+}
+
+/* --- horizontal separator under the intro text --- */
+.about-intro__divider {
+  width: min(1180px, 92vw);
+  height: 0.5px;
+  background: var(--color-white-80);
+  margin: 0.5rem auto 4rem;
+}
+/* ===== Lưới hình & story ===== */
+.about-intro__story {
+}
+
+.about-intro__grid {
+  width: min(1180px, 92vw);
+  max-width: 1536px;
+  margin: 6rem auto 0;
+  display: grid;
+  grid-template-columns: 1fr; /* 1 cột mặc định */
+  grid-template-areas:
+    "story"
+    "imgA"
+    "imgB"
+    "imgC";
+  row-gap: 16px;
+  column-gap: 0;
+}
+
+/* map items to grid-areas (mobile-first: story on top) */
+.about-intro__photo--a {
+  grid-area: imgA;
+}
+.about-intro__photo--b {
+  grid-area: imgB;
+}
+.about-intro__photo--c {
+  grid-area: imgC;
+}
+.about-intro__story {
+  grid-area: story;
+}
+
+.about-intro__photo img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* tỉ lệ ảnh (bám gần kích thước Figma) */
+.about-intro__photo--a {
+  /* ~570x501 */
+  aspect-ratio: 570 / 501;
+  align-self: start;
+}
+.about-intro__photo--b {
+  /* ~570x670 (cao hơn) */
+  aspect-ratio: 570 / 670;
+  align-self: start;
+}
+.about-intro__photo--c {
+  /* ~470x590 (hẹp hơn, đặt lệch trái) */
+  aspect-ratio: 470 / 590;
+  justify-self: end; /* co nhỏ so với cột, canh trái để tạo nhịp độ */
+  margin-left: clamp(6px, 1.2vw, 18px);
+  align-self: start;
+}
+
+/* khối story */
+.about-intro__story {
+  /* pull the story block up to sit snug under image B */
+  margin-top: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.about-intro__story-title {
+  font-weight: 800;
+  line-height: 1.15;
+  font-size: 2.5rem;
+  color: var(--color-white);
+}
+
+.about-intro__story-text {
+  font-size: 0.875rem;
+  line-height: 1.7;
+  max-width: 60ch;
+}
+
+.vision {
+  margin-top: 1rem;
+}
+.vision__container {
+  width: min(1180px, 92vw);
+  margin-inline: auto;
+}
+
+.vision__header {
+  text-align: center;
+}
+
+.vision__title {
+  font-size: 2.5rem;
+  margin: 0 0 12px;
+}
+
+.vision__subtitle {
+  color: var(--color-white-80);
+  max-width: 78ch;
+  margin: 0 auto;
+  font-size: 1rem;
+}
+
+.vision__grid {
+  margin-top: clamp(18px, 4vw, 36px);
+  display: grid;
+  gap: clamp(20px, 3.5vw, 40px);
+  align-items: start;
+}
+
+.vision__features {
+  display: grid;
+  gap: 22px;
+  list-style: none;
+  padding: 0;
+  /* margin-top: 8rem; */
+}
+
+.vision__feature {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 50px;
+  align-items: start;
+}
+
+.vision__badge {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+}
+.vision__badge img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  display: block;
+}
+
+.vision__feature-title {
+  font-weight: 800;
+  margin: 2px 0 4px;
+  font-size: 1.5rem;
+}
+.vision__feature-desc {
+  color: var(--color-white-80);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+/* =======================
+   VISION HOVER EFFECTS
+======================= */
+.vision__feature {
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  border-radius: 10px;
+  padding: 0.5rem 0.75rem;
+}
+
+/* Khi hover toàn dòng */
+.vision__feature:hover {
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateX(6px);
+}
+
+/* Badge icon: ánh sáng và xoay nhẹ */
+.vision__badge {
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.vision__feature:hover .vision__badge {
+  transform: scale(1.08) rotate(8deg);
+}
+
+/* Text highlight nhẹ */
+.vision__feature:hover .vision__feature-title {
+  color: var(--color-dark-orange);
+  transition: color 0.3s ease;
+}
+
+/* Ảnh lớn bên phải: zoom in mượt */
+.vision__photo img {
+  transition: transform 0.6s ease, filter 0.4s ease;
+}
+.vision__photo:hover img {
+  transform: scale(1.05);
+  filter: brightness(1.08);
+}
+.vision__photo {
+  border-radius: 14px;
+  overflow: hidden;
+}
+.vision__photo img {
+  width: 100%;
+  height: 574px;
+  display: block;
+  object-fit: cover;
+  aspect-ratio: 4 / 3;
+}
+/* ========= TEAM (They Will Cook For You) ========= */
+.team {
+  padding: clamp(48px, 9vw, 96px) 0;
+  margin-top: 2rem;
+  position: relative;
+}
+.team__container {
+  width: min(1180px, 92vw);
+  margin-inline: auto;
+  position: relative;
+}
+.team__header {
+  text-align: center;
+}
+.team__title {
+  font-size: 2.5rem;
+  margin: 0 0 10px;
+}
+.team__subtitle {
+  color: var(--color-white-80);
+  font-size: var(--font-size-body);
+  margin: 0 auto;
+}
+.team__grid {
+  display: grid;
+  gap: clamp(18px, 3vw, 28px);
+  margin-top: 1rem;
+}
+@media (min-width: 960px) {
+  .team__grid {
+    grid-template-columns: repeat(3, 1fr);
+    align-items: start;
+  }
+}
+.team-card {
+  text-align: center;
+}
+.team-card__media {
+  background: #0b0c0e;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.06), 0 20px 60px rgba(0, 0, 0, 0.45);
+}
+.team-card__media img {
+  width: 100%;
+  height: 480px;
+  display: block;
+  object-fit: cover;
+  object-position: center top;
+}
+/* ===== Hover effects for team cards ===== */
+.team-card {
+  transition: transform 0.28s cubic-bezier(0.2, 0.7, 0.3, 1), filter 0.28s ease;
+  will-change: transform;
+}
+.team-card__media {
+  transition: box-shadow 0.28s ease, border-color 0.28s ease;
+}
+.team-card__media img {
+  transition: transform 0.4s cubic-bezier(0.2, 0.7, 0.3, 1), filter 0.4s ease;
+}
+.team-card:hover,
+.team-card:focus-within {
+  transform: translateY(-6px);
+}
+.team-card:hover .team-card__media,
+.team-card:focus-within .team-card__media {
+  border-color: rgba(255, 255, 255, 0.14);
+}
+.team-card:hover .team-card__media img,
+.team-card:focus-within .team-card__media img {
+  transform: scale(1.05);
+}
+/* Accessible: reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  .team-card,
+  .team-card__media,
+  .team-card__media img {
+    transition: none !important;
+  }
+}
+.team-card__name {
+  margin: 14px 0 4px;
+  font-size: clamp(16px, 1.9vw, 24px);
+}
+.team-card__role {
+  color: var(--color-white-80);
+  font-size: 1.125rem;
+  margin: 0;
+}
+
+/* ===== Responsive: 48rem, 64rem, 80rem ===== */
+/* >=48rem (768px) */
+@media (min-width: 48rem) {
+  .about-intro {
+    padding: clamp(40px, 6vw, 72px) 2rem;
+  }
+
+  .about-intro__grid {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 24px;
+    row-gap: 16px;
+    grid-template-areas:
+      "imgA imgB"
+      "imgC story";
+  }
+
+  .about-intro__photo--c {
+    width: 100%;
+    margin-left: 0;
+  }
+  .about-intro__story {
+    /* pull the story block up to sit snug under image B */
+    margin-top: 2rem;
+    position: relative;
+    z-index: 1;
+  }
+  .vision__features {
+    gap: 24px;
+  }
+  .vision__feature {
+    gap: 20px;
+    grid-template-columns: 56px 1fr;
+  }
+  .team__grid {
+    display: grid;
+    gap: clamp(18px, 3vw, 28px);
+  }
+  .about-intro__photo--c {
+    width: 90%;
+    margin-top: calc(-1 * clamp(60px, 32vw, 92px));
+    position: relative;
+    z-index: 1;
+  }
+}
+
+/* >=64rem (1024px) */
+@media (min-width: 64rem) {
+  .about-intro {
+    padding: clamp(48px, 7vw, 96px) 4rem;
+  }
+  .about-intro__grid {
+    grid-template-columns: 442px 442px;
+    gap: 28px;
+    max-width: 1024px;
+    grid-template-areas:
+      "imgA imgB"
+      "imgC story";
+  }
+  .team__title {
+    font-size: 4rem;
+    margin: 0 0 10px;
+  }
+
+  .about-intro__title {
+    font-size: 4rem;
+    margin: 0 0 1rem;
+  }
+  .about-intro__lead {
+    font-size: 1rem;
+  }
+  .about-intro__story {
+    margin-top: 3rem;
+    position: relative;
+    z-index: 1;
+  }
+  .about-intro__story-title {
+    font-size: 3rem;
+  }
+  .about-intro__story-text {
+    font-size: 1rem;
+  }
+
+  .about-intro__photo--c {
+    margin-top: calc(-1 * clamp(60px, 32vw, 128px));
+  }
+
+  .vision__grid {
+    grid-template-columns: 1.1fr 1fr;
+  }
+  .vision__header {
+    text-align: center;
+    margin-bottom: clamp(28px, 5.8vw, 60px);
+  }
+  .vision__title {
+    font-size: 4rem;
+    margin: 0 0 12px;
+  }
+  .vision__badge {
+    width: 64px;
+    height: 64px;
+  }
+  .vision__badge img {
+    width: 64px;
+    height: 64px;
+  }
+  .vision__feature {
+    gap: 24px;
+    grid-template-columns: 64px 1fr;
+  }
+  .vision__features {
+    margin-top: 8rem;
+  }
+  .team__grid {
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 2rem;
+  }
+  .team-card__media img {
+    height: 500px;
+  }
+}
+
+/* >=80rem (1280px) */
+@media (min-width: 80rem) {
+  .about-intro {
+    padding: clamp(48px, 7vw, 96px) 8rem;
+  }
+  .vision__badge {
+    width: 82px;
+    height: 82px;
+  }
+
+  .vision__feature {
+    gap: 28px;
+    grid-template-columns: 82px 1fr;
+  }
+  .team-card__media img {
+    height: 540px;
+  }
+  .about-intro__photo--c {
+    width: 90%;
+    margin-top: calc(-1 * clamp(60px, 32vw, 132px));
+    position: relative;
+    z-index: 1;
+  }
+}

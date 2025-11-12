@@ -7,7 +7,7 @@
  * - Simplified totals (Subtotal, Discount, Total)
  * ======================================== */
 
-(function() {
+(function () {
   'use strict';
 
   /* ========================================
@@ -142,7 +142,7 @@
    */
   function renderCartItems(items) {
     const tbody = document.querySelector('.cart__table tbody');
-    
+
     if (!tbody) return;
 
     // Clear existing rows
@@ -151,16 +151,31 @@
     // Check if cart is empty
     if (items.length === 0) {
       tbody.innerHTML = `
-        <tr>
-          <td colspan="6" style="text-align:center; padding: 40px 20px; color: rgba(255,255,255,0.6); font-family: var(--font-body);">
-            <i class="fa-solid fa-cart-shopping" style="font-size: 48px; margin-bottom: 16px; display: block; opacity: 0.3;"></i>
-            <p style="font-size: 18px; margin-bottom: 8px;">Your cart is empty</p>
-            <p style="font-size: 14px; opacity: 0.8;">Add some delicious items to get started!</p>
-          </td>
-        </tr>
-      `;
+    <tr>
+      <td colspan="6" 
+          style="
+            text-align: center;
+            padding: 40px 20px;
+            color: rgba(255,255,255,0.6);
+            font-family: var(--font-body);
+          ">
+        <div style="
+              display: flex;
+              flex-direction: column; 
+              justify-content: center;
+              align-items: center;
+          ">
+          <i class="fa-solid fa-cart-shopping" 
+             style="font-size: 48px; margin-bottom: 16px; opacity: 0.3;"></i>
+          <p style="font-size: 18px; margin-bottom: 8px;">Your cart is empty</p>
+          <p style="font-size: 14px; opacity: 0.8;">Add some delicious items to get started!</p>
+        </div>
+      </td>
+    </tr>
+  `;
       return;
     }
+
 
     // Render each item
     items.forEach((item, index) => {
@@ -316,7 +331,7 @@
       couponInput.disabled = true;
       couponInput.style.borderColor = 'var(--color-dark-orange)';
       couponInput.style.color = 'var(--color-dark-orange)';
-      
+
       applyBtn.textContent = 'Remove';
       applyBtn.classList.remove('btn--brand');
       applyBtn.classList.add('btn--ghost');
@@ -327,7 +342,7 @@
       couponInput.disabled = false;
       couponInput.style.borderColor = '';
       couponInput.style.color = '';
-      
+
       applyBtn.textContent = 'Apply coupon';
       applyBtn.classList.add('btn--brand');
       applyBtn.classList.remove('btn--ghost');
@@ -404,13 +419,13 @@
   function handleRemoveItem(index) {
     const items = getCartItems();
     const removedItem = items[index];
-    
+
     items.splice(index, 1);
     saveCartItems(items);
-    
+
     renderCartItems(items);
     updateCartTotals();
-    
+
     showNotification(`Removed "${removedItem.title}" from cart`, 'success');
   }
 
@@ -421,7 +436,7 @@
    */
   function handleQuantityChange(index, newQuantity) {
     const items = getCartItems();
-    
+
     // Validate quantity
     newQuantity = parseInt(newQuantity);
     if (isNaN(newQuantity) || newQuantity < 1) {
@@ -433,22 +448,22 @@
 
     items[index].quantity = newQuantity;
     saveCartItems(items);
-    
+
     // Update only the affected row
     const row = document.querySelector(`tr[data-index="${index}"]`);
     if (row) {
       const item = items[index];
       const itemSubtotal = (item.price * item.quantity).toFixed(2);
-      
+
       // Update quantity input
       const input = row.querySelector('.qty__input');
       if (input) input.value = newQuantity;
-      
+
       // Update subtotal
       const subtotalCell = row.querySelector('.cart__subtotal');
       if (subtotalCell) subtotalCell.textContent = `$${itemSubtotal}`;
     }
-    
+
     updateCartTotals();
   }
 
@@ -564,7 +579,7 @@
       couponBtn.addEventListener('click', (e) => {
         e.preventDefault();
         const action = couponBtn.getAttribute('data-action');
-        
+
         if (action === 'remove') {
           handleRemoveCoupon();
         } else {
@@ -594,10 +609,10 @@
     // Load and render cart items
     const items = getCartItems();
     renderCartItems(items);
-    
+
     // Update totals
     updateCartTotals();
-    
+
     // Setup event listeners
     setupEventListeners();
 
@@ -618,7 +633,7 @@
    * ======================================== */
 
   window.CartManager = {
-    addItem: function(item) {
+    addItem: function (item) {
       const items = getCartItems();
       const existingIndex = items.findIndex(i => i.id === item.id);
 
@@ -637,13 +652,13 @@
       saveCartItems(items);
       return items;
     },
-    
+
     getItems: getCartItems,
-    getItemCount: function() {
+    getItemCount: function () {
       return getCartItems().reduce((total, item) => total + item.quantity, 0);
     },
-    
-    clearCart: function() {
+
+    clearCart: function () {
       saveCartItems([]);
       clearAppliedCoupon();
     }

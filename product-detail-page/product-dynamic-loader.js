@@ -419,7 +419,211 @@ import { menuItems, dietaryBadges } from "../assets/data/mockdata.js";
       addToCartBtn.dataset.itemId = item.id;
       addToCartBtn.dataset.itemTitle = item.title;
       addToCartBtn.dataset.itemPrice = item.price;
+      addToCartBtn.dataset.itemImage = item.image;
+      
+      // Remove any existing listeners by cloning the button
+      const newBtn = addToCartBtn.cloneNode(true);
+      addToCartBtn.parentNode.replaceChild(newBtn, addToCartBtn);
+      
+      // Add click handler
+      newBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        handleAddToCart(item);
+      });
     }
+  }
+
+  /* ========================================
+   * HANDLE ADD TO CART
+   * Adds item to cart with proper integration
+   * ======================================== */
+
+  function handleAddToCart(item) {
+    // Get quantity
+    const quantityInput = document.querySelector('.qty-input');
+    const quantity = quantityInput ? parseInt(quantityInput.value) || 1 : 1;
+
+    // Prepare cart item
+    const cartItem = {
+      id: item.id,
+      title: item.title,
+      price: item.price,
+      image: item.image,
+      quantity: quantity
+    };
+
+    // Add to cart using CartManager API (if available)
+    if (window.CartManager && typeof window.CartManager.addItem === 'function') {
+      window.CartManager.addItem(cartItem);
+      showAddToCartNotification(item.title, quantity, true);
+    } else {
+      // Fallback: Save to localStorage directly
+      addToCartFallback(cartItem);
+      showAddToCartNotification(item.title, quantity, false);
+    }
+
+    // Reset quantity to 1
+    if (quantityInput) {
+      quantityInput.value = 1;
+    }
+  }
+
+  /* ========================================
+   * FALLBACK: ADD TO CART WITHOUT CARTMANAGER
+   * Direct localStorage implementation
+   * ======================================== */
+
+  function addToCartFallback(cartItem) {
+    try {
+      const cartKey = 'restaurant_cart_items';
+      let items = [];
+      
+      // Get existing cart
+      const existingCart = localStorage.getItem(cartKey);
+      if (existingCart) {
+        items = JSON.parse(existingCart);
+      }
+
+      // Check if item already exists
+      const existingIndex = items.findIndex(i => i.id === cartItem.id);
+      
+      if (existingIndex >= 0) {
+        // Update quantity
+        items[existingIndex].quantity += cartItem.quantity;
+      } else {
+        // Add new item
+        items.push(cartItem);
+      }
+
+      // Save to localStorage
+      localStorage.setItem(cartKey, JSON.stringify(items));
+      
+      console.log('✅ Item added to cart (fallback):', cartItem);
+    } catch (error) {
+      console.error('❌ Error adding to cart:', error);
+    }
+  }
+
+  /* ========================================
+   * SHOW ADD TO CART NOTIFICATION
+   * Displays success message
+   * ======================================== */
+
+  function showAddToCartNotification(itemTitle, quantity, hasCartManager) {
+    // Remove existing notification
+    const existing = document.querySelector('.add-to-cart-notification');
+    if (existing) {
+      existing.remove();
+    }
+
+    // Create notification
+    const notification = document.createElement('div');
+    notification.className = 'add-to-cart-notification';
+    notification.innerHTML = `
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <div style="
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          background: rgba(76, 175, 80, 0.2);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-shrink: 0;
+        ">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" style="display: block;">
+            <path d="M7 10L9 12L13 8M19 10C19 14.9706 14.9706 19 10 19C5.02944 19 1 14.9706 1 10C1 5.02944 5.02944 1 10 1C14.9706 1 19 5.02944 19 10Z" 
+              stroke="#4CAF50" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div style="flex: 1;">
+          <div style="font-weight: 600; margin-bottom: 4px; color: white;">
+            Added to cart!
+          </div>
+          <div style="font-size: 13px; opacity: 0.9; color: rgba(255,255,255,0.8);">
+            ${quantity}x ${itemTitle}
+          </div>
+        </div>
+        <a href="../cartpage/cart.html" style="
+          padding: 8px 16px;
+          background: white;
+          color: #4CAF50;
+          text-decoration: none;
+          border-radius: 6px;
+          font-weight: 600;
+          font-size: 13px;
+          transition: all 0.2s ease;
+        " onmouseover="this.style.background='rgba(255,255,255,0.9)'" 
+           onmouseout="this.style.background='white'">
+          View Cart
+        </a>
+      </div>
+    `;
+    
+    notification.style.cssText = `
+      position: fixed;
+      top: 100px;
+      right: 24px;
+      z-index: 99999;
+      padding: 16px 20px;
+      background: linear-gradient(135deg, rgba(76, 175, 80, 0.95), rgba(56, 142, 60, 0.95));
+      color: white;
+      border-radius: 12px;
+      font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
+      font-size: 14px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3), 0 2px 8px rgba(76, 175, 80, 0.4);
+      animation: slideInRight 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      max-width: 400px;
+      min-width: 320px;
+      backdrop-filter: blur(10px);
+    `;
+
+    // Add animation keyframes if not exists
+    if (!document.getElementById('add-to-cart-animations')) {
+      const style = document.createElement('style');
+      style.id = 'add-to-cart-animations';
+      style.textContent = `
+        @keyframes slideInRight {
+          from {
+            transform: translateX(100%);
+            opacity: 0;
+          }
+          to {
+            transform: translateX(0);
+            opacity: 1;
+          }
+        }
+        @keyframes slideOutRight {
+          from {
+            transform: translateX(0);
+            opacity: 1;
+          }
+          to {
+            transform: translateX(100%);
+            opacity: 0;
+          }
+        }
+      `;
+      document.head.appendChild(style);
+    }
+
+    document.body.appendChild(notification);
+
+    // Auto remove after 4 seconds
+    setTimeout(() => {
+      notification.style.animation = 'slideOutRight 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards';
+      setTimeout(() => notification.remove(), 300);
+    }, 4000);
+
+    // Add close on click
+    notification.addEventListener('click', (e) => {
+      if (e.target.tagName !== 'A') {
+        notification.style.animation = 'slideOutRight 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards';
+        setTimeout(() => notification.remove(), 300);
+      }
+    });
+
+    console.log(`✅ Added ${quantity}x "${itemTitle}" to cart`);
   }
 
   /* ========================================

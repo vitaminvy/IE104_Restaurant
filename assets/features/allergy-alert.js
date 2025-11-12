@@ -4,6 +4,20 @@
 
 import { allergenInfo } from "../data/menu-enhanced.js";
 
+// Add pulse animation for warning badges
+const style = document.createElement('style');
+style.textContent = `
+  @keyframes pulse {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+  }
+`;
+document.head.appendChild(style);
+
 /* ========================================
  * ALLERGY ALERT COMPONENT
  * ======================================== */
@@ -222,13 +236,19 @@ import { allergenInfo } from "../data/menu-enhanced.js";
     saveUserAllergens(selectedAllergens);
 
     // Show confirmation
-    showToast(`✓ Allergy settings saved! ${selectedAllergens.length} allergen(s) tracked.`);
+    if (selectedAllergens.length > 0) {
+      showToast(`✓ Allergy settings saved! ${selectedAllergens.length} allergen(s) tracked.`);
+    } else {
+      showToast(`✓ Allergy settings cleared.`);
+    }
 
     // Close modal
     closeAllergyModal();
 
-    // Re-check current page for warnings
-    checkCurrentPageAllergens();
+    // Re-check current page for warnings (with slight delay to ensure DOM is ready)
+    setTimeout(() => {
+      checkCurrentPageAllergens();
+    }, 100);
   }
 
   /* ========================================
@@ -248,6 +268,11 @@ import { allergenInfo } from "../data/menu-enhanced.js";
     saveUserAllergens([]);
 
     showToast("✓ All allergens cleared.");
+
+    // Re-check current page to remove warnings
+    setTimeout(() => {
+      checkCurrentPageAllergens();
+    }, 100);
   }
 
   /* ========================================
@@ -258,12 +283,129 @@ import { allergenInfo } from "../data/menu-enhanced.js";
     // If on product detail page
     const productDetailSection = document.querySelector("#product-detail");
     if (productDetailSection) {
-      // Get product allergens (you would fetch this from your data)
-      // For demo, we'll use example allergens
-      const productAllergens = ["gluten", "dairy", "eggs"];
+      // Try to get product allergens from various sources
+      
+      // Method 1: Check if product data is available globally
+      if (window.currentProductData && window.currentProductData.allergens) {
+        displayProductAllergens(window.currentProductData.allergens);
+        checkForAllergenConflict(window.currentProductData.allergens);
+        return;
+      }
 
-      displayProductAllergens(productAllergens);
-      checkForAllergenConflict(productAllergens);
+      // Method 2: Get from URL parameter and look up in menu data
+      const urlParams = new URLSearchParams(window.location.search);
+      const itemId = urlParams.get('id');
+      
+      if (itemId) {
+        import('../data/mockdata.js')
+          .then(module => {
+            const item = module.menuItems.find(i => i.id === parseInt(itemId));
+            if (item && item.allergens) {
+              displayProductAllergens(item.allergens);
+              checkForAllergenConflict(item.allergens);
+              
+              // Store globally for other functions
+              window.currentProductData = item;
+            }
+          })
+          .catch(err => {
+            console.log('Could not load menu data for allergen check:', err);
+          });
+      }
+    }
+
+    // Check menu cards on menu page
+    checkMenuCardsForAllergens();
+  }
+
+  /* ========================================
+   * CHECK MENU CARDS FOR ALLERGENS
+   * Add warning badges to menu cards
+   * ======================================== */
+
+  function checkMenuCardsForAllergens() {
+    // If no allergens selected, no need to check
+    if (userAllergens.length === 0) return;
+
+    // Get all menu cards
+    const menuCards = document.querySelectorAll('[data-item-id]');
+    
+    menuCards.forEach(card => {
+      const itemId = parseInt(card.dataset.itemId);
+      
+      import('../data/mockdata.js')
+        .then(module => {
+          const item = module.menuItems.find(i => i.id === itemId);
+          
+          if (item && item.allergens) {
+            // Check if item contains user's allergens
+            const conflicts = item.allergens.filter(allergen => 
+              userAllergens.includes(allergen)
+            );
+
+            if (conflicts.length > 0) {
+              // Add warning badge to card
+              addWarningBadgeToCard(card, conflicts);
+            } else {
+              // Remove warning badge if it exists
+              removeWarningBadgeFromCard(card);
+            }
+          }
+        })
+        .catch(err => {
+          console.log('Could not check allergens for menu card:', err);
+        });
+    });
+  }
+
+  /* ========================================
+   * ADD WARNING BADGE TO MENU CARD
+   * ======================================== */
+
+  function addWarningBadgeToCard(card, conflicts) {
+    // Check if badge already exists
+    if (card.querySelector('.allergy-warning-badge')) {
+      return;
+    }
+
+    const badge = document.createElement('div');
+    badge.className = 'allergy-warning-badge';
+    badge.setAttribute('title', `Contains: ${conflicts.map(key => allergenInfo[key]?.name || key).join(', ')}`);
+    badge.innerHTML = '⚠️';
+    
+    // Style the badge
+    badge.style.cssText = `
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      width: 32px;
+      height: 32px;
+      background: #dc2626;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      z-index: 10;
+      box-shadow: 0 2px 8px rgba(220, 38, 38, 0.5);
+      animation: pulse 2s infinite;
+      cursor: help;
+    `;
+
+    // Add to card
+    card.style.position = 'relative';
+    card.appendChild(badge);
+  }
+
+  /* ========================================
+   * REMOVE WARNING BADGE FROM CARD
+   * ======================================== */
+
+  function removeWarningBadgeFromCard(card) {
+    const badge = card.querySelector('.allergy-warning-badge');
+    if (badge) {
+      badge.remove();
     }
   }
 

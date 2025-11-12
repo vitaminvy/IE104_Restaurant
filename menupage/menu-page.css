@@ -358,17 +358,16 @@
   width: 36px;
   height: 36px;
   filter: brightness(1.1);
-  display: flex;
+}
+.fa-solid {
+  display: flex !important;
   align-items: center;
   justify-content: center;
 }
-.fa-cart-shopping {
-  width: 100%;
-}
 .cart-count {
   position: absolute;
-  top: -8px;
-  right: -8px;
+  top: -1px;
+  right: -4px;
   background: #d57d1f;
   color: #fff;
   font-size: 0.75rem;
@@ -377,7 +376,9 @@
   border-radius: 50%;
   line-height: 1;
   min-width: 18px;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Animation “fly to cart” */

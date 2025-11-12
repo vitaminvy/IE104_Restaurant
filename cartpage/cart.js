@@ -14,7 +14,8 @@
    * CONFIGURATION & CONSTANTS
    * ======================================== */
 
-  const CART_STORAGE_KEY = 'restaurant_cart_items';
+  // Use same key as navigate-menu.js for consistency
+  const CART_STORAGE_KEY = 'restaurantCart';
   const COUPON_STORAGE_KEY = 'restaurant_applied_coupon';
 
   // Available coupons
@@ -606,19 +607,35 @@
    * Initialize cart page
    */
   function init() {
-    // Load and render cart items
-    const items = getCartItems();
-    renderCartItems(items);
+    console.log('🛒 Initializing cart page...');
 
-    // Update totals
-    updateCartTotals();
+    // Show loader while initializing
+    if (window.GlobalLoader) {
+      window.GlobalLoader.show('Loading cart...');
+    }
 
-    // Setup event listeners
-    setupEventListeners();
+    // Small delay to ensure localStorage is readable
+    setTimeout(() => {
+      // Load and render cart items
+      const items = getCartItems();
+      console.log('📦 Cart items loaded:', items);
 
-    console.log('🛒 Enhanced cart initialized');
-    console.log('📦 Cart items:', items.length);
-    console.log('🎟️ Available coupons:', Object.keys(COUPONS).join(', '));
+      renderCartItems(items);
+
+      // Update totals
+      updateCartTotals();
+
+      // Setup event listeners
+      setupEventListeners();
+
+      // Hide loader
+      if (window.GlobalLoader) {
+        window.GlobalLoader.hide(300);
+      }
+
+      console.log('✅ Cart initialized with', items.length, 'items');
+      console.log('🎟️ Available coupons:', Object.keys(COUPONS).join(', '));
+    }, 100);
   }
 
   // Initialize when DOM is ready

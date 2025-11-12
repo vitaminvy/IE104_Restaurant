@@ -18,10 +18,9 @@
 
 /* LEFT IMAGE */
 .product-detail__image {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin-top: 4rem;
 }
+
 .product-detail__img {
   width: 100%;
   border-radius: 0.5rem;
@@ -166,9 +165,6 @@
     padding-left: 2rem;
     padding-right: 2rem;
   }
-  .product-detail__img {
-    max-width: 70%;
-  }
 }
 
 /* lg (≥1024px): tinh chỉnh font và padding */
@@ -179,10 +175,6 @@
   }
   .product-detail__title {
     font-size: 3rem;
-  }
-
-  .product-detail__img {
-    max-width: 70%;
   }
 }
 
@@ -204,11 +196,14 @@
   .product-detail__title {
     font-size: 4rem;
   }
+  .product-detail__image {
+    margin-top: 0;
+  }
 }
 
 /* 2xl (≥1536px): giới hạn max width */
 @media (min-width: 1536px) {
   .product-detail__container {
-    max-width: 1400px;
+    max-width: 1440px;
   }
 }

@@ -15,6 +15,8 @@ export const menuItems = [
     // Allergen information
     allergens: ["gluten", "dairy", "eggs"],
     spiceLevel: 0,
+    // Meal pairing suggestions
+    pairsWith: [2, 11, 17],
   },
   {
     id: 2,
@@ -26,6 +28,8 @@ export const menuItems = [
     badges: ["vegan", "chef-special"],
     allergens: ["gluten"],
     spiceLevel: 0,
+    // Meal pairing suggestions
+    pairsWith: [1, 17, 12],
   },
   {
     id: 3,
@@ -37,39 +41,47 @@ export const menuItems = [
     badges: ["gluten-free", "popular"],
     allergens: [],
     spiceLevel: 1,
+    // Meal pairing suggestions
+    pairsWith: [10, 12, 14],
   },
   {
     id: 4,
-    title: "Pancake Stack",
-    desc: "Fluffy pancakes with maple syrup and butter.",
-    price: 5.99,
+    title: "Spicy Ramen",
+    desc: "Traditional ramen with spicy broth and fresh vegetables.",
+    price: 8.99,
     image: "../assets/images/home-page/menu-section/noodles.png",
-    category: "breakfast",
-    badges: ["popular", "vegetarian"],
-    allergens: ["gluten", "dairy", "eggs"],
-    spiceLevel: 0,
+    category: "lunch",
+    badges: ["spicy", "popular"],
+    allergens: ["gluten", "soy"],
+    spiceLevel: 3,
+    // Meal pairing suggestions
+    pairsWith: [10, 16, 3],
   },
   {
     id: 5,
-    title: "Avocado Toast",
-    desc: "Wholegrain toast with avocado and poached eggs.",
-    price: 7.5,
+    title: "Vegan Buddha Bowl",
+    desc: "Colorful mix of quinoa, roasted vegetables, and tahini.",
+    price: 10.5,
     image: "../assets/images/home-page/menu-section/new-lubina.png",
-    category: "breakfast",
-    badges: ["vegan", "chef-special"],
-    allergens: ["gluten"],
+    category: "lunch",
+    badges: ["vegan", "gluten-free"],
+    allergens: ["sesame"],
     spiceLevel: 0,
+    // Meal pairing suggestions
+    pairsWith: [12, 14, 10],
   },
   {
     id: 6,
-    title: "Grilled Chicken Bowl",
-    desc: "Healthy rice bowl with grilled chicken and veggies.",
-    price: 9.99,
+    title: "Steak & Fries",
+    desc: "Juicy grilled steak served with crispy french fries.",
+    price: 15.99,
     image: "../assets/images/home-page/menu-section/chicken.png",
-    category: "lunch",
-    badges: ["gluten-free", "popular"],
+    category: "dinner",
+    badges: ["chef-special", "gluten-free"],
     allergens: [],
-    spiceLevel: 1,
+    spiceLevel: 0,
+    // Meal pairing suggestions
+    pairsWith: [7, 8, 15],
   },
   {
     id: 7,
@@ -81,6 +93,8 @@ export const menuItems = [
     badges: ["gluten-free", "popular"],
     allergens: ["fish", "soy"],
     spiceLevel: 0,
+    // Meal pairing suggestions
+    pairsWith: [12, 10, 6],
   },
   {
     id: 8,
@@ -92,6 +106,8 @@ export const menuItems = [
     badges: ["vegetarian", "popular"],
     allergens: ["gluten", "dairy"],
     spiceLevel: 0,
+    // Meal pairing suggestions
+    pairsWith: [9, 16, 15],
   },
   {
     id: 9,
@@ -103,6 +119,8 @@ export const menuItems = [
     badges: ["spicy", "gluten-free"],
     allergens: ["dairy"],
     spiceLevel: 3,
+    // Meal pairing suggestions
+    pairsWith: [8, 6, 16],
   },
   {
     id: 10,
@@ -114,6 +132,8 @@ export const menuItems = [
     badges: ["vegan", "popular"],
     allergens: ["peanuts", "soy"],
     spiceLevel: 1,
+    // Meal pairing suggestions
+    pairsWith: [4, 3, 7],
   },
   {
     id: 11,
@@ -125,6 +145,8 @@ export const menuItems = [
     badges: ["vegetarian", "chef-special"],
     allergens: ["gluten", "dairy", "eggs"],
     spiceLevel: 0,
+    // Meal pairing suggestions
+    pairsWith: [1, 13, 17],
   },
   {
     id: 12,
@@ -136,6 +158,8 @@ export const menuItems = [
     badges: ["vegan", "gluten-free"],
     allergens: [],
     spiceLevel: 0,
+    // Meal pairing suggestions
+    pairsWith: [5, 14, 3],
   },
   {
     id: 13,
@@ -147,6 +171,8 @@ export const menuItems = [
     badges: ["vegetarian", "gluten-free"],
     allergens: ["eggs", "dairy"],
     spiceLevel: 0,
+    // Meal pairing suggestions
+    pairsWith: [1, 2, 11],
   },
   {
     id: 14,
@@ -158,6 +184,8 @@ export const menuItems = [
     badges: ["vegan"],
     allergens: ["gluten", "sesame"],
     spiceLevel: 0,
+    // Meal pairing suggestions
+    pairsWith: [12, 5, 10],
   },
   {
     id: 15,
@@ -169,6 +197,8 @@ export const menuItems = [
     badges: ["chef-special", "gluten-free"],
     allergens: [],
     spiceLevel: 2,
+    // Meal pairing suggestions
+    pairsWith: [9, 16, 6],
   },
   {
     id: 16,
@@ -180,6 +210,8 @@ export const menuItems = [
     badges: ["spicy", "vegetarian"],
     allergens: ["dairy", "gluten"],
     spiceLevel: 2,
+    // Meal pairing suggestions
+    pairsWith: [8, 9, 4],
   },
   {
     id: 17,
@@ -191,6 +223,8 @@ export const menuItems = [
     badges: ["vegan", "gluten-free"],
     allergens: [],
     spiceLevel: 0,
+    // Meal pairing suggestions
+    pairsWith: [2, 1, 11],
   },
   {
     id: 18,
@@ -202,6 +236,8 @@ export const menuItems = [
     badges: ["popular"],
     allergens: ["fish", "gluten"],
     spiceLevel: 0,
+    // Meal pairing suggestions
+    pairsWith: [7, 10, 15],
   },
 ];
 

@@ -212,7 +212,7 @@
 
   .dietary-filter {
     /* Box model */
-    padding: 1.5rem 0;
+    padding: 2.5rem 0 1.5rem;
   }
 
   .dietary-badge {
@@ -224,7 +224,7 @@
 @media (min-width: 1280px) {
   .dietary-filter {
     /* Box model */
-    padding: 2rem 0 1.5rem;
+    padding: 3rem 0 1.5rem;
   }
 
   .dietary-badge {

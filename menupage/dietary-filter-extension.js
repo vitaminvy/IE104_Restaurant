@@ -163,7 +163,7 @@ import { menuItems, dietaryBadges } from "../assets/data/mockdata.js";
 
     // Card template with badges
     const cardTemplate = (item) => `
-    <article class="menu__card">
+    <article class="menu__card" data-item-id="${item.id}" style="cursor: pointer;">
       <div class="menu__card-img-wrapper">
         <img src="${item.image}" alt="${
       item.title

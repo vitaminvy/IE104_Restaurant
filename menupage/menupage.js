@@ -18,7 +18,7 @@ import { menuItems } from "../assets/data/mockdata.js";
     p.toLocaleString("en-US", { style: "currency", currency: "USD" });
 
   const cardTemplate = (item) => `
-    <article class="menu__card">
+    <article class="menu__card" data-item-id="${item.id}" style="cursor: pointer;">
       <div class="menu__card-img-wrapper">
         <img src="${item.image}" alt="${
     item.title
@@ -269,4 +269,48 @@ import { menuItems } from "../assets/data/mockdata.js";
 
     img.addEventListener("transitionend", () => img.remove());
   }
+})();
+
+/* ========================================
+ * CARD ROUTING TO PRODUCT DETAIL PAGE
+ * Click anywhere on card except "Order Now +" button
+ * ======================================== */
+
+(function setupCardRouting() {
+  const container = document.getElementById("menu-card-container");
+  if (!container) return;
+
+  // Event delegation for card clicks
+  container.addEventListener("click", (e) => {
+    // Check if click is on "Order Now +" button - if yes, do nothing (handled by cart system)
+    const isOrderButton = e.target.closest(".menu__card-btn");
+    if (isOrderButton) return;
+
+    // Find the clicked card
+    const card = e.target.closest(".menu__card");
+    if (!card) return;
+
+    // Get item ID from data attribute
+    const itemId = card.dataset.itemId;
+    if (!itemId) return;
+
+    // Navigate to product detail page with item ID
+    window.location.href = `../product-detail-page/index.html?id=${itemId}`;
+  });
+
+  // Add visual feedback on hover (except for button)
+  container.addEventListener("mouseover", (e) => {
+    const card = e.target.closest(".menu__card");
+    if (card && !e.target.closest(".menu__card-btn")) {
+      card.style.transform = "translateY(-4px)";
+      card.style.transition = "transform 0.3s ease";
+    }
+  });
+
+  container.addEventListener("mouseout", (e) => {
+    const card = e.target.closest(".menu__card");
+    if (card) {
+      card.style.transform = "";
+    }
+  });
 })();

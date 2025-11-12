@@ -164,7 +164,8 @@ document.head.appendChild(style);
     label.dataset.allergen = key;
 
     // Check if already selected
-    if (userAllergens.includes(key)) {
+    const isSelected = userAllergens.includes(key);
+    if (isSelected) {
       label.classList.add("allergen-checkbox--selected");
     }
 
@@ -173,7 +174,7 @@ document.head.appendChild(style);
     input.type = "checkbox";
     input.className = "allergen-checkbox__input";
     input.value = key;
-    input.checked = userAllergens.includes(key);
+    input.checked = isSelected;
 
     // Icon
     const icon = document.createElement("span");
@@ -182,12 +183,35 @@ document.head.appendChild(style);
 
     // Name
     const name = document.createElement("span");
+    name.className = "allergen-checkbox__name";
     name.textContent = allergen.name;
 
-    // Toggle handler
-    label.addEventListener("click", () => {
+    // Toggle handler - Use input change event instead of label click
+    input.addEventListener("change", (e) => {
+      e.stopPropagation();
+      
+      if (input.checked) {
+        label.classList.add("allergen-checkbox--selected");
+        console.log(`✅ Selected: ${allergen.name}`);
+      } else {
+        label.classList.remove("allergen-checkbox--selected");
+        console.log(`❌ Deselected: ${allergen.name}`);
+      }
+    });
+
+    // Label click handler to toggle input
+    label.addEventListener("click", (e) => {
+      // Prevent double-firing if clicking directly on input
+      if (e.target === input) {
+        return;
+      }
+      
+      e.preventDefault();
       input.checked = !input.checked;
-      label.classList.toggle("allergen-checkbox--selected");
+      
+      // Trigger change event manually
+      const changeEvent = new Event('change', { bubbles: true });
+      input.dispatchEvent(changeEvent);
     });
 
     label.appendChild(input);
@@ -204,9 +228,41 @@ document.head.appendChild(style);
   function openAllergyModal() {
     const overlay = document.getElementById("allergyModalOverlay");
     if (overlay) {
+      // Refresh checkbox states before opening
+      refreshCheckboxStates();
+      
       overlay.classList.add("allergy-modal-overlay--active");
       document.body.style.overflow = "hidden";
+      
+      console.log('📋 Modal opened. Current allergies:', userAllergens);
     }
+  }
+
+  /* ========================================
+   * REFRESH CHECKBOX STATES
+   * Updates checkbox visual states to match current userAllergens
+   * ======================================== */
+
+  function refreshCheckboxStates() {
+    const checkboxes = document.querySelectorAll('.allergen-checkbox');
+    
+    checkboxes.forEach(checkbox => {
+      const input = checkbox.querySelector('.allergen-checkbox__input');
+      const key = input.value;
+      const isSelected = userAllergens.includes(key);
+      
+      // Update input state
+      input.checked = isSelected;
+      
+      // Update visual state
+      if (isSelected) {
+        checkbox.classList.add('allergen-checkbox--selected');
+      } else {
+        checkbox.classList.remove('allergen-checkbox--selected');
+      }
+    });
+    
+    console.log('🔄 Checkbox states refreshed');
   }
 
   /* ========================================
@@ -232,14 +288,23 @@ document.head.appendChild(style);
     );
     const selectedAllergens = Array.from(checkedInputs).map((input) => input.value);
 
+    console.log('💾 Saving allergy settings:', selectedAllergens);
+
     // Save to localStorage
     saveUserAllergens(selectedAllergens);
 
+    // Verify save
+    const saved = loadUserAllergens();
+    console.log('✅ Verified saved allergies:', saved);
+
     // Show confirmation
     if (selectedAllergens.length > 0) {
-      showToast(`✓ Allergy settings saved! ${selectedAllergens.length} allergen(s) tracked.`);
+      const allergenNames = selectedAllergens
+        .map(key => allergenInfo[key]?.name || key)
+        .join(', ');
+      showToast(`✓ Tracking: ${allergenNames}`);
     } else {
-      showToast(`✓ Allergy settings cleared.`);
+      showToast(`✓ Allergy tracking cleared.`);
     }
 
     // Close modal
@@ -256,18 +321,28 @@ document.head.appendChild(style);
    * ======================================== */
 
   function clearAllAllergens() {
+    console.log('🗑️ Clearing all allergens...');
+    
     // Uncheck all
     const checkboxes = document.querySelectorAll(".allergen-checkbox");
     checkboxes.forEach((checkbox) => {
       const input = checkbox.querySelector("input");
-      if (input) input.checked = false;
+      if (input) {
+        input.checked = false;
+        
+        // Trigger change event to update visual state
+        const changeEvent = new Event('change', { bubbles: true });
+        input.dispatchEvent(changeEvent);
+      }
       checkbox.classList.remove("allergen-checkbox--selected");
     });
 
     // Clear from storage
     saveUserAllergens([]);
+    
+    console.log('✅ All allergens cleared from storage');
 
-    showToast("✓ All allergens cleared.");
+    showToast("✓ All allergen tracking cleared.");
 
     // Re-check current page to remove warnings
     setTimeout(() => {

@@ -89,7 +89,7 @@
   margin: 0 auto; /* center grid */
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 2rem;
+  gap: 1.5rem;
   padding: 4rem 2rem; /* tighter gutters */
 }
 

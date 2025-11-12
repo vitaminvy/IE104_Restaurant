@@ -1,117 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Menu</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="../style/reset.css" />
-    <link rel="stylesheet" href="../style/style.css" />
+  <title>Menu</title>
 
-    <!-- menu page css -->
-    <link rel="stylesheet" href="./menu-page.css" />
-    
-    <!-- dietary filter css - NEW FEATURE -->
-    <link rel="stylesheet" href="./dietary-filter.css" />
-    
-    <!-- header section -->
-    <link rel="stylesheet" href="../homepage/header.css" />
-    <!-- footer-->
-    <link rel="stylesheet" href="../homepage/footer.css" />
+  <link rel="stylesheet" href="../style/reset.css" />
+  <link rel="stylesheet" href="../style/style.css" />
 
-    <link
-      href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
-      rel="stylesheet"
-    />
-    <!-- Font Awesome CDN -->
-    <script
-      src="https://kit.fontawesome.com/eef96f1e29.js"
-      crossorigin="anonymous"
-    ></script>
+  <!-- menu page css -->
+  <link rel="stylesheet" href="./menu-page.css" />
 
-    <!-- Global Features Stylesheets -->
-    <link rel="stylesheet" href="../assets/features/allergy-alert.css" />
-    <link rel="stylesheet" href="../assets/features/social-proof.css" />
+  <!-- dietary filter css - NEW FEATURE -->
+  <link rel="stylesheet" href="./dietary-filter.css" />
 
-    <!-- Global Loading System -->
-    <script src="../assets/script/global-loader.js"></script>
-  </head>
-  <body>
-    <!-- logic for header and footer -->
-    <script src="../assets/script/include-partials.js" defer></script>
-    <script src="../assets/script/header.js" defer></script>
+  <!-- Pagination Section styles -->
+  <link rel="stylesheet" href="./pagination.css">
 
-    <!-- ========== 1. HEADER ========== -->
-    <div data-include="/partials/header.html"></div>
+  <!-- header section -->
+  <link rel="stylesheet" href="../homepage/header.css" />
+  <!-- footer-->
+  <link rel="stylesheet" href="../homepage/footer.css" />
 
-    <!-- ========== FILTER FIELD ========== -->
-    <nav class="menu__filter" aria-label="Menu categories">
-      <!-- breakfast -->
-      <a
-        href="#"
-        class="menu__filter-item menu__filter-item--active"
-        data-category="breakfast"
-        role="button"
-        aria-current="true"
-        >Breakfast</a
-      >
-      <!-- lunch -->
-      <a href="#" class="menu__filter-item" data-category="lunch" role="button"
-        >Lunch</a
-      >
-      <!-- dinner -->
-      <a href="#" class="menu__filter-item" data-category="dinner" role="button"
-        >Dinner</a
-      >
-      <!-- staters -->
-      <a
-        href="#"
-        class="menu__filter-item"
-        data-category="starters"
-        role="button"
-        >Starters</a
-      >
-    </nav>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+    rel="stylesheet" />
+  <!-- Font Awesome CDN -->
+  <script src="https://kit.fontawesome.com/eef96f1e29.js" crossorigin="anonymous"></script>
 
-    <!-- ===== Unified container where JS will render cards ===== -->
-    <div id="menu-card-container" class="menu__grid" role="list"></div>
+  <!-- Global Features Stylesheets -->
+  <link rel="stylesheet" href="../assets/features/allergy-alert.css" />
+  <link rel="stylesheet" href="../assets/features/social-proof.css" />
 
-    <!-- BANNER MID -->
-    <section class="banner">
-      <div class="menu-banner__content">
-        <h2>Food Is Not Just</h2>
-        <h2>Eating Energy</h2>
-        <p>It’s an Experience.</p>
-        <a href="#" class="btn">Order Now</a>
-      </div>
-    </section>
+  <!-- Global Loading System -->
+  <script src="../assets/script/global-loader.js"></script>
+</head>
 
-    <!-- Floating cart icon -->
-    <div class="cart-icon-wrapper" id="cart-icon">
-      <i
-        class="fa-solid fa-cart-plus cart-icon"
-        style="color: var(--color-dark-orange)"
-      ></i>
-      <span id="cart-count" class="cart-count">0</span>
+<body>
+  <!-- logic for header and footer -->
+  <script src="../assets/script/include-partials.js" defer></script>
+  <script src="../assets/script/header.js" defer></script>
+
+  <!-- ========== 1. HEADER ========== -->
+  <div data-include="/partials/header.html"></div>
+
+  <!-- ========== FILTER FIELD ========== -->
+  <nav class="menu__filter" aria-label="Menu categories">
+    <!-- breakfast -->
+    <a href="#" class="menu__filter-item menu__filter-item--active" data-category="breakfast" role="button"
+      aria-current="true">Breakfast</a>
+    <!-- lunch -->
+    <a href="#" class="menu__filter-item" data-category="lunch" role="button">Lunch</a>
+    <!-- dinner -->
+    <a href="#" class="menu__filter-item" data-category="dinner" role="button">Dinner</a>
+    <!-- staters -->
+    <a href="#" class="menu__filter-item" data-category="starters" role="button">Starters</a>
+  </nav>
+
+  <!-- ===== Unified container where JS will render cards ===== -->
+  <div id="menu-card-container" class="menu__grid" role="list"></div>
+
+  <nav id="pagination" class="pagination"></nav>
+  
+  <!-- BANNER MID -->
+  <section class="banner">
+    <div class="menu-banner__content">
+      <h2>Food Is Not Just</h2>
+      <h2>Eating Energy</h2>
+      <p>It’s an Experience.</p>
+      <a href="#" class="btn">Order Now</a>
     </div>
+  </section>
 
-    <!-- ==========  FOOTER ========== -->
-    <div class="footer-wrapper" data-include="/partials/footer.html"></div>
+  <!-- Floating cart icon -->
+  <div class="cart-icon-wrapper" id="cart-icon">
+    <i class="fa-solid fa-cart-plus cart-icon" style="color: var(--color-dark-orange)"></i>
+    <span id="cart-count" class="cart-count">0</span>
+  </div>
 
-    <!-- navigate menu  -->
-    <script
-      type="module"
-      src="../assets/script/navigate-menu.js"
-      defer
-    ></script>
-    <script type="module" src="./menupage.js" defer></script>
-    
-    <!-- dietary filter extension - NEW FEATURE (does not modify existing code) -->
-    <script type="module" src="./dietary-filter-extension.js" defer></script>
-    
-    <!-- Global Features Scripts -->
-    <script type="module" src="../assets/features/allergy-alert.js"></script>
-    <script type="module" src="../assets/features/social-proof.js"></script>  
-  </body>
+
+  <!-- ==========  FOOTER ========== -->
+  <div class="footer-wrapper" data-include="/partials/footer.html"></div>
+
+  <!-- navigate menu  -->
+  <script type="module" src="../assets/script/navigate-menu.js" defer></script>
+  <script type="module" src="./menupage.js" defer></script>
+
+  <!-- dietary filter extension - NEW FEATURE (does not modify existing code) -->
+  <script type="module" src="./dietary-filter-extension.js" defer></script>
+
+  <!-- Global Features Scripts -->
+  <script type="module" src="../assets/features/allergy-alert.js"></script>
+  <script type="module" src="../assets/features/social-proof.js"></script>
+</body>
+
 </html>

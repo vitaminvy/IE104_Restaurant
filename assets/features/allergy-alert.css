@@ -173,24 +173,60 @@
   /* Background / Others */
   background: rgba(255, 255, 255, 0.05);
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   user-select: none;
 }
 
 .allergen-checkbox:hover {
   background: rgba(255, 255, 255, 0.08);
   border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.allergen-checkbox:active {
+  transform: translateY(0);
 }
 
 .allergen-checkbox--selected {
   border-color: #ef4444;
-  background: rgba(239, 68, 68, 0.15);
+  background: rgba(239, 68, 68, 0.2);
   color: #ffffff;
+  box-shadow: 0 0 0 1px rgba(239, 68, 68, 0.5),
+              0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+.allergen-checkbox--selected:hover {
+  background: rgba(239, 68, 68, 0.25);
+  border-color: #dc2626;
+  box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.6),
+              0 6px 16px rgba(239, 68, 68, 0.4);
+}
+
+.allergen-checkbox--selected .allergen-checkbox__icon {
+  /* Animation for selected state */
+  animation: iconPop 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes iconPop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
 }
 
 .allergen-checkbox__icon {
   /* Box model */
   font-size: 2rem;
+  transition: transform 0.2s ease;
+}
+
+.allergen-checkbox__name {
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.allergen-checkbox--selected .allergen-checkbox__name {
+  font-weight: 600;
 }
 
 .allergen-checkbox__input {
@@ -198,6 +234,14 @@
   position: absolute;
   opacity: 0;
   pointer-events: none;
+  
+  /* Ensure it's clickable for accessibility */
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  margin: 0;
+  cursor: pointer;
 }
 
 /* ========== MODAL FOOTER ========== */

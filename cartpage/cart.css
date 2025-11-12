@@ -851,15 +851,10 @@
   }
 
   .coupon__input,
-  .coupon .btn {
+  .coupon {
     /* Box model */
     flex: 1;
     width: 100%;
-  }
-
-  .btn--brand {
-    /* Box model */
-    align-items: center;
   }
 
   .totals {

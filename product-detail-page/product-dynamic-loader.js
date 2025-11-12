@@ -475,7 +475,7 @@ import { menuItems, dietaryBadges } from "../assets/data/mockdata.js";
 
   function addToCartFallback(cartItem) {
     try {
-      const cartKey = 'restaurant_cart_items';
+      const cartKey = 'restaurantCart';
       let items = [];
       
       // Get existing cart

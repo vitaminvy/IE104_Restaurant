@@ -175,14 +175,192 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 0.75rem 0.75rem 0.75rem;
+  padding: 0 0rem 0.75rem 0rem;
+  gap: 0.5rem;
 }
+
 .menu__card-price {
   font-size: 1.125rem;
   font-family: var(--font-heading);
   font-weight: 700;
   color: var(--color-dark-orange);
+  flex-shrink: 0;
 }
+
+/* ========== CARD ACTIONS CONTAINER ========== */
+.menu__card-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: nowrap;
+}
+
+/* ========== CART ICON BUTTON ========== */
+.menu__card-cart-btn {
+  /* Position */
+  position: relative;
+  flex-shrink: 0;
+  
+  /* Box model */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 31px;
+  height: 31px;
+  padding: 0;
+  
+  /* Border & Background */
+  border: 1px solid var(--color-dark-orange);
+  border-radius: 4px;
+  background-color: rgba(251, 143, 44, 0.1);
+  
+  /* Color */
+  color: var(--color-dark-orange);
+  
+  /* Interaction */
+  cursor: pointer;
+  
+  /* Transition */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.menu__card-cart-btn:hover {
+  background-color: var(--color-dark-orange);
+  color: var(--color-white);
+  border-color: var(--color-dark-orange);
+  transform: scale(1.08) translateY(-2px);
+  box-shadow: 0 4px 12px rgba(251, 143, 44, 0.4);
+}
+
+.menu__card-cart-btn:active {
+  transform: scale(0.92);
+  box-shadow: 0 2px 6px rgba(251, 143, 44, 0.3);
+}
+
+.menu__card-cart-btn svg {
+  pointer-events: none;
+  width: 18px;
+  height: 18px;
+  stroke-width: 2;
+}
+
+/* Cart button pulse animation */
+@keyframes cartPulse {
+  0% { 
+    transform: scale(1); 
+  }
+  50% { 
+    transform: scale(1.2); 
+    box-shadow: 0 0 0 4px rgba(251, 143, 44, 0.2);
+  }
+  100% { 
+    transform: scale(1); 
+  }
+}
+
+.menu__card-cart-btn.added {
+  animation: cartPulse 0.4s ease;
+}
+
+/* ========== RESPONSIVE: MOBILE FIRST ========== */
+
+/* Mobile: Default styles (320px - 767px) */
+@media (max-width: 767px) {
+  .menu__card-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0 0rem 0.75rem 0rem;
+  }
+
+  .menu__card-price {
+    font-size: 1.25rem;
+    width: 100%;
+  }
+
+  .menu__card-actions {
+    width: 100%;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+
+  .menu__card-cart-btn {
+    width: 31px;
+    height: 31px;
+  }
+
+  .menu__card-cart-btn svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  /* Better touch targets on mobile */
+  .menu__card-cart-btn:active {
+    transform: scale(0.88);
+  }
+}
+
+/* Tablet: 768px - 1023px */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .menu__card-meta {
+    gap: 0.75rem;
+  }
+
+  .menu__card-actions {
+    gap: 0.6rem;
+  }
+
+  .menu__card-cart-btn {
+    width: 31px;
+    height: 31px;
+  }
+
+  .menu__card-cart-btn svg {
+    width: 21px;
+    height: 21px;
+  }
+}
+
+/* Desktop: 1024px and up */
+@media (min-width: 1024px) {
+  .menu__card-actions {
+    gap: 0.5rem;
+  }
+
+  .menu__card-cart-btn:hover {
+    transform: scale(1.1) translateY(-2px);
+  }
+}
+
+/* Large Desktop: 1440px and up */
+@media (min-width: 1440px) {
+  .menu__card-cart-btn {
+    width: 31px;
+    height: 31px;
+  }
+
+  .menu__card-cart-btn svg {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+/* Touch devices - disable hover effects */
+@media (hover: none) and (pointer: coarse) {
+  .menu__card-cart-btn:hover {
+    background-color: rgba(251, 143, 44, 0.1);
+    color: var(--color-dark-orange);
+    transform: none;
+    box-shadow: none;
+  }
+
+  .menu__card-cart-btn:active {
+    background-color: var(--color-dark-orange);
+    color: var(--color-white);
+    transform: scale(0.92);
+  }
+}
+
 .menu__card-btn {
   display: inline-flex;
   align-items: center;
@@ -228,22 +406,7 @@
   margin-top: 0.5rem;
   margin-bottom: 2rem;
 }
-.banner__btn {
-  margin-top: 2rem;
-  background-color: #d57d1f;
-  color: #fff;
-  font-size: 1rem;
-  font-weight: 600;
-  padding: 0.9rem 2rem;
-  border-radius: 6px;
-  text-decoration: none;
-  transition: background-color 0.25s ease, transform 0.2s ease;
-}
-
-.banner__btn:hover {
-  background-color: #f28c1d;
-  transform: translateY(-2px);
-}
+ 
 /* =======================
    TOAST
 ======================= */

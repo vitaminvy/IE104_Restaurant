@@ -18,7 +18,7 @@ import { menuItems } from "../assets/data/mockdata.js";
     p.toLocaleString("en-US", { style: "currency", currency: "USD" });
 
   const cardTemplate = (item) => `
-    <article class="menu__card" data-item-id="${item.id}" style="cursor: pointer;">
+    <article class="menu__card" data-item-id="${item.id}" data-item-title="${item.title}" data-item-price="${item.price}" data-item-image="${item.image}" data-item-desc="${item.desc || ''}">
       <div class="menu__card-img-wrapper">
         <img src="${item.image}" alt="${
     item.title
@@ -29,7 +29,42 @@ import { menuItems } from "../assets/data/mockdata.js";
         <p class="menu__card-desc">${item.desc}</p>
         <div class="menu__card-meta">
           <span class="menu__card-price">${formatPrice(item.price)}</span>
-          <button class="menu__card-btn">Order Now +</button>
+          <div class="menu__card-actions">
+            <button class="menu__card-cart-btn" data-item-id="${item.id}" aria-label="Add to cart" title="Add to cart">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="9" cy="21" r="1"/>
+                <circle cx="20" cy="21" r="1"/>
+                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+              </svg>
+            </button>
+            <button class="menu__card-btn btn" data-item-id="${item.id}">Order Now +</button>
+          </div>
+        </div>
+        <!-- Dropdown menu (hidden by default) -->
+        <div class="menu__card-dropdown" style="display: none;">
+          <button class="menu__card-dropdown-item view-details" data-item-id="${item.id}">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+              <circle cx="12" cy="12" r="3"/>
+            </svg>
+            View Details
+          </button>
+          <button class="menu__card-dropdown-item add-to-favorites" data-item-id="${item.id}">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+            Add to Favorites
+          </button>
+          <button class="menu__card-dropdown-item share-item" data-item-id="${item.id}">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="18" cy="5" r="3"/>
+              <circle cx="6" cy="12" r="3"/>
+              <circle cx="18" cy="19" r="3"/>
+              <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+              <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+            </svg>
+            Share
+          </button>
         </div>
       </div>
     </article>`;
@@ -133,6 +168,355 @@ import { menuItems } from "../assets/data/mockdata.js";
 
     container.innerHTML = pageData.map(cardTemplate).join("");
     renderPagination(totalPages);
+    
+    // Setup Order Now button handlers
+    setupOrderButtonHandlers();
+    
+    // Setup menu icon handlers
+    setupMenuIconHandlers();
+    
+    // Setup cart icon handlers
+    setupCartIconHandlers();
+  }
+
+  // Setup Order Now button click handlers
+  function setupOrderButtonHandlers() {
+    const orderButtons = container.querySelectorAll('.menu__card-btn');
+    
+    orderButtons.forEach(button => {
+      button.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const itemIdStr = button.dataset.itemId;
+        const itemId = Number(itemIdStr);
+
+        const item = menuItems.find(i => i.id === itemId);
+        
+        if (!item) {
+          console.error('Item not found:', itemId);
+          return;
+        }
+
+        // Add to cart
+        addToCartAndNavigate(item);
+      });
+    });
+  }
+
+  // Add to cart and navigate
+  function addToCartAndNavigate(item) {
+    console.log('🛒 Adding to cart:', item.title);
+
+    // Show loader
+    if (window.GlobalLoader) {
+      window.GlobalLoader.show('Adding to cart...');
+    }
+
+    // Get existing cart from localStorage
+    let cart = [];
+    try {
+      const cartData = localStorage.getItem('restaurantCart');
+      if (cartData) {
+        cart = JSON.parse(cartData);
+        console.log('📦 Current cart:', cart);
+      }
+    } catch (e) {
+      console.error('Error reading cart:', e);
+    }
+
+    // Check if item already exists in cart
+    const existingItemIndex = cart.findIndex(cartItem => cartItem.id === item.id);
+
+    if (existingItemIndex > -1) {
+      // Item exists, increase quantity
+      cart[existingItemIndex].quantity = (cart[existingItemIndex].quantity || 1) + 1;
+      console.log('📈 Increased quantity for:', item.title, 'to', cart[existingItemIndex].quantity);
+    } else {
+      // Add new item to cart
+      const cartItem = {
+        id: item.id,
+        title: item.title,
+        price: item.price,
+        image: item.image,
+        desc: item.desc || '',
+        quantity: 1
+      };
+      cart.push(cartItem);
+      console.log('➕ Added new item:', item.title);
+    }
+
+    // Save to localStorage
+    try {
+      localStorage.setItem('restaurantCart', JSON.stringify(cart));
+      console.log('✅ Cart saved to localStorage');
+      console.log('📦 Cart now has', cart.length, 'unique items');
+      console.log('🔍 Full cart:', cart);
+    } catch (e) {
+      console.error('❌ Error saving cart:', e);
+    }
+
+    // Update loader message
+    if (window.GlobalLoader) {
+      window.GlobalLoader.updateMessage('Redirecting to cart...');
+    }
+
+    // Navigate to cart page
+    setTimeout(() => {
+      console.log('🚀 Navigating to cart page...');
+      window.location.href = '/cartpage/cart.html';
+    }, 500);
+  }
+
+  // Setup menu icon dropdown handlers
+  function setupMenuIconHandlers() {
+    const menuButtons = container.querySelectorAll('.menu__card-menu-btn');
+    
+    menuButtons.forEach(button => {
+      button.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const card = button.closest('.menu__card');
+        const dropdown = card.querySelector('.menu__card-dropdown');
+        
+        // Close all other dropdowns
+        document.querySelectorAll('.menu__card-dropdown').forEach(d => {
+          if (d !== dropdown) {
+            d.style.display = 'none';
+          }
+        });
+
+        // Toggle current dropdown
+        if (dropdown.style.display === 'none') {
+          dropdown.style.display = 'block';
+        } else {
+          dropdown.style.display = 'none';
+        }
+      });
+    });
+
+    // Handle dropdown item clicks
+    const viewDetailsButtons = container.querySelectorAll('.view-details');
+    viewDetailsButtons.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        const itemId = btn.dataset.itemId;
+        console.log('👁️ View details for item:', itemId);
+        
+        // Close dropdown
+        btn.closest('.menu__card-dropdown').style.display = 'none';
+        
+        // Show loader and navigate to product detail
+        if (window.GlobalLoader) {
+          window.GlobalLoader.show('Loading product details...');
+        }
+        
+        setTimeout(() => {
+          window.location.href = `../product-detail-page/index.html?id=${itemId}`;
+        }, 200);
+      });
+    });
+
+    const favoriteButtons = container.querySelectorAll('.add-to-favorites');
+    favoriteButtons.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        const itemId = btn.dataset.itemId;
+        const item = menuItems.find(i => i.id === itemId);
+        
+        console.log('❤️ Add to favorites:', item?.title);
+        
+        // Close dropdown
+        btn.closest('.menu__card-dropdown').style.display = 'none';
+        
+        // Get favorites from localStorage
+        let favorites = [];
+        try {
+          const favData = localStorage.getItem('restaurantFavorites');
+          if (favData) favorites = JSON.parse(favData);
+        } catch (e) {
+          console.error('Error reading favorites:', e);
+        }
+
+        // Check if already in favorites
+        const existingIndex = favorites.findIndex(f => f.id === itemId);
+        
+        if (existingIndex > -1) {
+          // Already in favorites
+          if (window.showToast) {
+            window.showToast(`${item.title} is already in your favorites!`, 'info');
+          }
+        } else {
+          // Add to favorites
+          favorites.push({
+            id: item.id,
+            title: item.title,
+            price: item.price,
+            image: item.image,
+            category: item.category
+          });
+          
+          localStorage.setItem('restaurantFavorites', JSON.stringify(favorites));
+          console.log('✅ Added to favorites:', item.title);
+          
+          if (window.showToast) {
+            window.showToast(`Added ${item.title} to favorites!`, 'success');
+          }
+        }
+      });
+    });
+
+    const shareButtons = container.querySelectorAll('.share-item');
+    shareButtons.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        const itemId = btn.dataset.itemId;
+        const item = menuItems.find(i => i.id === itemId);
+        
+        console.log('🔗 Share item:', item?.title);
+        
+        // Close dropdown
+        btn.closest('.menu__card-dropdown').style.display = 'none';
+        
+        // Create shareable URL
+        const shareUrl = `${window.location.origin}/product-detail-page/index.html?id=${itemId}`;
+        
+        // Try native Web Share API first
+        if (navigator.share) {
+          navigator.share({
+            title: item.title,
+            text: `Check out ${item.title} at our restaurant!`,
+            url: shareUrl
+          }).then(() => {
+            console.log('✅ Shared successfully');
+          }).catch(err => {
+            console.log('Share cancelled:', err);
+          });
+        } else {
+          // Fallback: Copy to clipboard
+          navigator.clipboard.writeText(shareUrl).then(() => {
+            if (window.showToast) {
+              window.showToast('Link copied to clipboard!', 'success');
+            }
+            console.log('📋 Copied to clipboard:', shareUrl);
+          }).catch(err => {
+            console.error('Failed to copy:', err);
+            if (window.showToast) {
+              window.showToast('Could not copy link', 'error');
+            }
+          });
+        }
+      });
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.menu__card-menu-btn') && !e.target.closest('.menu__card-dropdown')) {
+        document.querySelectorAll('.menu__card-dropdown').forEach(d => {
+          d.style.display = 'none';
+        });
+      }
+    });
+  }
+
+  // Setup cart icon button handlers
+  function setupCartIconHandlers() {
+    const cartButtons = container.querySelectorAll('.menu__card-cart-btn');
+    
+    cartButtons.forEach(button => {
+      button.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const itemIdStr = button.dataset.itemId;
+        const itemId = Number(itemIdStr);
+
+        const item = menuItems.find(i => i.id === itemId);
+        
+        if (!item) {
+          console.error('Item not found:', itemId);
+          return;
+        }
+
+        console.log('🛒 Adding to cart via cart icon:', item.title);
+
+        // Add animation to button
+        button.style.transform = 'scale(0.85)';
+        setTimeout(() => {
+          button.style.transform = '';
+        }, 200);
+
+        // Get existing cart from localStorage
+        let cart = [];
+        try {
+          const cartData = localStorage.getItem('restaurantCart');
+          if (cartData) {
+            cart = JSON.parse(cartData);
+          }
+        } catch (e) {
+          console.error('Error reading cart:', e);
+        }
+
+        // Check if item already exists in cart
+        const existingItemIndex = cart.findIndex(cartItem => cartItem.id === item.id);
+
+        if (existingItemIndex > -1) {
+          // Item exists, increase quantity
+          cart[existingItemIndex].quantity = (cart[existingItemIndex].quantity || 1) + 1;
+          console.log('📈 Increased quantity for:', item.title, 'to', cart[existingItemIndex].quantity);
+        } else {
+          // Add new item to cart
+          const cartItem = {
+            id: item.id,
+            title: item.title,
+            price: item.price,
+            image: item.image,
+            desc: item.desc || '',
+            quantity: 1
+          };
+          cart.push(cartItem);
+          console.log('➕ Added new item to cart:', item.title);
+        }
+
+        // Save to localStorage
+        try {
+          localStorage.setItem('restaurantCart', JSON.stringify(cart));
+          console.log('✅ Cart saved to localStorage');
+          console.log('📦 Cart now has', cart.length, 'unique items');
+        } catch (e) {
+          console.error('❌ Error saving cart:', e);
+        }
+
+        // Show toast notification
+        if (window.showToast) {
+          const totalQty = cart[existingItemIndex]?.quantity || 1;
+          window.showToast(`${item.title} added to cart (Qty: ${totalQty})`, 'success', 2000);
+        }
+
+        // Update cart count in header (if exists)
+        const cartCountEl = document.getElementById('cart-count');
+        if (cartCountEl) {
+          const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+          cartCountEl.textContent = totalItems;
+        }
+
+        // Trigger fly animation (if function exists)
+        const card = button.closest('.menu__card');
+        const imgEl = card?.querySelector('.menu__card-image');
+        const src = imgEl?.src || '../assets/images/home-page/menu-section/noodles.png';
+        
+        if (typeof animateToCart === 'function') {
+          animateToCart(src, e.clientX, e.clientY);
+        }
+      });
+    });
   }
 
   tabs.forEach((t) =>

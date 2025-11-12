@@ -15,7 +15,7 @@
    * CONFIGURATION & CONSTANTS
    * ======================================== */
 
-  const CART_STORAGE_KEY = 'restaurant_cart_items';
+  const CART_STORAGE_KEY = 'restaurantCart';
   const COUPON_STORAGE_KEY = 'restaurant_applied_coupon';
   const SHIPPING_COST = 6.00; // Flat rate shipping
 

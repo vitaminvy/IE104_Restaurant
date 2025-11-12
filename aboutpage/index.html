@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Restaurant Website</title>
+    <!-- Font Awesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="../style/reset.css" />
+    <link rel="stylesheet" href="../style/style.css" />
+
+    <!-- header section -->
+    <link rel="stylesheet" href="../homepage/header.css" />
+    <!-- footer-->
+    <link rel="stylesheet" href="../homepage/footer.css" />
+    <!--about page section css-->
+    <link rel="stylesheet" href="./aboutpage.css" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- logic for header and footer -->
+    <script src="../assets/script/include-partials.js" defer></script>
+    <script src="../assets/script/header.js"></script>
+    <!-- ========== 1. HEADER ========== -->
+    <div data-include="/partials/header.html"></div>
+    <!-- About intro section-->
+    <section class="about-intro" id="about-intro">
+      <div class="about-intro__container">
+        <header class="about-intro__header">
+          <h2 class="about-intro__title">
+            We Are A Mexican Restaurant<br />
+            Makes Delicious.
+          </h2>
+          <p class="about-intro__lead">
+            From handmade tortillas pressed fresh each morning to slow-cooked
+            carnitas and bright salsas, we cook with seasonal ingredients from
+            local farmers. Our kitchen blends family recipes with modern
+            techniques, keeping flavors bold and honest. Whether you crave
+            something spicy, smoky, or vegetarian, there’s a plate here made
+            with care—and a team ready to welcome you like familia.
+          </p>
+        </header>
+        <div
+          class="about-intro__divider"
+          role="separator"
+          aria-hidden="true"
+        ></div>
+
+        <div class="about-intro__grid">
+          <figure class="about-intro__photo about-intro__photo--a">
+            <img
+              src="../assets/images/about-page/table-1.png"
+              alt="Restaurant window"
+            />
+          </figure>
+
+          <figure class="about-intro__photo about-intro__photo--b">
+            <img
+              src="../assets/images/about-page/table-2.png"
+              alt="Indoor dining"
+            />
+          </figure>
+
+          <figure class="about-intro__photo about-intro__photo--c">
+            <img
+              src="../assets/images/about-page/view.png"
+              alt="Chalkboard and table"
+            />
+          </figure>
+
+          <article class="about-intro__story">
+            <h3 class="about-intro__story-title">
+              The Story Of Our<br />
+              First Restaurant<br />
+              Branch
+            </h3>
+            <p class="about-intro__story-text">
+              At vero eos et accusamus et iusto odio dignissimos ducimus qui
+              blanditiis praesentium voluptatum deleniti atque corrupti quos
+              dolores et quas molestias excepturi sint occaecati cupiditate non
+              provident.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+    <!-- ========== VISION & MISSION ========== -->
+    <section class="vision" id="vision">
+      <div class="vision__container">
+        <header class="vision__header">
+          <h2 class="vision__title">Our Vision &amp; Mission</h2>
+          <p class="vision__subtitle">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
+            aliquam amet, cursus tellus non consequat laoreet eget ornare.
+            Vulputate tellus, a lobortis eu nisl. Quisque vulputate eget et,
+            aliquet libero.
+          </p>
+        </header>
+
+        <div class="vision__grid">
+          <!-- left: feature list -->
+          <ul class="vision__features">
+            <li class="vision__feature">
+              <span class="vision__badge">
+                <img
+                  src="../assets/icons/about-page/food-icon.svg"
+                  alt="food icon"
+                />
+              </span>
+              <div class="vision__content">
+                <h4 class="vision__feature-title">Delicious Cuisine</h4>
+                <p class="vision__feature-desc">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit at
+                  aliquam amet.
+                </p>
+              </div>
+            </li>
+
+            <li class="vision__feature">
+              <span class="vision__badge"
+                ><img
+                  src="../assets/icons/about-page/ship-icon.svg"
+                  alt="fast-delivery"
+              /></span>
+              <div class="vision__content">
+                <h4 class="vision__feature-title">Fast Delivery</h4>
+                <p class="vision__feature-desc">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit at
+                  aliquam amet.
+                </p>
+              </div>
+            </li>
+
+            <li class="vision__feature">
+              <span class="vision__badge"
+                ><img src="../assets/icons/about-page/chef-icon.svg" alt="chef"
+              /></span>
+              <div class="vision__content">
+                <h4 class="vision__feature-title">Professional Chef</h4>
+                <p class="vision__feature-desc">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit at
+                  aliquam amet.
+                </p>
+              </div>
+            </li>
+          </ul>
+
+          <!-- right: big photo -->
+          <figure class="vision__photo">
+            <img
+              src="../assets/images/about-page/vison-banner.png"
+              alt="Bar & dining"
+            />
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== TEAM: THEY WILL COOK FOR YOU ========== -->
+    <section class="team" id="team">
+      <div class="team__container">
+        <header class="team__header">
+          <h2 class="team__title">They Will Cook For You</h2>
+          <p class="team__subtitle">
+            Our Diners can enjoy cooking for themselves, or visiting a curated
+            selection of restaurants in the area.<br />
+            They will cook for you and make sure you have a home away from home
+            at all times.
+          </p>
+        </header>
+
+        <div class="team__grid">
+          <article class="team-card">
+            <figure class="team-card__media">
+              <img
+                src="../assets/images/about-page/chef-1.png"
+                alt="Jubed Ahmed"
+              />
+            </figure>
+            <h4 class="team-card__name">Jubed Ahmed</h4>
+            <p class="team-card__role">Chef</p>
+          </article>
+
+          <article class="team-card">
+            <figure class="team-card__media">
+              <img
+                src="../assets/images/about-page/chef-2.png"
+                alt="Delwar Hussen"
+              />
+            </figure>
+            <h4 class="team-card__name">Delwar hussen</h4>
+            <p class="team-card__role">Assisten chef</p>
+          </article>
+
+          <article class="team-card">
+            <figure class="team-card__media">
+              <img
+                src="../assets/images/about-page/chef-3.png"
+                alt="Tajul Islam"
+              />
+            </figure>
+            <h4 class="team-card__name">Tajul Islam</h4>
+            <p class="team-card__role">Chef</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 15. FOOTER ========== -->
+    <div data-include="/partials/footer.html"></div>
+  </body>
+</html>

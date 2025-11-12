@@ -29,11 +29,7 @@ import { menuItems } from "../assets/data/mockdata.js";
         <p class="menu__card-desc">${item.desc}</p>
         <div class="menu__card-meta">
           <span class="menu__card-price">${formatPrice(item.price)}</span>
-<<<<<<< HEAD:assets/script/menupage.js
           <a href="../product-detail-page/index.html" class="menu__card-btn">Order Now →</a>
-=======
-          <button class="menu__card-btn">Order Now +</button>
->>>>>>> main:menupage/menupage.js
         </div>
       </div>
     </article>`;
@@ -152,8 +148,6 @@ import { menuItems } from "../assets/data/mockdata.js";
 
   render();
 })();
-<<<<<<< HEAD:assets/script/menupage.js
-=======
 
 (function rippleOnClick() {
   const root = document.getElementById("menu-card-container");
@@ -166,8 +160,8 @@ import { menuItems } from "../assets/data/mockdata.js";
     r.className = "ripple";
     const size = Math.max(rect.width, rect.height);
     r.style.width = r.style.height = size + "px";
-    r.style.left = (e.clientX - rect.left - size / 2) + "px";
-    r.style.top = (e.clientY - rect.top - size / 2) + "px";
+    r.style.left = e.clientX - rect.left - size / 2 + "px";
+    r.style.top = e.clientY - rect.top - size / 2 + "px";
     btn.appendChild(r);
     r.addEventListener("animationend", () => r.remove());
   });
@@ -214,7 +208,9 @@ import { menuItems } from "../assets/data/mockdata.js";
     const btn = e.target.closest(".menu__card-btn");
     if (!btn) return;
     const card = btn.closest(".menu__card");
-    const title = (card?.querySelector(".menu__card-title")?.textContent || "Item").trim();
+    const title = (
+      card?.querySelector(".menu__card-title")?.textContent || "Item"
+    ).trim();
     if (typeof window.showToast === "function") {
       window.showToast(`Added “${title}” to cart`, "success", 1800);
     }
@@ -247,7 +243,8 @@ import { menuItems } from "../assets/data/mockdata.js";
     // lget image from card and fallback image
     const card = btn.closest(".menu__card");
     const imgEl = card?.querySelector(".menu__card-image");
-    const src = imgEl?.src || "../assets/images/home-page/menu-section/noodles.png";
+    const src =
+      imgEl?.src || "../assets/images/home-page/menu-section/noodles.png";
 
     animateToCart(src, e.clientX, e.clientY);
   });
@@ -273,4 +270,3 @@ import { menuItems } from "../assets/data/mockdata.js";
     img.addEventListener("transitionend", () => img.remove());
   }
 })();
->>>>>>> main:menupage/menupage.js

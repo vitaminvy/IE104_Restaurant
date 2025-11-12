@@ -11,6 +11,179 @@ import { menuItems, dietaryBadges } from "../assets/data/mockdata.js";
 
 (function productDetailLoader() {
   /* ========================================
+   * ANIMATION STYLES INJECTION
+   * ======================================== */
+
+  function injectAnimationStyles() {
+    // Check if styles already exist
+    if (document.getElementById("pairing-animations")) return;
+
+    const styleSheet = document.createElement("style");
+    styleSheet.id = "pairing-animations";
+    styleSheet.textContent = `
+      /* Gentle fade-in (subtle entrance) */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Soft slide-in for cards */
+      @keyframes slideInRight {
+        from {
+          opacity: 0;
+          transform: translateX(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      /* Smooth fade-out for swap (no rotation) */
+      @keyframes smoothFadeOut {
+        from {
+          opacity: 1;
+          transform: scale(1);
+          filter: blur(0);
+        }
+        to {
+          opacity: 0;
+          transform: scale(0.98);
+          filter: blur(2px);
+        }
+      }
+
+      /* Gentle scale-in */
+      @keyframes scaleIn {
+        from {
+          opacity: 0;
+          transform: scale(0.97);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      /* Gentle shimmer effect */
+      @keyframes shimmer {
+        0% {
+          background-position: -1000px 0;
+          opacity: 0.5;
+        }
+        50% {
+          opacity: 0.8;
+        }
+        100% {
+          background-position: 1000px 0;
+          opacity: 0.5;
+        }
+      }
+
+      /* Gentle bounce entrance */
+      @keyframes bounceIn {
+        from {
+          opacity: 0;
+          transform: scale(0.95) translateY(15px);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1) translateY(0);
+        }
+      }
+
+      /* Ultra-smooth fade out */
+      @keyframes fadeOut {
+        from {
+          opacity: 1;
+        }
+        to {
+          opacity: 0;
+        }
+      }
+
+      /* Crossfade overlay */
+      @keyframes crossfadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      /* Subtle entrance animations - no jarring movements */
+      .product-detail__content.animate-in {
+        animation: fadeInUp 0.4s ease-out forwards;
+      }
+
+      .product-detail__img.animate-in {
+        animation: scaleIn 0.4s ease-out forwards;
+      }
+
+      .meal-pairing.animate-in {
+        animation: bounceIn 0.4s ease-out forwards;
+      }
+
+      .pairing-card.animate-in {
+        animation: slideInRight 0.3s ease-out forwards;
+        opacity: 0;
+      }
+
+      /* Very subtle staggering */
+      .pairing-card.animate-in:nth-child(1) { animation-delay: 0.05s; }
+      .pairing-card.animate-in:nth-child(2) { animation-delay: 0.08s; }
+      .pairing-card.animate-in:nth-child(3) { animation-delay: 0.11s; }
+
+      /* Smooth swap - focus on fade out, not complex transforms */
+      .product-detail__content.swapping {
+        animation: smoothFadeOut 0.3s ease-out forwards;
+      }
+
+      .product-detail__img.swapping {
+        animation: smoothFadeOut 0.3s ease-out forwards;
+      }
+
+      .meal-pairing.swapping {
+        animation: fadeOut 0.3s ease-out forwards;
+      }
+
+      /* Smooth loading shimmer */
+      .loading-shimmer {
+        background: linear-gradient(
+          110deg,
+          rgba(255, 255, 255, 0.03) 0%,
+          rgba(255, 255, 255, 0.08) 20%,
+          rgba(251, 143, 44, 0.15) 40%,
+          rgba(255, 255, 255, 0.08) 60%,
+          rgba(255, 255, 255, 0.03) 100%
+        );
+        background-size: 200% 100%;
+        animation: shimmer 1.8s ease-in-out infinite;
+        will-change: background-position;
+      }
+
+      /* Smooth all transitions globally */
+      .pairing-card,
+      .product-detail__img,
+      .product-detail__content {
+        backface-visibility: hidden;
+        -webkit-font-smoothing: antialiased;
+        transform: translateZ(0);
+      }
+    `;
+    document.head.appendChild(styleSheet);
+  }
+
+  // Inject animation styles on load
+  injectAnimationStyles();
+  /* ========================================
    * GET URL PARAMETERS
    * ======================================== */
 
@@ -71,8 +244,24 @@ import { menuItems, dietaryBadges } from "../assets/data/mockdata.js";
   function updateProductImage(item) {
     const imgElement = document.querySelector(".product-detail__img");
     if (imgElement) {
-      imgElement.src = item.image;
-      imgElement.alt = item.title;
+      // Add loading shimmer
+      imgElement.classList.add("loading-shimmer");
+      
+      // Create new image to preload
+      const newImg = new Image();
+      newImg.src = item.image;
+      
+      newImg.onload = () => {
+        imgElement.src = item.image;
+        imgElement.alt = item.title;
+        imgElement.classList.remove("loading-shimmer");
+        imgElement.classList.add("animate-in");
+        
+        // Remove animation class after completion
+        setTimeout(() => {
+          imgElement.classList.remove("animate-in");
+        }, 400);
+      };
     }
   }
 
@@ -81,6 +270,9 @@ import { menuItems, dietaryBadges } from "../assets/data/mockdata.js";
    * ======================================== */
 
   function updateProductInfo(item) {
+    // Get content wrapper
+    const contentElement = document.querySelector(".product-detail__content");
+    
     // Update title
     const titleElement = document.querySelector(".product-detail__title");
     if (titleElement) {
@@ -97,6 +289,14 @@ import { menuItems, dietaryBadges } from "../assets/data/mockdata.js";
     const descElement = document.querySelector(".product-detail__desc");
     if (descElement) {
       descElement.textContent = item.desc;
+    }
+
+    // Add subtle entrance animation to content
+    if (contentElement) {
+      contentElement.classList.add("animate-in");
+      setTimeout(() => {
+        contentElement.classList.remove("animate-in");
+      }, 400);
     }
 
     // Update rating stars (keeping default 4 stars)
@@ -369,6 +569,16 @@ import { menuItems, dietaryBadges } from "../assets/data/mockdata.js";
 
     // Insert into page
     insertAfter.after(pairingSection);
+
+    // Add subtle entrance animation
+    setTimeout(() => {
+      pairingSection.classList.add("animate-in");
+    }, 0);
+
+    // Remove animation class after completion
+    setTimeout(() => {
+      pairingSection.classList.remove("animate-in");
+    }, 600);
   }
 
   /* ========================================
@@ -388,26 +598,102 @@ import { menuItems, dietaryBadges } from "../assets/data/mockdata.js";
       border: 2px solid rgba(255, 255, 255, 0.1);
       background: rgba(255, 255, 255, 0.05);
       cursor: pointer;
-      transition: all 0.3s ease;
+      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
       overflow: hidden;
+      will-change: transform;
+      backface-visibility: hidden;
+      transform: translateZ(0);
     `;
 
-    // Add hover effect
+    // Add ultra-smooth hover effect
     card.addEventListener("mouseenter", () => {
-      card.style.transform = "translateY(-4px)";
+      card.style.transform = "translateY(-12px) scale(1.05) perspective(1000px) rotateX(2deg)";
       card.style.borderColor = "var(--color-dark-orange)";
-      card.style.boxShadow = "0 8px 20px rgba(251, 143, 44, 0.2)";
+      card.style.boxShadow = "0 20px 60px rgba(251, 143, 44, 0.5), 0 10px 25px rgba(0, 0, 0, 0.3), inset 0 0 20px rgba(251, 143, 44, 0.1)";
+      card.style.filter = "brightness(1.1)";
     });
 
     card.addEventListener("mouseleave", () => {
-      card.style.transform = "";
+      card.style.transform = "translateY(0) scale(1) perspective(1000px) rotateX(0)";
       card.style.borderColor = "rgba(255, 255, 255, 0.1)";
-      card.style.boxShadow = "";
+      card.style.boxShadow = "none";
+      card.style.filter = "brightness(1)";
     });
 
-    // Add click handler to navigate
-    card.addEventListener("click", () => {
-      window.location.href = `./index.html?id=${item.id}`;
+    // Add click handler with ultra-smooth transition
+    card.addEventListener("click", (e) => {
+      e.preventDefault();
+      
+      // Create full-screen overlay for smooth crossfade
+      const overlay = document.createElement("div");
+      overlay.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 99999;
+        background: linear-gradient(135deg, rgba(251, 143, 44, 0.95), rgba(255, 180, 100, 0.95));
+        opacity: 0;
+        transition: opacity 0.4s ease-out;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        backdrop-filter: blur(0px);
+      `;
+      document.body.appendChild(overlay);
+
+      // Create simple loading indicator
+      const indicator = document.createElement("div");
+      indicator.style.cssText = `
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        color: white;
+        font-family: var(--font-heading);
+        opacity: 0;
+        transition: opacity 0.3s ease-out 0.2s;
+      `;
+      indicator.innerHTML = `
+        <div style="
+          width: 60px;
+          height: 60px;
+          border: 4px solid rgba(255, 255, 255, 0.3);
+          border-top-color: white;
+          border-radius: 50%;
+          animation: spin 0.8s linear infinite;
+        "></div>
+        <div style="text-align: center;">
+          <div style="font-size: 0.9rem; opacity: 0.9; margin-bottom: 0.5rem;">Loading</div>
+          <div style="font-size: 1.3rem; font-weight: 600;">${item.title}</div>
+        </div>
+      `;
+      overlay.appendChild(indicator);
+
+      // Add spin animation
+      const spinStyle = document.createElement("style");
+      spinStyle.textContent = `
+        @keyframes spin {
+          to { transform: rotate(360deg); }
+        }
+      `;
+      if (!document.getElementById("spin-animation")) {
+        spinStyle.id = "spin-animation";
+        document.head.appendChild(spinStyle);
+      }
+
+      // Fade in overlay smoothly
+      setTimeout(() => {
+        overlay.style.opacity = "1";
+        overlay.style.backdropFilter = "blur(10px)";
+        indicator.style.opacity = "1";
+      }, 10);
+
+      // Navigate after smooth fade
+      setTimeout(() => {
+        window.location.href = `./index.html?id=${item.id}`;
+      }, 500);
     });
 
     // Image
@@ -427,15 +713,19 @@ import { menuItems, dietaryBadges } from "../assets/data/mockdata.js";
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.4s ease;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease;
+      will-change: transform;
+      backface-visibility: hidden;
     `;
 
     card.addEventListener("mouseenter", () => {
-      img.style.transform = "scale(1.1)";
+      img.style.transform = "scale(1.15) rotate(2deg)";
+      img.style.filter = "brightness(1.1) saturate(1.2)";
     });
 
     card.addEventListener("mouseleave", () => {
-      img.style.transform = "";
+      img.style.transform = "scale(1) rotate(0)";
+      img.style.filter = "brightness(1) saturate(1)";
     });
 
     imgWrapper.appendChild(img);
@@ -449,15 +739,20 @@ import { menuItems, dietaryBadges } from "../assets/data/mockdata.js";
       font-weight: 500;
       color: var(--color-white);
       margin: 0 0 0.5rem 0;
-      transition: color 0.3s;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      transform-origin: left center;
     `;
 
     card.addEventListener("mouseenter", () => {
       title.style.color = "var(--color-dark-orange)";
+      title.style.transform = "translateX(5px)";
+      title.style.textShadow = "0 0 20px rgba(251, 143, 44, 0.6)";
     });
 
     card.addEventListener("mouseleave", () => {
       title.style.color = "var(--color-white)";
+      title.style.transform = "translateX(0)";
+      title.style.textShadow = "none";
     });
 
     // Description (truncated)
@@ -523,6 +818,9 @@ import { menuItems, dietaryBadges } from "../assets/data/mockdata.js";
     card.appendChild(desc);
     card.appendChild(reason);
     card.appendChild(price);
+
+    // Add staggered entrance animation
+    card.classList.add("animate-in");
 
     return card;
   }

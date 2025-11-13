@@ -207,14 +207,10 @@
   }
 
   .summary {
-    order: 3;
-  }
-
-  .billing {
     order: 1;
   }
 
-  .payment {
+  .billing {
     order: 2;
   }
 

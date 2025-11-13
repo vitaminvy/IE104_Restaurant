@@ -191,7 +191,7 @@
     gap: 3rem;
   }
   .product-detail__img {
-    max-width: 80%;
+    max-width: 100%;
   }
   .product-detail__title {
     font-size: 4rem;

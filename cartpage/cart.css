@@ -36,6 +36,7 @@
   max-width: 1170px;
   border: 1px solid var(--line);
   overflow: hidden;
+  margin: 0 2rem;
 
   /* Background */
   background: var(--panel);

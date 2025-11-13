@@ -709,8 +709,8 @@ import { menuItems, dietaryBadges } from "../assets/data/mockdata.js";
     if (pairingItems.length === 0) return;
 
     // Find where to insert (after badges or description)
-    const descElement = document.querySelector(".product-detail__desc");
-    const badgesElement = document.querySelector(".product-detail__badges");
+    const descElement = document.querySelector(".product-detail__container");
+    const badgesElement = document.querySelector(".product-detail__container");
     const insertAfter = badgesElement || descElement;
 
     if (!insertAfter) return;
@@ -722,7 +722,8 @@ import { menuItems, dietaryBadges } from "../assets/data/mockdata.js";
     const pairingSection = document.createElement("div");
     pairingSection.className = "meal-pairing";
     pairingSection.style.cssText = `
-      margin: 2rem 0;
+      max-width: 1280px; 
+      margin: 3rem auto;
       padding: 1.5rem;
       background: rgba(255, 255, 255, 0.03);
       border-radius: var(--radius);
@@ -843,7 +844,7 @@ import { menuItems, dietaryBadges } from "../assets/data/mockdata.js";
     const imgWrapper = document.createElement("div");
     imgWrapper.style.cssText = `
       width: 100%;
-      height: 120px;
+      height: 300px;
       margin-bottom: 0.75rem;
       border-radius: var(--radius);
       overflow: hidden;

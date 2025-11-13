@@ -1,257 +1,353 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menu</title>
 
-  <title>Menu</title>
+    <link rel="stylesheet" href="../style/reset.css" />
+    <link rel="stylesheet" href="../style/style.css" />
 
-  <link rel="stylesheet" href="../style/reset.css" />
-  <link rel="stylesheet" href="../style/style.css" />
+    <!-- header section -->
+    <link rel="stylesheet" href="../homepage/header.css" />
+    <!-- footer section-->
+    <link rel="stylesheet" href="../homepage/footer.css" />
+    <!-- menu section-->
+    <link rel="stylesheet" href="../homepage/menu.css" />
 
-  <!-- header section -->
-  <link rel="stylesheet" href="../homepage/header.css" />
-  <!-- footer section-->
-  <link rel="stylesheet" href="../homepage/footer.css" />
-  <!-- menu section-->
-  <link rel="stylesheet" href="../homepage/menu.css" />
+    <!-- product detail section css -->
+    <link rel="stylesheet" href="./product-detail.css" />
+    <!-- product detail tab css -->
+    <link rel="stylesheet" href="./product-tab.css" />
 
-  <!-- product detail section css -->
-  <link rel="stylesheet" href="./product-detail.css" />
-  <!-- product detail tab css -->
-  <link rel="stylesheet" href="./product-tab.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+      rel="stylesheet"
+    />
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
-    rel="stylesheet" />
+    <!-- Global Loading System -->
+    <script src="../assets/script/global-loader.js"></script>
 
-  <!-- Global Loading System -->
-  <script src="../assets/script/global-loader.js"></script>
+    <!-- Dynamic product loader - NEW FEATURE -->
+    <script type="module" src="./product-dynamic-loader.js" defer></script>
 
-  <!-- Dynamic product loader - NEW FEATURE -->
-  <script type="module" src="./product-dynamic-loader.js" defer></script>
+    <script src="./product-add.js" defer></script>
 
-  <script src="./product-add.js" defer></script>
+    <!-- Global Features Stylesheets -->
+    <link rel="stylesheet" href="../assets/features/allergy-alert.css" />
+    <link rel="stylesheet" href="../assets/features/social-proof.css" />
+  </head>
 
-  <!-- Global Features Stylesheets -->
-  <link rel="stylesheet" href="../assets/features/allergy-alert.css" />
-  <link rel="stylesheet" href="../assets/features/social-proof.css" />
-</head>
+  <body>
+    <!-- logic for header and footer -->
+    <script src="../assets/script/include-partials.js" defer></script>
+    <script src="../assets/script/header.js" defer></script>
 
-<body>
-  <!-- logic for header and footer -->
-  <script src="../assets/script/include-partials.js" defer></script>
-  <script src="../assets/script/header.js" defer></script>
-
-  <!-- ========== HEADER ========== -->
-  <div data-include="/partials/header.html"></div>
-
-  <!-- ========== 1. PRODUCT DETAIL SECTION ========== -->
-  <section id="product-detail" class="product-detail section">
-    <div class="product-detail__container">
-      <!-- IMAGE -->
-      <div class="product-detail__image">
-        <img src="../assets/images/product-detail-page/product-image.png" alt="Crispy Chicken Breasts"
-          class="product-detail__img" />
-      </div>
-
-      <!-- INFO -->
-      <div class="product-detail__info">
-        <h1 class="product-detail__title">Crispy Chicken Breasts</h1>
-
-        <!-- Rating -->
-        <div class="product-detail__rating">
-          <div class="stars">
-            <img src="../assets/icons/product-detail-page/star-icon.svg" alt="Star" />
-            <img src="../assets/icons/product-detail-page/star-icon.svg" alt="Star" />
-            <img src="../assets/icons/product-detail-page/star-icon.svg" alt="Star" />
-            <img src="../assets/icons/product-detail-page/star-icon.svg" alt="Star" />
-            <img src="../assets/icons/product-detail-page/empty-star-icon.svg" alt="Star" />
-          </div>
-          <span class="review-count">(1 customer review)</span>
-        </div>
-
-        <p class="product-detail__price">$54.00</p>
-
-        <p class="product-detail__desc">
-          Aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum
-          exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid
-          ex ea commodi consequatur quis autem vel eum iure reprehenderit.
-        </p>
-
-        <!-- Quantity + Add to Cart -->
-        <div class="product-detail__actions">
-          <div class="quantity">
-            <button class="qty-btn minus">−</button>
-            <input type="number" value="1" min="1" max="99" class="qty-input" />
-            <button class="qty-btn plus">+</button>
-          </div>
-          <a href="/cartpage/cart.html" class="btn btn--primary">ADD TO CART</a>
-        </div>
-
-        <!-- Meta Info -->
-        <ul class="product-detail__meta">
-          <li><strong>SKU:</strong> PT322</li>
-          <li><strong>CATEGORY:</strong> Lunch</li>
-          <li><strong>TAGS:</strong> Sweets, Ghevar</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== 2. PRODUCT TAB SECTION ========== -->
-  <section class="product-tab container">
-    <div class="product-tab__header">
-      <button class="product-tab__btn product-tab__btn--active" data-tab="description">
-        Description
-      </button>
-      <button class="product-tab__btn" data-tab="reviews">Reviews (1)</button>
-    </div>
-
-    <!-- TAB CONTENT -->
-    <div class="product-tab__content" id="description" data-tab-content>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-        commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus
-        et magnis dis parturient montes, nascetur ridiculus mus. Donec quam
-        felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla
-        consequat massa quis enim. Donec pede justo, fringilla vel, aliquet
-        nec, vulputate eget, arcu.
-      </p>
-      <br />
-      <p>
-        In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam
-        dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus.
-        Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.
-      </p>
-    </div>
-
-    <div class="product-tab__content hidden" id="reviews" data-tab-content>
-      <!-- User review -->
-      <div class="review">
-        <div class="review__header">
-          <img src="../assets/images/product-detail-page/user-avatar.png" alt="User Avatar" class="review__avatar" />
-          <div>
-            <h4 class="review__name">Jamie Milson</h4>
-            <p class="review__date">March 18, 2025</p>
-          </div>
-        </div>
-        <p class="review__text">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-          commodo ligula eget dolor. Aenean massa. Cum sociis natoque
-          penatibus et magnis dis parturient montes.
-        </p>
-        <div class="review__stars">
-          <img src="../assets/icons/product-detail-page/star-icon.svg" alt="star" />
-          <img src="../assets/icons/product-detail-page/star-icon.svg" alt="star" />
-          <img src="../assets/icons/product-detail-page/star-icon.svg" alt="star" />
-          <img src="../assets/icons/product-detail-page/star-icon.svg" alt="star" />
-          <img src="../assets/icons/product-detail-page/empty-star-icon.svg" alt="star" />
-        </div>
-      </div>
-
-      <!-- Add a Review -->
-      <form class="review-form">
-        <h3 class="review-form__title">Add A Review</h3>
-        <p class="review-form__note">
-          Your email address will not be published. Required fields are marked
-          *
-        </p>
-
-        <div class="review-form__row">
-          <div class="review-form__field">
-            <input type="text" placeholder="Your name *" required />
-            <img src="../assets/icons/home-page/resvervation-section/profile.svg" alt="Profile Icon"
-              class="review-form__icon" />
-          </div>
-          <div class="review-form__field">
-            <input type="email" placeholder="Email address *" required />
-            <img src="../assets/icons/home-page/resvervation-section/message.svg" alt="Email Icon"
-              class="review-form__icon" />
-          </div>
-        </div>
-
-        <div class="review-form__field">
-          <input type="url" placeholder="Website *" required />
-        </div>
-
-        <div class="review-form__rating">
-          <label>Your rating</label>
-          <div class="stars">
-            <img src="../assets/icons/product-detail-page/empty-star-icon.svg" alt="star" />
-            <img src="../assets/icons/product-detail-page/empty-star-icon.svg" alt="star" />
-            <img src="../assets/icons/product-detail-page/empty-star-icon.svg" alt="star" />
-            <img src="../assets/icons/product-detail-page/empty-star-icon.svg" alt="star" />
-            <img src="../assets/icons/product-detail-page/empty-star-icon.svg" alt="star" />
-          </div>
-        </div>
-
-        <div class="review-form__field">
-          <textarea placeholder="Write review *" rows="5" required></textarea>
-        </div>
-
-        <div class="review-form__checkbox">
-          <input type="checkbox" id="save-info" />
-          <label for="save-info">Save my name, email, and website in this browser for the next
-            time I comment.</label>
-        </div>
-
-        <button type="submit" class="btn btn--primary" style="margin-top: 20px">
-          Submit
-        </button>
-      </form>
-    </div>
-  </section>
-
-  <!-- ========== 3.RELATED SECTION (reuse MENU SECION in homepage) ========== -->
-  <section id="menu ">
     <!-- ========== HEADER ========== -->
-    <div class="menu__header">
-      <div class="menu__header-text">
-        <!-- title -->
-        <h2 class="menu__title">Related Items</h2>
+    <div data-include="/partials/header.html"></div>
+
+    <!-- ========== 1. PRODUCT DETAIL SECTION ========== -->
+    <section id="product-detail" class="product-detail section">
+      <div class="product-detail__container">
+        <!-- IMAGE -->
+        <div class="product-detail__image">
+          <img
+            src="../assets/images/product-detail-page/product-image.png"
+            alt="Crispy Chicken Breasts"
+            class="product-detail__img"
+          />
+          <!-- Meta Info -->
+          <ul class="product-detail__meta">
+            <li><strong>SKU:</strong> PT322</li>
+            <li><strong>CATEGORY:</strong> Lunch</li>
+            <li><strong>TAGS:</strong> Sweets, Ghevar</li>
+          </ul>
+        </div>
+
+        <!-- INFO -->
+        <div class="product-detail__info">
+          <h1 class="product-detail__title">Crispy Chicken Breasts</h1>
+
+          <!-- Rating -->
+          <div class="product-detail__rating">
+            <div class="stars">
+              <img
+                src="../assets/icons/product-detail-page/star-icon.svg"
+                alt="Star"
+              />
+              <img
+                src="../assets/icons/product-detail-page/star-icon.svg"
+                alt="Star"
+              />
+              <img
+                src="../assets/icons/product-detail-page/star-icon.svg"
+                alt="Star"
+              />
+              <img
+                src="../assets/icons/product-detail-page/star-icon.svg"
+                alt="Star"
+              />
+              <img
+                src="../assets/icons/product-detail-page/empty-star-icon.svg"
+                alt="Star"
+              />
+            </div>
+            <span class="review-count">(1 customer review)</span>
+          </div>
+
+          <p class="product-detail__price">$54.00</p>
+
+          <p class="product-detail__desc">
+            Aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum
+            exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid
+            ex ea commodi consequatur quis autem vel eum iure reprehenderit.
+          </p>
+
+          <!-- Quantity + Add to Cart -->
+          <div class="product-detail__actions">
+            <div class="quantity">
+              <button class="qty-btn minus">−</button>
+              <input
+                type="number"
+                value="1"
+                min="1"
+                max="99"
+                class="qty-input"
+              />
+              <button class="qty-btn plus">+</button>
+            </div>
+            <a href="/cartpage/cart.html" class="btn btn--primary"
+              >ADD TO CART</a
+            >
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
 
-    <!-- ========== SLIDER FIELD ========== -->
-    <div class="menu__slider container" style="margin-top: 0;">
-      <!--menu grid-->
-      <div class="menu__grid"></div>
-
-      <!--Dot navigation for moblide and ipad-->
-      <div class="menu__dots" role="tablist" aria-label="Menu slides navigation">
-        <!--active dot -->
-        <button class="menu__dot menu__dot--active" aria-label="Slide 1" aria-current="true">
-          <img src="../assets/icons/home-page/menu-section//active-dot.svg" alt="Active" />
+    <!-- ========== 2. PRODUCT TAB SECTION ========== -->
+    <section class="product-tab container">
+      <div class="product-tab__header">
+        <button
+          class="product-tab__btn product-tab__btn--active"
+          data-tab="description"
+        >
+          Description
         </button>
-        <button class="menu__dot" aria-label="Slide 2">
-          <img src="../assets/icons/home-page/menu-section/dot.svg" alt="Inactive" />
-        </button>
-        <button class="menu__dot" aria-label="Slide 3">
-          <img src="../assets/icons/home-page/menu-section/dot.svg" alt="Inactive" />
-        </button>
-        <button class="menu__dot" aria-label="Slide 4">
-          <img src="../assets/icons/home-page/menu-section/dot.svg" alt="Inactive" />
-        </button>
-        <button class="menu__dot" aria-label="Slide 5">
-          <img src="../assets/icons/home-page/menu-section/dot.svg" alt="Inactive" />
-        </button>
+        <button class="product-tab__btn" data-tab="reviews">Reviews (1)</button>
       </div>
-    </div>
-  </section>
 
-  <!-- 7.MENU SECTION: navigate menu  -->
-  <script type="module" src="../assets/script/navigate-menu.js"></script>
+      <!-- TAB CONTENT -->
+      <div class="product-tab__content" id="description" data-tab-content>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
+          commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus
+          et magnis dis parturient montes, nascetur ridiculus mus. Donec quam
+          felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla
+          consequat massa quis enim. Donec pede justo, fringilla vel, aliquet
+          nec, vulputate eget, arcu.
+        </p>
+        <br />
+        <p>
+          In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam
+          dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus.
+          Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.
+        </p>
+      </div>
 
-  <!-- ==========  FOOTER ========== -->
-  <div class="footer-wrapper" data-include="/partials/footer.html"></div>
+      <div class="product-tab__content hidden" id="reviews" data-tab-content>
+        <!-- User review -->
+        <div class="review">
+          <div class="review__header">
+            <img
+              src="../assets/images/product-detail-page/user-avatar.png"
+              alt="User Avatar"
+              class="review__avatar"
+            />
+            <div>
+              <h4 class="review__name">Jamie Milson</h4>
+              <p class="review__date">March 18, 2025</p>
+            </div>
+          </div>
+          <p class="review__text">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
+            commodo ligula eget dolor. Aenean massa. Cum sociis natoque
+            penatibus et magnis dis parturient montes.
+          </p>
+          <div class="review__stars">
+            <img
+              src="../assets/icons/product-detail-page/star-icon.svg"
+              alt="star"
+            />
+            <img
+              src="../assets/icons/product-detail-page/star-icon.svg"
+              alt="star"
+            />
+            <img
+              src="../assets/icons/product-detail-page/star-icon.svg"
+              alt="star"
+            />
+            <img
+              src="../assets/icons/product-detail-page/star-icon.svg"
+              alt="star"
+            />
+            <img
+              src="../assets/icons/product-detail-page/empty-star-icon.svg"
+              alt="star"
+            />
+          </div>
+        </div>
 
-  <!-- ========================================
+        <!-- Add a Review -->
+        <form class="review-form">
+          <h3 class="review-form__title">Add A Review</h3>
+          <p class="review-form__note">
+            Your email address will not be published. Required fields are marked
+            *
+          </p>
+
+          <div class="review-form__row">
+            <div class="review-form__field">
+              <input type="text" placeholder="Your name *" required />
+              <img
+                src="../assets/icons/home-page/resvervation-section/profile.svg"
+                alt="Profile Icon"
+                class="review-form__icon"
+              />
+            </div>
+            <div class="review-form__field">
+              <input type="email" placeholder="Email address *" required />
+              <img
+                src="../assets/icons/home-page/resvervation-section/message.svg"
+                alt="Email Icon"
+                class="review-form__icon"
+              />
+            </div>
+          </div>
+
+          <div class="review-form__field">
+            <input type="url" placeholder="Website *" required />
+          </div>
+
+          <div class="review-form__rating">
+            <label>Your rating</label>
+            <div class="stars">
+              <img
+                src="../assets/icons/product-detail-page/empty-star-icon.svg"
+                alt="star"
+              />
+              <img
+                src="../assets/icons/product-detail-page/empty-star-icon.svg"
+                alt="star"
+              />
+              <img
+                src="../assets/icons/product-detail-page/empty-star-icon.svg"
+                alt="star"
+              />
+              <img
+                src="../assets/icons/product-detail-page/empty-star-icon.svg"
+                alt="star"
+              />
+              <img
+                src="../assets/icons/product-detail-page/empty-star-icon.svg"
+                alt="star"
+              />
+            </div>
+          </div>
+
+          <div class="review-form__field">
+            <textarea placeholder="Write review *" rows="5" required></textarea>
+          </div>
+
+          <div class="review-form__checkbox">
+            <input type="checkbox" id="save-info" />
+            <label for="save-info"
+              >Save my name, email, and website in this browser for the next
+              time I comment.</label
+            >
+          </div>
+
+          <button
+            type="submit"
+            class="btn btn--primary"
+            style="margin-top: 20px"
+          >
+            Submit
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- ========== 3.RELATED SECTION (reuse MENU SECION in homepage) ========== -->
+    <section id="menu ">
+      <!-- ========== HEADER ========== -->
+      <div class="menu__header">
+        <div class="menu__header-text">
+          <!-- title -->
+          <h2 class="menu__title">Related Items</h2>
+        </div>
+      </div>
+
+      <!-- ========== SLIDER FIELD ========== -->
+      <div class="menu__slider container" style="margin-top: 0">
+        <!--menu grid-->
+        <div class="menu__grid"></div>
+
+        <!--Dot navigation for moblide and ipad-->
+        <div
+          class="menu__dots"
+          role="tablist"
+          aria-label="Menu slides navigation"
+        >
+          <!--active dot -->
+          <button
+            class="menu__dot menu__dot--active"
+            aria-label="Slide 1"
+            aria-current="true"
+          >
+            <img
+              src="../assets/icons/home-page/menu-section//active-dot.svg"
+              alt="Active"
+            />
+          </button>
+          <button class="menu__dot" aria-label="Slide 2">
+            <img
+              src="../assets/icons/home-page/menu-section/dot.svg"
+              alt="Inactive"
+            />
+          </button>
+          <button class="menu__dot" aria-label="Slide 3">
+            <img
+              src="../assets/icons/home-page/menu-section/dot.svg"
+              alt="Inactive"
+            />
+          </button>
+          <button class="menu__dot" aria-label="Slide 4">
+            <img
+              src="../assets/icons/home-page/menu-section/dot.svg"
+              alt="Inactive"
+            />
+          </button>
+          <button class="menu__dot" aria-label="Slide 5">
+            <img
+              src="../assets/icons/home-page/menu-section/dot.svg"
+              alt="Inactive"
+            />
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7.MENU SECTION: navigate menu  -->
+    <script type="module" src="../assets/script/navigate-menu.js"></script>
+
+    <!-- ==========  FOOTER ========== -->
+    <div class="footer-wrapper" data-include="/partials/footer.html"></div>
+
+    <!-- ========================================
          SCRIPTS - NEW FEATURES
     ======================================== -->
-  <script type="module" src="../assets/features/allergy-alert.js"></script>
-  <script type="module" src="../assets/features/social-proof.js"></script>
-</body>
-
+    <script type="module" src="../assets/features/allergy-alert.js"></script>
+    <script type="module" src="../assets/features/social-proof.js"></script>
+  </body>
 </html>

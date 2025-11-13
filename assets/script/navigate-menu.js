@@ -63,16 +63,12 @@ import { menuItems } from "../data/mockdata.js";
 
         // Get item data from card
         const itemId = card.dataset.itemId;
-        const itemTitle = card.dataset.itemTitle;
-        const itemPrice = parseFloat(card.dataset.itemPrice);
-        const itemImage = card.dataset.itemImage;
-
         // Find full item data
-        const item = menuItems.find(item => item.id === itemId);
+        const item = menuItems.find(menuItem => menuItem.id == itemId); // Use == for potential type coercion if itemId is string
         if (!item) return;
 
-        // Add to cart
-        addToCartAndNavigate(item);
+        // Navigate to menupage with item ID
+        window.location.href = `/menupage/index.html?id=${item.id}`;
       });
     });
   }

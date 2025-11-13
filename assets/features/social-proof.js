@@ -140,7 +140,8 @@ import { enhancedMenuItems } from "../data/menu-enhanced.js";
     counter.appendChild(icon);
     counter.appendChild(text);
 
-    document.body.appendChild(counter);
+    // temporary: hide counter
+    // document.body.appendChild(counter);
     return counter;
   }
 

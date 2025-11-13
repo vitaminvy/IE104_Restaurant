@@ -403,7 +403,7 @@ document.head.appendChild(style);
     if (userAllergens.length === 0) return;
 
     // Get all menu cards
-    const menuCards = document.querySelectorAll('[data-item-image]');
+    const menuCards = document.querySelectorAll('.menu__card');
     
     menuCards.forEach(card => {
       const itemId = parseInt(card.dataset.itemId);

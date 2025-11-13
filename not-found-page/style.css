@@ -19,7 +19,7 @@
     align-items: center; /* Horizontally center */
     flex-grow: 1; /* Fill remaining space */
     width: 100%;
-    padding: 10rem 0 6rem;
+    padding: 14rem 0 14rem;
     box-sizing: border-box;
 }
 
@@ -77,7 +77,7 @@
 /* ============ Tablets (≥ 768px) ============ */
 @media (min-width: 768px) {
     .error-page {
-        padding-top: 150px; /* More breathing room */
+        padding: 16rem 0 10rem;
     }
 
     .error-page__image {
@@ -94,6 +94,10 @@
 @media (min-width: 1024px) {
     .error-page__container {
         max-width: 600px; /* Allow wider content area */
+    }
+
+    .error-page {
+        padding: 18rem 0 15rem;
     }
 
     .error-page__image {

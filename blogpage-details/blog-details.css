@@ -15,6 +15,8 @@
 }
 
 .blog-header p {
+  margin-bottom: 1rem;
+
   /* Typography */
   font-size: 0.875rem;
   /* Properties from desktop-base */

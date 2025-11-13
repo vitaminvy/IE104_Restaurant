@@ -19,15 +19,20 @@
     />
 
     <!-- Style header and footer -->
-    <link rel="stylesheet" href="../homepage/header.css" />
-    <link rel="stylesheet" href="../homepage/footer.css" />
+      <link rel="stylesheet" href="../partials/header.css" />
+      <link rel="stylesheet" href="../partials/footer.css" />
 
     <!-- link header and footer html -->
     <script src="../assets/script/include-partials.js" defer></script>
     <script src="../assets/script/header.js"></script>
 
+    <!-- Global Loading System -->
+    <script src="../assets/script/global-loader.js"></script>
+
     <!-- link script appear hint -->
     <script src="./hint.js" defer></script>
+    <!-- Enhanced checkout logic with dynamic cart loading -->
+    <script src="./checkout.js" defer></script>
   </head>
   <body class="page">
     <!-- Header -->
@@ -209,14 +214,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Crispy chicken breasts × 1</td>
-              <td>$24.99</td>
-            </tr>
-            <tr>
-              <td>Spaghetti Napoletana × 1</td>
-              <td>$59.00</td>
-            </tr>
+            <!-- Cart items will be dynamically loaded here -->
           </tbody>
           <tfoot>
             <tr>

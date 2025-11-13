@@ -7,7 +7,7 @@ export const blogPosts = [
   {
     id: 1,
     slug: 'ai-role-in-restaurants',
-    title: 'Everything You Need To Know About The Growing Role Of AI In Restaurants',
+    title: 'Everything You Need To Know About The Growth Of AI In Restaurant',
     excerpt: 'You are sitting in your favorite restaurant and have ordered on a tablet on your table. A few seconds after placing the order, a notification will appear in your messaging app.',
     description: 'You are sitting in your favorite restaurant and have just ordered a meal. You took out your phone, scanned a QR code on your table, placed your order, and the food will appear in a few minutes, piping hot.',
     image: '../assets/images/blog-page/featured-post.png',

@@ -21,7 +21,7 @@ export const menuItems = [
     desc: "Toasted wholegrain bread topped with creamy smashed avocado, poached eggs, and a touch of lemon zest for freshness. A healthy, Instagram-worthy breakfast choice.",
     price: 7.5,
     image: "../assets/images/home-page/menu-section/new-lubina.png",
-    category: "breakfast",
+    category: "lunch",
     badges: ["vegan", "chef-special"],
     allergens: ["gluten"],
     spiceLevel: 0,

@@ -6,6 +6,7 @@ export function initPagination(totalPages = 9, onPageChange) {
         const page = document.createElement('a');
         page.href = '#';
         page.className = 'page-numbers';
+        console.log(num, "va: ", currentPage)
         if (num === currentPage) page.classList.add('current');
         page.textContent = num;
         page.onclick = (e) => {

@@ -9,7 +9,7 @@ import { menuItems } from '../assets/data/mockdata.js';
     document.querySelector('.menu__filter-item--active')?.dataset.category ||
     'breakfast';
   let currentPage = 1;
-  const itemsPerPage = 6; // Display 6 items per page
+  const itemsPerPage = 8; 
 
   const formatPrice = (p) =>
     p.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
@@ -97,9 +97,7 @@ import { menuItems } from '../assets/data/mockdata.js';
 
     // Initialize pagination
     initPagination(totalPages, (page) => {
-      currentPage = page;
-      render();
-      window.scrollTo({ top: container.offsetTop - 80, behavior: 'smooth' });
+      window.scrollTo({ top: container.offsetTop - 160, behavior: 'smooth' });
     });
 
     // Setup Order Now button handlers

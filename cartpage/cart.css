@@ -36,7 +36,6 @@
   max-width: 1170px;
   border: 1px solid var(--line);
   overflow: hidden;
-  margin: 0 2rem;
 
   /* Background */
   background: var(--panel);
@@ -410,6 +409,7 @@
 
   /* Typography */
   text-align: left;
+  font-size: 
 }
 
 .totals__right {
@@ -890,7 +890,7 @@
 
   .cart__container {
     /* Box model */
-    padding: 5rem 0 3rem;
+    padding: 5rem 3rem 3rem;
   }
 
   .cart__table {
@@ -1015,7 +1015,7 @@
     flex-direction: row;
     gap: 40px;
     align-items: flex-start;
-    padding: 5rem 0 30rem
+    padding: 5rem 3rem 30rem
   }
 }
 

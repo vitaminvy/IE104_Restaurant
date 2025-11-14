@@ -592,7 +592,7 @@
   /* Typography */
   text-align: center;
   color: rgba(255, 255, 255, 0.6);
-  font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
+  font-family: var(--font-body, "Plus Jakarta Sans", sans-serif);
 }
 
 .cart__table tbody tr td[colspan="6"] i {
@@ -1001,7 +1001,6 @@
   }
 }
 
-
 /* Large desktop (min-width: 1280px) */
 @media (min-width: 1280px) {
   .cart__container,
@@ -1015,7 +1014,7 @@
     flex-direction: row;
     gap: 40px;
     align-items: flex-start;
-    padding: 5rem 3rem 30rem
+    padding: 5rem 3rem 30rem;
   }
 }
 

@@ -1,0 +1,31 @@
+{
+  "nav": {
+    "home": "Home",
+    "menu": "Menu",
+    "blog": "Blog",
+    "pages": "Pages",
+    "contact": "Contact"
+  },
+  "header": {
+    "status_open": "we're open",
+    "cta": "Table Reservation"
+  },
+  "footer": {
+    "download_app": "Download the WowWraps app today.",
+    "useful_links": "Useful Links",
+    "link_home": "Home",
+    "link_about": "About Us",
+    "link_blogs": "Blogs",
+    "link_booking": "Booking",
+    "link_menu": "Menu",
+    "contact_info": "Contact Info",
+    "follow_us": "Follow us",
+    "social_fb": "Facebook",
+    "social_ig": "Instagram",
+    "social_li": "LinkedIn",
+    "social_tw": "Twitter",
+    "legal": "Legal",
+    "legal_website": "Website by UIT.com",
+    "legal_copyright": "©2025. All Rights Reserved"
+  }
+}

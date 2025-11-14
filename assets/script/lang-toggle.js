@@ -49,17 +49,15 @@
     const btn = document.createElement('button');
     btn.id = 'lang-toggle-floating';
     btn.style.position = 'fixed';
-    btn.style.top = '14px';
+    btn.style.top = '28px';
     btn.style.right = '14px';
     btn.style.zIndex = '9999';
     btn.style.padding = '0'; /* Remove padding to let image control size */
     btn.style.border = 'none'; /* Remove border */
-    btn.style.borderRadius = '50%'; /* Make it circular */
     btn.style.background = 'transparent'; /* Transparent background */
     btn.style.cursor = 'pointer';
     btn.style.width = '32px'; /* Set a fixed size for the button */
     btn.style.height = '32px';
-    btn.style.overflow = 'hidden'; /* Hide overflow for circular shape */
     btn.setAttribute('aria-label', 'Switch language');
 
     const flagImg = document.createElement('img');
@@ -67,7 +65,6 @@
     flagImg.style.width = '100%';
     flagImg.style.height = '100%';
     flagImg.style.objectFit = 'cover'; /* Ensure image covers the button area */
-    flagImg.style.borderRadius = '50%'; /* Apply border-radius to the image as well */
     btn.appendChild(flagImg);
 
     btn.addEventListener('click', () => {
@@ -92,11 +89,26 @@
   function handleResponsiveToggle() {
     const btn = document.getElementById('lang-toggle-floating');
     if (btn) {
-      // Tailwind's md breakpoint is 768px
+      // Tailwind CSS Breakpoints:
+      // sm: 640px
+      // xl: 1280px
+      // 2xl: 1536px
+
+      // md: 768px
       if (window.innerWidth < 768) {
         btn.style.display = 'none';
       } else {
         btn.style.display = 'block';
+      }
+
+      // lg: 1024px
+      if (window.innerWidth < 1024) {
+        btn.style.display = 'none';
+      }
+      // lg: 1024px
+      if (window.innerWidth < 1025) {
+        btn.style.top = '22px';
+        btn.style.right = '6px';
       }
     }
   }

@@ -284,7 +284,6 @@ html {
 .footer__language-flag {
   width: 28px;
   height: 28px;
-  border-radius: 50%;
   object-fit: cover;
   border: 1px solid var(--color-white-20);
 }
@@ -307,8 +306,7 @@ html {
 @media (min-width: 768px) {
   .footer__language-selector--desktop {
     display: flex; /* Use flex for alignment */
-    grid-column: 5 / 6; /* Place it in the last column */
-    margin-top: 0; /* Reset margin for desktop layout */
+    margin-top: 24px; /* Add space above */
   }
   .footer__language-selector--mobile {
     display: none;

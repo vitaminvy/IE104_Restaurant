@@ -15,23 +15,24 @@
       <nav class="header__nav">
         <ul class="header__nav-list">
           <li class="header__nav-item">
-            <a href="/homepage" class="header__nav-link">Home</a>
+            <a href="/homepage" class="header__nav-link" data-i18n-key="nav_home">Home</a>
           </li>
           <li class="header__nav-item">
-            <a href="/menupage/index.html" class="header__nav-link">Menu</a>
+            <a href="/menupage/index.html" class="header__nav-link" data-i18n-key="nav_menu">Menu</a>
           </li>
           <li class="header__nav-item">
-            <a href="/blogpage/index.html" class="header__nav-link">Blog</a>
+            <a href="/blogpage/index.html" class="header__nav-link" data-i18n-key="nav_blog">Blog</a>
           </li>
           <li class="header__nav-item">
             <a
               href="/coming-soon-page/coming-soon.html"
               class="header__nav-link"
+              data-i18n-key="nav_pages"
               >Pages</a
             >
           </li>
           <li class="header__nav-item">
-            <a href="/contact-us-1/index.html" class="header__nav-link"
+            <a href="/contact-us-1/index.html" class="header__nav-link" data-i18n-key="nav_contact"
               >Contact</a
             >
           </li>
@@ -49,12 +50,18 @@
     <!-- Right (Nav links + Status + CTA) -->
     <div class="header__right">
       <div class="header__status">
-        <span id="current-time"></span> we're open
+        <span id="current-time"></span> <span data-i18n-key="header_status_open">we're open</span>
       </div>
 
-      <a href="/homepage/index.html#reservation" class="header__btn"
+      <!-- Language Toggle -->
+      <div class="language-toggle" id="language-toggle">
+          <img src="../assets/icons/united-kingdom.png" alt="Language Flag" id="language-flag" style="width: 28px; height: 28px; cursor: pointer; border-radius: 50%;">
+      </div>
+
+      <a href="/homepage/index.html#reservation" class="header__btn" data-i18n-key="header_cta"
         >Table Reservation</a
       >
     </div>
   </div>
+  <script src="../assets/script/i18n.js" defer></script>
 </header>

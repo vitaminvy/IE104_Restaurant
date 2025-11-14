@@ -14,7 +14,10 @@
     <link rel="stylesheet" href="../style/style.css" />
 
     <!-- header section -->
-    <link rel="stylesheet" href="./header.css" />
+    <link rel="stylesheet" href="../partials/header.css" />
+    <!-- footer section -->
+    <link rel="stylesheet" href="../partials/footer.css" />
+
     <!-- hero section -->
     <link rel="stylesheet" href="./hero.css" />
     <!-- about section -->
@@ -29,8 +32,6 @@
     <link rel="stylesheet" href="./reservation.css" />
     <!-- service-means section -->
     <link rel="stylesheet" href="./service-means.css" />
-    <!-- footer section -->
-    <link rel="stylesheet" href="./footer.css" />
     <!-- chef intro section -->
     <link rel="stylesheet" href="./chef-intro.css" />
     <!--discover menu section-->
@@ -49,11 +50,21 @@
       href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Global Features Stylesheets -->
+    <link rel="stylesheet" href="../assets/features/allergy-alert.css" />
+    <link rel="stylesheet" href="../assets/features/social-proof.css" />
+
+    <!-- Global Loading System -->
+    <script src="../assets/script/global-loader.js"></script>
   </head>
   <body>
     <!-- logic for header and footer -->
     <script src="../assets/script/include-partials.js" defer></script>
     <script src="../assets/script/header.js"></script>
+
+    <!-- Homepage routing with loaders -->
+    <script src="./homepage-routing.js" defer></script>
 
     <!-- ========== 1. HEADER ========== -->
     <div data-include="/partials/header.html"></div>
@@ -194,7 +205,7 @@
             Hi! Our Restaurant has been present for over 20 years in the market.
             We make the most of all our customers.
           </p>
-          <a href="#about" class="about__link">About Us</a>
+          <a href="/aboutpage/" class="about__link">About Us</a>
         </div>
       </div>
     </section>
@@ -842,5 +853,9 @@
     <!-- Back to top -->
     <div data-include="../partials/back-to-top.html"></div>
     <script src="../assets/script/back-to-top.js"></script>
+
+    <!-- Global Features Scripts -->
+    <script type="module" src="../assets/features/allergy-alert.js"></script>
+    <script type="module" src="../assets/features/social-proof.js"></script>
   </body>
 </html>

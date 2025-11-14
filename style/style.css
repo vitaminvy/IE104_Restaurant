@@ -160,26 +160,26 @@ h4 {
 ========================================================= */
 
 .link-underline {
-  display: inline-block;
-  font-family: var(--font-body);
-  color: #ffffff;
-  font-weight: 500;
-  text-decoration: none;
   position: relative;
+  display: inline-block;
+  padding-bottom: 4px;
+  color: #ffffff;
+  font-weight: 300;
+  text-decoration: none;
+  font-family: var(--font-body);
   transition: color 0.3s ease;
-  padding-bottom: 6px;
 }
 
 /* Orange underline appears smoothly */
 .link-underline::after {
-  content: "";
   position: absolute;
   bottom: -2px;
   left: 0;
-  width: 0%;
   height: 2px;
+  width: 100%;
   background-color: #fb8f2c;
   transition: width 0.3s ease;
+  content: "";
 }
 
 /* Hover: change text + draw underline 40% */
@@ -188,6 +188,78 @@ h4 {
 }
 
 .link-underline:hover::after {
-  width: 100%;
+  width: 40%;
 }
 
+/* =============================
+ * Button Styles
+ * ============================= */
+.btn {
+  /* Position */
+  position: relative;
+  overflow: hidden;
+
+  /* Box model */
+  display: inline-block;
+  padding: 14px 28px;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  color: var(--color-white);
+
+  /* Background / Others */
+  background-color: var(--color-dark-orange);
+
+  cursor: pointer;
+  transform: translateY(0);
+
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, color 0.3s ease,
+              transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Hover gradient overlay */
+.btn::before {
+  /* Position */
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+
+  /* Background / Others */
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+/* Hover effect */
+.btn:hover::before {
+  left: 100%;
+}
+
+.btn:hover {
+  /* Box model */
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(251, 143, 44, 0.3);
+
+  /* Background / Others */
+  background-color: var(--color-dark-orange);
+  border-color: var(--color-dark-orange);
+  color: #000;
+}
+
+/* Active / click effect */
+.btn:active {
+  /* Box model */
+  transform: translateY(0);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+
+  /* Background / Others */
+  background-color: #e67e22;
+}

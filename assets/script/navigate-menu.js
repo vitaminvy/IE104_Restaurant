@@ -21,18 +21,18 @@ import { menuItems } from "../data/mockdata.js";
   // CREATE CARD HTML
   function createCardHTML(item) {
     return `
-        <article class="menu__card">
+        <article class="menu__card" data-item-id="${item.id}" data-item-title="${item.title}" data-item-price="${item.price}" data-item-image="${item.image}" style="cursor: pointer;">
             <div class="menu__card-img-wrapper">
                 <img src="${item.image}" alt="${item.title}" class="menu__card-image" />
             </div>
             <h3 class="menu__card-title">${item.title}</h3>
             <p class="menu__card-desc">${item.desc}</p>
             <div class="menu__card-footer">
-                <a href="/cartpage/cart.html" class="menu__card-btn">
+                <span class="menu__card-price">$${item.price}</span>
+                <div class="menu__card-btn" style="pointer-events: none;">
                     Order Now
                     <img src="../assets/icons/home-page/menu-section/arrown.svg" alt="" class="menu__card-btn-icon" />
-                </a>
-                <span class="menu__card-price">$${item.price}</span>
+                </div>
             </div>
         </article>`;
   }
@@ -48,6 +48,84 @@ import { menuItems } from "../data/mockdata.js";
     cards = Array.from(menuGrid.querySelectorAll(".menu__card"));
     totalCards = cards.length;
     currentIndex = 0;
+
+    // Setup card click handlers after rendering
+    setupCardClickHandlers();
+  }
+
+  // SETUP CARD CLICK HANDLERS
+  function setupCardClickHandlers() {
+    const cards = menuGrid.querySelectorAll(".menu__card");
+    
+    cards.forEach(card => {
+      card.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        // Get item data from card
+        const itemId = card.dataset.itemId;
+        // Find full item data
+        const item = menuItems.find(menuItem => menuItem.id == itemId); // Use == for potential type coercion if itemId is string
+        if (!item) return;
+
+        // Navigate to menupage with item ID
+        window.location.href = `/menupage/index.html?id=${item.id}`;
+      });
+    });
+  }
+
+  // ADD TO CART AND NAVIGATE
+  function addToCartAndNavigate(item) {
+    // Show loader
+    if (window.GlobalLoader) {
+      window.GlobalLoader.show('Adding to cart...');
+    }
+
+    // Get existing cart or create new
+    let cart = [];
+    try {
+      const cartData = localStorage.getItem('restaurantCart');
+      if (cartData) {
+        cart = JSON.parse(cartData);
+      }
+    } catch (e) {
+      console.error('Error reading cart:', e);
+    }
+
+    // Check if item already in cart
+    const existingItemIndex = cart.findIndex(cartItem => cartItem.id === item.id);
+
+    if (existingItemIndex > -1) {
+      // Item exists, increase quantity
+      cart[existingItemIndex].quantity = (cart[existingItemIndex].quantity || 1) + 1;
+    } else {
+      // Add new item
+      cart.push({
+        id: item.id,
+        title: item.title,
+        price: item.price,
+        image: item.image,
+        desc: item.desc || '',
+        quantity: 1
+      });
+    }
+
+    // Save to localStorage
+    try {
+      localStorage.setItem('restaurantCart', JSON.stringify(cart));
+      console.log('✅ Item added to cart:', item.title);
+    } catch (e) {
+      console.error('Error saving cart:', e);
+    }
+
+    // Update loader message
+    if (window.GlobalLoader) {
+      window.GlobalLoader.updateMessage('Redirecting to cart...');
+    }
+
+    // Navigate to cart page after delay
+    setTimeout(() => {
+      window.location.href = '/cartpage/cart.html';
+    }, 500);
   }
 
   // RESPONSIVE CARD COUNT

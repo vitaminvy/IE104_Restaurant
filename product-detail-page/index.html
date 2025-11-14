@@ -10,9 +10,9 @@
     <link rel="stylesheet" href="../style/style.css" />
 
     <!-- header section -->
-    <link rel="stylesheet" href="../homepage/header.css" />
+      <link rel="stylesheet" href="../partials/header.css" />
     <!-- footer section-->
-    <link rel="stylesheet" href="../homepage/footer.css" />
+      <link rel="stylesheet" href="../partials/footer.css" />
     <!-- menu section-->
     <link rel="stylesheet" href="../homepage/menu.css" />
 
@@ -25,7 +25,18 @@
       href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Global Loading System -->
+    <script src="../assets/script/global-loader.js"></script>
+
+    <!-- Dynamic product loader - NEW FEATURE -->
+    <script type="module" src="./product-dynamic-loader.js" defer></script>
+
     <script src="./product-add.js" defer></script>
+
+    <!-- Global Features Stylesheets -->
+    <link rel="stylesheet" href="../assets/features/allergy-alert.css" />
+    <link rel="stylesheet" href="../assets/features/social-proof.css" />
   </head>
 
   <body>
@@ -46,6 +57,12 @@
             alt="Crispy Chicken Breasts"
             class="product-detail__img"
           />
+          <!-- Meta Info -->
+          <ul class="product-detail__meta">
+            <li><strong>SKU:</strong> PT322</li>
+            <li><strong>CATEGORY:</strong> Lunch</li>
+            <li><strong>TAGS:</strong> Sweets, Ghevar</li>
+          </ul>
         </div>
 
         <!-- INFO -->
@@ -104,13 +121,6 @@
               >ADD TO CART</a
             >
           </div>
-
-          <!-- Meta Info -->
-          <ul class="product-detail__meta">
-            <li><strong>SKU:</strong> PT322</li>
-            <li><strong>CATEGORY:</strong> Lunch</li>
-            <li><strong>TAGS:</strong> Sweets, Ghevar</li>
-          </ul>
         </div>
       </div>
     </section>
@@ -279,7 +289,7 @@
       </div>
 
       <!-- ========== SLIDER FIELD ========== -->
-      <div class="menu__slider container" style="margin-top: 0;">
+      <div class="menu__slider container" style="margin-top: 0">
         <!--menu grid-->
         <div class="menu__grid"></div>
 
@@ -333,5 +343,11 @@
 
     <!-- ==========  FOOTER ========== -->
     <div class="footer-wrapper" data-include="/partials/footer.html"></div>
+
+    <!-- ========================================
+         SCRIPTS - NEW FEATURES
+    ======================================== -->
+    <script type="module" src="../assets/features/allergy-alert.js"></script>
+    <script type="module" src="../assets/features/social-proof.js"></script>
   </body>
 </html>

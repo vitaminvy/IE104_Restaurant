@@ -1,0 +1,121 @@
+/* ======================================================================  
+   ERROR PAGE BLOCK (BEM) — RESPONSIVE DESIGN
+   ----------------------------------------------------------------------
+   Approach: Mobile-first + min-width breakpoints (progressive enhancement)
+   Purpose: Ensure the 404 page looks good on all devices (mobile → desktop)
+====================================================================== */
+
+/* ======================= BASE STYLES (Mobile first) ======================= */
+
+/* * Block: error-page
+ * Main container for the 404 content
+ * Takes the remaining space between header and footer
+ */
+.error-page {
+    /* Box Model */
+    display: flex; /* Center container content */
+    flex-direction: column;
+    justify-content: center; /* Vertically center */
+    align-items: center; /* Horizontally center */
+    flex-grow: 1; /* Fill remaining space */
+    width: 100%;
+    padding: 14rem 0 14rem;
+    box-sizing: border-box;
+}
+
+/* * Element: error-page__container
+ * Wrapper for image, text, and button
+ */
+.error-page__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 550px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* * Element: error-page__image
+ * 404 image — scales to fit container
+ */
+.error-page__image {
+    width: 100%;
+    max-width: 300px; /* Smaller default for mobile */
+    height: auto;
+    margin-bottom: 25px;
+}
+
+/* * Element: error-page__message
+ * Error text under the image
+ */
+.error-page__message {
+    margin-bottom: 25px;
+    font-size: 1rem; /* 16px */
+    color: #5a6175;
+    line-height: 1.6;
+    padding: 0 10px; /* Add breathing space for small screens */
+}
+
+/* ======================================================================
+   RESPONSIVE BREAKPOINTS (Min-width)
+   ----------------------------------------------------------------------
+   Each step enhances layout and typography for larger screens
+====================================================================== */
+
+/* ============ Small tablets (≥ 480px) ============ */
+@media (min-width: 480px) {
+    .error-page__image {
+        max-width: 350px; /* Slightly larger image */
+    }
+
+    .error-page__message {
+        font-size: 1.05rem;
+    }
+}
+
+/* ============ Tablets (≥ 768px) ============ */
+@media (min-width: 768px) {
+    .error-page {
+        padding: 16rem 0 10rem;
+    }
+
+    .error-page__image {
+        max-width: 400px;
+        margin-bottom: 30px;
+    }
+
+    .error-page__message {
+        font-size: 1.1rem;
+    }
+}
+
+/* ============ Laptops / Small Desktops (≥ 1024px) ============ */
+@media (min-width: 1024px) {
+    .error-page__container {
+        max-width: 600px; /* Allow wider content area */
+    }
+
+    .error-page {
+        padding: 18rem 0 15rem;
+    }
+
+    .error-page__image {
+        max-width: 450px;
+    }
+
+    .error-page__message {
+        font-size: 1.15rem;
+    }
+}
+
+/* ============ Large Desktops (≥ 1440px) ============ */
+@media (min-width: 1440px) {
+    .error-page__container {
+        max-width: 700px;
+    }
+
+    .error-page__message {
+        font-size: 1.2rem;
+    }
+}

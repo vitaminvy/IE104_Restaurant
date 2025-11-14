@@ -14,7 +14,7 @@
     />
 
     <!-- CSS header -->
-    <link rel="stylesheet" href="../homepage/header.css" />
+      <link rel="stylesheet" href="../partials/header.css" />
 
     <!-- CSS CartPage -->
     <link rel="stylesheet" href="./cart.css" />
@@ -22,10 +22,15 @@
       src="https://kit.fontawesome.com/eef96f1e29.js"
       crossorigin="anonymous"
     ></script>
+
+    <!-- Global Loading System -->
+    <script src="../assets/script/global-loader.js"></script>
+
+    <!-- Enhanced cart logic with localStorage and coupons -->
     <script src="./cart.js"></script>
 
     <!-- Css footer -->
-    <link rel="stylesheet" href="../homepage/footer.css" />
+      <link rel="stylesheet" href="../partials/footer.css" />
 
     <!-- link header and footer -->
     <script src="../assets/script/include-partials.js" defer></script>
@@ -54,7 +59,7 @@
           <!-- body table -->
           <tbody>
             <tr>
-              <!-- NEW: remove button -->
+              <!-- remove button -->
               <td class="cart__remove">
                 <button
                   class="remove__btn"
@@ -64,19 +69,8 @@
                   <i class="fa-solid fa-trash"></i>
                 </button>
               </td>
-              <td>
-                <img
-                  class="cart__item-media"
-                  src="../assets/images/cart-page/donut.png"
-                  alt="Crispy chicken breasts"
-                />
-              </td>
-              <td data-label="Food">
-                <span class="cart__item-name">Crispy chicken breasts</span>
-              </td>
-              <td data-label="Price" class="cart__price">$24.99</td>
 
-              <!-- NEW: quantity group styled like design -->
+              <!-- quantity group styled like design -->
               <td data-label="Quantity">
                 <div class="cart__qty">
                   <button class="qty__btn" aria-label="Decrease" type="button">
@@ -88,8 +82,6 @@
                   </button>
                 </div>
               </td>
-
-              <td data-label="Subtotal" class="cart__subtotal">$24.99</td>
             </tr>
             <tr>
               <td class="cart__remove">
@@ -97,17 +89,6 @@
                   <i class="fa-solid fa-trash"></i>
                 </button>
               </td>
-              <td>
-                <img
-                  class="cart__item-media"
-                  src="../assets/images/cart-page/hamburger.png"
-                  alt="Spaghetti Napoletana"
-                />
-              </td>
-              <td data-label="Food">
-                <span class="cart__item-name">Spaghetti Napoletana</span>
-              </td>
-              <td data-label="Price" class="cart__price">$59.00</td>
               <td data-label="Quantity">
                 <div class="cart__qty">
                   <button class="qty__btn" aria-label="Decrease">−</button>
@@ -115,7 +96,6 @@
                   <button class="qty__btn" aria-label="Increase">+</button>
                 </div>
               </td>
-              <td data-label="Subtotal" class="cart__subtotal">$59.00</td>
             </tr>
           </tbody>
         </table>
@@ -127,72 +107,33 @@
               type="text"
               placeholder="Coupon code"
             />
-            <button class="btn btn--brand" type="button">Apply coupon</button>
+            <button class="btn" type="button">Apply coupon</button>
           </div>
-          <button class="btn btn--ghost" type="button">Update Cart</button>
+          <!-- Removed "Update Cart" button as updates are automatic -->
         </div>
       </div>
 
       <!-- ================= RIGHT: CART TOTALS ================= -->
 
-      <aside class="totals">
-        <h2 class="totals__header">Cart totals</h2>
+      <aside class="totals"> 
         <table class="totals__table">
           <tbody>
+            <!-- Subtotal row -->
             <tr>
               <th scope="row" class="totals__left">Subtotal</th>
-              <td class="totals__right">$83.99</td>
+              <td class="totals__right">$0.00</td>
             </tr>
 
-            <tr class="totals__shipping">
-              <th scope="row" class="totals__left">Shipping</th>
-              <td class="totals__right">
-                <p class="shipping__desc">
-                  <span>Flat rate: <strong>$6.00</strong></span>
-                  <span>Shipping to <strong>New South Wales</strong>.</span>
-                </p>
-                <p class="shipping__address">Change address</p>
-                <form class="addrForm" action="#" method="post">
-                  <select
-                    id="country"
-                    class="addrForm__select"
-                    aria-label="Country"
-                  >
-                    <option>Australia</option>
-                    <option value="Việt Nam">Việt Nam</option>
-                  </select>
-
-                  <select
-                    id="state"
-                    class="addrForm__select"
-                    aria-label="State"
-                  >
-                    <option>New South Wales</option>
-                    <option>Bình Định Đất Võ</option>
-                  </select>
-
-                  <input
-                    class="addrForm__field"
-                    type="text"
-                    placeholder="Suburb"
-                    aria-label="Suburb"
-                  />
-                  <input
-                    class="addrForm__field"
-                    type="text"
-                    placeholder="Postcode"
-                    aria-label="Postcode"
-                  />
-                  <button class="btn addrForm__update" type="button">
-                    Update
-                  </button>
-                </form>
-              </td>
+            <!-- Discount row (hidden by default, shown when coupon applied) -->
+            <tr class="totals__discount" style="display: none;">
+              <th scope="row" class="totals__left">Discount</th>
+              <td class="totals__right">-$0.00</td>
             </tr>
 
+            <!-- Total row -->
             <tr class="totals__total">
               <th scope="row" class="totals__left">Total</th>
-              <td class="totals__right">$89.99</td>
+              <td class="totals__right">$0.00</td>
             </tr>
           </tbody>
         </table>
@@ -200,7 +141,7 @@
         <div class="totals__footer">
           <a
             href="/checkout-page/checkout.html"
-            class="btn btn--block"
+            class="btn"
             type="button"
           >
             Proceed to Checkout

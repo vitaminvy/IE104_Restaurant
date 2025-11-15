@@ -7,6 +7,7 @@ import {
   getFeaturedPost, 
   getPaginatedPosts 
 } from '../../assets/data/blogdata.js';
+import i18nService from '../../assets/script/i18n-service.js';
 
 /* ========================================
  * CONFIGURATION
@@ -27,13 +28,16 @@ function renderFeaturedPost() {
     return;
   }
 
+  const title = i18nService.t(post.title);
+  const description = i18nService.t(post.description);
+
   featuredContainer.innerHTML = `
     <div class="post-image">
-      <img src="${post.image}" alt="${post.title}" loading="lazy">
+      <img src="${post.image}" alt="${title}" loading="lazy">
     </div>
     <div class="post-content">
-      <h2>${post.title}</h2>
-      <p>${post.description}</p>
+      <h2>${title}</h2>
+      <p>${description}</p>
       <a href="../blogpage-details/index.html?id=${post.id}" class="read-more">Read more</a>
     </div>
   `;
@@ -78,14 +82,15 @@ function renderBlogGrid(page = 1) {
 
   // Render each post
   posts.forEach(post => {
+    const title = i18nService.t(post.title);
     const article = document.createElement('article');
     article.className = 'post';
     article.innerHTML = `
       <div class="post-image">
-        <img src="${post.image}" alt="${post.title}" loading="lazy">
+        <img src="${post.image}" alt="${title}" loading="lazy">
       </div>
       <div class="post-content">
-        <h3>${post.title}</h3>
+        <h3>${title}</h3>
         <p class="post-meta">${post.date} • By ${post.author}</p>
         <a href="../blogpage-details/index.html?id=${post.id}" class="read-more">Read more</a>
       </div>
@@ -158,8 +163,8 @@ function renderPagination(page, totalPages, hasNext, hasPrev) {
     }
   } else {
     // Show smart pagination with ellipsis
-    let start = Math.max(page - 1, 2);
-    let end = Math.min(page + 1, totalPages - 1);
+    let start = Math.max(page - 2, 2);
+    let end = Math.min(page + 2, totalPages - 1);
 
     // Always show first page
     pageContainer.appendChild(createPageNumber(1, page));
@@ -259,31 +264,12 @@ function attachPaginationListeners() {
  * INITIALIZATION
  * ======================================== */
 function init() {
-  // Show loader immediately
-  if (window.GlobalLoader) {
-    window.GlobalLoader.show('Loading blog posts...');
-  }
-
-  // Use setTimeout for rendering
-  setTimeout(() => {
-    // Render featured post
-    renderFeaturedPost();
-    
-    // Render blog grid with first page
-    renderBlogGrid(1);
-    
-    // Hide loader
-    if (window.GlobalLoader) {
-      window.GlobalLoader.hide(300);
-    }
-    
-    console.log('📰 Blog page loaded successfully');
-  }, 100);
+  renderFeaturedPost();
+  renderBlogGrid(currentPage);
 }
 
-// Initialize when DOM is ready
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', init);
-} else {
+document.addEventListener('language-changed', init);
+
+if (Object.keys(i18nService.getTranslations()).length > 0) {
   init();
 }

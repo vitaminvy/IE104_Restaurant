@@ -21,9 +21,9 @@
       rel="stylesheet"
     />
     <!-- Header style -->
-      <link rel="stylesheet" href="../partials/header.css" />
+    <link rel="stylesheet" href="../partials/header.css" />
     <!-- Footer style -->
-      <link rel="stylesheet" href="../partials/footer.css" />
+    <link rel="stylesheet" href="../partials/footer.css" />
     <!-- Comming Soon Style -->
     <link rel="stylesheet" href="./coming-soon.css" />
     <!-- highlight banner -->
@@ -36,6 +36,7 @@
   <body>
     <!-- ========== 1. HEADER ========== -->
     <div data-include="/partials/header.html"></div>
+    <script type="module" src="../assets/script/lang-toggle.js" defer></script>
 
     <!-- Coming Soon -->
     <main>
@@ -82,19 +83,33 @@
           <div class="comingsoon__timer">
             <div class="comingsoon__timebox">
               <span class="comingsoon__number" id="days"></span>
-              <p class="comingsoon__label" data-i18n="coming_soon.timer.days">Days</p>
+              <p class="comingsoon__label" data-i18n="coming_soon.timer.days">
+                Days
+              </p>
             </div>
             <div class="comingsoon__timebox">
               <span class="comingsoon__number" id="hours"></span>
-              <p class="comingsoon__label" data-i18n="coming_soon.timer.hour">Hour</p>
+              <p class="comingsoon__label" data-i18n="coming_soon.timer.hour">
+                Hour
+              </p>
             </div>
             <div class="comingsoon__timebox">
               <span class="comingsoon__number" id="minutes"></span>
-              <p class="comingsoon__label" data-i18n="coming_soon.timer.minutes">Minutes</p>
+              <p
+                class="comingsoon__label"
+                data-i18n="coming_soon.timer.minutes"
+              >
+                Minutes
+              </p>
             </div>
             <div class="comingsoon__timebox">
               <span class="comingsoon__number" id="seconds"></span>
-              <p class="comingsoon__label" data-i18n="coming_soon.timer.seconds">Seconds</p>
+              <p
+                class="comingsoon__label"
+                data-i18n="coming_soon.timer.seconds"
+              >
+                Seconds
+              </p>
             </div>
           </div>
 
@@ -108,7 +123,11 @@
       </section>
 
       <!-- ========== 1. HIGHLIGHT BANNER SECTION ========== -->
-      <section id="highlight-banner" class="highlight-banner" style="margin-top: 0;">
+      <section
+        id="highlight-banner"
+        class="highlight-banner"
+        style="margin-top: 0"
+      >
         <div class="highlight-banner__track">
           <div class="highlight-banner__list">
             <!-- Main 4 items -->

@@ -1,49 +1,41 @@
-// Simple i18n toggler: EN <-> VI
+import i18nService from './i18n-service.js';
+
 (() => {
-  const STORAGE_KEY = 'lang';
-  const DEFAULT_LANG = localStorage.getItem(STORAGE_KEY) || 'en';
+  // Helper to get nested key: "a.b.c"
+  function getByPath(obj, path) {
+    if (!path) return undefined;
+    return path.split('.').reduce((o, k) => (o && o[k] !== undefined ? o[k] : undefined), obj);
+  }
 
   // Element updater for textContent
-  function applyTranslations(dict) {
+  function applyStaticTranslations() {
+    const lang = i18nService.getLanguage();
+    const translations = i18nService.getTranslations();
+
+    if (Object.keys(translations).length === 0) {
+      // Translations not loaded yet, wait for the event
+      return;
+    }
+
     // Normal text nodes
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const key = el.getAttribute('data-i18n');
-      if (!key) return;
-      const val = getByPath(dict, key);
-      if (val != null) el.innerHTML = val; // allow <br/> in values
+      const val = getByPath(translations, key);
+      if (val !== undefined) el.innerHTML = val; // allow <br/> in values
     });
 
     // Placeholders
     document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
       const key = el.getAttribute('data-i18n-placeholder');
-      const val = getByPath(dict, key);
-      if (val != null) el.setAttribute('placeholder', val);
+      const val = getByPath(translations, key);
+      if (val !== undefined) el.setAttribute('placeholder', val);
     });
 
     // Document lang attr
-    document.documentElement.setAttribute('lang', currentLang);
+    document.documentElement.setAttribute('lang', lang);
   }
 
-  // Helper to get nested key: "a.b.c"
-  function getByPath(obj, path) {
-    return path.split('.').reduce((o, k) => (o && o[k] != null ? o[k] : undefined), obj);
-  }
-
-  // Cache translations in-memory
-  const cache = {};
-  let currentLang = DEFAULT_LANG;
-
-  async function load(lang) {
-    if (!cache[lang]) {
-      const res = await fetch(`/assets/lang/${lang}.json`, { cache: 'no-cache' });
-      cache[lang] = await res.json();
-    }
-    applyTranslations(cache[lang]);
-    localStorage.setItem(STORAGE_KEY, lang);
-    updateFloatingToggle(lang);
-  }
-
-  // Floating toggle button (khỏi phải đụng vào partial header)
+  // Floating toggle button
   function ensureFloatingToggle() {
     if (document.getElementById('lang-toggle-floating')) return;
     const btn = document.createElement('button');
@@ -52,11 +44,11 @@
     btn.style.top = '28px';
     btn.style.right = '14px';
     btn.style.zIndex = '9999';
-    btn.style.padding = '0'; /* Remove padding to let image control size */
-    btn.style.border = 'none'; /* Remove border */
-    btn.style.background = 'transparent'; /* Transparent background */
+    btn.style.padding = '0';
+    btn.style.border = 'none';
+    btn.style.background = 'transparent';
     btn.style.cursor = 'pointer';
-    btn.style.width = '32px'; /* Set a fixed size for the button */
+    btn.style.width = '32px';
     btn.style.height = '32px';
     btn.setAttribute('aria-label', 'Switch language');
 
@@ -64,15 +56,15 @@
     flagImg.id = 'lang-toggle-flag';
     flagImg.style.width = '100%';
     flagImg.style.height = '100%';
-    flagImg.style.objectFit = 'cover'; /* Ensure image covers the button area */
+    flagImg.style.objectFit = 'cover';
     btn.appendChild(flagImg);
 
     btn.addEventListener('click', () => {
-      currentLang = currentLang === 'en' ? 'vi' : 'en';
-      load(currentLang);
+      const newLang = i18nService.getLanguage() === 'en' ? 'vi' : 'en';
+      i18nService.setLanguage(newLang);
     });
     document.body.appendChild(btn);
-    updateFloatingToggle(currentLang);
+    updateFloatingToggle(i18nService.getLanguage());
   }
 
   function updateFloatingToggle(lang) {
@@ -85,46 +77,36 @@
     }
   }
 
-  // Function to handle responsive visibility
   function handleResponsiveToggle() {
     const btn = document.getElementById('lang-toggle-floating');
     if (btn) {
-      // Tailwind CSS Breakpoints:
-      // sm: 640px
-      // xl: 1280px
-      // 2xl: 1536px
-
-      // md: 768px
-      if (window.innerWidth < 768) {
+      if (window.innerWidth < 1025) {
         btn.style.display = 'none';
       } else {
         btn.style.display = 'block';
       }
-
-      // lg: 1024px
-      if (window.innerWidth < 1024) {
-        btn.style.display = 'none';
-      }
-      // lg: 1024px
-      if (window.innerWidth < 1025) {
-        btn.style.top = '22px';
-        btn.style.right = '6px';
-      }
     }
   }
 
+  // Listen for language changes to update static text and the toggle icon
+  document.addEventListener('language-changed', () => {
+    const newLang = i18nService.getLanguage();
+    applyStaticTranslations();
+    updateFloatingToggle(newLang);
+  });
+
   // Init when DOM ready
-  if (document.readyState !== 'loading') {
+  function initialize() {
     ensureFloatingToggle();
-    load(currentLang);
-    handleResponsiveToggle(); // Set initial state
-    window.addEventListener('resize', handleResponsiveToggle); // Update on resize
+    applyStaticTranslations();
+    handleResponsiveToggle();
+    window.addEventListener('resize', handleResponsiveToggle);
+  }
+
+  if (document.readyState !== 'loading') {
+    initialize();
   } else {
-    document.addEventListener('DOMContentLoaded', () => {
-      ensureFloatingToggle();
-      load(currentLang);
-      handleResponsiveToggle(); // Set initial state
-      window.addEventListener('resize', handleResponsiveToggle); // Update on resize
-    });
+    document.addEventListener('DOMContentLoaded', initialize);
   }
 })();
+

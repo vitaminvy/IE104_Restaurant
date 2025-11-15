@@ -1,0 +1,235 @@
+/* ========================================
+ * CART PAGE ANIMATIONS
+ * Enhanced animations for cart interactions
+ * ======================================== */
+
+/* ========================================
+ * QUANTITY CHANGE ANIMATIONS
+ * ======================================== */
+
+@keyframes quantityBounce {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes pricePulse {
+  0% {
+    transform: scale(1);
+    color: inherit;
+  }
+  50% {
+    transform: scale(1.1);
+    color: var(--color-dark-orange, #f97316);
+  }
+  100% {
+    transform: scale(1);
+    color: inherit;
+  }
+}
+
+/* ========================================
+ * BUTTON HOVER ENHANCEMENTS
+ * ======================================== */
+
+.remove__btn {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.remove__btn:hover {
+  transform: scale(1.1) rotate(5deg);
+  color: #ef4444;
+}
+
+.remove__btn:active {
+  transform: scale(0.95);
+}
+
+.qty__btn {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.qty__btn:hover {
+  transform: scale(1.15);
+  background: rgba(249, 115, 22, 0.2);
+}
+
+.qty__btn:active {
+  transform: scale(0.9);
+}
+
+/* ========================================
+ * EMPTY CART ANIMATION
+ * ======================================== */
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.cart__table tbody tr td[colspan] > div {
+  animation: fadeInScale 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ========================================
+ * COUPON ANIMATIONS
+ * ======================================== */
+
+@keyframes confetti {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+  25% {
+    transform: scale(1.2) rotate(5deg);
+  }
+  50% {
+    transform: scale(1.1) rotate(-5deg);
+  }
+  75% {
+    transform: scale(1.15) rotate(3deg);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-8px);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(8px);
+  }
+}
+
+/* Applied to coupon input on success */
+.coupon__input--success {
+  animation: confetti 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Applied to coupon input on error */
+.coupon__input--error {
+  animation: shake 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97);
+  border-color: #ef4444 !important;
+}
+
+/* ========================================
+ * MOBILE RESPONSIVENESS
+ * ======================================== */
+
+@media (max-width: 48rem) {
+  @keyframes quantityBounce {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.15);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes pricePulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+}
+
+/* ========================================
+ * ACCESSIBILITY - REDUCED MOTION
+ * ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .remove__btn:hover,
+  .qty__btn:hover {
+    transform: none;
+  }
+}
+
+/* ========================================
+ * TOTALS UPDATE ANIMATION
+ * ======================================== */
+
+@keyframes totalUpdate {
+  0% {
+    transform: scale(1);
+    color: inherit;
+  }
+  50% {
+    transform: scale(1.05);
+    color: var(--color-dark-orange, #f97316);
+  }
+  100% {
+    transform: scale(1);
+    color: inherit;
+  }
+}
+
+.totals__right {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ========================================
+ * LOADING STATE FOR BUTTONS
+ * ======================================== */
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.btn--loading {
+  position: relative;
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.btn--loading::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 50%;
+  left: 50%;
+  margin-left: -8px;
+  margin-top: -8px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}

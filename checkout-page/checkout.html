@@ -22,6 +22,12 @@
     <link rel="stylesheet" href="../style/animations.css" />
     <script src="../assets/script/scroll-animations.js"></script>
 
+    <!-- Form Validation System -->
+    <link rel="stylesheet" href="../style/form-validation.css" />
+    <link rel="stylesheet" href="../style/notification-system.css" />
+    <script src="../assets/script/form-validator.js"></script>
+    <script src="../assets/script/notification-system.js"></script>
+
     <!-- Style header and footer -->
       <link rel="stylesheet" href="../partials/header.css" />
       <link rel="stylesheet" href="../partials/footer.css" />
@@ -47,33 +53,48 @@
       <section class="billing">
         <h1 class="billing__title">Billing details</h1>
 
-        <form class="form" method="get" novalidate>
+        <form class="form" id="checkout-form" method="get" novalidate>
           <div class="form__row">
             <div class="form__group">
               <label class="form__label" for="firstName">Your name *</label>
               <input
                 id="firstName"
+                name="firstName"
                 class="form__input"
                 type="text"
                 placeholder=""
                 required
+                minlength="2"
+                data-error-required="Please enter your first name"
+                data-error-minLength="First name must be at least 2 characters"
               />
             </div>
             <div class="form__group">
               <label class="form__label" for="lastName">Last name *</label>
               <input
                 id="lastName"
+                name="lastName"
                 class="form__input"
                 type="text"
                 placeholder=""
                 required
+                minlength="2"
+                data-error-required="Please enter your last name"
+                data-error-minLength="Last name must be at least 2 characters"
               />
             </div>
           </div>
 
           <div class="form__group">
             <label class="form__label" for="country">Country / Region *</label>
-            <select id="country" class="form__select" required>
+            <select
+              id="country"
+              name="country"
+              class="form__select"
+              required
+              data-error-required="Please select a country"
+            >
+              <option value="">Select a country</option>
               <option value="au">Australia</option>
               <option value="us">United States</option>
               <option value="vn">Viet Nam</option>
@@ -84,31 +105,54 @@
             <label class="form__label" for="street1">Street address *</label>
             <input
               id="street1"
+              name="street1"
               class="form__input"
               type="text"
               placeholder=""
               required
+              minlength="5"
+              data-error-required="Please enter your street address"
+              data-error-minLength="Street address must be at least 5 characters"
             />
           </div>
 
           <div class="form__group">
-            <label class="form__label" for="street2">Street address *</label>
+            <label class="form__label" for="street2">Street address</label>
             <input
               id="street2"
+              name="street2"
               class="form__input"
               type="text"
-              placeholder=""
+              placeholder="Apartment, suite, etc. (optional)"
             />
           </div>
 
           <div class="form__row">
             <div class="form__group">
               <label class="form__label" for="city">Town / City *</label>
-              <input id="city" class="form__input" type="text" required />
+              <input
+                id="city"
+                name="city"
+                class="form__input"
+                type="text"
+                required
+                minlength="2"
+                data-error-required="Please enter your city"
+                data-error-minLength="City name must be at least 2 characters"
+              />
             </div>
             <div class="form__group">
               <label class="form__label" for="district">District *</label>
-              <input id="district" class="form__input" type="text" required />
+              <input
+                id="district"
+                name="district"
+                class="form__input"
+                type="text"
+                required
+                minlength="2"
+                data-error-required="Please enter your district"
+                data-error-minLength="District name must be at least 2 characters"
+              />
             </div>
           </div>
 
@@ -117,17 +161,40 @@
               <label class="form__label" for="zip"
                 >Postcode / ZIP (optional)</label
               >
-              <input id="zip" class="form__input" type="text" />
+              <input
+                id="zip"
+                name="zip"
+                class="form__input"
+                type="text"
+                pattern="[0-9]{5,6}"
+                data-error-pattern="Postcode must be 5-6 digits"
+              />
             </div>
             <div class="form__group">
               <label class="form__label" for="phone">Phone *</label>
-              <input id="phone" class="form__input" type="tel" required />
+              <input
+                id="phone"
+                name="phone"
+                class="form__input"
+                type="tel"
+                required
+                data-error-required="Please enter your phone number"
+                data-error-phone="Please enter a valid phone number"
+              />
             </div>
           </div>
 
           <div class="form__group">
             <label class="form__label" for="email">Email address *</label>
-            <input id="email" class="form__input" type="email" required />
+            <input
+              id="email"
+              name="email"
+              class="form__input"
+              type="email"
+              required
+              data-error-required="Please enter your email address"
+              data-error-email="Please enter a valid email address"
+            />
           </div>
 
           <!-- PAYMENT METHODS -->
@@ -202,7 +269,7 @@
               described in our <a href="#!" class="link">privacy policy</a>.
             </p>
 
-            <button class="btn btn--primary" type="submit">Place order</button>
+            <button class="btn btn--primary checkout-form__btn" type="submit">Place order</button>
           </fieldset>
         </form>
       </section>
@@ -240,5 +307,8 @@
 
     <!-- Footer -->
     <div data-include="/partials/footer.html"></div>
+
+    <!-- Checkout Form Handler -->
+    <script src="./checkout-handler.js"></script>
   </body>
 </html>

@@ -32,30 +32,6 @@
   transform: scale(1.1);
 }
 
-/* ========== Read More Link Animation ========== */
-
-.read-more {
-  position: relative;
-  display: inline-block;
-  transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.read-more::after {
-  content: '→';
-  display: inline-block;
-  margin-left: 8px;
-  transition: transform 0.3s var(--ease-smooth);
-}
-
-.read-more:hover {
-  color: var(--color-dark-orange);
-  transform: translateX(4px);
-}
-
-.read-more:hover::after {
-  transform: translateX(4px);
-}
-
 /* ========== Featured Post Enhancements ========== */
 
 .featured-post {
@@ -81,7 +57,7 @@
 }
 
 .main-blog-image:hover img {
-  transform: scale(1.05);
+  transform: scale(1.02);
 }
 
 /* Social sharing buttons */
@@ -144,8 +120,8 @@
   left: 0;
   top: 0;
   bottom: 0;
-  width: 4px;
-  background: var(--color-dark-orange);
+  width: 0px;
+  background: #fff;
   transition: width 0.3s ease;
 }
 

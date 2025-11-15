@@ -29,6 +29,12 @@
     <link rel="stylesheet" href="../style/animations.css" />
     <link rel="stylesheet" href="../style/page-enhancements.css" />
     <script src="../assets/script/scroll-animations.js"></script>
+
+    <!-- Form Validation System -->
+    <link rel="stylesheet" href="../style/form-validation.css" />
+    <link rel="stylesheet" href="../style/notification-system.css" />
+    <script src="../assets/script/form-validator.js"></script>
+    <script src="../assets/script/notification-system.js"></script>
   </head>
 
   <body>
@@ -132,38 +138,71 @@
         </div>
 
         <!-- Contact Form -->
-        <form class="contact-form__form animate-slide-right">
+        <form class="contact-form__form animate-slide-right" id="contact-form">
           <!-- Name & Email Fields -->
           <div class="form-row">
             <div class="form-group">
               <label for="name">Your name *</label>
-              <input type="text" id="name" name="name" value="" required />
+              <input
+                type="text"
+                id="name"
+                name="name"
+                value=""
+                required
+                minlength="2"
+                data-error-required="Please enter your name"
+                data-error-minLength="Name must be at least 2 characters"
+              />
             </div>
             <div class="form-group">
               <label for="email">Email address *</label>
-              <input type="email" id="email" name="email" required />
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                data-error-required="Please enter your email address"
+                data-error-email="Please enter a valid email address"
+              />
             </div>
           </div>
 
           <!-- Subject Field -->
           <div class="form-group">
             <label for="subject">Subject</label>
-            <input type="text" id="subject" name="subject" />
+            <input
+              type="text"
+              id="subject"
+              name="subject"
+              minlength="3"
+              data-error-minLength="Subject must be at least 3 characters"
+            />
           </div>
 
           <!-- Review / Message Field -->
           <div class="form-group">
             <label for="review">Write review *</label>
-            <textarea id="review" name="review" rows="4" required></textarea>
+            <textarea
+              id="review"
+              name="review"
+              rows="4"
+              required
+              minlength="10"
+              data-error-required="Please write your message"
+              data-error-minLength="Message must be at least 10 characters"
+            ></textarea>
           </div>
 
           <!-- Submit Button -->
-          <button type="submit" class="btn">Submit</button>
+          <button type="submit" class="btn contact-form__btn">Submit</button>
         </form>
       </section>
     </main>
 
     <!-- ========== 4. FOOTER ========== -->
     <div data-include="/partials/footer.html"></div>
+
+    <!-- Contact Form Handler -->
+    <script src="./contact-handler.js"></script>
   </body>
 </html>

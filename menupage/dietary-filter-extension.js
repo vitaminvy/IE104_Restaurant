@@ -162,20 +162,68 @@ import { menuItems, dietaryBadges } from "../assets/data/mockdata.js";
     };
 
     // Card template with badges
-    const cardTemplate = (item) => `
-    <article class="menu__card" data-item-id="${item.id}" style="cursor: pointer;">
+  const cardTemplate = (item) => `
+    <article class="menu__card animate-scale" data-item-id="${item.id}" data-item-title="${
+    item.title
+  }" data-item-price="${item.price}" data-item-image="${
+    item.image
+  }" data-item-desc="${item.desc || ''}">
       <div class="menu__card-img-wrapper">
         <img src="${item.image}" alt="${
-      item.title
-    }" class="menu__card-image" loading="lazy"/>
+    item.title
+  }" class="menu__card-image" loading="lazy"/>
       </div>
       <div class="menu__card-content">
         <h3 class="menu__card-title">${item.title}</h3>
         <p class="menu__card-desc">${item.desc}</p>
-        ${renderBadges(item.badges)}
         <div class="menu__card-meta">
           <span class="menu__card-price">${formatPrice(item.price)}</span>
-          <button class="menu__card-btn">Order Now +</button>
+          <div class="menu__card-actions">
+            <button class="menu__card-cart-btn" data-item-id="${
+              item.id
+            }" aria-label="Add to cart" title="Add to cart">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="9" cy="21" r="1"/>
+                <circle cx="20" cy="21" r="1"/>
+                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+              </svg>
+            </button>
+            <button class="menu__card-btn btn" data-item-id="${
+              item.id
+            }">Order Now +</button>
+          </div>
+        </div>
+        <!-- Dropdown menu (hidden by default) -->
+        <div class="menu__card-dropdown" style="display: none;">
+          <button class="menu__card-dropdown-item view-details" data-item-id="${
+            item.id
+          }">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+              <circle cx="12" cy="12" r="3"/>
+            </svg>
+            View Details
+          </button>
+          <button class="menu__card-dropdown-item add-to-favorites" data-item-id="${
+            item.id
+          }">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+            Add to Favorites
+          </button>
+          <button class="menu__card-dropdown-item share-item" data-item-id="${
+            item.id
+          }">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="18" cy="5" r="3"/>
+              <circle cx="6" cy="12" r="3"/>
+              <circle cx="18" cy="19" r="3"/>
+              <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+              <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+            </svg>
+            Share
+          </button>
         </div>
       </div>
     </article>`;

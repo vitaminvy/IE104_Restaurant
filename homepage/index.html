@@ -56,9 +56,15 @@
     <!-- Global Animation System -->
     <link rel="stylesheet" href="../style/animations.css" />
 
+    <!-- Form Validation & Notification System -->
+    <link rel="stylesheet" href="../style/form-validation.css" />
+    <link rel="stylesheet" href="../style/notification-system.css" />
+
     <!-- Global Loading System -->
     <script src="../assets/script/global-loader.js"></script>
     <script src="../assets/script/scroll-animations.js"></script>
+    <script src="../assets/script/form-validator.js"></script>
+    <script src="../assets/script/notification-system.js"></script>
   </head>
   <body>
     <!-- logic for header and footer -->
@@ -650,12 +656,19 @@
             Book your table for lunch or dinner.
           </p>
 
-          <form action="#" class="reservation__form">
+          <form action="#" class="reservation__form" id="reservation-form">
             <!-- input field: name/phone/email adress -->
             <div class="reservation__row">
               <!-- customer name -->
               <div class="reservation__field">
-                <input type="text" placeholder="Your name" required />
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Your name"
+                  required
+                  minlength="2"
+                  data-error-required="Please enter your name"
+                  data-error-minLength="Name must be at least 2 characters" />
                 <img
                   src="../assets/icons/home-page/resvervation-section/profile.svg"
                   alt="profile icon"
@@ -664,7 +677,13 @@
               </div>
               <!-- phone number -->
               <div class="reservation__field">
-                <input type="tel" placeholder="Phone number" required />
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder="Phone number"
+                  required
+                  data-error-required="Please enter your phone number"
+                  data-error-phone="Please enter a valid phone number" />
                 <img
                   src="../assets/icons/home-page/resvervation-section/phone.svg"
                   alt="phone icon"
@@ -673,7 +692,13 @@
               </div>
               <!-- email -->
               <div class="reservation__field">
-                <input type="email" placeholder="Email address" required />
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email address"
+                  required
+                  data-error-required="Please enter your email address"
+                  data-error-email="Please enter a valid email address" />
                 <img
                   src="../assets/icons/home-page/resvervation-section/message.svg"
                   alt="email icon"
@@ -686,7 +711,10 @@
             <div class="reservation__row">
               <div class="reservation__field">
                 <!-- person - maximum is 5 person -->
-                <select required>
+                <select
+                  name="guests"
+                  required
+                  data-error-required="Please select number of guests">
                   <option value="">1 Person</option>
                   <option value="2">2 Persons</option>
                   <option value="3">3 Persons</option>
@@ -701,7 +729,12 @@
               </div>
               <!-- date -->
               <div class="reservation__field">
-                <input type="date" required />
+                <input
+                  type="date"
+                  name="date"
+                  required
+                  data-error-required="Please select a date"
+                  data-error-date="Please select a valid date" />
                 <img
                   src="../assets/icons/home-page/resvervation-section/calendar.svg"
                   alt="calendar icon"
@@ -710,7 +743,12 @@
               </div>
               <!-- time -->
               <div class="reservation__field">
-                <input type="time" required />
+                <input
+                  type="time"
+                  name="time"
+                  required
+                  data-error-required="Please select a time"
+                  data-error-time="Please select a valid time" />
                 <img
                   src="../assets/icons/home-page/resvervation-section/clock.svg"
                   alt="clock icon"
@@ -836,11 +874,14 @@
             techniques, culinary concepts, insights, and more
           </p>
 
-          <form class="newsletter__form">
+          <form class="newsletter__form" id="newsletter-form">
             <input
               type="email"
+              name="email"
               placeholder="Enter your email address"
               required
+              data-error-required="Please enter your email address"
+              data-error-email="Please enter a valid email address"
             />
             <button type="submit" class="newsletter__submit">
               <i class="fa-solid fa-paper-plane"></i>
@@ -856,5 +897,11 @@
     <!-- Global Features Scripts -->
     <script type="module" src="../assets/features/allergy-alert.js"></script>
     <script type="module" src="../assets/features/social-proof.js"></script>
+
+    <!-- Reservation Form Handler -->
+    <script src="./reservation-handler.js"></script>
+
+    <!-- Newsletter Form Handler -->
+    <script src="./newsletter-handler.js"></script>
   </body>
 </html>

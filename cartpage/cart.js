@@ -178,10 +178,22 @@
     }
 
 
-    // Render each item
+    // Render each item with stagger animation
     items.forEach((item, index) => {
       const row = createCartRow(item, index);
+
+      // Add initial hidden state for animation
+      row.style.opacity = '0';
+      row.style.transform = 'translateY(20px)';
+      row.style.transition = 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
+
       tbody.appendChild(row);
+
+      // Trigger animation with stagger
+      setTimeout(() => {
+        row.style.opacity = '1';
+        row.style.transform = 'translateY(0)';
+      }, index * 50); // 50ms stagger delay
     });
   }
 
@@ -421,13 +433,35 @@
     const items = getCartItems();
     const removedItem = items[index];
 
-    items.splice(index, 1);
-    saveCartItems(items);
+    // Find the row element
+    const row = document.querySelector(`tr[data-index="${index}"]`);
 
-    renderCartItems(items);
-    updateCartTotals();
+    if (row) {
+      // Add slide-out animation
+      row.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 1, 1)';
+      row.style.opacity = '0';
+      row.style.transform = 'translateX(-100px) scale(0.8)';
 
-    showNotification(`Removed "${removedItem.title}" from cart`, 'success');
+      // Wait for animation to complete
+      setTimeout(() => {
+        items.splice(index, 1);
+        saveCartItems(items);
+
+        renderCartItems(items);
+        updateCartTotals();
+
+        showNotification(`Removed "${removedItem.title}" from cart`, 'success');
+      }, 300);
+    } else {
+      // Fallback if row not found
+      items.splice(index, 1);
+      saveCartItems(items);
+
+      renderCartItems(items);
+      updateCartTotals();
+
+      showNotification(`Removed "${removedItem.title}" from cart`, 'success');
+    }
   }
 
   /**
@@ -458,11 +492,26 @@
 
       // Update quantity input
       const input = row.querySelector('.qty__input');
-      if (input) input.value = newQuantity;
+      if (input) {
+        input.value = newQuantity;
 
-      // Update subtotal
+        // Add bounce animation to input
+        input.style.animation = 'none';
+        setTimeout(() => {
+          input.style.animation = 'quantityBounce 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55)';
+        }, 10);
+      }
+
+      // Update subtotal with animation
       const subtotalCell = row.querySelector('.cart__subtotal');
-      if (subtotalCell) subtotalCell.textContent = `$${itemSubtotal}`;
+      if (subtotalCell) {
+        // Add pulse animation
+        subtotalCell.style.animation = 'none';
+        setTimeout(() => {
+          subtotalCell.textContent = `$${itemSubtotal}`;
+          subtotalCell.style.animation = 'pricePulse 0.5s ease-out';
+        }, 10);
+      }
     }
 
     updateCartTotals();
@@ -477,6 +526,12 @@
 
     if (!couponCode) {
       showNotification('Please enter a coupon code', 'error');
+
+      // Add shake animation to input
+      couponInput.classList.add('coupon__input--error');
+      setTimeout(() => {
+        couponInput.classList.remove('coupon__input--error');
+      }, 500);
       return;
     }
 
@@ -484,9 +539,21 @@
 
     if (!coupon) {
       showNotification('Invalid coupon code', 'error');
-      couponInput.value = '';
+
+      // Add shake animation to input
+      couponInput.classList.add('coupon__input--error');
+      setTimeout(() => {
+        couponInput.classList.remove('coupon__input--error');
+        couponInput.value = '';
+      }, 500);
       return;
     }
+
+    // Success! Add confetti animation
+    couponInput.classList.add('coupon__input--success');
+    setTimeout(() => {
+      couponInput.classList.remove('coupon__input--success');
+    }, 600);
 
     // Save coupon
     saveAppliedCoupon({
@@ -496,6 +563,12 @@
 
     updateCartTotals();
     showNotification(`Coupon applied: ${coupon.description}`, 'success');
+
+    // Animate discount row appearance
+    const discountRow = document.querySelector('.totals__discount');
+    if (discountRow) {
+      discountRow.style.animation = 'fadeInScale 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+    }
   }
 
   /**

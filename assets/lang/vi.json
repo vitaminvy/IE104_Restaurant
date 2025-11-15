@@ -27,5 +27,125 @@
     "legal": "Pháp Lý",
     "legal_website": "Website bởi UIT.com",
     "legal_copyright": "©2025. Mọi Quyền Được Bảo Hộ"
+  },
+  "home": {
+    "hero": {
+      "subtitle": "Chào mừng đến với nhà hàng của chúng tôi",
+      "title": "Món ăn ngon nhất cho những khoảnh khắc tuyệt vời nhất",
+      "description": "Chúng tôi có những đầu bếp và ngôi sao nổi tiếng—Julia Child, Sophia Loren, Virginia Woolf—để cảm ơn vì những câu nói hay nhất về ẩm thực mọi thời đại.",
+      "view_more": "Xem thêm"
+    },
+    "highlight_banner": {
+      "self_services": "Tự phục vụ",
+      "best_food": "Món ăn ngon nhất",
+      "fast_delivery": "Giao hàng nhanh",
+      "super_taste": "Hương vị tuyệt vời"
+    },
+    "about": {
+      "title": "Chúng tôi là một nhà hàng Mexico làm món ăn ngon.",
+      "description": "Chào! Nhà hàng của chúng tôi đã có mặt trên thị trường hơn 20 năm. Chúng tôi phục vụ tốt nhất cho tất cả khách hàng của mình.",
+      "link": "Về chúng tôi"
+    },
+    "service_features": {
+      "door_delivery": {
+        "title": "Giao hàng tận nơi",
+        "description": "Mong muốn rằng tất cả họ không thể lường trước được nỗi đau và rắc rối sắp xảy ra."
+      },
+      "outdoor_catering": {
+        "title": "Tiệc ngoài trời",
+        "description": "Nghĩa vụ kinh doanh thường xuyên xảy ra rằng những thú vui phải bị từ bỏ."
+      },
+      "fine_dining": {
+        "title": "Ăn uống cao cấp",
+        "description": "Giải thích cho bạn cách sai lầm này lên án niềm vui và ca ngợi nỗi đau sẽ mang lại cho bạn sự hoàn chỉnh."
+      },
+      "banquets_hall": {
+        "title": "Phòng tiệc",
+        "description": "Người khôn ngoan do đó luôn giữ trong những vấn đề này các nguyên tắc lựa chọn lớn hơn."
+      }
+    },
+    "service_quality": {
+      "title": "Dịch vụ của chúng tôi có nghĩa là sự hài lòng",
+      "subtitle": "Tọa lạc tại trung tâm thành phố Burlington gần bờ hồ Champlain, chúng tôi mang đến cho bạn không gian.",
+      "item1": "Chất lượng & Số lượng hàng đầu.",
+      "item2": "Thực phẩm tươi & lành mạnh.",
+      "item3": "Hương vị thỏa mãn.",
+      "item4": "Dịch vụ thực phẩm theo yêu cầu.",
+      "item5": "Nguyên liệu xanh & an toàn."
+    },
+    "menu": {
+      "title": "Kiểm tra thực đơn của chúng tôi",
+      "subtitle": "Chúng tôi luôn mong muốn phục vụ những món ăn chất lượng. Hãy xem sổ món ăn của chúng tôi bên dưới.",
+      "filter": {
+        "breakfast": "Bữa sáng",
+        "lunch": "Bữa trưa",
+        "dinner": "Bữa tối",
+        "starters": "Món khai vị"
+      }
+    },
+    "stats": {
+      "happy_customers": "Khách hàng hài lòng",
+      "passionate_chefs": "Đầu bếp đam mê",
+      "delicious_dishes": "Món ăn ngon",
+      "customer_rating": "Đánh giá của khách hàng"
+    },
+    "chef_intro": {
+      "title": "Đầu bếp kinh nghiệm",
+      "description": "Mỗi ngày, Đầu bếp Delicioz tự đặt ra thử thách bắt đầu từ đầu – công cụ của anh ấy: sự khéo léo, tò mò, nhiệt huyết, tài năng vô song và tay nghề cao nhất.",
+      "link": "Gặp gỡ đội ngũ của chúng tôi"
+    },
+    "discover_menu": {
+      "title": "Bữa trưa Michelin, bữa tối hay cả hai?",
+      "description": "Đó là câu chuyện về một mối tình bất diệt, Dieter Delicioz và Đại Tây Dương. Sự gần gũi của chúng tôi với sự phong phú của biển cả và các sản phẩm tuyệt vời của Bồ Đào Nha đã mang đến nguồn cảm hứng liên tục cho Đầu bếp L'delicio.",
+      "link": "Khám phá thực đơn"
+    },
+    "daily_offers": {
+      "title": "Ưu đãi hàng ngày của chúng tôi",
+      "item1": {
+        "title": "Câu lạc bộ cay",
+        "description": "Thịt heo, gà và chả giò rau củ ăn kèm với rau xà lách"
+      },
+      "item2": {
+        "title": "Phô mai Brie nướng hạnh nhân",
+        "description": "Thịt heo, gà và chả giò rau củ ăn kèm với rau xà lách"
+      },
+      "item3": {
+        "title": "Bánh mì dẹt Tuscan",
+        "description": "Thịt heo, gà và chả giò rau củ ăn kèm với rau xà lách"
+      }
+    },
+    "reservation": {
+      "title_online": "Trực tuyến",
+      "title_reservation": "Đặt chỗ",
+      "subtitle": "Đặt bàn của bạn cho bữa trưa hoặc bữa tối.",
+      "placeholder_name": "Tên của bạn",
+      "placeholder_phone": "Số điện thoại",
+      "placeholder_email": "Địa chỉ email",
+      "option_1_person": "1 người",
+      "option_2_persons": "2 người",
+      "option_3_persons": "3 người",
+      "option_4_persons": "4 người",
+      "option_5_persons": "5 người",
+      "button": "Đặt bàn ngay"
+    },
+    "blogs": {
+      "title": "Khám phá Blog",
+      "subtitle": "Khám phá các blog phổ biến nhất từ cộng đồng WowWraps. Một danh sách cập nhật liên tục về những bộ óc vĩ đại nhất trong nhà hàng.",
+      "link": "Khám phá tất cả Blog",
+      "card1": {
+        "title": "Nhà hàng mới trong thị trấn đang tìm kiếm suy nghĩ đó",
+        "author": "Bởi Quản trị viên"
+      },
+      "card2": {
+        "title": "Đồ uống mùa hè với quả mâm xôi, chanh và đá",
+        "author": "Bởi Quản trị viên"
+      },
+      "read_more": "Đọc thêm"
+    },
+    "newsletter": {
+      "title": "Đăng ký nhận bản tin & nhận tin tức mới nhất",
+      "subtitle": "Nhận quyền truy cập nội bộ vào tin tức về những đổi mới, kỹ thuật nấu ăn độc đáo, khái niệm ẩm thực, thông tin chi tiết và hơn thế nữa",
+      "placeholder_email": "Nhập địa chỉ email của bạn"
+    }
   }
 }

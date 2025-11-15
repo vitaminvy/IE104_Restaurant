@@ -27,5 +27,125 @@
     "legal": "Legal",
     "legal_website": "Website by UIT.com",
     "legal_copyright": "©2025. All Rights Reserved"
+  },
+  "home": {
+    "hero": {
+      "subtitle": "Welcome to Our Restaurant",
+      "title": "The Best Food For The Best Moments",
+      "description": "We've got famous chefs and stars—Julia Child, Sophia Loren, Virginia Woolf—to thank for some of the greatest food quotes of all time.",
+      "view_more": "View More"
+    },
+    "highlight_banner": {
+      "self_services": "Self Services",
+      "best_food": "Best Food",
+      "fast_delivery": "Fast Delivery",
+      "super_taste": "Super Taste"
+    },
+    "about": {
+      "title": "We Are A Mexican Restaurant Makes Delicious.",
+      "description": "Hi! Our Restaurant has been present for over 20 years in the market. We make the most of all our customers.",
+      "link": "About Us"
+    },
+    "service_features": {
+      "door_delivery": {
+        "title": "Door Delivery",
+        "description": "Desire that they all cannot foresee the pain and trouble that are bound to ensue."
+      },
+      "outdoor_catering": {
+        "title": "Outdoor Catering",
+        "description": "Obligations of business it will frequently occur that pleasures have to be repudiated."
+      },
+      "fine_dining": {
+        "title": "Fine Dining",
+        "description": "Explain you how this mistakens denouncing pleasure & praising pain will give you complete."
+      },
+      "banquets_hall": {
+        "title": "Banquets Hall",
+        "description": "The wise man therefore always holds in these matters this principles of selection greater."
+      }
+    },
+    "service_quality": {
+      "title": "Our Service Means Satisfy",
+      "subtitle": "Located in downtown Burlington near the shores of Lake Champlain, we give you space.",
+      "item1": "Quality & Quantity Top Notch.",
+      "item2": "Fresh & Healthy Food.",
+      "item3": "Satisfying Taste.",
+      "item4": "On Demand Food Services.",
+      "item5": "Green & Safety Ingredient."
+    },
+    "menu": {
+      "title": "Check out our menu",
+      "subtitle": "We love to serve the quality food as always. Check our foodbook below.",
+      "filter": {
+        "breakfast": "Breakfast",
+        "lunch": "Lunch",
+        "dinner": "Dinner",
+        "starters": "Starters"
+      }
+    },
+    "stats": {
+      "happy_customers": "Happy Customers",
+      "passionate_chefs": "Passionate Chef’s",
+      "delicious_dishes": "Delicious Dishes",
+      "customer_rating": "Customer Rating"
+    },
+    "chef_intro": {
+      "title": "Experience Chef",
+      "description": "Everyday Chef Delicioz sets himself the challenge to start from scratch – his tools: ingenuity, curiosity, enthusiasm, unparalleled talent and the highest craftsmanship.",
+      "link": "Meet Our Team"
+    },
+    "discover_menu": {
+      "title": "Michelin Lunch, Dinner Or Both?",
+      "description": "It’s the story of an everlasting love affair, Dieter Delicioz and the Atlantic Ocean. Our proximity to the abundant riches of the sea and Portugal’s excellent produce has provided a constant source of inspiration for Chef L'delicio.",
+      "link": "Discover Menu"
+    },
+    "daily_offers": {
+      "title": "Our Daily Offers",
+      "item1": {
+        "title": "Spicy Club",
+        "description": "Pork, chicken and vegetable fried rolls served with lettuce wraps"
+      },
+      "item2": {
+        "title": "Almond Baked Brie",
+        "description": "Pork, chicken and vegetable fried rolls served with lettuce wraps"
+      },
+      "item3": {
+        "title": "Tuscan Flatbread",
+        "description": "Pork, chicken and vegetable fried rolls served with lettuce wraps"
+      }
+    },
+    "reservation": {
+      "title_online": "Online",
+      "title_reservation": "Reservation",
+      "subtitle": "Book your table for lunch or dinner.",
+      "placeholder_name": "Your name",
+      "placeholder_phone": "Phone number",
+      "placeholder_email": "Email address",
+      "option_1_person": "1 Person",
+      "option_2_persons": "2 Persons",
+      "option_3_persons": "3 Persons",
+      "option_4_persons": "4 Persons",
+      "option_5_persons": "5 Persons",
+      "button": "Reserve Your Table Now"
+    },
+    "blogs": {
+      "title": "Explore Blogs",
+      "subtitle": "Explore the most popular blogs from the WowWraps community. A constantly updating list of the best minds in restaurant.",
+      "link": "Explore All Blogs",
+      "card1": {
+        "title": "New Restaurant In Town That Looking Think That",
+        "author": "By Admin"
+      },
+      "card2": {
+        "title": "Summer Drink With Raspberries, Lime And Ice",
+        "author": "By Admin"
+      },
+      "read_more": "Read more"
+    },
+    "newsletter": {
+      "title": "Subscribe Newsletter & Get Latest News",
+      "subtitle": "Get insider access to news around the innovations, unique cooking techniques, culinary concepts, insights, and more",
+      "placeholder_email": "Enter your email address"
+    }
   }
 }

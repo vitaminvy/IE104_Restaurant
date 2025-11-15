@@ -148,6 +148,29 @@
       "placeholder_email": "Nhập địa chỉ email của bạn"
     }
   },
+  "menu_page": {
+    "title": "Thực Đơn",
+    "banner": {
+      "title1": "Thức Ăn Không Chỉ Là",
+      "title2": "Năng Lượng Để Ăn",
+      "description": "Đó là một Trải Nghiệm.",
+      "order_now": "Đặt Món Ngay"
+    },
+    "cart_icon": {
+      "aria_label": "Xem giỏ hàng",
+      "title": "Xem giỏ hàng"
+    },
+    "dietary_filter": {
+      "title": "Lọc theo sở thích ăn kiêng:"
+    },
+    "empty_message": {
+      "no_items": "Không có món ăn nào phù hợp với sở thích ăn kiêng của bạn.",
+      "try_filters": "Hãy thử các bộ lọc khác hoặc duyệt tất cả các món."
+    },
+    "order_now_button": "Đặt Món Ngay +",
+    "add_to_cart_aria_label": "Thêm vào giỏ hàng",
+    "add_to_cart_title": "Thêm vào giỏ hàng"
+  },
   "coming_soon": {
     "title": "Đăng ký nhận bản tin & nhận tin tức mới nhất",
     "description": "Việc chúng ta có thể làm những gì chúng ta thích nhất, mọi niềm vui đều được chào đón và mọi nỗi đau đều được tránh khỏi.",
@@ -409,15 +432,15 @@
   },
   "dietary_badges": {
     "vegan": {
-      "label": "Chay",
+      "label": "Rau Củ",
       "description": "Không chứa sản phẩm động vật"
     },
     "vegetarian": {
-      "label": "Ăn chay",
+      "label": "Ăn Chay",
       "description": "Không chứa thịt hoặc cá"
     },
     "gluten-free": {
-      "label": "Không chứa gluten",
+      "label": "Không Gluten",
       "description": "Không chứa gluten"
     },
     "spicy": {
@@ -425,11 +448,11 @@
       "description": "Chứa gia vị cay"
     },
     "popular": {
-      "label": "Phổ biến",
-      "description": "Yêu thích của khách hàng"
+      "label": "Phổ Biến",
+      "description": "Món ăn yêu thích của khách hàng"
     },
     "chef-special": {
-      "label": "Đặc biệt của đầu bếp",
+      "label": "Đặc Biệt Của Đầu Bếp",
       "description": "Được đầu bếp của chúng tôi giới thiệu"
     }
   },

@@ -672,39 +672,39 @@ export const menuItems = [
 
 export const dietaryBadges = {
   vegan: {
-    label: "Vegan",
+    label: "dietary_badges.vegan.label",
     icon: "🌱",
     color: "#10b981",
-    description: "Contains no animal products",
+    description: "dietary_badges.vegan.description",
   },
   vegetarian: {
-    label: "Vegetarian",
+    label: "dietary_badges.vegetarian.label",
     icon: "🥗",
     color: "#84cc16",
-    description: "Contains no meat or fish",
+    description: "dietary_badges.vegetarian.description",
   },
   "gluten-free": {
-    label: "Gluten Free",
+    label: "dietary_badges.gluten-free.label",
     icon: "🌾",
     color: "#f59e0b",
-    description: "Contains no gluten",
+    description: "dietary_badges.gluten-free.description",
   },
   spicy: {
-    label: "Spicy",
+    label: "dietary_badges.spicy.label",
     icon: "🌶️",
     color: "#ef4444",
-    description: "Contains hot spices",
+    description: "dietary_badges.spicy.description",
   },
   popular: {
-    label: "Popular",
+    label: "dietary_badges.popular.label",
     icon: "🔥",
     color: "#fb8f2c",
-    description: "Customer favorite",
+    description: "dietary_badges.popular.description",
   },
   "chef-special": {
-    label: "Chef's Special",
+    label: "dietary_badges.chef-special.label",
     icon: "⭐",
     color: "#eab308",
-    description: "Recommended by our chef",
+    description: "dietary_badges.chef-special.description",
   },
 };

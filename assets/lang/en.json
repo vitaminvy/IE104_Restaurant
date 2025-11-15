@@ -148,6 +148,29 @@
       "placeholder_email": "Enter your email address"
     }
   },
+  "menu_page": {
+    "title": "Menu",
+    "banner": {
+      "title1": "Food Is Not Just",
+      "title2": "Eating Energy",
+      "description": "It’s an Experience.",
+      "order_now": "Order Now"
+    },
+    "cart_icon": {
+      "aria_label": "View cart",
+      "title": "View cart"
+    },
+    "dietary_filter": {
+      "title": "Filter by dietary preferences:"
+    },
+    "empty_message": {
+      "no_items": "No items match your dietary preferences.",
+      "try_filters": "Try different filters or browse all items."
+    },
+    "order_now_button": "Order Now +",
+    "add_to_cart_aria_label": "Add to cart",
+    "add_to_cart_title": "Add to cart"
+  },
   "coming_soon": {
     "title": "Subscribe Newsletter & Get Latest News",
     "description": "Our being able to do what we like best, every pleasure is to be welcomed and every pain avoided certain.",

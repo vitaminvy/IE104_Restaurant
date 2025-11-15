@@ -24,6 +24,11 @@
       href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400;0,700&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Global Animation System -->
+    <link rel="stylesheet" href="../style/animations.css" />
+    <link rel="stylesheet" href="../style/page-enhancements.css" />
+    <script src="../assets/script/scroll-animations.js"></script>
   </head>
 
   <body>
@@ -38,7 +43,7 @@
       <!-- ========== 2. WHERE TO FIND US SECTION ========== -->
       <section id="find-us">
         <!-- Text Content -->
-        <div class="find-us__content">
+        <div class="find-us__content animate-slide-left">
           <h2 class="section-title">Where To Find Us</h2>
           <p class="section-text">
             The Patio Time Cafe is located on Silk Street, in the heart of
@@ -49,8 +54,8 @@
           </p>
 
           <!-- Contact Details -->
-          <div class="contact-details">
-            <div class="contact-item">
+          <div class="contact-details stagger-children">
+            <div class="contact-item animate-fade">
               <img
                 src="../assets/icons/contact-us-1/location.svg"
                 alt="Location Icon"
@@ -58,7 +63,7 @@
               />
               <span>Silk St, Barbican, London EC2Y 8DS, UK</span>
             </div>
-            <div class="contact-item">
+            <div class="contact-item animate-fade">
               <img
                 src="../assets/icons/contact-us-1/email.svg"
                 alt="Email Icon"
@@ -66,7 +71,7 @@
               />
               <span>gmail1234@gmail.com</span>
             </div>
-            <div class="contact-item">
+            <div class="contact-item animate-fade">
               <img
                 src="../assets/icons/contact-us-1/phone.svg"
                 alt="Phone Icon"
@@ -93,7 +98,7 @@
         <script src="./pop-up.js"></script>
 
         <!-- Image Content -->
-        <div class="find-us__image-container">
+        <div class="find-us__image-container animate-scale">
           <img
             src="../assets/images/contact-us-1/find-us.png"
             alt="Interior of a retro diner"
@@ -105,7 +110,7 @@
       <!-- ========== 3. CONTACT FORM SECTION ========== -->
       <section id="contact-form">
         <!-- Contact Information -->
-        <div class="contact-form__info">
+        <div class="contact-form__info animate-slide-left">
           <h2 class="section-title">Contact Us</h2>
           <p class="contact-info__item">
             For general enquiries please email: info@gmail.com
@@ -127,7 +132,7 @@
         </div>
 
         <!-- Contact Form -->
-        <form class="contact-form__form">
+        <form class="contact-form__form animate-slide-right">
           <!-- Name & Email Fields -->
           <div class="form-row">
             <div class="form-group">

@@ -1,0 +1,415 @@
+/* ========================================
+ * PAGE-SPECIFIC ANIMATION ENHANCEMENTS
+ * Additional polished animations for blog and contact pages
+ * ======================================== */
+
+/* ========================================
+ * BLOG PAGE ENHANCEMENTS
+ * ======================================== */
+
+/* ========== Blog Card Hover Enhancements ========== */
+
+.post {
+  transition: transform 0.3s var(--ease-smooth),
+              box-shadow 0.3s var(--ease-smooth);
+}
+
+.post:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+}
+
+.post-image {
+  overflow: hidden;
+  border-radius: var(--radius);
+}
+
+.post-image img {
+  transition: transform 0.5s var(--ease-smooth);
+}
+
+.post:hover .post-image img {
+  transform: scale(1.1);
+}
+
+/* ========== Read More Link Animation ========== */
+
+.read-more {
+  position: relative;
+  display: inline-block;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.read-more::after {
+  content: '→';
+  display: inline-block;
+  margin-left: 8px;
+  transition: transform 0.3s var(--ease-smooth);
+}
+
+.read-more:hover {
+  color: var(--color-dark-orange);
+  transform: translateX(4px);
+}
+
+.read-more:hover::after {
+  transform: translateX(4px);
+}
+
+/* ========== Featured Post Enhancements ========== */
+
+.featured-post {
+  transition: transform 0.3s var(--ease-smooth);
+}
+
+.featured-post:hover {
+  transform: scale(1.02);
+}
+
+/* ========== Blog Details Enhancements ========== */
+
+.blog-header h1 {
+  animation: fadeInUp 0.8s var(--ease-out-expo);
+}
+
+.blog-header p {
+  animation: fadeInUp 0.8s var(--ease-out-expo) 0.2s backwards;
+}
+
+.main-blog-image img {
+  transition: transform 0.5s var(--ease-smooth);
+}
+
+.main-blog-image:hover img {
+  transform: scale(1.05);
+}
+
+/* Social sharing buttons */
+.social-links a {
+  display: inline-block;
+  transition: transform 0.3s var(--ease-bounce),
+              color 0.3s ease;
+}
+
+.social-links a:hover {
+  transform: translateY(-4px) scale(1.1);
+  color: var(--color-dark-orange);
+}
+
+.copy-link {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s var(--ease-smooth),
+              background-color 0.3s ease;
+}
+
+.copy-link:hover {
+  transform: translateY(-2px);
+  background-color: var(--color-dark-orange);
+}
+
+.copy-link::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.copy-link:active::before {
+  width: 200px;
+  height: 200px;
+}
+
+/* ========== Blog Quote Enhancement ========== */
+
+.blog-quote {
+  position: relative;
+  animation: fadeInLeft 0.8s var(--ease-smooth);
+  transition: transform 0.3s ease;
+}
+
+.blog-quote:hover {
+  transform: translateX(8px);
+}
+
+.blog-quote::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--color-dark-orange);
+  transition: width 0.3s ease;
+}
+
+.blog-quote:hover::before {
+  width: 8px;
+}
+
+/* ========================================
+ * CONTACT PAGE ENHANCEMENTS
+ * ======================================== */
+
+/* ========== Contact Item Hover Effects ========== */
+
+.contact-item {
+  transition: transform 0.3s var(--ease-smooth),
+              background-color 0.3s ease;
+  padding: 12px;
+  border-radius: var(--radius);
+}
+
+.contact-item:hover {
+  transform: translateX(8px);
+  background-color: rgba(251, 143, 44, 0.1);
+}
+
+.contact-icon {
+  transition: transform 0.3s var(--ease-bounce);
+}
+
+.contact-item:hover .contact-icon {
+  transform: scale(1.2) rotate(5deg);
+}
+
+/* ========== Form Field Enhancements ========== */
+
+.form-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.form-group input:focus + label,
+.form-group textarea:focus + label {
+  color: var(--color-dark-orange);
+  transform: translateX(4px);
+}
+
+/* Animated border on focus */
+.form-group input,
+.form-group textarea,
+.form-group select {
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: border-color 0.3s ease,
+              box-shadow 0.3s ease,
+              transform 0.2s ease;
+}
+
+.form-group input::after,
+.form-group textarea::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--color-dark-orange);
+  transform: translateX(-50%);
+  transition: width 0.3s var(--ease-smooth);
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: var(--color-dark-orange);
+  box-shadow: 0 0 0 3px rgba(251, 143, 44, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Floating label animation */
+.form-group.has-float-label {
+  position: relative;
+}
+
+.form-group.has-float-label label {
+  position: absolute;
+  top: 0;
+  left: 12px;
+  padding: 0 4px;
+  background: var(--bg-box);
+  transition: all 0.3s var(--ease-smooth);
+  pointer-events: none;
+}
+
+.form-group.has-float-label input:focus ~ label,
+.form-group.has-float-label input:not(:placeholder-shown) ~ label {
+  top: -10px;
+  font-size: 0.875rem;
+  color: var(--color-dark-orange);
+}
+
+/* ========== Map Button Enhancement ========== */
+
+#openPopupBtn {
+  position: relative;
+  overflow: hidden;
+}
+
+#openPopupBtn::before {
+  content: '📍';
+  position: absolute;
+  left: -30px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  opacity: 0;
+  transition: left 0.3s ease, opacity 0.3s ease;
+}
+
+#openPopupBtn:hover::before {
+  left: 16px;
+  opacity: 1;
+}
+
+#openPopupBtn:hover {
+  padding-left: 50px;
+}
+
+/* ========== Popup Animation ========== */
+
+.popup {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.popup.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.popup-content {
+  transform: scale(0.8) translateY(-50px);
+  transition: transform 0.4s var(--ease-out-expo);
+}
+
+.popup.active .popup-content {
+  transform: scale(1) translateY(0);
+}
+
+/* ========== Opening Hours Highlight ========== */
+
+.opening-hours {
+  transition: transform 0.3s ease;
+}
+
+.opening-hours:hover {
+  transform: scale(1.05);
+}
+
+.opening-hours p {
+  transition: color 0.3s ease;
+}
+
+.opening-hours:hover p {
+  color: var(--color-dark-orange);
+}
+
+/* ========================================
+ * PAGINATION ENHANCEMENTS
+ * ======================================== */
+
+.pagination a,
+.pagination button {
+  transition: transform 0.3s var(--ease-smooth),
+              background-color 0.3s ease,
+              color 0.3s ease;
+}
+
+.pagination a:hover,
+.pagination button:hover {
+  transform: translateY(-4px) scale(1.1);
+  background-color: var(--color-dark-orange);
+  color: var(--color-white);
+}
+
+.pagination .active {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* ========================================
+ * NEWSLETTER SECTION ENHANCEMENTS
+ * ======================================== */
+
+.newsletter__form {
+  position: relative;
+}
+
+.newsletter__form input[type="email"] {
+  transition: all 0.3s var(--ease-smooth);
+}
+
+.newsletter__form input[type="email"]:focus {
+  transform: scale(1.02);
+  box-shadow: 0 4px 20px rgba(251, 143, 44, 0.3);
+}
+
+.newsletter__submit {
+  transition: transform 0.3s var(--ease-bounce),
+              background-color 0.3s ease;
+}
+
+.newsletter__submit:hover {
+  transform: rotate(15deg) scale(1.2);
+  background-color: var(--color-dark-orange);
+}
+
+.newsletter__submit i {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.newsletter__submit:hover i {
+  transform: translateX(4px);
+}
+
+/* ========================================
+ * RESPONSIVE ADJUSTMENTS
+ * ======================================== */
+
+@media (max-width: 48rem) {
+  /* Reduce transform distances on mobile */
+  .post:hover {
+    transform: translateY(-4px);
+  }
+
+  .contact-item:hover {
+    transform: translateX(4px);
+  }
+
+  .read-more:hover {
+    transform: translateX(2px);
+  }
+}
+
+/* ========================================
+ * ACCESSIBILITY - REDUCED MOTION
+ * ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .post:hover,
+  .contact-item:hover,
+  .read-more:hover,
+  .social-links a:hover {
+    transform: none;
+  }
+
+  .post-image img,
+  .main-blog-image img {
+    transition: none;
+  }
+}

@@ -15,7 +15,7 @@ import { menuItems } from '../assets/data/mockdata.js';
     p.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
 
   const cardTemplate = (item) => `
-    <article class="menu__card" data-item-id="${item.id}" data-item-title="${
+    <article class="menu__card animate-scale" data-item-id="${item.id}" data-item-title="${
     item.title
   }" data-item-price="${item.price}" data-item-image="${
     item.image
@@ -108,6 +108,11 @@ import { menuItems } from '../assets/data/mockdata.js';
 
     // Setup cart icon handlers
     setupCartIconHandlers();
+
+    // Refresh scroll animations for dynamically added cards
+    if (window.ScrollAnimations) {
+      window.ScrollAnimations.refresh();
+    }
   }
 
   // Setup Order Now button click handlers

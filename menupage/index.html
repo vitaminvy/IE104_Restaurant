@@ -34,8 +34,12 @@
   <link rel="stylesheet" href="../assets/features/allergy-alert.css" />
   <link rel="stylesheet" href="../assets/features/social-proof.css" />
 
+  <!-- Global Animation System -->
+  <link rel="stylesheet" href="../style/animations.css" />
+
   <!-- Global Loading System -->
   <script src="../assets/script/global-loader.js"></script>
+  <script src="../assets/script/scroll-animations.js"></script>
 </head>
 
 <body>
@@ -47,7 +51,7 @@
   <div data-include="/partials/header.html"></div>
 
   <!-- ========== FILTER FIELD ========== -->
-  <nav class="menu__filter" aria-label="Menu categories">
+  <nav class="menu__filter animate-fade" aria-label="Menu categories">
     <!-- breakfast -->
     <a href="#" class="menu__filter-item menu__filter-item--active" data-category="breakfast" role="button"
       aria-current="true">Breakfast</a>
@@ -60,16 +64,16 @@
   </nav>
 
   <!-- ===== Unified container where JS will render cards ===== -->
-  <div id="menu-card-container" class="menu__grid" role="list"></div>
+  <div id="menu-card-container" class="menu__grid stagger-children" role="list"></div>
 
-  <nav id="pagination" class="pagination"></nav>
-  
+  <nav id="pagination" class="pagination animate-fade"></nav>
+
   <!-- BANNER MID -->
   <section class="banner">
-    <div class="menu-banner__content">
+    <div class="menu-banner__content animate-scale">
       <h2>Food Is Not Just</h2>
       <h2>Eating Energy</h2>
-      <p>It’s an Experience.</p>
+      <p>It's an Experience.</p>
       <a href="#" class="btn">Order Now</a>
     </div>
   </section>

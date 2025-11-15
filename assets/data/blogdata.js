@@ -53,7 +53,7 @@ export const blogPosts = [
   {
     id: 2,
     slug: 'breakfast-forecast',
-    title: 'Is The Breakfast Forecast Partly Sunny Or Partly Cloudy?',
+    title: 'Is The Breakfast Forecast Partly Sunny Or Cloudy?',
     excerpt: 'Breakfast trends are evolving rapidly. Discover what\'s hot and what\'s not in the morning dining scene.',
     description: 'Analysis of current breakfast trends and predictions for the future of morning dining experiences in restaurants.',
     image: '../assets/images/blog-page/blog-post/blog-post-1.png',

@@ -79,7 +79,7 @@ function renderBlogGrid(page = 1) {
   // Render each post
   posts.forEach(post => {
     const article = document.createElement('article');
-    article.className = 'post';
+    article.className = 'post animate-scale';
     article.innerHTML = `
       <div class="post-image">
         <img src="${post.image}" alt="${post.title}" loading="lazy">
@@ -114,9 +114,14 @@ function renderBlogGrid(page = 1) {
 
   // Update pagination
   renderPagination(pageNum, totalPages, hasNext, hasPrev);
-  
+
   // Update current page
   currentPage = pageNum;
+
+  // Refresh scroll animations for dynamically added blog posts
+  if (window.ScrollAnimations) {
+    window.ScrollAnimations.refresh();
+  }
 }
 
 /* ========================================

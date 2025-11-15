@@ -147,5 +147,42 @@
       "subtitle": "Nhận quyền truy cập nội bộ vào tin tức về những đổi mới, kỹ thuật nấu ăn độc đáo, khái niệm ẩm thực, thông tin chi tiết và hơn thế nữa",
       "placeholder_email": "Nhập địa chỉ email của bạn"
     }
+  },
+  "coming_soon": {
+    "title": "Đăng ký nhận bản tin & nhận tin tức mới nhất",
+    "description": "Việc chúng ta có thể làm những gì chúng ta thích nhất, mọi niềm vui đều được chào đón và mọi nỗi đau đều được tránh khỏi.",
+    "placeholder_email": "Nhập địa chỉ email của bạn",
+    "timer": {
+      "days": "Ngày",
+      "hour": "Giờ",
+      "minutes": "Phút",
+      "seconds": "Giây"
+    },
+    "go_to_home": "Về trang chủ"
+  },
+  "contact_us": {
+    "find_us": {
+      "title": "Nơi để tìm chúng tôi",
+      "description1": "The Patio Time Cafe tọa lạc trên Phố Silk, ở trung tâm thành phố London, ở rìa Soho.",
+      "description2": "Thông tin bổ sung về vị trí và phong cách mở cửa.",
+      "view_in_map": "Xem trên Google Maps"
+    },
+    "form": {
+      "title": "Liên hệ chúng tôi",
+      "general_enquiries": "Đối với các câu hỏi chung, vui lòng gửi email: info@gmail.com",
+      "reserve_by_email": "Đặt chỗ qua email: gmail1234@gmail.com",
+      "tel": "ĐT: +00 000 0000",
+      "opening_hours": {
+        "title": "Giờ mở cửa:",
+        "mon_thu": "Thứ 2 - Thứ 5: 10:00 sáng - 01:00 sáng",
+        "fri_sun": "Thứ 6 - CN: 10:00 sáng - 02:00 sáng"
+      },
+      "online_reservation": "Đặt chỗ trực tuyến",
+      "placeholder_name": "Tên của bạn *",
+      "placeholder_email": "Địa chỉ email *",
+      "placeholder_subject": "Chủ đề",
+      "placeholder_review": "Viết đánh giá *",
+      "submit": "Gửi"
+    }
   }
 }

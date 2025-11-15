@@ -147,5 +147,42 @@
       "subtitle": "Get insider access to news around the innovations, unique cooking techniques, culinary concepts, insights, and more",
       "placeholder_email": "Enter your email address"
     }
+  },
+  "coming_soon": {
+    "title": "Subscribe Newsletter & Get Latest News",
+    "description": "Our being able to do what we like best, every pleasure is to be welcomed and every pain avoided certain.",
+    "placeholder_email": "Enter your email address",
+    "timer": {
+      "days": "Days",
+      "hour": "Hour",
+      "minutes": "Minutes",
+      "seconds": "Seconds"
+    },
+    "go_to_home": "Go to Home"
+  },
+  "contact_us": {
+    "find_us": {
+      "title": "Where To Find Us",
+      "description1": "The Patio Time Cafe is located on Silk Street, in the heart of London city, on the edge of Soho.",
+      "description2": "Additional info about location and opening style.",
+      "view_in_map": "View in Google Maps"
+    },
+    "form": {
+      "title": "Contact Us",
+      "general_enquiries": "For general enquiries please email: info@gmail.com",
+      "reserve_by_email": "Reserve by email: gmail1234@gmail.com",
+      "tel": "Tel: +00 000 0000",
+      "opening_hours": {
+        "title": "Opening hours:",
+        "mon_thu": "Mon - Thu: 10:00 am - 01:00 am",
+        "fri_sun": "Fri - Sun: 10:00 am - 02:00 am"
+      },
+      "online_reservation": "Online Reservation",
+      "placeholder_name": "Your name *",
+      "placeholder_email": "Email address *",
+      "placeholder_subject": "Subject",
+      "placeholder_review": "Write review *",
+      "submit": "Submit"
+    }
   }
 }

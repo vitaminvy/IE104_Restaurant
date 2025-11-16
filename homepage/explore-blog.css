@@ -27,7 +27,7 @@
 
 .blogs__title {
   font-family: var(--font-heading);
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 700;
   margin-bottom: 0.75rem;
 }
@@ -102,7 +102,7 @@
 .blog-hero-card__title {
   margin: 1.6rem 0;
   font-family: var(--font-heading);
-  font-size: 4rem;
+  font-size: 2rem;
   line-height: 1.2;
 }
 
@@ -315,7 +315,7 @@
   }
 
   .blogs__title {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
 
   .blogs__subtitle {

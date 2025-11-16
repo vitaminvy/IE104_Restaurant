@@ -910,65 +910,163 @@
           </a>
         </div>
 
-        <!-- Blog cards -->
-        <div class="blogs__grid">
-          <!-- Blog 1 -->
-          <article class="blog-card">
-            <div class="blog-card__image-wrapper">
-              <img
-                src="./assets/images/home-page/explore-section/blog-drink.png"
-                alt="New Restaurant In Town"
-                class="blog-card__image"
-              />
-            </div>
-            <div class="blog-card__content">
-              <h3 class="blog-card__title" data-i18n="home.blogs.card1.title">
-                New Restaurant In Town That Looking Think That
-              </h3>
-              <div class="blog-card__meta">
-                <span>August 6, 2025</span>
-                <span class="blog-card__dot">•</span>
-                <span data-i18n="home.blogs.card1.author">By Admin</span>
+        <div class="blogs__layout">
+          <div class="blogs__stories">
+            <article class="blog-hero-card">
+              <div class="blog-hero-card__media">
+                <img
+                  src="./assets/images/home-page/explore-section/blog-restaurant.png"
+                  alt="Restaurant interior"
+                />
               </div>
-              <hr class="blog-card__divider" />
-              <a
-                href="./blogpage-details/index.html"
-                class="blog-card__readmore link-underline"
-                data-i18n="home.blogs.read_more"
-              >
-                Read more <span class="blog-card__arrow">→</span>
-              </a>
-            </div>
-          </article>
+              <div class="blog-hero-card__body">
+                <p
+                  class="blog-hero-card__category"
+                  data-i18n="home.blogs.hero.category"
+                >
+                  Chef's Journal
+                </p>
+                <h3
+                  class="blog-hero-card__title"
+                  data-i18n="home.blogs.card1.title"
+                >
+                  New Restaurant In Town That Looking Think That
+                </h3>
+                <p
+                  class="blog-hero-card__excerpt"
+                  data-i18n="home.blogs.hero.excerpt"
+                >
+                  Chef Mateo shares the menu architecture behind the city's most
+                  talked about opening and how he layers nostalgia with neon
+                  energy.
+                </p>
+                <div class="blog-hero-card__meta">
+                  <span data-i18n="home.blogs.hero.date">August 6, 2025</span>
+                  <span class="blog-card__dot">•</span>
+                  <span data-i18n="home.blogs.card1.author">By Admin</span>
+                </div>
+                <a
+                  href="./blogpage-details/index.html"
+                  class="blog-hero-card__cta"
+                  data-i18n="home.blogs.read_more"
+                >
+                  Read more
+                </a>
+              </div>
+            </article>
 
-          <!-- Blog 2 -->
-          <article class="blog-card">
-            <div class="blog-card__image-wrapper">
-              <img
-                src="./assets/images/home-page/explore-section/blog-restaurant.png"
-                alt="Summer Drink With Raspberries"
-                class="blog-card__image"
-              />
-            </div>
-            <div class="blog-card__content">
-              <h3 class="blog-card__title" data-i18n="home.blogs.card2.title">
-                Summer Drink With Raspberries, Lime And Ice
-              </h3>
-              <div class="blog-card__meta">
-                <span>August 6, 2025</span>
-                <span class="blog-card__dot">•</span>
-                <span data-i18n="home.blogs.card2.author">By Admin</span>
+            <article class="blog-mini-card">
+              <div class="blog-mini-card__image">
+                <img
+                  src="./assets/images/home-page/explore-section/blog-drink.png"
+                  alt="Summer cocktail"
+                />
               </div>
-              <hr class="blog-card__divider" />
-              <a
-                href="./blogpage-details/index.html"
-                class="blog-card__readmore link-underline"
-                data-i18n="home.blogs.read_more"
-              >
-                Read more <span class="blog-card__arrow">→</span>
-              </a>
+              <div class="blog-mini-card__body">
+                <p
+                  class="blog-mini-card__label"
+                  data-i18n="home.blogs.hero.secondary_category"
+                >
+                  Behind the Bar
+                </p>
+                <h4 data-i18n="home.blogs.card2.title">
+                  Summer Drink With Raspberries, Lime And Ice
+                </h4>
+                <p data-i18n="home.blogs.hero.secondary_excerpt">
+                  Layer botanical syrups with citrus oils for a cocktail that
+                  glows like sunset.
+                </p>
+                <a
+                  href="./blogpage-details/index.html"
+                  class="blog-mini-card__cta"
+                  data-i18n="home.blogs.read_more"
+                  >Read more</a
+                >
+              </div>
+            </article>
+          </div>
+
+          <div class="blogs__timeline">
+            <div class="blogs__timeline-header">
+              <p data-i18n="home.blogs.hero.timeline_heading">
+                Fresh from the test kitchen
+              </p>
             </div>
-          </article>
+            <div class="blogs__timeline-track">
+              <article class="blogs__timeline-item">
+                <span class="blogs__timeline-dot"></span>
+                <div class="blogs__timeline-content">
+                  <p
+                    class="blogs__timeline-date"
+                    data-i18n="home.blogs.hero.timeline.item1.date"
+                  >
+                    Aug 02
+                  </p>
+                  <h4 data-i18n="home.blogs.hero.timeline.item1.title">
+                    5 plating secrets you can borrow
+                  </h4>
+                  <p data-i18n="home.blogs.hero.timeline.item1.description">
+                    Minimal tools transform simple dishes into layered canvases
+                    with dimension.
+                  </p>
+                  <a
+                    href="./blogpage-details/index.html"
+                    class="blogs__timeline-link"
+                    data-i18n="home.blogs.read_more"
+                    >Read more</a
+                  >
+                </div>
+              </article>
+              <article class="blogs__timeline-item">
+                <span class="blogs__timeline-dot"></span>
+                <div class="blogs__timeline-content">
+                  <p
+                    class="blogs__timeline-date"
+                    data-i18n="home.blogs.hero.timeline.item2.date"
+                  >
+                    Jul 28
+                  </p>
+                  <h4 data-i18n="home.blogs.hero.timeline.item2.title">
+                    Ferment pantry starters for depth
+                  </h4>
+                  <p data-i18n="home.blogs.hero.timeline.item2.description">
+                    How we build quick ferments that turbocharge broths,
+                    dressings, and dessert sauces.
+                  </p>
+                  <a
+                    href="./blogpage-details/index.html"
+                    class="blogs__timeline-link"
+                    data-i18n="home.blogs.read_more"
+                    >Read more</a
+                  >
+                </div>
+              </article>
+              <article class="blogs__timeline-item">
+                <span class="blogs__timeline-dot"></span>
+                <div class="blogs__timeline-content">
+                  <p
+                    class="blogs__timeline-date"
+                    data-i18n="home.blogs.hero.timeline.item3.date"
+                  >
+                    Jul 20
+                  </p>
+                  <h4 data-i18n="home.blogs.hero.timeline.item3.title">
+                    Zero-waste desserts worth repeating
+                  </h4>
+                  <p data-i18n="home.blogs.hero.timeline.item3.description">
+                    Re-spin trim, pits, and peels into mochi bites with
+                    caramelized depth.
+                  </p>
+                  <a
+                    href="./blogpage-details/index.html"
+                    class="blogs__timeline-link"
+                    data-i18n="home.blogs.read_more"
+                    >Read more</a
+                  >
+                </div>
+              </article>
+            </div>
+          </div>
         </div>
       </div>
     </section>

@@ -171,22 +171,10 @@ import i18nService from '../assets/script/i18n-service.js';
     }
 
 
-    // Render each item with stagger animation
+    // Render each item
     items.forEach((item, index) => {
       const row = createCartRow(item, index);
-
-      // Add initial hidden state for animation
-      row.style.opacity = '0';
-      row.style.transform = 'translateY(20px)';
-      row.style.transition = 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
-
       tbody.appendChild(row);
-
-      // Trigger animation with stagger
-      setTimeout(() => {
-        row.style.opacity = '1';
-        row.style.transform = 'translateY(0)';
-      }, index * 50); // 50ms stagger delay
     });
   }
 
@@ -427,312 +415,267 @@ import i18nService from '../assets/script/i18n-service.js';
     const items = getCartItems();
     const removedItem = items[index];
 
-    // Find the row element
+    items.splice(index, 1);
+    saveCartItems(items);
+
+    renderCartItems(items);
+    updateCartTotals();
+
+    const translatedTitle = i18nService.t(removedItem.title);
+    showNotification(`Removed "${translatedTitle}" from cart`, 'success');
+  }
+
+  /**
+   * Handle quantity change
+   * @param {Number} index - Item index
+   * @param {Number} newQuantity - New quantity value
+   */
+  function handleQuantityChange(index, newQuantity) {
+    const items = getCartItems();
+
+    // Validate quantity
+    newQuantity = parseInt(newQuantity);
+    if (isNaN(newQuantity) || newQuantity < 1) {
+      newQuantity = 1;
+    }
+    if (newQuantity > 99) {
+      newQuantity = 99;
+    }
+
+    items[index].quantity = newQuantity;
+    saveCartItems(items);
+
+    // Update only the affected row
     const row = document.querySelector(`tr[data-index="${index}"]`);
-
     if (row) {
-      // Add slide-out animation
-      row.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 1, 1)';
-      row.style.opacity = '0';
-      row.style.transform = 'translateX(-100px) scale(0.8)';
+      const item = items[index];
+      const itemSubtotal = (item.price * item.quantity).toFixed(2);
 
-      const translatedTitle = i18nService.t(removedItem.title);
-      showNotification(`Removed "${translatedTitle}" from cart`, 'success');
+      // Update quantity input
+      const input = row.querySelector('.qty__input');
+      if (input) input.value = newQuantity;
 
+      // Update subtotal
+      const subtotalCell = row.querySelector('.cart__subtotal');
+      if (subtotalCell) subtotalCell.textContent = `${itemSubtotal}`;
     }
 
-    /**
-     * Handle quantity change
-     * @param {Number} index - Item index
-     * @param {Number} newQuantity - New quantity value
-     */
-    function handleQuantityChange(index, newQuantity) {
-      const items = getCartItems();
+    updateCartTotals();
+  }
 
-      // Validate quantity
-      newQuantity = parseInt(newQuantity);
-      if (isNaN(newQuantity) || newQuantity < 1) {
-        newQuantity = 1;
-      }
-      if (newQuantity > 99) {
-        newQuantity = 99;
-      }
+  /**
+   * Handle coupon application
+   */
+  function handleApplyCoupon() {
+    const couponInput = document.querySelector('.coupon__input');
+    const couponCode = couponInput.value.trim().toUpperCase();
 
-      items[index].quantity = newQuantity;
-      saveCartItems(items);
-
-      // Update only the affected row
-      const row = document.querySelector(`tr[data-index="${index}"]`);
-      if (row) {
-        const item = items[index];
-        const itemSubtotal = (item.price * item.quantity).toFixed(2);
-
-        // Update quantity input
-        const input = row.querySelector('.qty__input');
-        if (input) {
-          input.value = newQuantity;
-
-          // Add bounce animation to input
-          input.style.animation = 'none';
-          setTimeout(() => {
-            input.style.animation = 'quantityBounce 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55)';
-          }, 10);
-        }
-
-        // Update subtotal with animation
-        const subtotalCell = row.querySelector('.cart__subtotal');
-        if (subtotalCell) {
-          // Add pulse animation
-          subtotalCell.style.animation = 'none';
-          setTimeout(() => {
-            subtotalCell.textContent = `$${itemSubtotal}`;
-            subtotalCell.style.animation = 'pricePulse 0.5s ease-out';
-          }, 10);
-        }
-
-      }
-
-      updateCartTotals();
+    if (!couponCode) {
+      showNotification('Please enter a coupon code', 'error');
+      return;
     }
 
-    /**
-     * Handle coupon application
-     */
-    function handleApplyCoupon() {
-      const couponInput = document.querySelector('.coupon__input');
-      const couponCode = couponInput.value.trim().toUpperCase();
+    const coupon = COUPONS[couponCode];
 
-      if (!couponCode) {
-        showNotification('Please enter a coupon code', 'error');
+    if (!coupon) {
+      showNotification('Invalid coupon code', 'error');
+      couponInput.value = '';
+      return;
+    }
 
-        // Add shake animation to input
-        couponInput.classList.add('coupon__input--error');
-        setTimeout(() => {
-          couponInput.classList.remove('coupon__input--error');
-        }, 500);
-        return;
-      }
+    // Save coupon
+    saveAppliedCoupon({
+      code: couponCode,
+      ...coupon
+    });
 
-      const coupon = COUPONS[couponCode];
+    updateCartTotals();
+    showNotification(`Coupon applied: ${coupon.description}`, 'success');
+  }
 
-      if (!coupon) {
-        showNotification('Invalid coupon code', 'error');
+  /**
+   * Handle coupon removal
+   */
+  function handleRemoveCoupon() {
+    clearAppliedCoupon();
+    updateCartTotals();
+    showNotification('Coupon removed', 'success');
+  }
 
-        // Add shake animation to input
-        couponInput.classList.add('coupon__input--error');
-        setTimeout(() => {
-          couponInput.classList.remove('coupon__input--error');
-          couponInput.value = '';
-        }, 500);
-        return;
-      }
+  /**
+   * Handle proceed to checkout
+   */
+  function handleProceedToCheckout() {
+    const items = getCartItems();
 
-      // Success! Add confetti animation
-      couponInput.classList.add('coupon__input--success');
-      setTimeout(() => {
-        couponInput.classList.remove('coupon__input--success');
-      }, 600);
+    if (items.length === 0) {
+      showNotification('Your cart is empty', 'error');
+      return;
+    }
 
-      // Save coupon
-      saveAppliedCoupon({
-        code: couponCode,
-        ...coupon
+    // Navigate to checkout page
+    window.location.href = '../checkout-page/checkout.html';
+  }
+
+  /* ========================================
+   * EVENT LISTENERS SETUP
+   * ======================================== */
+
+  /**
+   * Setup all event listeners
+   */
+  function setupEventListeners() {
+    // Delegate events for dynamic cart items
+    const tbody = document.querySelector('.cart__table tbody');
+    if (tbody) {
+      tbody.addEventListener('click', (e) => {
+        const target = e.target.closest('button');
+        if (!target) return;
+
+        const index = parseInt(target.dataset.index);
+
+        // Remove button
+        if (target.classList.contains('remove__btn')) {
+          e.preventDefault();
+          handleRemoveItem(index);
+        }
+
+        // Decrease quantity
+        if (target.classList.contains('qty__btn--minus')) {
+          e.preventDefault();
+          const items = getCartItems();
+          if (items[index]) {
+            handleQuantityChange(index, items[index].quantity - 1);
+          }
+        }
+
+        // Increase quantity
+        if (target.classList.contains('qty__btn--plus')) {
+          e.preventDefault();
+          const items = getCartItems();
+          if (items[index]) {
+            handleQuantityChange(index, items[index].quantity + 1);
+          }
+        }
       });
 
-      updateCartTotals();
-      showNotification(`Coupon applied: ${coupon.description}`, 'success');
-
-      // Animate discount row appearance
-      const discountRow = document.querySelector('.totals__discount');
-      if (discountRow) {
-        discountRow.style.animation = 'fadeInScale 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
-      }
-    }
-
-    /**
-     * Handle coupon removal
-     */
-    function handleRemoveCoupon() {
-      clearAppliedCoupon();
-      updateCartTotals();
-      showNotification('Coupon removed', 'success');
-    }
-
-    /**
-     * Handle proceed to checkout
-     */
-    function handleProceedToCheckout() {
-      const items = getCartItems();
-
-      if (items.length === 0) {
-        showNotification('Your cart is empty', 'error');
-        return;
-      }
-
-      // Navigate to checkout page
-      window.location.href = '../checkout-page/checkout.html';
-    }
-
-    /* ========================================
-     * EVENT LISTENERS SETUP
-     * ======================================== */
-
-    /**
-     * Setup all event listeners
-     */
-    function setupEventListeners() {
-      // Delegate events for dynamic cart items
-      const tbody = document.querySelector('.cart__table tbody');
-      if (tbody) {
-        tbody.addEventListener('click', (e) => {
-          const target = e.target.closest('button');
-          if (!target) return;
-
-          const index = parseInt(target.dataset.index);
-
-          // Remove button
-          if (target.classList.contains('remove__btn')) {
-            e.preventDefault();
-            handleRemoveItem(index);
-          }
-
-          // Decrease quantity
-          if (target.classList.contains('qty__btn--minus')) {
-            e.preventDefault();
-            const items = getCartItems();
-            if (items[index]) {
-              handleQuantityChange(index, items[index].quantity - 1);
-            }
-          }
-
-          // Increase quantity
-          if (target.classList.contains('qty__btn--plus')) {
-            e.preventDefault();
-            const items = getCartItems();
-            if (items[index]) {
-              handleQuantityChange(index, items[index].quantity + 1);
-            }
-          }
-        });
-
-        // Quantity input change
-        tbody.addEventListener('input', (e) => {
-          if (e.target.classList.contains('qty__input')) {
-            const index = parseInt(e.target.dataset.index);
-            const newQuantity = e.target.value;
-            handleQuantityChange(index, newQuantity);
-          }
-        });
-      }
-
-      // Coupon button
-      const couponBtn = document.querySelector('.coupon .btn');
-      if (couponBtn) {
-        couponBtn.addEventListener('click', (e) => {
-          e.preventDefault();
-          const action = couponBtn.getAttribute('data-action');
-
-          if (action === 'remove') {
-            handleRemoveCoupon();
-          } else {
-            handleApplyCoupon();
-          }
-        });
-      }
-
-      // Proceed to checkout button
-      const checkoutBtn = document.querySelector('.totals__footer .btn');
-      if (checkoutBtn) {
-        checkoutBtn.addEventListener('click', (e) => {
-          e.preventDefault();
-          handleProceedToCheckout();
-        });
-      }
-    }
-
-    /* ========================================
-     * INITIALIZATION
-     * ======================================== */
-
-    /**
-     * Initialize cart page
-     */
-    async function init() {
-      console.log('🛒 Initializing cart page...');
-
-      // Show loader while initializing
-      if (window.GlobalLoader) {
-        window.GlobalLoader.show('Loading cart...');
-      }
-
-      await i18nService.init();
-
-      // Small delay to ensure localStorage is readable
-      setTimeout(() => {
-        // Load and render cart items
-        const items = getCartItems();
-        console.log('📦 Cart items loaded:', items);
-
-        renderCartItems(items);
-
-        // Update totals
-        updateCartTotals();
-
-        // Setup event listeners
-        setupEventListeners();
-
-        // Hide loader
-        if (window.GlobalLoader) {
-          window.GlobalLoader.hide(300);
+      // Quantity input change
+      tbody.addEventListener('input', (e) => {
+        if (e.target.classList.contains('qty__input')) {
+          const index = parseInt(e.target.dataset.index);
+          const newQuantity = e.target.value;
+          handleQuantityChange(index, newQuantity);
         }
-
-        console.log('✅ Cart initialized with', items.length, 'items');
-        console.log('🎟️ Available coupons:', Object.keys(COUPONS).join(', '));
-      }, 100);
+      });
     }
 
-    // Initialize when DOM is ready
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', init);
-    } else {
-      init();
-    }
+    // Coupon button
+    const couponBtn = document.querySelector('.coupon .btn');
+    if (couponBtn) {
+      couponBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const action = couponBtn.getAttribute('data-action');
 
-    /* ========================================
-     * PUBLIC API (for external use)
-     * ======================================== */
-
-    window.CartManager = {
-      addItem: function (item) {
-        const items = getCartItems();
-        const existingIndex = items.findIndex(i => i.id === item.id);
-
-        if (existingIndex >= 0) {
-          items[existingIndex].quantity += (item.quantity || 1);
+        if (action === 'remove') {
+          handleRemoveCoupon();
         } else {
-          items.push({
-            id: item.id,
-            title: item.title,
-            price: item.price,
-            image: item.image,
-            quantity: item.quantity || 1
-          });
+          handleApplyCoupon();
         }
+      });
+    }
 
-        saveCartItems(items);
-        return items;
-      },
-
-      getItems: getCartItems,
-      getItemCount: function () {
-        return getCartItems().reduce((total, item) => total + item.quantity, 0);
-      },
-
-      clearCart: function () {
-        saveCartItems([]);
-        clearAppliedCoupon();
-      }
-    };
-
+    // Proceed to checkout button
+    const checkoutBtn = document.querySelector('.totals__footer .btn');
+    if (checkoutBtn) {
+      checkoutBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        handleProceedToCheckout();
+      });
+    }
   }
-});
+
+  /* ========================================
+   * INITIALIZATION
+   * ======================================== */
+
+  /**
+   * Initialize cart page
+   */
+  async function init() {
+    console.log('🛒 Initializing cart page...');
+
+    // Show loader while initializing
+    if (window.GlobalLoader) {
+      window.GlobalLoader.show('Loading cart...');
+    }
+
+    await i18nService.init();
+
+    // Small delay to ensure localStorage is readable
+    setTimeout(() => {
+      // Load and render cart items
+      const items = getCartItems();
+      console.log('📦 Cart items loaded:', items);
+
+      renderCartItems(items);
+
+      // Update totals
+      updateCartTotals();
+
+      // Setup event listeners
+      setupEventListeners();
+
+      // Hide loader
+      if (window.GlobalLoader) {
+        window.GlobalLoader.hide(300);
+      }
+
+      console.log('✅ Cart initialized with', items.length, 'items');
+      console.log('🎟️ Available coupons:', Object.keys(COUPONS).join(', '));
+    }, 100);
+  }
+
+  // Initialize when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+
+  /* ========================================
+   * PUBLIC API (for external use)
+   * ======================================== */
+
+  window.CartManager = {
+    addItem: function (item) {
+      const items = getCartItems();
+      const existingIndex = items.findIndex(i => i.id === item.id);
+
+      if (existingIndex >= 0) {
+        items[existingIndex].quantity += (item.quantity || 1);
+      } else {
+        items.push({
+          id: item.id,
+          title: item.title,
+          price: item.price,
+          image: item.image,
+          quantity: item.quantity || 1
+        });
+      }
+
+      saveCartItems(items);
+      return items;
+    },
+
+    getItems: getCartItems,
+    getItemCount: function () {
+      return getCartItems().reduce((total, item) => total + item.quantity, 0);
+    },
+
+    clearCart: function () {
+      saveCartItems([]);
+      clearAppliedCoupon();
+    }
+  };
+
+})();

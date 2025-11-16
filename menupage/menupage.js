@@ -145,12 +145,14 @@ import i18nService from '../assets/script/i18n-service.js';
         const title = card.querySelector('.menu__card-title')?.textContent || i18nService.t(item.title);
         const desc = card.querySelector('.menu__card-desc')?.textContent || i18nService.t(item.desc);
 
+        const cartItem = { ...item, title, desc };
+
         // Use enhanced add to cart with navigation
         if (window.enhancedAddToCart) {
-          window.enhancedAddToCart(item, button, true);
+          window.enhancedAddToCart(cartItem, button, true);
         } else {
           // Fallback to original function
-          addToCartAndNavigate(item);
+          addToCartAndNavigate(cartItem);
         }
       });
     });
@@ -242,10 +244,11 @@ import i18nService from '../assets/script/i18n-service.js';
         const desc = card.querySelector('.menu__card-desc')?.textContent || i18nService.t(item.desc);
 
         console.log('🛒 Adding to cart via cart icon:', title);
+        const preparedItem = { ...item, title, desc };
 
         // Use enhanced add to cart with animations (no navigation)
         if (window.enhancedAddToCart) {
-          window.enhancedAddToCart(item, button, false);
+          window.enhancedAddToCart(preparedItem, button, false);
         } else {
           // Fallback to basic animation
           button.style.transform = 'scale(0.85)';
@@ -266,7 +269,7 @@ import i18nService from '../assets/script/i18n-service.js';
 
           // Check if item already exists in cart
           const existingItemIndex = cart.findIndex(
-            (cartItem) => cartItem.id === item.id
+            (entry) => entry.id === preparedItem.id
           );
 
           if (existingItemIndex > -1) {
@@ -275,22 +278,22 @@ import i18nService from '../assets/script/i18n-service.js';
               (cart[existingItemIndex].quantity || 1) + 1;
             console.log(
               '📈 Increased quantity for:',
-              item.title,
+              preparedItem.title,
               'to',
               cart[existingItemIndex].quantity
             );
           } else {
             // Add new item to cart
-            const cartItem = {
-              id: item.id,
-              title: item.title,
-              price: item.price,
-              image: item.image,
-              desc: item.desc || '',
+            const cartEntry = {
+              id: preparedItem.id,
+              title: preparedItem.title,
+              price: preparedItem.price,
+              image: preparedItem.image,
+              desc: preparedItem.desc || '',
               quantity: 1,
             };
-            cart.push(cartItem);
-            console.log('➕ Added new item to cart:', item.title);
+            cart.push(cartEntry);
+            console.log('➕ Added new item to cart:', preparedItem.title);
           }
 
           // Save to localStorage
@@ -306,7 +309,7 @@ import i18nService from '../assets/script/i18n-service.js';
           if (window.showToast) {
             const totalQty = cart[existingItemIndex]?.quantity || 1;
             window.showToast(
-              `${item.title} added to cart (Qty: ${totalQty})`,
+              `${preparedItem.title} added to cart (Qty: ${totalQty})`,
               'success',
               2000
             );

@@ -138,6 +138,35 @@
   // ENHANCED ADD TO CART FUNCTION
   // ================================
 
+  function toQuantity(value) {
+    const qty = parseInt(value, 10);
+    if (isNaN(qty) || qty < 1) return 1;
+    if (qty > 99) return 99;
+    return qty;
+  }
+
+  function notifyCartUpdate(cart) {
+    try {
+      const event = new CustomEvent('cart:updated', { detail: { items: cart } });
+      document.dispatchEvent(event);
+    } catch (err) {
+      console.warn('Unable to dispatch cart update event:', err);
+    }
+
+    const cartCountEl = document.getElementById('cart-count');
+    if (cartCountEl) {
+      const totalItems = cart.reduce((sum, cartItem) => sum + toQuantity(cartItem.quantity), 0);
+      cartCountEl.textContent = totalItems;
+
+      if (cartCountEl.animate) {
+        cartCountEl.animate(
+          [{ transform: 'scale(1)' }, { transform: 'scale(1.2)' }, { transform: 'scale(1)' }],
+          { duration: 250, easing: 'ease-out' }
+        );
+      }
+    }
+  }
+
   /**
    * Enhanced add to cart with animations
    * @param {Object} item - Item to add
@@ -166,7 +195,7 @@
 
     if (existingItemIndex > -1) {
       // Item exists, increase quantity
-      cart[existingItemIndex].quantity = (cart[existingItemIndex].quantity || 1) + 1;
+      cart[existingItemIndex].quantity = toQuantity(cart[existingItemIndex].quantity || 1) + 1;
     } else {
       // Add new item to cart
       const cartItem = {
@@ -175,7 +204,7 @@
         price: item.price,
         image: item.image,
         desc: item.desc || '',
-        quantity: 1,
+        quantity: toQuantity(item.quantity || 1),
       };
       cart.push(cartItem);
     }
@@ -189,13 +218,15 @@
       return;
     }
 
+    notifyCartUpdate(cart);
+
     // Show success state after a short delay
     setTimeout(() => {
       btnManager.showSuccess();
 
       // Show notification if available
       if (window.NotificationSystem) {
-        const qty = cart[existingItemIndex > -1 ? existingItemIndex : cart.length - 1].quantity;
+        const qty = toQuantity(cart[existingItemIndex > -1 ? existingItemIndex : cart.length - 1].quantity);
         window.NotificationSystem.success(
           `${item.title} ${existingItemIndex > -1 ? 'quantity updated' : 'added to cart'}! (${qty}x)`,
           {

@@ -514,28 +514,8 @@
   text-transform: capitalize;
 }
 
-.menu-banner__badge {
-  position: absolute;
-  right: clamp(1rem, 3vw, 2rem);
-  top: clamp(1rem, 3vw, 2rem);
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  padding: 0.75rem 1rem;
-  border-radius: 18px;
-  color: var(--color-white);
-  backdrop-filter: blur(6px);
-  text-align: center;
-  font-size: 0.95rem;
-  font-weight: 600;
-}
 
-.menu-banner__badge span {
-  display: block;
-  font-size: 0.7rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.75);
-}
+
 /* =======================
    TOAST
 ======================= */

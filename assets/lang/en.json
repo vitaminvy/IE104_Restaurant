@@ -167,7 +167,7 @@
       "no_items": "No items match your dietary preferences.",
       "try_filters": "Try different filters or browse all items."
     },
-    "order_now_button": "Order Now +",
+    "order_now_button": "Order Now",
     "add_to_cart_aria_label": "Add to cart",
     "add_to_cart_title": "Add to cart"
   },
@@ -668,6 +668,55 @@
         ],
         "quote": "Invest in your people's financial wellness, and they'll invest their energy and loyalty in your restaurant."
       }
+    }
+  },
+  "product_detail_page": {
+    "title": "Product Detail",
+    "meta": {
+      "sku": "SKU:",
+      "category": "CATEGORY:",
+      "tags": "TAGS:",
+      "default_tags": "Food, Restaurant"
+    },
+    "review_count": "(1 customer review)",
+    "add_to_cart_button": "ADD TO CART",
+    "tabs": {
+      "description": "Description",
+      "reviews": "Reviews (1)"
+    },
+    "review_form": {
+      "title": "Add A Review",
+      "note": "Your email address will not be published. Required fields are marked *",
+      "placeholder_name": "Your name *",
+      "placeholder_email": "Email address *",
+      "placeholder_website": "Website *",
+      "your_rating": "Your rating",
+      "placeholder_write_review": "Write review *",
+      "save_info": "Save my name, email, and website in this browser for the next time I comment.",
+      "submit_button": "Submit"
+    },
+    "related_items_title": "Related Items",
+    "notification": {
+      "added_to_cart": "Added to cart!",
+      "view_cart": "View Cart"
+    },
+    "pairing_reasons": {
+      "same_category": "Complements the same meal type perfectly",
+      "spice_balance": "Balances the spice level nicely",
+      "dietary_match": "Shares similar dietary preferences",
+      "contrast_texture": "Offers contrasting textures for variety",
+      "chef_pick": "Recommended pairing by our chef",
+      "popular_combo": "A customer favorite combination"
+    },
+    "pairing_section": {
+      "title": "Pairs Well With",
+      "subtitle": "Enhance your meal with these perfect combinations"
+    },
+    "loading_product": "Loading",
+    "error_message": {
+      "title": "Product Not Found",
+      "description": "The product you're looking for doesn't exist or has been removed.",
+      "back_to_menu": "Back to Menu"
     }
   }
 }

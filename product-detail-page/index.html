@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Menu</title>
+    <title data-i18n="product_detail_page.title">Product Detail</title>
 
     <link rel="stylesheet" href="../style/reset.css" />
     <link rel="stylesheet" href="../style/style.css" />
@@ -60,9 +60,9 @@
           />
           <!-- Meta Info -->
           <ul class="product-detail__meta">
-            <li><strong>SKU:</strong> PT322</li>
-            <li><strong>CATEGORY:</strong> Lunch</li>
-            <li><strong>TAGS:</strong> Sweets, Ghevar</li>
+            <li><strong data-i18n="product_detail_page.meta.sku">SKU:</strong> PT322</li>
+            <li><strong data-i18n="product_detail_page.meta.category">CATEGORY:</strong> Lunch</li>
+            <li><strong data-i18n="product_detail_page.meta.tags">TAGS:</strong> Sweets, Ghevar</li>
           </ul>
         </div>
 
@@ -94,7 +94,7 @@
                 alt="Star"
               />
             </div>
-            <span class="review-count">(1 customer review)</span>
+            <span class="review-count" data-i18n="product_detail_page.review_count">(1 customer review)</span>
           </div>
 
           <p class="product-detail__price">$54.00</p>
@@ -118,7 +118,7 @@
               />
               <button class="qty-btn plus">+</button>
             </div>
-            <a href="/cartpage/cart.html" class="btn btn--primary"
+            <a href="/cartpage/cart.html" class="btn btn--primary" data-i18n="product_detail_page.add_to_cart_button"
               >ADD TO CART</a
             >
           </div>
@@ -132,10 +132,11 @@
         <button
           class="product-tab__btn product-tab__btn--active"
           data-tab="description"
+          data-i18n="product_detail_page.tabs.description"
         >
           Description
         </button>
-        <button class="product-tab__btn" data-tab="reviews">Reviews (1)</button>
+        <button class="product-tab__btn" data-tab="reviews" data-i18n="product_detail_page.tabs.reviews">Reviews (1)</button>
       </div>
 
       <!-- TAB CONTENT -->
@@ -201,15 +202,15 @@
 
         <!-- Add a Review -->
         <form class="review-form">
-          <h3 class="review-form__title">Add A Review</h3>
-          <p class="review-form__note">
+          <h3 class="review-form__title" data-i18n="product_detail_page.review_form.title">Add A Review</h3>
+          <p class="review-form__note" data-i18n="product_detail_page.review_form.note">
             Your email address will not be published. Required fields are marked
             *
           </p>
 
           <div class="review-form__row">
             <div class="review-form__field">
-              <input type="text" placeholder="Your name *" required />
+              <input type="text" placeholder="Your name *" required data-i18n-placeholder="product_detail_page.review_form.placeholder_name" />
               <img
                 src="../assets/icons/home-page/resvervation-section/profile.svg"
                 alt="Profile Icon"
@@ -217,7 +218,7 @@
               />
             </div>
             <div class="review-form__field">
-              <input type="email" placeholder="Email address *" required />
+              <input type="email" placeholder="Email address *" required data-i18n-placeholder="product_detail_page.review_form.placeholder_email" />
               <img
                 src="../assets/icons/home-page/resvervation-section/message.svg"
                 alt="Email Icon"
@@ -227,11 +228,11 @@
           </div>
 
           <div class="review-form__field">
-            <input type="url" placeholder="Website *" required />
+            <input type="url" placeholder="Website *" required data-i18n-placeholder="product_detail_page.review_form.placeholder_website" />
           </div>
 
           <div class="review-form__rating">
-            <label>Your rating</label>
+            <label data-i18n="product_detail_page.review_form.your_rating">Your rating</label>
             <div class="stars">
               <img
                 src="../assets/icons/product-detail-page/empty-star-icon.svg"
@@ -257,12 +258,12 @@
           </div>
 
           <div class="review-form__field">
-            <textarea placeholder="Write review *" rows="5" required></textarea>
+            <textarea placeholder="Write review *" rows="5" required data-i18n-placeholder="product_detail_page.review_form.placeholder_write_review"></textarea>
           </div>
 
           <div class="review-form__checkbox">
             <input type="checkbox" id="save-info" />
-            <label for="save-info"
+            <label for="save-info" data-i18n="product_detail_page.review_form.save_info"
               >Save my name, email, and website in this browser for the next
               time I comment.</label
             >
@@ -272,6 +273,7 @@
             type="submit"
             class="btn btn--primary"
             style="margin-top: 20px"
+            data-i18n="product_detail_page.review_form.submit_button"
           >
             Submit
           </button>
@@ -285,7 +287,7 @@
       <div class="menu__header">
         <div class="menu__header-text">
           <!-- title -->
-          <h2 class="menu__title">Related Items</h2>
+          <h2 class="menu__title" data-i18n="product_detail_page.related_items_title">Related Items</h2>
         </div>
       </div>
 

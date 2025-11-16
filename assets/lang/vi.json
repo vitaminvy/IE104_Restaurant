@@ -167,7 +167,7 @@
       "no_items": "Không có món ăn nào phù hợp với sở thích ăn kiêng của bạn.",
       "try_filters": "Hãy thử các bộ lọc khác hoặc duyệt tất cả các món."
     },
-    "order_now_button": "Đặt Món Ngay +",
+    "order_now_button": "Đặt Món Ngay",
     "add_to_cart_aria_label": "Thêm vào giỏ hàng",
     "add_to_cart_title": "Thêm vào giỏ hàng"
   },
@@ -668,6 +668,55 @@
         ],
         "quote": "Đầu tư vào sức khỏe tài chính của nhân viên và họ sẽ đầu tư năng lượng và lòng trung thành của họ vào nhà hàng của bạn."
       }
+    }
+  },
+  "product_detail_page": {
+    "title": "Chi Tiết Sản Phẩm",
+    "meta": {
+      "sku": "Mã SP:",
+      "category": "DANH MỤC:",
+      "tags": "THẺ:",
+      "default_tags": "Đồ ăn, Nhà hàng"
+    },
+    "review_count": "(1 đánh giá của khách hàng)",
+    "add_to_cart_button": "THÊM VÀO GIỎ HÀNG",
+    "tabs": {
+      "description": "Mô tả",
+      "reviews": "Đánh giá (1)"
+    },
+    "review_form": {
+      "title": "Thêm Đánh Giá",
+      "note": "Địa chỉ email của bạn sẽ không được công bố. Các trường bắt buộc được đánh dấu *",
+      "placeholder_name": "Tên của bạn *",
+      "placeholder_email": "Địa chỉ email *",
+      "placeholder_website": "Trang web *",
+      "your_rating": "Đánh giá của bạn",
+      "placeholder_write_review": "Viết đánh giá *",
+      "save_info": "Lưu tên, email và trang web của tôi trong trình duyệt này cho lần bình luận tiếp theo.",
+      "submit_button": "Gửi"
+    },
+    "related_items_title": "Sản Phẩm Liên Quan",
+    "notification": {
+      "added_to_cart": "Đã thêm vào giỏ hàng!",
+      "view_cart": "Xem Giỏ Hàng"
+    },
+    "pairing_reasons": {
+      "same_category": "Bổ sung hoàn hảo cho cùng loại bữa ăn",
+      "spice_balance": "Cân bằng độ cay một cách hợp lý",
+      "dietary_match": "Chia sẻ sở thích ăn kiêng tương tự",
+      "contrast_texture": "Mang đến sự đa dạng về kết cấu tương phản",
+      "chef_pick": "Được đầu bếp của chúng tôi đề xuất",
+      "popular_combo": "Sự kết hợp được khách hàng yêu thích"
+    },
+    "pairing_section": {
+      "title": "Kết Hợp Hoàn Hảo Với",
+      "subtitle": "Nâng tầm bữa ăn của bạn với những sự kết hợp hoàn hảo này"
+    },
+    "loading_product": "Đang tải",
+    "error_message": {
+      "title": "Không tìm thấy sản phẩm",
+      "description": "Sản phẩm bạn đang tìm kiếm không tồn tại hoặc đã bị xóa.",
+      "back_to_menu": "Quay lại Thực Đơn"
     }
   }
 }

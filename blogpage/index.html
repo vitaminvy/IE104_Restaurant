@@ -70,13 +70,29 @@
       <!-- Featured posts will be rendered here by JS -->
     </section>
 
+    <!-- ========== 2.3 FILTERS & CONTROLS ========== -->
+    <section class="blog-filters" aria-label="Blog filters">
+      <div class="blog-filters__left">
+        <p class="blog-filters__label">Browse topics</p>
+        <div id="tag-filter" class="blog-filters__pills" role="list"></div>
+      </div>
+      <div class="blog-filters__actions">
+        <label for="category-filter">Category</label>
+        <select id="category-filter" class="blog-filters__select" aria-label="Filter by category"></select>
+        <button type="button" id="clear-filters" class="blog-filters__clear">Reset</button>
+      </div>
+    </section>
+
     <!-- ========== 2.3 BLOG GRID SECTION ========== -->
-    <section id="blog-grid" class="blog-grid">
+    <section id="blog-grid" class="blog-grid blog-timeline" aria-live="polite">
       <!-- Blog posts will be rendered here by JS -->
     </section>
 
-    <!-- ========== 2.4 PAGINATION NAVIGATION ========== -->
-    <nav id="pagination" class="pagination"></nav>
+    <!-- ========== 2.4 TIMELINE FOOTER / LOAD MORE ========== -->
+    <div id="timeline-footer" class="timeline-footer">
+      <button type="button" id="load-more" class="btn timeline-footer__btn">Load more stories</button>
+      <p id="timeline-status" class="timeline-footer__status" aria-live="polite"></p>
+    </div>
 
     <!-- ========== 2.5 NEWSLETTER SECTION ========== -->
     <section id="newsletter">

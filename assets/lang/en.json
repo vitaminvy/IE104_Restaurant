@@ -101,6 +101,7 @@
     },
     "daily_offers": {
       "title": "Our Daily Offers",
+      "cta": "Order now",
       "item1": {
         "title": "Spicy Club",
         "description": "Pork, chicken and vegetable fried rolls served with lettuce wraps"

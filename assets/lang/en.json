@@ -749,5 +749,41 @@
       "loading_error": "Error Loading Blog Post"
     },
     "page_title_suffix": "| Restaurant Blog"
+  },
+  "cart_page": {
+    "title": "Cart Page",
+    "table": {
+      "food": "Food",
+      "price": "Price",
+      "quantity": "Quantity",
+      "subtotal": "Subtotal",
+      "remove_item": "Remove item",
+      "decrease_qty": "Decrease quantity",
+      "increase_qty": "Increase quantity"
+    },
+    "coupon": {
+      "placeholder": "Coupon code",
+      "apply_button": "Apply coupon",
+      "remove_button": "Remove"
+    },
+    "totals": {
+      "subtotal": "Subtotal",
+      "discount": "Discount",
+      "total": "Total",
+      "proceed_to_checkout": "Proceed to Checkout"
+    },
+    "empty_cart": {
+      "message": "Your cart is empty",
+      "suggestion": "Add some delicious items to get started!"
+    },
+    "notification": {
+      "removed_item": "Removed \"{itemTitle}\" from cart",
+      "enter_coupon": "Please enter a coupon code",
+      "invalid_coupon": "Invalid coupon code",
+      "coupon_applied": "Coupon applied: {description}",
+      "coupon_removed": "Coupon removed",
+      "cart_empty_checkout": "Your cart is empty"
+    },
+    "loading_cart": "Loading cart..."
   }
 }

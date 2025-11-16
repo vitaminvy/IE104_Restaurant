@@ -110,26 +110,26 @@ import i18nService from '../assets/script/i18n-service.js';
         e.preventDefault();
         e.stopPropagation();
 
-        const itemIdStr = button.dataset.itemId;
-        const itemId = Number(itemIdStr);
+        const card = e.target.closest('.menu__card');
+        if (!card) return;
 
+        const itemId = Number(card.dataset.itemId);
         const item = menuItems.find((i) => i.id === itemId);
+        if (!item) return;
 
-        if (!item) {
-          console.error('Item not found:', itemId);
-          return;
-        }
+        // Get title and desc from the DOM to avoid race condition
+        const title = card.querySelector('.menu__card-title')?.textContent || i18nService.t(item.title);
+        const desc = card.querySelector('.menu__card-desc')?.textContent || i18nService.t(item.desc);
 
-        // Add to cart
-        addToCartAndNavigate(item);
+        const cartItem = { ...item, title, desc };
+        addToCartAndNavigate(cartItem);
       });
     });
   }
 
   // Add to cart and navigate
   function addToCartAndNavigate(item) {
-    const title = i18nService.t(item.title);
-    console.log('🛒 Adding to cart:', title);
+    console.log('🛒 Adding to cart:', item.title);
 
     // Show loader
     if (window.GlobalLoader) {
@@ -160,10 +160,10 @@ import i18nService from '../assets/script/i18n-service.js';
       // Add new item to cart
       const cartItem = {
         id: item.id,
-        title: item.title, // Store the key
+        title: item.title, // Already translated from DOM
         price: item.price,
         image: item.image,
-        desc: item.desc || '', // Store the key
+        desc: item.desc || '', // Already translated from DOM
         quantity: 1,
       };
       cart.push(cartItem);
@@ -201,17 +201,16 @@ import i18nService from '../assets/script/i18n-service.js';
         e.preventDefault();
         e.stopPropagation();
 
-        const itemIdStr = button.dataset.itemId;
-        const itemId = Number(itemIdStr);
+        const card = e.target.closest('.menu__card');
+        if (!card) return;
 
+        const itemId = Number(card.dataset.itemId);
         const item = menuItems.find((i) => i.id === itemId);
+        if (!item) return;
 
-        if (!item) {
-          console.error('Item not found:', itemId);
-          return;
-        }
-        
-        const title = i18nService.t(item.title);
+        // Get title and desc from the DOM to avoid race condition
+        const title = card.querySelector('.menu__card-title')?.textContent || i18nService.t(item.title);
+        const desc = card.querySelector('.menu__card-desc')?.textContent || i18nService.t(item.desc);
 
         console.log('🛒 Adding to cart via cart icon:', title);
 
@@ -245,10 +244,10 @@ import i18nService from '../assets/script/i18n-service.js';
           // Add new item to cart
           const cartItem = {
             id: item.id,
-            title: item.title, // Store key
+            title: title, // Already translated from DOM
             price: item.price,
             image: item.image,
-            desc: item.desc || '', // Store key
+            desc: desc || '', // Already translated from DOM
             quantity: 1,
           };
           cart.push(cartItem);
@@ -294,9 +293,12 @@ import i18nService from '../assets/script/i18n-service.js';
 
   // Initial render and re-render on language change
   document.addEventListener('language-changed', render);
-  if (Object.keys(i18nService.getTranslations()).length > 0) {
+
+  // Initialize translations and then render
+  (async () => {
+    await i18nService.init();
     render();
-  }
+  })();
 })();
 
 // Other IIFEs can remain as they are

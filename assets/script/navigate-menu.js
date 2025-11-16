@@ -62,14 +62,16 @@ import i18nService from './i18n-service.js';
       card.addEventListener("click", (e) => {
         e.preventDefault();
 
-        // Get item data from card
-        const itemId = card.dataset.itemId;
-        // Find full item data
-        const item = menuItems.find(menuItem => menuItem.id == itemId); // Use == for potential type coercion if itemId is string
+        const itemId = Number(card.dataset.itemId);
+        const item = menuItems.find(menuItem => menuItem.id == itemId);
         if (!item) return;
 
-        // Navigate to menupage with item ID
-        window.location.href = `/menupage/index.html?id=${item.id}`;
+        // Get title and desc from the DOM to avoid race condition
+        const title = card.querySelector('.menu__card-title')?.textContent || i18nService.t(item.title);
+        const desc = card.querySelector('.menu__card-desc')?.textContent || i18nService.t(item.desc);
+
+        const cartItem = { ...item, title, desc };
+        addToCartAndNavigate(cartItem);
       });
     });
   }
@@ -102,10 +104,10 @@ import i18nService from './i18n-service.js';
       // Add new item
       cart.push({
         id: item.id,
-        title: item.title,
+        title: item.title, // Already translated from DOM
         price: item.price,
         image: item.image,
-        desc: item.desc || '',
+        desc: item.desc || '', // Already translated from DOM
         quantity: 1
       });
     }

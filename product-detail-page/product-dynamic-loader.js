@@ -465,10 +465,13 @@ import i18nService from '../assets/script/i18n-service.js';
     const quantityInput = document.querySelector('.qty-input');
     const quantity = quantityInput ? parseInt(quantityInput.value) || 1 : 1;
 
+    // Get title from the DOM to avoid race condition
+    const title = document.querySelector('.product-detail__title')?.textContent || i18nService.t(item.title);
+
     // Prepare cart item
     const cartItem = {
       id: item.id,
-      title: i18nService.t(item.title),
+      title: title, // Already translated from DOM
       price: item.price,
       image: item.image,
       quantity: quantity
@@ -477,11 +480,11 @@ import i18nService from '../assets/script/i18n-service.js';
     // Add to cart using CartManager API (if available)
     if (window.CartManager && typeof window.CartManager.addItem === 'function') {
       window.CartManager.addItem(cartItem);
-      showAddToCartNotification(item.title, quantity, true);
+      showAddToCartNotification(title, quantity, true);
     } else {
       // Fallback: Save to localStorage directly
       addToCartFallback(cartItem);
-      showAddToCartNotification(item.title, quantity, false);
+      showAddToCartNotification(title, quantity, false);
     }
 
     // Reset quantity to 1
@@ -1101,9 +1104,10 @@ import i18nService from '../assets/script/i18n-service.js';
   document.addEventListener('language-changed', loadProductDetails);
 
   // Handle initial load
-  if (Object.keys(i18nService.getTranslations()).length > 0) {
+  (async () => {
+    await i18nService.init();
     loadProductDetails();
-  }
+  })();
 })();
 
 

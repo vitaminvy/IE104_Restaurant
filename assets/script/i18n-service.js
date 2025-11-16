@@ -1,8 +1,9 @@
 const i18nService = (() => {
   let translations = {};
   let currentLang = localStorage.getItem('language') || 'en';
+  let initPromise;
 
-  async function loadTranslations(lang, isInitialLoad = false) {
+  async function loadTranslations(lang) {
     try {
       const response = await fetch(`../assets/lang/${lang}.json`);
       if (!response.ok) {
@@ -10,14 +11,13 @@ const i18nService = (() => {
       }
       translations = await response.json();
       console.log(`Translations for ${lang} loaded.`);
-      if (isInitialLoad) {
-        document.dispatchEvent(new CustomEvent('language-changed'));
-      }
+      // Dispatch event after loading any translation
+      document.dispatchEvent(new CustomEvent('language-changed'));
     } catch (error) {
       console.error('Error loading translations:', error);
       // Fallback to English if loading fails
       if (lang !== 'en') {
-        await loadTranslations('en', isInitialLoad);
+        await loadTranslations('en');
       }
     }
   }
@@ -39,16 +39,19 @@ const i18nService = (() => {
     if (lang === currentLang) return;
     currentLang = lang;
     localStorage.setItem('language', lang);
-    loadTranslations(lang).then(() => {
-      document.dispatchEvent(new CustomEvent('language-changed'));
-    });
+    // No need to dispatch event here, loadTranslations will do it
+    loadTranslations(lang);
   }
 
-  // Initial load
-  loadTranslations(currentLang, true);
+  function init() {
+    if (!initPromise) {
+      initPromise = loadTranslations(currentLang);
+    }
+    return initPromise;
+  }
 
   return {
-    loadTranslations,
+    init, // Expose the init function
     t,
     getTranslations,
     getLanguage,

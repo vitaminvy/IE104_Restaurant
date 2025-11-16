@@ -270,6 +270,7 @@ function init() {
 
 document.addEventListener('language-changed', init);
 
-if (Object.keys(i18nService.getTranslations()).length > 0) {
+(async () => {
+  await i18nService.init();
   init();
-}
+})();

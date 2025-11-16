@@ -219,6 +219,173 @@ import i18nService from '../assets/script/i18n-service.js';
 
     // Note: Pagination is handled by original menupage.js
     // We're just rendering all filtered items for simplicity
+
+    // Setup button handlers after rendering
+    setupOrderButtonHandlers();
+    setupCartIconHandlers();
+  }
+
+  /* ========================================
+   * CART HANDLING LOGIC (copied from menupage.js)
+   * ======================================== */
+
+  // Add to cart and navigate
+  function addToCartAndNavigate(item) {
+    const title = i18nService.t(item.title);
+    console.log("🛒 Adding to cart (from filter):", title);
+
+    if (window.GlobalLoader) {
+      window.GlobalLoader.show("Adding to cart...");
+    }
+
+    let cart = [];
+    try {
+      const cartData = localStorage.getItem("restaurantCart");
+      if (cartData) {
+        cart = JSON.parse(cartData);
+      }
+    } catch (e) {
+      console.error("Error reading cart:", e);
+    }
+
+    const existingItemIndex = cart.findIndex(
+      (cartItem) => cartItem.id === item.id
+    );
+
+    if (existingItemIndex > -1) {
+      cart[existingItemIndex].quantity = (cart[existingItemIndex].quantity || 1) + 1;
+    } else {
+      const cartItem = {
+        id: item.id,
+        title: item.title, // Store key
+        price: item.price,
+        image: item.image,
+        desc: item.desc || "", // Store key
+        quantity: 1,
+      };
+      cart.push(cartItem);
+    }
+
+    try {
+      localStorage.setItem("restaurantCart", JSON.stringify(cart));
+    } catch (e) {
+      console.error("❌ Error saving cart:", e);
+    }
+
+    if (window.GlobalLoader) {
+      window.GlobalLoader.updateMessage("Redirecting to cart...");
+    }
+
+    setTimeout(() => {
+      window.location.href = "/cartpage/cart.html";
+    }, 500);
+  }
+
+  function setupOrderButtonHandlers() {
+    const container = document.getElementById("menu-card-container");
+    if (!container) return;
+    const orderButtons = container.querySelectorAll(".menu__card-btn");
+
+    orderButtons.forEach((button) => {
+      button.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const card = e.target.closest('.menu__card');
+        if (!card) return;
+
+        const itemId = Number(card.dataset.itemId);
+        const item = menuItems.find((i) => i.id === itemId);
+        if (!item) return;
+
+        // Get title and desc from the DOM to avoid race condition
+        const title = card.querySelector('.menu__card-title')?.textContent || i18nService.t(item.title);
+        const desc = card.querySelector('.menu__card-desc')?.textContent || i18nService.t(item.desc);
+
+        const cartItem = { ...item, title, desc };
+        addToCartAndNavigate(cartItem);
+      });
+    });
+  }
+
+  function setupCartIconHandlers() {
+    const container = document.getElementById("menu-card-container");
+    if (!container) return;
+    const cartButtons = container.querySelectorAll(".menu__card-cart-btn");
+
+    cartButtons.forEach((button) => {
+      button.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const card = e.target.closest('.menu__card');
+        if (!card) return;
+
+        const itemId = Number(card.dataset.itemId);
+        const item = menuItems.find((i) => i.id === itemId);
+        if (!item) return;
+
+        // Get title and desc from the DOM to avoid race condition
+        const title = card.querySelector('.menu__card-title')?.textContent || i18nService.t(item.title);
+        const desc = card.querySelector('.menu__card-desc')?.textContent || i18nService.t(item.desc);
+
+        console.log("🛒 Adding to cart via cart icon (from filter):", title);
+
+        button.style.transform = "scale(0.85)";
+        setTimeout(() => {
+          button.style.transform = "";
+        }, 200);
+
+        let cart = [];
+        try {
+          const cartData = localStorage.getItem("restaurantCart");
+          if (cartData) {
+            cart = JSON.parse(cartData);
+          }
+        } catch (e) {
+          console.error("Error reading cart:", e);
+        }
+
+        const existingItemIndex = cart.findIndex(
+          (cartItem) => cartItem.id === item.id
+        );
+
+        if (existingItemIndex > -1) {
+          cart[existingItemIndex].quantity = (cart[existingItemIndex].quantity || 1) + 1;
+        } else {
+          const cartItem = {
+            id: item.id,
+            title: title, // Already translated from DOM
+            price: item.price,
+            image: item.image,
+            desc: desc || "", // Already translated from DOM
+            quantity: 1,
+          };
+          cart.push(cartItem);
+        }
+
+        try {
+          localStorage.setItem("restaurantCart", JSON.stringify(cart));
+        } catch (e) {
+          console.error("❌ Error saving cart:", e);
+        }
+
+        if (window.showToast) {
+          const totalQty = cart.find(i => i.id === item.id)?.quantity || 1;
+          window.showToast(
+            `${title} added to cart (Qty: ${totalQty})`,
+            "success",
+            2000
+          );
+        }
+
+        const cartCountEl = document.getElementById("cart-count");
+        if (cartCountEl) {
+          const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+          cartCountEl.textContent = totalItems;
+        }
+      });
+    });
   }
 
   /* ========================================

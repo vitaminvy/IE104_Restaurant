@@ -749,5 +749,41 @@
       "loading_error": "Lỗi khi tải bài viết"
     },
     "page_title_suffix": "| Blog Nhà hàng"
+  },
+  "cart_page": {
+    "title": "Trang Giỏ hàng",
+    "table": {
+      "food": "Món ăn",
+      "price": "Giá",
+      "quantity": "Số lượng",
+      "subtotal": "Tổng phụ",
+      "remove_item": "Xóa mục",
+      "decrease_qty": "Giảm số lượng",
+      "increase_qty": "Tăng số lượng"
+    },
+    "coupon": {
+      "placeholder": "Mã giảm giá",
+      "apply_button": "Áp dụng",
+      "remove_button": "Xóa"
+    },
+    "totals": {
+      "subtotal": "Tổng phụ",
+      "discount": "Giảm giá",
+      "total": "Tổng cộng",
+      "proceed_to_checkout": "Tiến hành thanh toán"
+    },
+    "empty_cart": {
+      "message": "Giỏ hàng của bạn trống",
+      "suggestion": "Thêm một vài món ăn ngon để bắt đầu!"
+    },
+    "notification": {
+      "removed_item": "Đã xóa \"{itemTitle}\" khỏi giỏ hàng",
+      "enter_coupon": "Vui lòng nhập mã giảm giá",
+      "invalid_coupon": "Mã giảm giá không hợp lệ",
+      "coupon_applied": "Đã áp dụng mã giảm giá: {description}",
+      "coupon_removed": "Đã xóa mã giảm giá",
+      "cart_empty_checkout": "Giỏ hàng của bạn trống"
+    },
+    "loading_cart": "Đang tải giỏ hàng..."
   }
 }

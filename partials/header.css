@@ -96,6 +96,12 @@ html[data-theme="light"] .header--scrolled {
   gap: 1rem;
 }
 
+.header__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 /* ========== Nav list ========== */
 .header__nav {
   position: fixed;
@@ -320,6 +326,10 @@ html[data-theme="dark"] .moon-icon {
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
 }
 
 #language-flag {

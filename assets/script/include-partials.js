@@ -12,9 +12,6 @@
             console.error('Include failed:', url, err);
         }
     }
-
-    // After all partials are loaded, initialize the i18n script
-    if (window.i18n && typeof window.i18n.init === 'function') {
-        window.i18n.init();
-    }
+    // 🔥 Báo cho toàn bộ trang biết rằng include đã xong
+    document.dispatchEvent(new Event("includeLoaded"));
 })();

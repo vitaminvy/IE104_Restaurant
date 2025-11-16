@@ -31,7 +31,7 @@
   <link rel="stylesheet" href="./pagination.css">
 
   <!-- Newsletter styles -->
-  <link rel="stylesheet" href="./newsletter.css">
+  <link rel="stylesheet" href="../style/newsletter.css">
 
   <!-- Reset and global styles -->
   <link rel="stylesheet" href="../style/reset.css" />
@@ -79,42 +79,13 @@
     <nav id="pagination" class="pagination"></nav>
 
     <!-- ========== 2.5 NEWSLETTER SECTION ========== -->
-    <section id="newsletter">
-      <!-- Subscribe to Newsletter -->
-      <div class="newsletter__container">
-        <!-- newsletter image -->
-        <div class="newsletter__image">
-          <img src="../assets/images/home-page/newsletter-section/newsletter_dish.png" alt="Healthy food plate"
-            loading="lazy" />
-          <img src="../assets/images/home-page/newsletter-section/newsletter_star.svg" alt="decoration"
-            class="newsletter__star" />
-        </div>
-        <!-- newsletter body content -->
-        <div class="newsletter__content">
-          <h2 class="newsletter__title" data-i18n="home.newsletter.title">
-            Subscribe to Newsletter & Get Latest News
-          </h2>
-          <p class="newsletter__subtitle" data-i18n="home.newsletter.subtitle">
-            Get insider access to news about innovations, unique cooking
-            techniques, culinary concepts, insights, and more
-          </p>
-
-          <form class="newsletter__form" data-newsletter-form>
-            <input type="email" name="email" data-i18n-placeholder="home.newsletter.placeholder_email" placeholder="Enter your email address" required />
-            <button type="submit" class="newsletter__submit">
-              <i class="fa-solid fa-paper-plane"></i>
-            </button>
-          </form>
-          <p class="newsletter__status" hidden></p>
-        </div>
-      </div>
-    </section>
+    <div data-include="/partials/newsletter.html"></div>
   </main>
 
   <!-- ========== 2.6 FOOTER PLACEHOLDER ========== -->
   <div data-include="/partials/footer.html"></div>
   <script type="module" src="../assets/script/lang-toggle.js" defer></script>
-  <script src="../homepage/newsletter.js" defer></script>
+  <script src="../assets/script/newsletter.js" defer></script>
 </body>
 
 </html>

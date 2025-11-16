@@ -1,12 +1,18 @@
 /* ================== Newsletter Section ================== */
+.newsletter-shell {
+  width: min(1600px, 96vw);
+  margin-inline: auto;
+  margin-block: clamp(4rem, 8vw, 6rem);
+  padding-inline: clamp(1.25rem, 4vw, 3rem);
+}
+
 #newsletter {
   position: relative;
   isolation: isolate;
-
-  margin-top: clamp(4rem, 8vw, 6rem);
-  margin-inline: auto;
+  width: 100%;
+  max-width: 100%;
   padding: clamp(2rem, 4vw, 3.5rem) clamp(1rem, 5vw, 3rem);
-  max-width: 1600px;
+  margin: 0;
 }
 
 .newsletter__container {

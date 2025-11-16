@@ -277,6 +277,44 @@ function handleLoadMoreClick() {
 }
 
 /* ========================================
+ * NEWSLETTER FORM HANDLER
+ * ======================================== */
+function setupNewsletterForm() {
+  const form = document.querySelector('.newsletter__form');
+  const successMessage = document.getElementById('newsletter-success');
+  if (!form || !successMessage) return;
+
+  const emailInput = form.querySelector('input[type="email"]');
+  const submitBtn = form.querySelector('.newsletter__submit');
+
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    if (!emailInput || !emailInput.value.trim()) {
+      emailInput?.focus();
+      emailInput?.reportValidity?.();
+      return;
+    }
+
+    submitBtn.disabled = true;
+    successMessage.classList.remove('is-visible');
+    successMessage.textContent = '';
+
+    setTimeout(() => {
+      const nameHint = emailInput.value.split('@')[0] || 'friend';
+      successMessage.textContent = `Thanks, ${nameHint}! Check your inbox for our latest stories.`;
+      successMessage.classList.add('is-visible');
+      form.reset();
+      submitBtn.disabled = false;
+    }, 600);
+  });
+
+  emailInput?.addEventListener('input', () => {
+    successMessage.classList.remove('is-visible');
+    successMessage.textContent = '';
+  });
+}
+
+/* ========================================
  * INITIALIZATION
  * ======================================== */
 function init() {
@@ -289,6 +327,7 @@ function init() {
   setupFilters();
   syncFilterUI();
   renderBlogTimeline(1, false);
+  setupNewsletterForm();
 
   const loadMoreBtn = document.getElementById('load-more');
   if (loadMoreBtn) {

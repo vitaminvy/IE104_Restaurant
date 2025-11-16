@@ -147,10 +147,30 @@
   box-shadow: 0 15px 25px rgba(251, 143, 44, 0.35);
 }
 
+.newsletter__submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
 .newsletter__note {
   margin-top: 0.75rem;
   font-size: 0.85rem;
   color: rgba(255, 255, 255, 0.55);
+}
+
+.newsletter__success {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  color: rgba(86, 238, 167, 0.9);
+  min-height: 1.2rem;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.newsletter__success.is-visible {
+  opacity: 1;
 }
 
 /* Responsive */

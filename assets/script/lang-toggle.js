@@ -96,7 +96,8 @@ import i18nService from './i18n-service.js';
   });
 
   // Init when DOM ready
-  function initialize() {
+  async function initialize() {
+    await i18nService.init(); // Ensure translations are loaded first
     ensureFloatingToggle();
     applyStaticTranslations();
     handleResponsiveToggle();

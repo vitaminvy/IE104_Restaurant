@@ -785,5 +785,46 @@
       "cart_empty_checkout": "Your cart is empty"
     },
     "loading_cart": "Loading cart..."
+  },
+  "about_page": {
+    "title": "About Us",
+    "intro": {
+      "title": "We Are A Mexican Restaurant Makes Delicious.",
+      "lead": "From handmade tortillas pressed fresh each morning to slow-cooked carnitas and bright salsas, we cook with seasonal ingredients from local farmers. Our kitchen blends family recipes with modern techniques, keeping flavors bold and honest. Whether you crave something spicy, smoky, or vegetarian, there’s a plate here made with care—and a team ready to welcome you like familia.",
+      "story_title": "The Story Of Our<br/>First Restaurant<br/>Branch",
+      "story_text": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident."
+    },
+    "vision_mission": {
+      "title": "Our Vision & Mission",
+      "subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam aliquam amet, cursus tellus non consequat laoreet eget ornare. Vulputate tellus, a lobortis eu nisl. Quisque vulputate eget et, aliquet libero.",
+      "delicious_cuisine": {
+        "title": "Delicious Cuisine",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit at aliquam amet."
+      },
+      "fast_delivery": {
+        "title": "Fast Delivery",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit at aliquam amet."
+      },
+      "professional_chef": {
+        "title": "Professional Chef",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit at aliquam amet."
+      }
+    },
+    "team": {
+      "title": "They Will Cook For You",
+      "subtitle": "Our Diners can enjoy cooking for themselves, or visiting a curated selection of restaurants in the area.<br/>They will cook for you and make sure you have a home away from home at all times.",
+      "chef_1": {
+        "name": "Jubed Ahmed",
+        "role": "Chef"
+      },
+      "chef_2": {
+        "name": "Delwar Hussen",
+        "role": "Assisten chef"
+      },
+      "chef_3": {
+        "name": "Tajul Islam",
+        "role": "Chef"
+      }
+    }
   }
 }

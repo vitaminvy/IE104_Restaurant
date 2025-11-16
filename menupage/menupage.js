@@ -15,6 +15,30 @@ import i18nService from '../assets/script/i18n-service.js';
   const formatPrice = (p) =>
     p.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
 
+  function updateCartCount() {
+    const cartCountEl = document.getElementById('cart-count');
+    if (!cartCountEl) return;
+
+    try {
+      const cartData = localStorage.getItem('restaurantCart');
+      const cart = cartData ? JSON.parse(cartData) : [];
+      const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+      cartCountEl.textContent = totalItems;
+    } catch (e) {
+      console.error('Error reading cart for count update:', e);
+      cartCountEl.textContent = '0';
+    }
+  }
+
+  function setupFloatingCartIcon() {
+    const cartIcon = document.getElementById('cart-icon');
+    if (cartIcon) {
+      cartIcon.addEventListener('click', () => {
+        window.location.href = '/cartpage/cart.html';
+      });
+    }
+  }
+
   const cardTemplate = (item) => {
     const title = i18nService.t(item.title);
     const desc = i18nService.t(item.desc);
@@ -85,7 +109,7 @@ import i18nService from '../assets/script/i18n-service.js';
     container.innerHTML = pageData.map(cardTemplate).join('');
 
     // Initialize pagination
-    initPagination(totalPages, (page) => {
+    initPagination(totalPages, currentPage, (page) => {
       currentPage = page;
       render();
       window.scrollTo({ top: container.offsetTop - 160, behavior: 'smooth' });
@@ -270,12 +294,8 @@ import i18nService from '../assets/script/i18n-service.js';
           );
         }
 
-        // Update cart count in header (if exists)
-        const cartCountEl = document.getElementById('cart-count');
-        if (cartCountEl) {
-          const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-          cartCountEl.textContent = totalItems;
-        }
+        // Update cart count in header
+        updateCartCount();
       });
     });
   }
@@ -298,6 +318,8 @@ import i18nService from '../assets/script/i18n-service.js';
   (async () => {
     await i18nService.init();
     render();
+    updateCartCount();
+    setupFloatingCartIcon();
   })();
 })();
 

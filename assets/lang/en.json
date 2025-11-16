@@ -151,10 +151,27 @@
   "menu_page": {
     "title": "Menu",
     "banner": {
+      "eyebrow": "Chef's Table Experience",
       "title1": "Food Is Not Just",
       "title2": "Eating Energy",
-      "description": "It’s an Experience.",
-      "order_now": "Order Now"
+      "description": "It's an Experience crafted by fire, smoke, and seasonal ingredients.",
+      "reserve_seat": "Reserve Seat",
+      "order_now": "Order now",
+      "stats": {
+        "aria_label": "Experience highlights",
+        "item1": {
+          "value": "12-course",
+          "label": "seasonal tasting"
+        },
+        "item2": {
+          "value": "3 chefs",
+          "label": "live behind the pass"
+        },
+        "item3": {
+          "value": "92%",
+          "label": "organic produce"
+        }
+      }
     },
     "cart_icon": {
       "aria_label": "View cart",

@@ -151,10 +151,27 @@
   "menu_page": {
     "title": "Thực Đơn",
     "banner": {
+      "eyebrow": "Trải Nghiệm Chef's Table",
       "title1": "Thức Ăn Không Chỉ Là",
       "title2": "Năng Lượng Để Ăn",
-      "description": "Đó là một Trải Nghiệm.",
-      "order_now": "Đặt Món Ngay"
+      "description": "Đó là trải nghiệm được tạo nên từ lửa, khói và những nguyên liệu theo mùa.",
+      "reserve_seat": "Đặt chỗ",
+      "order_now": "Đặt Món Ngay",
+      "stats": {
+        "aria_label": "Các điểm nhấn trải nghiệm",
+        "item1": {
+          "value": "12 món",
+          "label": "thực đơn theo mùa"
+        },
+        "item2": {
+          "value": "3 bếp trưởng",
+          "label": "biểu diễn ngay sau quầy bếp"
+        },
+        "item3": {
+          "value": "92%",
+          "label": "nguyên liệu hữu cơ"
+        }
+      }
     },
     "cart_icon": {
       "aria_label": "Xem giỏ hàng",

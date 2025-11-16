@@ -217,7 +217,6 @@ function renderBlogTimeline(page = 1, append = false) {
 
     const article = document.createElement('article');
     article.className = 'timeline-entry';
-
     article.innerHTML = `
       <div class="timeline-entry__marker">
         <span class="timeline-entry__dot" aria-hidden="true"></span>

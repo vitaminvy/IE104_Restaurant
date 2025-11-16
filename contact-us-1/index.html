@@ -14,6 +14,12 @@
     <link rel="stylesheet" href="./contact-find-us.css" />
     <link rel="stylesheet" href="./contact-form.css" />
 
+    <!-- Leaflet OpenStreetMap CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+          crossorigin="" />
+    <link rel="stylesheet" href="./openstreetmap.css" />
+
     <!-- header section -->
     <link rel="stylesheet" href="../partials/header.css" />
     <!-- footer section -->
@@ -24,6 +30,16 @@
       href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400;0,700&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Global Animation System -->
+    <link rel="stylesheet" href="../style/animations.css" />
+    <script src="../assets/script/scroll-animations.js"></script>
+
+    <!-- Form Validation System -->
+    <link rel="stylesheet" href="../style/form-validation.css" />
+    <link rel="stylesheet" href="../style/notification-system.css" />
+    <script src="../assets/script/form-validator.js"></script>
+    <script src="../assets/script/notification-system.js"></script>
   </head>
 
   <body>
@@ -38,7 +54,7 @@
       <!-- ========== 2. WHERE TO FIND US SECTION ========== -->
       <section id="find-us">
         <!-- Text Content -->
-        <div class="find-us__content">
+        <div class="find-us__content  animate-slide-left">
           <h2 class="section-title" data-i18n="contact_us.find_us.title">
             Where To Find Us
           </h2>
@@ -51,8 +67,8 @@
           </p>
 
           <!-- Contact Details -->
-          <div class="contact-details">
-            <div class="contact-item">
+          <div class="contact-details stagger-children">
+            <div class="contact-item animate-fade">
               <img
                 src="../assets/icons/contact-us-1/location.svg"
                 alt="Location Icon"
@@ -60,7 +76,7 @@
               />
               <span>Silk St, Barbican, London EC2Y 8DS, UK</span>
             </div>
-            <div class="contact-item">
+            <div class="contact-item animate-fade">
               <img
                 src="../assets/icons/contact-us-1/email.svg"
                 alt="Email Icon"
@@ -68,7 +84,7 @@
               />
               <span>gmail1234@gmail.com</span>
             </div>
-            <div class="contact-item">
+            <div class="contact-item animate-fade">
               <img
                 src="../assets/icons/contact-us-1/phone.svg"
                 alt="Phone Icon"
@@ -79,41 +95,51 @@
           </div>
 
           <!-- CTA Button -->
-          <a
-            href="#"
-            class="btn"
-            id="openPopupBtn"
-            data-i18n="contact_us.find_us.view_in_map"
-            >View in Google Maps</a
-          >
+          <a href="#" class="btn" id="openMapBtn">View in Google Maps</a>
 
-          <!-- Popup structure -->
-          <div class="popup" id="popup">
-            <div class="popup-content">
-              <button class="popup-close" id="closePopupBtn">&times;</button>
-              <img
-                src="../assets/images/contact-us-1/google-map.png"
-                alt="Google Maps View"
-              />
-            </div>
-          </div>
         </div>
-        <script src="./pop-up.js"></script>
 
         <!-- Image Content -->
-        <div class="find-us__image-container">
+        <div class="find-us__image-container animate-scale" id="image-container">
           <img
             src="../assets/images/contact-us-1/find-us.png"
             alt="Interior of a retro diner"
             class="find-us__image"
           />
         </div>
+
+        <!-- OpenStreetMap Container (hidden by default) -->
+        <div class="map-viewer-container" id="map-viewer-container" style="display: none;">
+          <!-- Close Button -->
+          <button class="map-close-btn" id="closeMapBtn" aria-label="Close map">
+            ✕
+          </button>
+
+          <!-- Map Element -->
+          <div id="map" class="map-element"></div>
+
+          <!-- Directional Controls -->
+          <div class="map-directional-controls">
+            <button class="map-control-btn map-control-up" id="map-pan-up" aria-label="Pan up" title="Pan up">
+              ▲
+            </button>
+            <button class="map-control-btn map-control-down" id="map-pan-down" aria-label="Pan down" title="Pan down">
+              ▼
+            </button>
+            <button class="map-control-btn map-control-left" id="map-pan-left" aria-label="Pan left" title="Pan left">
+              ◀
+            </button>
+            <button class="map-control-btn map-control-right" id="map-pan-right" aria-label="Pan right" title="Pan right">
+              ▶
+            </button>
+          </div>
+        </div>
       </section>
 
       <!-- ========== 3. CONTACT FORM SECTION ========== -->
       <section id="contact-form">
         <!-- Contact Information -->
-        <div class="contact-form__info">
+        <div class="contact-form__info animate-slide-left">
           <h2 class="section-title" data-i18n="contact_us.form.title">
             Contact Us
           </h2>
@@ -158,15 +184,18 @@
         </div>
 
         <!-- Contact Form -->
-        <form class="contact-form__form">
-          <!-- Name & Email Fields -->
+        <form class="contact-form__form animate-slide-right">
+          <!-- Name & Email Fields Row -->
           <div class="form-row">
+            <!-- Name Field -->
             <div class="form-group">
               <label for="name" data-i18n="contact_us.form.placeholder_name"
                 >Your name *</label
               >
               <input type="text" id="name" name="name" value="" required />
             </div>
+
+            <!-- Email Field -->
             <div class="form-group">
               <label for="email" data-i18n="contact_us.form.placeholder_email"
                 >Email address *</label
@@ -183,7 +212,7 @@
             <input type="text" id="subject" name="subject" />
           </div>
 
-          <!-- Review / Message Field -->
+          <!-- Message Field -->
           <div class="form-group">
             <label for="review" data-i18n="contact_us.form.placeholder_review"
               >Write review *</label
@@ -198,9 +227,18 @@
         </form>
       </section>
     </main>
-
+ 
     <!-- ========== 4. FOOTER ========== -->
     <div data-include="/partials/footer.html"></div>
+
+    <!-- Leaflet OpenStreetMap JavaScript -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+            crossorigin=""></script>
+    <script src="./openstreetmap-handler.js"></script>
+
+    <!-- Contact Form Handler -->
+    <script src="./contact-handler.js"></script>
     <script src="../assets/script/lang-toggle.js" defer></script>
   </body>
 </html>

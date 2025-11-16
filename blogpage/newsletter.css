@@ -13,9 +13,35 @@
   max-width: 1200px;
   margin: 0 auto;
   border-radius: 32px;
-  background: linear-gradient(135deg, rgba(14, 14, 18, 0.95), rgba(8, 8, 10, 0.98));
+  background: linear-gradient(135deg, rgba(14, 14, 18, 0.95), rgba(9, 9, 12, 0.98));
   border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+  position: relative;
+  overflow: hidden;
+}
+
+.newsletter__container::before,
+.newsletter__container::after {
+  content: '';
+  position: absolute;
+  inset: auto;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  filter: blur(40px);
+  opacity: 0.5;
+}
+
+.newsletter__container::before {
+  left: -120px;
+  top: -80px;
+  background: radial-gradient(circle, rgba(251, 143, 44, 0.6), transparent 60%);
+}
+
+.newsletter__container::after {
+  right: -100px;
+  bottom: -120px;
+  background: radial-gradient(circle, rgba(86, 238, 167, 0.35), transparent 60%);
 }
 
 /* Image */

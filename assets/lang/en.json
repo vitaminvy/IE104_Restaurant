@@ -222,7 +222,8 @@
       "placeholder_email": "Email address *",
       "placeholder_subject": "Subject",
       "placeholder_review": "Write review *",
-      "submit": "Submit"
+      "submit": "Submit",
+      "success_message": "Thanks for reaching out! We'll get back to you shortly."
     }
   },
   "menu": {

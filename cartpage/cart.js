@@ -436,327 +436,303 @@ import i18nService from '../assets/script/i18n-service.js';
       row.style.opacity = '0';
       row.style.transform = 'translateX(-100px) scale(0.8)';
 
-<<<<<<< HEAD
-      // Wait for animation to complete
-      setTimeout(() => {
-        items.splice(index, 1);
-        saveCartItems(items);
+      const translatedTitle = i18nService.t(removedItem.title);
+      showNotification(`Removed "${translatedTitle}" from cart`, 'success');
 
-        renderCartItems(items);
-        updateCartTotals();
+    }
 
-        showNotification(`Removed "${removedItem.title}" from cart`, 'success');
-      }, 300);
-    } else {
-      // Fallback if row not found
-      items.splice(index, 1);
+    /**
+     * Handle quantity change
+     * @param {Number} index - Item index
+     * @param {Number} newQuantity - New quantity value
+     */
+    function handleQuantityChange(index, newQuantity) {
+      const items = getCartItems();
+
+      // Validate quantity
+      newQuantity = parseInt(newQuantity);
+      if (isNaN(newQuantity) || newQuantity < 1) {
+        newQuantity = 1;
+      }
+      if (newQuantity > 99) {
+        newQuantity = 99;
+      }
+
+      items[index].quantity = newQuantity;
       saveCartItems(items);
 
-      renderCartItems(items);
+      // Update only the affected row
+      const row = document.querySelector(`tr[data-index="${index}"]`);
+      if (row) {
+        const item = items[index];
+        const itemSubtotal = (item.price * item.quantity).toFixed(2);
+
+        // Update quantity input
+        const input = row.querySelector('.qty__input');
+        if (input) {
+          input.value = newQuantity;
+
+          // Add bounce animation to input
+          input.style.animation = 'none';
+          setTimeout(() => {
+            input.style.animation = 'quantityBounce 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55)';
+          }, 10);
+        }
+
+        // Update subtotal with animation
+        const subtotalCell = row.querySelector('.cart__subtotal');
+        if (subtotalCell) {
+          // Add pulse animation
+          subtotalCell.style.animation = 'none';
+          setTimeout(() => {
+            subtotalCell.textContent = `$${itemSubtotal}`;
+            subtotalCell.style.animation = 'pricePulse 0.5s ease-out';
+          }, 10);
+        }
+
+      }
+
       updateCartTotals();
-
-      showNotification(`Removed "${removedItem.title}" from cart`, 'success');
-    }
-=======
-    const translatedTitle = i18nService.t(removedItem.title);
-    showNotification(`Removed "${translatedTitle}" from cart`, 'success');
->>>>>>> main
-  }
-
-  /**
-   * Handle quantity change
-   * @param {Number} index - Item index
-   * @param {Number} newQuantity - New quantity value
-   */
-  function handleQuantityChange(index, newQuantity) {
-    const items = getCartItems();
-
-    // Validate quantity
-    newQuantity = parseInt(newQuantity);
-    if (isNaN(newQuantity) || newQuantity < 1) {
-      newQuantity = 1;
-    }
-    if (newQuantity > 99) {
-      newQuantity = 99;
     }
 
-    items[index].quantity = newQuantity;
-    saveCartItems(items);
+    /**
+     * Handle coupon application
+     */
+    function handleApplyCoupon() {
+      const couponInput = document.querySelector('.coupon__input');
+      const couponCode = couponInput.value.trim().toUpperCase();
 
-    // Update only the affected row
-    const row = document.querySelector(`tr[data-index="${index}"]`);
-    if (row) {
-      const item = items[index];
-      const itemSubtotal = (item.price * item.quantity).toFixed(2);
+      if (!couponCode) {
+        showNotification('Please enter a coupon code', 'error');
 
-      // Update quantity input
-      const input = row.querySelector('.qty__input');
-      if (input) {
-        input.value = newQuantity;
-
-        // Add bounce animation to input
-        input.style.animation = 'none';
+        // Add shake animation to input
+        couponInput.classList.add('coupon__input--error');
         setTimeout(() => {
-          input.style.animation = 'quantityBounce 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55)';
-        }, 10);
+          couponInput.classList.remove('coupon__input--error');
+        }, 500);
+        return;
       }
 
-      // Update subtotal with animation
-      const subtotalCell = row.querySelector('.cart__subtotal');
-<<<<<<< HEAD
-      if (subtotalCell) {
-        // Add pulse animation
-        subtotalCell.style.animation = 'none';
+      const coupon = COUPONS[couponCode];
+
+      if (!coupon) {
+        showNotification('Invalid coupon code', 'error');
+
+        // Add shake animation to input
+        couponInput.classList.add('coupon__input--error');
         setTimeout(() => {
-          subtotalCell.textContent = `$${itemSubtotal}`;
-          subtotalCell.style.animation = 'pricePulse 0.5s ease-out';
-        }, 10);
+          couponInput.classList.remove('coupon__input--error');
+          couponInput.value = '';
+        }, 500);
+        return;
       }
-=======
-      if (subtotalCell) subtotalCell.textContent = `${itemSubtotal}`;
->>>>>>> main
-    }
 
-    updateCartTotals();
-  }
-
-  /**
-   * Handle coupon application
-   */
-  function handleApplyCoupon() {
-    const couponInput = document.querySelector('.coupon__input');
-    const couponCode = couponInput.value.trim().toUpperCase();
-
-    if (!couponCode) {
-      showNotification('Please enter a coupon code', 'error');
-
-      // Add shake animation to input
-      couponInput.classList.add('coupon__input--error');
+      // Success! Add confetti animation
+      couponInput.classList.add('coupon__input--success');
       setTimeout(() => {
-        couponInput.classList.remove('coupon__input--error');
-      }, 500);
-      return;
-    }
+        couponInput.classList.remove('coupon__input--success');
+      }, 600);
 
-    const coupon = COUPONS[couponCode];
-
-    if (!coupon) {
-      showNotification('Invalid coupon code', 'error');
-
-      // Add shake animation to input
-      couponInput.classList.add('coupon__input--error');
-      setTimeout(() => {
-        couponInput.classList.remove('coupon__input--error');
-        couponInput.value = '';
-      }, 500);
-      return;
-    }
-
-    // Success! Add confetti animation
-    couponInput.classList.add('coupon__input--success');
-    setTimeout(() => {
-      couponInput.classList.remove('coupon__input--success');
-    }, 600);
-
-    // Save coupon
-    saveAppliedCoupon({
-      code: couponCode,
-      ...coupon
-    });
-
-    updateCartTotals();
-    showNotification(`Coupon applied: ${coupon.description}`, 'success');
-
-    // Animate discount row appearance
-    const discountRow = document.querySelector('.totals__discount');
-    if (discountRow) {
-      discountRow.style.animation = 'fadeInScale 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
-    }
-  }
-
-  /**
-   * Handle coupon removal
-   */
-  function handleRemoveCoupon() {
-    clearAppliedCoupon();
-    updateCartTotals();
-    showNotification('Coupon removed', 'success');
-  }
-
-  /**
-   * Handle proceed to checkout
-   */
-  function handleProceedToCheckout() {
-    const items = getCartItems();
-
-    if (items.length === 0) {
-      showNotification('Your cart is empty', 'error');
-      return;
-    }
-
-    // Navigate to checkout page
-    window.location.href = '../checkout-page/checkout.html';
-  }
-
-  /* ========================================
-   * EVENT LISTENERS SETUP
-   * ======================================== */
-
-  /**
-   * Setup all event listeners
-   */
-  function setupEventListeners() {
-    // Delegate events for dynamic cart items
-    const tbody = document.querySelector('.cart__table tbody');
-    if (tbody) {
-      tbody.addEventListener('click', (e) => {
-        const target = e.target.closest('button');
-        if (!target) return;
-
-        const index = parseInt(target.dataset.index);
-
-        // Remove button
-        if (target.classList.contains('remove__btn')) {
-          e.preventDefault();
-          handleRemoveItem(index);
-        }
-
-        // Decrease quantity
-        if (target.classList.contains('qty__btn--minus')) {
-          e.preventDefault();
-          const items = getCartItems();
-          if (items[index]) {
-            handleQuantityChange(index, items[index].quantity - 1);
-          }
-        }
-
-        // Increase quantity
-        if (target.classList.contains('qty__btn--plus')) {
-          e.preventDefault();
-          const items = getCartItems();
-          if (items[index]) {
-            handleQuantityChange(index, items[index].quantity + 1);
-          }
-        }
+      // Save coupon
+      saveAppliedCoupon({
+        code: couponCode,
+        ...coupon
       });
 
-      // Quantity input change
-      tbody.addEventListener('input', (e) => {
-        if (e.target.classList.contains('qty__input')) {
-          const index = parseInt(e.target.dataset.index);
-          const newQuantity = e.target.value;
-          handleQuantityChange(index, newQuantity);
-        }
-      });
-    }
-
-    // Coupon button
-    const couponBtn = document.querySelector('.coupon .btn');
-    if (couponBtn) {
-      couponBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        const action = couponBtn.getAttribute('data-action');
-
-        if (action === 'remove') {
-          handleRemoveCoupon();
-        } else {
-          handleApplyCoupon();
-        }
-      });
-    }
-
-    // Proceed to checkout button
-    const checkoutBtn = document.querySelector('.totals__footer .btn');
-    if (checkoutBtn) {
-      checkoutBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        handleProceedToCheckout();
-      });
-    }
-  }
-
-  /* ========================================
-   * INITIALIZATION
-   * ======================================== */
-
-  /**
-   * Initialize cart page
-   */
-  async function init() {
-    console.log('🛒 Initializing cart page...');
-
-    // Show loader while initializing
-    if (window.GlobalLoader) {
-      window.GlobalLoader.show('Loading cart...');
-    }
-
-    await i18nService.init();
-
-    // Small delay to ensure localStorage is readable
-    setTimeout(() => {
-      // Load and render cart items
-      const items = getCartItems();
-      console.log('📦 Cart items loaded:', items);
-
-      renderCartItems(items);
-
-      // Update totals
       updateCartTotals();
+      showNotification(`Coupon applied: ${coupon.description}`, 'success');
 
-      // Setup event listeners
-      setupEventListeners();
+      // Animate discount row appearance
+      const discountRow = document.querySelector('.totals__discount');
+      if (discountRow) {
+        discountRow.style.animation = 'fadeInScale 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+      }
+    }
 
-      // Hide loader
-      if (window.GlobalLoader) {
-        window.GlobalLoader.hide(300);
+    /**
+     * Handle coupon removal
+     */
+    function handleRemoveCoupon() {
+      clearAppliedCoupon();
+      updateCartTotals();
+      showNotification('Coupon removed', 'success');
+    }
+
+    /**
+     * Handle proceed to checkout
+     */
+    function handleProceedToCheckout() {
+      const items = getCartItems();
+
+      if (items.length === 0) {
+        showNotification('Your cart is empty', 'error');
+        return;
       }
 
-      console.log('✅ Cart initialized with', items.length, 'items');
-      console.log('🎟️ Available coupons:', Object.keys(COUPONS).join(', '));
-    }, 100);
-  }
+      // Navigate to checkout page
+      window.location.href = '../checkout-page/checkout.html';
+    }
 
-  // Initialize when DOM is ready
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
+    /* ========================================
+     * EVENT LISTENERS SETUP
+     * ======================================== */
 
-  /* ========================================
-   * PUBLIC API (for external use)
-   * ======================================== */
+    /**
+     * Setup all event listeners
+     */
+    function setupEventListeners() {
+      // Delegate events for dynamic cart items
+      const tbody = document.querySelector('.cart__table tbody');
+      if (tbody) {
+        tbody.addEventListener('click', (e) => {
+          const target = e.target.closest('button');
+          if (!target) return;
 
-  window.CartManager = {
-    addItem: function (item) {
-      const items = getCartItems();
-      const existingIndex = items.findIndex(i => i.id === item.id);
+          const index = parseInt(target.dataset.index);
 
-      if (existingIndex >= 0) {
-        items[existingIndex].quantity += (item.quantity || 1);
-      } else {
-        items.push({
-          id: item.id,
-          title: item.title,
-          price: item.price,
-          image: item.image,
-          quantity: item.quantity || 1
+          // Remove button
+          if (target.classList.contains('remove__btn')) {
+            e.preventDefault();
+            handleRemoveItem(index);
+          }
+
+          // Decrease quantity
+          if (target.classList.contains('qty__btn--minus')) {
+            e.preventDefault();
+            const items = getCartItems();
+            if (items[index]) {
+              handleQuantityChange(index, items[index].quantity - 1);
+            }
+          }
+
+          // Increase quantity
+          if (target.classList.contains('qty__btn--plus')) {
+            e.preventDefault();
+            const items = getCartItems();
+            if (items[index]) {
+              handleQuantityChange(index, items[index].quantity + 1);
+            }
+          }
+        });
+
+        // Quantity input change
+        tbody.addEventListener('input', (e) => {
+          if (e.target.classList.contains('qty__input')) {
+            const index = parseInt(e.target.dataset.index);
+            const newQuantity = e.target.value;
+            handleQuantityChange(index, newQuantity);
+          }
         });
       }
 
-      saveCartItems(items);
-      return items;
-    },
+      // Coupon button
+      const couponBtn = document.querySelector('.coupon .btn');
+      if (couponBtn) {
+        couponBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          const action = couponBtn.getAttribute('data-action');
 
-    getItems: getCartItems,
-    getItemCount: function () {
-      return getCartItems().reduce((total, item) => total + item.quantity, 0);
-    },
+          if (action === 'remove') {
+            handleRemoveCoupon();
+          } else {
+            handleApplyCoupon();
+          }
+        });
+      }
 
-    clearCart: function () {
-      saveCartItems([]);
-      clearAppliedCoupon();
+      // Proceed to checkout button
+      const checkoutBtn = document.querySelector('.totals__footer .btn');
+      if (checkoutBtn) {
+        checkoutBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          handleProceedToCheckout();
+        });
+      }
     }
-  };
 
-})();
+    /* ========================================
+     * INITIALIZATION
+     * ======================================== */
+
+    /**
+     * Initialize cart page
+     */
+    async function init() {
+      console.log('🛒 Initializing cart page...');
+
+      // Show loader while initializing
+      if (window.GlobalLoader) {
+        window.GlobalLoader.show('Loading cart...');
+      }
+
+      await i18nService.init();
+
+      // Small delay to ensure localStorage is readable
+      setTimeout(() => {
+        // Load and render cart items
+        const items = getCartItems();
+        console.log('📦 Cart items loaded:', items);
+
+        renderCartItems(items);
+
+        // Update totals
+        updateCartTotals();
+
+        // Setup event listeners
+        setupEventListeners();
+
+        // Hide loader
+        if (window.GlobalLoader) {
+          window.GlobalLoader.hide(300);
+        }
+
+        console.log('✅ Cart initialized with', items.length, 'items');
+        console.log('🎟️ Available coupons:', Object.keys(COUPONS).join(', '));
+      }, 100);
+    }
+
+    // Initialize when DOM is ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+
+    /* ========================================
+     * PUBLIC API (for external use)
+     * ======================================== */
+
+    window.CartManager = {
+      addItem: function (item) {
+        const items = getCartItems();
+        const existingIndex = items.findIndex(i => i.id === item.id);
+
+        if (existingIndex >= 0) {
+          items[existingIndex].quantity += (item.quantity || 1);
+        } else {
+          items.push({
+            id: item.id,
+            title: item.title,
+            price: item.price,
+            image: item.image,
+            quantity: item.quantity || 1
+          });
+        }
+
+        saveCartItems(items);
+        return items;
+      },
+
+      getItems: getCartItems,
+      getItemCount: function () {
+        return getCartItems().reduce((total, item) => total + item.quantity, 0);
+      },
+
+      clearCart: function () {
+        saveCartItems([]);
+        clearAppliedCoupon();
+      }
+    };
+
+  }
+});

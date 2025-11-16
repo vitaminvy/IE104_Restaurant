@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Cart Page | IE104 Restaurant</title>
+    <title data-i18n="cart_page.title">Cart Page | IE104 Restaurant</title>
 
     <!-- CSS global -->
     <link rel="stylesheet" href="../style/reset.css" />
@@ -14,7 +14,7 @@
     />
 
     <!-- CSS header -->
-      <link rel="stylesheet" href="../partials/header.css" />
+    <link rel="stylesheet" href="../partials/header.css" />
 
     <!-- CSS CartPage -->
     <link rel="stylesheet" href="./cart.css" />
@@ -27,10 +27,10 @@
     <script src="../assets/script/global-loader.js"></script>
 
     <!-- Enhanced cart logic with localStorage and coupons -->
-    <script src="./cart.js"></script>
+    <script type="module" src="./cart.js"></script>
 
     <!-- Css footer -->
-      <link rel="stylesheet" href="../partials/footer.css" />
+    <link rel="stylesheet" href="../partials/footer.css" />
 
     <!-- link header and footer -->
     <script src="../assets/script/include-partials.js" defer></script>
@@ -39,6 +39,7 @@
   <body>
     <!-- ========== 1. HEADER ========== -->
     <div data-include="/partials/header.html"></div>
+    <script type="module" src="../assets/script/lang-toggle.js" defer></script>
 
     <main class="cart__container">
       <!-- ================= LEFT: CART TABLE ================= -->
@@ -50,10 +51,34 @@
               <!-- NEW -->
               <th scope="col" class="cart__col-image" aria-label="Image"></th>
               <!-- thêm class -->
-              <th scope="col" class="cart__col-name">Food</th>
-              <th scope="col" class="cart__col-price">Price</th>
-              <th scope="col" class="cart__col-qty">Quantity</th>
-              <th scope="col" class="cart__col-subtotal">Subtotal</th>
+              <th
+                scope="col"
+                class="cart__col-name"
+                data-i18n="cart_page.table.food"
+              >
+                Food
+              </th>
+              <th
+                scope="col"
+                class="cart__col-price"
+                data-i18n="cart_page.table.price"
+              >
+                Price
+              </th>
+              <th
+                scope="col"
+                class="cart__col-qty"
+                data-i18n="cart_page.table.quantity"
+              >
+                Quantity
+              </th>
+              <th
+                scope="col"
+                class="cart__col-subtotal"
+                data-i18n="cart_page.table.subtotal"
+              >
+                Subtotal
+              </th>
             </tr>
           </thead>
           <!-- body table -->
@@ -106,8 +131,15 @@
               class="coupon__input"
               type="text"
               placeholder="Coupon code"
+              data-i18n-placeholder="cart_page.coupon.placeholder"
             />
-            <button class="btn" type="button">Apply coupon</button>
+            <button
+              class="btn"
+              type="button"
+              data-i18n="cart_page.coupon.apply_button"
+            >
+              Apply coupon
+            </button>
           </div>
           <!-- Removed "Update Cart" button as updates are automatic -->
         </div>
@@ -115,24 +147,42 @@
 
       <!-- ================= RIGHT: CART TOTALS ================= -->
 
-      <aside class="totals"> 
+      <aside class="totals">
         <table class="totals__table">
           <tbody>
             <!-- Subtotal row -->
             <tr>
-              <th scope="row" class="totals__left">Subtotal</th>
+              <th
+                scope="row"
+                class="totals__left"
+                data-i18n="cart_page.totals.subtotal"
+              >
+                Subtotal
+              </th>
               <td class="totals__right">$0.00</td>
             </tr>
 
             <!-- Discount row (hidden by default, shown when coupon applied) -->
-            <tr class="totals__discount" style="display: none;">
-              <th scope="row" class="totals__left">Discount</th>
+            <tr class="totals__discount" style="display: none">
+              <th
+                scope="row"
+                class="totals__left"
+                data-i18n="cart_page.totals.discount"
+              >
+                Discount
+              </th>
               <td class="totals__right">-$0.00</td>
             </tr>
 
             <!-- Total row -->
             <tr class="totals__total">
-              <th scope="row" class="totals__left">Total</th>
+              <th
+                scope="row"
+                class="totals__left"
+                data-i18n="cart_page.totals.total"
+              >
+                Total
+              </th>
               <td class="totals__right">$0.00</td>
             </tr>
           </tbody>
@@ -143,6 +193,7 @@
             href="/checkout-page/checkout.html"
             class="btn"
             type="button"
+            data-i18n="cart_page.totals.proceed_to_checkout"
           >
             Proceed to Checkout
           </a>
@@ -152,5 +203,6 @@
 
     <!-- ========== 15. FOOTER ========== -->
     <div data-include="/partials/footer.html"></div>
+    <script src="../assets/script/lang-toggle.js" defer></script>
   </body>
 </html>

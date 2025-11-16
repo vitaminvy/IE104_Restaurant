@@ -5,6 +5,7 @@
  * ======================================== */
 
 import { menuItems, dietaryBadges } from "../assets/data/mockdata.js";
+import i18nService from '../assets/script/i18n-service.js';
 
 /* ========================================
  * DIETARY FILTER EXTENSION SYSTEM
@@ -33,7 +34,7 @@ import { menuItems, dietaryBadges } from "../assets/data/mockdata.js";
     // Add title
     const title = document.createElement("span");
     title.className = "dietary-filter__title";
-    title.textContent = "Filter by dietary preferences:";
+    title.textContent = i18nService.t("menu_page.dietary_filter.title");
     dietaryFilterContainer.appendChild(title);
 
     // Create badge for each dietary type
@@ -43,17 +44,15 @@ import { menuItems, dietaryBadges } from "../assets/data/mockdata.js";
       badgeBtn.dataset.dietaryType = key;
       badgeBtn.setAttribute("role", "button");
       badgeBtn.setAttribute("aria-pressed", "false");
-      badgeBtn.title = badge.description;
-
-      // Badge icon
-      const icon = document.createElement("span");
-      icon.className = "dietary-badge__icon";
-      icon.textContent = badge.icon;
-
-      // Badge label
-      const label = document.createElement("span");
-      label.className = "dietary-badge__label";
-      label.textContent = badge.label;
+            badgeBtn.title = i18nService.t(badge.description);
+            // Badge icon
+            const icon = document.createElement("span");
+            icon.className = "dietary-badge__icon";
+            icon.textContent = badge.icon;
+            // Badge label
+            const label = document.createElement("span");
+            label.className = "dietary-badge__label";
+            label.textContent = i18nService.t(badge.label);
 
       // Append icon and label
       badgeBtn.appendChild(icon);
@@ -151,9 +150,9 @@ import { menuItems, dietaryBadges } from "../assets/data/mockdata.js";
           .map((badgeKey) => {
             const badge = dietaryBadges[badgeKey];
             if (!badge) return "";
-            return `<span class="menu__card-badge menu__card-badge--${badgeKey}" title="${badge.description}">
+            return `<span class="menu__card-badge menu__card-badge--${badgeKey}" title="${i18nService.t(badge.description)}">
             <span class="menu__card-badge-icon">${badge.icon}</span>
-            <span>${badge.label}</span>
+            <span>${i18nService.t(badge.label)}</span>
           </span>`;
           })
           .join("")}
@@ -165,17 +164,26 @@ import { menuItems, dietaryBadges } from "../assets/data/mockdata.js";
     const cardTemplate = (item) => `
     <article class="menu__card" data-item-id="${item.id}" style="cursor: pointer;">
       <div class="menu__card-img-wrapper">
-        <img src="${item.image}" alt="${
+        <img src="${item.image}" alt="${i18nService.t(
       item.title
-    }" class="menu__card-image" loading="lazy"/>
+    )}" class="menu__card-image" loading="lazy"/>
       </div>
       <div class="menu__card-content">
-        <h3 class="menu__card-title">${item.title}</h3>
-        <p class="menu__card-desc">${item.desc}</p>
+        <h3 class="menu__card-title">${i18nService.t(item.title)}</h3>
+        <p class="menu__card-desc">${i18nService.t(item.desc)}</p>
         ${renderBadges(item.badges)}
         <div class="menu__card-meta">
           <span class="menu__card-price">${formatPrice(item.price)}</span>
-          <button class="menu__card-btn">Order Now +</button>
+          <div class="menu__card-actions">
+            <button class="menu__card-cart-btn" data-item-id="${item.id}" aria-label="${i18nService.t("menu_page.add_to_cart_aria_label")}" title="${i18nService.t("menu_page.add_to_cart_title")}">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="9" cy="21" r="1"/>
+                <circle cx="20" cy="21" r="1"/>
+                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+              </svg>
+            </button>
+            <button class="menu__card-btn btn" data-item-id="${item.id}">${i18nService.t("menu_page.order_now_button")}</button>
+          </div>
         </div>
       </div>
     </article>`;
@@ -191,8 +199,8 @@ import { menuItems, dietaryBadges } from "../assets/data/mockdata.js";
           font-family: var(--font-body);
           font-size: 1.125rem;
         ">
-          <p>No items match your dietary preferences.</p>
-          <p style="font-size: 0.875rem; margin-top: 0.5rem;">Try different filters or browse all items.</p>
+          <p>${i18nService.t("menu_page.empty_message.no_items")}</p>
+          <p style="font-size: 0.875rem; margin-top: 0.5rem;">${i18nService.t("menu_page.empty_message.try_filters")}</p>
         </div>
       `;
 
@@ -211,6 +219,173 @@ import { menuItems, dietaryBadges } from "../assets/data/mockdata.js";
 
     // Note: Pagination is handled by original menupage.js
     // We're just rendering all filtered items for simplicity
+
+    // Setup button handlers after rendering
+    setupOrderButtonHandlers();
+    setupCartIconHandlers();
+  }
+
+  /* ========================================
+   * CART HANDLING LOGIC (copied from menupage.js)
+   * ======================================== */
+
+  // Add to cart and navigate
+  function addToCartAndNavigate(item) {
+    const title = i18nService.t(item.title);
+    console.log("🛒 Adding to cart (from filter):", title);
+
+    if (window.GlobalLoader) {
+      window.GlobalLoader.show("Adding to cart...");
+    }
+
+    let cart = [];
+    try {
+      const cartData = localStorage.getItem("restaurantCart");
+      if (cartData) {
+        cart = JSON.parse(cartData);
+      }
+    } catch (e) {
+      console.error("Error reading cart:", e);
+    }
+
+    const existingItemIndex = cart.findIndex(
+      (cartItem) => cartItem.id === item.id
+    );
+
+    if (existingItemIndex > -1) {
+      cart[existingItemIndex].quantity = (cart[existingItemIndex].quantity || 1) + 1;
+    } else {
+      const cartItem = {
+        id: item.id,
+        title: item.title, // Store key
+        price: item.price,
+        image: item.image,
+        desc: item.desc || "", // Store key
+        quantity: 1,
+      };
+      cart.push(cartItem);
+    }
+
+    try {
+      localStorage.setItem("restaurantCart", JSON.stringify(cart));
+    } catch (e) {
+      console.error("❌ Error saving cart:", e);
+    }
+
+    if (window.GlobalLoader) {
+      window.GlobalLoader.updateMessage("Redirecting to cart...");
+    }
+
+    setTimeout(() => {
+      window.location.href = "/cartpage/cart.html";
+    }, 500);
+  }
+
+  function setupOrderButtonHandlers() {
+    const container = document.getElementById("menu-card-container");
+    if (!container) return;
+    const orderButtons = container.querySelectorAll(".menu__card-btn");
+
+    orderButtons.forEach((button) => {
+      button.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const card = e.target.closest('.menu__card');
+        if (!card) return;
+
+        const itemId = Number(card.dataset.itemId);
+        const item = menuItems.find((i) => i.id === itemId);
+        if (!item) return;
+
+        // Get title and desc from the DOM to avoid race condition
+        const title = card.querySelector('.menu__card-title')?.textContent || i18nService.t(item.title);
+        const desc = card.querySelector('.menu__card-desc')?.textContent || i18nService.t(item.desc);
+
+        const cartItem = { ...item, title, desc };
+        addToCartAndNavigate(cartItem);
+      });
+    });
+  }
+
+  function setupCartIconHandlers() {
+    const container = document.getElementById("menu-card-container");
+    if (!container) return;
+    const cartButtons = container.querySelectorAll(".menu__card-cart-btn");
+
+    cartButtons.forEach((button) => {
+      button.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const card = e.target.closest('.menu__card');
+        if (!card) return;
+
+        const itemId = Number(card.dataset.itemId);
+        const item = menuItems.find((i) => i.id === itemId);
+        if (!item) return;
+
+        // Get title and desc from the DOM to avoid race condition
+        const title = card.querySelector('.menu__card-title')?.textContent || i18nService.t(item.title);
+        const desc = card.querySelector('.menu__card-desc')?.textContent || i18nService.t(item.desc);
+
+        console.log("🛒 Adding to cart via cart icon (from filter):", title);
+
+        button.style.transform = "scale(0.85)";
+        setTimeout(() => {
+          button.style.transform = "";
+        }, 200);
+
+        let cart = [];
+        try {
+          const cartData = localStorage.getItem("restaurantCart");
+          if (cartData) {
+            cart = JSON.parse(cartData);
+          }
+        } catch (e) {
+          console.error("Error reading cart:", e);
+        }
+
+        const existingItemIndex = cart.findIndex(
+          (cartItem) => cartItem.id === item.id
+        );
+
+        if (existingItemIndex > -1) {
+          cart[existingItemIndex].quantity = (cart[existingItemIndex].quantity || 1) + 1;
+        } else {
+          const cartItem = {
+            id: item.id,
+            title: title, // Already translated from DOM
+            price: item.price,
+            image: item.image,
+            desc: desc || "", // Already translated from DOM
+            quantity: 1,
+          };
+          cart.push(cartItem);
+        }
+
+        try {
+          localStorage.setItem("restaurantCart", JSON.stringify(cart));
+        } catch (e) {
+          console.error("❌ Error saving cart:", e);
+        }
+
+        if (window.showToast) {
+          const totalQty = cart.find(i => i.id === item.id)?.quantity || 1;
+          window.showToast(
+            `${title} added to cart (Qty: ${totalQty})`,
+            "success",
+            2000
+          );
+        }
+
+        const cartCountEl = document.getElementById("cart-count");
+        if (cartCountEl) {
+          const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+          cartCountEl.textContent = totalItems;
+        }
+      });
+    });
   }
 
   /* ========================================
@@ -244,14 +419,14 @@ import { menuItems, dietaryBadges } from "../assets/data/mockdata.js";
 
         const badgeEl = document.createElement("span");
         badgeEl.className = `menu__card-badge menu__card-badge--${badgeKey}`;
-        badgeEl.title = badge.description;
+        badgeEl.title = i18nService.t(badge.description);
 
         const icon = document.createElement("span");
         icon.className = "menu__card-badge-icon";
         icon.textContent = badge.icon;
 
         const label = document.createElement("span");
-        label.textContent = badge.label;
+        label.textContent = i18nService.t(badge.label);
 
         badgeEl.appendChild(icon);
         badgeEl.appendChild(label);
@@ -330,29 +505,32 @@ import { menuItems, dietaryBadges } from "../assets/data/mockdata.js";
    * INITIALIZATION
    * ======================================== */
 
-  function init() {
-    // Wait for DOM to be fully loaded
-    if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", init);
-      return;
-    }
+  function initializeExtension() {
+    // Create dietary filter UI
+    createDietaryFilterBar();
 
-    // Small delay to ensure menupage.js has initialized
-    setTimeout(() => {
-      // Create dietary filter UI
-      createDietaryFilterBar();
+    // Add badges to initial cards
+    addBadgesToExistingCards();
 
-      // Add badges to initial cards
-      addBadgesToExistingCards();
+    // Observe for future changes
+    observeMenuChanges();
 
-      // Observe for future changes
-      observeMenuChanges();
-
-      // Setup category filter listener
-      setupCategoryFilterListener();
-    }, 100);
+    // Setup category filter listener
+    setupCategoryFilterListener();
   }
 
-  // Start initialization
-  init();
+  // Listen for the language-changed event to re-initialize
+  document.addEventListener('language-changed', () => {
+    // Re-create the filter bar to update text
+    const existingFilter = document.querySelector(".dietary-filter");
+    if (existingFilter) {
+      existingFilter.remove();
+    }
+    initializeExtension();
+  });
+
+  // Initial load
+  if (Object.keys(i18nService.getTranslations()).length > 0) {
+    initializeExtension();
+  }
 })();

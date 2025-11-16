@@ -394,46 +394,6 @@ document.head.appendChild(style);
   }
 
   /* ========================================
-   * CHECK MENU CARDS FOR ALLERGENS
-   * Add warning badges to menu cards
-   * ======================================== */
-
-  function checkMenuCardsForAllergens() {
-    // If no allergens selected, no need to check
-    if (userAllergens.length === 0) return;
-
-    // Get all menu cards
-    const menuCards = document.querySelectorAll('.menu__card');
-    
-    menuCards.forEach(card => {
-      const itemId = parseInt(card.dataset.itemId);
-      
-      import('../data/mockdata.js')
-        .then(module => {
-          const item = module.menuItems.find(i => i.id === itemId);
-          
-          if (item && item.allergens) {
-            // Check if item contains user's allergens
-            const conflicts = item.allergens.filter(allergen => 
-              userAllergens.includes(allergen)
-            );
-
-            if (conflicts.length > 0) {
-              // Add warning badge to card
-              addWarningBadgeToCard(card, conflicts);
-            } else {
-              // Remove warning badge if it exists
-              removeWarningBadgeFromCard(card);
-            }
-          }
-        })
-        .catch(err => {
-          console.log('Could not check allergens for menu card:', err);
-        });
-    });
-  }
-
-  /* ========================================
    * ADD WARNING BADGE TO MENU CARD
    * ======================================== */
 

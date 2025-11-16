@@ -14,7 +14,7 @@ export const blogPosts = [
     category: 'Technology',
     tags: ['AI', 'Innovation', 'Restaurant Tech', 'Automation'],
     author: 'Admin',
-    date: 'blog.date.august_6_2025',
+    date: 'blog.date.august_28_2025',
     readTime: '8 min read',
     featured: true,
     content: {
@@ -60,7 +60,7 @@ export const blogPosts = [
     category: 'Trends',
     tags: ['Breakfast Trends', 'Morning Menu', 'Brunch Ideas', 'Healthy Dining'],
     author: 'Admin',
-    date: 'blog.date.august_4_2024',
+    date: 'blog.date.august_26_2025',
     readTime: '5 min read',
     featured: false,
     content: {
@@ -96,7 +96,7 @@ export const blogPosts = [
     category: 'Management',
     tags: ['Restaurant Staffing', 'Kitchen Team', 'Safety Training', 'Service Culture'],
     author: 'Admin',
-    date: 'blog.date.august_4_2025',
+    date: 'blog.date.august_24_2025',
     readTime: '6 min read',
     featured: false,
     content: {
@@ -132,7 +132,7 @@ export const blogPosts = [
     category: 'Technology',
     tags: ['Technology', 'POS Systems', 'Digital Transformation', 'Operations'],
     author: 'Admin',
-    date: 'blog.date.august_4_2025',
+    date: 'blog.date.august_23_2025',
     readTime: '7 min read',
     featured: false,
     content: {
@@ -175,7 +175,7 @@ export const blogPosts = [
     category: 'Technology',
     tags: ['IoT', 'Inventory', 'Cost Control', 'Efficiency'],
     author: 'Admin',
-    date: 'blog.date.august_4_2025',
+    date: 'blog.date.august_22_2025',
     readTime: '6 min read',
     featured: false,
     content: {
@@ -218,7 +218,7 @@ export const blogPosts = [
     category: 'Marketing',
     tags: ['Marketing', 'Social Media', 'Live Video', 'Customer Engagement'],
     author: 'Admin',
-    date: 'blog.date.august_4_2024',
+    date: 'blog.date.august_20_2025',
     readTime: '5 min read',
     featured: false,
     content: {
@@ -261,7 +261,7 @@ export const blogPosts = [
     category: 'Management',
     tags: ['Employee Benefits', 'Financial Wellness', 'Staff Retention', 'HR'],
     author: 'Admin',
-    date: 'blog.date.august_4_2025',
+    date: 'blog.date.august_18_2025',
     readTime: '6 min read',
     featured: false,
     content: {

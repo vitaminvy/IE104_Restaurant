@@ -108,13 +108,14 @@ function renderTagFilters() {
 
   container.innerHTML = '';
   const fragment = document.createDocumentFragment();
+  const tagTranslations = i18nService.getTranslations()?.blog?.tags || {};
 
   getAllTags().forEach((tag) => {
     const pill = document.createElement('button');
     pill.type = 'button';
     pill.className = 'blog-filter-pill';
     pill.dataset.tag = tag;
-    pill.textContent = tag;
+    pill.textContent = tagTranslations[tag] || tag;
     pill.addEventListener('click', () => {
       selectedTag = selectedTag === tag ? null : tag;
       syncFilterUI();
@@ -204,6 +205,8 @@ function renderBlogTimeline(page = 1, append = false) {
     return;
   }
 
+  const tagTranslations = i18nService.getTranslations()?.blog?.tags || {};
+
   postsToRender.forEach((post) => {
     const readTime = getLocalizedReadTime(post.readTime);
     const title = i18nService.t(post.title);
@@ -231,12 +234,14 @@ function renderBlogTimeline(page = 1, append = false) {
           <p class="timeline-entry__excerpt">${excerpt}</p>
           <div class="timeline-entry__tags">
             ${(post.tags || [])
-              .map((tag) => `<span class="timeline-entry__tag">${tag}</span>`)
+              .map((tag) => {
+                const label = tagTranslations[tag] || tag;
+                return `<span class="timeline-entry__tag">${label}</span>`;
+              })
               .join('')}
           </div>
           <div class="timeline-entry__actions">
             <a href="../blogpage-details/index.html?id=${post.id}" class="read-more">${readMoreText}</a>
-            <span class="timeline-entry__readtime">${readTime}</span>
           </div>
         </div>
         <div class="timeline-entry__image">

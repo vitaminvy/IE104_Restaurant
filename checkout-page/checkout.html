@@ -18,6 +18,16 @@
       rel="stylesheet"
     />
 
+    <!-- Global Animation System -->
+    <link rel="stylesheet" href="../style/animations.css" />
+    <script src="../assets/script/scroll-animations.js"></script>
+
+    <!-- Form Validation System -->
+    <link rel="stylesheet" href="../style/form-validation.css" />
+    <link rel="stylesheet" href="../style/notification-system.css" />
+    <script src="../assets/script/form-validator.js"></script>
+    <script src="../assets/script/notification-system.js"></script>
+
     <!-- Style header and footer -->
       <link rel="stylesheet" href="../partials/header.css" />
       <link rel="stylesheet" href="../partials/footer.css" />
@@ -44,26 +54,34 @@
       <section class="billing">
         <h1 class="billing__title" data-i18n="checkout_page.billing_details.title">Billing details</h1>
 
-        <form class="form" method="get" novalidate>
+        <form class="form" id="checkout-form" method="get" novalidate>
           <div class="form__row">
             <div class="form__group">
               <label class="form__label" for="firstName" data-i18n="checkout_page.billing_details.first_name">Your name *</label>
               <input
                 id="firstName"
+                name="firstName"
                 class="form__input"
                 type="text"
                 placeholder=""
                 required
+                minlength="2"
+                data-error-required="Please enter your first name"
+                data-error-minLength="First name must be at least 2 characters"
               />
             </div>
             <div class="form__group">
               <label class="form__label" for="lastName" data-i18n="checkout_page.billing_details.last_name">Last name *</label>
               <input
                 id="lastName"
+                name="lastName"
                 class="form__input"
                 type="text"
                 placeholder=""
                 required
+                minlength="2"
+                data-error-required="Please enter your last name"
+                data-error-minLength="Last name must be at least 2 characters"
               />
             </div>
           </div>
@@ -81,10 +99,14 @@
             <label class="form__label" for="street1" data-i18n="checkout_page.billing_details.street_address">Street address *</label>
             <input
               id="street1"
+              name="street1"
               class="form__input"
               type="text"
               placeholder=""
               required
+              minlength="5"
+              data-error-required="Please enter your street address"
+              data-error-minLength="Street address must be at least 5 characters"
             />
           </div>
 
@@ -92,9 +114,10 @@
             <label class="form__label" for="street2" data-i18n="checkout_page.billing_details.street_address">Street address *</label>
             <input
               id="street2"
+              name="street2"
               class="form__input"
               type="text"
-              placeholder=""
+              placeholder="Apartment, suite, etc. (optional)"
             />
           </div>
 
@@ -114,7 +137,14 @@
               <label class="form__label" for="zip" data-i18n="checkout_page.billing_details.postcode_zip"
                 >Postcode / ZIP (optional)</label
               >
-              <input id="zip" class="form__input" type="text" />
+              <input
+                id="zip"
+                name="zip"
+                class="form__input"
+                type="text"
+                pattern="[0-9]{5,6}"
+                data-error-pattern="Postcode must be 5-6 digits"
+              />
             </div>
             <div class="form__group">
               <label class="form__label" for="phone" data-i18n="checkout_page.billing_details.phone">Phone *</label>
@@ -199,7 +229,7 @@
               described in our</span> <a href="#!" class="link" data-i18n="checkout_page.payment.privacy_policy_link">privacy policy</a>.
             </p>
 
-            <button class="btn btn--primary" type="submit" data-i18n="checkout_page.payment.place_order_button">Place order</button>
+            <button class="btn btn--primary checkout-form__btn" type="submit" data-i18n="checkout_page.payment.place_order_button">Place order</button>
           </fieldset>
         </form>
       </section>
@@ -237,5 +267,8 @@
 
     <!-- Footer -->
     <div data-include="/partials/footer.html"></div>
+
+    <!-- Checkout Form Handler -->
+    <script src="./checkout-handler.js"></script>
   </body>
 </html>

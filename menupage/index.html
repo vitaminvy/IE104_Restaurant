@@ -10,13 +10,13 @@
     <link rel="stylesheet" href="../style/style.css" />
 
     <!-- menu page css -->
-    <link rel="stylesheet" href="./menu-page.css" />
+    <link rel="stylesheet" href="./styles/menu-page.css" />
 
     <!-- dietary filter css - NEW FEATURE -->
-    <link rel="stylesheet" href="./dietary-filter.css" />
+    <link rel="stylesheet" href="./styles/dietary-filter.css" />
 
     <!-- Pagination Section styles -->
-    <link rel="stylesheet" href="./pagination.css" />
+    <link rel="stylesheet" href="./styles/pagination.css" />
 
     <!-- header section -->
     <link rel="stylesheet" href="../partials/header.css" />
@@ -37,8 +37,18 @@
     <link rel="stylesheet" href="../assets/features/allergy-alert.css" />
     <link rel="stylesheet" href="../assets/features/social-proof.css" />
 
+    <!-- Global Animation System -->
+    <link rel="stylesheet" href="../style/animations.css" />
+
+    <!-- Add to Cart Button System -->
+    <link rel="stylesheet" href="./styles/add-to-cart-buttons.css" />
+    <link rel="stylesheet" href="./styles/notification-system.css" />
+    <script src="./scripts/notification-system.js"></script>
+    <script src="./scripts/add-to-cart-buttons.js"></script>
+
     <!-- Global Loading System -->
     <script src="../assets/script/global-loader.js"></script>
+    <script src="../assets/script/scroll-animations.js"></script>
   </head>
 
   <body>
@@ -50,7 +60,7 @@
     <div data-include="/partials/header.html"></div>
 
     <!-- ========== FILTER FIELD ========== -->
-    <nav class="menu__filter" aria-label="Menu categories">
+    <nav class="menu__filter animate-fade" aria-label="Menu categories">
       <!-- breakfast -->
       <a
         href="#"
@@ -91,16 +101,18 @@
     </nav>
 
     <!-- ===== Unified container where JS will render cards ===== -->
-    <div id="menu-card-container" class="menu__grid" role="list"></div>
+    <div
+      id="menu-card-container"
+      class="menu__grid stagger-children"
+      role="list"
+    ></div>
 
-    <nav id="pagination" class="pagination"></nav>
+    <nav id="pagination" class="pagination animate-fade"></nav>
 
     <!-- BANNER MID -->
     <section class="banner" aria-label="Signature dining highlight">
-      <div class="menu-banner__content">
-        <span
-          class="menu-banner__eyebrow"
-          data-i18n="menu_page.banner.eyebrow"
+      <div class="menu-banner__content animate-scale">
+        <span class="menu-banner__eyebrow" data-i18n="menu_page.banner.eyebrow"
           >Chef's Table Experience</span
         >
         <h2 data-i18n="menu_page.banner.title1">Food Is Not Just</h2>
@@ -177,10 +189,10 @@
       src="../assets/script/navigate-menu.js"
       defer
     ></script>
-    <script type="module" src="./menupage.js" defer></script>
+    <script type="module" src="./scripts/menupage.js" defer></script>
 
     <!-- dietary filter extension - NEW FEATURE (does not modify existing code) -->
-    <script type="module" src="./dietary-filter-extension.js" defer></script>
+    <script type="module" src="./scripts/dietary-filter-extension.js" defer></script>
 
     <!-- Global Features Scripts -->
     <script type="module" src="../assets/features/allergy-alert.js"></script>

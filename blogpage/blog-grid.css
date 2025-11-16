@@ -29,7 +29,7 @@
 }
 
 .blog-filters__actions {
-  flex: 1 1 240px;
+  flex: 1 1 ;
   display: flex;
   gap: 0.75rem;
   justify-content: flex-end;

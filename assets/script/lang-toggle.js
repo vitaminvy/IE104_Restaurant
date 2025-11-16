@@ -31,6 +31,19 @@ import i18nService from './i18n-service.js';
       if (val !== undefined) el.setAttribute('placeholder', val);
     });
 
+    // Other attributes (supports comma-separated mapping attr:key)
+    document.querySelectorAll('[data-i18n-attrs]').forEach(el => {
+      const attrMap = (el.getAttribute('data-i18n-attrs') || '').split(',');
+      attrMap.forEach(entry => {
+        const [attr, ...keyParts] = entry.split(':');
+        const attrName = attr ? attr.trim() : '';
+        const key = keyParts.join(':').trim();
+        if (!attrName || !key) return;
+        const val = getByPath(translations, key);
+        if (val !== undefined) el.setAttribute(attrName, val);
+      });
+    });
+
     // Document lang attr
     document.documentElement.setAttribute('lang', lang);
   }
@@ -95,6 +108,13 @@ import i18nService from './i18n-service.js';
     updateFloatingToggle(newLang);
   });
 
+  // Listen for partials to be loaded, then apply translations again
+  document.addEventListener('partials:loaded', () => {
+    const newLang = i18nService.getLanguage();
+    applyStaticTranslations();
+    updateFloatingToggle(newLang);
+  });
+
   // Init when DOM ready
   async function initialize() {
     await i18nService.init(); // Ensure translations are loaded first
@@ -110,4 +130,3 @@ import i18nService from './i18n-service.js';
     document.addEventListener('DOMContentLoaded', initialize);
   }
 })();
-

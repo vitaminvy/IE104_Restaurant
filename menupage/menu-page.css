@@ -380,32 +380,141 @@
   transform: translateY(-1px);
 }
 
-/* ===== BANNER (optional) ===== */
+/* ===== BANNER ===== */
 .banner {
-  background: url("../../assets/images/menu-page/menu-page-banner.png")
-    center/cover no-repeat;
-  height: 24rem;
+  position: relative;
+  margin: 4rem auto;
+  width: min(1220px, 94%);
+  min-height: 22rem;
+  border-radius: 32px;
+  background:
+    linear-gradient(115deg, rgba(7, 7, 10, 0.92), rgba(6, 6, 8, 0.85)),
+    url("../../assets/images/menu-page/menu-page-banner.png") center/cover no-repeat;
+  overflow: hidden;
+  padding: clamp(2rem, 4vw, 3.5rem);
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: flex-start;
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.45);
 }
+
+.banner::before,
+.banner::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.banner::before {
+  width: 260px;
+  height: 260px;
+  left: -120px;
+  top: -80px;
+  background: radial-gradient(circle, rgba(251, 143, 44, 0.9), transparent 60%);
+}
+
+.banner::after {
+  width: 220px;
+  height: 220px;
+  right: -90px;
+  bottom: -90px;
+  background: radial-gradient(circle, rgba(255, 214, 124, 0.7), transparent 60%);
+}
+
 .menu-banner__content {
-  text-align: center;
-  background: rgba(0, 0, 0, 0.4);
-  padding: 2rem;
-  border-radius: 1rem;
-  width: 90%;
+  position: relative;
+  z-index: 1;
+  max-width: 540px;
+  color: var(--color-white);
+  text-align: left;
 }
+
+.menu-banner__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 0.9rem;
+}
+
 .menu-banner__content h2 {
-  font-size: 2rem;
-  padding: 0rem 2rem;
+  font-size: clamp(2.2rem, 4vw, 3.6rem);
+  margin: 0;
+  line-height: 1.15;
 }
+
 .menu-banner__content p {
-  font-size: 1.5rem;
-  margin-top: 0.5rem;
-  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.78);
+  margin-top: 1rem;
+  margin-bottom: 1.75rem;
 }
- 
+
+.menu-banner__cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.8rem;
+}
+
+.menu-banner__btn {
+  border-radius: 999px;
+  padding: 0.8rem 1.75rem;
+  font-weight: 600;
+}
+
+.menu-banner__btn--ghost {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.menu-banner__btn--ghost:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--color-white);
+}
+
+.menu-banner__stats {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-banner__stats li {
+  padding: 0.85rem 1rem;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(2px);
+}
+
+.menu-banner__stats strong {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--color-white);
+}
+
+.menu-banner__stats span {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.65);
+  text-transform: capitalize;
+}
+
+
+
 /* =======================
    TOAST
 ======================= */

@@ -3,8 +3,8 @@
 ========================================================= */
 
 .daily-offers {
-  background-color: var(--color-bg-dark);
-  color: var(--color-white);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
 }
 
 .daily-offers__container {
@@ -87,7 +87,7 @@
 
 .daily-offers__item-desc {
   font-size: 0.7rem;
-  color: var(--color-white-80);
+  color: var(--text-secondary);
   line-height: 1.4;
 }
 
@@ -95,7 +95,7 @@
   font-family: var(--font-heading);
   font-size: 1.2rem;
   font-weight: 700;
-  color: #fff;
+  color: var(--text-primary);
 }
 
 /* =========================================================
@@ -162,3 +162,5 @@
     gap: 6rem;
   }
 }
+
+

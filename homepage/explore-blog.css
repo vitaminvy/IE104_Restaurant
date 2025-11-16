@@ -3,8 +3,8 @@
 ========================================================= */
 
 .blogs {
-  background-color: var(--color-bg-dark);
-  color: var(--color-white);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
   padding: 0rem 1.5rem;
   max-width: 1536px;
   margin: 0 auto;
@@ -33,7 +33,7 @@
 
 .blogs__subtitle {
   font-size: 1rem;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--text-secondary);
   line-height: 1.6;
   max-width: 600px;
 }
@@ -91,7 +91,7 @@
 
 .blog-card__meta {
   font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.75);
+  color: var(--text-secondary);
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -103,13 +103,13 @@
 
 .blog-card__divider {
   border: none;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid var(--border-color);
   margin: 1rem 0;
 }
 
 .blog-card__readmore {
   font-size: 0.9rem;
-  color: #fff;
+  color: var(--text-primary);
   text-decoration: none;
   font-weight: 500;
   transition: all 0.3s ease;
@@ -175,3 +175,5 @@
     gap: 8rem;
   }
 }
+
+

@@ -75,7 +75,7 @@
   font-weight: 500;
   font-size: 2rem;
   line-height: 1.3;
-  color: var(--color-white);
+  color: var(--text-primary);
 
   /* Box model */
   margin: 0 0 24px 0;
@@ -101,7 +101,7 @@
   /* Typography */
   font-size: 14px;
   line-height: 1.625;
-  color: var(--color-white-80);
+  color: var(--text-secondary);
 }
 
 /* ----------------------------------------
@@ -179,7 +179,7 @@
   .chef-description {
     font-size: 1rem;
     line-height: 1.6;
-    color: var(--color-white-80);
+    color: var(--text-secondary);
     margin: 0 0 2rem auto;
   }
 }
@@ -232,3 +232,5 @@
     flex: unset;
   }
 }
+
+

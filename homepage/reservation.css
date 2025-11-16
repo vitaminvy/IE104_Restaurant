@@ -53,7 +53,6 @@
 .reservation__subtitle {
   font-size: 0.75rem;
   font-weight: 400;
-  font-family: var(--font-body);
   color: rgba(255, 255, 255, 0.8);
   margin-bottom: 2rem;
 }
@@ -114,7 +113,7 @@
   top: 50%;
   transform: translateY(-50%);
   font-size: 1rem;
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--color-white-80);
   pointer-events: none;
 }
 
@@ -216,3 +215,7 @@
     font-size: 1rem;
   }
 }
+
+
+
+

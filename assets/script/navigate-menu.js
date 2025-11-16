@@ -31,7 +31,7 @@ import { menuItems } from "../data/mockdata.js";
                 <span class="menu__card-price">$${item.price}</span>
                 <div class="menu__card-btn" style="pointer-events: none;">
                     Order Now
-                    <img src="../assets/icons/home-page/menu-section/arrown.svg" alt="" class="menu__card-btn-icon" />
+                    <svg class="menu__card-btn-icon" width="21" height="10" viewBox="0 0 21 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 5H20M20 5C18.5606 4.78667 15.6818 3.688 15.6818 1M20 5C18.5606 5.21333 15.6818 6.312 15.6818 9" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 </div>
             </div>
         </article>`;

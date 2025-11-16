@@ -2,7 +2,7 @@ html[data-theme="dark"] {
   --bg-primary: #111114;
   --bg-secondary: #18181b;
   --text-primary: #ffffff;
-  --text-secondary: var(--text-secondary);
+  --text-secondary: rgba(255, 255, 255, 0.8);
   --text-muted: rgba(255, 255, 255, 0.6);
   --accent-color: #fb8f2c;
   --border-color: rgba(255, 255, 255, 0.08);
@@ -20,21 +20,18 @@ html[data-theme="light"] {
   --icon-filter: brightness(0) invert(0);
 }
 
-html[data-theme="dark"] body {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
 body {
   margin: 0;
   overflow-x: hidden;
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  transition: background-color 0.3s ease, color 0.3s ease;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 * {
   box-sizing: border-box;
+  transition: background-color 0.3s ease, color 0.1s ease, border-color 0.3s ease;
 }
 
 #statistics {

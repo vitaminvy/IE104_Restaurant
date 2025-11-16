@@ -721,36 +721,13 @@ import { menuItems, dietaryBadges } from "../assets/data/mockdata.js";
     // Create pairing section
     const pairingSection = document.createElement("div");
     pairingSection.className = "meal-pairing";
-    pairingSection.style.cssText = `
-      max-width: 1280px; 
-      margin: 3rem auto;
-      padding: 1.5rem;
-      background: rgba(255, 255, 255, 0.03);
-      border-radius: var(--radius);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-    `;
 
     // Create header
     const header = document.createElement("div");
     header.className = "meal-pairing__header";
-    header.style.cssText = `
-      margin-bottom: 1.5rem;
-      text-align: center;
-    `;
     header.innerHTML = `
-      <h3 style="
-        font-family: var(--font-heading);
-        font-size: 1.5rem;
-        font-weight: 600;
-        color: var(--color-white);
-        margin: 0 0 0.5rem 0;
-      ">Pairs Well With</h3>
-      <p style="
-        font-family: var(--font-body);
-        font-size: 0.875rem;
-        color: var(--color-white-60);
-        margin: 0;
-      ">Enhance your meal with these perfect combinations</p>
+      <h3>Pairs Well With</h3>
+      <p>Enhance your meal with these perfect combinations</p>
     `;
 
     // Create grid
@@ -794,36 +771,6 @@ import { menuItems, dietaryBadges } from "../assets/data/mockdata.js";
   function createPairingCard(item) {
     const card = document.createElement("article");
     card.className = "pairing-card";
-    card.style.cssText = `
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      padding: 1rem;
-      border-radius: var(--radius);
-      border: 2px solid rgba(255, 255, 255, 0.1);
-      background: rgba(255, 255, 255, 0.05);
-      cursor: pointer;
-      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-      overflow: hidden;
-      will-change: transform;
-      backface-visibility: hidden;
-      transform: translateZ(0);
-    `;
-
-    // Add ultra-smooth hover effect
-    card.addEventListener("mouseenter", () => {
-      card.style.transform = "translateY(-12px) scale(1.05) perspective(1000px) rotateX(2deg)";
-      card.style.borderColor = "var(--color-dark-orange)";
-      card.style.boxShadow = "0 20px 60px rgba(251, 143, 44, 0.5), 0 10px 25px rgba(0, 0, 0, 0.3), inset 0 0 20px rgba(251, 143, 44, 0.1)";
-      card.style.filter = "brightness(1.1)";
-    });
-
-    card.addEventListener("mouseleave", () => {
-      card.style.transform = "translateY(0) scale(1) perspective(1000px) rotateX(0)";
-      card.style.borderColor = "rgba(255, 255, 255, 0.1)";
-      card.style.boxShadow = "none";
-      card.style.filter = "brightness(1)";
-    });
 
     // Add click handler with global loader transition
     card.addEventListener("click", (e) => {
@@ -842,105 +789,37 @@ import { menuItems, dietaryBadges } from "../assets/data/mockdata.js";
 
     // Image
     const imgWrapper = document.createElement("div");
-    imgWrapper.style.cssText = `
-      width: 100%;
-      height: 300px;
-      margin-bottom: 0.75rem;
-      border-radius: var(--radius);
-      overflow: hidden;
-    `;
+    imgWrapper.className = "pairing-card__img-wrapper";
 
     const img = document.createElement("img");
     img.src = item.image;
     img.alt = item.title;
-    img.style.cssText = `
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease;
-      will-change: transform;
-      backface-visibility: hidden;
-    `;
-
-    card.addEventListener("mouseenter", () => {
-      img.style.transform = "scale(1.15) rotate(2deg)";
-      img.style.filter = "brightness(1.1) saturate(1.2)";
-    });
-
-    card.addEventListener("mouseleave", () => {
-      img.style.transform = "scale(1) rotate(0)";
-      img.style.filter = "brightness(1) saturate(1)";
-    });
+    img.className = "pairing-card__img";
 
     imgWrapper.appendChild(img);
 
     // Title
     const title = document.createElement("h4");
     title.textContent = item.title;
-    title.style.cssText = `
-      font-family: var(--font-heading);
-      font-size: 1rem;
-      font-weight: 500;
-      color: var(--color-white);
-      margin: 0 0 0.5rem 0;
-      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-      transform-origin: left center;
-    `;
-
-    card.addEventListener("mouseenter", () => {
-      title.style.color = "var(--color-dark-orange)";
-      title.style.transform = "translateX(5px)";
-      title.style.textShadow = "0 0 20px rgba(251, 143, 44, 0.6)";
-    });
-
-    card.addEventListener("mouseleave", () => {
-      title.style.color = "var(--color-white)";
-      title.style.transform = "translateX(0)";
-      title.style.textShadow = "none";
-    });
+    title.className = "pairing-card__title";
 
     // Description (truncated)
     const desc = document.createElement("p");
     desc.textContent =
       item.desc.length > 50 ? item.desc.substring(0, 50) + "..." : item.desc;
-    desc.style.cssText = `
-      font-family: var(--font-body);
-      font-size: 0.75rem;
-      color: var(--color-white-80);
-      margin: 0 0 0.75rem 0;
-      line-height: 1.4;
-    `;
+    desc.className = "pairing-card__desc";
 
     // Pairing reason
     const reason = document.createElement("div");
-    reason.style.cssText = `
-      display: flex;
-      align-items: flex-start;
-      gap: 0.5rem;
-      padding: 0.5rem;
-      margin-bottom: 0.75rem;
-      background: rgba(251, 143, 44, 0.1);
-      border-radius: var(--radius);
-      border: 1px solid rgba(251, 143, 44, 0.2);
-    `;
+    reason.className = "pairing-card__reason";
 
     const reasonIcon = document.createElement("span");
     reasonIcon.textContent = "💡";
-    reasonIcon.style.cssText = `
-      flex-shrink: 0;
-      font-size: 1rem;
-    `;
+    reasonIcon.className = "pairing-card__reason-icon";
 
     const reasonText = document.createElement("p");
     reasonText.textContent = item.pairingReason;
-    reasonText.style.cssText = `
-      font-family: var(--font-body);
-      font-size: 0.7rem;
-      font-style: italic;
-      color: var(--color-white-80);
-      margin: 0;
-      line-height: 1.3;
-    `;
+    reasonText.className = "pairing-card__reason-text";
 
     reason.appendChild(reasonIcon);
     reason.appendChild(reasonText);
@@ -948,13 +827,7 @@ import { menuItems, dietaryBadges } from "../assets/data/mockdata.js";
     // Price
     const price = document.createElement("span");
     price.textContent = formatPrice(item.price);
-    price.style.cssText = `
-      font-family: var(--font-heading);
-      font-size: 1.125rem;
-      font-weight: 600;
-      color: var(--color-dark-orange);
-      margin-top: auto;
-    `;
+    price.className = "pairing-card__price";
 
     // Assemble card
     card.appendChild(imgWrapper);

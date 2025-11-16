@@ -26,7 +26,7 @@
 .about-intro__divider {
   width: min(1180px, 92vw);
   height: 0.5px;
-  background: var(--color-white-80);
+  background: var(--border-color);
   margin: 0.5rem auto 4rem;
 }
 /* ===== Lưới hình & story ===== */
@@ -100,7 +100,7 @@
   font-weight: 800;
   line-height: 1.15;
   font-size: 2.5rem;
-  color: var(--color-white);
+  color: var(--text-primary);
 }
 
 .about-intro__story-text {
@@ -127,7 +127,7 @@
 }
 
 .vision__subtitle {
-  color: var(--color-white-80);
+  color: var(--text-secondary);
   max-width: 78ch;
   margin: 0 auto;
   font-size: 1rem;
@@ -175,7 +175,7 @@
   font-size: 1.5rem;
 }
 .vision__feature-desc {
-  color: var(--color-white-80);
+  color: var(--text-secondary);
   font-size: 1rem;
   line-height: 1.6;
 }
@@ -206,7 +206,7 @@
 
 /* Text highlight nhẹ */
 .vision__feature:hover .vision__feature-title {
-  color: var(--color-dark-orange);
+  color: var(--accent-color);
   transition: color 0.3s ease;
 }
 
@@ -248,7 +248,7 @@
   margin: 0 0 10px;
 }
 .team__subtitle {
-  color: var(--color-white-80);
+  color: var(--text-secondary);
   font-size: var(--font-size-body);
   margin: 0 auto;
 }
@@ -316,7 +316,7 @@
   font-size: clamp(16px, 1.9vw, 24px);
 }
 .team-card__role {
-  color: var(--color-white-80);
+  color: var(--text-secondary);
   font-size: 1.125rem;
   margin: 0;
 }
@@ -466,3 +466,5 @@
     z-index: 1;
   }
 }
+
+

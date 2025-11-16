@@ -10,7 +10,7 @@
 /* BILLING */
 .billing__title,
 .summary__title {
-  color: var(--color-white);
+  color: var(--text-primary);
   font-family: var(--font-heading);
   font-weight: 500;
   line-height: 1.333;
@@ -23,7 +23,7 @@
 .form__select,
 .payment__label,
 .order-table td {
-  color: var(--color-white);
+  color: var(--text-primary);
   font-family: var(--font-body);
   font-size: 16px;
   font-weight: 400;
@@ -49,37 +49,37 @@
   width: 100%;
   background: transparent;
   border: none;
-  border-bottom: 1px solid var(--line);
-  color: var(--color-white-80);
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-secondary);
   outline: none;
   transition: border-color 0.25s ease;
   padding: 0 0 14px;
 }
 
 .form__select option {
-  color: #111;
-  background-color: var(--color-white);
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
 }
 
 .form__input::placeholder {
-  color: var(--color-white-60);
+  color: var(--text-muted);
 }
 
 .form__input:focus {
   outline: none;
-  border-color: var(--color-dark-orange);
-  box-shadow: 0 1px 0 0 var(--color-dark-orange);
+  border-color: var(--accent-color);
+  box-shadow: 0 1px 0 0 var(--accent-color);
 }
 
 .form__input:hover {
-  border-color: var(--color-white-45);
+  border-color: var(--text-muted);
 }
 
 /* Payment*/
 .payment {
   margin-top: 60px;
-  border: 2px solid var(--line);
-  background: var(--bg-box);
+  border: 2px solid var(--border-color);
+  background: var(--bg-secondary);
   padding: 34px 28px;
 }
 
@@ -102,12 +102,12 @@
   width: 18px;
   height: 18px;
   border-radius: 50%;
-  border: 2px solid var(--color-white-60);
+  border: 2px solid var(--text-muted);
   display: grid;
   place-items: center;
 }
 .payment__radio:checked {
-  border-color: var(--color-dark-orange);
+  border-color: var(--accent-color);
   box-shadow: 0 0 0 3px rgba(247, 166, 0, 0.2);
 }
 .payment__radio:checked::after {
@@ -115,12 +115,12 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--color-dark-orange);
+  background: var(--accent-color);
 }
 
 .payment__hint {
   display: none;
-  color: var(--color-white-80);
+  color: var(--text-secondary);
   font-family: var(--font-body);
   font-size: 14px;
   font-weight: 400;
@@ -134,11 +134,11 @@
 
 .payment__privacy {
   margin: 14px 0 28px;
-  color: var(--color-white-60);
+  color: var(--text-muted);
   font-size: 14px;
 }
 .link {
-  color: var(--color-dark-orange);
+  color: var(--accent-color);
   text-decoration: underline;
   text-underline-offset: 2px;
 }
@@ -152,7 +152,7 @@
   justify-content: center;
   align-items: center;
   gap: 10px;
-  color: var(--color-white);
+  color: var(--text-primary);
   font-family: var(--font-body);
   font-size: 16px;
   font-weight: 600;
@@ -160,7 +160,7 @@
   cursor: pointer;
 }
 .btn--primary {
-  background: var(--color-dark-orange);
+  background: var(--accent-color);
 }
 
 .btn--primary:active {
@@ -170,12 +170,12 @@
 /* Summary */
 .order-table {
   width: 100%;
-  background: var(--bg-box);
+  background: var(--bg-secondary);
   overflow: hidden;
 }
 
 .order-table th {
-  color: var(--color-white);
+  color: var(--text-primary);
   font-family: var(--font-body);
   font-size: 18px;
   font-weight: 600;
@@ -183,14 +183,14 @@
 }
 
 .order-table td {
-  color: var(--color-white-80);
+  color: var(--text-secondary);
 }
 
 .order-table td,
 .order-table th {
   padding: 24px 28px;
   text-align: left;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid var(--border-color);
 }
 
 .order-table td {
@@ -342,7 +342,9 @@ select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
   border: none;
   /* text color  */
-  -webkit-text-fill-color: var(--color-white-80);
+  -webkit-text-fill-color: var(--text-secondary);
   transition: background-color 5000s ease-in-out 0s;
-  caret-color: var(--color-white);
+  caret-color: var(--text-primary);
 }
+
+

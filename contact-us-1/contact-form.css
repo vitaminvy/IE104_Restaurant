@@ -29,7 +29,7 @@
   margin-bottom: 16px;
 
   /* Typography */
-  color: var(--grey-text, #c2c2c2);
+  color: var(--text-secondary, #c2c2c2);
   line-height: 1.6;
 }
 
@@ -51,7 +51,7 @@
   margin-bottom: 12px;
 
   /* Typography */
-  color: var(--grey-text, #c2c2c2);
+  color: var(--text-secondary, #c2c2c2);
 }
 
 /* Remove margin for last child */
@@ -88,7 +88,7 @@
   margin-bottom: 12px;
 
   /* Typography */
-  color: var(--text-color, #f5f5f5);
+  color: var(--text-primary, #f5f5f5);
   font-size: 16px;
 }
 
@@ -104,7 +104,7 @@
   /* Typography */
   font-family: inherit;
   font-size: 16px;
-  color: var(--text-color, #f5f5f5);
+  color: var(--text-primary, #f5f5f5);
 
   /* Background / Others */
   background-color: transparent;
@@ -171,3 +171,5 @@
     margin-bottom: 40px;
   }
 }
+
+

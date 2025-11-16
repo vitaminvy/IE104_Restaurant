@@ -15,7 +15,7 @@
 .blog-grid .post {
   /* Box model */
   padding-bottom: 50px;
-  border-bottom: 1px solid #fff;
+  border-bottom: 1px solid var(--border-color);
 }
 
 /* Post image container */
@@ -42,7 +42,7 @@
   font-size: 2.25rem;
   font-weight: 500;
   line-height: 1.2;
-  color: var(--color-white);
+  color: var(--text-primary);
 
   /* Box model */
   margin-bottom: 15px;
@@ -51,7 +51,7 @@
 .blog-grid .post-meta {
   /* Typography */
   font-size: 1rem;
-  color: var(--color-white-80);
+  color: var(--text-secondary);
 
   /* Box model */
   margin-bottom: 25px;
@@ -80,3 +80,5 @@
     font-size: 2rem;
   }
 }
+
+

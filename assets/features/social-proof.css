@@ -73,7 +73,7 @@
   font-family: var(--font-body);
   font-size: 0.875rem;
   font-weight: 600;
-  color: var(--color-white);
+  color: var(--text-primary);
   margin: 0 0 0.25rem 0;
 
   /* Box model */
@@ -86,7 +86,7 @@
   /* Typography */
   font-family: var(--font-body);
   font-size: 0.8125rem;
-  color: var(--color-white-80);
+  color: var(--text-secondary);
   margin: 0;
 }
 
@@ -145,7 +145,7 @@
 
 .social-proof-notification__close:hover {
   background: rgba(255, 255, 255, 0.2);
-  color: var(--color-white);
+  color: var(--text-primary);
 }
 
 /* ========== STATS COUNTER ========== */
@@ -250,3 +250,5 @@
     left: 1.5rem;
   }
 }
+
+

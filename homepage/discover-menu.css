@@ -36,7 +36,7 @@
 
 .discover__desc {
   margin-bottom: 1.75rem;
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--text-secondary);
   font-family: var(--font-body);
   line-height: 1.6;
   font-size: 14px
@@ -129,8 +129,7 @@
 
   .discover__desc {
     font-size: 0.8rem;
-    line-height: 1.6;
-    color: rgba(255, 255, 255, 0.85);
+color: var(--text-secondary);
   }
 }
 
@@ -171,3 +170,4 @@
     font-size: 3.8rem;
   }
 }
+

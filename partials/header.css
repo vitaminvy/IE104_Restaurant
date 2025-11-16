@@ -22,7 +22,6 @@ html[data-theme="light"] .header--scrolled {
   background: rgba(255, 255, 255, 0.85);
 }
 
-
 /* ========== Container layout ========== */
 .header__container {
   display: grid;
@@ -117,7 +116,6 @@ html[data-theme="light"] .header--scrolled {
 
 html[data-theme="light"] .header__nav {
 }
-
 
 /* mobile nave effect: JS add this class when click hamburger btn */
 .header__nav--open {
@@ -299,22 +297,36 @@ html[data-theme="light"] .header__nav {
 }
 
 /* Hide moon in light mode, sun in dark mode */
-html[data-theme='light'] .moon-icon {
+html[data-theme="light"] .moon-icon {
   transform: scale(0);
   opacity: 0;
 }
-html[data-theme='dark'] .sun-icon {
+html[data-theme="dark"] .sun-icon {
   transform: scale(0);
   opacity: 0;
 }
 
-html[data-theme='light'] .sun-icon {
+html[data-theme="light"] .sun-icon {
   transform: scale(1);
   opacity: 1;
 }
-html[data-theme='dark'] .moon-icon {
+html[data-theme="dark"] .moon-icon {
   transform: scale(1);
   opacity: 1;
 }
 
+/* ===================== LANGUAGE TOGGLE ===================== */
+.language-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
+#language-flag {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#language-flag:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}

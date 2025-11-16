@@ -399,7 +399,6 @@
 
   /* Typography */
   text-align: left;
-  font-size: 
 }
 
 .totals__right {
@@ -577,7 +576,6 @@ html[data-theme="light"] .addrForm__field:-webkit-autofill:active {
   transition: background-color 5000s ease-in-out 0s;
 }
 
-
 /* =============================
  * TOTALS FOOTER
  * ============================= */
@@ -597,7 +595,7 @@ html[data-theme="light"] .addrForm__field:-webkit-autofill:active {
   /* Typography */
   text-align: center;
   color: var(--text-muted);
-  font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
+  font-family: var(--font-body, "Plus Jakarta Sans", sans-serif);
 }
 
 .cart__table tbody tr td[colspan="6"] i {
@@ -1006,7 +1004,6 @@ html[data-theme="light"] .addrForm__field:-webkit-autofill:active {
   }
 }
 
-
 /* Large desktop (min-width: 1280px) */
 @media (min-width: 1280px) {
   .cart__container,
@@ -1020,7 +1017,7 @@ html[data-theme="light"] .addrForm__field:-webkit-autofill:active {
     flex-direction: row;
     gap: 40px;
     align-items: flex-start;
-    padding: 5rem 3rem 30rem
+    padding: 5rem 3rem 30rem;
   }
 }
 
@@ -1081,5 +1078,3 @@ html[data-theme="light"] .addrForm__field:-webkit-autofill:active {
     background: transparent;
   }
 }
-
-

@@ -1,31 +1,72 @@
 <!DOCTYPE html>
 <html lang="vi">
-
-<head>
+  <head>
     <script src="../assets/script/theme-init.js"></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>404 - Không tìm thấy trang</title>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
-        integrity="sha512-NmLkDIU1C/C88wi324HBc+S2kLhi08PN5GDeUVrVC/BVt/9Izdsc9SsqaiKPMxSSjykVz1OdKQLDINea2vjXQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
+      integrity="sha512-NmLkDIU1C/C88wi324HBc+S2kLhi08PN5GDeUVrVC/BVt/9Izdsc9SsqaiKPMxSSjykVz1OdKQLDINea2vjXQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
 
     <link rel="stylesheet" href="../style/reset.css" />
     <link rel="stylesheet" href="../style/style.css" />
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
 
-      <link rel="stylesheet" href="../partials/header.css" />
-      <link rel="stylesheet" href="../partials/footer.css" />
-<link rel="stylesheet" href="../assets/features/theme-toggle.css" />
+    <link rel="stylesheet" href="../partials/header.css" />
+    <link rel="stylesheet" href="../partials/footer.css" />
+    <link rel="stylesheet" href="../assets/features/theme-toggle.css" />
   </head>
 
-<body>
+  <body>
     <!-- ========== FLOATING THEME TOGGLE BUTTON ========== -->
-    <button id="theme-toggle-float-btn" class="theme-toggle-float" aria-label="Toggle light and dark mode">
-      <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-      <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+    <button
+      id="theme-toggle-float-btn"
+      class="theme-toggle-float"
+      aria-label="Toggle light and dark mode"
+    >
+      <svg
+        class="sun-icon"
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <circle cx="12" cy="12" r="5"></circle>
+        <line x1="12" y1="1" x2="12" y2="3"></line>
+        <line x1="12" y1="21" x2="12" y2="23"></line>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+        <line x1="1" y1="12" x2="3" y2="12"></line>
+        <line x1="21" y1="12" x2="23" y2="12"></line>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+      </svg>
+      <svg
+        class="moon-icon"
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      </svg>
     </button>
     <!-- ========== 1. HEADER ========== -->
     <!-- logic for header and footer -->
@@ -33,32 +74,33 @@
     <script src="../assets/script/header.js"></script>
     <div data-include="/partials/header.html"></div>
 
-
     <!-- open sidebar in mobile view -->
 
     <!-- ========== 2. MAIN CONTENT ========== -->
     <main class="error-page">
-        <div class="error-page__container">
+      <div class="error-page__container">
+        <img
+          src="../assets/images/not-found-page/404.png"
+          alt="404 Not Found"
+          class="error-page__image"
+        />
 
-            <img src="../assets/images/not-found-page/404.png" alt="404 Not Found" class="error-page__image">
+        <p class="error-page__message">
+          Sorry, the page you're looking for doesn't exist. If you think
+          something is broken, report a problem.
+        </p>
 
-            <p class="error-page__message">
-                Sorry, the page you're looking for doesn't exist. If you think
-                something is broken, report a problem.
-            </p>
-
-            <div class="error-page__cta">
-                <a href="/" class="btn">Go To Home</a>
-            </div>
-
+        <div class="error-page__cta">
+          <a href="/" class="btn">Go To Home</a>
         </div>
+      </div>
     </main>
 
     <!-- ========== 3. FOOTER ========== -->
     <div class="footer-wrapper" data-include="/partials/footer.html"></div>
 
     <script src="script.js"></script>
-<script src="../assets/features/theme-toggle.js"></script>
+    <script src="../assets/script/lang-toggle.js" defer></script>
+    <script src="../assets/features/theme-toggle.js"></script>
   </body>
-
 </html>

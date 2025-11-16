@@ -1,0 +1,882 @@
+{
+  "nav": {
+    "home": "Trang Chủ",
+    "menu": "Thực Đơn",
+    "blog": "Bài Viết",
+    "pages": "Trang",
+    "contact": "Liên Hệ"
+  },
+  "header": {
+    "status_open": "đang mở cửa",
+    "cta": "Đặt Bàn"
+  },
+  "footer": {
+    "download_app": "Tải ứng dụng WowWraps ngay hôm nay.",
+    "useful_links": "Liên Kết",
+    "link_home": "Trang Chủ",
+    "link_about": "Về Chúng Tôi",
+    "link_blogs": "Bài Viết",
+    "link_booking": "Đặt Chỗ",
+    "link_menu": "Thực Đơn",
+    "contact_info": "Thông Tin Liên Hệ",
+    "follow_us": "Theo Dõi",
+    "social_fb": "Facebook",
+    "social_ig": "Instagram",
+    "social_li": "LinkedIn",
+    "social_tw": "Twitter",
+    "legal": "Pháp Lý",
+    "legal_website": "Website bởi UIT.com",
+    "legal_copyright": "©2025. Mọi Quyền Được Bảo Hộ"
+  },
+  "home": {
+    "hero": {
+      "subtitle": "Chào mừng đến với nhà hàng của chúng tôi",
+      "title": "Món ăn ngon nhất cho những khoảnh khắc tuyệt vời nhất",
+      "description": "Chúng tôi có những đầu bếp và ngôi sao nổi tiếng—Julia Child, Sophia Loren, Virginia Woolf—để cảm ơn vì những câu nói hay nhất về ẩm thực mọi thời đại.",
+      "view_more": "Xem thêm"
+    },
+    "highlight_banner": {
+      "self_services": "Tự phục vụ",
+      "best_food": "Món ăn ngon nhất",
+      "fast_delivery": "Giao hàng nhanh",
+      "super_taste": "Hương vị tuyệt vời"
+    },
+    "about": {
+      "title": "Chúng tôi là một nhà hàng Mexico làm món ăn ngon.",
+      "description": "Chào! Nhà hàng của chúng tôi đã có mặt trên thị trường hơn 20 năm. Chúng tôi phục vụ tốt nhất cho tất cả khách hàng của mình.",
+      "link": "Về chúng tôi"
+    },
+    "service_features": {
+      "door_delivery": {
+        "title": "Giao hàng tận nơi",
+        "description": "Mong muốn rằng tất cả họ không thể lường trước được nỗi đau và rắc rối sắp xảy ra."
+      },
+      "outdoor_catering": {
+        "title": "Tiệc ngoài trời",
+        "description": "Nghĩa vụ kinh doanh thường xuyên xảy ra rằng những thú vui phải bị từ bỏ."
+      },
+      "fine_dining": {
+        "title": "Ăn uống cao cấp",
+        "description": "Giải thích cho bạn cách sai lầm này lên án niềm vui và ca ngợi nỗi đau sẽ mang lại cho bạn sự hoàn chỉnh."
+      },
+      "banquets_hall": {
+        "title": "Phòng tiệc",
+        "description": "Người khôn ngoan do đó luôn giữ trong những vấn đề này các nguyên tắc lựa chọn lớn hơn."
+      }
+    },
+    "service_quality": {
+      "title": "Dịch vụ của chúng tôi có nghĩa là sự hài lòng",
+      "subtitle": "Tọa lạc tại trung tâm thành phố Burlington gần bờ hồ Champlain, chúng tôi mang đến cho bạn không gian.",
+      "item1": "Chất lượng & Số lượng hàng đầu.",
+      "item2": "Thực phẩm tươi & lành mạnh.",
+      "item3": "Hương vị thỏa mãn.",
+      "item4": "Dịch vụ thực phẩm theo yêu cầu.",
+      "item5": "Nguyên liệu xanh & an toàn."
+    },
+    "menu": {
+      "title": "Kiểm tra thực đơn của chúng tôi",
+      "subtitle": "Chúng tôi luôn mong muốn phục vụ những món ăn chất lượng. Hãy xem sổ món ăn của chúng tôi bên dưới.",
+      "filter": {
+        "breakfast": "Bữa sáng",
+        "lunch": "Bữa trưa",
+        "dinner": "Bữa tối",
+        "starters": "Món khai vị"
+      }
+    },
+    "stats": {
+      "happy_customers": "Khách hàng hài lòng",
+      "passionate_chefs": "Đầu bếp đam mê",
+      "delicious_dishes": "Món ăn ngon",
+      "customer_rating": "Đánh giá của khách hàng"
+    },
+    "chef_intro": {
+      "title": "Đầu bếp kinh nghiệm",
+      "description": "Mỗi ngày, Đầu bếp Delicioz tự đặt ra thử thách bắt đầu từ đầu – công cụ của anh ấy: sự khéo léo, tò mò, nhiệt huyết, tài năng vô song và tay nghề cao nhất.",
+      "link": "Gặp gỡ đội ngũ của chúng tôi"
+    },
+    "discover_menu": {
+      "title": "Bữa trưa Michelin, bữa tối hay cả hai?",
+      "description": "Đó là câu chuyện về một mối tình bất diệt, Dieter Delicioz và Đại Tây Dương. Sự gần gũi của chúng tôi với sự phong phú của biển cả và các sản phẩm tuyệt vời của Bồ Đào Nha đã mang đến nguồn cảm hứng liên tục cho Đầu bếp L'delicio.",
+      "link": "Khám phá thực đơn"
+    },
+    "daily_offers": {
+      "title": "Ưu đãi hàng ngày của chúng tôi",
+      "item1": {
+        "title": "Câu lạc bộ cay",
+        "description": "Thịt heo, gà và chả giò rau củ ăn kèm với rau xà lách"
+      },
+      "item2": {
+        "title": "Phô mai Brie nướng hạnh nhân",
+        "description": "Thịt heo, gà và chả giò rau củ ăn kèm với rau xà lách"
+      },
+      "item3": {
+        "title": "Bánh mì dẹt Tuscan",
+        "description": "Thịt heo, gà và chả giò rau củ ăn kèm với rau xà lách"
+      }
+    },
+    "reservation": {
+      "title_online": "Trực tuyến",
+      "title_reservation": "Đặt chỗ",
+      "subtitle": "Đặt bàn của bạn cho bữa trưa hoặc bữa tối.",
+      "placeholder_name": "Tên của bạn",
+      "placeholder_phone": "Số điện thoại",
+      "placeholder_email": "Địa chỉ email",
+      "option_1_person": "1 người",
+      "option_2_persons": "2 người",
+      "option_3_persons": "3 người",
+      "option_4_persons": "4 người",
+      "option_5_persons": "5 người",
+      "button": "Đặt bàn ngay"
+    },
+    "blogs": {
+      "title": "Khám phá Blog",
+      "subtitle": "Khám phá các blog phổ biến nhất từ cộng đồng WowWraps. Một danh sách cập nhật liên tục về những bộ óc vĩ đại nhất trong nhà hàng.",
+      "link": "Khám phá tất cả Blog",
+      "card1": {
+        "title": "Nhà hàng mới trong thị trấn đang tìm kiếm suy nghĩ đó",
+        "author": "Bởi Quản trị viên"
+      },
+      "card2": {
+        "title": "Đồ uống mùa hè với quả mâm xôi, chanh và đá",
+        "author": "Bởi Quản trị viên"
+      },
+      "read_more": "Đọc thêm"
+    },
+    "newsletter": {
+      "title": "Đăng ký nhận bản tin & nhận tin tức mới nhất",
+      "subtitle": "Nhận quyền truy cập nội bộ vào tin tức về những đổi mới, kỹ thuật nấu ăn độc đáo, khái niệm ẩm thực, thông tin chi tiết và hơn thế nữa",
+      "placeholder_email": "Nhập địa chỉ email của bạn"
+    }
+  },
+  "menu_page": {
+    "title": "Thực Đơn",
+    "banner": {
+      "title1": "Thức Ăn Không Chỉ Là",
+      "title2": "Năng Lượng Để Ăn",
+      "description": "Đó là một Trải Nghiệm.",
+      "order_now": "Đặt Món Ngay"
+    },
+    "cart_icon": {
+      "aria_label": "Xem giỏ hàng",
+      "title": "Xem giỏ hàng"
+    },
+    "dietary_filter": {
+      "title": "Lọc theo sở thích ăn kiêng:"
+    },
+    "empty_message": {
+      "no_items": "Không có món ăn nào phù hợp với sở thích ăn kiêng của bạn.",
+      "try_filters": "Hãy thử các bộ lọc khác hoặc duyệt tất cả các món."
+    },
+    "order_now_button": "Đặt Món Ngay",
+    "add_to_cart_aria_label": "Thêm vào giỏ hàng",
+    "add_to_cart_title": "Thêm vào giỏ hàng"
+  },
+  "coming_soon": {
+    "title": "Đăng ký nhận bản tin & nhận tin tức mới",
+    "description": "Việc chúng ta có thể làm những gì chúng ta thích nhất, mọi niềm vui đều được chào đón và mọi nỗi đau đều được tránh khỏi.",
+    "placeholder_email": "Nhập địa chỉ email của bạn",
+    "timer": {
+      "days": "Ngày",
+      "hour": "Giờ",
+      "minutes": "Phút",
+      "seconds": "Giây"
+    },
+    "go_to_home": "Về trang chủ"
+  },
+  "contact_us": {
+    "find_us": {
+      "title": "Nơi để tìm chúng tôi",
+      "description1": "The Patio Time Cafe tọa lạc trên Phố Silk, ở trung tâm thành phố London, ở rìa Soho.",
+      "description2": "Thông tin bổ sung về vị trí và phong cách mở cửa.",
+      "view_in_map": "Xem trên Google Maps"
+    },
+    "form": {
+      "title": "Liên hệ chúng tôi",
+      "general_enquiries": "Đối với các câu hỏi chung, vui lòng gửi email: info@gmail.com",
+      "reserve_by_email": "Đặt chỗ qua email: gmail1234@gmail.com",
+      "tel": "ĐT: +00 000 0000",
+      "opening_hours": {
+        "title": "Giờ mở cửa:",
+        "mon_thu": "Thứ 2 - Thứ 5: 10:00 sáng - 01:00 sáng",
+        "fri_sun": "Thứ 6 - CN: 10:00 sáng - 02:00 sáng"
+      },
+      "online_reservation": "Đặt chỗ trực tuyến",
+      "placeholder_name": "Tên của bạn *",
+      "placeholder_email": "Địa chỉ email *",
+      "placeholder_subject": "Chủ đề",
+      "placeholder_review": "Viết đánh giá *",
+      "submit": "Gửi"
+    }
+  },
+  "menu": {
+    "item1": {
+      "title": "Chồng Bánh Kếp",
+      "desc": "Một tháp bánh kếp vàng ươm, xốp mịn ăn kèm với xi-rô cây phong đậm đà, bơ tan chảy và một chút đường bột. Hoàn hảo cho một khởi đầu buổi sáng đầy thoải mái."
+    },
+    "item2": {
+      "title": "Bánh Mì Nướng Bơ",
+      "desc": "Bánh mì ngũ cốc nguyên hạt nướng phủ bơ nghiền mịn, trứng chần và một chút vỏ chanh tươi mát. Một lựa chọn bữa sáng lành mạnh, đáng để chụp ảnh."
+    },
+    "item3": {
+      "title": "Tô Gà Nướng",
+      "desc": "Sự kết hợp cân bằng giữa ức gà nướng tẩm gia vị, cơmジャスミン hấp và rau củ xào. Rưới nước sốt chanh đậm đà cho một bữa trưa giàu protein và thỏa mãn."
+    },
+    "item4": {
+      "title": "Ramen Cay",
+      "desc": "Ramen kiểu Nhật chính thống được phục vụ trong nước dùng cay, đậm đà với mì mềm, trứng luộc mềm và rau tươi. Lý tưởng cho những người yêu thích vị cay đang tìm kiếm sự ấm áp và hương vị sâu sắc."
+    },
+    "item5": {
+      "title": "Tô Buddha Chay",
+      "desc": "Một hỗn hợp đầy màu sắc của quinoa, rau củ nướng, đậu gà và sốt tahini kem. Giàu chất dinh dưỡng, kết cấu và sự tốt lành từ thực vật cho một bữa trưa nhẹ nhàng nhưng no bụng."
+    },
+    "item6": {
+      "title": "Bít Tết & Khoai Tây Chiên",
+      "desc": "Bít tết ribeye ngon ngọt được nướng hoàn hảo và ăn kèm với khoai tây chiên giòn, bơ tỏi và một phần salad nhà. Một món ăn tối vượt thời gian được những người yêu thịt yêu thích."
+    },
+    "item7": {
+      "title": "Cá Hồi Teriyaki",
+      "desc": "Cá hồi áp chảo được phủ sốt teriyaki ngọt ngào, ăn kèm với cơm hấp và rau củ xào. Một bữa tối lành mạnh, giàu protein với hương vị châu Á đích thực."
+    },
+    "item8": {
+      "title": "Pizza Margherita",
+      "desc": "Pizza nướng bằng củi phủ phô mai mozzarella tươi, cà chua chín mọng và lá húng quế. Đơn giản nhưng đầy hương vị — tinh hoa của ẩm thực Ý."
+    },
+    "item9": {
+      "title": "Cánh Gà Buffalo",
+      "desc": "Cánh gà giòn được phủ một lớp sốt buffalo cay nồng, ăn kèm với sốt ranch mát lạnh và cần tây. Hoàn hảo như một món ăn nhẹ trong ngày thi đấu hoặc món khai vị cay."
+    },
+    "item10": {
+      "title": "Chả Giò",
+      "desc": "Rau củ tươi, giòn được cuốn trong bánh tráng, ăn kèm với nước chấm đậu phộng đậm đà. Nhẹ nhàng, thân thiện với người ăn chay và hoàn hảo như một món khai vị lành mạnh."
+    },
+    "item11": {
+      "title": "Bánh Mì Nướng Kiểu Pháp",
+      "desc": "Những lát bánh mì brioche vàng nâu được ngâm trong sữa trứng vani, phủ lên trên là quả mọng, xi-rô và kem tươi. Một món ăn sáng cổ điển ngọt ngào và nuông chiều."
+    },
+    "item12": {
+      "title": "Salad Quinoa",
+      "desc": "Một tô quinoa giàu protein được trộn với rau xanh hỗn hợp, cà chua bi, dưa chuột và nước sốt chanh. Sảng khoái, nhẹ nhàng và hoàn hảo cho bữa trưa."
+    },
+    "item13": {
+      "title": "Trứng Omelette Phô Mai",
+      "desc": "Trứng omelette ba quả xốp mịn chứa đầy phô mai cheddar tan chảy và các loại thảo mộc. Ăn kèm với bánh mì nướng và rau xanh tươi cho một bữa ăn sáng cân bằng."
+    },
+    "item14": {
+      "title": "Cuốn Chay",
+      "desc": "Một cuốn bánh đầy đủ dinh dưỡng với ớt chuông nướng, bí ngòi và hummus trong một chiếc bánh tortilla lúa mì mềm. Nhẹ nhàng, đầy hương vị và hoàn hảo cho những bữa ăn khi di chuyển."
+    },
+    "item15": {
+      "title": "Sườn Nướng BBQ",
+      "desc": "Sườn heo mềm, nấu chậm được phết sốtบาร์บีคิว khói, ăn kèm với salad trộn và khoai tây chiên. Một món ăn tối thịnh soạn, ngon đến mức phải liếm ngón tay."
+    },
+    "item16": {
+      "title": "Nachos Supreme",
+      "desc": "Bánh tortilla giòn được phủ phô mai tan chảy, jalapeños, đậu đen và salsa đậm đà. Tuyệt vời để chia sẻ như một món khai vị hoặc ăn nhẹ đêm khuya."
+    },
+    "item17": {
+      "title": "Tô Sinh Tố",
+      "desc": "Sinh tố acai kem được xay với chuối và sữa hạnh nhân, phủ granola, hạt chia và trái cây tươi cho một khởi đầu sảng khoái, giàu chất dinh dưỡng."
+    },
+    "item18": {
+      "title": "Cá & Khoai Tây Chiên",
+      "desc": "Phi lê cá tuyết tẩm bia giòn ăn kèm với khoai tây chiên cắt khúc và sốt tartar tự làm. Một món ăn cổ điển của Anh với độ giòn vàng và sự hoàn hảo của cá."
+    },
+    "item19": {
+      "title": "Salad Caesar",
+      "desc": "Rau diếp romaine giòn được trộn với sốt Caesar kem, phô mai parmesan và bánh mì nướng giòn. Tùy chọn phủ gà nướng để bổ sung protein."
+    },
+    "item20": {
+      "title": "Tacos Tôm",
+      "desc": "Bánh tortilla ngô mềm chứa đầy tôm nướng tẩm gia vị, salsa bơ và một chút kem chanh. Một món ăn yêu thích ven biển với hương vị đậm đà."
+    },
+    "item21": {
+      "title": "Risotto Nấm",
+      "desc": "Cơm Arborio kem được nấu chậm với nấm, rượu vang trắng và parmesan. Một món ăn đậm đà, dễ chịu cho những ai đánh giá cao hương vị của đất."
+    },
+    "item22": {
+      "title": "Đĩa Falafel",
+      "desc": "Falafel đậu gà vàng được phục vụ với hummus, bánh mì pita, salad và sốt tahini. Một bữa ăn hoàn hảo từ thực vật giàu hương vị Địa Trung Hải."
+    },
+    "item23": {
+      "title": "Súp Tom Yum",
+      "desc": "Một món súp Thái nóng và chua được làm từ tôm, sả, lá chanh và ớt. Thơm, cay và thỏa mãn sâu sắc cho những người ăn uống mạo hiểm."
+    },
+    "item24": {
+      "title": "Mì Ý Gà Alfredo",
+      "desc": "Mì fettuccine mềm được trộn với sốt Alfredo kem và gà nướng, phủ phô mai parmesan và các loại thảo mộc. Một món ăn tối thịnh soạn lấy cảm hứng từ Ý."
+    },
+    "item25": {
+      "title": "Parfait Quả Mọng",
+      "desc": "Các lớp sữa chua kem, granola giòn và quả mọng hỗn hợp tạo nên một lựa chọn tráng miệng sảng khoái và lành mạnh — nhẹ nhàng nhưng thỏa mãn."
+    },
+    "item26": {
+      "title": "Bánh Lava Sôcôla",
+      "desc": "Bánh sô cô la ấm, đậm đà với nhân sô cô la tan chảy, ăn kèm với một muỗng kem vani. Một món tráng miệng suy đồi dành cho những người yêu sô cô la."
+    },
+    "item27": {
+      "title": "Salad Caprese",
+      "desc": "Phô mai mozzarella tươi, cà chua chín và lá húng quế được rưới sốt balsamic và dầu ô liu nguyên chất. Một món khai vị đơn giản, thanh lịch và sảng khoái."
+    },
+    "item28": {
+      "title": "Burger Bò",
+      "desc": "Thịt bò xay nướng ngon ngọt với rau diếp, cà chua, hành tây, dưa chua và phô mai cheddar trên một chiếc bánh brioche nướng. Ăn kèm với một phần khoai tây chiên giòn."
+    },
+    "item29": {
+      "title": "Bánh Waffles",
+      "desc": "Bánh waffles giòn, vàng được phục vụ với lựa chọnトッピング của bạn: quả mọng tươi, kem tươi, sốt sô cô la hoặc xi-rô cây phong."
+    },
+    "item30": {
+      "title": "Sandwich Câu Lạc Bộ",
+      "desc": "Một chiếc bánh sandwich ba tầng cổ điển với gà tây, thịt xông khói, rau diếp, cà chua và sốt mayonnaise trên bánh mì trắng nướng. Ăn kèm với một phần khoai tây chiên."
+    },
+    "item31": {
+      "title": "Súp Bisque Tôm Hùm",
+      "desc": "Một món súp đậm đà và kem được làm từ tôm hùm xay nhuyễn, kem và một chút rượu sherry. Một món khai vị sang trọng cho một dịp đặc biệt."
+    },
+    "item32": {
+      "title": "Tiramisu",
+      "desc": "Một món tráng miệng cổ điển của Ý được làm từ các lớp bánh ladyfingers ngâm cà phê, phô mai mascarpone và bột ca cao. Một món ăn thú vị."
+    },
+    "item33": {
+      "title": "Cà Ri Xanh",
+      "desc": "Một món cà ri xanh Thái thơm và cay với lựa chọn gà, bò hoặc đậu phụ, nước cốt dừa, măng và húng quế tươi."
+    },
+    "item34": {
+      "title": "Trứng Bác",
+      "desc": "Trứng bác kem được nấu hoàn hảo, ăn kèm với một phần bánh mì nướng và lựa chọn thịt xông khói hoặc xúc xích của bạn."
+    },
+    "item35": {
+      "title": "Sandwich Salad Cá Ngừ",
+      "desc": "Một chiếc bánh sandwich đơn giản và thỏa mãn với cá ngừ bào, sốt mayonnaise và cần tây trên bánh mì nguyên cám."
+    },
+    "item36": {
+      "title": "Hành Vòng",
+      "desc": "Hành vòng cắt dày, tẩm bia và chiên giòn vàng. Ăn kèm với một phần sốt cà chua hoặc sốt ranch."
+    },
+    "item37": {
+      "title": "Bánh Phô Mai",
+      "desc": "Một chiếc bánh phô mai kiểu New York đậm đà và kem với lớp vỏ bánh quy graham, phủ lên trên là lựa chọn compote trái cây của bạn."
+    },
+    "item38": {
+      "title": "Pad Thái",
+      "desc": "Mì gạo xào với tôm hoặc gà, đậu phụ, đậu phộng, giá đỗ và sốt me đậm đà."
+    },
+    "item39": {
+      "title": "Yến Mạch",
+      "desc": "Một tô yến mạch ấm và thịnh soạn, ăn kèm với lựa chọn đường nâu, nho khô và các loại hạt của bạn."
+    },
+    "item40": {
+      "title": "Sandwich BLT",
+      "desc": "Một chiếc bánh sandwich cổ điển với thịt xông khói giòn, rau diếp tươi và cà chua chín trên bánh mì trắng nướng với sốt mayonnaise."
+    },
+    "item41": {
+      "title": "Bánh Mì Tỏi",
+      "desc": "Những lát bánh mì baguette nướng được phết bơ tỏi và các loại thảo mộc. Một món ăn kèm hoàn hảo cho bất kỳ bữa ăn nào."
+    },
+    "item42": {
+      "title": "Bánh Táo",
+      "desc": "Một món tráng miệng cổ điển của Mỹ với lớp vỏ bong tróc, chứa đầy táo tẩm gia vị ấm. Ăn kèm với một muỗng kem vani."
+    },
+    "item43": {
+      "title": "Lasagna",
+      "desc": "Các lớp mì ống, sốt thịt đậm đà, sốt béchamel kem và phô mai mozzarella tan chảy, được nướng hoàn hảo."
+    },
+    "item44": {
+      "title": "Salad Trái Cây",
+      "desc": "Một hỗn hợp sảng khoái của các loại trái cây theo mùa, bao gồm dưa, quả mọng và cam quýt."
+    },
+    "item45": {
+      "title": "Cuốn Gà Caesar",
+      "desc": "Một cuốn bánh chứa đầy gà nướng, rau diếp romaine, sốt Caesar và phô mai Parmesan trong một chiếc bánh tortilla bột."
+    },
+    "item46": {
+      "title": "Que Phô Mai Mozzarella",
+      "desc": "Que phô mai mozzarella tẩm bột và chiên, ăn kèm với một phần sốt marinara."
+    },
+    "item47": {
+      "title": "Sundae Kem",
+      "desc": "Hai muỗng kem yêu thích của bạn, phủ sốt sô cô la, kem tươi, các loại hạt và một quả anh đào."
+    },
+    "item48": {
+      "title": "Bánh Shepherd",
+      "desc": "Một chiếc bánh mặn với nhân thịt cừu băm và rau củ, phủ một lớp khoai tây nghiền."
+    },
+    "item49": {
+      "title": "Bagel với Kem Phô Mai",
+      "desc": "Một chiếc bagel nướng tùy chọn của bạn (trơn, vừng, mọi thứ) với một lớp kem phô mai hào phóng."
+    },
+    "item50": {
+      "title": "Súp Cà Chua",
+      "desc": "Một món súp cà chua kem và dễ chịu, ăn kèm với một phần bánh mì nướng giòn."
+    },
+    "item51": {
+      "title": "Bruschetta",
+      "desc": "Những lát bánh mì baguette nướng phủ hỗn hợp cà chua tươi, tỏi, húng quế và dầu ô liu."
+    },
+    "item52": {
+      "title": "Brownie",
+      "desc": "Một chiếc bánh brownie sô cô la đậm đà và dẻo, ăn ấm với một muỗng kem vani."
+    },
+    "item53": {
+      "title": "Fajitas",
+      "desc": "Đĩa gà hoặc bít tết nướng nóng hổi với hành tây và ớt, ăn kèm với bánh tortilla ấm, salsa, kem chua và guacamole."
+    },
+    "item54": {
+      "title": "Bánh Croissant",
+      "desc": "Một chiếc bánh sừng bò bong tróc, bơ, hoàn hảo cho một bữa sáng nhẹ hoặc bữa ăn nhẹ."
+    },
+    "item55": {
+      "title": "Salad Cobb",
+      "desc": "Một món salad cổ điển của Mỹ với rau xanh thái nhỏ, cà chua, thịt xông khói, gà nướng, trứng luộc, bơ và sốt phô mai xanh."
+    }
+  },
+  "dietary_badges": {
+    "vegan": {
+      "label": "Rau Củ",
+      "description": "Không chứa sản phẩm động vật"
+    },
+    "vegetarian": {
+      "label": "Ăn Chay",
+      "description": "Không chứa thịt hoặc cá"
+    },
+    "gluten-free": {
+      "label": "Không Gluten",
+      "description": "Không chứa gluten"
+    },
+    "spicy": {
+      "label": "Cay",
+      "description": "Chứa gia vị cay"
+    },
+    "popular": {
+      "label": "Phổ Biến",
+      "description": "Món ăn yêu thích của khách hàng"
+    },
+    "chef-special": {
+      "label": "Đặc Biệt Của Đầu Bếp",
+      "description": "Được đầu bếp của chúng tôi giới thiệu"
+    }
+  },
+  "blog": {
+    "post1": {
+      "title": "Mọi thứ bạn cần biết về sự phát triển của AI trong nhà hàng",
+      "excerpt": "Bạn đang ngồi trong nhà hàng yêu thích của mình và đã đặt hàng trên một chiếc máy tính bảng trên bàn của bạn. Vài giây sau khi đặt hàng, một thông báo sẽ xuất hiện trong ứng dụng nhắn tin của bạn.",
+      "description": "Bạn đang ngồi trong nhà hàng yêu thích của mình và vừa đặt một bữa ăn. Bạn lấy điện thoại ra, quét mã QR trên bàn, đặt hàng và thức ăn sẽ xuất hiện trong vài phút, nóng hổi.",
+      "content": {
+        "intro": "Ngành công nghiệp nhà hàng đã trải qua một sự thay đổi mô hình đáng kể trong thập kỷ qua. Ngoài việc cung cấp đồ ăn tuyệt vời, các nhà hàng còn cố gắng mang đến trải nghiệm khách hàng thú vị để khuyến khích khách hàng quay lại lần nữa. Chỉ cần nhìn vào cách các thương hiệu sẽ thu hút nhiều khách hàng hơn. Nhượng quyền thương mại Caliburger ở Pasadena trưng bày một chiếc bánh mì kẹp thịt.",
+        "sections": [
+          {
+            "heading": "Vai trò của nhà hàng đang tăng lên như thế nào",
+            "paragraphs": [
+              "Ngành công nghiệp nhà hàng đã trải qua một sự thay đổi mô hình đáng kể trong thập kỷ qua. Ngoài việc cung cấp đồ ăn tuyệt vời, các nhà hàng còn cố gắng mang đến trải nghiệm khách hàng thú vị để khuyến khích khách hàng quay lại lần nữa. Chỉ cần nhìn vào cách các thương hiệu sẽ thu hút nhiều khách hàng hơn. Nhượng quyền thương mại Caliburger ở Pasadena trưng bày một chiếc bánh mì kẹp thịt.",
+              "Nhưng họ có hàng tấn tiền mặt để đốt cho những mánh lới quảng cáo như vậy, phải không? Làm thế nào một nhà hàng nhỏ hơn có thể cạnh tranh với điều đó? Điều đó đúng, nhưng AI trong nhà hàng không chỉ là về những mánh lới quảng cáo lạ mắt hay những công nghệ bắt mắt. Ngày nay, AI có thể truy cập được cho tất cả mọi người và có những cách nhỏ hơn để sử dụng nó làm lợi thế của bạn."
+            ]
+          },
+          {
+            "heading": "Ứng dụng AI trong các nhà hàng hiện đại",
+            "paragraphs": [
+              "Tích hợp hàng tồn kho với hệ thống điểm bán hàng (POS) của bạn là một khả năng AI thiết yếu mà mọi nhà hàng đều cần. Chủ nhà hàng có thể theo dõi dữ liệu mua hàng tồn kho, điều này có thể giúp họ mua nguyên liệu hiệu quả hơn. Ngoài ra, nó giúp họ đảm bảo rằng họ hạn chế lãng phí và chi phí thực phẩm vẫn được kiểm soát."
+            ],
+            "list": [
+              {
+                "title": "Tiếp thị tự động",
+                "description": "Như đã thảo luận ở trên, các chủ nhà hàng cần một kế hoạch tiếp thị kỹ thuật số đáng tin cậy để đi trước đối thủ một bước. AI ngày nay cho phép họ tạo ra các chiến lược tiếp thị tốt hơn, bao gồm tỷ lệ nhấp và chạy các chiến dịch nhắm mục tiêu hiệu quả để thu hút nhiều người đến nhà hàng hơn."
+              },
+              {
+                "title": "Tuyển dụng và quản lý nhân viên",
+                "description": "Nhân sự là một thách thức đáng kể đối với bất kỳ doanh nghiệp thực phẩm và đồ uống nào. AI có thể hỗ trợ tuyển dụng, đào tạo và bố trí nhân viên để tối ưu hóa số lượng nhân viên cần thiết trong mỗi ca làm việc."
+              }
+            ]
+          }
+        ],
+        "quote": "Ding* Đơn hàng của bạn đang được chuẩn bị bởi Chef Bot 19 và sẽ được giao đến bàn của bạn trong khoảng 19 phút. Để nhận biên lai cho đơn hàng của bạn, hãy trả lời bằng H. Chúng tôi hy vọng bạn tận hưởng trải nghiệm ăn uống của mình với chúng tôi. – Team Bots"
+      }
+    },
+    "post2": {
+      "title": "Dự báo bữa sáng có nắng hay có mây?",
+      "excerpt": "Xu hướng bữa sáng đang phát triển nhanh chóng. Khám phá những gì đang hot và những gì không trong bối cảnh ăn uống buổi sáng.",
+      "description": "Phân tích các xu hướng bữa sáng hiện tại và dự đoán cho tương lai của trải nghiệm ăn uống buổi sáng tại các nhà hàng.",
+      "content": {
+        "intro": "Phân khúc bữa sáng luôn là một phần quan trọng trong hoạt động của nhà hàng, nhưng những năm gần đây đã chứng kiến những thay đổi mạnh mẽ trong sở thích của người tiêu dùng và mô hình ăn uống. Hiểu được những xu hướng này là điều cần thiết cho sự thành công của nhà hàng.",
+        "sections": [
+          {
+            "heading": "Sự phát triển của bữa ăn sáng",
+            "paragraphs": [
+              "Các món ăn sáng truyền thống đang được tái tạo với những vòng xoắn hiện đại. Người tiêu dùng có ý thức về sức khỏe đang thúc đẩy nhu cầu về các lựa chọn bổ dưỡng, giàu protein giúp cung cấp năng lượng cho cả ngày mà không ảnh hưởng đến hương vị.",
+              "Sự gia tăng của bữa sáng cả ngày đã thay đổi hoàn toàn cuộc chơi. Các nhà hàng từng đóng cửa thực đơn bữa sáng lúc 11 giờ sáng hiện đang phục vụ trứng và bánh kếp suốt ngày đêm, đáp ứng lịch làm việc và lối sống thay đổi."
+            ]
+          },
+          {
+            "heading": "Các xu hướng bữa sáng chính cần theo dõi",
+            "paragraphs": [
+              "Các lựa chọn bữa sáng dựa trên thực vật không còn là thị trường ngách nữa - chúng đã trở thành xu hướng chủ đạo. Từ đậu phụ bác đến bánh kếp thuần chay, các nhà hàng đang mở rộng thực đơn buổi sáng của mình để phục vụ cho các sở thích ăn kiêng đa dạng.",
+              "Sự đổi mới về đồ uống cũng đang thúc đẩy lưu lượng bữa sáng. Đồ uống cà phê đặc sản, nước trái cây tươi và bát sinh tố đã trở thành điểm đến theo đúng nghĩa của chúng, thường quyết định nơi khách hàng chọn dùng bữa."
+            ]
+          }
+        ],
+        "quote": "Bữa sáng không còn chỉ là bữa ăn quan trọng nhất trong ngày - nó đang trở thành bữa ăn sáng tạo nhất."
+      }
+    },
+    "post3": {
+      "title": "Tuyển dụng nhanh chóng (nhưng an toàn) khi nhu cầu ăn uống tăng lên",
+      "excerpt": "Khi các nhà hàng phục hồi, việc tìm kiếm nhân viên chất lượng một cách nhanh chóng trong khi vẫn duy trì các tiêu chuẩn an toàn là rất quan trọng.",
+      "description": "Các phương pháp tiếp cận chiến lược để tuyển dụng nhanh chóng đồng thời đảm bảo an toàn tại nơi làm việc và chất lượng nhân viên trong bối cảnh nhà hàng sau đại dịch.",
+      "content": {
+        "intro": "Ngành công nghiệp nhà hàng đang trải qua nhu cầu chưa từng có, nhưng việc tìm kiếm nhân viên có trình độ vẫn là một trong những thách thức lớn nhất mà các nhà điều hành phải đối mặt ngày nay. Hướng dẫn này cung cấp các chiến lược thực tế để tuyển dụng nhanh chóng, an toàn.",
+        "sections": [
+          {
+            "heading": "Hợp lý hóa quy trình tuyển dụng",
+            "paragraphs": [
+              "Công nghệ hiện đại đã thay đổi việc tuyển dụng. Hệ thống ứng tuyển trực tuyến, phỏng vấn qua video và giới thiệu kỹ thuật số có thể cắt giảm thời gian tuyển dụng từ vài tuần xuống còn vài ngày trong khi vẫn duy trì các tiêu chuẩn chất lượng.",
+              "Các chương trình giới thiệu nhân viên đã được chứng minh là một trong những công cụ tuyển dụng hiệu quả nhất. Các nhân viên hiện tại hiểu văn hóa và tiêu chuẩn của bạn, làm cho các đề xuất của họ đặc biệt có giá trị."
+            ]
+          },
+          {
+            "heading": "Các giao thức an toàn trong tuyển dụng",
+            "paragraphs": [
+              "Kiểm tra lý lịch và chứng nhận an toàn thực phẩm vẫn không thể thương lượng, nhưng các quy trình này có thể được đẩy nhanh với các hệ thống xác minh kỹ thuật số. Nhiều nhà cung cấp hiện cung cấp kết quả trong cùng ngày.",
+              "Các chương trình đào tạo nên nhấn mạnh cả sự xuất sắc trong hoạt động và các quy trình an toàn ngay từ ngày đầu tiên. Nhân viên được đào tạo tốt không chỉ hiệu quả hơn mà còn an toàn hơn cho cả khách hàng và đồng nghiệp."
+            ]
+          }
+        ],
+        "quote": "Nhân viên chất lượng là nền tảng của mọi nhà hàng thành công. Vội vàng tuyển dụng, mạo hiểm kinh doanh."
+      }
+    },
+    "post4": {
+      "title": "5 cách công nghệ nhà hàng tạo nên hoặc phá vỡ doanh nghiệp",
+      "excerpt": "Công nghệ có thể là tài sản lớn nhất hoặc trách nhiệm pháp lý lớn nhất của bạn. Tìm hiểu cách tận dụng nó một cách hiệu quả.",
+      "description": "Các quyết định công nghệ quan trọng quyết định sự thành công của nhà hàng, từ hệ thống POS đến các công cụ tương tác với khách hàng.",
+      "content": {
+        "intro": "Trong bối cảnh nhà hàng cạnh tranh ngày nay, công nghệ không còn là tùy chọn - nó là điều cần thiết. Nhưng việc chọn sai hệ thống hoặc triển khai chúng một cách kém cỏi có thể gây hại nhiều hơn lợi.",
+        "sections": [
+          {
+            "heading": "1. Hệ thống điểm bán hàng: Hệ thần kinh trung ương của nhà hàng",
+            "paragraphs": [
+              "Hệ thống POS của bạn chạm đến mọi khía cạnh hoạt động của bạn. Từ việc nhận đơn đặt hàng đến quản lý hàng tồn kho, xử lý thanh toán đến thu thập dữ liệu khách hàng, một hệ thống POS mạnh mẽ là nền tảng cho sự thành công.",
+              "Các hệ thống dựa trên đám mây cung cấp sự linh hoạt và truy cập dữ liệu thời gian thực, cho phép ra quyết định tốt hơn và khả năng quản lý từ xa mà các hệ thống truyền thống đơn giản là không thể sánh được."
+            ]
+          },
+          {
+            "heading": "2. Tích hợp đặt hàng và giao hàng trực tuyến",
+            "paragraphs": [
+              "Các nền tảng giao hàng của bên thứ ba hiện là các kênh bán hàng thiết yếu, nhưng phí hoa hồng cao có thể làm xói mòn lợi nhuận. Các nhà khai thác thông minh đang xây dựng khả năng đặt hàng trực tiếp để duy trì tỷ suất lợi nhuận.",
+              "Các ứng dụng di động và hệ thống đặt hàng trực tuyến tích hợp với POS của bạn tạo ra các hoạt động liền mạch và thu thập dữ liệu khách hàng có giá trị cho mục đích tiếp thị."
+            ]
+          },
+          {
+            "heading": "3. Quản lý quan hệ khách hàng",
+            "paragraphs": [
+              "Hiểu khách hàng của bạn là chìa khóa để xây dựng lòng trung thành. Các hệ thống CRM hiện đại theo dõi sở thích, tần suất truy cập và mô hình chi tiêu, cho phép tiếp thị được nhắm mục tiêu và trải nghiệm được cá nhân hóa.",
+              "Tiếp thị qua email và SMS được tích hợp với hệ thống POS và đặt chỗ của bạn có thể thúc đẩy các lượt truy cập lặp lại và tăng quy mô séc trung bình thông qua các chương trình khuyến mãi chiến lược."
+            ]
+          }
+        ],
+        "quote": "Công nghệ nên nâng cao trải nghiệm của con người, không thay thế nó. Các hệ thống tốt nhất hoạt động vô hình trong nền."
+      }
+    },
+    "post5": {
+      "title": "Tiết kiệm hàng tồn kho, thời gian và chi phí lao động với IoT",
+      "excerpt": "Công nghệ Internet of Things đang cách mạng hóa việc quản lý hàng tồn kho và kiểm soát chi phí của nhà hàng.",
+      "description": "Cách các cảm biến IoT và hệ thống thông minh có thể giảm đáng kể chất thải, tối ưu hóa hàng tồn kho và giảm chi phí lao động trong các nhà hàng.",
+      "content": {
+        "intro": "Internet of Things đang thay đổi cách các nhà hàng quản lý hàng tồn kho, giám sát thiết bị và kiểm soát chi phí. Các cảm biến thông minh và hệ thống được kết nối cung cấp dữ liệu thời gian thực giúp đưa ra quyết định tốt hơn.",
+        "sections": [
+          {
+            "heading": "Quản lý hàng tồn kho thông minh",
+            "paragraphs": [
+              "Cân và cảm biến hỗ trợ IoT có thể tự động theo dõi mức tồn kho, cảnh báo người quản lý khi các mặt hàng sắp hết và thậm chí tự động tạo đơn đặt hàng dựa trên các mô hình sử dụng trong lịch sử.",
+              "Cảm biến nhiệt độ trong tủ lạnh và tủ đông không chỉ đảm bảo an toàn thực phẩm mà còn ngăn ngừa hư hỏng tốn kém bằng cách cảnh báo nhân viên ngay lập tức khi điều kiện trôi ra ngoài phạm vi chấp nhận được."
+            ]
+          },
+          {
+            "heading": "Giám sát thiết bị và bảo trì dự đoán",
+            "paragraphs": [
+              "Thiết bị nhà bếp được kết nối có thể dự đoán các hỏng hóc trước khi chúng xảy ra, cho phép bảo trì theo lịch trình giúp ngăn ngừa các sửa chữa khẩn cấp tốn kém và gián đoạn hoạt động.",
+              "Hệ thống giám sát năng lượng xác định thiết bị và mô hình sử dụng không hiệu quả, giúp các nhà hàng giảm chi phí tiện ích đồng thời hỗ trợ các mục tiêu bền vững."
+            ]
+          },
+          {
+            "heading": "Tối ưu hóa lao động",
+            "paragraphs": [
+              "Dữ liệu thời gian thực về lưu lượng khách hàng, mô hình đặt hàng và thông lượng nhà bếp cho phép lập kế hoạch nhân viên chính xác hơn, giảm chi phí lao động trong khi vẫn duy trì chất lượng dịch vụ.",
+              "Việc đếm hàng tồn kho tự động giúp loại bỏ hàng giờ lao động thủ công, giải phóng nhân viên để tập trung vào dịch vụ khách hàng và chuẩn bị thực phẩm thay vì làm giấy tờ."
+            ]
+          }
+        ],
+        "quote": "IoT biến nhà hàng của bạn thành một doanh nghiệp thông minh, giúp việc ra quyết định dựa trên dữ liệu trở nên tự động và dễ dàng."
+      }
+    },
+    "post6": {
+      "title": "Sử dụng video trực tiếp để giới thiệu nhà hàng của bạn",
+      "excerpt": "Phát trực tiếp là một công cụ tiếp thị mạnh mẽ giúp mang trải nghiệm nhà hàng của bạn trực tiếp đến với khách hàng tiềm năng.",
+      "description": "Các chiến lược tận dụng video trực tiếp để giới thiệu nhà hàng của bạn, thu hút khách hàng và thúc đẩy lưu lượng truy cập thông qua các nền tảng truyền thông xã hội.",
+      "content": {
+        "intro": "Phát video trực tiếp đã trở thành một trong những hình thức nội dung truyền thông xã hội hấp dẫn nhất. Đối với các nhà hàng, nó mang đến một cơ hội duy nhất để giới thiệu đồ ăn, không khí và đội ngũ của bạn một cách chân thực, ngay lập tức.",
+        "sections": [
+          {
+            "heading": "Nội dung hậu trường",
+            "paragraphs": [
+              "Khách hàng thích xem cách chế biến món ăn của họ. Các luồng trực tiếp trong nhà bếp có các đầu bếp của bạn đang làm việc không chỉ xây dựng lòng tin mà còn tạo ra giá trị giải trí giúp người xem gắn bó.",
+              "Các sự kiện đặc biệt như nếm rượu vang, trình diễn của đầu bếp hoặc ra mắt món ăn mới trong thực đơn tạo nên nội dung phát trực tiếp hoàn hảo tạo ra sự phấn khích và thúc đẩy việc đặt chỗ."
+            ]
+          },
+          {
+            "heading": "Tương tác với khách hàng tương tác",
+            "paragraphs": [
+              "Các luồng trực tiếp cho phép tương tác thời gian thực với khán giả của bạn. Trả lời câu hỏi, nhận đề xuất và trả lời bình luận xây dựng cộng đồng và lòng trung thành.",
+              "Hãy cân nhắc tổ chức các buổi hỏi đáp trực tiếp thường xuyên với đầu bếp hoặc chuyên gia pha chế của bạn, tạo ra các sự kiện định kỳ mà khách hàng mong đợi và lên kế hoạch."
+            ]
+          },
+          {
+            "heading": "Mẹo kỹ thuật để thành công",
+            "paragraphs": [
+              "Ánh sáng tốt và internet ổn định là điều cần thiết. Đầu tư vào các thiết bị cơ bản như chân máy điện thoại thông minh và đèn vòng để đảm bảo các luồng phát trực tiếp trông chuyên nghiệp.",
+              "Quảng bá các luồng trực tiếp của bạn trước qua email và phương tiện truyền thông xã hội. Xây dựng sự mong đợi và đảm bảo bạn có khán giả khi phát trực tiếp."
+            ]
+          }
+        ],
+        "quote": "Video trực tiếp loại bỏ rào cản giữa nhà hàng của bạn và khách hàng tiềm năng, mời họ vào thế giới của bạn trong thời gian thực."
+      }
+    },
+    "post7": {
+      "title": "Chương trình phúc lợi tài chính cho nhà hàng",
+      "excerpt": "Hỗ trợ sức khỏe tài chính của nhân viên giúp cải thiện khả năng giữ chân, sự hài lòng và hiệu suất tổng thể của nhà hàng.",
+      "description": "Cách triển khai các chương trình phúc lợi tài chính cho nhân viên nhà hàng có thể giảm tỷ lệ nghỉ việc và tăng cường tinh thần làm việc.",
+      "content": {
+        "intro": "Ngành nhà hàng đang đối mặt với nhu cầu chưa từng có, nhưng việc tìm kiếm nhân viên có trình độ vẫn là một trong những thách thức lớn nhất đối với các nhà điều hành hiện nay. Hướng dẫn này cung cấp các chiến lược thực tế để tuyển dụng nhanh chóng, an toàn.",
+        "sections": [
+          {
+            "heading": "Chi phí căng thẳng tài chính",
+            "paragraphs": [
+              "Nhân viên bị căng thẳng tài chính kém năng suất hơn, có nhiều khả năng nghỉ ốm và có nguy cơ cao hơn rời đi để tìm kiếm mức lương nhỏ hơn ở nơi khác. Chi phí thay thế nhân viên được đào tạo vượt xa khoản đầu tư vào phúc lợi tài chính.",
+              "Nhiều nhân viên nhà hàng sống dựa vào tiền lương, khiến các khoản chi phí bất ngờ trở thành khủng hoảng thực sự. Căng thẳng này ảnh hưởng đến hiệu suất công việc và chất lượng dịch vụ khách hàng."
+            ]
+          },
+          {
+            "heading": "Thực hiện các chương trình phúc lợi tài chính",
+            "paragraphs": [
+              "Các chương trình tiếp cận tiền lương đã kiếm được cho phép nhân viên tiếp cận tiền lương đã kiếm được trước ngày trả lương, giảm sự phụ thuộc vào các khoản vay ngắn hạn đắt đỏ và phí thấu chi.",
+              "Các buổi hội thảo giáo dục tài chính bao gồm lập ngân sách, tiết kiệm và quản lý nợ cung cấp cho nhân viên các công cụ để cải thiện tình hình tài chính của họ về lâu dài."
+            ]
+          },
+          {
+            "heading": "Lợi ích cho nhà tuyển dụng",
+            "paragraphs": [
+              "Các nhà hàng có chương trình phúc lợi tài chính toàn diện báo cáo tỷ lệ nghỉ việc thấp hơn, giảm tình trạng vắng mặt và điểm hài lòng của nhân viên cao hơn.",
+              "Các chương trình này cũng nâng cao danh tiếng của bạn với tư cách là nhà tuyển dụng được lựa chọn, giúp việc tuyển dụng dễ dàng hơn trong thị trường lao động cạnh tranh."
+            ]
+          }
+        ],
+        "quote": "Đầu tư vào phúc lợi tài chính của nhân viên, và họ sẽ đầu tư năng lượng và lòng trung thành của họ vào nhà hàng của bạn."
+      }
+    },
+    "date": {
+      "august_6_2025": "Ngày 6 tháng 8 năm 2025",
+      "august_4_2024": "Ngày 4 tháng 8 năm 2024",
+      "august_4_2025": "Ngày 4 tháng 8 năm 2025"
+    }
+  },
+  "product_detail_page": {
+    "title": "Chi Tiết Sản Phẩm",
+    "meta": {
+      "sku": "Mã SP:",
+      "category": "DANH MỤC:",
+      "tags": "THẺ:",
+      "default_tags": "Đồ ăn, Nhà hàng"
+    },
+    "review_count": "(1 đánh giá của khách hàng)",
+    "add_to_cart_button": "THÊM VÀO GIỎ HÀNG",
+    "tabs": {
+      "description": "Mô tả",
+      "reviews": "Đánh giá (1)"
+    },
+    "review_form": {
+      "title": "Thêm Đánh Giá",
+      "note": "Địa chỉ email của bạn sẽ không được công bố. Các trường bắt buộc được đánh dấu *",
+      "placeholder_name": "Tên của bạn *",
+      "placeholder_email": "Địa chỉ email *",
+      "placeholder_website": "Trang web *",
+      "your_rating": "Đánh giá của bạn",
+      "placeholder_write_review": "Viết đánh giá *",
+      "save_info": "Lưu tên, email và trang web của tôi trong trình duyệt này cho lần bình luận tiếp theo.",
+      "submit_button": "Gửi"
+    },
+    "related_items_title": "Sản Phẩm Liên Quan",
+    "notification": {
+      "added_to_cart": "Đã thêm vào giỏ hàng!",
+      "view_cart": "Xem Giỏ Hàng"
+    },
+    "pairing_reasons": {
+      "same_category": "Bổ sung hoàn hảo cho cùng loại bữa ăn",
+      "spice_balance": "Cân bằng độ cay một cách hợp lý",
+      "dietary_match": "Chia sẻ sở thích ăn kiêng tương tự",
+      "contrast_texture": "Mang đến sự đa dạng về kết cấu tương phản",
+      "chef_pick": "Được đầu bếp của chúng tôi đề xuất",
+      "popular_combo": "Sự kết hợp được khách hàng yêu thích"
+    },
+    "pairing_section": {
+      "title": "Kết Hợp Hoàn Hảo Với",
+      "subtitle": "Nâng tầm bữa ăn của bạn với những sự kết hợp hoàn hảo này"
+    },
+    "loading_product": "Đang tải",
+    "error_message": {
+      "title": "Không tìm thấy sản phẩm",
+      "description": "Sản phẩm bạn đang tìm kiếm không tồn tại hoặc đã bị xóa.",
+      "back_to_menu": "Quay lại thực đơn"
+    }
+  },
+  "blog_page": {
+    "title": "Blog Quản lý & Tăng trưởng Nhà hàng",
+    "header": "Blog Quản lý & Tăng trưởng Nhà hàng",
+    "read_more": "Đọc thêm",
+    "loading_article": "Đang tải bài viết...",
+    "no_posts": "Không có bài viết nào.",
+    "by_author": "Bởi",
+    "pagination": {
+      "previous": "← Trước",
+      "next": "Sau →"
+    }
+  },
+  "blog_details_page": {
+    "title": "Bài viết Blog",
+    "copy_link": "Sao chép liên kết",
+    "by_author": "Bởi",
+    "copied": "Đã sao chép!",
+    "copy_failed": "Không thể sao chép liên kết. Vui lòng sao chép thủ công.",
+    "error": {
+      "description": "Bài viết bạn đang tìm không tồn tại hoặc đã bị xóa.",
+      "back_to_blog": "Quay lại Blog",
+      "not_found": "Không tìm thấy bài viết",
+      "loading_error": "Lỗi khi tải bài viết"
+    },
+    "page_title_suffix": "| Blog Nhà hàng"
+  },
+  "cart_page": {
+    "title": "Trang Giỏ hàng",
+    "table": {
+      "food": "Món ăn",
+      "price": "Giá",
+      "quantity": "Số lượng",
+      "subtotal": "Tổng phụ",
+      "remove_item": "Xóa mục",
+      "decrease_qty": "Giảm số lượng",
+      "increase_qty": "Tăng số lượng"
+    },
+    "coupon": {
+      "placeholder": "Mã giảm giá",
+      "apply_button": "Áp dụng",
+      "remove_button": "Xóa"
+    },
+    "totals": {
+      "subtotal": "Tổng phụ",
+      "discount": "Giảm giá",
+      "total": "Tổng cộng",
+      "proceed_to_checkout": "Tiến hành thanh toán"
+    },
+    "empty_cart": {
+      "message": "Giỏ hàng của bạn trống",
+      "suggestion": "Thêm một vài món ăn ngon để bắt đầu!"
+    },
+    "notification": {
+      "removed_item": "Đã xóa \"{itemTitle}\" khỏi giỏ hàng",
+      "enter_coupon": "Vui lòng nhập mã giảm giá",
+      "invalid_coupon": "Mã giảm giá không hợp lệ",
+      "coupon_applied": "Đã áp dụng mã giảm giá: {description}",
+      "coupon_removed": "Đã xóa mã giảm giá",
+      "cart_empty_checkout": "Giỏ hàng của bạn trống"
+    },
+    "loading_cart": "Đang tải giỏ hàng..."
+  },
+  "checkout_page": {
+    "title": "Thanh toán",
+    "billing_details": {
+      "title": "Chi tiết thanh toán",
+      "first_name": "Tên của bạn *",
+      "last_name": "Họ *",
+      "country": "Quốc gia / Khu vực *",
+      "street_address": "Địa chỉ đường *",
+      "town_city": "Thị trấn / Thành phố *",
+      "district": "Quận / Huyện *",
+      "postcode_zip": "Mã bưu điện / ZIP (tùy chọn)",
+      "phone": "Số điện thoại *",
+      "email": "Địa chỉ email *",
+      "country_options": {
+        "au": "Úc",
+        "us": "Hoa Kỳ",
+        "vn": "Việt Nam"
+      }
+    },
+    "payment": {
+      "direct_bank_transfer": "Chuyển khoản ngân hàng trực tiếp",
+      "direct_bank_transfer_hint": "Thực hiện thanh toán của bạn trực tiếp vào tài khoản ngân hàng của chúng tôi. Vui lòng sử dụng ID đơn hàng của bạn làm tham chiếu thanh toán. Đơn hàng của bạn sẽ không được giao cho đến khi tiền đã được ghi có vào tài khoản của chúng tôi.",
+      "check_payments": "Thanh toán bằng séc",
+      "check_payments_hint": "Thanh toán bằng séc, đơn hàng của bạn sẽ được xử lý sau khi xác minh.",
+      "cod": "Thanh toán khi nhận hàng",
+      "cod_hint": "Thanh toán bằng tiền mặt khi đơn hàng của bạn được giao.",
+      "paypal": "PayPal",
+      "paypal_hint": "Bạn sẽ được chuyển hướng đến PayPal để hoàn tất giao dịch một cách an toàn.",
+      "privacy_text": "Dữ liệu cá nhân của bạn sẽ được sử dụng để xử lý đơn hàng, hỗ trợ trải nghiệm của bạn trên trang web này và cho các mục đích khác được mô tả trong",
+      "privacy_policy_link": "chính sách bảo mật",
+      "place_order_button": "Đặt hàng"
+    },
+    "order_summary": {
+      "title": "Đơn hàng của bạn",
+      "product_header": "Món ăn",
+      "subtotal_header": "Tổng phụ",
+      "subtotal_footer": "Tổng phụ",
+      "shipping": "Giao hàng",
+      "shipping_rate": "Phí cố định: $6.00",
+      "total": "Tổng cộng"
+    },
+    "notifications": {
+      "cart_empty_redirect": "Giỏ hàng của bạn đang trống. Đang chuyển hướng đến trang giỏ hàng...",
+      "invalid_email": "Vui lòng nhập một địa chỉ email hợp lệ",
+      "invalid_phone": "Vui lòng nhập một số điện thoại hợp lệ",
+      "select_payment": "Vui lòng chọn một phương thức thanh toán",
+      "order_placed_success": "Đặt hàng thành công! ID đơn hàng: #{orderId}",
+      "redirecting_homepage": "Đang chuyển hướng đến trang chủ...",
+      "free_shipping": "MIỄN PHÍ",
+      "coupon_applied": "Đã áp dụng phiếu giảm giá"
+    }
+  },
+  "about_page": {
+    "title": "Về chúng tôi",
+    "intro": {
+      "title": "Chúng tôi là một nhà hàng Mexico tạo ra những món ăn ngon.",
+      "lead": "Từ những chiếc bánh tortilla thủ công được ép tươi mỗi sáng đến món carnitas hầm chậm và nước sốt tươi sáng, chúng tôi nấu ăn bằng nguyên liệu theo mùa từ nông dân địa phương. Nhà bếp của chúng tôi kết hợp các công thức gia đình với kỹ thuật hiện đại, giữ cho hương vị đậm đà và chân thực. Cho dù bạn thèm một món cay, hun khói hay chay, luôn có một món ăn được chế biến cẩn thận—và một đội ngũ sẵn sàng chào đón bạn như gia đình.",
+      "story_title": "Câu chuyện về<br/>Chi nhánh nhà hàng<br/>đầu tiên của chúng tôi",
+      "story_text": "Tại vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident."
+    },
+    "vision_mission": {
+      "title": "Tầm nhìn & Sứ mệnh của chúng tôi",
+      "subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam aliquam amet, cursus tellus non consequat laoreet eget ornare. Vulputate tellus, a lobortis eu nisl. Quisque vulputate eget et, aliquet libero.",
+      "delicious_cuisine": {
+        "title": "Ẩm thực ngon",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit at aliquam amet."
+      },
+      "fast_delivery": {
+        "title": "Giao hàng nhanh",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit at aliquam amet."
+      },
+      "professional_chef": {
+        "title": "Đầu bếp chuyên nghiệp",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit at aliquam amet."
+      }
+    },
+    "team": {
+      "title": "Họ sẽ nấu ăn cho bạn",
+      "subtitle": "Thực khách của chúng tôi có thể tự nấu ăn hoặc ghé thăm một số nhà hàng được tuyển chọn trong khu vực.<br/>Họ sẽ nấu ăn cho bạn và đảm bảo bạn luôn cảm thấy như ở nhà.",
+      "chef_1": {
+        "name": "Jubed Ahmed",
+        "role": "Đầu bếp"
+      },
+      "chef_2": {
+        "name": "Delwar Hussen",
+        "role": "Phụ bếp"
+      },
+      "chef_3": {
+        "name": "Tajul Islam",
+        "role": "Đầu bếp"
+      }
+    }
+  }
+}

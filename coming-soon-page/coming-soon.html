@@ -22,9 +22,9 @@
       rel="stylesheet"
     />
     <!-- Header style -->
-      <link rel="stylesheet" href="../partials/header.css" />
+    <link rel="stylesheet" href="../partials/header.css" />
     <!-- Footer style -->
-      <link rel="stylesheet" href="../partials/footer.css" />
+    <link rel="stylesheet" href="../partials/footer.css" />
     <!-- Comming Soon Style -->
     <link rel="stylesheet" href="./coming-soon.css" />
     <!-- highlight banner -->
@@ -33,27 +33,64 @@
     <!-- link html footer and header -->
     <script src="../assets/script/include-partials.js" defer></script>
     <script src="../assets/script/header.js" defer></script>
-  <link rel="stylesheet" href="../assets/features/theme-toggle.css" />
+    <link rel="stylesheet" href="../assets/features/theme-toggle.css" />
   </head>
   <body>
     <!-- ========== FLOATING THEME TOGGLE BUTTON ========== -->
-    <button id="theme-toggle-float-btn" class="theme-toggle-float" aria-label="Toggle light and dark mode">
-      <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-      <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+    <button
+      id="theme-toggle-float-btn"
+      class="theme-toggle-float"
+      aria-label="Toggle light and dark mode"
+    >
+      <svg
+        class="sun-icon"
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <circle cx="12" cy="12" r="5"></circle>
+        <line x1="12" y1="1" x2="12" y2="3"></line>
+        <line x1="12" y1="21" x2="12" y2="23"></line>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+        <line x1="1" y1="12" x2="3" y2="12"></line>
+        <line x1="21" y1="12" x2="23" y2="12"></line>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+      </svg>
+      <svg
+        class="moon-icon"
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      </svg>
     </button>
     <!-- ========== 1. HEADER ========== -->
     <div data-include="/partials/header.html"></div>
-
-
+    <script type="module" src="../assets/script/lang-toggle.js" defer></script>
 
     <!-- Coming Soon -->
     <main>
       <section class="comingsoon">
         <div class="comingsoon__content">
-          <h1 class="comingsoon__title">
+          <h1 class="comingsoon__title" data-i18n="coming_soon.title">
             Subscribe Newsletter & Get Latest News
           </h1>
-          <p class="comingsoon__desc">
+          <p class="comingsoon__desc" data-i18n="coming_soon.description">
             Our being able to do what we like best, every pleasure is to be
             welcomed and every pain avoided certain.
           </p>
@@ -63,6 +100,7 @@
               type="email"
               class="comingsoon__input"
               placeholder="Enter your email address"
+              data-i18n-placeholder="coming_soon.placeholder_email"
               required
             />
             <button
@@ -90,32 +128,51 @@
           <div class="comingsoon__timer">
             <div class="comingsoon__timebox">
               <span class="comingsoon__number" id="days"></span>
-              <p class="comingsoon__label">Days</p>
+              <p class="comingsoon__label" data-i18n="coming_soon.timer.days">
+                Days
+              </p>
             </div>
             <div class="comingsoon__timebox">
               <span class="comingsoon__number" id="hours"></span>
-              <p class="comingsoon__label">Hour</p>
+              <p class="comingsoon__label" data-i18n="coming_soon.timer.hour">
+                Hour
+              </p>
             </div>
             <div class="comingsoon__timebox">
               <span class="comingsoon__number" id="minutes"></span>
-              <p class="comingsoon__label">Minutes</p>
+              <p
+                class="comingsoon__label"
+                data-i18n="coming_soon.timer.minutes"
+              >
+                Minutes
+              </p>
             </div>
             <div class="comingsoon__timebox">
               <span class="comingsoon__number" id="seconds"></span>
-              <p class="comingsoon__label">Seconds</p>
+              <p
+                class="comingsoon__label"
+                data-i18n="coming_soon.timer.seconds"
+              >
+                Seconds
+              </p>
             </div>
           </div>
 
           <a
-            href="../homepage/index.html"
+            href="../index.html"
             class="comingsoon__link link-underline"
+            data-i18n="coming_soon.go_to_home"
             >Go to Home</a
           >
         </div>
       </section>
 
       <!-- ========== 1. HIGHLIGHT BANNER SECTION ========== -->
-      <section id="highlight-banner" class="highlight-banner" style="margin-top: 0;">
+      <section
+        id="highlight-banner"
+        class="highlight-banner"
+        style="margin-top: 0"
+      >
         <div class="highlight-banner__track">
           <div class="highlight-banner__list">
             <!-- Main 4 items -->
@@ -124,7 +181,9 @@
                 src="../assets/images/home-page/highlight-banner/self_service.svg"
                 alt="Self Services"
               />
-              <span>Self Services</span>
+              <span data-i18n="home.highlight_banner.self_services"
+                >Self Services</span
+              >
             </div>
 
             <div class="highlight-banner__item">
@@ -132,7 +191,7 @@
                 src="../assets/images/home-page/highlight-banner/best_food.svg"
                 alt="Best Food"
               />
-              <span>Best Food</span>
+              <span data-i18n="home.highlight_banner.best_food">Best Food</span>
             </div>
 
             <div class="highlight-banner__item">
@@ -140,7 +199,9 @@
                 src="../assets/images/home-page/highlight-banner/fast_delivery.svg"
                 alt="Fast Delivery"
               />
-              <span>Fast Delivery</span>
+              <span data-i18n="home.highlight_banner.fast_delivery"
+                >Fast Delivery</span
+              >
             </div>
 
             <div class="highlight-banner__item">
@@ -148,7 +209,9 @@
                 src="../assets/images/home-page/highlight-banner/super_taste.svg"
                 alt="Super Taste"
               />
-              <span>Super Taste</span>
+              <span data-i18n="home.highlight_banner.super_taste"
+                >Super Taste</span
+              >
             </div>
 
             <!-- Duplicate set for infinite loop -->
@@ -157,7 +220,9 @@
                 src="../assets/images/home-page/highlight-banner/self_service.svg"
                 alt="Self Services"
               />
-              <span>Self Services</span>
+              <span data-i18n="home.highlight_banner.self_services"
+                >Self Services</span
+              >
             </div>
 
             <div class="highlight-banner__item">
@@ -165,23 +230,27 @@
                 src="../assets/images/home-page/highlight-banner/best_food.svg"
                 alt="Best Food"
               />
-              <span>Best Food</span>
+              <span data-i18n="home.highlight_banner.best_food">Best Food</span>
             </div>
 
             <div class="highlight-banner__item">
               <img
-                src="../assets/images/HomePage/HighlightBanner/fast_delivery.svg"
+                src="../assets/images/home-page/highlight-banner/fast_delivery.svg"
                 alt="Fast Delivery"
               />
-              <span>Fast Delivery</span>
+              <span data-i18n="home.highlight_banner.fast_delivery"
+                >Fast Delivery</span
+              >
             </div>
 
             <div class="highlight-banner__item">
               <img
-                src="../assets/images/HomePage/HighlightBanner/super_taste.svg"
+                src="../assets/images/home-page/highlight-banner/super_taste.svg"
                 alt="Super Taste"
               />
-              <span>Super Taste</span>
+              <span data-i18n="home.highlight_banner.super_taste"
+                >Super Taste</span
+              >
             </div>
           </div>
         </div>
@@ -192,7 +261,7 @@
 
     <!-- ========== 13. FOOTER ========== -->
     <div data-include="/partials/footer.html"></div>
-  <script src="../assets/features/theme-toggle.js"></script>
+    <script src="../assets/script/lang-toggle.js" defer></script>
+    <script src="../assets/features/theme-toggle.js"></script>
   </body>
 </html>
-

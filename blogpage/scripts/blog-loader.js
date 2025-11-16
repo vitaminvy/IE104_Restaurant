@@ -7,6 +7,7 @@ import {
   getFeaturedPost, 
   getPaginatedPosts 
 } from '../../assets/data/blogdata.js';
+import i18nService from '../../assets/script/i18n-service.js';
 
 /* ========================================
  * CONFIGURATION
@@ -27,14 +28,17 @@ function renderFeaturedPost() {
     return;
   }
 
+  const title = i18nService.t(post.title);
+  const description = i18nService.t(post.description);
+
   featuredContainer.innerHTML = `
     <div class="post-image">
-      <img src="${post.image}" alt="${post.title}" loading="lazy">
+      <img src="${post.image}" alt="${title}" loading="lazy">
     </div>
     <div class="post-content">
-      <h2>${post.title}</h2>
-      <p>${post.description}</p>
-      <a href="../blogpage-details/index.html?id=${post.id}" class="read-more">Read more</a>
+      <h2>${title}</h2>
+      <p>${description}</p>
+      <a href="../blogpage-details/index.html?id=${post.id}" class="read-more">${i18nService.t('blog_page.read_more')}</a>
     </div>
   `;
 
@@ -46,7 +50,7 @@ function renderFeaturedPost() {
       
       // Show global loader
       if (window.GlobalLoader) {
-        window.GlobalLoader.show('Loading article...');
+        window.GlobalLoader.show(i18nService.t('blog_page.loading_article'));
       }
       
       // Navigate after brief delay
@@ -72,22 +76,23 @@ function renderBlogGrid(page = 1) {
 
   // Check if there are posts
   if (posts.length === 0) {
-    blogGrid.innerHTML = '<p class="no-posts">No blog posts available.</p>';
+    blogGrid.innerHTML = `<p class="no-posts">${i18nService.t('blog_page.no_posts')}</p>`;
     return;
   }
 
   // Render each post
   posts.forEach(post => {
+    const title = i18nService.t(post.title);
     const article = document.createElement('article');
     article.className = 'post';
     article.innerHTML = `
       <div class="post-image">
-        <img src="${post.image}" alt="${post.title}" loading="lazy">
+        <img src="${post.image}" alt="${title}" loading="lazy">
       </div>
       <div class="post-content">
-        <h3>${post.title}</h3>
-        <p class="post-meta">${post.date} • By ${post.author}</p>
-        <a href="../blogpage-details/index.html?id=${post.id}" class="read-more">Read more</a>
+        <h3>${title}</h3>
+        <p class="post-meta">${i18nService.t(post.date)} • ${i18nService.t('blog_page.by_author')} ${post.author}</p>
+        <a href="../blogpage-details/index.html?id=${post.id}" class="read-more">${i18nService.t('blog_page.read_more')}</a>
       </div>
     `;
     
@@ -99,7 +104,7 @@ function renderBlogGrid(page = 1) {
         
         // Show global loader
         if (window.GlobalLoader) {
-          window.GlobalLoader.show('Loading article...');
+          window.GlobalLoader.show(i18nService.t('blog_page.loading_article'));
         }
         
         // Navigate after brief delay
@@ -136,7 +141,7 @@ function renderPagination(page, totalPages, hasNext, hasPrev) {
   const prevLink = document.createElement('a');
   prevLink.href = '#';
   prevLink.className = 'prev';
-  prevLink.textContent = '← Previous';
+  prevLink.textContent = i18nService.t('blog_page.pagination.previous');
   prevLink.setAttribute('data-page', page - 1);
   if (!hasPrev) {
     prevLink.style.opacity = '0.5';
@@ -158,8 +163,8 @@ function renderPagination(page, totalPages, hasNext, hasPrev) {
     }
   } else {
     // Show smart pagination with ellipsis
-    let start = Math.max(page - 1, 2);
-    let end = Math.min(page + 1, totalPages - 1);
+    let start = Math.max(page - 2, 2);
+    let end = Math.min(page + 2, totalPages - 1);
 
     // Always show first page
     pageContainer.appendChild(createPageNumber(1, page));
@@ -195,7 +200,7 @@ function renderPagination(page, totalPages, hasNext, hasPrev) {
   const nextLink = document.createElement('a');
   nextLink.href = '#';
   nextLink.className = 'next';
-  nextLink.textContent = 'Next →';
+  nextLink.textContent = i18nService.t('blog_page.pagination.next');
   nextLink.setAttribute('data-page', page + 1);
   if (!hasNext) {
     nextLink.style.opacity = '0.5';
@@ -259,31 +264,13 @@ function attachPaginationListeners() {
  * INITIALIZATION
  * ======================================== */
 function init() {
-  // Show loader immediately
-  if (window.GlobalLoader) {
-    window.GlobalLoader.show('Loading blog posts...');
-  }
-
-  // Use setTimeout for rendering
-  setTimeout(() => {
-    // Render featured post
-    renderFeaturedPost();
-    
-    // Render blog grid with first page
-    renderBlogGrid(1);
-    
-    // Hide loader
-    if (window.GlobalLoader) {
-      window.GlobalLoader.hide(300);
-    }
-    
-    console.log('📰 Blog page loaded successfully');
-  }, 100);
+  renderFeaturedPost();
+  renderBlogGrid(currentPage);
 }
 
-// Initialize when DOM is ready
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', init);
-} else {
+document.addEventListener('language-changed', init);
+
+(async () => {
+  await i18nService.init();
   init();
-}
+})();

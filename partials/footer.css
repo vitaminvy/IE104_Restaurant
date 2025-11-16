@@ -259,4 +259,56 @@ html {
   }
 }
 
+/* ================== LANGUAGE SELECTOR ================== */
+.footer__language-selector {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+}
 
+.footer__language-link {
+  display: inline-block;
+  line-height: 1; /* Remove extra space below image */
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.footer__language-link:not(.footer__language-link--active) {
+  opacity: 0.6;
+}
+
+.footer__language-link:hover:not(.footer__language-link--active) {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.footer__language-flag {
+  width: 28px;
+  height: 28px;
+  object-fit: cover;
+  border: 1px solid var(--color-white-20);
+}
+
+.footer__language-separator {
+  margin: 0 10px;
+  color: var(--color-white-60);
+  font-size: 14px;
+}
+
+/* Default to show mobile, hide desktop */
+.footer__language-selector--desktop {
+  display: none;
+}
+.footer__language-selector--mobile {
+  display: flex; /* Use flex for alignment */
+}
+
+/* On medium screens and up, show desktop and hide mobile */
+@media (min-width: 768px) {
+  .footer__language-selector--desktop {
+    display: flex; /* Use flex for alignment */
+    margin-top: 24px; /* Add space above */
+  }
+  .footer__language-selector--mobile {
+    display: none;
+  }
+}

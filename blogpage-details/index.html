@@ -1,162 +1,246 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <script src="../assets/script/theme-init.js"></script>
-  <!-- ====== Meta Configuration ====== -->
-  <meta charset="UTF-8" frame-rectangular />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Restaurant Website</title>
+    <!-- ====== Meta Configuration ====== -->
+    <meta charset="UTF-8" frame-rectangular />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-i18n="blog_details_page.title">Restaurant Website</title>
 
-  <!-- ====== Global Styles ====== -->
-  <link rel="stylesheet" href="../style/reset.css" />
-  <link rel="stylesheet" href="../style/style.css" />
+    <!-- ====== Global Styles ====== -->
+    <link rel="stylesheet" href="../style/reset.css" />
+    <link rel="stylesheet" href="../style/style.css" />
 
-  <!-- ====== Page-Specific Styles ====== -->
-  <link rel="stylesheet" href="./layout.css">
-  <link rel="stylesheet" href="./blog-details.css">
-  <link rel="stylesheet" href="./blog-grid.css">
+    <!-- ====== Page-Specific Styles ====== -->
+    <link rel="stylesheet" href="./layout.css" />
+    <link rel="stylesheet" href="./blog-details.css" />
+    <link rel="stylesheet" href="./blog-grid.css" />
 
-  <!-- ====== Header And Footer Section Styles ====== -->
+    <!-- ====== Header And Footer Section Styles ====== -->
     <link rel="stylesheet" href="../partials/header.css" />
     <link rel="stylesheet" href="../partials/footer.css" />
 
-  <!-- ====== External Libraries ====== -->
-  <!-- Font Awesome for social & UI icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <!-- Google Fonts: Libre Bodoni & Plus Jakarta Sans -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
-    rel="stylesheet" />
+    <!-- ====== External Libraries ====== -->
+    <!-- Font Awesome for social & UI icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <!-- Google Fonts: Libre Bodoni & Plus Jakarta Sans -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- Global Loading System -->
-  <script src="../assets/script/global-loader.js"></script>
+    <!-- Global Loading System -->
+    <script src="../assets/script/global-loader.js"></script>
 
-  <!-- Dynamic Blog Details Loader -->
-  <script type="module" src="./blog-details-loader.js"></script>
-<link rel="stylesheet" href="../assets/features/theme-toggle.css" />
+    <!-- Dynamic Blog Details Loader -->
+    <script type="module" src="./blog-details-loader.js"></script>
+    <link rel="stylesheet" href="../assets/features/theme-toggle.css" />
   </head>
 
-<body>
+  <body>
     <!-- ========== FLOATING THEME TOGGLE BUTTON ========== -->
-    <button id="theme-toggle-float-btn" class="theme-toggle-float" aria-label="Toggle light and dark mode">
-      <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-      <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+    <button
+      id="theme-toggle-float-btn"
+      class="theme-toggle-float"
+      aria-label="Toggle light and dark mode"
+    >
+      <svg
+        class="sun-icon"
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <circle cx="12" cy="12" r="5"></circle>
+        <line x1="12" y1="1" x2="12" y2="3"></line>
+        <line x1="12" y1="21" x2="12" y2="23"></line>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+        <line x1="1" y1="12" x2="3" y2="12"></line>
+        <line x1="21" y1="12" x2="23" y2="12"></line>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+      </svg>
+      <svg
+        class="moon-icon"
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      </svg>
     </button>
-  <!-- ========== 1. HEADER ========== -->
-  <!-- logic for header and footer -->
-  <script src="../assets/script/include-partials.js" defer></script>
-  <script src="../assets/script/header.js"></script>
-  <div data-include="/partials/header.html"></div>
+    <!-- ========== 1. HEADER ========== -->
+    <!-- logic for header and footer -->
+    <script src="../assets/script/include-partials.js" defer></script>
+    <script src="../assets/script/header.js"></script>
+    <div data-include="/partials/header.html"></div>
 
+    <!-- open sidebar in mobile view -->
 
-  <!-- open sidebar in mobile view -->
-
-  <!-- ========== 2. MAIN CONTENT ========== -->
-  <div class="container">
-    <main>
-      <!-- ====== Blog Header Section ====== -->
-      <header class="blog-header">
-        <h1>Everything You Need To Know About The Growing Role Of AI In Restaurants</h1>
-        <p>You are sitting in your favorite restaurant and have ordered on a tablet on your table. A few seconds after
-          placing the order, a notification will appear in your messaging app.</p>
-      </header>
-      <!-- ====== Featured Image + Decorative Icon ====== -->
-      <div class="main-blog-image">
-        <img src="../assets/images/blogpage-details/interior-of-restaurant.png" alt="Interior of a modern restaurant">
-      </div>
-
-      <!-- ====== Meta Information (Date, Author, Social Links) ====== -->
-      <div class="meta-info">
-        <span>August 6, 2025 • By Admin</span>
-        <div class="social-links">
-          <!-- Copy link button -->
-          <button class="copy-link"><i class="fas fa-link"></i> Copy link</button>
-          <!-- Social sharing icons -->
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
-          <a href="#"><i class="fab fa-twitter"></i></a>
-          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+    <!-- ========== 2. MAIN CONTENT ========== -->
+    <div class="container">
+      <main>
+        <!-- ====== Blog Header Section ====== -->
+        <header class="blog-header">
+          <h1>
+            Everything You Need To Know About The Growing Role Of AI In
+            Restaurants
+          </h1>
+          <p>
+            You are sitting in your favorite restaurant and have ordered on a
+            tablet on your table. A few seconds after placing the order, a
+            notification will appear in your messaging app.
+          </p>
+        </header>
+        <!-- ====== Featured Image + Decorative Icon ====== -->
+        <div class="main-blog-image">
+          <img
+            src="../assets/images/blogpage-details/interior-of-restaurant.png"
+            alt="Interior of a modern restaurant"
+          />
         </div>
-      </div>
 
-      <!-- ====== Blog Content Section ====== -->
-      <section class="content-section">
-        <!-- Section Heading -->
-        <h2>How The Role Of Restaurants Is Increasing</h2>
-
-        <!-- Main paragraphs -->
-        <p><span class="first-letter">T</span>he restaurant industry has experienced a significant paradigm shift over
-          the past decade. In addition to providing excellent food, restaurants strive to provide a pleasant customer
-          experience to encourage their customers to visit them again. Just look at how brands will attract more
-          customers. Caliburger franchise in Pasadena showcasing a burger.</p>
-
-        <p>But they have tons of cash to burn on such gimmicks, right? How can a smaller restaurant compete with that?
-          That’s true, but AI in restaurants isn’t about fancy gimmicks or eye-catching technologies alone. Today, AI is
-          accessible to everyone, and there are smaller ways to use it to your advantage.</p>
-
-        <!-- Supporting Image -->
-        <img src="../assets/images/blogpage-details/pizza.png" alt="Neon sign saying PIZZA">
-
-        <!-- Highlighted Quote Block -->
-        <blockquote class="blog-quote">
-          <p>“Ding* Your order is being prepared by Chef Bot 19 and will be delivered to your table in approximately 19
-            minutes. To get a receipt for your order, reply with H. We hope you enjoy your dining experience with us. –
-            Team Bots”</p>
-        </blockquote>
-
-        <!-- Subsection -->
-        <h2>How The Role Of Restaurants Is Increasing</h2>
-        <p>Integrating inventory with your point of sale (POS) system is an essential AI capability that every
-          restaurant needs. Restaurant owners can track inventory purchase data, which can help them buy ingredients
-          more efficiently. In addition, it helps them ensure that they limit waste and that food costs remain under
-          control.</p>
-
-        <!-- List of AI applications -->
-        <ul>
-          <li><strong>Automated Marketing:</strong> As discussed above, restaurant owners need a reliable digital
-            marketing plan to stay a step ahead of the competition. AI today enables them to create better marketing
-            strategies, including click-through rates, and run effective targeting campaigns to bring in more people to
-            the restaurant. In addition.</li>
-          <li><strong>Hiring and Staff Management:</strong> Staffing is a significant challenge for any food and
-            beverage business. AI can assist in hiring, training, and staffing to optimize the number of staff members
-            needed during each shift.</li>
-        </ul>
-      </section>
-
-      <!-- ====== Blog Grid Section (Related Posts) ====== -->
-      <section class="blog-grid" id="blog-grid">
-        <!-- Post 1 -->
-        <article class="post">
-          <div class="post-image">
-            <img src="../assets/images/blogpage-details/post-image-1.png" alt="The Beauty of the Ocean">
+        <!-- ====== Meta Information (Date, Author, Social Links) ====== -->
+        <div class="meta-info">
+          <span>August 6, 2025 • By Admin</span>
+          <div class="social-links">
+            <!-- Copy link button -->
+            <button class="copy-link">
+              <i class="fas fa-link"></i
+              ><span data-i18n="blog_details_page.copy_link"> Copy link</span>
+            </button>
+            <!-- Social sharing icons -->
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
           </div>
-          <div class="post-content">
-            <h3>Using Live Video to Showcase Your Restaurant
-              
-            </h3>
-            <p class="post-meta">August 6, 2025 • By Admin</p>
-            <a href="#" class="read-more">Read more</a>
-          </div>
-        </article>
+        </div>
 
-        <!-- Post 2 -->
-        <article class="post">
-          <div class="post-image">
-            <img src="../assets/images/blogpage-details/post-image-2.png" alt="Exploring the Mountains">
-          </div>
-          <div class="post-content">
-            <h3>Financial Well-Being Programs for Restaurants</h3>
-            <p class="post-meta">August 6, 2025 • By Admin</p>
-            <a href="#" class="read-more">Read more</a>
-          </div>
-        </article>
-      </section>
-    </main>
-  </div>
+        <!-- ====== Blog Content Section ====== -->
+        <section class="content-section">
+          <!-- Section Heading -->
+          <h2>How The Role Of Restaurants Is Increasing</h2>
 
-  <!-- ========== 3. FOOTER ========== -->
-  <div data-include="/partials/footer.html"></div>
-<script src="../assets/features/theme-toggle.js"></script>
+          <!-- Main paragraphs -->
+          <p>
+            <span class="first-letter">T</span>he restaurant industry has
+            experienced a significant paradigm shift over the past decade. In
+            addition to providing excellent food, restaurants strive to provide
+            a pleasant customer experience to encourage their customers to visit
+            them again. Just look at how brands will attract more customers.
+            Caliburger franchise in Pasadena showcasing a burger.
+          </p>
+
+          <p>
+            But they have tons of cash to burn on such gimmicks, right? How can
+            a smaller restaurant compete with that? That’s true, but AI in
+            restaurants isn’t about fancy gimmicks or eye-catching technologies
+            alone. Today, AI is accessible to everyone, and there are smaller
+            ways to use it to your advantage.
+          </p>
+
+          <!-- Supporting Image -->
+          <img
+            src="../assets/images/blogpage-details/pizza.png"
+            alt="Neon sign saying PIZZA"
+          />
+
+          <!-- Highlighted Quote Block -->
+          <blockquote class="blog-quote">
+            <p>
+              “Ding* Your order is being prepared by Chef Bot 19 and will be
+              delivered to your table in approximately 19 minutes. To get a
+              receipt for your order, reply with H. We hope you enjoy your
+              dining experience with us. – Team Bots”
+            </p>
+          </blockquote>
+
+          <!-- Subsection -->
+          <h2>How The Role Of Restaurants Is Increasing</h2>
+          <p>
+            Integrating inventory with your point of sale (POS) system is an
+            essential AI capability that every restaurant needs. Restaurant
+            owners can track inventory purchase data, which can help them buy
+            ingredients more efficiently. In addition, it helps them ensure that
+            they limit waste and that food costs remain under control.
+          </p>
+
+          <!-- List of AI applications -->
+          <ul>
+            <li>
+              <strong>Automated Marketing:</strong> As discussed above,
+              restaurant owners need a reliable digital marketing plan to stay a
+              step ahead of the competition. AI today enables them to create
+              better marketing strategies, including click-through rates, and
+              run effective targeting campaigns to bring in more people to the
+              restaurant. In addition.
+            </li>
+            <li>
+              <strong>Hiring and Staff Management:</strong> Staffing is a
+              significant challenge for any food and beverage business. AI can
+              assist in hiring, training, and staffing to optimize the number of
+              staff members needed during each shift.
+            </li>
+          </ul>
+        </section>
+
+        <!-- ====== Blog Grid Section (Related Posts) ====== -->
+        <section class="blog-grid" id="blog-grid">
+          <!-- Post 1 -->
+          <article class="post">
+            <div class="post-image">
+              <img
+                src="../assets/images/blogpage-details/post-image-1.png"
+                alt="The Beauty of the Ocean"
+              />
+            </div>
+            <div class="post-content">
+              <h3>Using Live Video to Showcase Your Restaurant</h3>
+              <p class="post-meta">August 6, 2025 • By Admin</p>
+              <a href="#" class="read-more" data-i18n="blog_page.read_more"
+                >Read more</a
+              >
+            </div>
+          </article>
+
+          <!-- Post 2 -->
+          <article class="post">
+            <div class="post-image">
+              <img
+                src="../assets/images/blogpage-details/post-image-2.png"
+                alt="Exploring the Mountains"
+              />
+            </div>
+            <div class="post-content">
+              <h3>Financial Well-Being Programs for Restaurants</h3>
+              <p class="post-meta">August 6, 2025 • By Admin</p>
+              <a href="#" class="read-more" data-i18n="blog_page.read_more"
+                >Read more</a
+              >
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+
+    <!-- ========== 3. FOOTER ========== -->
+    <div data-include="/partials/footer.html"></div>
+    <script type="module" src="../assets/script/lang-toggle.js" defer></script>
+    <script src="../assets/features/theme-toggle.js"></script>
   </body>
-
 </html>

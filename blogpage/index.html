@@ -1,128 +1,184 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <script src="../assets/script/theme-init.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-i18n="blog_page.title">
+      Restaurant Management & Growth Blog
+    </title>
 
-<head>
-  <script src="../assets/script/theme-init.js"></script>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Restaurant Management & Growth Blog</title>
+    <!-- Font Awesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
 
-  <!-- Font Awesome CDN -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <!-- Global / Main styles -->
+    <link rel="stylesheet" href="./main.css" />
 
-  <!-- Global / Main styles -->
-  <link rel="stylesheet" href="./main.css">
-
-  <!-- Header Section styles -->
+    <!-- Header Section styles -->
     <link rel="stylesheet" href="../partials/header.css" />
 
-  <!-- Footer Section styles -->
+    <!-- Footer Section styles -->
     <link rel="stylesheet" href="../partials/footer.css" />
 
-  <!-- Page Header Section styles -->
-  <link rel="stylesheet" href="./page-header.css">
+    <!-- Page Header Section styles -->
+    <link rel="stylesheet" href="./page-header.css" />
 
-  <!-- Featured Post Section styles -->
-  <link rel="stylesheet" href="./featured-post.css">
+    <!-- Featured Post Section styles -->
+    <link rel="stylesheet" href="./featured-post.css" />
 
-  <!-- Blog Grid Section styles -->
-  <link rel="stylesheet" href="./blog-grid.css">
+    <!-- Blog Grid Section styles -->
+    <link rel="stylesheet" href="./blog-grid.css" />
 
-  <!-- Pagination Section styles -->
-  <link rel="stylesheet" href="./pagination.css">
+    <!-- Pagination Section styles -->
+    <link rel="stylesheet" href="./pagination.css" />
 
-  <!-- Newsletter styles -->
-  <link rel="stylesheet" href="./newsletter.css">
+    <!-- Newsletter styles -->
+    <link rel="stylesheet" href="./newsletter.css" />
 
-  <!-- Reset and global styles -->
-  <link rel="stylesheet" href="../style/reset.css" />
-  <link rel="stylesheet" href="../style/style.css" />
+    <!-- Reset and global styles -->
+    <link rel="stylesheet" href="../style/reset.css" />
+    <link rel="stylesheet" href="../style/style.css" />
 
-  <!-- Google Fonts -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
-    rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- Global Loading System -->
-  <script src="../assets/script/global-loader.js"></script>
+    <!-- Global Loading System -->
+    <script src="../assets/script/global-loader.js"></script>
 
-  <!-- Main JS module - Dynamic Blog Loader -->
-  <script type="module" src="./scripts/blog-loader.js"></script>
-<link rel="stylesheet" href="../assets/features/theme-toggle.css" />
+    <!-- Main JS module - Dynamic Blog Loader -->
+    <script type="module" src="./scripts/blog-loader.js"></script>
+    <link rel="stylesheet" href="../assets/features/theme-toggle.css" />
   </head>
 
-<body>
+  <body>
     <!-- ========== FLOATING THEME TOGGLE BUTTON ========== -->
-    <button id="theme-toggle-float-btn" class="theme-toggle-float" aria-label="Toggle light and dark mode">
-      <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-      <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+    <button
+      id="theme-toggle-float-btn"
+      class="theme-toggle-float"
+      aria-label="Toggle light and dark mode"
+    >
+      <svg
+        class="sun-icon"
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <circle cx="12" cy="12" r="5"></circle>
+        <line x1="12" y1="1" x2="12" y2="3"></line>
+        <line x1="12" y1="21" x2="12" y2="23"></line>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+        <line x1="1" y1="12" x2="3" y2="12"></line>
+        <line x1="21" y1="12" x2="23" y2="12"></line>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+      </svg>
+      <svg
+        class="moon-icon"
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      </svg>
     </button>
-  <!-- ========== 1. HEADER ========== -->
-  <!-- logic for header and footer -->
-  <script src="../assets/script/include-partials.js" defer></script>
-  <script src="../assets/script/header.js"></script>
-  <div data-include="/partials/header.html"></div>
+    <!-- ========== 1. HEADER ========== -->
+    <!-- logic for header and footer -->
+    <script src="../assets/script/include-partials.js" defer></script>
+    <script src="../assets/script/header.js"></script>
+    <div data-include="/partials/header.html"></div>
 
+    <!-- open sidebar in mobile view -->
 
-  <!-- open sidebar in mobile view -->
-
-  <!-- ========== 2. MAIN CONTENT AREA ========== -->
-  <main class="container">
-
-    <!-- ========== 2.1 PAGE HEADER CONTENT ========== -->
-    <div class="page-header">
-      <h1>Restaurant Management & Growth Blog</h1>
-    </div>
-
-    <!-- ========== 2.2 FEATURED POST SECTION ========== -->
-    <section id="featured-post" class="featured-post">
-      <!-- Featured posts will be rendered here by JS -->
-    </section>
-
-    <!-- ========== 2.3 BLOG GRID SECTION ========== -->
-    <section id="blog-grid" class="blog-grid">
-      <!-- Blog posts will be rendered here by JS -->
-    </section>
-
-    <!-- ========== 2.4 PAGINATION NAVIGATION ========== -->
-    <nav id="pagination" class="pagination"></nav>
-
-    <!-- ========== 2.5 NEWSLETTER SECTION ========== -->
-    <section id="newsletter">
-      <!-- Subscribe to Newsletter -->
-      <div class="newsletter__container">
-        <!-- newsletter image -->
-        <div class="newsletter__image">
-          <img src="../assets/images/home-page/newsletter-section/newsletter_dish.png" alt="Healthy food plate"
-            loading="lazy" />
-          <img src="../assets/images/home-page/newsletter-section/newsletter_star.svg" alt="decoration"
-            class="newsletter__star" />
-        </div>
-        <!-- newsletter body content -->
-        <div class="newsletter__content">
-          <h2 class="newsletter__title">
-            Subscribe to Newsletter & Get Latest News
-          </h2>
-          <p class="newsletter__subtitle">
-            Get insider access to news about innovations, unique cooking
-            techniques, culinary concepts, insights, and more
-          </p>
-
-          <form class="newsletter__form">
-            <input type="email" placeholder="Enter your email address" required />
-            <button type="submit" class="newsletter__submit">
-              <i class="fa-solid fa-paper-plane"></i>
-            </button>
-          </form>
-        </div>
+    <!-- ========== 2. MAIN CONTENT AREA ========== -->
+    <main class="container">
+      <!-- ========== 2.1 PAGE HEADER CONTENT ========== -->
+      <div class="page-header">
+        <h1 data-i18n="blog_page.header">
+          Restaurant Management & Growth Blog
+        </h1>
       </div>
-    </section>
-  </main>
 
-  <!-- ========== 2.6 FOOTER PLACEHOLDER ========== -->
-  <div data-include="/partials/footer.html"></div>
-<script src="../assets/features/theme-toggle.js"></script>
+      <!-- ========== 2.2 FEATURED POST SECTION ========== -->
+      <section id="featured-post" class="featured-post">
+        <!-- Featured posts will be rendered here by JS -->
+      </section>
+
+      <!-- ========== 2.3 BLOG GRID SECTION ========== -->
+      <section id="blog-grid" class="blog-grid">
+        <!-- Blog posts will be rendered here by JS -->
+      </section>
+
+      <!-- ========== 2.4 PAGINATION NAVIGATION ========== -->
+      <nav id="pagination" class="pagination"></nav>
+
+      <!-- ========== 2.5 NEWSLETTER SECTION ========== -->
+      <section id="newsletter">
+        <!-- Subscribe to Newsletter -->
+        <div class="newsletter__container">
+          <!-- newsletter image -->
+          <div class="newsletter__image">
+            <img
+              src="../assets/images/home-page/newsletter-section/newsletter_dish.png"
+              alt="Healthy food plate"
+              loading="lazy"
+            />
+            <img
+              src="../assets/images/home-page/newsletter-section/newsletter_star.svg"
+              alt="decoration"
+              class="newsletter__star"
+            />
+          </div>
+          <!-- newsletter body content -->
+          <div class="newsletter__content">
+            <h2 class="newsletter__title" data-i18n="home.newsletter.title">
+              Subscribe to Newsletter & Get Latest News
+            </h2>
+            <p
+              class="newsletter__subtitle"
+              data-i18n="home.newsletter.subtitle"
+            >
+              Get insider access to news about innovations, unique cooking
+              techniques, culinary concepts, insights, and more
+            </p>
+
+            <form class="newsletter__form">
+              <input
+                type="email"
+                data-i18n-placeholder="home.newsletter.placeholder_email"
+                placeholder="Enter your email address"
+                required
+              />
+              <button type="submit" class="newsletter__submit">
+                <i class="fa-solid fa-paper-plane"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ========== 2.6 FOOTER PLACEHOLDER ========== -->
+    <div data-include="/partials/footer.html"></div>
+    <script type="module" src="../assets/script/lang-toggle.js" defer></script>
+    <script src="../assets/features/theme-toggle.js"></script>
   </body>
-
 </html>
-

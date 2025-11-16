@@ -131,7 +131,6 @@
   width: 100%;
   height: 14rem; /* ~224px on 16px root — similar to mock */
   overflow: hidden;
-  border-radius: 10px;
 }
 .menu__card-image {
   width: 100%;

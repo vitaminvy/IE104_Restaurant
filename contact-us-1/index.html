@@ -16,44 +16,82 @@
     <link rel="stylesheet" href="./contact-form.css" />
 
     <!-- header section -->
-      <link rel="stylesheet" href="../partials/header.css" />
+    <link rel="stylesheet" href="../partials/header.css" />
     <!-- footer section -->
-      <link rel="stylesheet" href="../partials/footer.css" />
+    <link rel="stylesheet" href="../partials/footer.css" />
 
     <!-- Fonts -->
     <link
       href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400;0,700&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
-  <link rel="stylesheet" href="../assets/features/theme-toggle.css" />
+    <link rel="stylesheet" href="../assets/features/theme-toggle.css" />
   </head>
 
   <body>
     <!-- ========== FLOATING THEME TOGGLE BUTTON ========== -->
-    <button id="theme-toggle-float-btn" class="theme-toggle-float" aria-label="Toggle light and dark mode">
-      <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-      <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+    <button
+      id="theme-toggle-float-btn"
+      class="theme-toggle-float"
+      aria-label="Toggle light and dark mode"
+    >
+      <svg
+        class="sun-icon"
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <circle cx="12" cy="12" r="5"></circle>
+        <line x1="12" y1="1" x2="12" y2="3"></line>
+        <line x1="12" y1="21" x2="12" y2="23"></line>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+        <line x1="1" y1="12" x2="3" y2="12"></line>
+        <line x1="21" y1="12" x2="23" y2="12"></line>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+      </svg>
+      <svg
+        class="moon-icon"
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      </svg>
     </button>
     <!-- ========== 1. HEADER ========== -->
     <!-- logic for header and footer -->
     <script src="../assets/script/include-partials.js" defer></script>
     <script src="../assets/script/header.js"></script>
     <div data-include="/partials/header.html"></div>
-
-
-    <!-- open sidebar in mobile view -->
+    <script type="module" src="../assets/script/lang-toggle.js" defer></script>
 
     <main class="container">
       <!-- ========== 2. WHERE TO FIND US SECTION ========== -->
       <section id="find-us">
         <!-- Text Content -->
         <div class="find-us__content">
-          <h2 class="section-title">Where To Find Us</h2>
-          <p class="section-text">
+          <h2 class="section-title" data-i18n="contact_us.find_us.title">
+            Where To Find Us
+          </h2>
+          <p class="section-text" data-i18n="contact_us.find_us.description1">
             The Patio Time Cafe is located on Silk Street, in the heart of
             London city, on the edge of Soho.
           </p>
-          <p class="section-text">
+          <p class="section-text" data-i18n="contact_us.find_us.description2">
             Additional info about location and opening style.
           </p>
 
@@ -86,7 +124,13 @@
           </div>
 
           <!-- CTA Button -->
-          <a href="#" class="btn" id="openPopupBtn">View in Google Maps</a>
+          <a
+            href="#"
+            class="btn"
+            id="openPopupBtn"
+            data-i18n="contact_us.find_us.view_in_map"
+            >View in Google Maps</a
+          >
 
           <!-- Popup structure -->
           <div class="popup" id="popup">
@@ -115,22 +159,45 @@
       <section id="contact-form">
         <!-- Contact Information -->
         <div class="contact-form__info">
-          <h2 class="section-title">Contact Us</h2>
-          <p class="contact-info__item">
+          <h2 class="section-title" data-i18n="contact_us.form.title">
+            Contact Us
+          </h2>
+          <p
+            class="contact-info__item"
+            data-i18n="contact_us.form.general_enquiries"
+          >
             For general enquiries please email: info@gmail.com
           </p>
-          <p>Reserve by email: gmail1234@gmail.com</p>
-          <p class="contact-info__item contact-info__tel">Tel: +00 000 0000</p>
+          <p data-i18n="contact_us.form.reserve_by_email">
+            Reserve by email: gmail1234@gmail.com
+          </p>
+          <p
+            class="contact-info__item contact-info__tel"
+            data-i18n="contact_us.form.tel"
+          >
+            Tel: +00 000 0000
+          </p>
 
           <!-- Opening Hours -->
           <div class="opening-hours">
-            <p><strong>Opening hours:</strong></p>
-            <p>Mon - Thu: 10:00 am - 01:00 am</p>
-            <p>Fri - Sun: 10:00 am - 02:00 am</p>
+            <p>
+              <strong data-i18n="contact_us.form.opening_hours.title"
+                >Opening hours:</strong
+              >
+            </p>
+            <p data-i18n="contact_us.form.opening_hours.mon_thu">
+              Mon - Thu: 10:00 am - 01:00 am
+            </p>
+            <p data-i18n="contact_us.form.opening_hours.fri_sun">
+              Fri - Sun: 10:00 am - 02:00 am
+            </p>
           </div>
 
           <!-- Online Reservation Link -->
-          <a href="/homepage/index.html#reservation" class="link"
+          <a
+            href="/index.html#reservation"
+            class="link"
+            data-i18n="contact_us.form.online_reservation"
             >Online Reservation</a
           >
         </div>
@@ -140,36 +207,46 @@
           <!-- Name & Email Fields -->
           <div class="form-row">
             <div class="form-group">
-              <label for="name">Your name *</label>
+              <label for="name" data-i18n="contact_us.form.placeholder_name"
+                >Your name *</label
+              >
               <input type="text" id="name" name="name" value="" required />
             </div>
             <div class="form-group">
-              <label for="email">Email address *</label>
+              <label for="email" data-i18n="contact_us.form.placeholder_email"
+                >Email address *</label
+              >
               <input type="email" id="email" name="email" required />
             </div>
           </div>
 
           <!-- Subject Field -->
           <div class="form-group">
-            <label for="subject">Subject</label>
+            <label for="subject" data-i18n="contact_us.form.placeholder_subject"
+              >Subject</label
+            >
             <input type="text" id="subject" name="subject" />
           </div>
 
           <!-- Review / Message Field -->
           <div class="form-group">
-            <label for="review">Write review *</label>
+            <label for="review" data-i18n="contact_us.form.placeholder_review"
+              >Write review *</label
+            >
             <textarea id="review" name="review" rows="4" required></textarea>
           </div>
 
           <!-- Submit Button -->
-          <button type="submit" class="btn">Submit</button>
+          <button type="submit" class="btn" data-i18n="contact_us.form.submit">
+            Submit
+          </button>
         </form>
       </section>
     </main>
 
     <!-- ========== 4. FOOTER ========== -->
     <div data-include="/partials/footer.html"></div>
-  <script src="../assets/features/theme-toggle.js"></script>
+    <script src="../assets/script/lang-toggle.js" defer></script>
+    <script src="../assets/features/theme-toggle.js"></script>
   </body>
 </html>
-

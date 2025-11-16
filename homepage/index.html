@@ -824,13 +824,20 @@
         </div>
         <!-- newsletter body content -->
         <div class="newsletter__content">
+          <span class="newsletter__eyebrow">Chef's Letter</span>
           <h2 class="newsletter__title">
-            Subscribe Newsletter & Get Latest News
+            Subscribe to Newsletter & Get Latest News
           </h2>
           <p class="newsletter__subtitle">
             Get insider access to news around the innovations, unique cooking
             techniques, culinary concepts, insights, and more
           </p>
+
+          <ul class="newsletter__perks">
+            <li>Seasonal tasting menus & wine pairings</li>
+            <li>Behind-the-pass stories from our chefs</li>
+            <li>Member-only invites to pop-up dinners</li>
+          </ul>
 
           <form class="newsletter__form">
             <input
@@ -842,12 +849,24 @@
               <i class="fa-solid fa-paper-plane"></i>
             </button>
           </form>
+          <p class="newsletter__note">
+            No spam — only curated culinary stories. Unsubscribe anytime.
+          </p>
+          <p
+            id="newsletter-success"
+            class="newsletter__success"
+            role="status"
+            aria-live="polite"
+          ></p>
         </div>
       </div>
     </section>
 
     <!-- ========== 15. FOOTER ========== -->
     <div data-include="/partials/footer.html"></div>
+
+    <!-- Newsletter interactions -->
+    <script type="module" src="./newsletter.js"></script>
 
     <!-- Global Features Scripts -->
     <script type="module" src="../assets/features/allergy-alert.js"></script>

@@ -115,8 +115,8 @@
       }
     },
     "reservation": {
-      "title_online": "Trực tuyến",
-      "title_reservation": "Đặt chỗ",
+      "title_online": "Đặt bàn",
+      "title_reservation": "Trực tuyến",
       "subtitle": "Đặt bàn của bạn cho bữa trưa hoặc bữa tối.",
       "placeholder_name": "Tên của bạn",
       "placeholder_phone": "Số điện thoại",
@@ -132,6 +132,32 @@
       "title": "Khám phá Blog",
       "subtitle": "Khám phá các blog phổ biến nhất từ cộng đồng WowWraps. Một danh sách cập nhật liên tục về những bộ óc vĩ đại nhất trong nhà hàng.",
       "link": "Khám phá tất cả Blog",
+      "hero": {
+        "badge": "Bài viết nổi bật",
+        "category": "Nhật ký bếp trưởng",
+        "excerpt": "Bếp trưởng Mateo chia sẻ cách sắp xếp thực đơn cho nhà hàng đang được bàn tán nhất thành phố và cách anh kết hợp hoài niệm với năng lượng neon rực rỡ.",
+        "date": "06 Tháng 8, 2025",
+        "secondary_category": "Phía sau quầy bar",
+        "secondary_excerpt": "Học cách pha lớp siro thảo mộc với tinh dầu cam chanh để ly cocktail bừng sáng như hoàng hôn.",
+        "timeline_heading": "Tin mới từ bếp thử nghiệm",
+        "timeline": {
+          "item1": {
+            "date": "02 Thg 8",
+            "title": "5 bí quyết trình bày bạn có thể áp dụng",
+            "description": "Dụng cụ tối giản cũng biến món ăn đơn giản thành bức tranh nhiều lớp đầy chiều sâu."
+          },
+          "item2": {
+            "date": "28 Thg 7",
+            "title": "Ủ lên men nhanh để thêm tầng hương",
+            "description": "Cách chúng tôi tạo các mẻ lên men giúp súp, sốt và món tráng miệng bùng vị."
+          },
+          "item3": {
+            "date": "20 Thg 7",
+            "title": "Tráng miệng zero-waste đáng làm lại",
+            "description": "Tận dụng vụn, hạt và vỏ để tạo ra bánh mochi với vị caramel sâu."
+          }
+        }
+      },
       "card1": {
         "title": "Nhà hàng mới trong thị trấn đang tìm kiếm suy nghĩ đó",
         "author": "Bởi Quản trị viên"

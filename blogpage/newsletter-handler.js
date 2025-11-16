@@ -19,10 +19,6 @@
 
     // Initialize form validator
     const validator = new FormValidator(form, {
-      validateOnInput: true,
-      validateOnBlur: true,
-      showSuccessIcons: false, // No success icons for inline newsletter forms
-      animateErrors: true,
       onSubmit: handleNewsletterSubmit,
     });
   }
@@ -56,9 +52,9 @@
       submitButton.innerHTML = '<i class="fa-solid fa-paper-plane"></i>';
 
       // Clear validation states
-      const fields = form.querySelectorAll('.form-field-valid, .form-field-invalid');
+      const fields = form.querySelectorAll('.form-field-invalid');
       fields.forEach((field) => {
-        field.classList.remove('form-field-valid', 'form-field-invalid');
+        field.classList.remove('form-field-invalid');
       });
     }, 1500);
   }

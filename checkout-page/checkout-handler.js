@@ -19,10 +19,6 @@
 
     // Initialize form validator
     const validator = new FormValidator(form, {
-      validateOnInput: true,
-      validateOnBlur: true,
-      showSuccessIcons: true,
-      animateErrors: true,
       onSubmit: handleCheckoutSubmit,
     });
   }

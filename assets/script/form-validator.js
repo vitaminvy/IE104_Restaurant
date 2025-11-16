@@ -1,6 +1,6 @@
 // ================================
 // UNIVERSAL FORM VALIDATION SYSTEM
-// Real-time validation with animations
+// Submit-only validation with minimal UI feedback
 // ================================
 
 (function () {
@@ -19,6 +19,7 @@
     number: (value) => !isNaN(value) && value.trim() !== '',
     date: (value) => !isNaN(Date.parse(value)),
     time: (value) => /^([01]?[0-9]|2[0-3]):[0-5][0-9]$/.test(value),
+    pattern: (value, pattern) => new RegExp(pattern).test(value),
   };
 
   // ================================
@@ -34,6 +35,7 @@
     number: 'Please enter a valid number',
     date: 'Please enter a valid date',
     time: 'Please enter a valid time',
+    pattern: 'Invalid format',
   };
 
   // ================================
@@ -44,17 +46,10 @@
     constructor(formElement, options = {}) {
       this.form = formElement;
       this.options = {
-        validateOnInput: options.validateOnInput !== false,
-        validateOnBlur: options.validateOnBlur !== false,
-        showSuccessIcons: options.showSuccessIcons !== false,
-        animateErrors: options.animateErrors !== false,
         onSubmit: options.onSubmit || null,
-        onValidationChange: options.onValidationChange || null,
       };
 
       this.fields = new Map();
-      this.isValid = false;
-
       this.init();
     }
 
@@ -74,8 +69,6 @@
           element: input,
           rules: this.getFieldRules(input),
           errorElement: null,
-          successElement: null,
-          isValid: false,
         };
 
         this.fields.set(input.name || input.id, fieldData);
@@ -93,28 +86,14 @@
     setupField(fieldData) {
       const { element } = fieldData;
 
-      // Create error message element
+      // Create error message element (hidden by default)
       fieldData.errorElement = this.createErrorElement();
       element.parentElement.appendChild(fieldData.errorElement);
-
-      // Create success icon if enabled
-      if (this.options.showSuccessIcons) {
-        fieldData.successElement = this.createSuccessElement();
-        element.parentElement.appendChild(fieldData.successElement);
-      }
 
       // Add wrapper class for styling
       element.parentElement.classList.add('form-field-validated');
 
-      // Event listeners
-      if (this.options.validateOnInput) {
-        element.addEventListener('input', () => this.validateField(fieldData));
-      }
-
-      if (this.options.validateOnBlur) {
-        element.addEventListener('blur', () => this.validateField(fieldData));
-      }
-
+      // Clear error on focus
       element.addEventListener('focus', () => this.clearFieldError(fieldData));
     }
 
@@ -127,19 +106,8 @@
       errorEl.className = 'form-field-error';
       errorEl.setAttribute('role', 'alert');
       errorEl.setAttribute('aria-live', 'polite');
+      errorEl.style.display = 'none';
       return errorEl;
-    }
-
-    createSuccessElement() {
-      const successEl = document.createElement('div');
-      successEl.className = 'form-field-success';
-      successEl.innerHTML = `
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-          <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="2"/>
-          <path d="M6 10l3 3 5-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-        </svg>
-      `;
-      return successEl;
     }
 
     // ================================
@@ -194,10 +162,12 @@
         });
       }
 
-      // Custom validation from data attribute
-      if (element.hasAttribute('data-validation')) {
-        const customRule = element.getAttribute('data-validation');
-        rules.push({ type: customRule });
+      // Pattern
+      if (element.hasAttribute('pattern')) {
+        rules.push({
+          type: 'pattern',
+          value: element.getAttribute('pattern'),
+        });
       }
 
       return rules;
@@ -208,7 +178,7 @@
     // ================================
 
     validateField(fieldData) {
-      const { element, rules, errorElement, successElement } = fieldData;
+      const { element, rules, errorElement } = fieldData;
       const value = element.value;
 
       // Clear previous state
@@ -216,152 +186,100 @@
 
       // Skip validation if field is not required and empty
       if (!rules.some((r) => r.type === 'required') && value.trim() === '') {
-        fieldData.isValid = true;
         return true;
       }
 
-      // Run validation rules
+      // Validate each rule
       for (const rule of rules) {
-        const isValid = this.runValidation(rule, value);
+        let isValid = false;
+        let errorMsg = '';
 
+        switch (rule.type) {
+          case 'required':
+            isValid = validationRules.required(value);
+            errorMsg = element.getAttribute('data-error-required') || errorMessages.required;
+            break;
+
+          case 'email':
+            isValid = validationRules.email(value);
+            errorMsg = element.getAttribute('data-error-email') || errorMessages.email;
+            break;
+
+          case 'phone':
+            isValid = validationRules.phone(value);
+            errorMsg = element.getAttribute('data-error-phone') || errorMessages.phone;
+            break;
+
+          case 'minLength':
+            isValid = validationRules.minLength(value, rule.value);
+            errorMsg = element.getAttribute('data-error-minLength') ||
+                      errorMessages.minLength.replace('{min}', rule.value);
+            break;
+
+          case 'maxLength':
+            isValid = validationRules.maxLength(value, rule.value);
+            errorMsg = element.getAttribute('data-error-maxLength') ||
+                      errorMessages.maxLength.replace('{max}', rule.value);
+            break;
+
+          case 'number':
+            isValid = validationRules.number(value);
+            errorMsg = element.getAttribute('data-error-number') || errorMessages.number;
+            break;
+
+          case 'date':
+            isValid = validationRules.date(value);
+            errorMsg = element.getAttribute('data-error-date') || errorMessages.date;
+            break;
+
+          case 'time':
+            isValid = validationRules.time(value);
+            errorMsg = element.getAttribute('data-error-time') || errorMessages.time;
+            break;
+
+          case 'pattern':
+            isValid = validationRules.pattern(value, rule.value);
+            errorMsg = element.getAttribute('data-error-pattern') || errorMessages.pattern;
+            break;
+        }
+
+        // If validation fails, show error
         if (!isValid) {
-          this.showFieldError(fieldData, rule);
-          fieldData.isValid = false;
+          this.showFieldError(fieldData, errorMsg);
           return false;
         }
       }
 
-      // All validations passed
-      this.showFieldSuccess(fieldData);
-      fieldData.isValid = true;
       return true;
     }
 
     // ================================
-    // RUN VALIDATION RULE
+    // SHOW/HIDE ERRORS
     // ================================
 
-    runValidation(rule, value) {
-      const validator = validationRules[rule.type];
-      if (!validator) return true;
-
-      if (rule.value !== undefined) {
-        return validator(value, rule.value);
-      }
-
-      return validator(value);
-    }
-
-    // ================================
-    // SHOW FIELD ERROR
-    // ================================
-
-    showFieldError(fieldData, rule) {
+    showFieldError(fieldData, message) {
       const { element, errorElement } = fieldData;
 
-      // Get error message
-      let message = errorMessages[rule.type] || 'Invalid input';
-
-      // Replace placeholders
-      if (rule.value !== undefined) {
-        message = message.replace(`{${rule.type.replace('Length', '')}}`, rule.value);
-      }
-
-      // Custom message from data attribute
-      if (element.hasAttribute(`data-error-${rule.type}`)) {
-        message = element.getAttribute(`data-error-${rule.type}`);
-      }
-
-      // Update UI
+      // Add invalid class (simple red border)
       element.classList.add('form-field-invalid');
       element.classList.remove('form-field-valid');
-      element.setAttribute('aria-invalid', 'true');
 
+      // Show error message
       errorElement.textContent = message;
-      errorElement.classList.add('show');
-
-      // Shake animation if enabled
-      if (this.options.animateErrors) {
-        element.classList.add('shake-error');
-        setTimeout(() => element.classList.remove('shake-error'), 500);
-      }
-
-      // Notify change
-      if (this.options.onValidationChange) {
-        this.options.onValidationChange(this.checkFormValidity());
-      }
+      errorElement.style.display = 'block';
     }
-
-    // ================================
-    // SHOW FIELD SUCCESS
-    // ================================
-
-    showFieldSuccess(fieldData) {
-      const { element, successElement } = fieldData;
-
-      element.classList.add('form-field-valid');
-      element.classList.remove('form-field-invalid');
-      element.setAttribute('aria-invalid', 'false');
-
-      if (successElement) {
-        successElement.classList.add('show');
-      }
-
-      // Notify change
-      if (this.options.onValidationChange) {
-        this.options.onValidationChange(this.checkFormValidity());
-      }
-    }
-
-    // ================================
-    // CLEAR FIELD ERROR
-    // ================================
 
     clearFieldError(fieldData) {
-      const { element, errorElement, successElement } = fieldData;
+      const { element, errorElement } = fieldData;
 
-      element.classList.remove('form-field-invalid', 'form-field-valid', 'shake-error');
-      element.removeAttribute('aria-invalid');
+      // Remove invalid class
+      element.classList.remove('form-field-invalid', 'form-field-valid');
 
+      // Hide error message
       if (errorElement) {
-        errorElement.classList.remove('show');
+        errorElement.style.display = 'none';
         errorElement.textContent = '';
       }
-
-      if (successElement) {
-        successElement.classList.remove('show');
-      }
-    }
-
-    // ================================
-    // FORM VALIDATION
-    // ================================
-
-    validateForm() {
-      let isValid = true;
-
-      this.fields.forEach((fieldData) => {
-        const fieldValid = this.validateField(fieldData);
-        if (!fieldValid) {
-          isValid = false;
-        }
-      });
-
-      this.isValid = isValid;
-      return isValid;
-    }
-
-    checkFormValidity() {
-      let isValid = true;
-
-      this.fields.forEach((fieldData) => {
-        if (!fieldData.isValid) {
-          isValid = false;
-        }
-      });
-
-      this.isValid = isValid;
-      return isValid;
     }
 
     // ================================
@@ -371,63 +289,80 @@
     handleSubmit(event) {
       event.preventDefault();
 
-      const isValid = this.validateForm();
+      // Clear all previous errors
+      this.fields.forEach((fieldData) => {
+        this.clearFieldError(fieldData);
+      });
 
-      if (isValid) {
-        // Execute custom submit handler
-        if (this.options.onSubmit) {
-          this.options.onSubmit(this.form, this.getFormData());
+      // Validate all fields
+      let isFormValid = true;
+      let firstInvalidField = null;
+
+      this.fields.forEach((fieldData) => {
+        const isValid = this.validateField(fieldData);
+        if (!isValid) {
+          isFormValid = false;
+          if (!firstInvalidField) {
+            firstInvalidField = fieldData.element;
+          }
         }
-      } else {
-        // Focus first invalid field
-        const firstInvalid = Array.from(this.fields.values()).find((f) => !f.isValid);
-        if (firstInvalid) {
-          firstInvalid.element.focus();
-        }
+      });
+
+      // Focus first invalid field
+      if (!isFormValid && firstInvalidField) {
+        firstInvalidField.focus();
+        return;
+      }
+
+      // If valid, collect form data and call onSubmit callback
+      if (isFormValid && this.options.onSubmit) {
+        const formData = this.getFormData();
+        this.options.onSubmit(this.form, formData);
       }
     }
 
     // ================================
-    // UTILITY METHODS
+    // GET FORM DATA
     // ================================
 
     getFormData() {
-      const formData = new FormData(this.form);
       const data = {};
 
-      formData.forEach((value, key) => {
-        data[key] = value;
+      this.fields.forEach((fieldData, fieldName) => {
+        const { element } = fieldData;
+        data[fieldName] = element.value;
       });
 
       return data;
     }
 
+    // ================================
+    // PUBLIC METHODS
+    // ================================
+
     reset() {
       this.form.reset();
       this.fields.forEach((fieldData) => {
         this.clearFieldError(fieldData);
-        fieldData.isValid = false;
       });
-      this.isValid = false;
     }
 
-    destroy() {
+    validate() {
+      let isFormValid = true;
+
       this.fields.forEach((fieldData) => {
-        if (fieldData.errorElement) {
-          fieldData.errorElement.remove();
+        const isValid = this.validateField(fieldData);
+        if (!isValid) {
+          isFormValid = false;
         }
-        if (fieldData.successElement) {
-          fieldData.successElement.remove();
-        }
-        fieldData.element.parentElement.classList.remove('form-field-validated');
       });
 
-      this.fields.clear();
+      return isFormValid;
     }
   }
 
   // ================================
-  // GLOBAL API
+  // EXPORT TO GLOBAL SCOPE
   // ================================
 
   window.FormValidator = FormValidator;

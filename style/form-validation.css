@@ -1,6 +1,6 @@
 /* ========================================
  * FORM VALIDATION STYLES
- * Animated validation feedback
+ * Minimal, clean validation feedback
  * ======================================== */
 
 /* ========================================
@@ -16,16 +16,9 @@
  * INPUT STATES
  * ======================================== */
 
-/* Valid state */
-.form-field-valid {
-  border-color: #22c55e !important;
-  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.1) !important;
-}
-
-/* Invalid state */
+/* Invalid state - simple red border */
 .form-field-invalid {
   border-color: #ef4444 !important;
-  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1) !important;
 }
 
 /* ========================================
@@ -33,152 +26,16 @@
  * ======================================== */
 
 .form-field-error {
-  /* Position */
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
+  /* Position below input */
+  display: none;
   margin-top: 6px;
-
-  /* Box model */
-  padding: 8px 12px;
-  border-radius: 6px;
+  padding: 6px 0;
 
   /* Typography */
   font-size: 0.875rem;
-  color: #fef2f2;
+  color: #ef4444;
   line-height: 1.4;
-
-  /* Background / Others */
-  background: #ef4444;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(-8px);
-  transition: all 0.3s var(--ease-smooth, cubic-bezier(0.4, 0, 0.2, 1));
-  pointer-events: none;
-  z-index: 10;
-}
-
-.form-field-error::before {
-  content: '';
-  position: absolute;
-  top: -4px;
-  left: 16px;
-  width: 0;
-  height: 0;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-bottom: 5px solid #ef4444;
-}
-
-.form-field-error.show {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-  animation: slideInDown 0.3s var(--ease-smooth, cubic-bezier(0.4, 0, 0.2, 1));
-}
-
-/* ========================================
- * SUCCESS ICON
- * ======================================== */
-
-.form-field-success {
-  /* Position */
-  position: absolute;
-  right: 12px;
-  top: 50%;
-  transform: translateY(-50%) scale(0);
-
-  /* Box model */
-  width: 24px;
-  height: 24px;
-
-  /* Typography */
-  color: #22c55e;
-
-  /* Background / Others */
-  opacity: 0;
-  transition: all 0.3s var(--ease-smooth, cubic-bezier(0.4, 0, 0.2, 1));
-  pointer-events: none;
-  z-index: 5;
-}
-
-.form-field-success.show {
-  opacity: 1;
-  transform: translateY(-50%) scale(1);
-  animation: checkmarkPop 0.5s var(--ease-bounce, cubic-bezier(0.68, -0.55, 0.265, 1.55));
-}
-
-.form-field-success svg {
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-
-/* Animate checkmark path */
-.form-field-success.show svg path {
-  stroke-dasharray: 20;
-  stroke-dashoffset: 20;
-  animation: drawCheck 0.5s 0.2s forwards;
-}
-
-/* ========================================
- * SHAKE ERROR ANIMATION
- * ======================================== */
-
-@keyframes shake-error {
-  0%, 100% {
-    transform: translateX(0);
-  }
-  10%, 30%, 50%, 70%, 90% {
-    transform: translateX(-8px);
-  }
-  20%, 40%, 60%, 80% {
-    transform: translateX(8px);
-  }
-}
-
-.shake-error {
-  animation: shake-error 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97);
-}
-
-/* ========================================
- * CHECKMARK ANIMATION
- * ======================================== */
-
-@keyframes checkmarkPop {
-  0% {
-    transform: translateY(-50%) scale(0);
-    opacity: 0;
-  }
-  50% {
-    transform: translateY(-50%) scale(1.2);
-  }
-  100% {
-    transform: translateY(-50%) scale(1);
-    opacity: 1;
-  }
-}
-
-@keyframes drawCheck {
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-
-/* ========================================
- * SLIDE IN ANIMATION
- * ======================================== */
-
-@keyframes slideInDown {
-  from {
-    opacity: 0;
-    transform: translateY(-8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
 }
 
 /* ========================================
@@ -188,8 +45,8 @@
 .form-field-validated input:focus,
 .form-field-validated textarea:focus,
 .form-field-validated select:focus {
-  transform: translateY(-2px);
-  transition: all 0.3s var(--ease-smooth, cubic-bezier(0.4, 0, 0.2, 1));
+  outline: 2px solid var(--color-dark-orange, #f97316);
+  outline-offset: 1px;
 }
 
 /* Remove default browser validation styles */
@@ -206,73 +63,6 @@
 @media (max-width: 48rem) {
   .form-field-error {
     font-size: 0.8125rem;
-    padding: 6px 10px;
+    padding: 4px 0;
   }
-
-  .form-field-success {
-    right: 10px;
-    width: 20px;
-    height: 20px;
-  }
-
-  .shake-error {
-    animation: shake-error-mobile 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97);
-  }
-
-  @keyframes shake-error-mobile {
-    0%, 100% {
-      transform: translateX(0);
-    }
-    10%, 30%, 50%, 70%, 90% {
-      transform: translateX(-5px);
-    }
-    20%, 40%, 60%, 80% {
-      transform: translateX(5px);
-    }
-  }
-}
-
-/* ========================================
- * ACCESSIBILITY - REDUCED MOTION
- * ======================================== */
-
-@media (prefers-reduced-motion: reduce) {
-  .form-field-error,
-  .form-field-success,
-  .shake-error {
-    animation: none !important;
-    transition: none !important;
-  }
-
-  .form-field-error.show {
-    opacity: 1;
-    visibility: visible;
-    transform: none;
-  }
-
-  .form-field-success.show {
-    opacity: 1;
-    transform: translateY(-50%);
-  }
-}
-
-/* ========================================
- * TEXTAREA SPECIFIC
- * ======================================== */
-
-.form-field-validated textarea ~ .form-field-success {
-  top: 20px;
-  transform: translateY(0) scale(0);
-}
-
-.form-field-validated textarea ~ .form-field-success.show {
-  transform: translateY(0) scale(1);
-}
-
-/* ========================================
- * SELECT SPECIFIC
- * ======================================== */
-
-.form-field-validated select ~ .form-field-success {
-  right: 40px; /* Avoid overlapping dropdown arrow */
 }

@@ -51,21 +51,27 @@
 
 @keyframes checkmarkDraw {
   0% {
-    stroke-dashoffset: 50;
+    stroke-dashoffset: 30;
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
   }
   100% {
     stroke-dashoffset: 0;
+    opacity: 1;
   }
 }
 
 .btn__checkmark {
-  animation: checkmarkDraw 0.4s ease-out forwards;
   flex-shrink: 0;
+  display: inline-block;
 }
 
 .btn__checkmark polyline {
-  stroke-dasharray: 50;
-  stroke-dashoffset: 50;
+  stroke-dasharray: 30;
+  stroke-dashoffset: 0;
+  animation: checkmarkDraw 0.5s ease-out;
 }
 
 /* ========================================

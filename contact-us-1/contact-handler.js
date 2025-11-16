@@ -19,10 +19,6 @@
 
     // Initialize form validator
     const validator = new FormValidator(form, {
-      validateOnInput: true,
-      validateOnBlur: true,
-      showSuccessIcons: true,
-      animateErrors: true,
       onSubmit: handleContactSubmit,
     });
   }
@@ -57,14 +53,9 @@
       submitButton.textContent = originalText;
 
       // Clear validation states
-      const fields = form.querySelectorAll('.form-field-valid, .form-field-invalid');
+      const fields = form.querySelectorAll('.form-field-invalid');
       fields.forEach((field) => {
-        field.classList.remove('form-field-valid', 'form-field-invalid');
-      });
-
-      const successIcons = form.querySelectorAll('.form-field-success.show');
-      successIcons.forEach((icon) => {
-        icon.classList.remove('show');
+        field.classList.remove('form-field-invalid');
       });
     }, 1500);
   }

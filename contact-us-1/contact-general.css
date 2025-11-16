@@ -137,7 +137,7 @@ textarea:focus {
 /* md (≥768px) */
 @media (min-width: 48rem) {
   .container {
-    padding: 1.75rem 3rem;
+    padding: 4rem 3rem;
   }
 
   .section-title {
@@ -149,6 +149,6 @@ textarea:focus {
 /* 2xl (≥1536px) */
 @media (min-width: 96rem) {
   .container {
-    padding: 2rem 3rem;
+    padding: 6rem 3rem;
   }
 }

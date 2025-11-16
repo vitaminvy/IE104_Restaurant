@@ -31,6 +31,10 @@
   margin: 0;
 }
 
+html[data-theme="light"] .meal-pairing__header p {
+  color: var(--text-secondary); /* Make subtitle darker for better contrast in light mode */
+}
+
 .meal-pairing__grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));

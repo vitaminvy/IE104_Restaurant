@@ -274,8 +274,8 @@
 
 /* === OVERRIDES FOR LIGHT MODE === */
 /* Keep the comingsoon section and the header dark */
-html[data-theme="light"] .comingsoon,
-html[data-theme="light"] #header {
+html[data-theme="light"] .coming-soon-body .comingsoon,
+html[data-theme="light"] .coming-soon-body #header {
   --text-primary: #ffffff;
   --text-secondary: rgba(255, 255, 255, 0.8);
   --text-muted: rgba(255, 255, 255, 0.6);
@@ -284,18 +284,18 @@ html[data-theme="light"] #header {
 }
 
 /* Force the form button's arrow icon to be white */
-html[data-theme="light"] .comingsoon__button path {
+html[data-theme="light"] .coming-soon-body .comingsoon__button path {
     stroke: white;
 }
 
 /* Force the header's scrolled state to have a dark background */
-html[data-theme="light"] .header--scrolled {
+html[data-theme="light"] .coming-soon-body .header--scrolled {
   background: rgba(18, 18, 18, 0.85);
 }
 
 /* Force the mobile navigation panel to have a dark background */
 @media (max-width: 63.9rem) {
-  html[data-theme="light"] .header__nav {
+  html[data-theme="light"] .coming-soon-body .header__nav {
     background: rgba(18, 18, 18, 0.98);
   }
 }

@@ -28,6 +28,24 @@ function applyStaticTranslations() {
   document.documentElement.setAttribute('lang', lang);
 }
 
+// --- LANGUAGE FLAG UPDATE HELPER ---
+function updateAllLanguageFlags(lang) {
+  const headerFlag = document.querySelector('#language-flag');
+  if (headerFlag) {
+    headerFlag.src = lang === 'en' ? '../assets/icons/united-kingdom.png' : '../assets/icons/vietnam.png';
+    headerFlag.alt = lang === 'en' ? 'English' : 'Vietnamese';
+  }
+
+  document.querySelectorAll('.footer__language-link').forEach(link => {
+    const linkLang = link.querySelector('.footer__language-flag').alt === 'English' ? 'en' : 'vi';
+    if (linkLang === lang) {
+      link.classList.add('footer__language-link--active');
+    } else {
+      link.classList.remove('footer__language-link--active');
+    }
+  });
+}
+
 // --- HEADER FEATURES INITIALIZATION ---
 function initHeaderFeatures() {
   const headerRight = document.querySelector('.header__right');
@@ -54,13 +72,15 @@ function initHeaderFeatures() {
       const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
       document.documentElement.setAttribute('data-theme', newTheme);
       localStorage.setItem('theme', newTheme);
+      updateFooterLogo(); // Call to update footer logo on theme change
+      updateHeaderLogo(); // Call to update header logo on theme change
     });
     
     return button;
   }
 
-  // --- LANGUAGE TOGGLE ---
-  function createLanguageToggle() {
+  // --- LANGUAGE TOGGLE (HEADER) ---
+  function createHeaderLanguageToggle() {
     const button = document.createElement('button');
     button.className = 'language-toggle';
     button.setAttribute('aria-label', 'Switch language');
@@ -78,28 +98,82 @@ function initHeaderFeatures() {
       i18nService.setLanguage(newLang);
     });
 
-    const updateFlag = (lang) => {
-      const flagSrc = lang === 'en' ? '/assets/icons/united-kingdom.png' : '/assets/icons/vietnam.png';
-      const flagAlt = lang === 'en' ? 'English' : 'Vietnamese';
-      flagImg.src = flagSrc;
-      flagImg.alt = flagAlt;
-    };
-
-    updateFlag(i18nService.getLanguage());
-    document.addEventListener('language-changed', () => updateFlag(i18nService.getLanguage()));
+    updateAllLanguageFlags(i18nService.getLanguage());
+    document.addEventListener('language-changed', () => updateAllLanguageFlags(i18nService.getLanguage()));
 
     return button;
   }
 
   actionsContainer.appendChild(createThemeToggle());
-  actionsContainer.appendChild(createLanguageToggle());
+  actionsContainer.appendChild(createHeaderLanguageToggle()); // Use the new header specific function
   headerRight.prepend(actionsContainer);
+}
+
+// --- FOOTER LANGUAGE TOGGLES ---
+function setupFooterLanguageToggles() {
+  document.querySelectorAll('.footer__language-link').forEach(link => {
+    // Remove existing listeners to prevent duplicates if called multiple times
+    const oldLink = link.cloneNode(true);
+    link.parentNode.replaceChild(oldLink, link);
+    link = oldLink;
+
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetLang = link.querySelector('.footer__language-flag').alt === 'English' ? 'en' : 'vi';
+      if (i18nService.getLanguage() !== targetLang) {
+        i18nService.setLanguage(targetLang);
+      }
+    });
+  });
+  updateAllLanguageFlags(i18nService.getLanguage()); // Initial update for footer flags
+}
+
+
+// --- FOOTER LOGO LOGIC ---
+function updateFooterLogo() {
+  const footerLogo = document.querySelector('.footer__logo img');
+  if (!footerLogo) return;
+
+  const currentTheme = document.documentElement.getAttribute('data-theme');
+  if (currentTheme === 'light') {
+    footerLogo.src = '../assets/icons/logo_bg_dark.png';
+    footerLogo.alt = 'WowWraps logo (Light Mode)';
+  } else {
+    footerLogo.src = '../assets/images/home-page/footer-section/logo-wow-wraps.svg';
+    footerLogo.alt = 'WowWraps logo';
+  }
+}
+
+// --- HEADER LOGO LOGIC ---
+function updateHeaderLogo() {
+    const headerLogo = document.querySelector('.header__logo img');
+    if (!headerLogo) return;
+
+    const isComingSoonPage = document.querySelector('main .comingsoon'); // Check for the comingsoon section within main
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+
+    if (isComingSoonPage) {
+        // On coming soon page, always use the dark mode logo
+        headerLogo.src = '../assets/icons/header/nav-vect.svg';
+        headerLogo.alt = 'Restaurant Logo'; // Ensure alt text is consistent
+    } else if (currentTheme === 'light') {
+        headerLogo.src = '../assets/icons/logo_bg_dark_no_text.png';
+        headerLogo.alt = 'Restaurant Logo (Light Mode)';
+    } else {
+        headerLogo.src = '../assets/icons/header/nav-vect.svg';
+        headerLogo.alt = 'Restaurant Logo';
+    }
 }
 
 // --- MAIN INITIALIZATION LOGIC ---
 async function initialize() {
   // 1. Wait for header/footer to be loaded
-  document.addEventListener('includeLoaded', initHeaderFeatures);
+  document.addEventListener('includeLoaded', () => {
+    initHeaderFeatures();
+    setupFooterLanguageToggles(); // Setup footer language toggles
+    updateFooterLogo(); // Initial call to update footer logo
+    updateHeaderLogo(); // Initial call to update header logo
+  });
   
   // 2. Initialize i18n service and apply translations
   await i18nService.init();

@@ -409,8 +409,6 @@ import i18nService from "../assets/script/i18n-service.js";
         font-family: var(--font-body);
         font-size: 0.875rem;
         font-weight: 500;
-        color: #ffffff;
-        background: rgba(255, 255, 255, 0.03);
         border: 1px solid ${badge.color};
       `;
 
@@ -779,21 +777,10 @@ import i18nService from "../assets/script/i18n-service.js";
     const pairingTitleKey = "product_detail_page.pairing_section.title";
     const pairingSubtitleKey = "product_detail_page.pairing_section.subtitle";
     header.innerHTML = `
-      <h3 style="
-        font-family: var(--font-heading);
-        font-size: 1.5rem;
-        font-weight: 600;
-        color: var(--color-white);
-        margin: 0 0 0.5rem 0;
-      " data-i18n="product_detail_page.pairing_section.title">${i18nService.t(
+      <h3 data-i18n="product_detail_page.pairing_section.title">${i18nService.t(
         pairingTitleKey
       )}</h3>
-      <p style="
-        font-family: var(--font-body);
-        font-size: 0.875rem;
-        color: var(--color-white-60);
-        margin: 0;
-      " data-i18n="product_detail_page.pairing_section.subtitle">${i18nService.t(
+      <p data-i18n="product_detail_page.pairing_section.subtitle">${i18nService.t(
         pairingSubtitleKey
       )}</p>
     `;
@@ -920,7 +907,6 @@ import i18nService from "../assets/script/i18n-service.js";
       font-family: var(--font-heading);
       font-size: 1rem;
       font-weight: 500;
-      color: var(--color-white);
       margin: 0 0 0.5rem 0;
       transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
       transform-origin: left center;
@@ -933,7 +919,7 @@ import i18nService from "../assets/script/i18n-service.js";
     });
 
     card.addEventListener("mouseleave", () => {
-      title.style.color = "var(--color-white)";
+      title.style.color = ""; // Reset to default or CSS defined
       title.style.transform = "translateX(0)";
       title.style.textShadow = "none";
     });
@@ -952,7 +938,6 @@ import i18nService from "../assets/script/i18n-service.js";
     desc.style.cssText = `
       font-family: var(--font-body);
       font-size: 0.75rem;
-      color: var(--color-white-80);
       margin: 0 0 0.75rem 0;
       line-height: 1.4;
     `;
@@ -976,7 +961,6 @@ import i18nService from "../assets/script/i18n-service.js";
       font-family: var(--font-body);
       font-size: 0.7rem;
       font-style: italic;
-      color: var(--color-white-80);
       margin: 0;
       line-height: 1.3;
     `;

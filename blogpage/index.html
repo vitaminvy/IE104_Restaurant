@@ -42,8 +42,13 @@
     href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
     rel="stylesheet" />
 
+  <!-- Global Animation System -->
+  <link rel="stylesheet" href="../style/animations.css" />
+  <link rel="stylesheet" href="../style/page-enhancements.css" />
+
   <!-- Global Loading System -->
   <script src="../assets/script/global-loader.js"></script>
+  <script src="../assets/script/scroll-animations.js"></script>
 
   <!-- Main JS module - Dynamic Blog Loader -->
   <script type="module" src="./scripts/blog-loader.js"></script>
@@ -61,22 +66,37 @@
   <main class="container">
 
     <!-- ========== 2.1 PAGE HEADER CONTENT ========== -->
-    <div class="page-header">
+    <div class="page-header animate-fade">
       <h1 data-i18n="blog_page.header">Restaurant Management & Growth Blog</h1>
     </div>
 
     <!-- ========== 2.2 FEATURED POST SECTION ========== -->
-    <section id="featured-post" class="featured-post">
+    <section id="featured-post" class="featured-post animate-scale">
       <!-- Featured posts will be rendered here by JS -->
     </section>
 
+    <!-- ========== 2.3 FILTERS & CONTROLS ========== -->
+    <section class="blog-filters" aria-label="Blog filters">
+      <div class="blog-filters__left">
+        <p class="blog-filters__label" data-i18n="blog_page.filters.browse_topics">Browse topics</p>
+        <div id="tag-filter" class="blog-filters__pills" role="list"></div>
+      </div>
+      <div class="blog-filters__actions">
+        <label for="category-filter" data-i18n="blog_page.filters.category_label">Category</label>
+        <select id="category-filter" class="blog-filters__select" aria-label="Filter by category"></select>
+        <button type="button" id="clear-filters" class="blog-filters__clear" data-i18n="blog_page.filters.reset">Reset</button>
+      </div>
+    </section>
+
     <!-- ========== 2.3 BLOG GRID SECTION ========== -->
-    <section id="blog-grid" class="blog-grid">
+    <section id="blog-grid" class="blog-grid blog-timeline" aria-live="polite">
       <!-- Blog posts will be rendered here by JS -->
     </section>
 
-    <!-- ========== 2.4 PAGINATION NAVIGATION ========== -->
-    <nav id="pagination" class="pagination"></nav>
+    <!-- ========== 2.4 TIMELINE FOOTER / LOAD MORE ========== -->
+    <div id="timeline-footer" class="timeline-footer">
+      <button type="button" id="load-more" class="btn timeline-footer__btn" data-i18n="blog_page.load_more">Load more stories</button>
+    </div>
 
     <!-- ========== 2.5 NEWSLETTER SECTION ========== -->
     <div data-include="/partials/newsletter.html"></div>

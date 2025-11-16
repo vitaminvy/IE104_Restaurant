@@ -53,8 +53,18 @@
     <link rel="stylesheet" href="./assets/features/allergy-alert.css" />
     <link rel="stylesheet" href="./assets/features/social-proof.css" />
 
+    <!-- Global Animation System -->
+    <link rel="stylesheet" href="../style/animations.css" />
+
+    <!-- Form Validation & Notification System -->
+    <link rel="stylesheet" href="../style/form-validation.css" />
+    <link rel="stylesheet" href="../style/notification-system.css" />
+
     <!-- Global Loading System -->
-    <script src="./assets/script/global-loader.js"></script>
+    <script src="../assets/script/global-loader.js"></script>
+    <script src="../assets/script/scroll-animations.js"></script>
+    <script src="../assets/script/form-validator.js"></script>
+    <script src="../assets/script/notification-system.js"></script>
   </head>
   <body>
     <!-- logic for header and footer -->
@@ -73,7 +83,7 @@
     <section id="hero" class="hero">
       <div class="hero__container">
         <!-- Left image -->
-        <div class="hero__image-wrapper hero__image-wrapper--left">
+        <div class="hero__image-wrapper hero__image-wrapper--left animate-slide-left">
           <img
             src="./assets/images/home-page/hero-section/left-hero-banner-1.png"
             alt="Pasta Dish"
@@ -82,7 +92,7 @@
         </div>
 
         <!-- Content -->
-        <div class="hero__content">
+        <div class="hero__content  animate-fade">
           <p class="hero__subtitle" data-i18n="home.hero.subtitle">
             Welcome to Our Restaurant
           </p>
@@ -102,7 +112,7 @@
         </div>
 
         <!-- Right image -->
-        <div class="hero__image-wrapper hero__image-wrapper--right">
+        <div class="hero__image-wrapper hero__image-wrapper--right animate-slide-right">
           <img
             src="./assets/images/home-page/hero-section/right-hero-banner-1.png"
             alt="Steak Dish"
@@ -202,7 +212,7 @@
       <!-- About Restaurant -->
       <div class="about__container">
         <!-- Images -->
-        <div class="about__image">
+        <div class="about__image animate-scale">
           <img
             src="./assets/images/home-page/about-section/about-banner.png"
             alt="Restaurant interior"
@@ -215,7 +225,7 @@
         </div>
 
         <!-- Content -->
-        <div class="about__content">
+        <div class="about__content animate-slide-right">
           <h2 class="about__title" data-i18n="home.about.title">
             We Are A Mexican Restaurant Makes Delicious.
           </h2>
@@ -232,9 +242,9 @@
 
     <!-- ========== 5. SERVICE FEATURES ========== -->
     <section id="service__features" class="features">
-      <div class="features__column">
+      <div class="features__column stagger-children">
         <!-- Door Delivery -->
-        <div class="features__item">
+        <div class="features__item animate-slide-up">
           <img
             src="./assets/icons/home-page/service-section/door-delivery.svg"
             alt="Door Delivery"
@@ -256,7 +266,7 @@
         </div>
 
         <!-- Outdoor Catering -->
-        <div class="features__item">
+        <div class="features__item animate-slide-up">
           <img
             src="./assets/icons/home-page/service-section/outdoor-catering.svg"
             alt="Outdoor Catering"
@@ -279,15 +289,15 @@
       </div>
 
       <!-- Fine Dining -->
-      <div class="features__image">
+      <div class="features__image animate-scale">
         <img
           src="./assets/images/home-page/service-section/service-banner.png"
           alt="Dish"
         />
       </div>
 
-      <div class="features__column">
-        <div class="features__item">
+      <div class="features__column stagger-children">
+        <div class="features__item animate-slide-up">
           <img
             src="./assets/icons/home-page/service-section/fine-dining.svg"
             alt="Fine Dining"
@@ -309,7 +319,7 @@
         </div>
 
         <!-- Banquets Hall -->
-        <div class="features__item">
+        <div class="features__item animate-slide-up">
           <img
             src="./assets/icons/home-page/service-section/banquets-hall.svg"
             alt="Banquets Hall"
@@ -337,7 +347,7 @@
       <!-- Our Service Means Satisfy + bullet points -->
       <div class="service__container">
         <!-- Service header -->
-        <div class="service__content">
+        <div class="service__content animate-slide-up">
           <h2 class="service__title" data-i18n="home.service_quality.title">
             Our Service Means Satisfy
           </h2>
@@ -352,7 +362,7 @@
 
         <!-- Left: image -->
         <div class="service__body">
-          <div class="service__media">
+          <div class="service__media animate-slide-left">
             <img
               class="service__image"
               src="./assets/images/home-page/service-mean-section/service-dish.png"
@@ -361,21 +371,21 @@
           </div>
 
           <!-- Right: content -->
-          <div class="service__satisfy">
+          <div class="service__satisfy animate-slide-right stagger-children">
             <ul class="service__list" role="list">
-              <li class="service__item" data-i18n="home.service_quality.item1">
+              <li class="service__item animate-fade" data-i18n="home.service_quality.item1">
                 Quality &amp; Quantity Top Notch.
               </li>
-              <li class="service__item" data-i18n="home.service_quality.item2">
+              <li class="service__item animate-fade" data-i18n="home.service_quality.item2">
                 Fresh &amp; Healthy Food.
               </li>
-              <li class="service__item" data-i18n="home.service_quality.item3">
+              <li class="service__item animate-fade" data-i18n="home.service_quality.item3">
                 Satisfying Taste.
               </li>
-              <li class="service__item" data-i18n="home.service_quality.item4">
+              <li class="service__item animate-fade" data-i18n="home.service_quality.item4">
                 On Demand Food Services.
               </li>
-              <li class="service__item" data-i18n="home.service_quality.item5">
+              <li class="service__item animate-fade" data-i18n="home.service_quality.item5">
                 Green &amp; Safety Ingredient.
               </li>
             </ul>
@@ -388,7 +398,7 @@
     <!-- ========== 7.MENU SECTION ========== -->
     <section id="menu">
       <!-- ========== HEADER ========== -->
-      <div class="menu__header">
+      <div class="menu__header animate-slide-up">
         <div class="menu__header-text">
           <!-- title -->
           <h2 class="menu__title" data-i18n="home.menu.title">
@@ -403,7 +413,7 @@
       </div>
 
       <!-- ========== FILTER FIELD ========== -->
-      <nav class="menu__filter" aria-label="Menu categories">
+      <nav class="menu__filter animate-fade" aria-label="Menu categories">
         <!-- breakfast -->
         <a
           href="#"
@@ -517,9 +527,9 @@
 
     <!-- ========== 8.  STATISTICS / ACHIEVEMENTS ========== -->
     <section id="stats" class="stats">
-      <div class="stats__grid">
+      <div class="stats__grid stagger-children">
         <!-- Happy Customers -->
-        <div class="stats__item">
+        <div class="stats__item animate-scale">
           <img
             src="./assets/icons/home-page/statitics-section/happy-customer.svg"
             alt="Happy Customers"
@@ -533,8 +543,8 @@
           </div>
         </div>
 
-        <!-- Passionate Chef’s -->
-        <div class="stats__item">
+        <!-- Passionate Chef's -->
+        <div class="stats__item animate-scale">
           <img
             src="./assets/icons/home-page/statitics-section/passionate-chef.svg"
             alt="Passionate Chefs"
@@ -549,7 +559,7 @@
         </div>
 
         <!-- Dishes -->
-        <div class="stats__item">
+        <div class="stats__item animate-scale">
           <img
             src="./assets/icons/home-page/statitics-section/dishes.svg"
             alt="Dishes"
@@ -564,7 +574,7 @@
         </div>
 
         <!-- Customer Rating-->
-        <div class="stats__item">
+        <div class="stats__item animate-scale">
           <img
             src="./assets/icons/home-page/statitics-section/custom-rating.svg"
             alt="Custom Rating"
@@ -584,14 +594,14 @@
     <section id="chef-intro">
       <div class="chef-container">
         <!--  Chef's  banner -->
-        <div class="chef-image-wrapper">
+        <div class="chef-image-wrapper animate-slide-left">
           <img
             src="./assets/images/home-page/chef-intro-section/aaliyah.png"
             alt="Đầu bếp đang tỉ mỉ chuẩn bị món ăn dưới ánh đèn ấm áp."
           />
         </div>
         <!-- Introduction content -->
-        <div class="chef-text-content">
+        <div class="chef-text-content animate-slide-right">
           <h2 class="chef-title" data-i18n="home.chef_intro.title">
             Experience Chef
             <span class="chef-name">Aaliyah Williams</span>
@@ -615,7 +625,7 @@
     <section id="discover">
       <div class="discover__container">
         <!-- Left: text content -->
-        <div class="discover__content">
+        <div class="discover__content animate-slide-left">
           <h2 class="discover__title" data-i18n="home.discover_menu.title">
             Michelin Lunch, <br />
             Dinner Or Both?
@@ -623,7 +633,7 @@
           <p class="discover__desc" data-i18n="home.discover_menu.description">
             It’s the story of an everlasting love affair, Dieter Delicioz and
             the Atlantic Ocean. Our proximity to the abundant riches of the sea
-            and Portugal’s excellent produce has provided a constant source of
+            and Portugal's excellent produce has provided a constant source of
             inspiration for Chef L'delicio.
           </p>
           <!-- route to menu page -->
@@ -637,7 +647,7 @@
         </div>
 
         <!-- Right: banner image -->
-        <div class="discover__image">
+        <div class="discover__image animate-scale">
           <img
             src="./assets/images/food/sandwich.png"
             alt="Michelin Sandwich"
@@ -649,7 +659,7 @@
     <!-- ========== 11. DAILY OFFERS ========== -->
     <section id="daily-offers" class="daily-offers">
       <div class="daily-offers__container">
-        <h2 class="daily-offers__title" data-i18n="home.daily_offers.title">
+        <h2 class="daily-offers__title animate-slide-up" data-i18n="home.daily_offers.title">
           Our Daily Offers
         </h2>
 
@@ -657,7 +667,7 @@
           <!-- LEFT: Promo Banner click to route to order page -->
           <a
             href="./menupage/index.html"
-            class="daily-offers__promo-link"
+            class="daily-offers__promo-link  animate-scale"
             aria-label="Go to Order Page"
           >
             <img
@@ -668,8 +678,8 @@
           </a>
 
           <!-- RIGHT: Offer List -->
-          <div class="daily-offers__list">
-            <div class="daily-offers__item">
+          <div class="daily-offers__list stagger-children">
+            <div class="daily-offers__item animate-slide-right">
               <img
                 src="./assets/images/home-page/daily-offer/spicy-club.png"
                 alt="Spicy Club"
@@ -693,7 +703,7 @@
               <span class="daily-offers__item-price">$42</span>
             </div>
 
-            <div class="daily-offers__item">
+            <div class="daily-offers__item animate-slide-right">
               <img
                 src="./assets/images/home-page/daily-offer/baked-brie.png"
                 alt="Almond Baked Brie"
@@ -717,7 +727,7 @@
               <span class="daily-offers__item-price">$38</span>
             </div>
 
-            <div class="daily-offers__item">
+            <div class="daily-offers__item animate-slide-right">
               <img
                 src="./assets/images/home-page/daily-offer/flat-bread.png"
                 alt="Tuscan Flatbread"
@@ -748,7 +758,7 @@
     <!-- ========== 12. RESERVATION SECTION ========== -->
     <section id="reservation" class="reservation">
       <div class="reservation__overlay">
-        <div class="reservation__content">
+        <div class="reservation__content animate-scale">
           <h2 class="reservation__title">
             <span
               class="title--online"
@@ -768,17 +778,23 @@
             Book your table for lunch or dinner.
           </p>
 
-          <form action="#" class="reservation__form">
+          <form action="#" class="reservation__form" id="reservation-form">
             <!-- input field: name/phone/email adress -->
             <div class="reservation__row">
               <!-- customer name -->
               <div class="reservation__field">
                 <input
                   type="text"
-                  data-i18n-placeholder="home.reservation.placeholder_name"
+                  name="name"
                   placeholder="Your name"
                   required
-                />
+                  minlength="2"
+                  data-error-required="Please enter your name"
+                  data-error-minLength="Name must be at least 2 characters" 
+                                 data-i18n-placeholder="home.reservation.placeholder_name"
+                  placeholder="Your name"
+                  required   
+                  />
                 <img
                   src="./assets/icons/home-page/resvervation-section/profile.svg"
                   alt="profile icon"
@@ -789,10 +805,15 @@
               <div class="reservation__field">
                 <input
                   type="tel"
-                  data-i18n-placeholder="home.reservation.placeholder_phone"
+                  name="phone"
                   placeholder="Phone number"
                   required
-                />
+                  data-error-required="Please enter your phone number"
+                  data-error-phone="Please enter a valid phone number" 
+                                    data-i18n-placeholder="home.reservation.placeholder_phone"
+                  placeholder="Phone number"
+                  required
+                  />
                 <img
                   src="./assets/icons/home-page/resvervation-section/phone.svg"
                   alt="phone icon"
@@ -803,10 +824,15 @@
               <div class="reservation__field">
                 <input
                   type="email"
-                  data-i18n-placeholder="home.reservation.placeholder_email"
+                  name="email"
                   placeholder="Email address"
                   required
-                />
+                  data-error-required="Please enter your email address"
+                  data-error-email="Please enter a valid email address" 
+                                    data-i18n-placeholder="home.reservation.placeholder_email"
+                  placeholder="Email address"
+                  required
+                  />
                 <img
                   src="./assets/icons/home-page/resvervation-section/message.svg"
                   alt="email icon"
@@ -856,7 +882,12 @@
               </div>
               <!-- date -->
               <div class="reservation__field">
-                <input type="date" required />
+                <input
+                  type="date"
+                  name="date"
+                  required
+                  data-error-required="Please select a date"
+                  data-error-date="Please select a valid date" />
                 <img
                   src="./assets/icons/home-page/resvervation-section/calendar.svg"
                   alt="calendar icon"
@@ -865,7 +896,12 @@
               </div>
               <!-- time -->
               <div class="reservation__field">
-                <input type="time" required />
+                <input
+                  type="time"
+                  name="time"
+                  required
+                  data-error-required="Please select a time"
+                  data-error-time="Please select a valid time" />
                 <img
                   src="./assets/icons/home-page/resvervation-section/clock.svg"
                   alt="clock icon"
@@ -891,7 +927,7 @@
     <section id="blogs" class="blogs">
       <div class="blogs__container">
         <!-- Header -->
-        <div class="blogs__header">
+        <div class="blogs__header animate-slide-up">
           <div class="blogs__header-left">
             <h2 class="blogs__title" data-i18n="home.blogs.title">
               Explore Blogs
@@ -911,9 +947,9 @@
         </div>
 
         <!-- Blog cards -->
-        <div class="blogs__grid">
+        <div class="blogs__grid stagger-children">
           <!-- Blog 1 -->
-          <article class="blog-card">
+          <article class="blog-card animate-scale">
             <div class="blog-card__image-wrapper">
               <img
                 src="./assets/images/home-page/explore-section/blog-drink.png"
@@ -942,7 +978,7 @@
           </article>
 
           <!-- Blog 2 -->
-          <article class="blog-card">
+          <article class="blog-card animate-scale">
             <div class="blog-card__image-wrapper">
               <img
                 src="./assets/images/home-page/explore-section/blog-restaurant.png"
@@ -980,8 +1016,15 @@
     <div data-include="/partials/footer.html"></div>
 
     <!-- Global Features Scripts -->
-    <script type="module" src="./assets/features/allergy-alert.js"></script>
-    <script type="module" src="./assets/features/social-proof.js"></script>
+    <script type="module" src="../assets/features/allergy-alert.js"></script>
+    <script type="module" src="../assets/features/social-proof.js"></script>
+
+    <!-- Reservation Form Handler -->
+    <script src="./reservation-handler.js"></script>
+
+    <!-- Newsletter Form Handler -->
+    <script src="./newsletter-handler.js"></script>
+
     <script src="./assets/script/lang-toggle.js" defer></script>
     <script src="./assets/script/newsletter.js" defer></script>
   </body>

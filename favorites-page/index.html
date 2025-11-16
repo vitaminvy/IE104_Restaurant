@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Favorites | IE104 Restaurant</title>
+
+    <!-- CSS global -->
+    <link rel="stylesheet" href="../style/reset.css" />
+    <link rel="stylesheet" href="../style/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Global Animation System -->
+    <link rel="stylesheet" href="../style/animations.css" />
+    <script src="../assets/script/scroll-animations.js"></script>
+
+    <!-- CSS header -->
+    <link rel="stylesheet" href="../partials/header.css" />
+    <!-- CSS footer -->
+    <link rel="stylesheet" href="../partials/footer.css" />
+
+    <!-- Favorites page styles -->
+    <link rel="stylesheet" href="./favorites.css" />
+
+    <!-- Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/eef96f1e29.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Global Loading System -->
+    <script src="../assets/script/global-loader.js"></script>
+
+    <!-- Add to Cart Button System -->
+    <link rel="stylesheet" href="../style/add-to-cart-buttons.css" />
+    <link rel="stylesheet" href="../style/notification-system.css" />
+    <script src="../assets/script/notification-system.js"></script>
+    <script src="../assets/script/add-to-cart-buttons.js"></script>
+
+    <!-- link header and footer -->
+    <script src="../assets/script/include-partials.js" defer></script>
+    <script src="../assets/script/header.js"></script>
+
+    <!-- Advanced Features - Core Utilities -->
+    <script src="../assets/script/utils/constants.js"></script>
+    <script src="../assets/script/utils/storage-manager.js"></script>
+    <script src="../assets/script/utils/event-bus.js"></script>
+
+    <!-- Advanced Features - Styles -->
+    <link rel="stylesheet" href="../assets/style/features/dark-theme.css" />
+    <link rel="stylesheet" href="../assets/style/features/advanced-features.css" />
+  </head>
+
+  <body>
+    <!-- ========== HEADER ========== -->
+    <div data-include="/partials/header.html"></div>
+
+    <!-- ========== FAVORITES PAGE CONTENT ========== -->
+    <main class="favorites-page">
+      <div class="favorites-container">
+        <!-- Page Header -->
+        <div class="favorites-header animate-fade">
+          <h1 class="favorites-title">My Favorite Items</h1>
+          <p class="favorites-subtitle">
+            Your saved items are waiting for you here
+          </p>
+        </div>
+
+        <!-- Empty State (shown when no favorites) -->
+        <div class="favorites-empty" id="favorites-empty" style="display: none;">
+          <div class="empty-icon">❤️</div>
+          <h2 class="empty-title">No favorites yet</h2>
+          <p class="empty-message">
+            Start adding items to your favorites to see them here!
+          </p>
+          <a href="../menupage/index.html" class="btn btn-primary">
+            Browse Menu
+          </a>
+        </div>
+
+        <!-- Favorites Grid -->
+        <div class="favorites-grid" id="favorites-grid">
+          <!-- Favorite items will be dynamically loaded here -->
+        </div>
+      </div>
+    </main>
+
+    <!-- ========== FOOTER ========== -->
+    <div data-include="/partials/footer.html"></div>
+
+    <!-- Advanced Features Scripts -->
+    <script src="../assets/script/features/dark-mode-toggle.js"></script>
+    <script src="../assets/script/features/favorites-manager.js"></script>
+    <script src="../assets/script/features/nutrition-modal.js"></script>
+
+    <!-- Favorites Page Script -->
+    <script src="./favorites.js" defer></script>
+  </body>
+</html>

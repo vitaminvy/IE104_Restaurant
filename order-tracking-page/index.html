@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Order Tracking | IE104 Restaurant</title>
+
+    <!-- CSS global -->
+    <link rel="stylesheet" href="../style/reset.css" />
+    <link rel="stylesheet" href="../style/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Global Animation System -->
+    <link rel="stylesheet" href="../style/animations.css" />
+    <script src="../assets/script/scroll-animations.js"></script>
+
+    <!-- CSS header -->
+    <link rel="stylesheet" href="../partials/header.css" />
+    <!-- CSS footer -->
+    <link rel="stylesheet" href="../partials/footer.css" />
+
+    <!-- Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/eef96f1e29.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Global Loading System -->
+    <script src="../assets/script/global-loader.js"></script>
+
+    <!-- link header and footer -->
+    <script src="../assets/script/include-partials.js" defer></script>
+    <script src="../assets/script/header.js"></script>
+
+    <!-- Advanced Features - Core Utilities -->
+    <script src="../assets/script/utils/constants.js"></script>
+    <script src="../assets/script/utils/storage-manager.js"></script>
+    <script src="../assets/script/utils/event-bus.js"></script>
+
+    <!-- Advanced Features - Styles -->
+    <link rel="stylesheet" href="../assets/style/features/dark-theme.css" />
+  </head>
+
+  <body>
+    <!-- ========== HEADER ========== -->
+    <div data-include="/partials/header.html"></div>
+
+    <!-- ========== ORDER TRACKING PAGE CONTENT ========== -->
+    <main style="min-height: 80vh; padding: 60px 20px; background: #fff;">
+      <div style="max-width: 900px; margin: 0 auto;">
+        <!-- Page Header -->
+        <div style="text-align: center; margin-bottom: 50px;" class="animate-fade">
+          <h1 style="font-family: 'Libre Bodoni', serif; font-size: 48px; font-weight: 700; color: #222; margin-bottom: 12px;">
+            Track Your Order
+          </h1>
+          <p style="font-size: 18px; color: #666;">
+            Real-time updates on your order status
+          </p>
+        </div>
+
+        <!-- Order Tracker Container -->
+        <div id="order-tracker-container"></div>
+
+        <!-- No Orders Message -->
+        <div id="no-orders-message" style="display: none; text-align: center; padding: 80px 20px; background: #f9f9f9; border-radius: 12px;">
+          <div style="font-size: 80px; margin-bottom: 20px; opacity: 0.5;">📦</div>
+          <h2 style="font-family: 'Libre Bodoni', serif; font-size: 32px; font-weight: 700; color: #222; margin-bottom: 12px;">
+            No active orders
+          </h2>
+          <p style="font-size: 16px; color: #666; margin-bottom: 30px;">
+            Place an order to track it here!
+          </p>
+          <a href="../menupage/index.html" style="display: inline-block; padding: 12px 32px; background: #fb8f2c; color: white; border-radius: 8px; text-decoration: none; font-weight: 600;">
+            Browse Menu
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <!-- ========== FOOTER ========== -->
+    <div data-include="/partials/footer.html"></div>
+
+    <!-- Advanced Features Scripts -->
+    <script src="../assets/script/features/dark-mode-toggle.js"></script>
+    <script src="../assets/script/features/order-tracking-manager.js"></script>
+
+    <!-- Order Tracking Page Script -->
+    <script>
+      // Initialize order tracking page
+      document.addEventListener('DOMContentLoaded', () => {
+        const container = document.getElementById('order-tracker-container');
+        const noOrdersMsg = document.getElementById('no-orders-message');
+
+        // Get active orders
+        const orders = StorageManager.get(STORAGE_KEYS.ORDER_HISTORY, []);
+        const activeOrders = orders.filter(order => order.status !== 'delivered');
+
+        if (activeOrders.length === 0) {
+          noOrdersMsg.style.display = 'block';
+          return;
+        }
+
+        // Render each order tracker
+        activeOrders.forEach(order => {
+          if (window.OrderTrackingManager) {
+            const trackerHTML = window.OrderTrackingManager.createTrackerElement(order.id);
+            container.innerHTML += trackerHTML;
+          }
+        });
+
+        console.log('✅ Order tracking page initialized');
+      });
+    </script>
+  </body>
+</html>

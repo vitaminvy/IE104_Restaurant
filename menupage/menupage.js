@@ -19,11 +19,16 @@ import { menuItems } from '../assets/data/mockdata.js';
     item.title
   }" data-item-price="${item.price}" data-item-image="${
     item.image
-  }" data-item-desc="${item.desc || ''}">
+  }" data-item-desc="${item.desc || ''}" data-item-category="${item.category || ''}" data-item-rating="${item.rating || 4}">
       <div class="menu__card-img-wrapper">
         <img src="${item.image}" alt="${
     item.title
   }" class="menu__card-image" loading="lazy"/>
+        <!-- Compare Checkbox -->
+        <label class="menu__card-compare-label" title="Add to compare">
+          <input type="checkbox" class="menu__card-compare-checkbox" data-item-id="${item.id}" />
+          <span class="menu__card-compare-icon">⚖️</span>
+        </label>
       </div>
       <div class="menu__card-content">
         <h3 class="menu__card-title">${item.title}</h3>
@@ -108,6 +113,12 @@ import { menuItems } from '../assets/data/mockdata.js';
 
     // Setup cart icon handlers
     setupCartIconHandlers();
+
+    // Setup compare checkbox handlers
+    setupCompareCheckboxHandlers();
+
+    // Update compare checkboxes state
+    updateCompareCheckboxStates();
   }
 
   // Setup Order Now button click handlers
@@ -493,6 +504,64 @@ import { menuItems } from '../assets/data/mockdata.js';
     });
   }
 
+  // Setup compare checkbox handlers
+  function setupCompareCheckboxHandlers() {
+    const checkboxes = container.querySelectorAll('.menu__card-compare-checkbox');
+
+    checkboxes.forEach((checkbox) => {
+      checkbox.addEventListener('change', (e) => {
+        e.stopPropagation(); // Prevent card click
+
+        const itemId = parseInt(checkbox.dataset.itemId);
+        const item = menuItems.find((i) => i.id === itemId);
+
+        if (!item || !window.ComparisonManager) return;
+
+        if (checkbox.checked) {
+          const success = window.ComparisonManager.addItem(item);
+          if (!success) {
+            checkbox.checked = false; // Revert if failed
+          } else {
+            // Animate checkbox
+            const label = checkbox.closest('.menu__card-compare-label');
+            label.classList.add('compare-added');
+            setTimeout(() => label.classList.remove('compare-added'), 600);
+          }
+        } else {
+          window.ComparisonManager.removeItem(itemId);
+        }
+
+        updateComparisonCount();
+      });
+
+      // Prevent checkbox click from triggering card navigation
+      checkbox.closest('.menu__card-compare-label')?.addEventListener('click', (e) => {
+        e.stopPropagation();
+      });
+    });
+  }
+
+  // Update comparison count in toolbar
+  function updateComparisonCount() {
+    const countEl = document.getElementById('comparison-count-toolbar');
+    if (countEl && window.ComparisonManager) {
+      countEl.textContent = window.ComparisonManager.getCount();
+    }
+  }
+
+  // Update checkbox states based on comparison manager
+  function updateCompareCheckboxStates() {
+    if (!window.ComparisonManager) return;
+
+    const checkboxes = container.querySelectorAll('.menu__card-compare-checkbox');
+    checkboxes.forEach((checkbox) => {
+      const itemId = parseInt(checkbox.dataset.itemId);
+      checkbox.checked = window.ComparisonManager.isInComparison(itemId);
+    });
+
+    updateComparisonCount();
+  }
+
   tabs.forEach((t) =>
     t.addEventListener('click', (e) => {
       e.preventDefault();
@@ -627,6 +696,136 @@ import { menuItems } from '../assets/data/mockdata.js';
 
     img.addEventListener("transitionend", () => img.remove());
   }
+})();
+
+/* ========================================
+ * SEARCH BAR FUNCTIONALITY
+ * Integrate with MenuSearchEngine
+ * ======================================== */
+
+(function setupSearchFunctionality() {
+  const searchInput = document.getElementById('menu-search-input');
+  const clearBtn = document.getElementById('search-clear-btn');
+  const suggestionsDiv = document.getElementById('search-suggestions');
+
+  if (!searchInput || !window.MenuSearchEngine) return;
+
+  // Initialize search engine
+  const searchEngine = new window.MenuSearchEngine(menuItems);
+  let searchTimeout;
+
+  // Search input handler with debounce
+  searchInput.addEventListener('input', (e) => {
+    const query = e.target.value.trim();
+
+    // Show/hide clear button
+    if (clearBtn) {
+      clearBtn.style.display = query ? 'block' : 'none';
+    }
+
+    // Hide suggestions if empty
+    if (!query) {
+      hideSuggestions();
+      return;
+    }
+
+    // Debounce search
+    clearTimeout(searchTimeout);
+    searchTimeout = setTimeout(() => {
+      performSearch(query);
+    }, 300);
+  });
+
+  // Clear button handler
+  if (clearBtn) {
+    clearBtn.addEventListener('click', () => {
+      searchInput.value = '';
+      clearBtn.style.display = 'none';
+      hideSuggestions();
+      searchInput.focus();
+    });
+  }
+
+  // Perform search
+  function performSearch(query) {
+    const results = searchEngine.search(query, {});
+    showSuggestions(results.slice(0, 8), query); // Show top 8 results
+  }
+
+  // Show search suggestions
+  function showSuggestions(results, query) {
+    if (!suggestionsDiv || results.length === 0) {
+      hideSuggestions();
+      return;
+    }
+
+    const html = results
+      .map(
+        (item) => `
+      <div class="search-suggestion-item" data-item-id="${item.id}">
+        <img src="${item.image}" alt="${item.title}" class="suggestion-image" />
+        <div class="suggestion-content">
+          <div class="suggestion-title">${highlightMatch(item.title, query)}</div>
+          <div class="suggestion-category">${item.category || 'Food'}</div>
+        </div>
+        <div class="suggestion-price">$${item.price.toFixed(2)}</div>
+      </div>
+    `
+      )
+      .join('');
+
+    suggestionsDiv.innerHTML = html;
+    suggestionsDiv.style.display = 'block';
+    suggestionsDiv.classList.add('suggestions-visible');
+
+    // Add click handlers to suggestions
+    suggestionsDiv.querySelectorAll('.search-suggestion-item').forEach((el) => {
+      el.addEventListener('click', () => {
+        const itemId = el.dataset.itemId;
+        window.location.href = `../product-detail-page/index.html?id=${itemId}`;
+      });
+    });
+  }
+
+  // Hide suggestions
+  function hideSuggestions() {
+    if (suggestionsDiv) {
+      suggestionsDiv.classList.remove('suggestions-visible');
+      setTimeout(() => {
+        suggestionsDiv.style.display = 'none';
+      }, 200);
+    }
+  }
+
+  // Highlight matching text
+  function highlightMatch(text, query) {
+    const regex = new RegExp(`(${query})`, 'gi');
+    return text.replace(regex, '<mark>$1</mark>');
+  }
+
+  // Close suggestions when clicking outside
+  document.addEventListener('click', (e) => {
+    if (
+      !e.target.closest('.menu-search-wrapper') &&
+      !e.target.closest('#search-suggestions')
+    ) {
+      hideSuggestions();
+    }
+  });
+
+  // Handle Enter key
+  searchInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      const firstSuggestion = suggestionsDiv?.querySelector('.search-suggestion-item');
+      if (firstSuggestion) {
+        firstSuggestion.click();
+      }
+    } else if (e.key === 'Escape') {
+      hideSuggestions();
+      searchInput.blur();
+    }
+  });
 })();
 
 /* ========================================

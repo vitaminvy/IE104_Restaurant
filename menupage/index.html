@@ -46,6 +46,15 @@
   <!-- Global Loading System -->
   <script src="../assets/script/global-loader.js"></script>
   <script src="../assets/script/scroll-animations.js"></script>
+
+  <!-- Advanced Features - Core Utilities -->
+  <script src="../assets/script/utils/constants.js"></script>
+  <script src="../assets/script/utils/storage-manager.js"></script>
+  <script src="../assets/script/utils/event-bus.js"></script>
+
+  <!-- Advanced Features - Styles -->
+  <link rel="stylesheet" href="../assets/style/features/dark-theme.css" />
+  <link rel="stylesheet" href="../assets/style/features/advanced-features.css" />
 </head>
 
 <body>
@@ -68,6 +77,35 @@
     <!-- staters -->
     <a href="#" class="menu__filter-item" data-category="starters" role="button">Starters</a>
   </nav>
+
+  <!-- ========== ADVANCED SEARCH & FILTERS ========== -->
+  <div class="advanced-features-toolbar">
+    <!-- Search Bar -->
+    <div class="menu-search-wrapper">
+      <div class="menu-search-bar">
+        <svg class="search-icon" width="20" height="20" viewBox="0 0 20 20">
+          <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="2" fill="none"/>
+          <path d="M12 12 L17 17" stroke="currentColor" stroke-width="2"/>
+        </svg>
+        <input
+          type="text"
+          id="menu-search-input"
+          class="menu-search-input"
+          placeholder="Search dishes, ingredients, categories..."
+          autocomplete="off"
+        />
+        <button class="search-clear-btn" id="search-clear-btn">✕</button>
+      </div>
+      <div class="search-suggestions-dropdown" id="search-suggestions"></div>
+    </div>
+
+    <!-- Toolbar Actions -->
+    <div class="features-toolbar-actions">
+      <button class="btn-secondary" id="view-comparison-trigger" onclick="document.getElementById('view-comparison-btn')?.click()">
+        <span>⚖️ Compare Items (<span id="comparison-count-toolbar">0</span>)</span>
+      </button>
+    </div>
+  </div>
 
   <!-- ===== Unified container where JS will render cards ===== -->
   <div id="menu-card-container" class="menu__grid stagger-children" role="list"></div>
@@ -104,6 +142,15 @@
   <!-- Global Features Scripts -->
   <script type="module" src="../assets/features/allergy-alert.js"></script>
   <script type="module" src="../assets/features/social-proof.js"></script>
+
+  <!-- Advanced Features - Menu Page -->
+  <script src="../assets/script/features/menu-search-engine.js"></script>
+  <script src="../assets/script/features/favorites-manager.js"></script>
+  <script src="../assets/script/features/comparison-manager.js"></script>
+  <script src="../assets/script/features/dietary-preferences-manager.js"></script>
+  <script src="../assets/script/features/recently-viewed-tracker.js"></script>
+  <script src="../assets/script/features/nutrition-modal.js"></script>
+  <script src="../assets/script/features/dark-mode-toggle.js"></script>
 </body>
 
 </html>

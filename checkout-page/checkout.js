@@ -384,7 +384,7 @@
       // Redirect to a success page or homepage
       showNotification('Redirecting to homepage...', 'info');
       setTimeout(() => {
-        window.location.href = '../homepage/index.html';
+        window.location.href = '../index.html';
       }, 2000);
     }, 2000);
   }

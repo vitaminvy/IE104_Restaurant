@@ -37,6 +37,7 @@
   /* Box model */
   width: 24px;
   height: 24px;
+  filter: var(--icon-filter);
 }
 
 /* =============================

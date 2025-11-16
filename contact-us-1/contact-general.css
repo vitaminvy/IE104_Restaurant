@@ -63,7 +63,7 @@
 .link {
   display: inline-block;
   font-family: var(--font-body);
-  color: #ffffff;
+  color: var(--text-primary);
   font-weight: 500;
   text-decoration: none;
   position: relative;

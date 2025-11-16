@@ -15,7 +15,7 @@
   max-width: 1200px;
 
   /* Background / Others */
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--bg-secondary);
   border-radius: var(--radius);
   backdrop-filter: blur(10px);
 }
@@ -141,7 +141,7 @@
   font-family: var(--font-body);
   font-size: 0.75rem;
   font-weight: 500;
-  color: #ffffff;
+  color: var(--text-primary);
 
   /* Background / Others */
   background: rgba(255, 255, 255, 0.15);

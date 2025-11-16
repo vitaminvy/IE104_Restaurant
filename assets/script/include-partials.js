@@ -13,8 +13,6 @@
         }
     }
 
-    // After all partials are loaded, initialize the i18n script
-    if (window.i18n && typeof window.i18n.init === 'function') {
-        window.i18n.init();
-    }
+    // Dispatch a custom event after all partials are loaded
+    document.dispatchEvent(new CustomEvent('partials:loaded'));
 })();

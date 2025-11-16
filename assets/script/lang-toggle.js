@@ -108,6 +108,13 @@ import i18nService from './i18n-service.js';
     updateFloatingToggle(newLang);
   });
 
+  // Listen for partials to be loaded, then apply translations again
+  document.addEventListener('partials:loaded', () => {
+    const newLang = i18nService.getLanguage();
+    applyStaticTranslations();
+    updateFloatingToggle(newLang);
+  });
+
   // Init when DOM ready
   async function initialize() {
     await i18nService.init(); // Ensure translations are loaded first

@@ -14,7 +14,7 @@ export const blogPosts = [
     category: 'Technology',
     tags: ['AI', 'Innovation', 'Restaurant Tech', 'Automation'],
     author: 'Admin',
-    date: 'August 6, 2025',
+    date: 'August 30, 2025',
     readTime: '8 min read',
     featured: true,
     content: {
@@ -60,7 +60,7 @@ export const blogPosts = [
     category: 'Trends',
     tags: ['Breakfast', 'Trends', 'Menu Planning', 'Customer Preferences'],
     author: 'Admin',
-    date: 'August 4, 2024',
+    date: 'August 28, 2025',
     readTime: '5 min read',
     featured: false,
     content: {
@@ -96,7 +96,7 @@ export const blogPosts = [
     category: 'Management',
     tags: ['Hiring', 'Staff Management', 'Safety', 'HR'],
     author: 'Admin',
-    date: 'August 4, 2025',
+    date: 'August 26, 2025',
     readTime: '6 min read',
     featured: false,
     content: {
@@ -132,7 +132,7 @@ export const blogPosts = [
     category: 'Technology',
     tags: ['Technology', 'POS Systems', 'Digital Transformation', 'Operations'],
     author: 'Admin',
-    date: 'August 4, 2025',
+    date: 'August 24, 2025',
     readTime: '7 min read',
     featured: false,
     content: {
@@ -175,7 +175,7 @@ export const blogPosts = [
     category: 'Technology',
     tags: ['IoT', 'Inventory', 'Cost Control', 'Efficiency'],
     author: 'Admin',
-    date: 'August 4, 2025',
+    date: 'August 22, 2025',
     readTime: '6 min read',
     featured: false,
     content: {
@@ -218,7 +218,7 @@ export const blogPosts = [
     category: 'Marketing',
     tags: ['Marketing', 'Social Media', 'Live Video', 'Customer Engagement'],
     author: 'Admin',
-    date: 'August 4, 2024',
+    date: 'August 20, 2025',
     readTime: '5 min read',
     featured: false,
     content: {
@@ -261,7 +261,7 @@ export const blogPosts = [
     category: 'Management',
     tags: ['Employee Benefits', 'Financial Wellness', 'Staff Retention', 'HR'],
     author: 'Admin',
-    date: 'August 4, 2025',
+    date: 'August 18, 2025',
     readTime: '6 min read',
     featured: false,
     content: {

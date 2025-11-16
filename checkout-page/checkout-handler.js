@@ -48,27 +48,126 @@
       return;
     }
 
+    // Get cart items and calculate totals
+    const CART_STORAGE_KEY = 'restaurantCart';
+    const COUPON_STORAGE_KEY = 'restaurant_applied_coupon';
+    const SHIPPING_COST = 6.00;
+
+    let cart = [];
+    let coupon = null;
+
+    try {
+      const cartData = localStorage.getItem(CART_STORAGE_KEY);
+      cart = cartData ? JSON.parse(cartData) : [];
+
+      const couponData = localStorage.getItem(COUPON_STORAGE_KEY);
+      coupon = couponData ? JSON.parse(couponData) : null;
+    } catch (error) {
+      console.error('Error loading cart/coupon:', error);
+    }
+
+    if (cart.length === 0) {
+      NotificationSystem.error('Your cart is empty', { duration: 3000 });
+      setTimeout(() => {
+        window.location.href = '../cartpage/cart.html';
+      }, 2000);
+      return;
+    }
+
+    // Calculate totals
+    const subtotal = cart.reduce((sum, item) => {
+      return sum + (parseFloat(item.price) || 0) * (parseInt(item.quantity) || 0);
+    }, 0);
+
+    let discount = 0;
+    if (coupon) {
+      if (coupon.type === 'percentage') {
+        discount = subtotal * (coupon.discount / 100);
+      } else if (coupon.type === 'fixed') {
+        discount = Math.min(coupon.discount, subtotal);
+      }
+    }
+
+    let shipping = SHIPPING_COST;
+    if (coupon && coupon.type === 'freeship') {
+      shipping = 0;
+    }
+
+    const total = Math.max(0, subtotal - discount + shipping);
+
     // Disable button and show loading state
     submitButton.disabled = true;
     const originalText = submitButton.textContent;
     submitButton.textContent = 'Processing...';
 
+    // Generate unique order ID
+    const orderId = 'ORD-' + Date.now();
+
+    // Collect delivery address from formData
+    const deliveryAddress = {
+      firstName: formData.firstName || '',
+      lastName: formData.lastName || '',
+      country: formData.country || '',
+      street1: formData.street1 || '',
+      street2: formData.street2 || '',
+      city: formData.city || '',
+      district: formData.district || '',
+      zip: formData.zip || '',
+      phone: formData.phone || '',
+      email: formData.email || '',
+    };
+
+    // Create order object
+    const orderData = {
+      id: orderId,
+      items: cart,
+      subtotal: subtotal,
+      discount: discount,
+      shipping: shipping,
+      total: total,
+      couponCode: coupon ? coupon.code : null,
+      paymentMethod: paymentMethod.value,
+      deliveryAddress: deliveryAddress,
+      status: 'placed', // Initial status for order tracking
+      placedAt: Date.now(),
+      deliveredAt: null
+    };
+
+    // Save order to history using OrderHistoryManager
+    if (window.OrderHistoryManager) {
+      try {
+        window.OrderHistoryManager.saveOrder(orderData);
+        console.log('✅ Order saved to history:', orderId);
+      } catch (error) {
+        console.error('❌ Error saving order:', error);
+      }
+    } else {
+      console.warn('⚠️ OrderHistoryManager not available');
+    }
+
     // Simulate API call (replace with actual backend call)
     setTimeout(() => {
       // Success
       NotificationSystem.success(
-        `Order placed successfully! Your order will be ${getPaymentMethodText(paymentMethod.value)}.`,
+        `Order placed successfully! Order ID: ${orderId}`,
         {
           duration: 6000,
         }
       );
 
-      // Optionally redirect to order confirmation page
-      // window.location.href = '/order-confirmation.html';
+      // Clear cart and coupon
+      localStorage.removeItem(CART_STORAGE_KEY);
+      localStorage.removeItem(COUPON_STORAGE_KEY);
 
-      // Reset button (if not redirecting)
-      submitButton.disabled = false;
-      submitButton.textContent = originalText;
+      // Emit cart updated event to update header badge
+      if (window.EventBus) {
+        window.EventBus.emit('cart:updated', { cart: [] });
+      }
+
+      // Redirect to order tracking page
+      setTimeout(() => {
+        window.location.href = '../order-tracking-page/index.html';
+      }, 1500);
     }, 2000);
   }
 

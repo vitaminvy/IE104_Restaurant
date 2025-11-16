@@ -1,0 +1,710 @@
+/* =============================
+ * ORDER TRACKING PAGE - PROFESSIONAL UI
+ * Dark theme with glassmorphism
+ * ============================= */
+
+/* Page Container */
+.tracking-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f0f12 0%, #1a1a1f 100%);
+  padding: 120px 20px 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background Pattern */
+.tracking-page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    radial-gradient(circle at 20% 50%, rgba(251, 143, 44, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(251, 143, 44, 0.03) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.tracking-page__container {
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* Page Header */
+.tracking-page__header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.tracking-page__title {
+  font-family: var(--font-heading, 'Libre Bodoni');
+  font-size: 56px;
+  font-weight: 700;
+  color: var(--color-white, #fff);
+  margin-bottom: 16px;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+}
+
+.tracking-page__subtitle {
+  font-family: var(--font-body, 'Plus Jakarta Sans');
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 400;
+}
+
+/* Order Tracker Card */
+.order-tracker {
+  background: linear-gradient(135deg, rgba(17, 17, 20, 0.95) 0%, rgba(24, 24, 27, 0.95) 100%);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(251, 143, 44, 0.15);
+  border-radius: 20px;
+  padding: 32px;
+  margin-bottom: 32px;
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(251, 143, 44, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.order-tracker::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    var(--color-dark-orange, #fb8f2c) 50%,
+    transparent 100%);
+  opacity: 0.6;
+}
+
+.order-tracker:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 24px 80px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(251, 143, 44, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  border-color: rgba(251, 143, 44, 0.25);
+}
+
+/* Tracker Header */
+.tracker__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 28px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.tracker__order-id {
+  font-family: var(--font-heading, 'Libre Bodoni');
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--color-white, #fff);
+  margin-bottom: 6px;
+}
+
+.tracker__order-time {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 500;
+}
+
+/* Status Badge */
+.tracker__status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 18px;
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.status-badge--placed {
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  color: #fff;
+}
+
+.status-badge--confirmed {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: #fff;
+}
+
+.status-badge--preparing {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  color: #fff;
+}
+
+.status-badge--ready {
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+  color: #fff;
+}
+
+.status-badge--out-for-delivery {
+  background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+  color: #fff;
+}
+
+.status-badge--delivered {
+  background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+  color: #fff;
+}
+
+/* Delivery Info */
+.tracker__delivery-info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px;
+  background: rgba(251, 143, 44, 0.08);
+  border: 1px solid rgba(251, 143, 44, 0.2);
+  border-radius: 12px;
+  margin-bottom: 28px;
+}
+
+.tracker__delivery-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(251, 143, 44, 0.2) 0%, rgba(251, 143, 44, 0.1) 100%);
+  border-radius: 12px;
+  color: var(--color-dark-orange, #fb8f2c);
+  flex-shrink: 0;
+}
+
+.tracker__delivery-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.tracker__delivery-label {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.tracker__delivery-time {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-dark-orange, #fb8f2c);
+  font-family: var(--font-heading, 'Libre Bodoni');
+}
+
+/* Progress Bar */
+.tracker__progress {
+  margin-bottom: 40px;
+}
+
+.tracker__progress-bar {
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 50px;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 12px;
+}
+
+.tracker__progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-dark-orange, #fb8f2c) 0%, #e8803c 100%);
+  border-radius: 50px;
+  transition: width 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  box-shadow: 0 0 20px rgba(251, 143, 44, 0.5);
+}
+
+.tracker__progress-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 40px;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.3) 100%);
+  animation: progressShine 2s ease-in-out infinite;
+}
+
+@keyframes progressShine {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.tracker__progress-text {
+  text-align: right;
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Status Steps */
+.tracker__steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 32px;
+  position: relative;
+}
+
+.tracker__steps::before {
+  content: '';
+  position: absolute;
+  left: 24px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: rgba(255, 255, 255, 0.1);
+  z-index: 0;
+}
+
+.tracker__step {
+  display: flex;
+  gap: 20px;
+  padding: 16px 0;
+  position: relative;
+  z-index: 1;
+  opacity: 0.4;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.tracker__step--completed {
+  opacity: 1;
+}
+
+.tracker__step--current {
+  opacity: 1;
+}
+
+.tracker__step--current .tracker__step-content {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+.tracker__step-icon {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.tracker__step-circle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+}
+
+.tracker__step--completed .tracker__step-circle {
+  background: linear-gradient(135deg, rgba(251, 143, 44, 0.2) 0%, rgba(251, 143, 44, 0.1) 100%);
+  border-color: var(--color-dark-orange, #fb8f2c);
+  box-shadow: 0 0 20px rgba(251, 143, 44, 0.3);
+}
+
+.tracker__step--current .tracker__step-circle {
+  background: linear-gradient(135deg, var(--color-dark-orange, #fb8f2c) 0%, #e8803c 100%);
+  border-color: var(--color-dark-orange, #fb8f2c);
+  box-shadow:
+    0 0 30px rgba(251, 143, 44, 0.5),
+    0 4px 12px rgba(0, 0, 0, 0.3);
+  animation: pulseRing 2s ease-in-out infinite;
+}
+
+@keyframes pulseRing {
+  0%, 100% {
+    box-shadow:
+      0 0 0 0 rgba(251, 143, 44, 0.7),
+      0 0 30px rgba(251, 143, 44, 0.5),
+      0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+  50% {
+    box-shadow:
+      0 0 0 8px rgba(251, 143, 44, 0),
+      0 0 30px rgba(251, 143, 44, 0.5),
+      0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.tracker__step-emoji {
+  font-size: 24px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.tracker__step--completed .tracker__step-emoji {
+  filter: grayscale(0%);
+}
+
+.tracker__step-content {
+  flex: 1;
+  padding-top: 4px;
+}
+
+.tracker__step-label {
+  font-family: var(--font-body, 'Plus Jakarta Sans');
+  font-size: 16px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 4px;
+}
+
+.tracker__step--current .tracker__step-label {
+  color: var(--color-dark-orange, #fb8f2c);
+}
+
+.tracker__step-description {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 400;
+}
+
+/* Order Items */
+.tracker__items {
+  margin-bottom: 28px;
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.tracker__items-title {
+  font-family: var(--font-body, 'Plus Jakarta Sans');
+  font-size: 16px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 16px;
+}
+
+.tracker__items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tracker__item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.tracker__item:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.tracker__item-image {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.tracker__item-info {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tracker__item-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.tracker__item-quantity {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-dark-orange, #fb8f2c);
+  background: rgba(251, 143, 44, 0.1);
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+.tracker__items-more {
+  text-align: center;
+  padding: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 8px;
+}
+
+/* Tracker Footer */
+.tracker__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.tracker__total {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.tracker__total-label {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.tracker__total-amount {
+  font-family: var(--font-heading, 'Libre Bodoni');
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--color-dark-orange, #fb8f2c);
+}
+
+.tracker__contact-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 14px;
+  font-weight: 600;
+  font-family: var(--font-body, 'Plus Jakarta Sans');
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.tracker__contact-btn:hover {
+  background: rgba(251, 143, 44, 0.1);
+  border-color: var(--color-dark-orange, #fb8f2c);
+  color: var(--color-dark-orange, #fb8f2c);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(251, 143, 44, 0.2);
+}
+
+.tracker__contact-btn svg {
+  width: 16px;
+  height: 16px;
+  stroke: currentColor;
+}
+
+/* No Orders Message */
+.no-orders {
+  text-align: center;
+  padding: 100px 40px;
+  background: linear-gradient(135deg, rgba(17, 17, 20, 0.95) 0%, rgba(24, 24, 27, 0.95) 100%);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(251, 143, 44, 0.15);
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+.no-orders__icon {
+  font-size: 100px;
+  margin-bottom: 28px;
+  opacity: 0.3;
+  filter: grayscale(100%);
+}
+
+.no-orders__title {
+  font-family: var(--font-heading, 'Libre Bodoni');
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--color-white, #fff);
+  margin-bottom: 12px;
+}
+
+.no-orders__text {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 32px;
+}
+
+.no-orders__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  background: linear-gradient(135deg, var(--color-dark-orange, #fb8f2c) 0%, #e8803c 100%);
+  color: var(--color-white, #fff);
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 15px;
+  font-family: var(--font-body, 'Plus Jakarta Sans');
+  box-shadow: 0 8px 24px rgba(251, 143, 44, 0.3);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.no-orders__btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(251, 143, 44, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .tracking-page {
+    padding: 100px 16px 60px;
+  }
+
+  .tracking-page__title {
+    font-size: 40px;
+  }
+
+  .tracking-page__subtitle {
+    font-size: 16px;
+  }
+
+  .order-tracker {
+    padding: 24px 20px;
+  }
+
+  .tracker__header {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .tracker__delivery-info {
+    padding: 16px;
+  }
+
+  .tracker__delivery-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .tracker__delivery-time {
+    font-size: 18px;
+  }
+
+  .tracker__steps::before {
+    left: 20px;
+  }
+
+  .tracker__step-circle {
+    width: 40px;
+    height: 40px;
+  }
+
+  .tracker__step-emoji {
+    font-size: 20px;
+  }
+
+  .tracker__step-label {
+    font-size: 15px;
+  }
+
+  .tracker__step-description {
+    font-size: 13px;
+  }
+
+  .tracker__items {
+    padding: 20px 16px;
+  }
+
+  .tracker__footer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .tracker__total-amount {
+    font-size: 24px;
+  }
+
+  .tracker__contact-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .no-orders {
+    padding: 80px 24px;
+  }
+
+  .no-orders__icon {
+    font-size: 80px;
+  }
+
+  .no-orders__title {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tracking-page__title {
+    font-size: 32px;
+  }
+
+  .tracking-page__subtitle {
+    font-size: 14px;
+  }
+
+  .order-tracker {
+    padding: 20px 16px;
+  }
+
+  .tracker__order-id {
+    font-size: 20px;
+  }
+
+  .tracker__items {
+    padding: 16px 12px;
+  }
+
+  .tracker__item {
+    padding: 10px;
+  }
+
+  .tracker__item-image {
+    width: 40px;
+    height: 40px;
+  }
+
+  .tracker__total-amount {
+    font-size: 22px;
+  }
+}

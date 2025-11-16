@@ -320,9 +320,9 @@
    */
   function handlePlaceOrder(e) {
     e.preventDefault();
-    
+
     const form = e.target;
-    
+
     // Validate form
     if (!validateForm(form)) {
       return;
@@ -339,16 +339,19 @@
     const subtotal = calculateSubtotal(items);
     const discount = calculateDiscount(subtotal, coupon);
     let shipping = SHIPPING_COST;
-    
+
     // Check for free shipping
     if (coupon && coupon.type === 'freeship') {
       shipping = 0;
     }
-    
+
     const total = calculateTotal(subtotal, discount, shipping);
 
-    // Collect form data
-    const formData = {
+    // Generate unique order ID
+    const orderId = 'ORD-' + Date.now();
+
+    // Collect delivery address
+    const deliveryAddress = {
       firstName: form.querySelector('#firstName').value,
       lastName: form.querySelector('#lastName').value,
       country: form.querySelector('#country').value,
@@ -359,32 +362,56 @@
       zip: form.querySelector('#zip').value,
       phone: form.querySelector('#phone').value,
       email: form.querySelector('#email').value,
-      paymentMethod: form.querySelector('input[name="payment"]:checked').value,
+    };
+
+    // Create order object
+    const orderData = {
+      id: orderId,
       items: items,
       subtotal: subtotal,
       discount: discount,
       shipping: shipping,
       total: total,
-      coupon: coupon ? coupon.code : null,
-      orderDate: new Date().toISOString()
+      couponCode: coupon ? coupon.code : null,
+      paymentMethod: form.querySelector('input[name="payment"]:checked').value,
+      deliveryAddress: deliveryAddress,
+      status: 'placed', // Initial status for order tracking
+      placedAt: Date.now(),
+      deliveredAt: null
     };
 
+    // Save order to history using OrderHistoryManager
+    if (window.OrderHistoryManager) {
+      try {
+        window.OrderHistoryManager.saveOrder(orderData);
+        console.log('✅ Order saved to history:', orderId);
+      } catch (error) {
+        console.error('❌ Error saving order:', error);
+      }
+    } else {
+      console.warn('⚠️ OrderHistoryManager not available');
+    }
+
     // Here you would normally send the order to a backend API
-    // For now, we'll simulate success
-    console.log('Order placed:', formData);
+    console.log('📦 Order placed:', orderData);
 
     // Show success message
-    showNotification('Order placed successfully! Order ID: #' + Math.floor(Math.random() * 100000), 'success');
+    showNotification(`Order placed successfully! Order ID: ${orderId}`, 'success');
 
     // Clear cart after successful order
     setTimeout(() => {
       localStorage.removeItem(CART_STORAGE_KEY);
       localStorage.removeItem(COUPON_STORAGE_KEY);
-      
-      // Redirect to a success page or homepage
-      showNotification('Redirecting to homepage...', 'info');
+
+      // Emit cart updated event to update header badge
+      if (window.EventBus) {
+        window.EventBus.emit('cart:updated', { cart: [] });
+      }
+
+      // Redirect to order tracking page to see the new order
+      showNotification('Redirecting to order tracking...', 'info');
       setTimeout(() => {
-        window.location.href = '../homepage/index.html';
+        window.location.href = '../order-tracking-page/index.html';
       }, 2000);
     }, 2000);
   }

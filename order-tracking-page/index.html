@@ -42,6 +42,9 @@
 
     <!-- Advanced Features - Styles -->
     <link rel="stylesheet" href="../assets/style/features/dark-theme.css" />
+
+    <!-- Order Tracking Page Styles -->
+    <link rel="stylesheet" href="./order-tracking-page.css" />
   </head>
 
   <body>
@@ -49,31 +52,26 @@
     <div data-include="/partials/header.html"></div>
 
     <!-- ========== ORDER TRACKING PAGE CONTENT ========== -->
-    <main style="min-height: 80vh; padding: 60px 20px; background: #fff;">
-      <div style="max-width: 900px; margin: 0 auto;">
+    <main class="tracking-page">
+      <div class="tracking-page__container">
         <!-- Page Header -->
-        <div style="text-align: center; margin-bottom: 50px;" class="animate-fade">
-          <h1 style="font-family: 'Libre Bodoni', serif; font-size: 48px; font-weight: 700; color: #222; margin-bottom: 12px;">
-            Track Your Order
-          </h1>
-          <p style="font-size: 18px; color: #666;">
-            Real-time updates on your order status
-          </p>
+        <div class="tracking-page__header animate-fade">
+          <h1 class="tracking-page__title">Track Your Order</h1>
+          <p class="tracking-page__subtitle">Real-time updates on your order status</p>
         </div>
 
         <!-- Order Tracker Container -->
         <div id="order-tracker-container"></div>
 
         <!-- No Orders Message -->
-        <div id="no-orders-message" style="display: none; text-align: center; padding: 80px 20px; background: #f9f9f9; border-radius: 12px;">
-          <div style="font-size: 80px; margin-bottom: 20px; opacity: 0.5;">📦</div>
-          <h2 style="font-family: 'Libre Bodoni', serif; font-size: 32px; font-weight: 700; color: #222; margin-bottom: 12px;">
-            No active orders
-          </h2>
-          <p style="font-size: 16px; color: #666; margin-bottom: 30px;">
-            Place an order to track it here!
-          </p>
-          <a href="../menupage/index.html" style="display: inline-block; padding: 12px 32px; background: #fb8f2c; color: white; border-radius: 8px; text-decoration: none; font-weight: 600;">
+        <div id="no-orders-message" class="no-orders" style="display: none;">
+          <div class="no-orders__icon">📦</div>
+          <h2 class="no-orders__title">No Active Orders</h2>
+          <p class="no-orders__text">Place an order to track it here!</p>
+          <a href="../menupage/index.html" class="no-orders__btn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 3h18v18H3zM3 9h18M9 21V9"></path>
+            </svg>
             Browse Menu
           </a>
         </div>

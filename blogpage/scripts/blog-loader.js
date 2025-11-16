@@ -38,7 +38,7 @@ function renderFeaturedPost() {
     <div class="post-content">
       <h2>${title}</h2>
       <p>${description}</p>
-      <a href="../blogpage-details/index.html?id=${post.id}" class="read-more">Read more</a>
+      <a href="../blogpage-details/index.html?id=${post.id}" class="read-more">${i18nService.t('blog_page.read_more')}</a>
     </div>
   `;
 
@@ -50,7 +50,7 @@ function renderFeaturedPost() {
       
       // Show global loader
       if (window.GlobalLoader) {
-        window.GlobalLoader.show('Loading article...');
+        window.GlobalLoader.show(i18nService.t('blog_page.loading_article'));
       }
       
       // Navigate after brief delay
@@ -76,7 +76,7 @@ function renderBlogGrid(page = 1) {
 
   // Check if there are posts
   if (posts.length === 0) {
-    blogGrid.innerHTML = '<p class="no-posts">No blog posts available.</p>';
+    blogGrid.innerHTML = `<p class="no-posts">${i18nService.t('blog_page.no_posts')}</p>`;
     return;
   }
 
@@ -91,8 +91,8 @@ function renderBlogGrid(page = 1) {
       </div>
       <div class="post-content">
         <h3>${title}</h3>
-        <p class="post-meta">${post.date} • By ${post.author}</p>
-        <a href="../blogpage-details/index.html?id=${post.id}" class="read-more">Read more</a>
+        <p class="post-meta">${i18nService.t(post.date)} • ${i18nService.t('blog_page.by_author')} ${post.author}</p>
+        <a href="../blogpage-details/index.html?id=${post.id}" class="read-more">${i18nService.t('blog_page.read_more')}</a>
       </div>
     `;
     
@@ -104,7 +104,7 @@ function renderBlogGrid(page = 1) {
         
         // Show global loader
         if (window.GlobalLoader) {
-          window.GlobalLoader.show('Loading article...');
+          window.GlobalLoader.show(i18nService.t('blog_page.loading_article'));
         }
         
         // Navigate after brief delay
@@ -141,7 +141,7 @@ function renderPagination(page, totalPages, hasNext, hasPrev) {
   const prevLink = document.createElement('a');
   prevLink.href = '#';
   prevLink.className = 'prev';
-  prevLink.textContent = '← Previous';
+  prevLink.textContent = i18nService.t('blog_page.pagination.previous');
   prevLink.setAttribute('data-page', page - 1);
   if (!hasPrev) {
     prevLink.style.opacity = '0.5';
@@ -200,7 +200,7 @@ function renderPagination(page, totalPages, hasNext, hasPrev) {
   const nextLink = document.createElement('a');
   nextLink.href = '#';
   nextLink.className = 'next';
-  nextLink.textContent = 'Next →';
+  nextLink.textContent = i18nService.t('blog_page.pagination.next');
   nextLink.setAttribute('data-page', page + 1);
   if (!hasNext) {
     nextLink.style.opacity = '0.5';

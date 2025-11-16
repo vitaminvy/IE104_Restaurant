@@ -14,7 +14,7 @@ export const blogPosts = [
     category: 'Technology',
     tags: ['AI', 'Innovation', 'Restaurant Tech', 'Automation'],
     author: 'Admin',
-    date: 'August 6, 2025',
+    date: 'blog.date.august_6_2025',
     readTime: '8 min read',
     featured: true,
     content: {
@@ -58,9 +58,8 @@ export const blogPosts = [
     description: 'blog.post2.description',
     image: '../assets/images/blog-page/blog-post/blog-post-1.png',
     category: 'Trends',
-    tags: ['Breakfast', 'Trends', 'Menu Planning', 'Customer Preferences'],
     author: 'Admin',
-    date: 'August 4, 2024',
+    date: 'blog.date.august_4_2024',
     readTime: '5 min read',
     featured: false,
     content: {
@@ -94,9 +93,8 @@ export const blogPosts = [
     description: 'blog.post3.description',
     image: '../assets/images/blog-page/blog-post/blog-post-2.png',
     category: 'Management',
-    tags: ['Hiring', 'Staff Management', 'Safety', 'HR'],
     author: 'Admin',
-    date: 'August 4, 2025',
+    date: 'blog.date.august_4_2025',
     readTime: '6 min read',
     featured: false,
     content: {
@@ -132,7 +130,7 @@ export const blogPosts = [
     category: 'Technology',
     tags: ['Technology', 'POS Systems', 'Digital Transformation', 'Operations'],
     author: 'Admin',
-    date: 'August 4, 2025',
+    date: 'blog.date.august_4_2025',
     readTime: '7 min read',
     featured: false,
     content: {
@@ -175,7 +173,7 @@ export const blogPosts = [
     category: 'Technology',
     tags: ['IoT', 'Inventory', 'Cost Control', 'Efficiency'],
     author: 'Admin',
-    date: 'August 4, 2025',
+    date: 'blog.date.august_4_2025',
     readTime: '6 min read',
     featured: false,
     content: {
@@ -218,7 +216,7 @@ export const blogPosts = [
     category: 'Marketing',
     tags: ['Marketing', 'Social Media', 'Live Video', 'Customer Engagement'],
     author: 'Admin',
-    date: 'August 4, 2024',
+    date: 'blog.date.august_4_2024',
     readTime: '5 min read',
     featured: false,
     content: {
@@ -261,7 +259,7 @@ export const blogPosts = [
     category: 'Management',
     tags: ['Employee Benefits', 'Financial Wellness', 'Staff Retention', 'HR'],
     author: 'Admin',
-    date: 'August 4, 2025',
+    date: 'blog.date.august_4_2025',
     readTime: '6 min read',
     featured: false,
     content: {

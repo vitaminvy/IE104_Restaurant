@@ -642,7 +642,7 @@
       "excerpt": "Supporting employee financial health improves retention, satisfaction, and overall restaurant performance.",
       "description": "How implementing financial wellness programs for restaurant staff can reduce turnover and boost morale.",
       "content": {
-        "intro": "The restaurant industry faces chronic staffing challenges, and financial stress is a major factor in employee turnover. Forward-thinking operators are implementing financial wellness programs to support their teams.",
+        "intro": "The restaurant industry is experiencing unprecedented demand, but finding qualified staff remains one of the biggest challenges facing operators today. This guide provides practical strategies for rapid, safe hiring.",
         "sections": [
           {
             "heading": "The Cost of Financial Stress",
@@ -668,6 +668,11 @@
         ],
         "quote": "Invest in your people's financial wellness, and they'll invest their energy and loyalty in your restaurant."
       }
+    },
+    "date": {
+      "august_6_2025": "August 6, 2025",
+      "august_4_2024": "August 4, 2024",
+      "august_4_2025": "August 4, 2025"
     }
   },
   "product_detail_page": {
@@ -718,5 +723,31 @@
       "description": "The product you're looking for doesn't exist or has been removed.",
       "back_to_menu": "Back to Menu"
     }
+  },
+  "blog_page": {
+    "title": "Restaurant Management & Growth Blog",
+    "header": "Restaurant Management & Growth Blog",
+    "read_more": "Read more",
+    "loading_article": "Loading article...",
+    "no_posts": "No blog posts available.",
+    "by_author": "By",
+    "pagination": {
+      "previous": "← Previous",
+      "next": "Next →"
+    }
+  },
+  "blog_details_page": {
+    "title": "Blog Post",
+    "copy_link": "Copy link",
+    "by_author": "By",
+    "copied": "Copied!",
+    "copy_failed": "Failed to copy link. Please copy manually.",
+    "error": {
+      "description": "The blog post you're looking for doesn't exist or has been removed.",
+      "back_to_blog": "Back to Blog",
+      "not_found": "Blog Post Not Found",
+      "loading_error": "Error Loading Blog Post"
+    },
+    "page_title_suffix": "| Restaurant Blog"
   }
 }

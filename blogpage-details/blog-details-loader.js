@@ -57,10 +57,10 @@ function renderMetaInfo(post) {
   const title = i18nService.t(post.title);
 
   metaInfo.innerHTML = `
-    <span>${post.date} • By ${post.author}</span>
+    <span>${i18nService.t(post.date)} • ${i18nService.t('blog_details_page.by_author')} ${post.author}</span>
     <div class="social-links">
       <button class="copy-link" onclick="copyBlogUrl()">
-        <i class="fas fa-link"></i> Copy link
+        <i class="fas fa-link"></i> ${i18nService.t('blog_details_page.copy_link')}
       </button>
       <a href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}" 
          target="_blank" 
@@ -177,8 +177,8 @@ function renderRelatedPosts(postId) {
       </div>
       <div class="post-content">
         <h3>${title}</h3>
-        <p class="post-meta">${post.date} • By ${post.author}</p>
-        <a href="./index.html?id=${post.id}" class="read-more">Read more</a>
+        <p class="post-meta">${i18nService.t(post.date)} • ${i18nService.t('blog_details_page.by_author')} ${post.author}</p>
+        <a href="./index.html?id=${post.id}" class="read-more">${i18nService.t('blog_page.read_more')}</a>
       </div>
     `;
     blogGrid.appendChild(article);
@@ -190,7 +190,7 @@ function renderRelatedPosts(postId) {
  * ======================================== */
 function updatePageTitle(post) {
   const title = i18nService.t(post.title);
-  document.title = `${title} | Restaurant Blog`;
+  document.title = `${title} ${i18nService.t('blog_details_page.page_title_suffix')}`;
 }
 
 /* ========================================
@@ -201,7 +201,7 @@ window.copyBlogUrl = function() {
     const copyBtn = document.querySelector('.copy-link');
     if (copyBtn) {
       const originalText = copyBtn.innerHTML;
-      copyBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+      copyBtn.innerHTML = `<i class="fas fa-check"></i> ${i18nService.t('blog_details_page.copied')}`;
       copyBtn.style.color = '#4CAF50';
       
       setTimeout(() => {
@@ -211,7 +211,7 @@ window.copyBlogUrl = function() {
     }
   }).catch(err => {
     console.error('Failed to copy URL:', err);
-    alert('Failed to copy link. Please copy manually.');
+    alert(i18nService.t('blog_details_page.copy_failed'));
   });
 };
 
@@ -242,7 +242,7 @@ function showError(message) {
         font-size: 18px;
         margin-bottom: 32px;
         opacity: 0.7;
-      ">The blog post you're looking for doesn't exist or has been removed.</p>
+      ">${i18nService.t('blog_details_page.error.description')}</p>
       <a href="../blogpage/index.html" style="
         display: inline-block;
         padding: 12px 32px;
@@ -253,7 +253,7 @@ function showError(message) {
         font-weight: 600;
         transition: opacity 0.3s ease;
       " onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'">
-        Back to Blog
+        ${i18nService.t('blog_details_page.error.back_to_blog')}
       </a>
     </div>
   `;
@@ -268,7 +268,7 @@ async function loadBlogPost() {
 
   // Check if ID is provided
   if (!blogId) {
-    showError('Blog Post Not Found');
+    showError(i18nService.t('blog_details_page.error.not_found'));
     console.error('No blog ID provided in URL');
     return;
   }
@@ -278,7 +278,7 @@ async function loadBlogPost() {
 
   // Check if post exists
   if (!post) {
-    showError('Blog Post Not Found');
+    showError(i18nService.t('blog_details_page.error.not_found'));
     console.error(`Blog post with ID ${blogId} not found`);
     return;
   }
@@ -295,7 +295,7 @@ async function loadBlogPost() {
     console.log('📰 Blog post loaded successfully:', i18nService.t(post.title));
   } catch (error) {
     console.error('Error rendering blog post:', error);
-    showError('Error Loading Blog Post');
+    showError(i18nService.t('blog_details_page.error.loading_error'));
   }
 }
 

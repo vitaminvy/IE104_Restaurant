@@ -1,4 +1,5 @@
 import { menuItems } from "../data/mockdata.js";
+import i18nService from './i18n-service.js';
 
 // MENU SLIDER NAVIGATION  (Slide by group: 1–2–3 cards)
 
@@ -21,16 +22,16 @@ import { menuItems } from "../data/mockdata.js";
   // CREATE CARD HTML
   function createCardHTML(item) {
     return `
-        <article class="menu__card" data-item-id="${item.id}" data-item-title="${item.title}" data-item-price="${item.price}" data-item-image="${item.image}" style="cursor: pointer;">
+        <article class="menu__card" data-item-id="${item.id}" data-item-title="${i18nService.t(item.title)}" data-item-price="${item.price}" data-item-image="${item.image}" style="cursor: pointer;">
             <div class="menu__card-img-wrapper">
-                <img src="${item.image}" alt="${item.title}" class="menu__card-image" />
+                <img src="${item.image}" alt="${i18nService.t(item.title)}" class="menu__card-image" />
             </div>
-            <h3 class="menu__card-title">${item.title}</h3>
-            <p class="menu__card-desc">${item.desc}</p>
+            <h3 class="menu__card-title">${i18nService.t(item.title)}</h3>
+            <p class="menu__card-desc">${i18nService.t(item.desc)}</p>
             <div class="menu__card-footer">
                 <span class="menu__card-price">$${item.price}</span>
                 <div class="menu__card-btn" style="pointer-events: none;">
-                    Order Now
+                    ${i18nService.t("menu_page.order_now_button")}
                     <img src="../assets/icons/home-page/menu-section/arrown.svg" alt="" class="menu__card-btn-icon" />
                 </div>
             </div>
@@ -61,14 +62,16 @@ import { menuItems } from "../data/mockdata.js";
       card.addEventListener("click", (e) => {
         e.preventDefault();
 
-        // Get item data from card
-        const itemId = card.dataset.itemId;
-        // Find full item data
-        const item = menuItems.find(menuItem => menuItem.id == itemId); // Use == for potential type coercion if itemId is string
+        const itemId = Number(card.dataset.itemId);
+        const item = menuItems.find(menuItem => menuItem.id == itemId);
         if (!item) return;
 
-        // Navigate to menupage with item ID
-        window.location.href = `/menupage/index.html?id=${item.id}`;
+        // Get title and desc from the DOM to avoid race condition
+        const title = card.querySelector('.menu__card-title')?.textContent || i18nService.t(item.title);
+        const desc = card.querySelector('.menu__card-desc')?.textContent || i18nService.t(item.desc);
+
+        const cartItem = { ...item, title, desc };
+        addToCartAndNavigate(cartItem);
       });
     });
   }
@@ -101,10 +104,10 @@ import { menuItems } from "../data/mockdata.js";
       // Add new item
       cart.push({
         id: item.id,
-        title: item.title,
+        title: item.title, // Already translated from DOM
         price: item.price,
         image: item.image,
-        desc: item.desc || '',
+        desc: item.desc || '', // Already translated from DOM
         quantity: 1
       });
     }
@@ -332,4 +335,13 @@ import { menuItems } from "../data/mockdata.js";
   updateCardsPerView();
   updateDots();
   updateSlider();
+
+  document.addEventListener('language-changed', () => {
+    const activeFilter = document.querySelector(".menu__filter-item--active");
+    const category = activeFilter?.dataset.category || "breakfast";
+    renderMenu(category);
+    updateCardsPerView();
+    updateDots();
+    updateSlider();
+  });
 })();

@@ -154,6 +154,21 @@
     0 20px 45px rgba(0, 0, 0, 0.45);
 }
 
+.newsletter__status {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  color: var(--color-dark-orange);
+  background: transparent;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.9rem;
+}
+
+.newsletter__status[hidden] {
+  display: none !important;
+}
+
 .newsletter__form input {
   flex: 1;
   background: none;

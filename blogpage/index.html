@@ -99,12 +99,13 @@
             techniques, culinary concepts, insights, and more
           </p>
 
-          <form class="newsletter__form">
-            <input type="email" data-i18n-placeholder="home.newsletter.placeholder_email" placeholder="Enter your email address" required />
+          <form class="newsletter__form" data-newsletter-form>
+            <input type="email" name="email" data-i18n-placeholder="home.newsletter.placeholder_email" placeholder="Enter your email address" required />
             <button type="submit" class="newsletter__submit">
               <i class="fa-solid fa-paper-plane"></i>
             </button>
           </form>
+          <p class="newsletter__status" hidden></p>
         </div>
       </div>
     </section>
@@ -113,6 +114,7 @@
   <!-- ========== 2.6 FOOTER PLACEHOLDER ========== -->
   <div data-include="/partials/footer.html"></div>
   <script type="module" src="../assets/script/lang-toggle.js" defer></script>
+  <script src="../homepage/newsletter.js" defer></script>
 </body>
 
 </html>

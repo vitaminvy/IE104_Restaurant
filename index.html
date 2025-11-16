@@ -1000,9 +1000,10 @@
             techniques, culinary concepts, insights, and more
           </p>
 
-          <form class="newsletter__form">
+          <form class="newsletter__form" data-newsletter-form>
             <input
               type="email"
+              name="email"
               data-i18n-placeholder="home.newsletter.placeholder_email"
               placeholder="Enter your email address"
               required
@@ -1011,6 +1012,7 @@
               <i class="fa-solid fa-paper-plane"></i>
             </button>
           </form>
+          <p class="newsletter__status" hidden></p>
         </div>
       </div>
     </section>
@@ -1022,5 +1024,6 @@
     <script type="module" src="./assets/features/allergy-alert.js"></script>
     <script type="module" src="./assets/features/social-proof.js"></script>
     <script src="./assets/script/lang-toggle.js" defer></script>
+    <script src="./homepage/newsletter.js" defer></script>
   </body>
 </html>

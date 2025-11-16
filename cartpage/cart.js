@@ -1,11 +1,4 @@
-/* ========================================
- * ENHANCED CART PAGE LOGIC
- * Features:
- * - LocalStorage for cart persistence
- * - Coupon system with discount
- * - Dynamic cart rendering
- * - Simplified totals (Subtotal, Discount, Total)
- * ======================================== */
+import i18nService from '../assets/script/i18n-service.js';
 
 (function () {
   'use strict';
@@ -209,6 +202,7 @@
 
     // Calculate item subtotal
     const itemSubtotal = (item.price * item.quantity).toFixed(2);
+    const translatedTitle = i18nService.t(item.title);
 
     tr.innerHTML = `
       <!-- Remove button -->
@@ -228,19 +222,19 @@
         <img
           class="cart__item-media"
           src="${item.image || '../assets/images/cart-page/donut.png'}"
-          alt="${item.title}"
+          alt="${translatedTitle}"
           loading="lazy"
         />
       </td>
 
       <!-- Product name -->
       <td data-label="Food">
-        <span class="cart__item-name">${item.title}</span>
+        <span class="cart__item-name">${translatedTitle}</span>
       </td>
 
       <!-- Price -->
       <td data-label="Price" class="cart__price">
-        $${item.price.toFixed(2)}
+        ${item.price.toFixed(2)}
       </td>
 
       <!-- Quantity controls -->
@@ -276,7 +270,7 @@
 
       <!-- Item subtotal -->
       <td data-label="Subtotal" class="cart__subtotal">
-        $${itemSubtotal}
+        ${itemSubtotal}
       </td>
     `;
 
@@ -298,7 +292,7 @@
     // Update subtotal
     const subtotalEl = document.querySelector('.totals__table tbody tr:nth-child(1) .totals__right');
     if (subtotalEl) {
-      subtotalEl.textContent = `$${subtotal.toFixed(2)}`;
+      subtotalEl.textContent = `${subtotal.toFixed(2)}`;
     }
 
     // Update discount
@@ -308,7 +302,7 @@
       if (discountEl) {
         if (discount > 0) {
           discountEl.innerHTML = `
-            <span style="color: var(--color-dark-orange);">-$${discount.toFixed(2)}</span>
+            <span style="color: var(--color-dark-orange);">-${discount.toFixed(2)}</span>
             ${appliedCoupon ? `<br><small style="opacity: 0.7; font-size: 13px;">(${appliedCoupon.description})</small>` : ''}
           `;
           discountRow.style.display = 'table-row';
@@ -321,7 +315,7 @@
     // Update total
     const totalEl = document.querySelector('.totals__total .totals__right');
     if (totalEl) {
-      totalEl.textContent = `$${total.toFixed(2)}`;
+      totalEl.textContent = `${total.toFixed(2)}`;
     }
 
     // Update coupon display
@@ -442,6 +436,7 @@
       row.style.opacity = '0';
       row.style.transform = 'translateX(-100px) scale(0.8)';
 
+<<<<<<< HEAD
       // Wait for animation to complete
       setTimeout(() => {
         items.splice(index, 1);
@@ -462,6 +457,10 @@
 
       showNotification(`Removed "${removedItem.title}" from cart`, 'success');
     }
+=======
+    const translatedTitle = i18nService.t(removedItem.title);
+    showNotification(`Removed "${translatedTitle}" from cart`, 'success');
+>>>>>>> main
   }
 
   /**
@@ -504,6 +503,7 @@
 
       // Update subtotal with animation
       const subtotalCell = row.querySelector('.cart__subtotal');
+<<<<<<< HEAD
       if (subtotalCell) {
         // Add pulse animation
         subtotalCell.style.animation = 'none';
@@ -512,6 +512,9 @@
           subtotalCell.style.animation = 'pricePulse 0.5s ease-out';
         }, 10);
       }
+=======
+      if (subtotalCell) subtotalCell.textContent = `${itemSubtotal}`;
+>>>>>>> main
     }
 
     updateCartTotals();
@@ -679,13 +682,15 @@
   /**
    * Initialize cart page
    */
-  function init() {
+  async function init() {
     console.log('🛒 Initializing cart page...');
 
     // Show loader while initializing
     if (window.GlobalLoader) {
       window.GlobalLoader.show('Loading cart...');
     }
+
+    await i18nService.init();
 
     // Small delay to ensure localStorage is readable
     setTimeout(() => {

@@ -12,4 +12,9 @@
             console.error('Include failed:', url, err);
         }
     }
+
+    // After all partials are loaded, initialize the i18n script
+    if (window.i18n && typeof window.i18n.init === 'function') {
+        window.i18n.init();
+    }
 })();

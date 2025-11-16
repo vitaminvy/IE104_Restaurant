@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Checkout • WowWraps</title>
+    <title data-i18n="checkout_page.title">Checkout • WowWraps</title>
 
     <!-- link style CSS global -->
     <link rel="stylesheet" href="../style/reset.css" />
@@ -42,21 +42,22 @@
     <!-- link script appear hint -->
     <script src="./hint.js" defer></script>
     <!-- Enhanced checkout logic with dynamic cart loading -->
-    <script src="./checkout.js" defer></script>
+    <script type="module" src="./checkout.js" defer></script>
   </head>
   <body class="page">
     <!-- Header -->
     <div data-include="/partials/header.html"></div>
+    <script type="module" src="../assets/script/lang-toggle.js" defer></script>
 
     <main class="checkout container">
       <!-- LEFT: BILLING FORM -->
       <section class="billing">
-        <h1 class="billing__title">Billing details</h1>
+        <h1 class="billing__title" data-i18n="checkout_page.billing_details.title">Billing details</h1>
 
         <form class="form" id="checkout-form" method="get" novalidate>
           <div class="form__row">
             <div class="form__group">
-              <label class="form__label" for="firstName">Your name *</label>
+              <label class="form__label" for="firstName" data-i18n="checkout_page.billing_details.first_name">Your name *</label>
               <input
                 id="firstName"
                 name="firstName"
@@ -70,7 +71,7 @@
               />
             </div>
             <div class="form__group">
-              <label class="form__label" for="lastName">Last name *</label>
+              <label class="form__label" for="lastName" data-i18n="checkout_page.billing_details.last_name">Last name *</label>
               <input
                 id="lastName"
                 name="lastName"
@@ -86,23 +87,16 @@
           </div>
 
           <div class="form__group">
-            <label class="form__label" for="country">Country / Region *</label>
-            <select
-              id="country"
-              name="country"
-              class="form__select"
-              required
-              data-error-required="Please select a country"
-            >
-              <option value="">Select a country</option>
-              <option value="au">Australia</option>
-              <option value="us">United States</option>
-              <option value="vn">Viet Nam</option>
+            <label class="form__label" for="country" data-i18n="checkout_page.billing_details.country">Country / Region *</label>
+            <select id="country" class="form__select" required>
+              <option value="au" data-i18n="checkout_page.billing_details.country_options.au">Australia</option>
+              <option value="us" data-i18n="checkout_page.billing_details.country_options.us">United States</option>
+              <option value="vn" data-i18n="checkout_page.billing_details.country_options.vn">Viet Nam</option>
             </select>
           </div>
 
           <div class="form__group">
-            <label class="form__label" for="street1">Street address *</label>
+            <label class="form__label" for="street1" data-i18n="checkout_page.billing_details.street_address">Street address *</label>
             <input
               id="street1"
               name="street1"
@@ -117,7 +111,7 @@
           </div>
 
           <div class="form__group">
-            <label class="form__label" for="street2">Street address</label>
+            <label class="form__label" for="street2" data-i18n="checkout_page.billing_details.street_address">Street address *</label>
             <input
               id="street2"
               name="street2"
@@ -129,36 +123,18 @@
 
           <div class="form__row">
             <div class="form__group">
-              <label class="form__label" for="city">Town / City *</label>
-              <input
-                id="city"
-                name="city"
-                class="form__input"
-                type="text"
-                required
-                minlength="2"
-                data-error-required="Please enter your city"
-                data-error-minLength="City name must be at least 2 characters"
-              />
+              <label class="form__label" for="city" data-i18n="checkout_page.billing_details.town_city">Town / City *</label>
+              <input id="city" class="form__input" type="text" required />
             </div>
             <div class="form__group">
-              <label class="form__label" for="district">District *</label>
-              <input
-                id="district"
-                name="district"
-                class="form__input"
-                type="text"
-                required
-                minlength="2"
-                data-error-required="Please enter your district"
-                data-error-minLength="District name must be at least 2 characters"
-              />
+              <label class="form__label" for="district" data-i18n="checkout_page.billing_details.district">District *</label>
+              <input id="district" class="form__input" type="text" required />
             </div>
           </div>
 
           <div class="form__row">
             <div class="form__group">
-              <label class="form__label" for="zip"
+              <label class="form__label" for="zip" data-i18n="checkout_page.billing_details.postcode_zip"
                 >Postcode / ZIP (optional)</label
               >
               <input
@@ -171,30 +147,14 @@
               />
             </div>
             <div class="form__group">
-              <label class="form__label" for="phone">Phone *</label>
-              <input
-                id="phone"
-                name="phone"
-                class="form__input"
-                type="tel"
-                required
-                data-error-required="Please enter your phone number"
-                data-error-phone="Please enter a valid phone number"
-              />
+              <label class="form__label" for="phone" data-i18n="checkout_page.billing_details.phone">Phone *</label>
+              <input id="phone" class="form__input" type="tel" required />
             </div>
           </div>
 
           <div class="form__group">
-            <label class="form__label" for="email">Email address *</label>
-            <input
-              id="email"
-              name="email"
-              class="form__input"
-              type="email"
-              required
-              data-error-required="Please enter your email address"
-              data-error-email="Please enter a valid email address"
-            />
+            <label class="form__label" for="email" data-i18n="checkout_page.billing_details.email">Email address *</label>
+            <input id="email" class="form__input" type="email" required />
           </div>
 
           <!-- PAYMENT METHODS -->
@@ -207,9 +167,9 @@
                   name="payment"
                   value="bank"
                 />
-                <span class="payment__label">Direct bank transfer</span>
+                <span class="payment__label" data-i18n="checkout_page.payment.direct_bank_transfer">Direct bank transfer</span>
               </label>
-              <p class="payment__hint">
+              <p class="payment__hint" data-i18n="checkout_page.payment.direct_bank_transfer_hint">
                 Make your payment directly into our bank account. Please use
                 your Order ID as the payment reference. Your order will not be
                 shipped until the funds have cleared in our account.
@@ -224,9 +184,9 @@
                   name="payment"
                   value="check"
                 />
-                <span class="payment__label">Check payments</span>
+                <span class="payment__label" data-i18n="checkout_page.payment.check_payments">Check payments</span>
               </label>
-              <p class="payment__hint">
+              <p class="payment__hint" data-i18n="checkout_page.payment.check_payments_hint">
                 Pay using check, your order will be processed after
                 verification.
               </p>
@@ -240,9 +200,9 @@
                   name="payment"
                   value="cod"
                 />
-                <span class="payment__label">Cash on delivery</span>
+                <span class="payment__label" data-i18n="checkout_page.payment.cod">Cash on delivery</span>
               </label>
-              <p class="payment__hint">
+              <p class="payment__hint" data-i18n="checkout_page.payment.cod_hint">
                 Pay with cash when your order is delivered.
               </p>
             </div>
@@ -255,33 +215,33 @@
                   name="payment"
                   value="paypal"
                 />
-                <span class="payment__label">PayPal</span>
+                <span class="payment__label" data-i18n="checkout_page.payment.paypal">PayPal</span>
               </label>
-              <p class="payment__hint">
+              <p class="payment__hint" data-i18n="checkout_page.payment.paypal_hint">
                 You will be redirected to PayPal to complete your purchase
                 securely.
               </p>
             </div>
 
             <p class="payment__privacy">
-              Your personal data will be used to process your order, support
+              <span data-i18n="checkout_page.payment.privacy_text">Your personal data will be used to process your order, support
               your experience throughout this website, and for other purposes
-              described in our <a href="#!" class="link">privacy policy</a>.
+              described in our</span> <a href="#!" class="link" data-i18n="checkout_page.payment.privacy_policy_link">privacy policy</a>.
             </p>
 
-            <button class="btn btn--primary checkout-form__btn" type="submit">Place order</button>
+            <button class="btn btn--primary checkout-form__btn" type="submit" data-i18n="checkout_page.payment.place_order_button">Place order</button>
           </fieldset>
         </form>
       </section>
 
       <!-- RIGHT: ORDER SUMMARY -->
       <aside class="summary" aria-label="Order summary">
-        <h2 class="summary__title">Your order</h2>
+        <h2 class="summary__title" data-i18n="checkout_page.order_summary.title">Your order</h2>
         <table class="order-table">
           <thead>
             <tr>
-              <th>Food</th>
-              <th>Subtotal</th>
+              <th data-i18n="checkout_page.order_summary.product_header">Food</th>
+              <th data-i18n="checkout_page.order_summary.subtotal_header">Subtotal</th>
             </tr>
           </thead>
           <tbody>
@@ -289,15 +249,15 @@
           </tbody>
           <tfoot>
             <tr>
-              <th>Subtotal</th>
+              <th data-i18n="checkout_page.order_summary.subtotal_footer">Subtotal</th>
               <td>$83.99</td>
             </tr>
             <tr>
-              <th>Shipping</th>
-              <td>Flat rate: $6.00</td>
+              <th data-i18n="checkout_page.order_summary.shipping">Shipping</th>
+              <td data-i18n="checkout_page.order_summary.shipping_rate">Flat rate: $6.00</td>
             </tr>
             <tr class="order-table__total">
-              <th>Total</th>
+              <th data-i18n="checkout_page.order_summary.total">Total</th>
               <td>$89.99</td>
             </tr>
           </tfoot>

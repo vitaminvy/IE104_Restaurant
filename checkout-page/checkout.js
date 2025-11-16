@@ -1,15 +1,10 @@
-/* ========================================
- * ENHANCED CHECKOUT PAGE LOGIC
- * Features:
- * - Dynamically loads cart items from localStorage
- * - Reads applied coupon and calculates discount
- * - Renders order summary table
- * - Handles empty cart state
- * - Form validation and order placement
- * ======================================== */
+import i18nService from '../assets/script/i18n-service.js';
 
-(function () {
+(async function () {
   'use strict';
+
+  await i18nService.init();
+  document.dispatchEvent(new CustomEvent('language-changed'));
 
   /* ========================================
    * CONFIGURATION & CONSTANTS
@@ -23,10 +18,6 @@
    * CART STATE MANAGEMENT
    * ======================================== */
 
-  /**
-   * Get cart items from localStorage
-   * @returns {Array} Cart items array
-   */
   function getCartItems() {
     try {
       const items = localStorage.getItem(CART_STORAGE_KEY);
@@ -37,10 +28,6 @@
     }
   }
 
-  /**
-   * Get applied coupon from localStorage
-   * @returns {Object|null} Applied coupon object
-   */
   function getAppliedCoupon() {
     try {
       const coupon = localStorage.getItem(COUPON_STORAGE_KEY);
@@ -55,11 +42,6 @@
    * CART CALCULATIONS
    * ======================================== */
 
-  /**
-   * Calculate cart subtotal
-   * @param {Array} items - Cart items
-   * @returns {Number} Subtotal amount
-   */
   function calculateSubtotal(items) {
     return items.reduce((sum, item) => {
       const price = parseFloat(item.price) || 0;
@@ -68,12 +50,6 @@
     }, 0);
   }
 
-  /**
-   * Calculate discount amount based on coupon
-   * @param {Number} subtotal - Cart subtotal
-   * @param {Object} coupon - Applied coupon object
-   * @returns {Number} Discount amount
-   */
   function calculateDiscount(subtotal, coupon) {
     if (!coupon) return 0;
 
@@ -83,17 +59,9 @@
     } else if (coupon.type === 'fixed') {
       discount = Math.min(coupon.discount, subtotal);
     }
-    // Note: 'freeship' type doesn't affect subtotal discount
     return discount;
   }
 
-  /**
-   * Calculate final total
-   * @param {Number} subtotal - Cart subtotal
-   * @param {Number} discount - Discount amount
-   * @param {Number} shipping - Shipping cost
-   * @returns {Number} Final total
-   */
   function calculateTotal(subtotal, discount, shipping) {
     return Math.max(0, subtotal - discount + shipping);
   }
@@ -102,33 +70,22 @@
    * DOM MANIPULATION
    * ======================================== */
 
-  /**
-   * Format currency value
-   * @param {Number} value - Numeric value
-   * @returns {String} Formatted currency string
-   */
   function formatCurrency(value) {
     return `$${value.toFixed(2)}`;
   }
 
-  /**
-   * Render order items in the table
-   * @param {Array} items - Cart items
-   */
   function renderOrderItems(items) {
     const tbody = document.querySelector('.order-table tbody');
     if (!tbody) return;
 
-    // Clear existing items
     tbody.innerHTML = '';
 
-    // Render each cart item
     items.forEach(item => {
       const tr = document.createElement('tr');
       const itemTotal = (parseFloat(item.price) || 0) * (parseInt(item.quantity) || 0);
       
       tr.innerHTML = `
-        <td>${item.title} × ${item.quantity}</td>
+        <td>${i18nService.t(item.title)} × ${item.quantity}</td>
         <td>${formatCurrency(itemTotal)}</td>
       `;
       
@@ -136,51 +93,38 @@
     });
   }
 
-  /**
-   * Update order totals in the table
-   * @param {Number} subtotal - Cart subtotal
-   * @param {Number} discount - Discount amount
-   * @param {Object} coupon - Applied coupon object
-   * @param {Number} shipping - Shipping cost
-   * @param {Number} total - Final total
-   */
   function updateOrderTotals(subtotal, discount, coupon, shipping, total) {
     const tfoot = document.querySelector('.order-table tfoot');
     if (!tfoot) return;
 
-    let shippingText = formatCurrency(shipping);
+    let shippingText = i18nService.t('checkout_page.order_summary.shipping_rate');
     
-    // Check if coupon provides free shipping
     if (coupon && coupon.type === 'freeship') {
-      shippingText = '<span style="text-decoration: line-through; color: #999;">Flat rate: ' + formatCurrency(shipping) + '</span> <span style="color: #4CAF50; font-weight: 600;">FREE</span>';
-      shipping = 0; // Make shipping free
-      total = subtotal - discount; // Recalculate total
-    } else {
-      shippingText = 'Flat rate: ' + formatCurrency(shipping);
+      shippingText = `<span style="text-decoration: line-through; color: #999;">${i18nService.t('checkout_page.order_summary.shipping_rate')}</span> <span style="color: #4CAF50; font-weight: 600;">${i18nService.t('checkout_page.notifications.free_shipping')}</span>`;
+      shipping = 0;
+      total = subtotal - discount;
     }
 
     let footerHTML = `
       <tr>
-        <th>Subtotal</th>
+        <th>${i18nService.t('checkout_page.order_summary.subtotal_footer')}</th>
         <td>${formatCurrency(subtotal)}</td>
       </tr>
     `;
 
-    // Add discount row if there's a discount
     if (discount > 0) {
       footerHTML += `
         <tr class="discount-row">
-          <th>Discount</th>
+          <th>${i18nService.t('cart_page.totals.discount')}</th>
           <td style="color: #4CAF50; font-weight: 600;">-${formatCurrency(discount)}</td>
         </tr>
       `;
     }
 
-    // Add coupon description if applied
     if (coupon && coupon.description) {
       footerHTML += `
         <tr class="">
-          <th style="color: #4CAF50; font-size: 0.9em;">Coupon Applied</th>
+          <th style="color: #4CAF50; font-size: 0.9em;">${i18nService.t('checkout_page.notifications.coupon_applied')}</th>
           <td style="color: #4CAF50; font-size: 0.9em;">${coupon.code}: ${coupon.description}</td>
         </tr>
       `;
@@ -188,11 +132,11 @@
 
     footerHTML += `
       <tr>
-        <th>Shipping</th>
+        <th>${i18nService.t('checkout_page.order_summary.shipping')}</th>
         <td>${shippingText}</td>
       </tr>
       <tr class="order-table__total">
-        <th>Total</th>
+        <th>${i18nService.t('checkout_page.order_summary.total')}</th>
         <td>${formatCurrency(total)}</td>
       </tr>
     `;
@@ -200,13 +144,7 @@
     tfoot.innerHTML = footerHTML;
   }
 
-  /**
-   * Show notification message
-   * @param {String} message - Message to display
-   * @param {String} type - Notification type ('success', 'error', 'info')
-   */
   function showNotification(message, type = 'info') {
-    // Remove existing notification
     const existing = document.querySelector('.checkout-notification');
     if (existing) existing.remove();
 
@@ -214,7 +152,6 @@
     notification.className = `checkout-notification checkout-notification--${type}`;
     notification.textContent = message;
     
-    // Add styles
     notification.style.cssText = `
       position: fixed;
       top: 100px;
@@ -234,27 +171,20 @@
 
     document.body.appendChild(notification);
 
-    // Auto-remove after 3 seconds
     setTimeout(() => {
       notification.style.animation = 'slideOutRight 0.3s ease-out';
       setTimeout(() => notification.remove(), 300);
     }, 3000);
 
-    // Click to dismiss
     notification.addEventListener('click', () => {
       notification.style.animation = 'slideOutRight 0.3s ease-out';
       setTimeout(() => notification.remove(), 300);
     });
   }
 
-  /**
-   * Handle empty cart state
-   */
   function handleEmptyCart() {
-    // Show notification
-    showNotification('Your cart is empty. Redirecting to cart page...', 'info');
+    showNotification(i18nService.t('checkout_page.notifications.cart_empty_redirect'), 'info');
     
-    // Redirect to cart page after 2 seconds
     setTimeout(() => {
       window.location.href = '../cartpage/cart.html';
     }, 2000);
@@ -264,11 +194,6 @@
    * FORM VALIDATION & ORDER PLACEMENT
    * ======================================== */
 
-  /**
-   * Validate form fields
-   * @param {HTMLFormElement} form - Form element
-   * @returns {Boolean} True if valid
-   */
   function validateForm(form) {
     const requiredFields = form.querySelectorAll('[required]');
     let isValid = true;
@@ -282,53 +207,44 @@
       }
     });
 
-    // Email validation
     const emailField = form.querySelector('#email');
     if (emailField && emailField.value) {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(emailField.value)) {
         emailField.style.borderColor = '#f44336';
         isValid = false;
-        showNotification('Please enter a valid email address', 'error');
+        showNotification(i18nService.t('checkout_page.notifications.invalid_email'), 'error');
       }
     }
 
-    // Phone validation
     const phoneField = form.querySelector('#phone');
     if (phoneField && phoneField.value) {
       const phoneRegex = /^[\d\s\-\+\(\)]+$/;
       if (!phoneRegex.test(phoneField.value) || phoneField.value.length < 10) {
         phoneField.style.borderColor = '#f44336';
         isValid = false;
-        showNotification('Please enter a valid phone number', 'error');
+        showNotification(i18nService.t('checkout_page.notifications.invalid_phone'), 'error');
       }
     }
 
-    // Payment method validation
     const paymentSelected = form.querySelector('input[name="payment"]:checked');
     if (!paymentSelected) {
       isValid = false;
-      showNotification('Please select a payment method', 'error');
+      showNotification(i18nService.t('checkout_page.notifications.select_payment'), 'error');
     }
 
     return isValid;
   }
 
-  /**
-   * Handle order placement
-   * @param {Event} e - Form submit event
-   */
   function handlePlaceOrder(e) {
     e.preventDefault();
     
     const form = e.target;
     
-    // Validate form
     if (!validateForm(form)) {
       return;
     }
 
-    // Get cart items and totals
     const items = getCartItems();
     if (items.length === 0) {
       handleEmptyCart();
@@ -340,14 +256,12 @@
     const discount = calculateDiscount(subtotal, coupon);
     let shipping = SHIPPING_COST;
     
-    // Check for free shipping
     if (coupon && coupon.type === 'freeship') {
       shipping = 0;
     }
     
     const total = calculateTotal(subtotal, discount, shipping);
 
-    // Collect form data
     const formData = {
       firstName: form.querySelector('#firstName').value,
       lastName: form.querySelector('#lastName').value,
@@ -369,22 +283,19 @@
       orderDate: new Date().toISOString()
     };
 
-    // Here you would normally send the order to a backend API
-    // For now, we'll simulate success
     console.log('Order placed:', formData);
 
-    // Show success message
-    showNotification('Order placed successfully! Order ID: #' + Math.floor(Math.random() * 100000), 'success');
+    const orderId = Math.floor(Math.random() * 100000);
+    const successMsg = i18nService.t('checkout_page.notifications.order_placed_success').replace('#{orderId}', orderId);
+    showNotification(successMsg, 'success');
 
-    // Clear cart after successful order
     setTimeout(() => {
       localStorage.removeItem(CART_STORAGE_KEY);
       localStorage.removeItem(COUPON_STORAGE_KEY);
       
-      // Redirect to a success page or homepage
-      showNotification('Redirecting to homepage...', 'info');
+      showNotification(i18nService.t('checkout_page.notifications.redirecting_homepage'), 'info');
       setTimeout(() => {
-        window.location.href = '../homepage/index.html';
+        window.location.href = '../index.html';
       }, 2000);
     }, 2000);
   }
@@ -393,45 +304,33 @@
    * INITIALIZATION
    * ======================================== */
 
-  /**
-   * Initialize checkout page
-   */
   function initCheckout() {
-    // Get cart items
     const items = getCartItems();
     
-    // Check if cart is empty
     if (items.length === 0) {
       handleEmptyCart();
       return;
     }
 
-    // Get applied coupon
     const coupon = getAppliedCoupon();
-
-    // Calculate totals
     const subtotal = calculateSubtotal(items);
     const discount = calculateDiscount(subtotal, coupon);
     let shipping = SHIPPING_COST;
     
-    // Check for free shipping
     if (coupon && coupon.type === 'freeship') {
       shipping = 0;
     }
     
     const total = calculateTotal(subtotal, discount, shipping);
 
-    // Render order summary
     renderOrderItems(items);
     updateOrderTotals(subtotal, discount, coupon, shipping, total);
 
-    // Setup form submission
     const form = document.querySelector('.form');
     if (form) {
       form.addEventListener('submit', handlePlaceOrder);
     }
 
-    // Add input validation on blur
     const requiredFields = document.querySelectorAll('[required]');
     requiredFields.forEach(field => {
       field.addEventListener('blur', () => {

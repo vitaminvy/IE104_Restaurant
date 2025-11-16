@@ -1,21 +1,31 @@
-export function initPagination(totalPages = 9, onPageChange) {
-    const pagination = document.getElementById('pagination');
-    let currentPage = 1;
+import i18nService from '../assets/script/i18n-service.js';
 
-    const createPage = (num) => {
-        const page = document.createElement('a');
-        page.href = '#';
-        page.className = 'page-numbers';
-        console.log(num, "va: ", currentPage)
-        if (num === currentPage) page.classList.add('current');
-        page.textContent = num;
-        page.onclick = (e) => {
-            e.preventDefault();
-            currentPage = num;
-            renderPagination();
-            if (onPageChange) onPageChange(currentPage);
-        };
-        return page;
+export function initPagination(totalPages, currentPage, onPageChange) {
+    const pagination = document.getElementById('pagination');
+    if (!pagination) return;
+    pagination.innerHTML = '';
+
+    const createPageLink = (pageNumber, text, isDisabled = false, isCurrent = false) => {
+        const link = document.createElement('a');
+        link.href = '#';
+        link.textContent = text;
+        link.className = 'page-numbers';
+        if (isCurrent) {
+            link.classList.add('current');
+        }
+        if (isDisabled) {
+            link.classList.add('disabled');
+            link.style.pointerEvents = 'none';
+            link.style.opacity = '0.6';
+        } else {
+            link.onclick = (e) => {
+                e.preventDefault();
+                if (onPageChange) {
+                    onPageChange(pageNumber);
+                }
+            };
+        }
+        return link;
     };
 
     const addEllipsis = () => {
@@ -25,62 +35,43 @@ export function initPagination(totalPages = 9, onPageChange) {
         return span;
     };
 
-    function renderPagination() {
-        if (!pagination) return;
-        pagination.innerHTML = '';
+    // Previous Button
+    const prev = createPageLink(currentPage - 1, i18nService.t('blog_page.pagination.previous'), currentPage === 1);
+    prev.classList.add('prev');
+    pagination.appendChild(prev);
 
-        // Prev
-        const prev = document.createElement('a');
-        prev.href = '#';
-        prev.className = 'prev';
-        prev.textContent = '← Previous';
-        prev.onclick = (e) => {
-            e.preventDefault();
-            if (currentPage > 1) {
-                currentPage--;
-                renderPagination();
-                if (onPageChange) onPageChange(currentPage);
-            }
-        };
-        pagination.appendChild(prev);
+    const pageContainer = document.createElement('div');
+    pageContainer.className = 'page-numbers-container';
 
-        const pageContainer = document.createElement('div');
-        pageContainer.className = 'page-numbers-container';
+    if (totalPages <= 6) {
+        for (let i = 1; i <= totalPages; i++) {
+            pageContainer.appendChild(createPageLink(i, i, false, i === currentPage));
+        }
+    } else {
+        let start = Math.max(currentPage - 1, 2);
+        let end = Math.min(currentPage + 1, totalPages - 1);
 
-        if (totalPages <= 6) {
-            for (let i = 1; i <= totalPages; i++) pageContainer.appendChild(createPage(i));
-        } else {
-            let start = Math.max(currentPage - 1, 2);
-            let end = Math.min(currentPage + 1, totalPages - 1);
+        pageContainer.appendChild(createPageLink(1, 1, false, 1 === currentPage));
 
-            pageContainer.appendChild(createPage(1));
-
-            if (start > 2) pageContainer.appendChild(addEllipsis());
-
-            for (let i = start; i <= end; i++) pageContainer.appendChild(createPage(i));
-
-            if (end < totalPages - 1) pageContainer.appendChild(addEllipsis());
-
-            pageContainer.appendChild(createPage(totalPages));
+        if (start > 2) {
+            pageContainer.appendChild(addEllipsis());
         }
 
-        pagination.appendChild(pageContainer);
+        for (let i = start; i <= end; i++) {
+            pageContainer.appendChild(createPageLink(i, i, false, i === currentPage));
+        }
 
-        // Next
-        const next = document.createElement('a');
-        next.href = '#';
-        next.className = 'next';
-        next.textContent = 'Next →';
-        next.onclick = (e) => {
-            e.preventDefault();
-            if (currentPage < totalPages) {
-                currentPage++;
-                renderPagination();
-                if (onPageChange) onPageChange(currentPage);
-            }
-        };
-        pagination.appendChild(next);
+        if (end < totalPages - 1) {
+            pageContainer.appendChild(addEllipsis());
+        }
+
+        pageContainer.appendChild(createPageLink(totalPages, totalPages, false, totalPages === currentPage));
     }
 
-    renderPagination();
+    pagination.appendChild(pageContainer);
+
+    // Next Button
+    const next = createPageLink(currentPage + 1, i18nService.t('blog_page.pagination.next'), currentPage === totalPages);
+    next.classList.add('next');
+    pagination.appendChild(next);
 }

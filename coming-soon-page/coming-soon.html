@@ -21,9 +21,9 @@
       rel="stylesheet"
     />
     <!-- Header style -->
-      <link rel="stylesheet" href="../partials/header.css" />
+    <link rel="stylesheet" href="../partials/header.css" />
     <!-- Footer style -->
-      <link rel="stylesheet" href="../partials/footer.css" />
+    <link rel="stylesheet" href="../partials/footer.css" />
     <!-- Comming Soon Style -->
     <link rel="stylesheet" href="./coming-soon.css" />
     <!-- highlight banner -->
@@ -36,15 +36,16 @@
   <body>
     <!-- ========== 1. HEADER ========== -->
     <div data-include="/partials/header.html"></div>
+    <script type="module" src="../assets/script/lang-toggle.js" defer></script>
 
     <!-- Coming Soon -->
     <main>
       <section class="comingsoon">
         <div class="comingsoon__content">
-          <h1 class="comingsoon__title">
+          <h1 class="comingsoon__title" data-i18n="coming_soon.title">
             Subscribe Newsletter & Get Latest News
           </h1>
-          <p class="comingsoon__desc">
+          <p class="comingsoon__desc" data-i18n="coming_soon.description">
             Our being able to do what we like best, every pleasure is to be
             welcomed and every pain avoided certain.
           </p>
@@ -54,6 +55,7 @@
               type="email"
               class="comingsoon__input"
               placeholder="Enter your email address"
+              data-i18n-placeholder="coming_soon.placeholder_email"
               required
             />
             <button
@@ -81,32 +83,51 @@
           <div class="comingsoon__timer">
             <div class="comingsoon__timebox">
               <span class="comingsoon__number" id="days"></span>
-              <p class="comingsoon__label">Days</p>
+              <p class="comingsoon__label" data-i18n="coming_soon.timer.days">
+                Days
+              </p>
             </div>
             <div class="comingsoon__timebox">
               <span class="comingsoon__number" id="hours"></span>
-              <p class="comingsoon__label">Hour</p>
+              <p class="comingsoon__label" data-i18n="coming_soon.timer.hour">
+                Hour
+              </p>
             </div>
             <div class="comingsoon__timebox">
               <span class="comingsoon__number" id="minutes"></span>
-              <p class="comingsoon__label">Minutes</p>
+              <p
+                class="comingsoon__label"
+                data-i18n="coming_soon.timer.minutes"
+              >
+                Minutes
+              </p>
             </div>
             <div class="comingsoon__timebox">
               <span class="comingsoon__number" id="seconds"></span>
-              <p class="comingsoon__label">Seconds</p>
+              <p
+                class="comingsoon__label"
+                data-i18n="coming_soon.timer.seconds"
+              >
+                Seconds
+              </p>
             </div>
           </div>
 
           <a
-            href="../homepage/index.html"
+            href="../index.html"
             class="comingsoon__link link-underline"
+            data-i18n="coming_soon.go_to_home"
             >Go to Home</a
           >
         </div>
       </section>
 
       <!-- ========== 1. HIGHLIGHT BANNER SECTION ========== -->
-      <section id="highlight-banner" class="highlight-banner" style="margin-top: 0;">
+      <section
+        id="highlight-banner"
+        class="highlight-banner"
+        style="margin-top: 0"
+      >
         <div class="highlight-banner__track">
           <div class="highlight-banner__list">
             <!-- Main 4 items -->
@@ -115,7 +136,7 @@
                 src="../assets/images/home-page/highlight-banner/self_service.svg"
                 alt="Self Services"
               />
-              <span>Self Services</span>
+              <span data-i18n="home.highlight_banner.self_services">Self Services</span>
             </div>
 
             <div class="highlight-banner__item">
@@ -123,7 +144,7 @@
                 src="../assets/images/home-page/highlight-banner/best_food.svg"
                 alt="Best Food"
               />
-              <span>Best Food</span>
+              <span data-i18n="home.highlight_banner.best_food">Best Food</span>
             </div>
 
             <div class="highlight-banner__item">
@@ -131,7 +152,7 @@
                 src="../assets/images/home-page/highlight-banner/fast_delivery.svg"
                 alt="Fast Delivery"
               />
-              <span>Fast Delivery</span>
+              <span data-i18n="home.highlight_banner.fast_delivery">Fast Delivery</span>
             </div>
 
             <div class="highlight-banner__item">
@@ -139,7 +160,7 @@
                 src="../assets/images/home-page/highlight-banner/super_taste.svg"
                 alt="Super Taste"
               />
-              <span>Super Taste</span>
+              <span data-i18n="home.highlight_banner.super_taste">Super Taste</span>
             </div>
 
             <!-- Duplicate set for infinite loop -->
@@ -148,7 +169,7 @@
                 src="../assets/images/home-page/highlight-banner/self_service.svg"
                 alt="Self Services"
               />
-              <span>Self Services</span>
+              <span data-i18n="home.highlight_banner.self_services">Self Services</span>
             </div>
 
             <div class="highlight-banner__item">
@@ -156,23 +177,23 @@
                 src="../assets/images/home-page/highlight-banner/best_food.svg"
                 alt="Best Food"
               />
-              <span>Best Food</span>
+              <span data-i18n="home.highlight_banner.best_food">Best Food</span>
             </div>
 
             <div class="highlight-banner__item">
               <img
-                src="../assets/images/HomePage/HighlightBanner/fast_delivery.svg"
+                src="../assets/images/home-page/highlight-banner/fast_delivery.svg"
                 alt="Fast Delivery"
               />
-              <span>Fast Delivery</span>
+              <span data-i18n="home.highlight_banner.fast_delivery">Fast Delivery</span>
             </div>
 
             <div class="highlight-banner__item">
               <img
-                src="../assets/images/HomePage/HighlightBanner/super_taste.svg"
+                src="../assets/images/home-page/highlight-banner/super_taste.svg"
                 alt="Super Taste"
               />
-              <span>Super Taste</span>
+              <span data-i18n="home.highlight_banner.super_taste">Super Taste</span>
             </div>
           </div>
         </div>
@@ -183,5 +204,6 @@
 
     <!-- ========== 13. FOOTER ========== -->
     <div data-include="/partials/footer.html"></div>
+    <script src="../assets/script/lang-toggle.js" defer></script>
   </body>
 </html>

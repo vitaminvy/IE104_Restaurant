@@ -1,6 +1,6 @@
 import { initPagination } from './pagination.js';
-import { menuItems } from '../assets/data/mockdata.js';
-import i18nService from '../assets/script/i18n-service.js';
+import { menuItems } from '../../assets/data/mockdata.js';
+import i18nService from '../../assets/script/i18n-service.js';
 
 (function () {
   const container = document.getElementById('menu-card-container');

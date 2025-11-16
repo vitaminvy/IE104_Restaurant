@@ -4,9 +4,8 @@
  * WITHOUT modifying the original code
  * ======================================== */
 
-import { menuItems, dietaryBadges } from "../assets/data/mockdata.js";
-import i18nService from '../assets/script/i18n-service.js';
-
+import { menuItems, dietaryBadges } from "../../assets/data/mockdata.js";
+import i18nService from "../../assets/script/i18n-service.js";
 /* ========================================
  * DIETARY FILTER EXTENSION SYSTEM
  * ======================================== */

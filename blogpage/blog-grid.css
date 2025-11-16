@@ -21,7 +21,6 @@
   font-size: 0.85rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--color-white-60, rgba(255, 255, 255, 0.6));
   margin-bottom: 0.65rem;
 }
 
@@ -35,6 +34,11 @@
   gap: 0.75rem;
   justify-content: flex-end;
   align-items: center;
+}
+
+.blog-filters__actions label {
+  font-size: 0.95rem;
+  color: var(--color-dark-orange);
 }
 
 .blog-filters__pills {
@@ -71,7 +75,7 @@
   padding: 0.5rem 0.75rem;
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.15);
-  background: rgba(0, 0, 0, 0.35);
+  background: rgba(255, 255, 255, 0.05);
   color: var(--color-white);
   font-size: 0.95rem;
 }
@@ -109,13 +113,17 @@
 }
 
 .blog-timeline::before {
-  content: '';
+  content: "";
   position: absolute;
   left: 1.25rem;
   top: 0.25rem;
   bottom: 1rem;
   width: 2px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.2), rgba(251, 143, 44, 0.5));
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.2),
+    rgba(251, 143, 44, 0.5)
+  );
 }
 
 .timeline-entry {
@@ -249,7 +257,7 @@
 }
 
 .timeline-entry__readtime::before {
-  content: '•';
+  content: "•";
   color: rgba(255, 255, 255, 0.35);
 }
 

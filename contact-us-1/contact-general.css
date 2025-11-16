@@ -55,8 +55,8 @@
   cursor: pointer;
   transform: translateY(0);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-  transition: background-color 0.3s ease, color 0.3s ease,
-              transform 0.2s ease, box-shadow 0.2s ease;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 /* Text Links */
@@ -75,7 +75,7 @@
   position: absolute;
   bottom: -6px;
   left: 0;
-  width: 32%;
+  width: 58%;
   height: 2px;
   background-color: #fb8f2c;
   transform-origin: left center;
@@ -141,6 +141,9 @@ textarea:focus {
   .container {
     padding: 6rem 3rem;
   }
+  .link::after {
+    width: 28%;
+  }
 
   .section-title {
     /* Typography */
@@ -152,5 +155,8 @@ textarea:focus {
 @media (min-width: 96rem) {
   .container {
     padding: 6rem 3rem;
+  }
+  .link::after {
+    width: 32%;
   }
 }

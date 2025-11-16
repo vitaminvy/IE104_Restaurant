@@ -143,9 +143,10 @@
       "read_more": "Đọc thêm"
     },
     "newsletter": {
-      "title": "Đăng ký nhận bản tin & nhận tin tức mới nhất",
+      "title": "Đăng ký nhận bản tin & Nhận tin tức mới nhất",
       "subtitle": "Nhận quyền truy cập nội bộ vào tin tức về những đổi mới, kỹ thuật nấu ăn độc đáo, khái niệm ẩm thực, thông tin chi tiết và hơn thế nữa",
-      "placeholder_email": "Nhập địa chỉ email của bạn"
+      "placeholder_email": "Nhập địa chỉ email của bạn",
+      "success": "Đăng ký thành công! Bạn nhớ kiểm tra email nhé."
     }
   },
   "menu_page": {

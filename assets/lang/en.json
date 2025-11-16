@@ -145,7 +145,8 @@
     "newsletter": {
       "title": "Subscribe Newsletter & Get Latest News",
       "subtitle": "Get insider access to news around the innovations, unique cooking techniques, culinary concepts, insights, and more",
-      "placeholder_email": "Enter your email address"
+      "placeholder_email": "Enter your email address",
+      "success": "Thanks for subscribing! Please check your inbox."
     }
   },
   "menu_page": {

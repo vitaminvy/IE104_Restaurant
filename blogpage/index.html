@@ -31,7 +31,7 @@
   <link rel="stylesheet" href="./pagination.css">
 
   <!-- Newsletter styles -->
-  <link rel="stylesheet" href="./newsletter.css">
+  <link rel="stylesheet" href="../style/newsletter.css">
 
   <!-- Reset and global styles -->
   <link rel="stylesheet" href="../style/reset.css" />
@@ -98,41 +98,17 @@
       <button type="button" id="load-more" class="btn timeline-footer__btn" data-i18n="blog_page.load_more">Load more stories</button>
     </div>
 
-    <!-- ========== 2.5 NEWSLETTER SECTION ========== -->
-    <section id="newsletter">
-      <!-- Subscribe to Newsletter -->
-      <div class="newsletter__container">
-        <!-- newsletter image -->
-        <div class="newsletter__image animate-scale">
-          <img src="../assets/images/home-page/newsletter-section/newsletter_dish.png" alt="Healthy food plate"
-            loading="lazy" />
-          <img src="../assets/images/home-page/newsletter-section/newsletter_star.svg" alt="decoration"
-            class="newsletter__star" />
-        </div>
-        <!-- newsletter body content -->
-        <div class="newsletter__content animate-slide-right">
-          <h2 class="newsletter__title"  data-i18n="home.newsletter.title">
-            Subscribe to Newsletter & Get Latest News
-          </h2>
-          <p class="newsletter__subtitle" data-i18n="home.newsletter.subtitle">
-            Get insider access to news about innovations, unique cooking
-            techniques, culinary concepts, insights, and more
-          </p>
-
-          <form class="newsletter__form">
-            <input type="email" data-i18n-placeholder="home.newsletter.placeholder_email" placeholder="Enter your email address" required />
-            <button type="submit" class="newsletter__submit">
-              <i class="fa-solid fa-paper-plane"></i>
-            </button>
-          </form>
-        </div>
-      </div>
-    </section>
   </main>
+
+  <!-- ========== 2.5 NEWSLETTER SECTION ========== -->
+  <section class="newsletter-shell">
+    <div data-include="/partials/newsletter.html"></div>
+  </section>
 
   <!-- ========== 2.6 FOOTER PLACEHOLDER ========== -->
   <div data-include="/partials/footer.html"></div>
   <script type="module" src="../assets/script/lang-toggle.js" defer></script>
+  <script src="../assets/script/newsletter.js" defer></script>
 </body>
 
 </html>

@@ -37,7 +37,7 @@
     <!--discover menu section-->
     <link rel="stylesheet" href="./homepage/discover-menu.css" />
     <!-- newsletter section -->
-    <link rel="stylesheet" href="./homepage/newsletter.css" />
+    <link rel="stylesheet" href="./style/newsletter.css" />
     <!-- highlight banner -->
     <link rel="stylesheet" href="./homepage/highlight-banner.css" />
     <!-- daily  offer -->
@@ -1010,48 +1010,8 @@
     </section>
 
     <!-- ========== 14. NEWSLETTER ========== -->
-    <section id="newsletter">
-      <!-- Subscribe to Newsletter -->
-      <div class="newsletter__container">
-        <!-- newsletter image -->
-        <div class="newsletter__image animate-scale">
-          <img
-            src="./assets/images/home-page/newsletter-section/newsletter_dish.png"
-            alt="Healthy food plate"
-            loading="lazy"
-          />
-          <img
-            src="./assets/images/home-page/newsletter-section/newsletter_star.svg"
-            alt="decoration"
-            class="newsletter__star"
-          />
-        </div>
-        <!-- newsletter body content -->
-        <div class="newsletter__content">
-          <h2 class="newsletter__title animate-slide-right" data-i18n="home.newsletter.title">
-            Subscribe Newsletter & Get Latest News
-          </h2>
-          <p class="newsletter__subtitle" data-i18n="home.newsletter.subtitle">
-            Get insider access to news around the innovations, unique cooking
-            techniques, culinary concepts, insights, and more
-          </p>
-
-          <form class="newsletter__form" id="newsletter-form">
-            <input
-              type="email"
-              name="email"
-              data-i18n-placeholder="home.newsletter.placeholder_email"
-              placeholder="Enter your email address"
-              required
-              data-error-required="Please enter your email address"
-              data-error-email="Please enter a valid email address"
-            />
-            <button type="submit" class="newsletter__submit">
-              <i class="fa-solid fa-paper-plane"></i>
-            </button>
-          </form>
-        </div>
-      </div>
+    <section class="newsletter-shell">
+      <div data-include="/partials/newsletter.html"></div>
     </section>
 
     <!-- ========== 15. FOOTER ========== -->
@@ -1068,5 +1028,6 @@
     <script src="./newsletter-handler.js"></script>
 
     <script src="./assets/script/lang-toggle.js" defer></script>
+    <script src="./assets/script/newsletter.js" defer></script>
   </body>
 </html>

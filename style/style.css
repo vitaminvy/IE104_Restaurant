@@ -10,13 +10,13 @@ html[data-theme="dark"] {
 }
 
 html[data-theme="light"] {
-  --bg-primary: #ffffff;
-  --bg-secondary: #f0f0f0;
-  --text-primary: #111114;
-  --text-secondary: #333333;
-  --text-muted: #555555;
+  --bg-primary: #fafafa;
+  --bg-secondary: #ffffff;
+  --text-primary: #1e293b;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
   --accent-color: #fb8f2c;
-  --border-color: #e0e0e0;
+  --border-color: #e2e8f0;
   --icon-filter: brightness(0) invert(0);
 }
 
@@ -209,10 +209,10 @@ h4 {
   font-size: 16px;
   text-align: center;
   text-decoration: none;
-  color: var(--text-primary);
+  color: #ffffff; /* Force white text on accent color */
 
   /* Background / Others */
-  background-color: var(--color-dark-orange);
+  background-color: var(--accent-color);
 
   cursor: pointer;
   transform: translateY(0);
@@ -253,8 +253,8 @@ h4 {
   box-shadow: 0 8px 25px rgba(251, 143, 44, 0.3);
 
   /* Background / Others */
-  background-color: var(--color-dark-orange);
-  border-color: var(--color-dark-orange);
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
   color: #000;
 }
 

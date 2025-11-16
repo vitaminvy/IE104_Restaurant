@@ -487,12 +487,12 @@
 .page-btn:hover:not(:disabled) {
   background: var(--accent-color);
   border-color: var(--accent-color);
-  color: #000;
+  color: #ffffff;
   transform: translateY(-2px);
 }
 .page-btn.active {
   background: var(--accent-color);
-  color: #000;
+  color: #ffffff;
   border-color: var(--accent-color);
 }
 .page-btn:disabled {
@@ -526,6 +526,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  color: var(--accent-color);
 }
 .fa-cart-shopping {
   width: 100%;

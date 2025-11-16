@@ -79,8 +79,8 @@
 }
 
 .pagination .page-numbers.current {
-  background-color: var(--color-dark-orange);
-  color: var(--text-primary);
+  background-color: var(--accent-color);
+  color: #ffffff;
   font-weight: 600;
 }
 

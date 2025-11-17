@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OTP Verification | IE104 Restaurant</title>
+
+    <!-- CSS global -->
+    <link rel="stylesheet" href="../style/reset.css" />
+    <link rel="stylesheet" href="../style/style.css" />
+
+    <!-- Auth styles -->
+    <link rel="stylesheet" href="./auth-styles.css" />
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Global Animation System -->
+    <link rel="stylesheet" href="../style/animations.css" />
+  </head>
+
+  <body>
+    <div class="auth-page">
+      <div class="auth-container">
+        <!-- Back Button -->
+        <button class="auth-back-btn" onclick="window.history.back()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          Back
+        </button>
+
+        <!-- Header -->
+        <div class="auth-header">
+          <a href="../index.html">
+            <img
+              src="../assets/icons/header/nav-vect.svg"
+              alt="Restaurant Logo"
+              class="auth-logo"
+            />
+          </a>
+          <h1 class="auth-title">Enter Verification Code</h1>
+          <p class="auth-subtitle" id="otp-subtitle">
+            We sent a 6-digit code to <strong id="masked-email"></strong>
+          </p>
+        </div>
+
+        <!-- Alert Container -->
+        <div id="alert-container"></div>
+
+        <!-- OTP Form -->
+        <form class="auth-form" id="otp-form">
+          <!-- OTP Inputs -->
+          <div class="auth-otp-inputs">
+            <input
+              type="text"
+              class="auth-otp-input"
+              id="otp-1"
+              maxlength="1"
+              pattern="[0-9]"
+              inputmode="numeric"
+              autocomplete="off"
+              required
+            />
+            <input
+              type="text"
+              class="auth-otp-input"
+              id="otp-2"
+              maxlength="1"
+              pattern="[0-9]"
+              inputmode="numeric"
+              autocomplete="off"
+              required
+            />
+            <input
+              type="text"
+              class="auth-otp-input"
+              id="otp-3"
+              maxlength="1"
+              pattern="[0-9]"
+              inputmode="numeric"
+              autocomplete="off"
+              required
+            />
+            <input
+              type="text"
+              class="auth-otp-input"
+              id="otp-4"
+              maxlength="1"
+              pattern="[0-9]"
+              inputmode="numeric"
+              autocomplete="off"
+              required
+            />
+            <input
+              type="text"
+              class="auth-otp-input"
+              id="otp-5"
+              maxlength="1"
+              pattern="[0-9]"
+              inputmode="numeric"
+              autocomplete="off"
+              required
+            />
+            <input
+              type="text"
+              class="auth-otp-input"
+              id="otp-6"
+              maxlength="1"
+              pattern="[0-9]"
+              inputmode="numeric"
+              autocomplete="off"
+              required
+            />
+          </div>
+
+          <!-- Resend Section -->
+          <div class="auth-resend-wrapper">
+            <p class="auth-resend-text">
+              Didn't receive the code?
+              <button
+                type="button"
+                class="auth-resend-btn"
+                id="resend-btn"
+                disabled
+              >
+                Resend
+              </button>
+              <span class="auth-resend-timer" id="resend-timer">(60s)</span>
+            </p>
+          </div>
+
+          <!-- Verify Button -->
+          <button type="submit" class="auth-btn" id="verify-btn">
+            <span class="btn-text">Verify Code</span>
+          </button>
+        </form>
+
+        <!-- Footer -->
+        <div class="auth-footer-text">
+          Wrong email?
+          <a href="./forgot-password.html">Try another email</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module" src="./otp-verification.js"></script>
+  </body>
+</html>

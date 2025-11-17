@@ -154,7 +154,7 @@
 @media (min-width: 64rem) {
   #discover {
     text-align: left;
-    padding: 0rem 3rem;
+    padding: 6rem 3rem;
     margin-top: 6rem;
   }
 
@@ -174,7 +174,7 @@
 /* xl (≥1280px): large desktop */
 @media (min-width: 80rem) {
   #discover {
-    padding: 0rem 4rem;
+    padding: 6rem 4rem;
     margin-top: 7rem;
   }
 

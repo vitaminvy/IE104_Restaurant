@@ -24,12 +24,11 @@
       transparent 55%
     );
   pointer-events: none;
-  animation: driftGlow 18s ease-in-out infinite;
 }
 
 .daily-offers__container {
   max-width: 1280px;
-  margin: 0 auto;
+  margin: 1.5rem auto 3rem;
   position: relative;
 }
 
@@ -39,7 +38,7 @@
   font-family: var(--font-heading);
   font-size: 2rem;
   font-weight: 700;
-  margin-bottom: 3.5rem;
+  margin-bottom: 1.5rem;
 }
 
 /* Layout */
@@ -69,16 +68,15 @@
 .daily-offers__surface::after {
   content: "";
   position: absolute;
-  inset: -40%;
+  inset: 0;
   border-radius: inherit;
   background: radial-gradient(
-    circle,
-    rgba(255, 143, 44, 0.08),
-    transparent 45%
+    circle at 50% 50%,
+    rgba(255, 143, 44, 0.06),
+    transparent 60%
   );
-  filter: blur(80px);
-  opacity: 0.6;
-  animation: surfacePulse 12s ease-in-out infinite;
+  filter: blur(60px);
+  opacity: 0.5;
   pointer-events: none;
   z-index: -1;
 }
@@ -229,11 +227,15 @@
 /* Desktop ≥1024px */
 @media (min-width: 64rem) {
   .daily-offers__container {
-    margin-top: 5rem;
+    margin-top: 2.5rem;
   }
   .daily-offers__title {
     font-size: 3rem;
   }
+
+  .daily-offers__title {
+    margin-bottom: 2rem;
+  } 
 
   .daily-offers__promo-link {
     max-width: 620px;
@@ -260,12 +262,16 @@
 @media (min-width: 80rem) {
   .daily-offers__container {
     max-width: 1400px;
-    margin-top: 8rem;
+    margin-top: 3rem;
   }
 
   .daily-offers__content {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 6rem;
+  }
+
+  .daily-offers__title {
+    margin-bottom: 2rem;
   }
 
   .daily-offers__title {
@@ -311,6 +317,10 @@
 
   .daily-offers__item-price {
     align-self: flex-end;
+  }
+
+  .daily-offers__title {
+    margin-bottom: 1.5rem;
   }
 }
 

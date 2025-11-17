@@ -392,7 +392,7 @@
 /* ========== RESPONSIVE DESIGN ========== */
 
 /* Mobile */
-@media (max-width: 640px) {
+@media (max-width: 1024px) {
   .allergy-settings-trigger {
     /* Box model */
     padding: 0.625rem 0.8rem;
@@ -414,3 +414,4 @@
     flex-direction: column;
   }
 }
+

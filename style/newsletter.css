@@ -105,7 +105,6 @@
   z-index: 0;
   width: 100%;
   max-width: 100%;
-  aspect-ratio: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -239,7 +238,7 @@
 /* sm (≥640px) */
 @media (min-width: 640px) {
   .newsletter__title {
-    font-size: 1.8rem;
+    font-size: 1.4rem;
   }
 }
 

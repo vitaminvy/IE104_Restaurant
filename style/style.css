@@ -10,7 +10,7 @@ html[data-theme="dark"] {
 }
 
 html[data-theme="light"] {
-  --bg-primary: #fafafa;
+  --bg-primary: #f1f1df;
   --bg-secondary: #ffffff;
   --text-primary: #1e293b;
   --text-secondary: #475569;
@@ -31,7 +31,8 @@ body {
 
 * {
   box-sizing: border-box;
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, filter 0.3s ease, box-shadow 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease,
+    border-color 0.3s ease, filter 0.3s ease, box-shadow 0.3s ease;
 }
 
 #statistics {
@@ -218,8 +219,8 @@ h4 {
   transform: translateY(0);
 
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-  transition: background-color 0.3s ease, color 0.3s ease,
-              transform 0.2s ease, box-shadow 0.2s ease;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 /* Hover gradient overlay */

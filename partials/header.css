@@ -267,8 +267,8 @@ html[data-theme="light"] .header__nav {
   }
 }
 
-/* ========== THEME TOGGLE BUTTON ========== */
-.theme-toggle-btn {
+/* ========== HEADER ACTION BUTTONS (THEME, LANG) ========== */
+.header-action-btn {
   background-color: transparent;
   border: 1px solid transparent;
   border-radius: 50%;
@@ -279,66 +279,49 @@ html[data-theme="light"] .header__nav {
   justify-content: center;
   cursor: pointer;
   padding: 0;
+  position: relative; /* For icon positioning */
   transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
-.theme-toggle-btn:hover {
+.header-action-btn:hover {
   background-color: var(--bg-secondary);
   border-color: var(--border-color);
 }
 
+/* Specific styles for theme toggle */
 .theme-toggle-btn svg {
   width: 20px;
   height: 20px;
   transition: transform 0.4s ease, opacity 0.3s ease;
-  position: absolute;
-}
-
-.theme-toggle-btn .sun-icon {
-  stroke: var(--accent-color);
-}
-
-.theme-toggle-btn .moon-icon {
+  position: absolute; /* Positioned relative to .header-action-btn */
   stroke: var(--accent-color);
 }
 
 /* Hide moon in light mode, sun in dark mode */
-html[data-theme="light"] .moon-icon {
+html[data-theme="light"] .theme-toggle-btn .moon-icon {
   transform: scale(0);
   opacity: 0;
 }
-html[data-theme="dark"] .sun-icon {
+html[data-theme="dark"] .theme-toggle-btn .sun-icon {
   transform: scale(0);
   opacity: 0;
 }
 
-html[data-theme="light"] .sun-icon {
+html[data-theme="light"] .theme-toggle-btn .sun-icon {
   transform: scale(1);
   opacity: 1;
 }
-html[data-theme="dark"] .moon-icon {
+html[data-theme="dark"] .theme-toggle-btn .moon-icon {
   transform: scale(1);
   opacity: 1;
 }
 
-/* ===================== LANGUAGE TOGGLE ===================== */
-.language-toggle {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: transparent;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-}
-
-#language-flag {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-#language-flag:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+/* Specific styles for language toggle */
+.language-toggle__flag {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 /* When mobile nav is open, hide other floating UI elements */

@@ -60,7 +60,7 @@ function initHeaderFeatures() {
   // --- THEME TOGGLE ---
   function createThemeToggle() {
     const button = document.createElement('button');
-    button.className = 'theme-toggle-btn';
+    button.className = 'header-action-btn theme-toggle-btn';
     button.setAttribute('aria-label', 'Toggle theme');
     button.innerHTML = `
       <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg>
@@ -82,15 +82,12 @@ function initHeaderFeatures() {
   // --- LANGUAGE TOGGLE (HEADER) ---
   function createHeaderLanguageToggle() {
     const button = document.createElement('button');
-    button.className = 'language-toggle';
+    button.className = 'header-action-btn language-toggle';
     button.setAttribute('aria-label', 'Switch language');
     
     const flagImg = document.createElement('img');
     flagImg.id = 'language-flag';
-    flagImg.style.width = '28px';
-    flagImg.style.height = '28px';
-    flagImg.style.objectFit = 'cover';
-    flagImg.style.borderRadius = '50%';
+    flagImg.className = 'language-toggle__flag';
     button.appendChild(flagImg);
 
     button.addEventListener('click', () => {

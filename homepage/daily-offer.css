@@ -323,6 +323,27 @@
 }
 
 /* =========================================================
+   LIGHT MODE OVERRIDES
+========================================================= */
+html[data-theme="light"] .daily-offers__surface {
+  background: #f1f1df; /* Cream color */
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+html[data-theme="light"] .daily-offers__item {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+html[data-theme="light"] .daily-offers__item-img {
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+html[data-theme="light"] .daily-offers__promo-link {
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+/* =========================================================
    ANIMATIONS
 ========================================================= */
 @keyframes surfacePulse {

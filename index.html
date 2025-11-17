@@ -668,96 +668,112 @@
     <!-- ========== 11. DAILY OFFERS ========== -->
     <section id="daily-offers" class="daily-offers">
       <div class="daily-offers__container">
-        <h2 class="daily-offers__title animate-slide-up" data-i18n="home.daily_offers.title">
+        <h2
+          class="daily-offers__title animate-on-scroll animate-slide-up"
+          data-i18n="home.daily_offers.title"
+        >
           Our Daily Offers
         </h2>
 
-        <div class="daily-offers__content">
-          <!-- LEFT: Promo Banner click to route to order page -->
-          <a
-            href="./menupage/index.html"
-            class="daily-offers__promo-link  animate-scale"
-            aria-label="Go to Order Page"
-          >
-            <img
-              src="./assets/images/home-page/daily-offer/daily-offer-banner.png"
-              alt="Lunch Time 30% Off"
-              class="daily-offers__promo-img"
-            />
-          </a>
-
-          <!-- RIGHT: Offer List -->
-          <div class="daily-offers__list stagger-children">
-            <div class="daily-offers__item animate-slide-right">
+        <div class="daily-offers__surface">
+          <div class="daily-offers__content">
+            <!-- LEFT: Promo Banner click to route to order page -->
+            <a
+              href="./menupage/index.html"
+              class="daily-offers__promo-link animate-scale animate-on-scroll"
+              aria-label="Go to Order Page"
+            >
               <img
-                src="./assets/images/home-page/daily-offer/spicy-club.png"
-                alt="Spicy Club"
-                class="daily-offers__item-img"
+                src="./assets/images/home-page/daily-offer/daily-offer-banner.png"
+                alt="Lunch Time 30% Off"
+                class="daily-offers__promo-img"
               />
-              <div class="daily-offers__item-info">
-                <h3
-                  class="daily-offers__item-title"
-                  data-i18n="home.daily_offers.item1.title"
-                >
-                  Spicy Club
-                </h3>
-                <p
-                  class="daily-offers__item-desc"
-                  data-i18n="home.daily_offers.item1.description"
-                >
-                  Pork, chicken and vegetable fried rolls served with lettuce
-                  wraps
-                </p>
-              </div>
-              <span class="daily-offers__item-price">$42</span>
-            </div>
+              <span
+                class="daily-offers__promo-cta"
+                data-i18n="home.daily_offers.cta"
+                >Order now</span
+              >
+            </a>
 
-            <div class="daily-offers__item animate-slide-right">
-              <img
-                src="./assets/images/home-page/daily-offer/baked-brie.png"
-                alt="Almond Baked Brie"
-                class="daily-offers__item-img"
-              />
-              <div class="daily-offers__item-info">
-                <h3
-                  class="daily-offers__item-title"
-                  data-i18n="home.daily_offers.item2.title"
-                >
-                  Almond Baked Brie
-                </h3>
-                <p
-                  class="daily-offers__item-desc"
-                  data-i18n="home.daily_offers.item2.description"
-                >
-                  Pork, chicken and vegetable fried rolls served with lettuce
-                  wraps
-                </p>
+            <!-- RIGHT: Offer List -->
+            <div class="daily-offers__list stagger-children">
+              <div
+                class="daily-offers__item animate-on-scroll animate-slide-right"
+              >
+                <img
+                  src="./assets/images/home-page/daily-offer/spicy-club.png"
+                  alt="Spicy Club"
+                  class="daily-offers__item-img"
+                />
+                <div class="daily-offers__item-info">
+                  <h3
+                    class="daily-offers__item-title"
+                    data-i18n="home.daily_offers.item1.title"
+                  >
+                    Spicy Club
+                  </h3>
+                  <p
+                    class="daily-offers__item-desc"
+                    data-i18n="home.daily_offers.item1.description"
+                  >
+                    Pork, chicken and vegetable fried rolls served with lettuce
+                    wraps
+                  </p>
+                </div>
+                <span class="daily-offers__item-price">$42</span>
               </div>
-              <span class="daily-offers__item-price">$38</span>
-            </div>
 
-            <div class="daily-offers__item animate-slide-right">
-              <img
-                src="./assets/images/home-page/daily-offer/flat-bread.png"
-                alt="Tuscan Flatbread"
-                class="daily-offers__item-img"
-              />
-              <div class="daily-offers__item-info">
-                <h3
-                  class="daily-offers__item-title"
-                  data-i18n="home.daily_offers.item3.title"
-                >
-                  Tuscan Flatbread
-                </h3>
-                <p
-                  class="daily-offers__item-desc"
-                  data-i18n="home.daily_offers.item3.description"
-                >
-                  Pork, chicken and vegetable fried rolls served with lettuce
-                  wraps
-                </p>
+              <div
+                class="daily-offers__item animate-on-scroll animate-slide-right"
+              >
+                <img
+                  src="./assets/images/home-page/daily-offer/baked-brie.png"
+                  alt="Almond Baked Brie"
+                  class="daily-offers__item-img"
+                />
+                <div class="daily-offers__item-info">
+                  <h3
+                    class="daily-offers__item-title"
+                    data-i18n="home.daily_offers.item2.title"
+                  >
+                    Almond Baked Brie
+                  </h3>
+                  <p
+                    class="daily-offers__item-desc"
+                    data-i18n="home.daily_offers.item2.description"
+                  >
+                    Pork, chicken and vegetable fried rolls served with lettuce
+                    wraps
+                  </p>
+                </div>
+                <span class="daily-offers__item-price">$38</span>
               </div>
-              <span class="daily-offers__item-price">$49</span>
+
+              <div
+                class="daily-offers__item animate-on-scroll animate-slide-right"
+              >
+                <img
+                  src="./assets/images/home-page/daily-offer/flat-bread.png"
+                  alt="Tuscan Flatbread"
+                  class="daily-offers__item-img"
+                />
+                <div class="daily-offers__item-info">
+                  <h3
+                    class="daily-offers__item-title"
+                    data-i18n="home.daily_offers.item3.title"
+                  >
+                    Tuscan Flatbread
+                  </h3>
+                  <p
+                    class="daily-offers__item-desc"
+                    data-i18n="home.daily_offers.item3.description"
+                  >
+                    Pork, chicken and vegetable fried rolls served with lettuce
+                    wraps
+                  </p>
+                </div>
+                <span class="daily-offers__item-price">$49</span>
+              </div>
             </div>
           </div>
         </div>
@@ -799,11 +815,9 @@
                   required
                   minlength="2"
                   data-error-required="Please enter your name"
-                  data-error-minLength="Name must be at least 2 characters" 
-                                 data-i18n-placeholder="home.reservation.placeholder_name"
-                  placeholder="Your name"
-                  required   
-                  />
+                  data-error-minLength="Name must be at least 2 characters"
+                  data-i18n-placeholder="home.reservation.placeholder_name"
+                />
                 <img
                   src="./assets/icons/home-page/resvervation-section/profile.svg"
                   alt="profile icon"
@@ -818,11 +832,9 @@
                   placeholder="Phone number"
                   required
                   data-error-required="Please enter your phone number"
-                  data-error-phone="Please enter a valid phone number" 
-                                    data-i18n-placeholder="home.reservation.placeholder_phone"
-                  placeholder="Phone number"
-                  required
-                  />
+                  data-error-phone="Please enter a valid phone number"
+                  data-i18n-placeholder="home.reservation.placeholder_phone"
+                />
                 <img
                   src="./assets/icons/home-page/resvervation-section/phone.svg"
                   alt="phone icon"
@@ -837,11 +849,9 @@
                   placeholder="Email address"
                   required
                   data-error-required="Please enter your email address"
-                  data-error-email="Please enter a valid email address" 
-                                    data-i18n-placeholder="home.reservation.placeholder_email"
-                  placeholder="Email address"
-                  required
-                  />
+                  data-error-email="Please enter a valid email address"
+                  data-i18n-placeholder="home.reservation.placeholder_email"
+                />
                 <img
                   src="./assets/icons/home-page/resvervation-section/message.svg"
                   alt="email icon"
@@ -896,7 +906,8 @@
                   name="date"
                   required
                   data-error-required="Please select a date"
-                  data-error-date="Please select a valid date" />
+                  data-error-date="Please select a valid date"
+                />
                 <img
                   src="./assets/icons/home-page/resvervation-section/calendar.svg"
                   alt="calendar icon"
@@ -910,7 +921,8 @@
                   name="time"
                   required
                   data-error-required="Please select a time"
-                  data-error-time="Please select a valid time" />
+                  data-error-time="Please select a valid time"
+                />
                 <img
                   src="./assets/icons/home-page/resvervation-section/clock.svg"
                   alt="clock icon"
@@ -955,65 +967,161 @@
           </a>
         </div>
 
-        <!-- Blog cards -->
-        <div class="blogs__grid stagger-children">
-          <!-- Blog 1 -->
-          <article class="blog-card animate-scale">
-            <div class="blog-card__image-wrapper">
-              <img
-                src="./assets/images/home-page/explore-section/blog-drink.png"
-                alt="New Restaurant In Town"
-                class="blog-card__image"
-              />
-            </div>
-            <div class="blog-card__content">
-              <h3 class="blog-card__title" data-i18n="home.blogs.card1.title">
-                New Restaurant In Town That Looking Think That
-              </h3>
-              <div class="blog-card__meta">
-                <span>August 6, 2025</span>
-                <span class="blog-card__dot">•</span>
-                <span data-i18n="home.blogs.card1.author">By Admin</span>
+        <div class="blogs__layout">
+          <div class="blogs__stories stagger-children">
+            <article class="blog-hero-card animate-scale">
+              <div class="blog-hero-card__media">
+                <img
+                  src="./assets/images/home-page/explore-section/blog-restaurant.png"
+                  alt="Restaurant interior"
+                />
               </div>
-              <hr class="blog-card__divider" />
-              <a
-                href="./blogpage-details/index.html"
-                class="blog-card__readmore link-underline"
-                data-i18n="home.blogs.read_more"
-              >
-                Read more <span class="blog-card__arrow">→</span>
-              </a>
-            </div>
-          </article>
+              <div class="blog-hero-card__body">
+                <p
+                  class="blog-hero-card__category"
+                  data-i18n="home.blogs.hero.category"
+                >
+                  Chef's Journal
+                </p>
+                <h3
+                  class="blog-hero-card__title"
+                  data-i18n="home.blogs.card1.title"
+                >
+                  New Restaurant In Town That Looking Think That
+                </h3>
+                <p
+                  class="blog-hero-card__excerpt"
+                  data-i18n="home.blogs.hero.excerpt"
+                >
+                  Chef Mateo shares the menu architecture behind the city's most
+                  talked about opening and how he layers nostalgia with neon
+                  energy.
+                </p>
+                <div class="blog-hero-card__meta">
+                  <span data-i18n="home.blogs.hero.date">August 6, 2025</span>
+                  <span class="blog-card__dot">•</span>
+                  <span data-i18n="home.blogs.card1.author">By Admin</span>
+                </div>
+                <a
+                  href="./blogpage-details/index.html"
+                  class="blog-hero-card__cta"
+                  data-i18n="home.blogs.read_more"
+                >
+                  Read more
+                </a>
+              </div>
+            </article>
 
-          <!-- Blog 2 -->
-          <article class="blog-card animate-scale">
-            <div class="blog-card__image-wrapper">
-              <img
-                src="./assets/images/home-page/explore-section/blog-restaurant.png"
-                alt="Summer Drink With Raspberries"
-                class="blog-card__image"
-              />
-            </div>
-            <div class="blog-card__content">
-              <h3 class="blog-card__title" data-i18n="home.blogs.card2.title">
-                Summer Drink With Raspberries, Lime And Ice
-              </h3>
-              <div class="blog-card__meta">
-                <span>August 6, 2025</span>
-                <span class="blog-card__dot">•</span>
-                <span data-i18n="home.blogs.card2.author">By Admin</span>
+            <article class="blog-mini-card animate-scale">
+              <div class="blog-mini-card__image">
+                <img
+                  src="./assets/images/home-page/explore-section/blog-drink.png"
+                  alt="Summer cocktail"
+                />
               </div>
-              <hr class="blog-card__divider" />
-              <a
-                href="./blogpage-details/index.html"
-                class="blog-card__readmore link-underline"
-                data-i18n="home.blogs.read_more"
-              >
-                Read more <span class="blog-card__arrow">→</span>
-              </a>
+              <div class="blog-mini-card__body">
+                <p
+                  class="blog-mini-card__label"
+                  data-i18n="home.blogs.hero.secondary_category"
+                >
+                  Behind the Bar
+                </p>
+                <h4 data-i18n="home.blogs.card2.title">
+                  Summer Drink With Raspberries, Lime And Ice
+                </h4>
+                <p data-i18n="home.blogs.hero.secondary_excerpt">
+                  Layer botanical syrups with citrus oils for a cocktail that
+                  glows like sunset.
+                </p>
+                <a
+                  href="./blogpage-details/index.html"
+                  class="blog-mini-card__cta link-underline"
+                  data-i18n="home.blogs.read_more"
+                  >Read more</a
+                >
+              </div>
+            </article>
+          </div>
+
+          <aside class="blogs__timeline animate-scale">
+            <div class="blogs__timeline-header">
+              <p data-i18n="home.blogs.hero.timeline_heading">
+                Fresh from the test kitchen
+              </p>
             </div>
-          </article>
+            <div class="blogs__timeline-track">
+              <div class="blogs__timeline-item animate-on-scroll animate-fade">
+                <div class="blogs__timeline-dot"></div>
+                <div class="blogs__timeline-content">
+                  <p
+                    class="blogs__timeline-date"
+                    data-i18n="home.blogs.hero.timeline.item1.date"
+                  >
+                    Aug 02
+                  </p>
+                  <h4 data-i18n="home.blogs.hero.timeline.item1.title">
+                    5 plating secrets you can borrow
+                  </h4>
+                  <p data-i18n="home.blogs.hero.timeline.item1.description">
+                    Minimal tools transform simple dishes into layered canvases
+                    with dimension.
+                  </p>
+                  <a
+                    href="./blogpage-details/index.html"
+                    class="blogs__timeline-link link-underline"
+                    >Read more</a
+                  >
+                </div>
+              </div>
+              <div class="blogs__timeline-item animate-on-scroll animate-fade">
+                <div class="blogs__timeline-dot"></div>
+                <div class="blogs__timeline-content">
+                  <p
+                    class="blogs__timeline-date"
+                    data-i18n="home.blogs.hero.timeline.item2.date"
+                  >
+                    Jul 28
+                  </p>
+                  <h4 data-i18n="home.blogs.hero.timeline.item2.title">
+                    Ferment pantry starters for depth
+                  </h4>
+                  <p data-i18n="home.blogs.hero.timeline.item2.description">
+                    How we build quick ferments that turbocharge broths,
+                    dressings, and dessert sauces.
+                  </p>
+                  <a
+                    href="./blogpage-details/index.html"
+                    class="blogs__timeline-link link-underline"
+                    >Read more</a
+                  >
+                </div>
+              </div>
+              <div class="blogs__timeline-item animate-on-scroll animate-fade">
+                <div class="blogs__timeline-dot"></div>
+                <div class="blogs__timeline-content">
+                  <p
+                    class="blogs__timeline-date"
+                    data-i18n="home.blogs.hero.timeline.item3.date"
+                  >
+                    Jul 20
+                  </p>
+                  <h4 data-i18n="home.blogs.hero.timeline.item3.title">
+                    Zero-waste desserts worth repeating
+                  </h4>
+                  <p data-i18n="home.blogs.hero.timeline.item3.description">
+                    Re-spin trim, pits, and peels into mochi bites with
+                    caramelized depth.
+                  </p>
+                  <a
+                    href="./blogpage-details/index.html"
+                    class="blogs__timeline-link link-underline"
+                    >Read more</a
+                  >
+                </div>
+              </div>
+            </div>
+            
+          </aside>
         </div>
       </div>
     </section>

@@ -101,6 +101,7 @@
     },
     "daily_offers": {
       "title": "Our Daily Offers",
+      "cta": "Order now",
       "item1": {
         "title": "Spicy Club",
         "description": "Pork, chicken and vegetable fried rolls served with lettuce wraps"
@@ -132,6 +133,32 @@
       "title": "Explore Blogs",
       "subtitle": "Explore the most popular blogs from the WowWraps community. A constantly updating list of the best minds in restaurant.",
       "link": "Explore All Blogs",
+      "hero": {
+        "badge": "Editor's pick",
+        "category": "Chef's Journal",
+        "excerpt": "Chef Mateo shares the menu architecture behind the city's most talked about opening and how he layers nostalgia with neon energy.",
+        "date": "August 6, 2025",
+        "secondary_category": "Behind the Bar",
+        "secondary_excerpt": "Layer botanical syrups with citrus oils for a cocktail that glows like sunset.",
+        "timeline_heading": "Fresh from the test kitchen",
+        "timeline": {
+          "item1": {
+            "date": "Aug 02",
+            "title": "5 plating secrets you can borrow",
+            "description": "Minimal tools transform simple dishes into layered canvases with dimension."
+          },
+          "item2": {
+            "date": "Jul 28",
+            "title": "Ferment pantry starters for depth",
+            "description": "How we build quick ferments that turbocharge broths, dressings, and dessert sauces."
+          },
+          "item3": {
+            "date": "Jul 20",
+            "title": "Zero-waste desserts worth repeating",
+            "description": "Re-spin trim, pits, and peels into mochi bites with caramelized depth."
+          }
+        }
+      },
       "card1": {
         "title": "New Restaurant In Town That Looking Think That",
         "author": "By Admin"

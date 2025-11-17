@@ -3,7 +3,7 @@
     "home": "Home",
     "menu": "Menu",
     "blog": "Blog",
-    "pages": "Pages",
+    "order": "Order",
     "contact": "Contact"
   },
   "header": {
@@ -937,6 +937,15 @@
       "free_shipping": "FREE",
       "coupon_applied": "Coupon applied"
     }
+  },
+  "weekdays": {
+    "0": "Sunday",
+    "1": "Monday",
+    "2": "Tuesday",
+    "3": "Wednesday",
+    "4": "Thursday",
+    "5": "Friday",
+    "6": "Saturday"
   },
   "about_page": {
     "title": "About Us",

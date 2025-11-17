@@ -503,20 +503,32 @@
   color: var(--color-dark-orange, #fb8f2c);
 }
 
-.tracker__contact-btn {
+.tracker__actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.tracker__contact-btn,
+.tracker__update-btn,
+.tracker__reorder-btn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
   padding: 12px 24px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 10px;
-  color: rgba(255, 255, 255, 0.9);
   font-size: 14px;
   font-weight: 600;
   font-family: var(--font-body, 'Plus Jakarta Sans');
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  border: 1px solid;
+}
+
+.tracker__contact-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .tracker__contact-btn:hover {
@@ -527,10 +539,44 @@
   box-shadow: 0 4px 16px rgba(251, 143, 44, 0.2);
 }
 
-.tracker__contact-btn svg {
+.tracker__update-btn {
+  background: var(--color-dark-orange, #fb8f2c);
+  border-color: var(--color-dark-orange, #fb8f2c);
+  color: var(--color-white, #fff);
+}
+
+.tracker__update-btn:hover {
+  background: #e8803c;
+  border-color: #e8803c;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(251, 143, 44, 0.4);
+}
+
+.tracker__reorder-btn {
+  background: var(--color-dark-orange, #fb8f2c);
+  border-color: var(--color-dark-orange, #fb8f2c);
+  color: var(--color-white, #fff);
+}
+
+.tracker__reorder-btn:hover {
+  background: #e8803c;
+  border-color: #e8803c;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(251, 143, 44, 0.4);
+}
+
+.tracker__contact-btn svg,
+.tracker__update-btn svg,
+.tracker__reorder-btn svg {
   width: 16px;
   height: 16px;
   stroke: currentColor;
+  transition: transform 0.3s ease;
+}
+
+.tracker__update-btn:hover svg,
+.tracker__reorder-btn:hover svg {
+  transform: scale(1.2);
 }
 
 /* No Orders Message */
@@ -584,6 +630,10 @@
 .no-orders__btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 12px 32px rgba(251, 143, 44, 0.4);
+}
+
+.support-form__radio {
+  color: var(--color-white);
 }
 
 /* Responsive */

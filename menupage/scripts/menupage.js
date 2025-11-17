@@ -15,23 +15,6 @@ import i18nService from '../../assets/script/i18n-service.js';
   const formatPrice = (p) =>
     p.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
 
-<<<<<<< HEAD:menupage/menupage.js
-  const cardTemplate = (item) => `
-    <article class="menu__card" data-item-id="${item.id}" data-item-title="${
-    item.title
-  }" data-item-price="${item.price}" data-item-image="${
-    item.image
-  }" data-item-desc="${item.desc || ''}" data-item-category="${item.category || ''}" data-item-rating="${item.rating || 4}">
-      <div class="menu__card-img-wrapper">
-        <img src="${item.image}" alt="${
-    item.title
-  }" class="menu__card-image" loading="lazy"/>
-        <!-- Compare Checkbox -->
-        <label class="menu__card-compare-label" title="Add to compare">
-          <input type="checkbox" class="menu__card-compare-checkbox" data-item-id="${item.id}" />
-          <span class="menu__card-compare-icon">⚖️</span>
-        </label>
-=======
   function updateCartCount() {
     const cartCountEl = document.getElementById('cart-count');
     if (!cartCountEl) return;
@@ -63,7 +46,11 @@ import i18nService from '../../assets/script/i18n-service.js';
     <article class="menu__card" data-item-id="${item.id}" data-item-title="${title}" data-item-price="${item.price}" data-item-image="${item.image}" data-item-desc="${desc || ''}">
       <div class="menu__card-img-wrapper">
         <img src="${item.image}" alt="${title}" class="menu__card-image" loading="lazy"/>
->>>>>>> main:menupage/scripts/menupage.js
+        <!-- Compare Checkbox -->
+        <label class="menu__card-compare-label" title="Add to compare">
+          <input type="checkbox" class="menu__card-compare-checkbox" data-item-id="${item.id}" />
+          <span class="menu__card-compare-icon">⚖️</span>
+        </label>
       </div>
       <div class="menu__card-content">
         <h3 class="menu__card-title">${title}</h3>
@@ -493,7 +480,6 @@ import i18nService from '../../assets/script/i18n-service.js';
   };
 })();
 
-<<<<<<< HEAD:menupage/menupage.js
 (function bindToastOnOrder() {
   const root = document.getElementById("menu-card-container");
   if (!root) return;
@@ -699,8 +685,6 @@ import i18nService from '../../assets/script/i18n-service.js';
  * Click anywhere on card except "Order Now +" button
  * ======================================== */
 
-=======
->>>>>>> main:menupage/scripts/menupage.js
 (function setupCardRouting() {
   const container = document.getElementById("menu-card-container");
   if (!container) return;

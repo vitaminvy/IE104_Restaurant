@@ -320,8 +320,15 @@ import i18nService from '../assets/script/i18n-service.js';
       localStorage.removeItem(COUPON_STORAGE_KEY);
 
       // Emit cart updated event to update header badge
-      if (window.EventBus) {
+      if (window.EventBus && typeof window.EventBus.emit === 'function') {
         window.EventBus.emit('cart:updated', { cart: [] });
+      }
+
+      // Manually update cart badge if EventBus is not available
+      const cartBadge = document.querySelector('.cart-count');
+      if (cartBadge) {
+        cartBadge.textContent = '0';
+        cartBadge.style.display = 'none';
       }
 
       // Redirect to order tracking page to see the new order

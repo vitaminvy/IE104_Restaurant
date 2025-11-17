@@ -194,7 +194,7 @@
 
 .modal-section__title {
   font-family: var(--font-heading, 'Libre Bodoni', serif);
-  font-size: 20px;
+  font-size: 40px;
   font-weight: 700;
   color: var(--color-white, #fff);
   margin: 0 0 20px 0;

@@ -46,6 +46,7 @@
 
     <!-- Advanced Features - Styles -->
     <link rel="stylesheet" href="../assets/style/features/dark-theme.css" />
+    <link rel="stylesheet" href="../assets/style/features/order-modal.css" />
 
     <!-- Order History Page Styles -->
     <link rel="stylesheet" href="./order-history-page.css" />
@@ -116,147 +117,14 @@
     <!-- ========== FOOTER ========== -->
     <div data-include="/partials/footer.html"></div>
 
+    <!-- i18n Service -->
+    <script src="../assets/script/i18n-service.js"></script>
+
     <!-- Advanced Features Scripts -->
     <script src="../assets/script/features/dark-mode-toggle.js"></script>
     <script src="../assets/script/features/order-history-manager.js"></script>
 
-    <!-- Order History Page Script -->
-    <script>
-      // Initialize order history page
-      document.addEventListener('DOMContentLoaded', () => {
-        const container = document.getElementById('order-history-container');
-        const statsContainer = document.getElementById('order-stats');
-        const noOrdersMsg = document.getElementById('no-orders-message');
-        const searchInput = document.getElementById('order-search');
-        const filterBtns = document.querySelectorAll('.history__filter-btn');
-
-        if (!window.OrderHistoryManager) {
-          console.error('OrderHistoryManager not loaded');
-          return;
-        }
-
-        let currentFilter = 'all';
-        let currentSearch = '';
-
-        // Render statistics
-        function renderStatistics() {
-          const stats = window.OrderHistoryManager.getStatistics();
-
-          if (stats.totalOrders === 0) {
-            statsContainer.style.display = 'none';
-            return;
-          }
-
-          statsContainer.innerHTML = `
-            <div class="history__stat-card history__stat-card--total-orders animate-scale">
-              <div class="history__stat-icon" style="--stat-color: #667eea; --stat-rgb: 102, 126, 234;">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-                  <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-                </svg>
-              </div>
-              <div class="history__stat-label">Total Orders</div>
-              <div class="history__stat-value">${stats.totalOrders}</div>
-            </div>
-
-            <div class="history__stat-card history__stat-card--total-spent animate-scale">
-              <div class="history__stat-icon" style="--stat-color: #f093fb; --stat-rgb: 240, 147, 251;">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <line x1="12" y1="1" x2="12" y2="23"></line>
-                  <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-                </svg>
-              </div>
-              <div class="history__stat-label">Total Spent</div>
-              <div class="history__stat-value">$${stats.totalSpent.toFixed(2)}</div>
-            </div>
-
-            <div class="history__stat-card history__stat-card--avg-order animate-scale">
-              <div class="history__stat-icon" style="--stat-color: #4facfe; --stat-rgb: 79, 172, 254;">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-                  <polyline points="2 12 12 2 22 12"></polyline>
-                </svg>
-              </div>
-              <div class="history__stat-label">Average Order</div>
-              <div class="history__stat-value">$${stats.avgOrderValue.toFixed(2)}</div>
-            </div>
-
-            <div class="history__stat-card history__stat-card--total-items animate-scale">
-              <div class="history__stat-icon" style="--stat-color: #fa709a; --stat-rgb: 250, 112, 154;">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <circle cx="9" cy="21" r="1"></circle>
-                  <circle cx="20" cy="21" r="1"></circle>
-                  <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                </svg>
-              </div>
-              <div class="history__stat-label">Total Items</div>
-              <div class="history__stat-value">${stats.totalItems}</div>
-            </div>
-          `;
-        }
-
-        // Render orders
-        function renderOrders() {
-          let orders = window.OrderHistoryManager.getOrders();
-
-          // Apply filters
-          if (currentFilter !== 'all') {
-            orders = window.OrderHistoryManager.filterByDateRange(currentFilter);
-          }
-
-          // Apply search
-          if (currentSearch) {
-            orders = window.OrderHistoryManager.searchOrders(currentSearch);
-          }
-
-          if (orders.length === 0) {
-            if (currentSearch || currentFilter !== 'all') {
-              container.innerHTML = `
-                <div class="no-orders" style="padding: 60px 40px;">
-                  <div class="no-orders__icon" style="font-size: 80px;">🔍</div>
-                  <h2 class="no-orders__title" style="font-size: 28px;">No Orders Found</h2>
-                  <p class="no-orders__text">Try adjusting your search or filters</p>
-                </div>
-              `;
-            } else {
-              noOrdersMsg.style.display = 'block';
-              container.innerHTML = '';
-            }
-            return;
-          }
-
-          noOrdersMsg.style.display = 'none';
-          container.innerHTML = orders.map(order =>
-            window.OrderHistoryManager.createOrderCardElement(order)
-          ).join('');
-        }
-
-        // Search functionality
-        let searchTimeout;
-        searchInput.addEventListener('input', (e) => {
-          clearTimeout(searchTimeout);
-          searchTimeout = setTimeout(() => {
-            currentSearch = e.target.value;
-            renderOrders();
-          }, 300);
-        });
-
-        // Filter functionality
-        filterBtns.forEach(btn => {
-          btn.addEventListener('click', () => {
-            filterBtns.forEach(b => b.classList.remove('history__filter-btn--active'));
-            btn.classList.add('history__filter-btn--active');
-            currentFilter = btn.dataset.filter;
-            renderOrders();
-          });
-        });
-
-        // Initial render
-        renderStatistics();
-        renderOrders();
-
-        console.log('✅ Order history page initialized');
-      });
-    </script>
+    <!-- Order History Page Script-->
+    <script type="module" src="./order-history-page.js"></script>
   </body>
 </html>

@@ -951,5 +951,166 @@
         "role": "Đầu bếp"
       }
     }
+  },
+  "order_history_page": {
+    "title": "Lịch Sử Đơn Hàng",
+    "subtitle": "Xem và đặt lại từ các đơn hàng trước của bạn",
+    "stats": {
+      "total_orders": "Tổng Đơn Hàng",
+      "total_spent": "Tổng Chi Tiêu",
+      "average_order": "Đơn Hàng Trung Bình",
+      "total_items": "Tổng Món Ăn"
+    },
+    "search": {
+      "placeholder": "Tìm kiếm theo mã đơn hàng hoặc tên món..."
+    },
+    "filters": {
+      "all_orders": "Tất Cả Đơn",
+      "this_week": "Tuần Này",
+      "this_month": "Tháng Này",
+      "this_year": "Năm Nay"
+    },
+    "order_card": {
+      "order_number": "Đơn Hàng #",
+      "items": "món",
+      "view_details": "Xem Chi Tiết",
+      "reorder": "Đặt Lại"
+    },
+    "no_orders": {
+      "title": "Chưa Có Lịch Sử Đơn Hàng",
+      "message": "Hãy bắt đầu đặt hàng để xây dựng lịch sử của bạn!",
+      "browse_menu": "Xem Thực Đơn"
+    },
+    "no_results": {
+      "title": "Không Tìm Thấy Đơn Hàng",
+      "message": "Hãy thử điều chỉnh tìm kiếm hoặc bộ lọc"
+    },
+    "status": {
+      "placed": "Đã Đặt",
+      "confirmed": "Đã Xác Nhận",
+      "preparing": "Đang Chuẩn Bị",
+      "ready": "Đã Sẵn Sàng",
+      "out_for_delivery": "Đang Giao Hàng",
+      "delivered": "Đã Giao",
+      "cancelled": "Đã Hủy"
+    },
+    "modal": {
+      "order_details": "Chi Tiết Đơn Hàng",
+      "order_timeline": "Tiến Trình Đơn Hàng",
+      "order_items": "Món Ăn Đã Đặt",
+      "delivery_address": "Địa Chỉ Giao Hàng",
+      "order_summary": "Tóm Tắt Đơn Hàng",
+      "subtotal": "Tạm Tính",
+      "discount": "Giảm Giá",
+      "shipping": "Phí Vận Chuyển",
+      "payment_method": "Phương Thức Thanh Toán",
+      "total": "Tổng Cộng",
+      "close": "Đóng",
+      "reorder": "Đặt Lại",
+      "status_descriptions": {
+        "placed": "Đơn hàng của bạn đã được nhận",
+        "confirmed": "Nhà hàng đã xác nhận đơn hàng",
+        "preparing": "Đầu bếp đang chuẩn bị món ăn",
+        "ready": "Đơn hàng của bạn đã sẵn sàng",
+        "out_for_delivery": "Đang giao hàng",
+        "delivered": "Chúc ngon miệng!"
+      }
+    },
+    "reorder_confirmation": {
+      "title": "Xác Nhận Đặt Lại",
+      "message": "Thêm tất cả <strong>{count} món</strong> từ đơn hàng này vào giỏ?",
+      "cancel": "Hủy",
+      "confirm": "Có, Thêm Vào Giỏ"
+    },
+    "view_cart_popup": {
+      "title": "Đã Thêm Vào Giỏ Hàng",
+      "message": "Đã thêm thành công <strong>{count} món{s}</strong> vào giỏ hàng!",
+      "question": "Bạn có muốn xem giỏ hàng ngay không?",
+      "continue_shopping": "Tiếp Tục Mua Sắm",
+      "view_cart": "Xem Giỏ Hàng"
+    },
+    "notifications": {
+      "order_not_found": "Không tìm thấy đơn hàng",
+      "items_added": "Đã thêm {count} món{s} vào giỏ!",
+      "reorder_success": "Đã thêm món ăn vào giỏ hàng thành công"
+    }
+  },
+  "order_tracking_page": {
+    "title": "Theo Dõi Đơn Hàng",
+    "subtitle": "Cập nhật tình trạng đơn hàng theo thời gian thực",
+    "no_orders": {
+      "title": "Không Có Đơn Hàng Đang Hoạt Động",
+      "message": "Đặt hàng để theo dõi tại đây!",
+      "browse_menu": "Xem Thực Đơn"
+    },
+    "tracker": {
+      "order_number": "Đơn Hàng #",
+      "estimated_delivery": "Dự Kiến Giao Hàng",
+      "arriving_soon": "Sắp Đến",
+      "delivered": "Đã Giao",
+      "progress_complete": "Hoàn Thành",
+      "order_items": "Món Ăn Đã Đặt",
+      "more_items": "+{count} món khác",
+      "total_amount": "Tổng Tiền",
+      "contact_support": "Liên Hệ Hỗ Trợ",
+      "update_status": "Cập Nhật Trạng Thái",
+      "reorder": "Đặt Lại"
+    },
+    "status_steps": {
+      "placed": {
+        "label": "Đã Đặt Hàng",
+        "description": "Đơn hàng của bạn đã được nhận"
+      },
+      "confirmed": {
+        "label": "Đã Xác Nhận",
+        "description": "Nhà hàng đã xác nhận đơn hàng"
+      },
+      "preparing": {
+        "label": "Đang Chuẩn Bị",
+        "description": "Đầu bếp đang chuẩn bị món ăn"
+      },
+      "ready": {
+        "label": "Đã Sẵn Sàng",
+        "description": "Đơn hàng của bạn đã sẵn sàng"
+      },
+      "out_for_delivery": {
+        "label": "Đang Giao Hàng",
+        "description": "Đang giao hàng"
+      },
+      "delivered": {
+        "label": "Đã Giao",
+        "description": "Chúc ngon miệng!"
+      }
+    },
+    "notifications": {
+      "support_contacted": "Bộ phận hỗ trợ sẽ liên hệ với bạn về đơn hàng #{orderId}",
+      "status_updated": "Đã cập nhật trạng thái đơn hàng: {status}"
+    },
+    "time_elapsed": {
+      "just_now": "Vừa xong",
+      "minutes_ago": "{count} phút trước",
+      "hours_ago": "{count} giờ trước",
+      "days_ago": "{count} ngày trước"
+    }
+  },
+  "checkout_page": {
+    "title": "Thanh Toán",
+    "order_summary": {
+      "title": "Tóm Tắt Đơn Hàng",
+      "subtotal_footer": "Tạm Tính",
+      "shipping": "Phí Vận Chuyển",
+      "shipping_rate": "$6.00",
+      "total": "Tổng Cộng"
+    },
+    "notifications": {
+      "coupon_applied": "Đã Áp Dụng Mã Giảm Giá",
+      "free_shipping": "Miễn Phí Vận Chuyển",
+      "cart_empty_redirect": "Giỏ hàng của bạn trống. Đang chuyển đến trang giỏ hàng...",
+      "invalid_email": "Vui lòng nhập địa chỉ email hợp lệ",
+      "invalid_phone": "Vui lòng nhập số điện thoại hợp lệ",
+      "select_payment": "Vui lòng chọn phương thức thanh toán",
+      "order_success": "Đặt hàng thành công! Mã đơn hàng: {orderId}",
+      "redirecting": "Đang chuyển đến trang theo dõi đơn hàng..."
+    }
   }
 }

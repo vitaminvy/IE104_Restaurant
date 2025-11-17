@@ -899,5 +899,166 @@
         "role": "Chef"
       }
     }
+  },
+  "order_history_page": {
+    "title": "Order History",
+    "subtitle": "View and reorder from your past orders",
+    "stats": {
+      "total_orders": "Total Orders",
+      "total_spent": "Total Spent",
+      "average_order": "Average Order",
+      "total_items": "Total Items"
+    },
+    "search": {
+      "placeholder": "Search by order ID or item name..."
+    },
+    "filters": {
+      "all_orders": "All Orders",
+      "this_week": "This Week",
+      "this_month": "This Month",
+      "this_year": "This Year"
+    },
+    "order_card": {
+      "order_number": "Order #",
+      "items": "items",
+      "view_details": "View Details",
+      "reorder": "Reorder"
+    },
+    "no_orders": {
+      "title": "No Order History Yet",
+      "message": "Start ordering to build your history!",
+      "browse_menu": "Browse Menu"
+    },
+    "no_results": {
+      "title": "No Orders Found",
+      "message": "Try adjusting your search or filters"
+    },
+    "status": {
+      "placed": "Placed",
+      "confirmed": "Confirmed",
+      "preparing": "Preparing",
+      "ready": "Ready",
+      "out_for_delivery": "Out for Delivery",
+      "delivered": "Delivered",
+      "cancelled": "Cancelled"
+    },
+    "modal": {
+      "order_details": "Order Details",
+      "order_timeline": "Order Timeline",
+      "order_items": "Order Items",
+      "delivery_address": "Delivery Address",
+      "order_summary": "Order Summary",
+      "subtotal": "Subtotal",
+      "discount": "Discount",
+      "shipping": "Shipping",
+      "payment_method": "Payment Method",
+      "total": "Total",
+      "close": "Close",
+      "reorder": "Reorder",
+      "status_descriptions": {
+        "placed": "Your order has been received",
+        "confirmed": "Restaurant confirmed your order",
+        "preparing": "Chef is preparing your food",
+        "ready": "Your order is ready",
+        "out_for_delivery": "Delivery in progress",
+        "delivered": "Enjoy your meal!"
+      }
+    },
+    "reorder_confirmation": {
+      "title": "Confirm Reorder",
+      "message": "Add all <strong>{count} items</strong> from this order to your cart?",
+      "cancel": "Cancel",
+      "confirm": "Yes, Add to Cart"
+    },
+    "view_cart_popup": {
+      "title": "Items Added to Cart",
+      "message": "Successfully added <strong>{count} item{s}</strong> to your cart!",
+      "question": "Would you like to view your cart now?",
+      "continue_shopping": "Continue Shopping",
+      "view_cart": "View Cart"
+    },
+    "notifications": {
+      "order_not_found": "Order not found",
+      "items_added": "{count} item{s} added to cart!",
+      "reorder_success": "Items successfully added to cart"
+    }
+  },
+  "order_tracking_page": {
+    "title": "Track Your Order",
+    "subtitle": "Real-time updates on your order status",
+    "no_orders": {
+      "title": "No Active Orders",
+      "message": "Place an order to track it here!",
+      "browse_menu": "Browse Menu"
+    },
+    "tracker": {
+      "order_number": "Order #",
+      "estimated_delivery": "Estimated Delivery",
+      "arriving_soon": "Arriving Soon",
+      "delivered": "Delivered",
+      "progress_complete": "Complete",
+      "order_items": "Order Items",
+      "more_items": "+{count} more",
+      "total_amount": "Total Amount",
+      "contact_support": "Contact Support",
+      "update_status": "Update Status",
+      "reorder": "Reorder"
+    },
+    "status_steps": {
+      "placed": {
+        "label": "Order Placed",
+        "description": "Your order has been received"
+      },
+      "confirmed": {
+        "label": "Confirmed",
+        "description": "Restaurant confirmed your order"
+      },
+      "preparing": {
+        "label": "Preparing",
+        "description": "Chef is preparing your food"
+      },
+      "ready": {
+        "label": "Ready",
+        "description": "Your order is ready"
+      },
+      "out_for_delivery": {
+        "label": "Out for Delivery",
+        "description": "Delivery in progress"
+      },
+      "delivered": {
+        "label": "Delivered",
+        "description": "Enjoy your meal!"
+      }
+    },
+    "notifications": {
+      "support_contacted": "Support will contact you about order #{orderId}",
+      "status_updated": "Order status updated: {status}"
+    },
+    "time_elapsed": {
+      "just_now": "Just now",
+      "minutes_ago": "{count} min ago",
+      "hours_ago": "{count} hour{s} ago",
+      "days_ago": "{count} day{s} ago"
+    }
+  },
+  "checkout_page": {
+    "title": "Checkout",
+    "order_summary": {
+      "title": "Order Summary",
+      "subtotal_footer": "Subtotal",
+      "shipping": "Shipping",
+      "shipping_rate": "$6.00",
+      "total": "Total"
+    },
+    "notifications": {
+      "coupon_applied": "Coupon Applied",
+      "free_shipping": "Free Shipping",
+      "cart_empty_redirect": "Your cart is empty. Redirecting to cart page...",
+      "invalid_email": "Please enter a valid email address",
+      "invalid_phone": "Please enter a valid phone number",
+      "select_payment": "Please select a payment method",
+      "order_success": "Order placed successfully! Order ID: {orderId}",
+      "redirecting": "Redirecting to order tracking..."
+    }
   }
 }

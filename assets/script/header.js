@@ -38,14 +38,27 @@
   function initScrollStyle() {
     if (scrollInited) return;
     const header = document.getElementById("header");
+    const menuFilter = q(".menu__filter"); // Get the menu filter element
     if (!header) return;
+
+    // Function to adjust the menu filter's top position
+    const adjustMenuFilterPosition = () => {
+      if (menuFilter) {
+        const headerHeight = header.offsetHeight; // Get computed height of the header
+        menuFilter.style.top = `${headerHeight}px`;
+      }
+    };
 
     const onScroll = () => {
       if (window.scrollY > 50) header.classList.add("header--scrolled");
       else header.classList.remove("header--scrolled");
+      adjustMenuFilterPosition(); // Adjust position on scroll
     };
+
     window.addEventListener("scroll", onScroll);
-    onScroll(); // set trạng thái ban đầu
+    window.addEventListener("resize", adjustMenuFilterPosition); // Adjust position on resize
+    onScroll(); // set trạng thái ban đầu và điều chỉnh vị trí ban đầu
+    adjustMenuFilterPosition(); // Initial adjustment
 
     scrollInited = true;
   }

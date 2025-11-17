@@ -255,6 +255,7 @@
   }
 }
 
+<<<<<<< HEAD
 /* ========== Dropdown Menu Styles ========== */
 .header__nav-item--dropdown {
   position: relative;
@@ -319,4 +320,20 @@
     font-size: 1rem;
     padding: 0.6rem 1rem;
   }
+=======
+/* ===================== LANGUAGE TOGGLE ===================== */
+.language-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#language-flag {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#language-flag:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+>>>>>>> main
 }

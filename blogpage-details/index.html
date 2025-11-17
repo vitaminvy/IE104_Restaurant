@@ -5,12 +5,12 @@
   <!-- ====== Meta Configuration ====== -->
   <meta charset="UTF-8" frame-rectangular />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Restaurant Website</title>
+  <title data-i18n="blog_details_page.title">Restaurant Website</title>
 
   <!-- ====== Global Styles ====== -->
   <link rel="stylesheet" href="../style/reset.css" />
   <link rel="stylesheet" href="../style/style.css" />
-
+  
   <!-- ====== Page-Specific Styles ====== -->
   <link rel="stylesheet" href="./layout.css">
   <link rel="stylesheet" href="./blog-details.css">
@@ -67,7 +67,7 @@
         <span>August 6, 2025 • By Admin</span>
         <div class="social-links">
           <!-- Copy link button -->
-          <button class="copy-link"><i class="fas fa-link"></i> Copy link</button>
+          <button class="copy-link"><i class="fas fa-link"></i><span data-i18n="blog_details_page.copy_link"> Copy link</span></button>
           <!-- Social sharing icons -->
           <a href="#"><i class="fab fa-facebook-f"></i></a>
           <a href="#"><i class="fab fa-twitter"></i></a>
@@ -131,7 +131,7 @@
 
             </h3>
             <p class="post-meta">August 6, 2025 • By Admin</p>
-            <a href="#" class="read-more">Read more</a>
+            <a href="#" class="read-more" data-i18n="blog_page.read_more">Read more</a>
           </div>
         </article>
 
@@ -143,7 +143,7 @@
           <div class="post-content">
             <h3>Financial Well-Being Programs for Restaurants</h3>
             <p class="post-meta">August 6, 2025 • By Admin</p>
-            <a href="#" class="read-more">Read more</a>
+            <a href="#" class="read-more" data-i18n="blog_page.read_more">Read more</a>
           </div>
         </article>
       </section>
@@ -152,6 +152,7 @@
 
   <!-- ========== 3. FOOTER ========== -->
   <div data-include="/partials/footer.html"></div>
+  <script type="module" src="../assets/script/lang-toggle.js" defer></script>
 </body>
 
 </html>

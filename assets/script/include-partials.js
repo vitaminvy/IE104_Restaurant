@@ -12,4 +12,7 @@
             console.error('Include failed:', url, err);
         }
     }
+
+    // Dispatch a custom event after all partials are loaded
+    document.dispatchEvent(new CustomEvent('partials:loaded'));
 })();

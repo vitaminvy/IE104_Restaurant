@@ -4,11 +4,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Restaurant Management & Growth Blog</title>
+  <title data-i18n="blog_page.title">Restaurant Management & Growth Blog</title>
 
   <!-- Font Awesome CDN -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-
+  
   <!-- Global / Main styles -->
   <link rel="stylesheet" href="./main.css">
 
@@ -31,7 +31,7 @@
   <link rel="stylesheet" href="./pagination.css">
 
   <!-- Newsletter styles -->
-  <link rel="stylesheet" href="./newsletter.css">
+  <link rel="stylesheet" href="../style/newsletter.css">
 
   <!-- Reset and global styles -->
   <link rel="stylesheet" href="../style/reset.css" />
@@ -67,7 +67,7 @@
 
     <!-- ========== 2.1 PAGE HEADER CONTENT ========== -->
     <div class="page-header animate-fade">
-      <h1>Restaurant Management & Growth Blog</h1>
+      <h1 data-i18n="blog_page.header">Restaurant Management & Growth Blog</h1>
     </div>
 
     <!-- ========== 2.2 FEATURED POST SECTION ========== -->
@@ -75,48 +75,40 @@
       <!-- Featured posts will be rendered here by JS -->
     </section>
 
+    <!-- ========== 2.3 FILTERS & CONTROLS ========== -->
+    <section class="blog-filters" aria-label="Blog filters">
+      <div class="blog-filters__left">
+        <p class="blog-filters__label" data-i18n="blog_page.filters.browse_topics">Browse topics</p>
+        <div id="tag-filter" class="blog-filters__pills" role="list"></div>
+      </div>
+      <div class="blog-filters__actions">
+        <label for="category-filter" data-i18n="blog_page.filters.category_label">Category</label>
+        <select id="category-filter" class="blog-filters__select" aria-label="Filter by category"></select>
+        <button type="button" id="clear-filters" class="blog-filters__clear" data-i18n="blog_page.filters.reset">Reset</button>
+      </div>
+    </section>
+
     <!-- ========== 2.3 BLOG GRID SECTION ========== -->
-    <section id="blog-grid" class="blog-grid stagger-children">
+    <section id="blog-grid" class="blog-grid blog-timeline" aria-live="polite">
       <!-- Blog posts will be rendered here by JS -->
     </section>
 
-    <!-- ========== 2.4 PAGINATION NAVIGATION ========== -->
-    <nav id="pagination" class="pagination animate-fade"></nav>
+    <!-- ========== 2.4 TIMELINE FOOTER / LOAD MORE ========== -->
+    <div id="timeline-footer" class="timeline-footer">
+      <button type="button" id="load-more" class="btn timeline-footer__btn" data-i18n="blog_page.load_more">Load more stories</button>
+    </div>
 
-    <!-- ========== 2.5 NEWSLETTER SECTION ========== -->
-    <section id="newsletter">
-      <!-- Subscribe to Newsletter -->
-      <div class="newsletter__container">
-        <!-- newsletter image -->
-        <div class="newsletter__image animate-scale">
-          <img src="../assets/images/home-page/newsletter-section/newsletter_dish.png" alt="Healthy food plate"
-            loading="lazy" />
-          <img src="../assets/images/home-page/newsletter-section/newsletter_star.svg" alt="decoration"
-            class="newsletter__star" />
-        </div>
-        <!-- newsletter body content -->
-        <div class="newsletter__content animate-slide-right">
-          <h2 class="newsletter__title">
-            Subscribe to Newsletter & Get Latest News
-          </h2>
-          <p class="newsletter__subtitle">
-            Get insider access to news about innovations, unique cooking
-            techniques, culinary concepts, insights, and more
-          </p>
-
-          <form class="newsletter__form">
-            <input type="email" placeholder="Enter your email address" required />
-            <button type="submit" class="newsletter__submit">
-              <i class="fa-solid fa-paper-plane"></i>
-            </button>
-          </form>
-        </div>
-      </div>
-    </section>
   </main>
+
+  <!-- ========== 2.5 NEWSLETTER SECTION ========== -->
+  <section class="newsletter-shell">
+    <div data-include="/partials/newsletter.html"></div>
+  </section>
 
   <!-- ========== 2.6 FOOTER PLACEHOLDER ========== -->
   <div data-include="/partials/footer.html"></div>
+  <script type="module" src="../assets/script/lang-toggle.js" defer></script>
+  <script src="../assets/script/newsletter.js" defer></script>
 </body>
 
 </html>

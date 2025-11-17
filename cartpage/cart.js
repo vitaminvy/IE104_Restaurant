@@ -1,11 +1,4 @@
-/* ========================================
- * ENHANCED CART PAGE LOGIC
- * Features:
- * - LocalStorage for cart persistence
- * - Coupon system with discount
- * - Dynamic cart rendering
- * - Simplified totals (Subtotal, Discount, Total)
- * ======================================== */
+import i18nService from '../assets/script/i18n-service.js';
 
 (function () {
   'use strict';
@@ -178,22 +171,10 @@
     }
 
 
-    // Render each item with stagger animation
+    // Render each item
     items.forEach((item, index) => {
       const row = createCartRow(item, index);
-
-      // Add initial hidden state for animation
-      row.style.opacity = '0';
-      row.style.transform = 'translateY(20px)';
-      row.style.transition = 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
-
       tbody.appendChild(row);
-
-      // Trigger animation with stagger
-      setTimeout(() => {
-        row.style.opacity = '1';
-        row.style.transform = 'translateY(0)';
-      }, index * 50); // 50ms stagger delay
     });
   }
 
@@ -209,6 +190,7 @@
 
     // Calculate item subtotal
     const itemSubtotal = (item.price * item.quantity).toFixed(2);
+    const translatedTitle = i18nService.t(item.title);
 
     tr.innerHTML = `
       <!-- Remove button -->
@@ -228,14 +210,14 @@
         <img
           class="cart__item-media"
           src="${item.image || '../assets/images/cart-page/donut.png'}"
-          alt="${item.title}"
+          alt="${translatedTitle}"
           loading="lazy"
         />
       </td>
 
       <!-- Product name -->
       <td data-label="Food">
-        <span class="cart__item-name">${item.title}</span>
+        <span class="cart__item-name">${translatedTitle}</span>
       </td>
 
       <!-- Price -->
@@ -308,7 +290,7 @@
       if (discountEl) {
         if (discount > 0) {
           discountEl.innerHTML = `
-            <span style="color: var(--color-dark-orange);">-$${discount.toFixed(2)}</span>
+            <span style="color: var(--color-dark-orange);">-${discount.toFixed(2)}</span>
             ${appliedCoupon ? `<br><small style="opacity: 0.7; font-size: 13px;">(${appliedCoupon.description})</small>` : ''}
           `;
           discountRow.style.display = 'table-row';
@@ -433,35 +415,14 @@
     const items = getCartItems();
     const removedItem = items[index];
 
-    // Find the row element
-    const row = document.querySelector(`tr[data-index="${index}"]`);
+    items.splice(index, 1);
+    saveCartItems(items);
 
-    if (row) {
-      // Add slide-out animation
-      row.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 1, 1)';
-      row.style.opacity = '0';
-      row.style.transform = 'translateX(-100px) scale(0.8)';
+    renderCartItems(items);
+    updateCartTotals();
 
-      // Wait for animation to complete
-      setTimeout(() => {
-        items.splice(index, 1);
-        saveCartItems(items);
-
-        renderCartItems(items);
-        updateCartTotals();
-
-        showNotification(`Removed "${removedItem.title}" from cart`, 'success');
-      }, 300);
-    } else {
-      // Fallback if row not found
-      items.splice(index, 1);
-      saveCartItems(items);
-
-      renderCartItems(items);
-      updateCartTotals();
-
-      showNotification(`Removed "${removedItem.title}" from cart`, 'success');
-    }
+    const translatedTitle = i18nService.t(removedItem.title);
+    showNotification(`Removed "${translatedTitle}" from cart`, 'success');
   }
 
   /**
@@ -492,26 +453,11 @@
 
       // Update quantity input
       const input = row.querySelector('.qty__input');
-      if (input) {
-        input.value = newQuantity;
+      if (input) input.value = newQuantity;
 
-        // Add bounce animation to input
-        input.style.animation = 'none';
-        setTimeout(() => {
-          input.style.animation = 'quantityBounce 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55)';
-        }, 10);
-      }
-
-      // Update subtotal with animation
+      // Update subtotal
       const subtotalCell = row.querySelector('.cart__subtotal');
-      if (subtotalCell) {
-        // Add pulse animation
-        subtotalCell.style.animation = 'none';
-        setTimeout(() => {
-          subtotalCell.textContent = `$${itemSubtotal}`;
-          subtotalCell.style.animation = 'pricePulse 0.5s ease-out';
-        }, 10);
-      }
+      if (subtotalCell) subtotalCell.textContent = `${itemSubtotal}`;
     }
 
     updateCartTotals();
@@ -526,12 +472,6 @@
 
     if (!couponCode) {
       showNotification('Please enter a coupon code', 'error');
-
-      // Add shake animation to input
-      couponInput.classList.add('coupon__input--error');
-      setTimeout(() => {
-        couponInput.classList.remove('coupon__input--error');
-      }, 500);
       return;
     }
 
@@ -539,21 +479,9 @@
 
     if (!coupon) {
       showNotification('Invalid coupon code', 'error');
-
-      // Add shake animation to input
-      couponInput.classList.add('coupon__input--error');
-      setTimeout(() => {
-        couponInput.classList.remove('coupon__input--error');
-        couponInput.value = '';
-      }, 500);
+      couponInput.value = '';
       return;
     }
-
-    // Success! Add confetti animation
-    couponInput.classList.add('coupon__input--success');
-    setTimeout(() => {
-      couponInput.classList.remove('coupon__input--success');
-    }, 600);
 
     // Save coupon
     saveAppliedCoupon({
@@ -563,12 +491,6 @@
 
     updateCartTotals();
     showNotification(`Coupon applied: ${coupon.description}`, 'success');
-
-    // Animate discount row appearance
-    const discountRow = document.querySelector('.totals__discount');
-    if (discountRow) {
-      discountRow.style.animation = 'fadeInScale 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
-    }
   }
 
   /**
@@ -679,13 +601,15 @@
   /**
    * Initialize cart page
    */
-  function init() {
+  async function init() {
     console.log('🛒 Initializing cart page...');
 
     // Show loader while initializing
     if (window.GlobalLoader) {
       window.GlobalLoader.show('Loading cart...');
     }
+
+    await i18nService.init();
 
     // Small delay to ensure localStorage is readable
     setTimeout(() => {

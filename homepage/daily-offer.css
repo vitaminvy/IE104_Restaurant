@@ -89,6 +89,7 @@
 
 /* ========== LEFT BANNER ========== */
 .daily-offers__promo-link {
+  flex: 1;
   position: relative;
   display: block;
   width: 100%;
@@ -133,11 +134,12 @@
   bottom: 1.5rem;
   right: 1.5rem;
   z-index: 2;
-  padding: 0.65rem 1.5rem;
+  padding: 0.65rem 1rem;
   border-radius: 999px;
   background: linear-gradient(130deg, #ffb347, #ff7c35 70%, #ffd062);
   color: #111;
   font-weight: 700;
+  font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   font-size: 0.8rem;
@@ -222,9 +224,24 @@
   .daily-offers__content {
     align-items: stretch;
   }
+  .daily-offers__promo-cta {
+    font-size: 16px;
+  }
 }
 
 /* Desktop ≥1024px */
+@media (min-width: 64rem) and (max-width: 79.99rem) {
+  .daily-offers__promo-link {
+    max-width: 100%;
+  }
+
+  .daily-offers__promo-img {
+    width: 100%;
+    height: clamp(300px, 40vw, 450px);
+    object-fit: cover;
+  }
+}
+
 @media (min-width: 64rem) {
   .daily-offers__container {
     margin-top: 2.5rem;
@@ -235,10 +252,6 @@
 
   .daily-offers__title {
     margin-bottom: 2rem;
-  } 
-
-  .daily-offers__promo-link {
-    max-width: 620px;
   }
 
   .daily-offers__item-img {
@@ -270,15 +283,21 @@
     gap: 6rem;
   }
 
+  .daily-offers__promo-link {
+    max-width: 100%;
+  }
+
+  .daily-offers__promo-img {
+    width: 100%;
+    height: auto;
+  }
+
   .daily-offers__title {
     margin-bottom: 2rem;
   }
 
   .daily-offers__title {
     font-size: 4rem;
-  }
-  .daily-offers__list {
-    gap: 6rem;
   }
 }
 
@@ -297,7 +316,6 @@
   }
 
   .daily-offers__promo-cta {
-    position: static;
     display: inline-flex;
     margin: 1rem 0 0;
   }

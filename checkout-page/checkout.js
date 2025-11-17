@@ -304,27 +304,35 @@ import i18nService from '../assets/script/i18n-service.js';
    * INITIALIZATION
    * ======================================== */
 
-  function initCheckout() {
+  function renderCheckoutSummary() {
     const items = getCartItems();
-    
     if (items.length === 0) {
-      handleEmptyCart();
-      return;
+      return false;
     }
 
     const coupon = getAppliedCoupon();
     const subtotal = calculateSubtotal(items);
     const discount = calculateDiscount(subtotal, coupon);
     let shipping = SHIPPING_COST;
-    
+
     if (coupon && coupon.type === 'freeship') {
       shipping = 0;
     }
-    
+
     const total = calculateTotal(subtotal, discount, shipping);
 
     renderOrderItems(items);
     updateOrderTotals(subtotal, discount, coupon, shipping, total);
+
+    return true;
+  }
+
+  function initCheckout() {
+    const hasItems = renderCheckoutSummary();
+    if (!hasItems) {
+      handleEmptyCart();
+      return;
+    }
 
     const form = document.querySelector('.form');
     if (form) {
@@ -340,7 +348,7 @@ import i18nService from '../assets/script/i18n-service.js';
       });
     });
 
-    console.log('Checkout initialized with', items.length, 'item(s)');
+    console.log('Checkout initialized with', getCartItems().length, 'item(s)');
   }
 
   /* ========================================
@@ -352,6 +360,10 @@ import i18nService from '../assets/script/i18n-service.js';
   } else {
     initCheckout();
   }
+
+  document.addEventListener('language-changed', () => {
+    renderCheckoutSummary();
+  });
 
   /* ========================================
    * ADD ANIMATION STYLES

@@ -886,6 +886,58 @@
     },
     "loading_cart": "Loading cart..."
   },
+  "checkout_page": {
+    "title": "Checkout",
+    "billing_details": {
+      "title": "Billing details",
+      "first_name": "Your name *",
+      "last_name": "Last name *",
+      "country": "Country / Region *",
+      "street_address": "Street address *",
+      "town_city": "Town / City *",
+      "district": "District *",
+      "postcode_zip": "Postcode / ZIP (optional)",
+      "phone": "Phone *",
+      "email": "Email address *",
+      "country_options": {
+        "au": "Australia",
+        "us": "United States",
+        "vn": "Viet Nam"
+      }
+    },
+    "payment": {
+      "direct_bank_transfer": "Direct bank transfer",
+      "direct_bank_transfer_hint": "Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account.",
+      "check_payments": "Check payments",
+      "check_payments_hint": "Pay with check and your order will be processed after verification.",
+      "cod": "Cash on delivery",
+      "cod_hint": "Pay with cash when your order is delivered.",
+      "paypal": "PayPal",
+      "paypal_hint": "You will be redirected to PayPal to complete your purchase securely.",
+      "privacy_text": "Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our",
+      "privacy_policy_link": "privacy policy",
+      "place_order_button": "Place order"
+    },
+    "order_summary": {
+      "title": "Your order",
+      "product_header": "Food",
+      "subtotal_header": "Subtotal",
+      "subtotal_footer": "Subtotal",
+      "shipping": "Shipping",
+      "shipping_rate": "Flat rate: $6.00",
+      "total": "Total"
+    },
+    "notifications": {
+      "cart_empty_redirect": "Your cart is empty. Redirecting to the cart page...",
+      "invalid_email": "Please enter a valid email address",
+      "invalid_phone": "Please enter a valid phone number",
+      "select_payment": "Please select a payment method",
+      "order_placed_success": "Order placed successfully! Order ID: #{orderId}",
+      "redirecting_homepage": "Redirecting to the homepage...",
+      "free_shipping": "FREE",
+      "coupon_applied": "Coupon applied"
+    }
+  },
   "about_page": {
     "title": "About Us",
     "intro": {

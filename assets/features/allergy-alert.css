@@ -39,11 +39,6 @@
   box-shadow: 0 6px 16px rgba(239, 68, 68, 0.4);
 }
 
-.allergy-settings-trigger__icon {
-  /* Box model */
-  font-size: 1.125rem;
-}
-
 /* ========== MODAL OVERLAY ========== */
 .allergy-modal-overlay {
   /* Position */
@@ -395,11 +390,12 @@
   .allergy-settings-trigger {
     /* Position */
     top: auto;
-    bottom: 6rem;
+    bottom: 2rem;
     right: 1rem;
 
     /* Box model */
-    padding: 0.625rem 1rem;
+    padding: 0.625rem 0.5rem;
+    max-width: 140px;
   }
 
   .allergy-modal {

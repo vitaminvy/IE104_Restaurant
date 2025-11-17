@@ -6,7 +6,7 @@
 .allergy-settings-trigger {
   /* Position */
   position: fixed;
-  top: 103px;
+  top: 163px;
   left: 1.45rem;
   z-index: 999;
 
@@ -399,8 +399,8 @@
     right: 1rem;
 
     /* Box model */
-    padding: 0.625rem 0.5rem;
-    max-width: 140px;
+    padding: 0.625rem 0.8rem;
+    max-width: 152px;
   }
 
   .allergy-modal {

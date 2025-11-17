@@ -890,7 +890,7 @@
     "title": "About Us",
     "intro": {
       "title": "We Are A Mexican Restaurant Makes Delicious.",
-      "lead": "From handmade tortillas pressed fresh each morning to slow-cooked carnitas and bright salsas, we cook with seasonal ingredients from local farmers. Our kitchen blends family recipes with modern techniques, keeping flavors bold and honest. Whether you crave something spicy, smoky, or vegetarian, there’s a plate here made with care—and a team ready to welcome you like familia.",
+      "lead": "From handmade tortillas pressed fresh each morning to slow-cooked carnitas and bright salsas, we cook with seasonal ingredients from local farmers. Our kitchen blends family recipes with modern techniques, keeping flavors bold and honest. Whether you crave something spicy, smoky, or vegetarian, there's a plate here made with care—and a team ready to welcome you like familia.",
       "story_title": "The Story Of Our<br/>First Restaurant<br/>Branch",
       "story_text": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident."
     },
@@ -925,6 +925,83 @@
         "name": "Tajul Islam",
         "role": "Chef"
       }
+    }
+  },
+  "allergy_settings": {
+    "trigger_button": "Allergy Settings",
+    "trigger_aria_label": "Manage allergy settings",
+    "modal_title": "Manage Allergies",
+    "close_modal": "Close modal",
+    "save_button": "Save Settings",
+    "clear_button": "Clear All",
+    "contains": "Contains:",
+    "warning": {
+      "title": "Allergy Warning:",
+      "message": "This item contains {allergens}, which you marked as allergens."
+    },
+    "toast": {
+      "tracking": "Tracking: {allergens}",
+      "cleared": "Allergy tracking cleared.",
+      "all_cleared": "All allergen tracking cleared."
+    },
+    "badge_tooltip": "Contains: {allergens}"
+  },
+  "allergens": {
+    "gluten": {
+      "name": "Gluten",
+      "description": "Contains wheat, barley, rye, or related grains"
+    },
+    "dairy": {
+      "name": "Dairy",
+      "description": "Contains milk, cheese, butter, or dairy products"
+    },
+    "eggs": {
+      "name": "Eggs",
+      "description": "Contains eggs or egg-derived ingredients"
+    },
+    "nuts": {
+      "name": "Tree Nuts",
+      "description": "Contains tree nuts (almonds, walnuts, etc.)"
+    },
+    "peanuts": {
+      "name": "Peanuts",
+      "description": "Contains peanuts or peanut-derived ingredients"
+    },
+    "soy": {
+      "name": "Soy",
+      "description": "Contains soybeans or soy-derived products"
+    },
+    "fish": {
+      "name": "Fish",
+      "description": "Contains fish or fish-derived ingredients"
+    },
+    "shellfish": {
+      "name": "Shellfish",
+      "description": "Contains shellfish (shrimp, crab, lobster, etc.)"
+    },
+    "sesame": {
+      "name": "Sesame",
+      "description": "Contains sesame seeds or sesame oil"
+    },
+    "sulfites": {
+      "name": "Sulfites",
+      "description": "Contains sulfur dioxide or sulfites"
+    },
+    "celery": {
+      "name": "Celery",
+      "description": "Contains celery or celeriac"
+    },
+    "mustard": {
+      "name": "Mustard",
+      "description": "Contains mustard seeds or mustard products"
+    },
+    "lupin": {
+      "name": "Lupin",
+      "description": "Contains lupin flour or lupin beans"
+    },
+    "molluscs": {
+      "name": "Molluscs",
+      "description": "Contains molluscs (clams, mussels, oysters, etc.)"
     }
   }
 }

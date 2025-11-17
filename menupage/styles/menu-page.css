@@ -616,8 +616,8 @@
 .cart-icon-wrapper {
   position: fixed;
   right: 15px;
-  z-index: 1000;
   cursor: pointer;
+  z-index: 100;;
   transition: transform 0.3s ease;
 }
 .cart-icon-wrapper:hover {

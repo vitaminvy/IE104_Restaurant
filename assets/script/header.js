@@ -1,3 +1,4 @@
+import i18nService from './i18n-service.js';
 // ================================
 // HEADER LOGIC (safe for partials)
 // ================================
@@ -23,15 +24,20 @@
 
     menuBtn.addEventListener("click", () => {
       nav.classList.toggle("header__nav--open");
+      document.body.classList.toggle("mobile-nav-open");
     });
 
     nav.addEventListener("click", (e) => {
-      if (e.target === nav) nav.classList.remove("header__nav--open");
+      if (e.target === nav) {
+        nav.classList.remove("header__nav--open");
+        document.body.classList.remove("mobile-nav-open");
+      }
     });
 
     window.addEventListener("resize", () => {
       if (window.innerWidth >= 1024) {
         nav.classList.remove("header__nav--open");
+        document.body.classList.remove("mobile-nav-open");
       }
     });
 
@@ -88,9 +94,8 @@
   // ----- CLOCK -----
   function updateTime() {
     const now = new Date();
-    const fmtDay = new Intl.DateTimeFormat(navigator.language || "en-US", {
-      weekday: "long",
-    }).format(now);
+    const dayIndex = now.getDay();
+    const fmtDay = i18nService.t(`weekdays.${dayIndex}`);
     const hh = String(now.getHours()).padStart(2, "0");
     const mm = String(now.getMinutes()).padStart(2, "0");
     const el = document.getElementById("current-time");
@@ -102,8 +107,12 @@
     const el = document.getElementById("current-time");
     if (!el) return;
     clockStarted = true;
-    updateTime();
-    setInterval(updateTime, 60_000);
+    
+    i18nService.init().then(() => {
+      updateTime();
+      setInterval(updateTime, 60_000);
+      document.addEventListener('language-changed', updateTime);
+    });
   }
 
   // ----- SETUP NAVIGATION WITH LOADER -----

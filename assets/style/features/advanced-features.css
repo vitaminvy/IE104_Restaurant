@@ -729,7 +729,7 @@
 }
 
 .comparison-row {
-  transition: background 0.2s ease;
+  transition: 0.2s ease;
 }
 
 .comparison-row:hover {
@@ -1064,6 +1064,7 @@
 
 .advanced-features-toolbar {
   max-width: 1000px;
+  padding: 0 16px;
   margin: 0 auto;
   animation: fadeIn 0.6s ease-out;
 }
@@ -1111,6 +1112,8 @@
   font-family: var(--font-body);
   background: transparent;
   min-width: 0;
+  transform: none !important;
+  box-shadow: none !important;
 }
 
 .menu-search-input::placeholder {
@@ -1139,7 +1142,6 @@
 /* Toolbar Actions */
 .features-toolbar-actions {
   display: flex;
-  gap: 16px;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
@@ -1151,8 +1153,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  padding: 12px 28px;
+  padding: 8px 24px;
   background: var(--color-white, #fff);
   border: 2px solid var(--color-dark-orange, #fb8f2c);
   border-radius: 12px;
@@ -1261,15 +1262,8 @@
     font-size: 14px;
   }
 
-  .features-toolbar-actions {
-    gap: 12px;
-    padding: 8px 0;
-  }
-
   .features-toolbar-actions .btn-secondary {
-    padding: 10px 20px;
-    font-size: 14px;
-    gap: 8px;
+    font-size: 13px;
   }
 
   #comparison-count-toolbar {
@@ -1307,12 +1301,10 @@
   .features-toolbar-actions {
     flex-direction: column;
     width: 100%;
-    gap: 10px;
   }
 
   .features-toolbar-actions .btn-secondary {
     width: 100%;
-    padding: 12px 24px;
     font-size: 13px;
     letter-spacing: 0.3px;
   }

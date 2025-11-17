@@ -395,11 +395,12 @@
   .allergy-settings-trigger {
     /* Position */
     top: auto;
-    bottom: 6rem;
+    bottom: 2rem;
     right: 1rem;
 
     /* Box model */
-    padding: 0.625rem 1rem;
+    padding: 0.625rem 0.5rem;
+    max-width: 140px;
   }
 
   .allergy-modal {

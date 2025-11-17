@@ -66,9 +66,7 @@ document.head.appendChild(style);
     trigger.setAttribute("aria-label", "Manage allergy settings");
 
     const icon = document.createElement("span");
-    icon.className = "allergy-settings-trigger__icon";
-    icon.textContent = "⚠️";
-
+    
     const text = document.createElement("span");
     text.textContent = "Allergy Settings";
 

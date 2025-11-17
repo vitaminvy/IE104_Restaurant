@@ -6,7 +6,7 @@
 .allergy-settings-trigger {
   /* Position */
   position: fixed;
-  top: 163px;
+  top: 130px;
   left: 1.45rem;
   z-index: 999;
 
@@ -391,7 +391,7 @@
 /* ========== RESPONSIVE DESIGN ========== */
 
 /* Mobile */
-@media (max-width: 640px) {
+@media (max-width: 1024px) {
   .allergy-settings-trigger {
     /* Position */
     top: auto;
@@ -418,3 +418,4 @@
     flex-direction: column;
   }
 }
+

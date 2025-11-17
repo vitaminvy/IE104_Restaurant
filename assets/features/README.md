@@ -19,14 +19,12 @@ Add to `<head>`:
 ```html
 <link rel="stylesheet" href="../assets/features/dietary-filter.css" />
 <link rel="stylesheet" href="../assets/features/allergy-alert.css" />
-<link rel="stylesheet" href="../assets/features/social-proof.css" />
 ```
 
 Add before `</body>`:
 ```html
 <script type="module" src="../assets/features/dietary-filter.js"></script>
 <script type="module" src="../assets/features/allergy-alert.js"></script>
-<script type="module" src="../assets/features/social-proof.js"></script>
 ```
 
 ### For Product Detail (product-detail-page/index.html):
@@ -55,8 +53,6 @@ Add before `</body>`:
 ├── meal-pairing.js          ← Pairing recommendation logic
 ├── allergy-alert.css        ← Styles for allergy system
 ├── allergy-alert.js         ← Allergy tracking & warnings
-├── social-proof.css         ← Styles for notifications
-└── social-proof.js          ← Notification system
 ```
 
 Plus:
@@ -107,7 +103,6 @@ Edit CSS variables in feature files:
 ```
 
 ### Change Notification Timing:
-Edit `social-proof.js`:
 ```javascript
 const CONFIG = {
   notificationInterval: 8000,  // Every 8 seconds

@@ -48,12 +48,43 @@ import i18nService from './i18n-service.js';
     const onScroll = () => {
       if (window.scrollY > 50) header.classList.add("header--scrolled");
       else header.classList.remove("header--scrolled");
+
+      // Allow CSS transitions to complete before adjusting sticky elements
+      setTimeout(adjustStickyElementsPosition, 100);
     };
+
     window.addEventListener("scroll", onScroll);
-    onScroll(); // set trạng thái ban đầu
+    window.addEventListener("resize", adjustStickyElementsPosition); // Adjust position on resize
+    onScroll();
+    adjustStickyElementsPosition(); // Initial adjustment
 
     scrollInited = true;
   }
+
+  // Function to adjust the top position of sticky elements (menu filter and cart icon)
+  const adjustStickyElementsPosition = () => {
+    const header = document.getElementById("header");
+    const menuFilter = q(".menu__filter");
+    const cartIconWrapper = q(".cart-icon-wrapper");
+
+    if (!header) return;
+
+    const headerHeight = header.offsetHeight; // Get computed height of the header
+
+    if (menuFilter) {
+      menuFilter.style.top = `${headerHeight}px`;
+    }
+    if (cartIconWrapper && menuFilter) {
+      // Calculate top position to vertically center cart icon with menu filter
+      const menuFilterCenter = headerHeight + menuFilter.offsetHeight / 2;
+      const cartIconTop =
+        menuFilterCenter - cartIconWrapper.offsetHeight / 2 + 3;
+      cartIconWrapper.style.top = `${cartIconTop}px`;
+    } else if (cartIconWrapper) {
+      // Fallback if menuFilter is not found, position below header with a default offset
+      cartIconWrapper.style.top = `${headerHeight + 20}px`;
+    }
+  };
 
   // ----- CLOCK -----
   function updateTime() {

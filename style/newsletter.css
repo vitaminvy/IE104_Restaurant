@@ -91,11 +91,12 @@
 
 .newsletter__star {
   position: absolute;
-  top: -8%;
+  top: -4%;
   left: -6%;
   width: clamp(50px, 15%, 90px);
   height: auto;
   filter: drop-shadow(0 10px 25px rgba(255, 153, 0, 0.35));
+  z-index: 99;
 }
 
 /* ============ Content ============ */
@@ -229,6 +230,9 @@
 @media (max-width: 640px) {
   .newsletter__subtitle {
     display: none;
+  }
+  .newsletter__star {
+    top: -8%;
   }
 }
 

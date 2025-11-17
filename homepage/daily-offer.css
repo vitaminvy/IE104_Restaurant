@@ -4,7 +4,7 @@
 
 .daily-offers {
   position: relative;
-  padding: clamp(3rem, 6vw, 5rem) 1.5rem;
+  /* padding: clamp(3rem, 6vw, 5rem) 1.5rem; */
   color: var(--color-white);
   overflow: hidden;
 }
@@ -13,8 +13,18 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.04), transparent 45%);
+  background: radial-gradient(
+      circle at 20% 30%,
+      rgba(47, 186, 168, 0.08),
+      transparent 55%
+    ),
+    radial-gradient(
+      circle at 70% 80%,
+      rgba(255, 143, 44, 0.08),
+      transparent 55%
+    );
   pointer-events: none;
+  animation: driftGlow 18s ease-in-out infinite;
 }
 
 .daily-offers__container {
@@ -48,13 +58,35 @@
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  background: linear-gradient(120deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0));
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.06),
+    rgba(255, 255, 255, 0)
+  );
   pointer-events: none;
+}
+
+.daily-offers__surface::after {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  border-radius: inherit;
+  background: radial-gradient(
+    circle,
+    rgba(255, 143, 44, 0.08),
+    transparent 45%
+  );
+  filter: blur(80px);
+  opacity: 0.6;
+  animation: surfacePulse 12s ease-in-out infinite;
+  pointer-events: none;
+  z-index: -1;
 }
 
 .daily-offers__content {
   display: grid;
   gap: clamp(2rem, 5vw, 3.5rem);
+  align-items: flex-start;
 }
 
 /* ========== LEFT BANNER ========== */
@@ -71,16 +103,22 @@
 }
 
 .daily-offers__promo-link:hover {
-  transform: translateY(-6px) scale(1.01);
+  transform: translateY(-6px) scale(1.03);
   box-shadow: 0 35px 80px rgba(0, 0, 0, 0.55);
 }
 
 .daily-offers__promo-img {
   width: 100%;
-  display: block;
+  display: block; /* Fix for extra space under image */
   border-radius: inherit;
   object-fit: cover;
   filter: saturate(1.05);
+  transition: transform 0.8s ease, filter 0.8s ease;
+}
+
+.daily-offers__promo-link:hover .daily-offers__promo-img {
+  transform: scale(1.06);
+  filter: saturate(1.15);
 }
 
 .daily-offers__promo-link::after {
@@ -124,7 +162,16 @@
   border-radius: 28px;
   border: 1px solid rgba(255, 255, 255, 0.06);
   background: rgba(255, 255, 255, 0.02);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02), 0 18px 50px rgba(0, 0, 0, 0.35);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02),
+    0 18px 50px rgba(0, 0, 0, 0.35);
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    box-shadow 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.daily-offers__item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 28px 60px rgba(0, 0, 0, 0.5),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08);
 }
 
 .daily-offers__item-img {
@@ -161,6 +208,11 @@
   padding: 0.35rem 1rem;
   border-radius: 999px;
   box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.daily-offers__item:hover .daily-offers__item-price {
+  transform: scale(1.05);
 }
 
 /* =========================================================
@@ -170,7 +222,6 @@
 /* Tablet ≥768px */
 @media (min-width: 48rem) {
   .daily-offers__content {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
     align-items: stretch;
   }
 }
@@ -213,10 +264,86 @@
   }
 
   .daily-offers__content {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 6rem;
   }
 
+  .daily-offers__title {
+    font-size: 4rem;
+  }
   .daily-offers__list {
     gap: 6rem;
+  }
+}
+
+/* Small screens */
+@media (max-width: 47.99rem) {
+  .daily-offers {
+    padding-inline: clamp(1rem, 4vw, 2rem);
+  }
+
+  .daily-offers__surface {
+    padding: 1.5rem;
+  }
+
+  .daily-offers__promo-link {
+    border-radius: 24px;
+  }
+
+  .daily-offers__promo-cta {
+    position: static;
+    display: inline-flex;
+    margin: 1rem 0 0;
+  }
+
+  .daily-offers__item {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    padding: 1rem;
+  }
+
+  .daily-offers__item-img {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+  }
+
+  .daily-offers__item-price {
+    align-self: flex-end;
+  }
+}
+
+@media (max-width: 30rem) {
+  .daily-offers__item-price {
+    align-self: stretch;
+    text-align: center;
+  }
+}
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+@keyframes surfacePulse {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.65;
+    transform: scale(1.15);
+  }
+}
+
+@keyframes driftGlow {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-3%, 4%);
+  }
+  100% {
+    transform: translate(0, 0);
   }
 }

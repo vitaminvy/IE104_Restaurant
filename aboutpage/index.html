@@ -24,6 +24,10 @@
       href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Global Animation System -->
+    <link rel="stylesheet" href="../style/animations.css" />
+    <script src="../assets/script/scroll-animations.js"></script>
   </head>
   <body>
     <!-- logic for header and footer -->
@@ -35,8 +39,13 @@
     <!-- About intro section-->
     <section class="about-intro" id="about-intro">
       <div class="about-intro__container">
+<<<<<<< HEAD
+        <header class="about-intro__header animate-slide-up">
+          <h2 class="about-intro__title">
+=======
         <header class="about-intro__header">
           <h2 class="about-intro__title" data-i18n="about_page.intro.title">
+>>>>>>> main
             We Are A Mexican Restaurant<br />
             Makes Delicious.
           </h2>
@@ -45,7 +54,7 @@
             carnitas and bright salsas, we cook with seasonal ingredients from
             local farmers. Our kitchen blends family recipes with modern
             techniques, keeping flavors bold and honest. Whether you crave
-            something spicy, smoky, or vegetarian, there’s a plate here made
+            something spicy, smoky, or vegetarian, there's a plate here made
             with care—and a team ready to welcome you like familia.
           </p>
         </header>
@@ -55,30 +64,32 @@
           aria-hidden="true"
         ></div>
 
-        <div class="about-intro__grid">
-          <figure class="about-intro__photo about-intro__photo--a">
+        <div class="about-intro__grid stagger-children">
+          <figure class="about-intro__photo about-intro__photo--a animate-scale">
             <img
               src="../assets/images/about-page/table-1.png"
               alt="Restaurant window"
             />
           </figure>
 
-          <figure class="about-intro__photo about-intro__photo--b">
+          <figure class="about-intro__photo about-intro__photo--b animate-scale">
             <img
               src="../assets/images/about-page/table-2.png"
               alt="Indoor dining"
             />
           </figure>
 
-          <figure class="about-intro__photo about-intro__photo--c">
+          <figure class="about-intro__photo about-intro__photo--c animate-scale">
             <img
               src="../assets/images/about-page/view.png"
               alt="Chalkboard and table"
             />
           </figure>
 
-          <article class="about-intro__story">
+
+          <article class="about-intro__story animate-slide-right">
             <h3 class="about-intro__story-title" data-i18n="about_page.intro.story_title">
+
               The Story Of Our<br />
               First Restaurant<br />
               Branch
@@ -96,7 +107,7 @@
     <!-- ========== VISION & MISSION ========== -->
     <section class="vision" id="vision">
       <div class="vision__container">
-        <header class="vision__header">
+        <header class="vision__header animate-slide-up">
           <h2 class="vision__title" data-i18n="about_page.vision_mission.title">Our Vision &amp; Mission</h2>
           <p class="vision__subtitle" data-i18n="about_page.vision_mission.subtitle">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
@@ -108,8 +119,8 @@
 
         <div class="vision__grid">
           <!-- left: feature list -->
-          <ul class="vision__features">
-            <li class="vision__feature">
+          <ul class="vision__features stagger-children">
+            <li class="vision__feature animate-slide-left">
               <span class="vision__badge">
                 <img
                   src="../assets/icons/about-page/food-icon.svg"

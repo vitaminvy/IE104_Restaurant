@@ -7,8 +7,12 @@
   let clockStarted = false;
 
   // ----- HELPERS -----
-  function q(sel) { return document.querySelector(sel); }
-  function hasHeader() { return !!document.getElementById("header"); }
+  function q(sel) {
+    return document.querySelector(sel);
+  }
+  function hasHeader() {
+    return !!document.getElementById("header");
+  }
 
   // ----- TOGGLE MENU -----
   function initMenu() {
@@ -38,30 +42,48 @@
   function initScrollStyle() {
     if (scrollInited) return;
     const header = document.getElementById("header");
-    const menuFilter = q(".menu__filter"); // Get the menu filter element
     if (!header) return;
-
-    // Function to adjust the menu filter's top position
-    const adjustMenuFilterPosition = () => {
-      if (menuFilter) {
-        const headerHeight = header.offsetHeight; // Get computed height of the header
-        menuFilter.style.top = `${headerHeight}px`;
-      }
-    };
 
     const onScroll = () => {
       if (window.scrollY > 50) header.classList.add("header--scrolled");
       else header.classList.remove("header--scrolled");
-      adjustMenuFilterPosition(); // Adjust position on scroll
+
+      // Allow CSS transitions to complete before adjusting sticky elements
+      setTimeout(adjustStickyElementsPosition, 100);
     };
 
     window.addEventListener("scroll", onScroll);
-    window.addEventListener("resize", adjustMenuFilterPosition); // Adjust position on resize
-    onScroll(); // set trạng thái ban đầu và điều chỉnh vị trí ban đầu
-    adjustMenuFilterPosition(); // Initial adjustment
+    window.addEventListener("resize", adjustStickyElementsPosition); // Adjust position on resize
+    onScroll(); // set trạng thái ban đầu
+    adjustStickyElementsPosition(); // Initial adjustment
 
     scrollInited = true;
   }
+
+  // Function to adjust the top position of sticky elements (menu filter and cart icon)
+  const adjustStickyElementsPosition = () => {
+    const header = document.getElementById("header");
+    const menuFilter = q(".menu__filter");
+    const cartIconWrapper = q(".cart-icon-wrapper");
+
+    if (!header) return;
+
+    const headerHeight = header.offsetHeight; // Get computed height of the header
+
+    if (menuFilter) {
+      menuFilter.style.top = `${headerHeight}px`;
+    }
+    if (cartIconWrapper && menuFilter) {
+      // Calculate top position to vertically center cart icon with menu filter
+      const menuFilterCenter = headerHeight + menuFilter.offsetHeight / 2;
+      const cartIconTop =
+        menuFilterCenter - cartIconWrapper.offsetHeight / 2 + 3;
+      cartIconWrapper.style.top = `${cartIconTop}px`;
+    } else if (cartIconWrapper) {
+      // Fallback if menuFilter is not found, position below header with a default offset
+      cartIconWrapper.style.top = `${headerHeight + 20}px`;
+    }
+  };
 
   // ----- CLOCK -----
   function updateTime() {
@@ -89,7 +111,7 @@
     const navLinks = document.querySelectorAll(".header__nav-link");
     if (!navLinks.length) return;
 
-    navLinks.forEach(link => {
+    navLinks.forEach((link) => {
       // Skip hash links (same page)
       const href = link.getAttribute("href");
       if (!href || href.startsWith("#")) return;
@@ -99,7 +121,7 @@
 
         // Get link text for message
         const linkText = link.textContent.trim();
-        
+
         // Show global loader
         if (window.GlobalLoader) {
           window.GlobalLoader.show(`Loading ${linkText}...`);
@@ -120,30 +142,44 @@
 
     // Get current page path
     const currentPath = window.location.pathname;
-    
+
     // Remove all active classes first
-    navLinks.forEach(link => {
+    navLinks.forEach((link) => {
       link.classList.remove("header__nav-link--active");
     });
 
     // Check each link and set active based on current path
-    navLinks.forEach(link => {
+    navLinks.forEach((link) => {
       const linkPath = link.getAttribute("href");
-      
+
       // Handle different path formats
       if (linkPath) {
         // Normalize paths for comparison
-        const normalizedLinkPath = linkPath.replace(/^\/+/, '').replace(/\/index\.html$/, '').replace(/\/$/, '');
-        const normalizedCurrentPath = currentPath.replace(/^\/+/, '').replace(/\/index\.html$/, '').replace(/\/$/, '');
-        
+        const normalizedLinkPath = linkPath
+          .replace(/^\/+/, "")
+          .replace(/\/index\.html$/, "")
+          .replace(/\/$/, "");
+        const normalizedCurrentPath = currentPath
+          .replace(/^\/+/, "")
+          .replace(/\/index\.html$/, "")
+          .replace(/\/$/, "");
+
         // Check for exact match or if current path starts with link path
-        if (normalizedCurrentPath === normalizedLinkPath || 
-            normalizedCurrentPath.startsWith(normalizedLinkPath + '/') ||
-            (normalizedLinkPath === 'homepage' && (normalizedCurrentPath === '' || normalizedCurrentPath === 'homepage')) ||
-            (normalizedLinkPath.includes('menupage') && normalizedCurrentPath.includes('menupage')) ||
-            (normalizedLinkPath.includes('blogpage') && normalizedCurrentPath.includes('blogpage')) ||
-            (normalizedLinkPath.includes('contact-us') && normalizedCurrentPath.includes('contact-us')) ||
-            (normalizedLinkPath.includes('coming-soon') && normalizedCurrentPath.includes('coming-soon'))) {
+        if (
+          normalizedCurrentPath === normalizedLinkPath ||
+          normalizedCurrentPath.startsWith(normalizedLinkPath + "/") ||
+          (normalizedLinkPath === "homepage" &&
+            (normalizedCurrentPath === "" ||
+              normalizedCurrentPath === "homepage")) ||
+          (normalizedLinkPath.includes("menupage") &&
+            normalizedCurrentPath.includes("menupage")) ||
+          (normalizedLinkPath.includes("blogpage") &&
+            normalizedCurrentPath.includes("blogpage")) ||
+          (normalizedLinkPath.includes("contact-us") &&
+            normalizedCurrentPath.includes("contact-us")) ||
+          (normalizedLinkPath.includes("coming-soon") &&
+            normalizedCurrentPath.includes("coming-soon"))
+        ) {
           link.classList.add("header__nav-link--active");
         }
       }
@@ -151,10 +187,16 @@
 
     // If no link is active and we're on homepage/root, activate Home
     const hasActive = document.querySelector(".header__nav-link--active");
-    if (!hasActive && (currentPath === '/' || currentPath === '' || currentPath.includes('homepage'))) {
-      const homeLink = Array.from(navLinks).find(link => 
-        link.getAttribute("href")?.includes('homepage') || 
-        link.textContent.trim().toLowerCase() === 'home'
+    if (
+      !hasActive &&
+      (currentPath === "/" ||
+        currentPath === "" ||
+        currentPath.includes("homepage"))
+    ) {
+      const homeLink = Array.from(navLinks).find(
+        (link) =>
+          link.getAttribute("href")?.includes("homepage") ||
+          link.textContent.trim().toLowerCase() === "home"
       );
       if (homeLink) {
         homeLink.classList.add("header__nav-link--active");

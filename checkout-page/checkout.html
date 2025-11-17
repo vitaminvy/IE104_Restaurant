@@ -50,8 +50,9 @@
     <script type="module" src="../assets/script/lang-toggle.js" defer></script>
 
     <main class="checkout container">
+      <div class="checkout__surface">
       <!-- LEFT: BILLING FORM -->
-      <section class="billing">
+      <section class="billing animate-slide-left">
         <h1 class="billing__title" data-i18n="checkout_page.billing_details.title">Billing details</h1>
 
         <form class="form" id="checkout-form" method="get" novalidate>
@@ -235,7 +236,7 @@
       </section>
 
       <!-- RIGHT: ORDER SUMMARY -->
-      <aside class="summary" aria-label="Order summary">
+      <aside class="summary animate-slide-right" aria-label="Order summary">
         <h2 class="summary__title" data-i18n="checkout_page.order_summary.title">Your order</h2>
         <table class="order-table">
           <thead>
@@ -263,6 +264,7 @@
           </tfoot>
         </table>
       </aside>
+      </div>
     </main>
 
     <!-- Footer -->

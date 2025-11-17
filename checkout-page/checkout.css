@@ -2,12 +2,34 @@
 
 /* Layout */
 .checkout {
+  padding: clamp(3rem, 6vw, 5rem) 1rem;
+  background: radial-gradient(circle at 8% 15%, rgba(255, 166, 56, 0.2), transparent 45%),
+    radial-gradient(circle at 85% 12%, rgba(45, 189, 180, 0.2), transparent 50%),
+    #050507;
+}
+
+.checkout__surface {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 130px;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: clamp(2rem, 5vw, 4rem);
+  border-radius: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(14, 16, 24, 0.75);
+  box-shadow: 0 40px 120px rgba(0, 0, 0, 0.45);
+  padding: clamp(2rem, 5vw, 3.5rem);
+  backdrop-filter: blur(18px);
 }
 
 /* BILLING */
+.billing,
+.summary {
+  border-radius: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+  background: rgba(255, 255, 255, 0.02);
+}
+
 .billing__title,
 .summary__title {
   color: var(--color-white);
@@ -32,12 +54,12 @@
 
 .form__row {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: clamp(1rem, 3vw, 1.75rem);
 }
 
 .form__group {
-  margin-bottom: 24px;
+  margin-bottom: 1.5rem;
 }
 .form__label {
   display: block;
@@ -47,13 +69,14 @@
 .form__input,
 .form__select {
   width: 100%;
-  background: transparent;
-  border: none;
-  border-bottom: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
   color: var(--color-white-80);
   outline: none;
-  transition: border-color 0.25s ease;
-  padding: 0 0 14px;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  padding: 0.85rem 1.1rem;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 .form__select option {
@@ -65,22 +88,25 @@
   color: var(--color-white-60);
 }
 
-.form__input:focus {
-  outline: none;
-  border-color: var(--color-dark-orange);
-  box-shadow: 0 1px 0 0 var(--color-dark-orange);
+.form__input:focus,
+.form__select:focus {
+  border-color: rgba(255, 173, 90, 0.8);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 173, 90, 0.3);
 }
 
-.form__input:hover {
-  border-color: var(--color-white-45);
+.form__input:hover,
+.form__select:hover {
+  border-color: rgba(255, 255, 255, 0.15);
 }
 
 /* Payment*/
 .payment {
-  margin-top: 60px;
-  border: 2px solid var(--line);
-  background: var(--bg-box);
+  margin-top: 2.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.02);
   padding: 34px 28px;
+  border-radius: 28px;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02);
 }
 
 .payment__option {
@@ -168,10 +194,17 @@
 }
 
 /* Summary */
+.summary {
+  border-radius: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.02);
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+}
+
 .order-table {
   width: 100%;
-  background: var(--bg-box);
-  overflow: hidden;
+  border-collapse: collapse;
 }
 
 .order-table th {
@@ -188,30 +221,26 @@
 
 .order-table td,
 .order-table th {
-  padding: 24px 28px;
+  padding: 18px 0;
   text-align: left;
   border-bottom: 1px solid var(--line);
 }
 
 .order-table td {
-  padding: 18px 10px 18px 28px;
+  padding: 18px 0;
 }
 
 /* ================== Responsive Breakpoints ================== */
 
-/* md (≥768px) */
+/* md (≤992px) */
 @media (max-width: 991.98px) {
-  .checkout {
+  .checkout__surface {
     grid-template-columns: 1fr;
-    gap: 70px;
+    gap: 2.5rem;
   }
 
   .summary {
-    order: 1;
-  }
-
-  .billing {
-    order: 2;
+    order: -1;
   }
 
   .container {
@@ -225,7 +254,7 @@
   /* input 1 column */
   .form__row {
     grid-template-columns: 1fr;
-    gap: 0;
+    gap: 1rem;
   }
 
   .order-table th,

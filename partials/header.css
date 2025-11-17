@@ -106,7 +106,7 @@
   align-items: center;
   justify-content: center;
   transition: left 0.5s ease-in-out;
-  z-index: 100;
+  z-index: 9999;
   opacity: 0; /* initially will hide */
   pointer-events: none; /* unenable to click */
 }
@@ -269,4 +269,12 @@
 #language-flag:hover {
   transform: scale(1.1);
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* When mobile nav is open, hide other floating UI elements */
+body.mobile-nav-open .allergy-settings-trigger,
+body.mobile-nav-open .cart-icon-wrapper {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
 }

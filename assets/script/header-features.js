@@ -154,13 +154,13 @@ function updateHeaderLogo() {
 
     if (isComingSoonPage) {
         // On coming soon page, always use the dark mode logo
-        headerLogo.src = '../assets/icons/header/nav-vect.svg';
+        headerLogo.src = '../assets/icons/icon-header/nav-vect.svg';
         headerLogo.alt = 'Restaurant Logo'; // Ensure alt text is consistent
     } else if (currentTheme === 'light') {
-        headerLogo.src = '../assets/icons/logo_bg_dark_no_text.png';
+        headerLogo.src = '../assets/icons/icon-header/logo_bg_dark_no_text.png';
         headerLogo.alt = 'Restaurant Logo (Light Mode)';
     } else {
-        headerLogo.src = '../assets/icons/header/nav-vect.svg';
+        headerLogo.src = '../assets/icons/icon-header/nav-vect.svg';
         headerLogo.alt = 'Restaurant Logo';
     }
 }

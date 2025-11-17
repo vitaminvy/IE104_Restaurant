@@ -13,6 +13,7 @@
         }
     }
 
+    document.dispatchEvent(new Event("includeLoaded"));
     // Dispatch a custom event after all partials are loaded
     document.dispatchEvent(new CustomEvent('partials:loaded'));
 

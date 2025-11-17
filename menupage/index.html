@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Theme init must run before paint -->
+    <script src="../assets/script/theme-init.js"></script>
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-<head>
-  <script src="../assets/script/theme-init.js"></script>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title data-i18n="menu_page.title">Menu</title>
 
+    <!-- Base styles -->
     <link rel="stylesheet" href="../style/reset.css" />
     <link rel="stylesheet" href="../style/style.css" />
+    <link rel="stylesheet" href="../style/animations.css" />
 
     <!-- menu page css -->
     <link rel="stylesheet" href="./styles/menu-page.css" />
@@ -22,45 +22,34 @@
     <!-- Pagination Section styles -->
     <link rel="stylesheet" href="./styles/pagination.css" />
 
-    <!-- header section -->
+    <!-- Add to Cart Button System -->
+    <link rel="stylesheet" href="./styles/add-to-cart-buttons.css" />
+    <link rel="stylesheet" href="./styles/notification-system.css" />
+
+    <!-- header & footer -->
     <link rel="stylesheet" href="../partials/header.css" />
-    <!-- footer-->
     <link rel="stylesheet" href="../partials/footer.css" />
 
+    <!-- Theme toggle -->
+    <link rel="stylesheet" href="../assets/features/theme-toggle.css" />
+
+    <!-- Global Features Stylesheets -->
+    <link rel="stylesheet" href="../assets/features/allergy-alert.css" />
+    <link rel="stylesheet" href="../assets/features/social-proof.css" />
+
+    <!-- Fonts -->
     <link
       href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
       rel="stylesheet"
     />
+
     <!-- Font Awesome CDN -->
     <script
       src="https://kit.fontawesome.com/eef96f1e29.js"
       crossorigin="anonymous"
     ></script>
 
-    <!-- Global Features Stylesheets -->
-    <link rel="stylesheet" href="../assets/features/allergy-alert.css" />
-    <link rel="stylesheet" href="../assets/features/social-proof.css" />
-
-  <!-- Global Loading System -->
-  <script src="../assets/script/global-loader.js"></script>
-<link rel="stylesheet" href="../assets/features/theme-toggle.css" />
-  </head>
-
-<body>
-    
-  <!-- logic for header and footer -->
-  <script src="../assets/script/include-partials.js" defer></script>
-  <script src="../assets/script/header.js" defer></script>
-    <!-- Global Animation System -->
-    <link rel="stylesheet" href="../style/animations.css" />
-
-    <!-- Add to Cart Button System -->
-    <link rel="stylesheet" href="./styles/add-to-cart-buttons.css" />
-    <link rel="stylesheet" href="./styles/notification-system.css" />
-    <script src="./scripts/notification-system.js"></script>
-    <script src="./scripts/add-to-cart-buttons.js"></script>
-
-    <!-- Global Loading System -->
+    <!-- Global Loading + scroll animations -->
     <script src="../assets/script/global-loader.js"></script>
     <script src="../assets/script/scroll-animations.js"></script>
   </head>
@@ -103,7 +92,7 @@
         data-i18n="home.menu.filter.dinner"
         >Dinner</a
       >
-      <!-- staters -->
+      <!-- starters -->
       <a
         href="#"
         class="menu__filter-item"
@@ -136,7 +125,7 @@
         </p>
         <div class="menu-banner__cta">
           <a
-            href="../contact-us-1/index.html#reservation"
+            href="../index.html#reservation"
             class="btn menu-banner__btn"
             data-i18n="menu_page.banner.reserve_seat"
             >Reserve Seat</a
@@ -179,7 +168,7 @@
       </div>
     </section>
 
-    <!-- Floating cart icon -->
+    <!-- Floating cart icon (single version) -->
     <div
       class="cart-icon-wrapper"
       id="cart-icon"
@@ -187,20 +176,16 @@
       title="View cart"
       data-i18n-attrs="aria-label:menu_page.cart_icon.aria_label,title:menu_page.cart_icon.title"
     >
-      <i
-        class="fa-solid fa-cart-plus cart-icon"
-        style="color: var(--color-dark-orange)"
-      ></i>
+      <i class="fa-solid fa-cart-plus cart-icon"></i>
       <span id="cart-count" class="cart-count">0</span>
     </div>
 
-  <!-- Floating cart icon -->
-  <div class="cart-icon-wrapper" id="cart-icon" aria-label="View cart" title="View cart">
-    <i class="fa-solid fa-cart-plus cart-icon"></i>
-    <span id="cart-count" class="cart-count">0</span>
-  </div>
     <!-- ==========  FOOTER ========== -->
     <div class="footer-wrapper" data-include="/partials/footer.html"></div>
+
+    <!-- Page scripts -->
+    <script src="./scripts/notification-system.js"></script>
+    <script src="./scripts/add-to-cart-buttons.js"></script>
 
     <!-- navigate menu  -->
     <script
@@ -211,25 +196,20 @@
     <script type="module" src="./scripts/menupage.js" defer></script>
 
     <!-- dietary filter extension - NEW FEATURE (does not modify existing code) -->
-    <script type="module" src="./scripts/dietary-filter-extension.js" defer></script>
-
-  <!-- navigate menu  -->
-  <script type="module" src="../assets/script/navigate-menu.js" defer></script>
-  <script type="module" src="./menupage.js" defer></script>
-
-  <!-- dietary filter extension - NEW FEATURE (does not modify existing code) -->
-  <script type="module" src="./dietary-filter-extension.js" defer></script>
-
-  <!-- Global Features Scripts -->
-  <script type="module" src="../assets/features/allergy-alert.js"></script>
-  <script type="module" src="../assets/features/social-proof.js"></script>
-
-    <script type="module" src="../assets/script/header-features.js" defer></script>
-  </body>
+    <script
+      type="module"
+      src="./scripts/dietary-filter-extension.js"
+      defer
+    ></script>
 
     <!-- Global Features Scripts -->
     <script type="module" src="../assets/features/allergy-alert.js"></script>
     <script type="module" src="../assets/features/social-proof.js"></script>
-    <script type="module" src="../assets/script/lang-toggle.js" defer></script>
+
+    <script
+      type="module"
+      src="../assets/script/header-features.js"
+      defer
+    ></script>
   </body>
 </html>

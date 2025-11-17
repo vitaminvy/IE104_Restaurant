@@ -101,6 +101,7 @@
     },
     "daily_offers": {
       "title": "Ưu đãi hàng ngày của chúng tôi",
+      "cta": "Đặt món ngay",
       "item1": {
         "title": "Câu lạc bộ cay",
         "description": "Thịt heo, gà và chả giò rau củ ăn kèm với rau xà lách"
@@ -169,9 +170,10 @@
       "read_more": "Đọc thêm"
     },
     "newsletter": {
-      "title": "Đăng ký nhận bản tin & nhận tin tức mới nhất",
+      "title": "Đăng ký nhận bản tin & Nhận tin tức mới nhất",
       "subtitle": "Nhận quyền truy cập nội bộ vào tin tức về những đổi mới, kỹ thuật nấu ăn độc đáo, khái niệm ẩm thực, thông tin chi tiết và hơn thế nữa",
-      "placeholder_email": "Nhập địa chỉ email của bạn"
+      "placeholder_email": "Nhập địa chỉ email của bạn",
+      "success": "Đăng ký thành công! Bạn nhớ kiểm tra email nhé."
     }
   },
   "menu_page": {
@@ -716,7 +718,46 @@
     "date": {
       "august_6_2025": "Ngày 6 tháng 8 năm 2025",
       "august_4_2024": "Ngày 4 tháng 8 năm 2024",
-      "august_4_2025": "Ngày 4 tháng 8 năm 2025"
+      "august_4_2025": "Ngày 4 tháng 8 năm 2025",
+      "august_18_2025": "Ngày 18 tháng 8 năm 2025",
+      "august_20_2024": "Ngày 20 tháng 8 năm 2024",
+      "august_20_2025": "Ngày 20 tháng 8 năm 2025",
+      "august_22_2025": "Ngày 22 tháng 8 năm 2025",
+      "august_23_2025": "Ngày 23 tháng 8 năm 2025",
+      "august_24_2025": "Ngày 24 tháng 8 năm 2025",
+      "august_26_2024": "Ngày 26 tháng 8 năm 2024",
+      "august_26_2025": "Ngày 26 tháng 8 năm 2025",
+      "august_28_2025": "Ngày 28 tháng 8 năm 2025"
+    },
+    "tags": {
+      "AI": "AI",
+      "Innovation": "Đổi mới",
+      "Restaurant Tech": "Công nghệ nhà hàng",
+      "Automation": "Tự động hóa",
+      "Breakfast Trends": "Xu hướng bữa sáng",
+      "Morning Menu": "Thực đơn buổi sáng",
+      "Brunch Ideas": "Ý tưởng brunch",
+      "Healthy Dining": "Ăn uống lành mạnh",
+      "Restaurant Staffing": "Nhân sự nhà hàng",
+      "Kitchen Team": "Đội ngũ bếp",
+      "Safety Training": "Đào tạo an toàn",
+      "Service Culture": "Văn hóa dịch vụ",
+      "Technology": "Công nghệ",
+      "POS Systems": "Hệ thống POS",
+      "Digital Transformation": "Chuyển đổi số",
+      "Operations": "Vận hành",
+      "IoT": "IoT",
+      "Inventory": "Kiểm kê",
+      "Cost Control": "Kiểm soát chi phí",
+      "Efficiency": "Hiệu quả",
+      "Marketing": "Tiếp thị",
+      "Social Media": "Mạng xã hội",
+      "Live Video": "Video trực tiếp",
+      "Customer Engagement": "Tương tác khách hàng",
+      "Employee Benefits": "Phúc lợi nhân viên",
+      "Financial Wellness": "Sức khỏe tài chính",
+      "Staff Retention": "Giữ chân nhân viên",
+      "HR": "Nhân sự"
     }
   },
   "product_detail_page": {
@@ -775,6 +816,21 @@
     "loading_article": "Đang tải bài viết...",
     "no_posts": "Không có bài viết nào.",
     "by_author": "Bởi",
+    "filters": {
+      "browse_topics": "Duyệt chủ đề",
+      "category_label": "Danh mục",
+      "reset": "Đặt lại"
+    },
+    "loading_posts": "Đang tải các bài viết...",
+    "filter_empty": "Không có câu chuyện nào phù hợp với bộ lọc của bạn. Hãy thử thẻ khác.",
+    "no_stories": "Không có câu chuyện nào.",
+    "load_more": "Xem thêm bài viết",
+    "caught_up": "Bạn đã xem hết rồi",
+    "showing_count": "Hiển thị {current} trên {total} bài viết",
+    "read_time": {
+      "template": "Đọc trong {minutes} phút",
+      "na": "Không rõ thời lượng đọc"
+    },
     "pagination": {
       "previous": "← Trước",
       "next": "Sau →"

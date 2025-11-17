@@ -101,6 +101,7 @@
     },
     "daily_offers": {
       "title": "Our Daily Offers",
+      "cta": "Order now",
       "item1": {
         "title": "Spicy Club",
         "description": "Pork, chicken and vegetable fried rolls served with lettuce wraps"
@@ -171,7 +172,8 @@
     "newsletter": {
       "title": "Subscribe Newsletter & Get Latest News",
       "subtitle": "Get insider access to news around the innovations, unique cooking techniques, culinary concepts, insights, and more",
-      "placeholder_email": "Enter your email address"
+      "placeholder_email": "Enter your email address",
+      "success": "Thanks for subscribing! Please check your inbox."
     }
   },
   "menu_page": {
@@ -716,7 +718,46 @@
     "date": {
       "august_6_2025": "August 6, 2025",
       "august_4_2024": "August 4, 2024",
-      "august_4_2025": "August 4, 2025"
+      "august_4_2025": "August 4, 2025",
+      "august_18_2025": "August 18, 2025",
+      "august_20_2024": "August 20, 2024",
+      "august_20_2025": "August 20, 2025",
+      "august_22_2025": "August 22, 2025",
+      "august_23_2025": "August 23, 2025",
+      "august_24_2025": "August 24, 2025",
+      "august_26_2024": "August 26, 2024",
+      "august_26_2025": "August 26, 2025",
+      "august_28_2025": "August 28, 2025"
+    },
+    "tags": {
+      "AI": "AI",
+      "Innovation": "Innovation",
+      "Restaurant Tech": "Restaurant Tech",
+      "Automation": "Automation",
+      "Breakfast Trends": "Breakfast Trends",
+      "Morning Menu": "Morning Menu",
+      "Brunch Ideas": "Brunch Ideas",
+      "Healthy Dining": "Healthy Dining",
+      "Restaurant Staffing": "Restaurant Staffing",
+      "Kitchen Team": "Kitchen Team",
+      "Safety Training": "Safety Training",
+      "Service Culture": "Service Culture",
+      "Technology": "Technology",
+      "POS Systems": "POS Systems",
+      "Digital Transformation": "Digital Transformation",
+      "Operations": "Operations",
+      "IoT": "IoT",
+      "Inventory": "Inventory",
+      "Cost Control": "Cost Control",
+      "Efficiency": "Efficiency",
+      "Marketing": "Marketing",
+      "Social Media": "Social Media",
+      "Live Video": "Live Video",
+      "Customer Engagement": "Customer Engagement",
+      "Employee Benefits": "Employee Benefits",
+      "Financial Wellness": "Financial Wellness",
+      "Staff Retention": "Staff Retention",
+      "HR": "HR"
     }
   },
   "product_detail_page": {
@@ -775,6 +816,21 @@
     "loading_article": "Loading article...",
     "no_posts": "No blog posts available.",
     "by_author": "By",
+    "filters": {
+      "browse_topics": "Browse topics",
+      "category_label": "Category",
+      "reset": "Reset"
+    },
+    "loading_posts": "Loading blog posts...",
+    "filter_empty": "No stories match your filters. Try another tag.",
+    "no_stories": "No stories available.",
+    "load_more": "Load more stories",
+    "caught_up": "You're all caught up",
+    "showing_count": "Showing {current} of {total} stories",
+    "read_time": {
+      "template": "{minutes} min read",
+      "na": "Read time N/A"
+    },
     "pagination": {
       "previous": "← Previous",
       "next": "Next →"

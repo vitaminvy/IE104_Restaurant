@@ -569,7 +569,7 @@ html[data-theme="light"] .addrForm__field:-webkit-autofill,
 html[data-theme="light"] .addrForm__field:-webkit-autofill:hover,
 html[data-theme="light"] .addrForm__field:-webkit-autofill:focus,
 html[data-theme="light"] .addrForm__field:-webkit-autofill:active {
-  -webkit-box-shadow: 0 0 0px 1000px var(--bg-secondary, #f0f0f0) inset !important;
+  -webkit-box-shadow: 0 0 0px 1000px var(--bg-secondary) inset !important;
   -webkit-text-fill-color: var(--text-primary, #111) !important;
   caret-color: #111 !important;
   border-bottom: 1px solid var(--border-color) !important;
@@ -1077,4 +1077,52 @@ html[data-theme="light"] .addrForm__field:-webkit-autofill:active {
     /* Background */
     background: transparent;
   }
+}
+
+/* =========================================================
+   LIGHT MODE OVERRIDES
+========================================================= */
+
+html[data-theme="light"] .cart__table,
+html[data-theme="light"] .totals__table,
+html[data-theme="light"] .cart__actions {
+  background: var(--bg-primary);
+}
+
+html[data-theme="light"] .qty__btn:hover {
+  background: rgba(251, 143, 44, 0.1);
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+}
+
+html[data-theme="light"] .remove__btn:hover {
+  background: rgba(244, 67, 54, 0.1);
+  border-color: #f44336;
+  color: #f44336;
+}
+
+html[data-theme="light"] .coupon__input {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.1);
+  color: var(--text-primary);
+}
+
+html[data-theme="light"] .coupon__input:focus {
+  background: #ffffff; /* White background on focus */
+}
+
+html[data-theme="light"] .coupon__input:disabled {
+  background: rgba(0, 0, 0, 0.05); /* Light disabled background */
+}
+
+/* Add transitions for smooth theme switching */
+.cart__container,
+.cart__table,
+.totals__table,
+.cart__qty,
+.qty__btn,
+.remove__btn,
+.coupon__input {
+  transition: background-color 0.3s ease, border-color 0.3s ease,
+    color 0.3s ease, box-shadow 0.3s ease;
 }

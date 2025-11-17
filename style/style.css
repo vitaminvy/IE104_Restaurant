@@ -5,18 +5,18 @@ html[data-theme="dark"] {
   --text-secondary: rgba(255, 255, 255, 0.8);
   --text-muted: rgba(255, 255, 255, 0.6);
   --accent-color: #fb8f2c;
-  --border-color: rgba(255, 255, 255, 0.08);
+  --border-color: rgba(255, 255, 255, 0.3);
   --icon-filter: brightness(0) invert(1);
 }
 
 html[data-theme="light"] {
   --bg-primary: #f1f1df;
-  --bg-secondary: #ffffff;
+  --bg-secondary: #f9f9f9;
   --text-primary: #1e293b;
   --text-secondary: #475569;
   --text-muted: #94a3b8;
   --accent-color: #fb8f2c;
-  --border-color: #e2e8f0;
+  --border-color: #0b0b0b;
   --icon-filter: brightness(0) invert(0);
 }
 

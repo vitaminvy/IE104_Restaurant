@@ -17,6 +17,16 @@
   margin: 0 auto;
 }
 
+.discover__icon {
+  position: absolute;
+  top: -6%;
+  left: 88%;
+  transform-origin: top left;
+  width: clamp(40px, 12%, 80px) !important;
+  height: auto;
+  filter: drop-shadow(0 10px 25px rgba(255, 153, 0, 0.35));
+}
+
 /* ---------------------- */
 /* 2. LEFT CONTENT AREA   */
 /* ---------------------- */
@@ -66,6 +76,7 @@
 .discover__image img {
   width: 100%;
   max-width: 500px;
+  border-radius: 14px;
   object-fit: cover;
   transition: transform 0.4s ease;
 }
@@ -90,6 +101,11 @@
 
   .discover__container {
     gap: 3rem;
+  }
+
+  .discover__icon {
+    top: -6%;
+    left: 90%;
   }
 }
 

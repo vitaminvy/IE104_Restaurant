@@ -82,7 +82,6 @@
       // Load stylesheets first (parallel)
       await Promise.all([
         loadStylesheet(`${basePath}allergy-alert.css`),
-        loadStylesheet(`${basePath}social-proof.css`)
       ]);
 
       console.log('✅ Feature stylesheets loaded');
@@ -90,7 +89,6 @@
       // Load scripts (parallel)
       await Promise.all([
         loadScript(`${basePath}allergy-alert.js`),
-        loadScript(`${basePath}social-proof.js`)
       ]);
 
       console.log('✅ Feature scripts loaded');

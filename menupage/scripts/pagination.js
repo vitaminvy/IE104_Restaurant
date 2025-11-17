@@ -1,4 +1,4 @@
-import i18nService from '../assets/script/i18n-service.js';
+import i18nService from '../../assets/script/i18n-service.js';
 
 export function initPagination(totalPages, currentPage, onPageChange) {
     const pagination = document.getElementById('pagination');

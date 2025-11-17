@@ -1,6 +1,6 @@
 import { initPagination } from './pagination.js';
-import { menuItems } from '../assets/data/mockdata.js';
-import i18nService from '../assets/script/i18n-service.js';
+import { menuItems } from '../../assets/data/mockdata.js';
+import i18nService from '../../assets/script/i18n-service.js';
 
 (function () {
   const container = document.getElementById('menu-card-container');
@@ -146,7 +146,14 @@ import i18nService from '../assets/script/i18n-service.js';
         const desc = card.querySelector('.menu__card-desc')?.textContent || i18nService.t(item.desc);
 
         const cartItem = { ...item, title, desc };
-        addToCartAndNavigate(cartItem);
+
+        // Use enhanced add to cart with navigation
+        if (window.enhancedAddToCart) {
+          window.enhancedAddToCart(cartItem, button, true);
+        } else {
+          // Fallback to original function
+          addToCartAndNavigate(cartItem);
+        }
       });
     });
   }
@@ -237,65 +244,94 @@ import i18nService from '../assets/script/i18n-service.js';
         const desc = card.querySelector('.menu__card-desc')?.textContent || i18nService.t(item.desc);
 
         console.log('🛒 Adding to cart via cart icon:', title);
+        const preparedItem = { ...item, title, desc };
 
-        // Add animation to button
-        button.style.transform = 'scale(0.85)';
-        setTimeout(() => {
-          button.style.transform = '';
-        }, 200);
-
-        // Get existing cart from localStorage
-        let cart = [];
-        try {
-          const cartData = localStorage.getItem('restaurantCart');
-          if (cartData) {
-            cart = JSON.parse(cartData);
-          }
-        } catch (e) {
-          console.error('Error reading cart:', e);
-        }
-
-        // Check if item already exists in cart
-        const existingItemIndex = cart.findIndex(
-          (cartItem) => cartItem.id === item.id
-        );
-
-        if (existingItemIndex > -1) {
-          // Item exists, increase quantity
-          cart[existingItemIndex].quantity =
-            (cart[existingItemIndex].quantity || 1) + 1;
+        // Use enhanced add to cart with animations (no navigation)
+        if (window.enhancedAddToCart) {
+          window.enhancedAddToCart(preparedItem, button, false);
         } else {
-          // Add new item to cart
-          const cartItem = {
-            id: item.id,
-            title: title, // Already translated from DOM
-            price: item.price,
-            image: item.image,
-            desc: desc || '', // Already translated from DOM
-            quantity: 1,
-          };
-          cart.push(cartItem);
-        }
+          // Fallback to basic animation
+          button.style.transform = 'scale(0.85)';
+          setTimeout(() => {
+            button.style.transform = '';
+          }, 200);
 
-        // Save to localStorage
-        try {
-          localStorage.setItem('restaurantCart', JSON.stringify(cart));
-        } catch (e) {
-          console.error('❌ Error saving cart:', e);
-        }
+          // Get existing cart from localStorage
+          let cart = [];
+          try {
+            const cartData = localStorage.getItem('restaurantCart');
+            if (cartData) {
+              cart = JSON.parse(cartData);
+            }
+          } catch (e) {
+            console.error('Error reading cart:', e);
+          }
 
-        // Show toast notification
-        if (window.showToast) {
-          const totalQty = cart.find(i => i.id === item.id)?.quantity || 1;
-          window.showToast(
-            `${title} added to cart (Qty: ${totalQty})`,
-            'success',
-            2000
+          // Check if item already exists in cart
+          const existingItemIndex = cart.findIndex(
+            (entry) => entry.id === preparedItem.id
           );
-        }
 
-        // Update cart count in header
-        updateCartCount();
+          if (existingItemIndex > -1) {
+            // Item exists, increase quantity
+            cart[existingItemIndex].quantity =
+              (cart[existingItemIndex].quantity || 1) + 1;
+            console.log(
+              '📈 Increased quantity for:',
+              preparedItem.title,
+              'to',
+              cart[existingItemIndex].quantity
+            );
+          } else {
+            // Add new item to cart
+            const cartEntry = {
+              id: preparedItem.id,
+              title: preparedItem.title,
+              price: preparedItem.price,
+              image: preparedItem.image,
+              desc: preparedItem.desc || '',
+              quantity: 1,
+            };
+            cart.push(cartEntry);
+            console.log('➕ Added new item to cart:', preparedItem.title);
+          }
+
+          // Save to localStorage
+          try {
+            localStorage.setItem('restaurantCart', JSON.stringify(cart));
+            console.log('✅ Cart saved to localStorage');
+            console.log('📦 Cart now has', cart.length, 'unique items');
+          } catch (e) {
+            console.error('❌ Error saving cart:', e);
+          }
+
+          // Show toast notification
+          if (window.showToast) {
+            const totalQty = cart[existingItemIndex]?.quantity || 1;
+            window.showToast(
+              `${preparedItem.title} added to cart (Qty: ${totalQty})`,
+              'success',
+              2000
+            );
+          }
+
+          // Update cart count in header (if exists)
+          const cartCountEl = document.getElementById('cart-count');
+          if (cartCountEl) {
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartCountEl.textContent = totalItems;
+          }
+
+          // Trigger fly animation (if function exists)
+          const card = button.closest('.menu__card');
+          const imgEl = card?.querySelector('.menu__card-image');
+          const src =
+            imgEl?.src || '../assets/images/home-page/menu-section/noodles.png';
+
+          if (typeof animateToCart === 'function') {
+            animateToCart(src, e.clientX, e.clientY);
+          }
+        }
       });
     });
   }

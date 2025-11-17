@@ -3,7 +3,7 @@
     "home": "Home",
     "menu": "Menu",
     "blog": "Blog",
-    "pages": "Pages",
+    "order": "Order",
     "contact": "Contact"
   },
   "header": {
@@ -101,6 +101,7 @@
     },
     "daily_offers": {
       "title": "Our Daily Offers",
+      "cta": "Order now",
       "item1": {
         "title": "Spicy Club",
         "description": "Pork, chicken and vegetable fried rolls served with lettuce wraps"
@@ -132,6 +133,32 @@
       "title": "Explore Blogs",
       "subtitle": "Explore the most popular blogs from the WowWraps community. A constantly updating list of the best minds in restaurant.",
       "link": "Explore All Blogs",
+      "hero": {
+        "badge": "Editor's pick",
+        "category": "Chef's Journal",
+        "excerpt": "Chef Mateo shares the menu architecture behind the city's most talked about opening and how he layers nostalgia with neon energy.",
+        "date": "August 6, 2025",
+        "secondary_category": "Behind the Bar",
+        "secondary_excerpt": "Layer botanical syrups with citrus oils for a cocktail that glows like sunset.",
+        "timeline_heading": "Fresh from the test kitchen",
+        "timeline": {
+          "item1": {
+            "date": "Aug 02",
+            "title": "5 plating secrets you can borrow",
+            "description": "Minimal tools transform simple dishes into layered canvases with dimension."
+          },
+          "item2": {
+            "date": "Jul 28",
+            "title": "Ferment pantry starters for depth",
+            "description": "How we build quick ferments that turbocharge broths, dressings, and dessert sauces."
+          },
+          "item3": {
+            "date": "Jul 20",
+            "title": "Zero-waste desserts worth repeating",
+            "description": "Re-spin trim, pits, and peels into mochi bites with caramelized depth."
+          }
+        }
+      },
       "card1": {
         "title": "New Restaurant In Town That Looking Think That",
         "author": "By Admin"
@@ -145,16 +172,34 @@
     "newsletter": {
       "title": "Subscribe Newsletter & Get Latest News",
       "subtitle": "Get insider access to news around the innovations, unique cooking techniques, culinary concepts, insights, and more",
-      "placeholder_email": "Enter your email address"
+      "placeholder_email": "Enter your email address",
+      "success": "Thanks for subscribing! Please check your inbox."
     }
   },
   "menu_page": {
     "title": "Menu",
     "banner": {
+      "eyebrow": "Chef's Table Experience",
       "title1": "Food Is Not Just",
       "title2": "Eating Energy",
-      "description": "It’s an Experience.",
-      "order_now": "Order Now"
+      "description": "It's an Experience crafted by fire, smoke, and seasonal ingredients.",
+      "reserve_seat": "Reserve Seat",
+      "order_now": "Order now",
+      "stats": {
+        "aria_label": "Experience highlights",
+        "item1": {
+          "value": "12-course",
+          "label": "seasonal tasting"
+        },
+        "item2": {
+          "value": "3 chefs",
+          "label": "live behind the pass"
+        },
+        "item3": {
+          "value": "92%",
+          "label": "organic produce"
+        }
+      }
     },
     "cart_icon": {
       "aria_label": "View cart",
@@ -205,7 +250,8 @@
       "placeholder_email": "Email address *",
       "placeholder_subject": "Subject",
       "placeholder_review": "Write review *",
-      "submit": "Submit"
+      "submit": "Submit",
+      "success_message": "Thanks for reaching out! We'll get back to you shortly."
     }
   },
   "menu": {
@@ -672,7 +718,46 @@
     "date": {
       "august_6_2025": "August 6, 2025",
       "august_4_2024": "August 4, 2024",
-      "august_4_2025": "August 4, 2025"
+      "august_4_2025": "August 4, 2025",
+      "august_18_2025": "August 18, 2025",
+      "august_20_2024": "August 20, 2024",
+      "august_20_2025": "August 20, 2025",
+      "august_22_2025": "August 22, 2025",
+      "august_23_2025": "August 23, 2025",
+      "august_24_2025": "August 24, 2025",
+      "august_26_2024": "August 26, 2024",
+      "august_26_2025": "August 26, 2025",
+      "august_28_2025": "August 28, 2025"
+    },
+    "tags": {
+      "AI": "AI",
+      "Innovation": "Innovation",
+      "Restaurant Tech": "Restaurant Tech",
+      "Automation": "Automation",
+      "Breakfast Trends": "Breakfast Trends",
+      "Morning Menu": "Morning Menu",
+      "Brunch Ideas": "Brunch Ideas",
+      "Healthy Dining": "Healthy Dining",
+      "Restaurant Staffing": "Restaurant Staffing",
+      "Kitchen Team": "Kitchen Team",
+      "Safety Training": "Safety Training",
+      "Service Culture": "Service Culture",
+      "Technology": "Technology",
+      "POS Systems": "POS Systems",
+      "Digital Transformation": "Digital Transformation",
+      "Operations": "Operations",
+      "IoT": "IoT",
+      "Inventory": "Inventory",
+      "Cost Control": "Cost Control",
+      "Efficiency": "Efficiency",
+      "Marketing": "Marketing",
+      "Social Media": "Social Media",
+      "Live Video": "Live Video",
+      "Customer Engagement": "Customer Engagement",
+      "Employee Benefits": "Employee Benefits",
+      "Financial Wellness": "Financial Wellness",
+      "Staff Retention": "Staff Retention",
+      "HR": "HR"
     }
   },
   "product_detail_page": {
@@ -731,6 +816,21 @@
     "loading_article": "Loading article...",
     "no_posts": "No blog posts available.",
     "by_author": "By",
+    "filters": {
+      "browse_topics": "Browse topics",
+      "category_label": "Category",
+      "reset": "Reset"
+    },
+    "loading_posts": "Loading blog posts...",
+    "filter_empty": "No stories match your filters. Try another tag.",
+    "no_stories": "No stories available.",
+    "load_more": "Load more stories",
+    "caught_up": "You're all caught up",
+    "showing_count": "Showing {current} of {total} stories",
+    "read_time": {
+      "template": "{minutes} min read",
+      "na": "Read time N/A"
+    },
     "pagination": {
       "previous": "← Previous",
       "next": "Next →"
@@ -785,6 +885,67 @@
       "cart_empty_checkout": "Your cart is empty"
     },
     "loading_cart": "Loading cart..."
+  },
+  "checkout_page": {
+    "title": "Checkout",
+    "billing_details": {
+      "title": "Billing details",
+      "first_name": "Your name *",
+      "last_name": "Last name *",
+      "country": "Country / Region *",
+      "street_address": "Street address *",
+      "town_city": "Town / City *",
+      "district": "District *",
+      "postcode_zip": "Postcode / ZIP (optional)",
+      "phone": "Phone *",
+      "email": "Email address *",
+      "country_options": {
+        "au": "Australia",
+        "us": "United States",
+        "vn": "Viet Nam"
+      }
+    },
+    "payment": {
+      "direct_bank_transfer": "Direct bank transfer",
+      "direct_bank_transfer_hint": "Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account.",
+      "check_payments": "Check payments",
+      "check_payments_hint": "Pay with check and your order will be processed after verification.",
+      "cod": "Cash on delivery",
+      "cod_hint": "Pay with cash when your order is delivered.",
+      "paypal": "PayPal",
+      "paypal_hint": "You will be redirected to PayPal to complete your purchase securely.",
+      "privacy_text": "Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our",
+      "privacy_policy_link": "privacy policy",
+      "place_order_button": "Place order"
+    },
+    "order_summary": {
+      "title": "Your order",
+      "product_header": "Food",
+      "subtotal_header": "Subtotal",
+      "subtotal_footer": "Subtotal",
+      "shipping": "Shipping",
+      "shipping_rate": "Flat rate: $6.00",
+      "total": "Total"
+    },
+    "notifications": {
+      "cart_empty_redirect": "Your cart is empty. Redirecting to the cart page...",
+      "invalid_email": "Please enter a valid email address",
+      "invalid_phone": "Please enter a valid phone number",
+      "select_payment": "Please select a payment method",
+      "order_placed_success": "Order placed successfully! Order ID: #{orderId}",
+      "redirecting_homepage": "Redirecting to the homepage...",
+      "free_shipping": "FREE",
+      "coupon_applied": "Coupon applied"
+    }
+  },
+  "weekdays": {
+    "0": "Sunday",
+    "1": "Monday",
+    "2": "Tuesday",
+    "3": "Wednesday",
+    "4": "Thursday",
+    "5": "Friday",
+    "6": "Saturday"
   },
   "about_page": {
     "title": "About Us",

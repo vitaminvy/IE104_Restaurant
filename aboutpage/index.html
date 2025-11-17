@@ -26,11 +26,15 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../assets/features/theme-toggle.css" />
+
+    <!-- Global Animation System -->
+    <link rel="stylesheet" href="../style/animations.css" />
+    <script src="../assets/script/scroll-animations.js"></script>
   </head>
   <body>
     <!-- logic for header and footer -->
     <script src="../assets/script/include-partials.js" defer></script>
-    <script src="../assets/script/header.js"></script>
+    <script type="module" src="../assets/script/header.js" defer></script>
     
     <!-- ========== 1. HEADER ========== -->
     <div data-include="/partials/header.html"></div>
@@ -38,8 +42,8 @@
     <!-- About intro section-->
     <section class="about-intro" id="about-intro">
       <div class="about-intro__container">
-        <header class="about-intro__header">
-          <h2 class="about-intro__title" data-i18n="about_page.intro.title">
+        <header class="about-intro__header animate-slide-up">
+          <h2 class="about-intro__title">
             We Are A Mexican Restaurant<br />
             Makes Delicious.
           </h2>
@@ -47,7 +51,9 @@
             From handmade tortillas pressed fresh each morning to slow-cooked
             carnitas and bright salsas, we cook with seasonal ingredients from
             local farmers. Our kitchen blends family recipes with modern
-            techniques, keeping flavors bold and honest.
+            techniques, keeping flavors bold and honest. Whether you crave
+            something spicy, smoky, or vegetarian, there's a plate here made
+            with care—and a team ready to welcome you like familia.
           </p>
         </header>
         <div
@@ -55,30 +61,32 @@
           role="separator"
           aria-hidden="true"
         ></div>
-        <div class="about-intro__grid">
-          <figure class="about-intro__photo about-intro__photo--a">
+        <div class="about-intro__grid stagger-children">
+          <figure class="about-intro__photo about-intro__photo--a animate-scale">
             <img
               src="../assets/images/about-page/table-1.png"
               alt="Restaurant window"
             />
           </figure>
-          <figure class="about-intro__photo about-intro__photo--b">
+          <figure class="about-intro__photo about-intro__photo--b animate-scale">
             <img
               src="../assets/images/about-page/table-2.png"
               alt="Indoor dining"
             />
           </figure>
-          <figure class="about-intro__photo about-intro__photo--c">
+          <figure class="about-intro__photo about-intro__photo--c animate-scale">
             <img
               src="../assets/images/about-page/view.png"
               alt="Chalkboard and table"
             />
           </figure>
-          <article class="about-intro__story">
+
+          <article class="about-intro__story animate-slide-right">
             <h3
               class="about-intro__story-title"
               data-i18n="about_page.intro.story_title"
             >
+
               The Story Of Our<br />
               First Restaurant<br />
               Branch
@@ -97,20 +105,18 @@
     <!-- ========== VISION & MISSION ========== -->
     <section class="vision" id="vision">
       <div class="vision__container">
-        <header class="vision__header">
-          <h2 class="vision__title" data-i18n="about_page.vision_mission.title">
-            Our Vision &amp; Mission
-          </h2>
-          <p
-            class="vision__subtitle"
-            data-i18n="about_page.vision_mission.subtitle"
-          >
-            Placeholder text for the vision and mission subtitle.
+        <header class="vision__header animate-slide-up">
+          <h2 class="vision__title" data-i18n="about_page.vision_mission.title">Our Vision &amp; Mission</h2>
+          <p class="vision__subtitle" data-i18n="about_page.vision_mission.subtitle">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
+            aliquam amet, cursus tellus non consequat laoreet eget ornare.
+            Vulputate tellus, a lobortis eu nisl. Quisque vulputate eget et,
+            aliquet libero.
           </p>
         </header>
         <div class="vision__grid">
-          <ul class="vision__features">
-            <li class="vision__feature">
+          <ul class="vision__features stagger-children">
+            <li class="vision__feature animate-slide-left">
               <span class="vision__badge">
                 <img
                   src="../assets/icons/about-page/food-icon.svg"

@@ -3,7 +3,7 @@
     "home": "Trang Chủ",
     "menu": "Thực Đơn",
     "blog": "Bài Viết",
-    "pages": "Trang",
+    "order": "Đơn hàng",
     "contact": "Liên Hệ"
   },
   "header": {
@@ -101,6 +101,7 @@
     },
     "daily_offers": {
       "title": "Ưu đãi hàng ngày của chúng tôi",
+      "cta": "Đặt món ngay",
       "item1": {
         "title": "Câu lạc bộ cay",
         "description": "Thịt heo, gà và chả giò rau củ ăn kèm với rau xà lách"
@@ -115,8 +116,8 @@
       }
     },
     "reservation": {
-      "title_online": "Trực tuyến",
-      "title_reservation": "Đặt chỗ",
+      "title_online": "Đặt bàn",
+      "title_reservation": "Trực tuyến",
       "subtitle": "Đặt bàn của bạn cho bữa trưa hoặc bữa tối.",
       "placeholder_name": "Tên của bạn",
       "placeholder_phone": "Số điện thoại",
@@ -132,6 +133,32 @@
       "title": "Khám phá Blog",
       "subtitle": "Khám phá các blog phổ biến nhất từ cộng đồng WowWraps. Một danh sách cập nhật liên tục về những bộ óc vĩ đại nhất trong nhà hàng.",
       "link": "Khám phá tất cả Blog",
+      "hero": {
+        "badge": "Bài viết nổi bật",
+        "category": "Nhật ký bếp trưởng",
+        "excerpt": "Bếp trưởng Mateo chia sẻ cách sắp xếp thực đơn cho nhà hàng đang được bàn tán nhất thành phố và cách anh kết hợp hoài niệm với năng lượng neon rực rỡ.",
+        "date": "06 Tháng 8, 2025",
+        "secondary_category": "Phía sau quầy bar",
+        "secondary_excerpt": "Học cách pha lớp siro thảo mộc với tinh dầu cam chanh để ly cocktail bừng sáng như hoàng hôn.",
+        "timeline_heading": "Tin mới từ bếp thử nghiệm",
+        "timeline": {
+          "item1": {
+            "date": "02 Thg 8",
+            "title": "5 bí quyết trình bày bạn có thể áp dụng",
+            "description": "Dụng cụ tối giản cũng biến món ăn đơn giản thành bức tranh nhiều lớp đầy chiều sâu."
+          },
+          "item2": {
+            "date": "28 Thg 7",
+            "title": "Ủ lên men nhanh để thêm tầng hương",
+            "description": "Cách chúng tôi tạo các mẻ lên men giúp súp, sốt và món tráng miệng bùng vị."
+          },
+          "item3": {
+            "date": "20 Thg 7",
+            "title": "Tráng miệng zero-waste đáng làm lại",
+            "description": "Tận dụng vụn, hạt và vỏ để tạo ra bánh mochi với vị caramel sâu."
+          }
+        }
+      },
       "card1": {
         "title": "Nhà hàng mới trong thị trấn đang tìm kiếm suy nghĩ đó",
         "author": "Bởi Quản trị viên"
@@ -143,18 +170,36 @@
       "read_more": "Đọc thêm"
     },
     "newsletter": {
-      "title": "Đăng ký nhận bản tin & nhận tin tức mới nhất",
+      "title": "Đăng ký nhận bản tin & Nhận tin tức mới nhất",
       "subtitle": "Nhận quyền truy cập nội bộ vào tin tức về những đổi mới, kỹ thuật nấu ăn độc đáo, khái niệm ẩm thực, thông tin chi tiết và hơn thế nữa",
-      "placeholder_email": "Nhập địa chỉ email của bạn"
+      "placeholder_email": "Nhập địa chỉ email của bạn",
+      "success": "Đăng ký thành công! Bạn nhớ kiểm tra email nhé."
     }
   },
   "menu_page": {
     "title": "Thực Đơn",
     "banner": {
+      "eyebrow": "Trải Nghiệm Chef's Table",
       "title1": "Thức Ăn Không Chỉ Là",
       "title2": "Năng Lượng Để Ăn",
-      "description": "Đó là một Trải Nghiệm.",
-      "order_now": "Đặt Món Ngay"
+      "description": "Đó là trải nghiệm được tạo nên từ lửa, khói và những nguyên liệu theo mùa.",
+      "reserve_seat": "Đặt chỗ",
+      "order_now": "Đặt Món Ngay",
+      "stats": {
+        "aria_label": "Các điểm nhấn trải nghiệm",
+        "item1": {
+          "value": "12 món",
+          "label": "thực đơn theo mùa"
+        },
+        "item2": {
+          "value": "3 bếp trưởng",
+          "label": "biểu diễn ngay sau quầy bếp"
+        },
+        "item3": {
+          "value": "92%",
+          "label": "nguyên liệu hữu cơ"
+        }
+      }
     },
     "cart_icon": {
       "aria_label": "Xem giỏ hàng",
@@ -205,7 +250,8 @@
       "placeholder_email": "Địa chỉ email *",
       "placeholder_subject": "Chủ đề",
       "placeholder_review": "Viết đánh giá *",
-      "submit": "Gửi"
+      "submit": "Gửi",
+      "success_message": "Cảm ơn bạn đã liên hệ! Chúng tôi sẽ phản hồi sớm."
     }
   },
   "menu": {
@@ -672,7 +718,46 @@
     "date": {
       "august_6_2025": "Ngày 6 tháng 8 năm 2025",
       "august_4_2024": "Ngày 4 tháng 8 năm 2024",
-      "august_4_2025": "Ngày 4 tháng 8 năm 2025"
+      "august_4_2025": "Ngày 4 tháng 8 năm 2025",
+      "august_18_2025": "Ngày 18 tháng 8 năm 2025",
+      "august_20_2024": "Ngày 20 tháng 8 năm 2024",
+      "august_20_2025": "Ngày 20 tháng 8 năm 2025",
+      "august_22_2025": "Ngày 22 tháng 8 năm 2025",
+      "august_23_2025": "Ngày 23 tháng 8 năm 2025",
+      "august_24_2025": "Ngày 24 tháng 8 năm 2025",
+      "august_26_2024": "Ngày 26 tháng 8 năm 2024",
+      "august_26_2025": "Ngày 26 tháng 8 năm 2025",
+      "august_28_2025": "Ngày 28 tháng 8 năm 2025"
+    },
+    "tags": {
+      "AI": "AI",
+      "Innovation": "Đổi mới",
+      "Restaurant Tech": "Công nghệ nhà hàng",
+      "Automation": "Tự động hóa",
+      "Breakfast Trends": "Xu hướng bữa sáng",
+      "Morning Menu": "Thực đơn buổi sáng",
+      "Brunch Ideas": "Ý tưởng brunch",
+      "Healthy Dining": "Ăn uống lành mạnh",
+      "Restaurant Staffing": "Nhân sự nhà hàng",
+      "Kitchen Team": "Đội ngũ bếp",
+      "Safety Training": "Đào tạo an toàn",
+      "Service Culture": "Văn hóa dịch vụ",
+      "Technology": "Công nghệ",
+      "POS Systems": "Hệ thống POS",
+      "Digital Transformation": "Chuyển đổi số",
+      "Operations": "Vận hành",
+      "IoT": "IoT",
+      "Inventory": "Kiểm kê",
+      "Cost Control": "Kiểm soát chi phí",
+      "Efficiency": "Hiệu quả",
+      "Marketing": "Tiếp thị",
+      "Social Media": "Mạng xã hội",
+      "Live Video": "Video trực tiếp",
+      "Customer Engagement": "Tương tác khách hàng",
+      "Employee Benefits": "Phúc lợi nhân viên",
+      "Financial Wellness": "Sức khỏe tài chính",
+      "Staff Retention": "Giữ chân nhân viên",
+      "HR": "Nhân sự"
     }
   },
   "product_detail_page": {
@@ -731,6 +816,21 @@
     "loading_article": "Đang tải bài viết...",
     "no_posts": "Không có bài viết nào.",
     "by_author": "Bởi",
+    "filters": {
+      "browse_topics": "Duyệt chủ đề",
+      "category_label": "Danh mục",
+      "reset": "Đặt lại"
+    },
+    "loading_posts": "Đang tải các bài viết...",
+    "filter_empty": "Không có câu chuyện nào phù hợp với bộ lọc của bạn. Hãy thử thẻ khác.",
+    "no_stories": "Không có câu chuyện nào.",
+    "load_more": "Xem thêm bài viết",
+    "caught_up": "Bạn đã xem hết rồi",
+    "showing_count": "Hiển thị {current} trên {total} bài viết",
+    "read_time": {
+      "template": "Đọc trong {minutes} phút",
+      "na": "Không rõ thời lượng đọc"
+    },
     "pagination": {
       "previous": "← Trước",
       "next": "Sau →"
@@ -837,6 +937,15 @@
       "free_shipping": "MIỄN PHÍ",
       "coupon_applied": "Đã áp dụng phiếu giảm giá"
     }
+  },
+  "weekdays": {
+    "0": "Chủ Nhật",
+    "1": "Thứ Hai",
+    "2": "Thứ Ba",
+    "3": "Thứ Tư",
+    "4": "Thứ Năm",
+    "5": "Thứ Sáu",
+    "6": "Thứ Bảy"
   },
   "about_page": {
     "title": "Về chúng tôi",

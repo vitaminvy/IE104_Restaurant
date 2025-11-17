@@ -249,8 +249,8 @@ h4 {
 
 .btn:hover {
   /* Box model */
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(251, 143, 44, 0.3);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 10px 30px rgba(251, 143, 44, 0.4);
 
   /* Background / Others */
   background-color: var(--accent-color);
@@ -261,11 +261,53 @@ h4 {
 /* Active / click effect */
 .btn:active {
   /* Box model */
-  transform: translateY(0);
+  transform: translateY(-1px) scale(0.98);
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
 
   /* Background / Others */
   background-color: #e67e22;
 }
 
+/* Focus state for accessibility */
+.btn:focus {
+  outline: 2px solid rgba(251, 143, 44, 0.5);
+  outline-offset: 2px;
+}
 
+/* =============================
+ * Input Field Animations
+ * ============================= */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+input[type="time"],
+input[type="number"],
+select,
+textarea {
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="date"]:focus,
+input[type="time"]:focus,
+input[type="number"]:focus,
+select:focus,
+textarea:focus {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(251, 143, 44, 0.2);
+  outline: none;
+}
+
+/* Placeholder animation */
+input::placeholder,
+textarea::placeholder {
+  transition: opacity 0.3s ease;
+}
+
+input:focus::placeholder,
+textarea:focus::placeholder {
+  opacity: 0.5;
+}

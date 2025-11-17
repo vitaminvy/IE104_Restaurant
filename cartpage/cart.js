@@ -222,7 +222,7 @@ import i18nService from '../assets/script/i18n-service.js';
 
       <!-- Price -->
       <td data-label="Price" class="cart__price">
-        ${item.price.toFixed(2)}
+        $${item.price.toFixed(2)}
       </td>
 
       <!-- Quantity controls -->
@@ -258,7 +258,7 @@ import i18nService from '../assets/script/i18n-service.js';
 
       <!-- Item subtotal -->
       <td data-label="Subtotal" class="cart__subtotal">
-        ${itemSubtotal}
+        $${itemSubtotal}
       </td>
     `;
 
@@ -280,7 +280,7 @@ import i18nService from '../assets/script/i18n-service.js';
     // Update subtotal
     const subtotalEl = document.querySelector('.totals__table tbody tr:nth-child(1) .totals__right');
     if (subtotalEl) {
-      subtotalEl.textContent = `${subtotal.toFixed(2)}`;
+      subtotalEl.textContent = `$${subtotal.toFixed(2)}`;
     }
 
     // Update discount
@@ -303,7 +303,7 @@ import i18nService from '../assets/script/i18n-service.js';
     // Update total
     const totalEl = document.querySelector('.totals__total .totals__right');
     if (totalEl) {
-      totalEl.textContent = `${total.toFixed(2)}`;
+      totalEl.textContent = `$${total.toFixed(2)}`;
     }
 
     // Update coupon display

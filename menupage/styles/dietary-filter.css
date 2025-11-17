@@ -10,7 +10,7 @@
   align-items: center;
   flex-wrap: wrap;
   gap: 0.75rem;
-  margin: 2rem auto 3rem;
+  margin: 8rem auto 3rem;
   padding: 1.5rem;
   max-width: 1200px;
 
@@ -212,7 +212,7 @@
 
   .dietary-filter {
     /* Box model */
-    padding: 2.5rem 0 1.5rem;
+    padding: 1.5rem 0 1.5rem;
   }
 
   .dietary-badge {
@@ -224,7 +224,7 @@
 @media (min-width: 1280px) {
   .dietary-filter {
     /* Box model */
-    padding: 3rem 0 1.5rem;
+    padding: 1.5rem 0 1.5rem;
   }
 
   .dietary-badge {
@@ -232,4 +232,3 @@
     font-size: 0.9375rem;
   }
 }
-

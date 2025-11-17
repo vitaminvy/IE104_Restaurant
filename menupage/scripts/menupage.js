@@ -43,7 +43,7 @@ import i18nService from '../../assets/script/i18n-service.js';
     const title = i18nService.t(item.title);
     const desc = i18nService.t(item.desc);
     return `
-    <article class="menu__card" data-item-id="${item.id}" data-item-title="${title}" data-item-price="${item.price}" data-item-image="${item.image}" data-item-desc="${desc || ''}">
+    <article class="menu__card card-hover-enhanced animate-scale" data-item-id="${item.id}" data-item-title="${title}" data-item-price="${item.price}" data-item-image="${item.image}" data-item-desc="${desc || ''}">
       <div class="menu__card-img-wrapper">
         <img src="${item.image}" alt="${title}" class="menu__card-image" loading="lazy"/>
       </div>
@@ -53,14 +53,14 @@ import i18nService from '../../assets/script/i18n-service.js';
         <div class="menu__card-meta">
           <span class="menu__card-price">${formatPrice(item.price)}</span>
           <div class="menu__card-actions">
-            <button class="menu__card-cart-btn" data-item-id="${item.id}" aria-label="${i18nService.t("menu_page.add_to_cart_aria_label")}" title="${i18nService.t("menu_page.add_to_cart_title")}">
+            <button class="menu__card-cart-btn icon-bounce" data-item-id="${item.id}" aria-label="${i18nService.t("menu_page.add_to_cart_aria_label")}" title="${i18nService.t("menu_page.add_to_cart_title")}">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <circle cx="9" cy="21" r="1"/>
                 <circle cx="20" cy="21" r="1"/>
                 <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
               </svg>
             </button>
-            <button class="menu__card-btn btn" data-item-id="${item.id}">${i18nService.t("menu_page.order_now_button")}</button>
+            <button class="menu__card-btn btn btn-interactive" data-item-id="${item.id}">${i18nService.t("menu_page.order_now_button")}</button>
           </div>
         </div>
         <!-- Dropdown menu (hidden by default) -->
@@ -107,6 +107,15 @@ import i18nService from '../../assets/script/i18n-service.js';
     const pageData = data.slice(start, end);
 
     container.innerHTML = pageData.map(cardTemplate).join('');
+
+    // Trigger scroll animations for newly rendered cards
+    if (window.ScrollAnimations && window.ScrollAnimations.observe) {
+      // Re-observe all animated elements
+      const animatedElements = container.querySelectorAll('[class*="animate-"]');
+      animatedElements.forEach(el => {
+        window.ScrollAnimations.observe(el);
+      });
+    }
 
     // Initialize pagination
     initPagination(totalPages, currentPage, (page) => {

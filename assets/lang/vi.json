@@ -369,7 +369,7 @@
     },
     "item29": {
       "title": "Bánh Waffles",
-      "desc": "Bánh waffles giòn, vàng được phục vụ với lựa chọnトッピング của bạn: quả mọng tươi, kem tươi, sốt sô cô la hoặc xi-rô cây phong."
+      "desc": "Bánh waffles giòn, vàng được phục vụ với lựa chọn của bạn: quả mọng tươi, kem tươi, sốt sô cô la hoặc xi-rô cây phong."
     },
     "item30": {
       "title": "Sandwich Câu Lạc Bộ",
@@ -986,6 +986,83 @@
         "name": "Tajul Islam",
         "role": "Đầu bếp"
       }
+    }
+  },
+  "allergy_settings": {
+    "trigger_button": "Cài Đặt Dị Ứng",
+    "trigger_aria_label": "Quản lý cài đặt dị ứng",
+    "modal_title": "Quản Lý Dị Ứng",
+    "close_modal": "Đóng hộp thoại",
+    "save_button": "Lưu Cài Đặt",
+    "clear_button": "Xóa Tất Cả",
+    "contains": "Chứa:",
+    "warning": {
+      "title": "Cảnh Báo Dị Ứng:",
+      "message": "Món ăn này chứa {allergens}, mà bạn đã đánh dấu là chất gây dị ứng."
+    },
+    "toast": {
+      "tracking": "Đang theo dõi: {allergens}",
+      "cleared": "Đã xóa theo dõi dị ứng.",
+      "all_cleared": "Đã xóa tất cả theo dõi chất gây dị ứng."
+    },
+    "badge_tooltip": "Chứa: {allergens}"
+  },
+  "allergens": {
+    "gluten": {
+      "name": "Gluten",
+      "description": "Chứa lúa mì, lúa mạch, lúa mạch đen hoặc các loại ngũ cốc liên quan"
+    },
+    "dairy": {
+      "name": "Sữa",
+      "description": "Chứa sữa, pho mát, bơ hoặc các sản phẩm từ sữa"
+    },
+    "eggs": {
+      "name": "Trứng",
+      "description": "Chứa trứng hoặc các thành phần từ trứng"
+    },
+    "nuts": {
+      "name": "Hạt Cây",
+      "description": "Chứa hạt cây (hạnh nhân, óc chó, v.v.)"
+    },
+    "peanuts": {
+      "name": "Đậu Phộng",
+      "description": "Chứa đậu phộng hoặc các thành phần từ đậu phộng"
+    },
+    "soy": {
+      "name": "Đậu Nành",
+      "description": "Chứa đậu nành hoặc các sản phẩm từ đậu nành"
+    },
+    "fish": {
+      "name": "Cá",
+      "description": "Chứa cá hoặc các thành phần từ cá"
+    },
+    "shellfish": {
+      "name": "Hải Sản Có Vỏ",
+      "description": "Chứa hải sản có vỏ (tôm, cua, tôm hùm, v.v.)"
+    },
+    "sesame": {
+      "name": "Mè",
+      "description": "Chứa hạt mè hoặc dầu mè"
+    },
+    "sulfites": {
+      "name": "Sunfit",
+      "description": "Chứa lưu huỳnh dioxide hoặc sunfit"
+    },
+    "celery": {
+      "name": "Cần Tây",
+      "description": "Chứa cần tây hoặc củ cần"
+    },
+    "mustard": {
+      "name": "Mù Tạt",
+      "description": "Chứa hạt mù tạt hoặc các sản phẩm từ mù tạt"
+    },
+    "lupin": {
+      "name": "Lupin",
+      "description": "Chứa bột lupin hoặc đậu lupin"
+    },
+    "molluscs": {
+      "name": "Nhuyễn Thể",
+      "description": "Chứa nhuyễn thể (nghêu, trai, hàu, v.v.)"
     }
   }
 }

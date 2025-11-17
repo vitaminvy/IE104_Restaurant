@@ -24,15 +24,20 @@ import i18nService from './i18n-service.js';
 
     menuBtn.addEventListener("click", () => {
       nav.classList.toggle("header__nav--open");
+      document.body.classList.toggle("mobile-nav-open");
     });
 
     nav.addEventListener("click", (e) => {
-      if (e.target === nav) nav.classList.remove("header__nav--open");
+      if (e.target === nav) {
+        nav.classList.remove("header__nav--open");
+        document.body.classList.remove("mobile-nav-open");
+      }
     });
 
     window.addEventListener("resize", () => {
       if (window.innerWidth >= 1024) {
         nav.classList.remove("header__nav--open");
+        document.body.classList.remove("mobile-nav-open");
       }
     });
 

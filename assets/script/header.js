@@ -54,7 +54,7 @@
 
     window.addEventListener("scroll", onScroll);
     window.addEventListener("resize", adjustStickyElementsPosition); // Adjust position on resize
-    onScroll(); // set trạng thái ban đầu
+    onScroll();
     adjustStickyElementsPosition(); // Initial adjustment
 
     scrollInited = true;

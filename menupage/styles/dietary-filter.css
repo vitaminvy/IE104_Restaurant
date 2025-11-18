@@ -98,27 +98,33 @@
 
 /* Color variants for different dietary types */
 .dietary-badge--vegan {
-  color: #10b981;
+  background-color: #10b981;
+  color: var(--color-white, #fff);
 }
 
 .dietary-badge--vegetarian {
-  color: #84cc16;
+  background-color: #84cc16;
+  color: var(--color-white, #fff);
 }
 
 .dietary-badge--gluten-free {
-  color: #f59e0b;
+  background-color: #f59e0b;
+  color: var(--color-white, #fff);
 }
 
 .dietary-badge--spicy {
-  color: #ef4444;
+  background-color: #ef4444;
+  color: var(--color-white, #fff);
 }
 
 .dietary-badge--popular {
-  color: #fb8f2c;
+  background-color: #fb8f2c;
+  color: var(--color-white, #fff);
 }
 
 .dietary-badge--chef-special {
-  color: #eab308;
+  background-color: #eab308;
+  color: var(--color-white, #fff);
 }
 
 /* ========== MENU CARD BADGES ========== */

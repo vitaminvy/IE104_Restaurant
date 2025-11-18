@@ -43,9 +43,9 @@ import i18nService from '../../assets/script/i18n-service.js';
     const title = i18nService.t(item.title);
     const desc = i18nService.t(item.desc);
     return `
-    <article class="menu__card card-hover-enhanced animate-scale" data-item-id="${item.id}" data-item-title="${title}" data-item-price="${item.price}" data-item-image="${item.image}" data-item-desc="${desc || ''}">
+    <article class="menu__card card-hover-enhanced animate-scale" role="listitem" data-item-id="${item.id}" data-item-title="${title}" data-item-price="${item.price}" data-item-image="${item.image}" data-item-desc="${desc || ''}">
       <div class="menu__card-img-wrapper">
-        <img src="${item.image}" alt="${title}" class="menu__card-image" loading="lazy"/>
+        <img src="${item.image}" alt="${title}" class="menu__card-image" loading="lazy" width="298" height="224"/>
       </div>
       <div class="menu__card-content">
         <h3 class="menu__card-title">${title}</h3>

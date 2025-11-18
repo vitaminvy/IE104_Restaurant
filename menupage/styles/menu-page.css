@@ -370,7 +370,7 @@
   text-decoration: none;
   font-size: 0.875rem;
   background: var(--accent-color);
-  color: var(--text-primary);
+  color: #111114;
   padding: 0.45rem 0.8rem;
   border-radius: 6px;
   border: none;
@@ -390,15 +390,23 @@
   width: min(1220px, 94%);
   min-height: 22rem;
   border-radius: 32px;
-  background: linear-gradient(115deg, rgba(7, 7, 10, 0.92), rgba(6, 6, 8, 0.85)),
-    url("../../assets/images/menu-page/menu-page-banner.png") center/cover
-      no-repeat;
   overflow: hidden;
   padding: clamp(2rem, 4vw, 3.5rem);
   display: flex;
   align-items: center;
   justify-content: flex-start;
   box-shadow: 0 40px 100px rgba(0, 0, 0, 0.45);
+}
+
+.banner__bg-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  background: linear-gradient(115deg, rgba(7, 7, 10, 0.92), rgba(6, 6, 8, 0.85));
 }
 
 .banner::before,

@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script src="../assets/script/theme-init.js"></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Restaurant Website</title>
-    <!-- Font Awesome CDN - Deferred -->
+    <title data-i18n="home_page.title">WowWraps</title>
+    <link rel="icon" href="./assets/icons/icon-header/nav-vect.svg" type="image/svg+xml">
+    <!-- Font Awesome CDN -->
     <link
       rel="preload"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
@@ -77,29 +79,32 @@
     <noscript><link rel="stylesheet" href="../style/notification-system.css" /></noscript>
 
     <!-- Global Loading System -->
-    <script src="../assets/script/global-loader.js" defer></script>
-    <script src="../assets/script/scroll-animations.js" defer></script>
-    <script src="../assets/script/form-validator.js" defer></script>
-    <script src="../assets/script/notification-system.js" defer></script>
+    <script src="../assets/script/global-loader.js"></script>
+    <link rel="stylesheet" href="../style/back-to-top.css" />
+    <script src="../assets/script/scroll-animations.js"></script>
+    <script src="../assets/script/form-validator.js"></script>
+    <script src="../assets/script/notification-system.js"></script>
   </head>
   <body>
     <!-- logic for header and footer -->
     <script src="./assets/script/include-partials.js" defer></script>
     <script type="module" src="./assets/script/header.js" defer></script>
-    <script type="module" src="../assets/script/lang-toggle.js" defer></script>
 
     <!-- Homepage routing with loaders -->
     <script src="./homepage/homepage-routing.js" defer></script>
 
     <!-- ========== 1. HEADER ========== -->
     <div data-include="/partials/header.html"></div>
+
     <!-- open sidebar in mobile view -->
 
     <!-- ========== 2. HERO / BANNER ========== -->
     <section id="hero" class="hero">
       <div class="hero__container">
         <!-- Left image -->
-        <div class="hero__image-wrapper hero__image-wrapper--left animate-slide-left">
+        <div
+          class="hero__image-wrapper hero__image-wrapper--left animate-slide-left"
+        >
           <img
             src="./assets/images/home-page/hero-section/left-hero-banner-1.webp"
             alt="Pasta Dish"
@@ -111,7 +116,7 @@
         </div>
 
         <!-- Content -->
-        <div class="hero__content  animate-fade">
+        <div class="hero__content animate-fade">
           <p class="hero__subtitle" data-i18n="home.hero.subtitle">
             Welcome to Our Restaurant
           </p>
@@ -131,7 +136,9 @@
         </div>
 
         <!-- Right image -->
-        <div class="hero__image-wrapper hero__image-wrapper--right animate-slide-right">
+        <div
+          class="hero__image-wrapper hero__image-wrapper--right animate-slide-right"
+        >
           <img
             src="./assets/images/home-page/hero-section/right-hero-banner-1.webp"
             alt="Steak Dish"
@@ -266,7 +273,10 @@
             Hi! Our Restaurant has been present for over 20 years in the market.
             We make the most of all our customers.
           </p>
-          <a href="/aboutpage/" class="about__link" data-i18n="home.about.link"
+          <a
+            href="/aboutpage/index.html"
+            class="about__link"
+            data-i18n="home.about.link"
             >About Us</a
           >
         </div>
@@ -415,19 +425,34 @@
           <!-- Right: content -->
           <div class="service__satisfy animate-slide-right stagger-children">
             <ul class="service__list" role="list">
-              <li class="service__item animate-fade" data-i18n="home.service_quality.item1">
+              <li
+                class="service__item animate-fade"
+                data-i18n="home.service_quality.item1"
+              >
                 Quality &amp; Quantity Top Notch.
               </li>
-              <li class="service__item animate-fade" data-i18n="home.service_quality.item2">
+              <li
+                class="service__item animate-fade"
+                data-i18n="home.service_quality.item2"
+              >
                 Fresh &amp; Healthy Food.
               </li>
-              <li class="service__item animate-fade" data-i18n="home.service_quality.item3">
+              <li
+                class="service__item animate-fade"
+                data-i18n="home.service_quality.item3"
+              >
                 Satisfying Taste.
               </li>
-              <li class="service__item animate-fade" data-i18n="home.service_quality.item4">
+              <li
+                class="service__item animate-fade"
+                data-i18n="home.service_quality.item4"
+              >
                 On Demand Food Services.
               </li>
-              <li class="service__item animate-fade" data-i18n="home.service_quality.item5">
+              <li
+                class="service__item animate-fade"
+                data-i18n="home.service_quality.item5"
+              >
                 Green &amp; Safety Ingredient.
               </li>
             </ul>
@@ -739,11 +764,6 @@
                 class="daily-offers__promo-img"
                 loading="lazy"
               />
-              <span
-                class="daily-offers__promo-cta"
-                data-i18n="home.daily_offers.cta"
-                >Order now</span
-              >
             </a>
 
             <!-- RIGHT: Offer List -->
@@ -1176,7 +1196,6 @@
                 </div>
               </div>
             </div>
-            
           </aside>
         </div>
       </div>
@@ -1189,6 +1208,10 @@
 
     <!-- ========== 15. FOOTER ========== -->
     <div data-include="/partials/footer.html"></div>
+    <!-- Back to top -->
+    <div data-include="partials/back-to-top.html"></div>
+    <script src="assets/script/back-to-top.js"></script>
+    <!-- commit for deploy -->
 
     <!-- Reservation Form Handler -->
     <script src="./reservation-handler.js"></script>
@@ -1196,7 +1219,7 @@
     <!-- Newsletter Form Handler -->
     <script src="./newsletter-handler.js"></script>
 
-    <script src="./assets/script/lang-toggle.js" defer></script>
+    <script type="module" src="assets/script/header-features.js" defer></script>
     <script src="./assets/script/newsletter.js" defer></script>
   </body>
 </html>

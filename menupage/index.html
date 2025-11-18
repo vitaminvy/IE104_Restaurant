@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Theme init must run before paint -->
+    <script src="../assets/script/theme-init.js"></script>
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-i18n="menu_page.title">Menu - WowWraps</title>
+    <link rel="icon" href="../assets/icons/icon-header/nav-vect.svg" type="image/svg+xml">
 
-    <title data-i18n="menu_page.title">Menu</title>
-
+    <!-- Base styles -->
     <link rel="stylesheet" href="../style/reset.css" />
     <link rel="stylesheet" href="../style/style.css" />
+    <link rel="stylesheet" href="../style/animations.css" />
 
     <!-- menu page css -->
     <link rel="stylesheet" href="./styles/menu-page.css" />
@@ -18,15 +23,28 @@
     <!-- Pagination Section styles -->
     <link rel="stylesheet" href="./styles/pagination.css" />
 
-    <!-- header section -->
+    <!-- Add to Cart Button System -->
+    <link rel="stylesheet" href="./styles/add-to-cart-buttons.css" />
+    <link rel="stylesheet" href="./styles/notification-system.css" />
+
+    <!-- header & footer -->
     <link rel="stylesheet" href="../partials/header.css" />
-    <!-- footer-->
     <link rel="stylesheet" href="../partials/footer.css" />
 
+    <!-- Theme toggle -->
+    <link rel="stylesheet" href="../style/back-to-top.css" />
+
+    <!-- Global Features Stylesheets -->
+    <link rel="stylesheet" href="../assets/features/allergy-alert.css" />
+    <link rel="stylesheet" href="../assets/features/social-proof.css" />
+    <link rel="stylesheet" href="../homepage/back-to-top.css" />
+
+    <!-- Fonts -->
     <link
       href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
       rel="stylesheet"
     />
+
     <!-- Font Awesome CDN -->
     <script
       src="https://kit.fontawesome.com/eef96f1e29.js"
@@ -59,7 +77,10 @@
     <div data-include="/partials/header.html"></div>
 
     <!-- ========== FILTER FIELD ========== -->
-    <nav class="menu__filter animate-slide-down stagger-children" aria-label="Menu categories">
+    <nav
+      class="menu__filter animate-slide-down stagger-children"
+      aria-label="Menu categories"
+    >
       <!-- breakfast -->
       <a
         href="#"
@@ -88,7 +109,7 @@
         data-i18n="home.menu.filter.dinner"
         >Dinner</a
       >
-      <!-- staters -->
+      <!-- starters -->
       <a
         href="#"
         class="menu__filter-item animate-fade"
@@ -109,13 +130,22 @@
     <nav id="pagination" class="pagination animate-fade"></nav>
 
     <!-- BANNER MID -->
-    <section class="banner animate-fade" aria-label="Signature dining highlight">
+    <section
+      class="banner animate-fade"
+      aria-label="Signature dining highlight"
+    >
       <div class="menu-banner__content">
-        <span class="menu-banner__eyebrow animate-fade" data-i18n="menu_page.banner.eyebrow"
+        <span
+          class="menu-banner__eyebrow animate-fade"
+          data-i18n="menu_page.banner.eyebrow"
           >Chef's Table Experience</span
         >
-        <h2 class="animate-slide-up" data-i18n="menu_page.banner.title1">Food Is Not Just</h2>
-        <h2 class="animate-slide-up" data-i18n="menu_page.banner.title2">Eating Energy</h2>
+        <h2 class="animate-slide-up" data-i18n="menu_page.banner.title1">
+          Food Is Not Just
+        </h2>
+        <h2 class="animate-slide-up" data-i18n="menu_page.banner.title2">
+          Eating Energy
+        </h2>
         <p class="animate-fade" data-i18n="menu_page.banner.description">
           It's an Experience crafted by fire, smoke, and seasonal ingredients.
         </p>
@@ -164,7 +194,7 @@
       </div>
     </section>
 
-    <!-- Floating cart icon -->
+    <!-- Floating cart icon (single version) -->
     <div
       class="cart-icon-wrapper animate-scale icon-bounce"
       id="cart-icon"
@@ -172,15 +202,16 @@
       title="View cart"
       data-i18n-attrs="aria-label:menu_page.cart_icon.aria_label,title:menu_page.cart_icon.title"
     >
-      <i
-        class="fa-solid fa-cart-plus cart-icon"
-        style="color: var(--color-dark-orange)"
-      ></i>
+      <i class="fa-solid fa-cart-plus cart-icon"></i>
       <span id="cart-count" class="cart-count">0</span>
     </div>
 
     <!-- ==========  FOOTER ========== -->
     <div class="footer-wrapper" data-include="/partials/footer.html"></div>
+
+    <!-- Page scripts -->
+    <script src="./scripts/notification-system.js"></script>
+    <script src="./scripts/add-to-cart-buttons.js"></script>
 
     <!-- navigate menu  -->
     <script
@@ -196,9 +227,21 @@
       src="./scripts/dietary-filter-extension.js"
       defer
     ></script>
+    <script
+      type="module"
+      src="./scripts/dietary-filter-extension.js"
+      defer
+    ></script>
 
     <!-- Global Features Scripts -->
     <script type="module" src="../assets/features/allergy-alert.js"></script>
-    <script type="module" src="../assets/script/lang-toggle.js" defer></script>
+
+    <script
+      type="module"
+      src="../assets/script/header-features.js"
+      defer
+    ></script>
+    <div data-include="../partials/back-to-top.html"></div>
+    <script src="../assets/script/back-to-top.js"></script>
   </body>
 </html>

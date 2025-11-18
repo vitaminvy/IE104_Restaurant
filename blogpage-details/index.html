@@ -1,52 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <script src="../assets/script/theme-init.js"></script>
+    <!-- ====== Meta Configuration ====== -->
+    <meta charset="UTF-8" frame-rectangular />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-i18n="blog_details_page.title">Blog Details - WowWraps</title>
+    <link rel="icon" href="../assets/icons/icon-header/nav-vect.svg" type="image/svg+xml">
 
-<head>
-  <!-- ====== Meta Configuration ====== -->
-  <meta charset="UTF-8" frame-rectangular />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title data-i18n="blog_details_page.title">Restaurant Website</title>
+    <!-- ====== Global Styles ====== -->
+    <link rel="stylesheet" href="../style/reset.css" />
+    <link rel="stylesheet" href="../style/style.css" />
 
-  <!-- ====== Global Styles ====== -->
-  <link rel="stylesheet" href="../style/reset.css" />
-  <link rel="stylesheet" href="../style/style.css" />
-  
-  <!-- ====== Page-Specific Styles ====== -->
-  <link rel="stylesheet" href="./layout.css">
-  <link rel="stylesheet" href="./blog-details.css">
-  <link rel="stylesheet" href="./blog-grid.css">
+    <!-- ====== Page-Specific Styles ====== -->
+    <link rel="stylesheet" href="./layout.css" />
+    <link rel="stylesheet" href="./blog-details.css" />
+    <link rel="stylesheet" href="./blog-grid.css" />
 
-  <!-- ====== Header And Footer Section Styles ====== -->
+    <!-- ====== Header And Footer Section Styles ====== -->
     <link rel="stylesheet" href="../partials/header.css" />
     <link rel="stylesheet" href="../partials/footer.css" />
 
-  <!-- ====== External Libraries ====== -->
-  <!-- Font Awesome for social & UI icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <!-- Google Fonts: Libre Bodoni & Plus Jakarta Sans -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
-    rel="stylesheet" />
+    <!-- ====== External Libraries ====== -->
+    <!-- Font Awesome for social & UI icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <!-- Google Fonts: Libre Bodoni & Plus Jakarta Sans -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+      rel="stylesheet"
+    />
 
   <!-- Global Animation System -->
   <link rel="stylesheet" href="../style/animations.css" />
   <link rel="stylesheet" href="../style/page-enhancements.css" />
 
-  <!-- Global Loading System -->
-  <script src="../assets/script/global-loader.js"></script>
+    <!-- Global Loading System -->
+    <script src="../assets/script/global-loader.js"></script>
   <script src="../assets/script/scroll-animations.js"></script>
 
-  <!-- Dynamic Blog Details Loader -->
-  <script type="module" src="./blog-details-loader.js"></script>
-</head>
+    <!-- Dynamic Blog Details Loader -->
+    <script type="module" src="./blog-details-loader.js"></script>
+    <link rel="stylesheet" href="../style/back-to-top.css" />
+    <link rel="stylesheet" href="../homepage/back-to-top.css" />
+  </head>
 
-<body>
-  <!-- ========== 1. HEADER ========== -->
-  <!-- logic for header and footer -->
-  <script src="../assets/script/include-partials.js" defer></script>
-  <script type="module" src="../assets/script/header.js" defer></script>
-  <div data-include="/partials/header.html"></div>
-  <!-- open sidebar in mobile view -->
+  <body>
+
+    <!-- ========== 1. HEADER ========== -->
+    <!-- logic for header and footer -->
+    <script src="../assets/script/include-partials.js" defer></script>
+    <script type="module" src="../assets/script/header.js" defer></script>
+    <div data-include="/partials/header.html"></div>
+
+    <!-- open sidebar in mobile view -->
 
   <!-- ========== 2. MAIN CONTENT ========== -->
   <div class="container">
@@ -80,44 +89,68 @@
         <!-- Section Heading -->
         <h2>How The Role Of Restaurants Is Increasing</h2>
 
-        <!-- Main paragraphs -->
-        <p><span class="first-letter">T</span>he restaurant industry has experienced a significant paradigm shift over
-          the past decade. In addition to providing excellent food, restaurants strive to provide a pleasant customer
-          experience to encourage their customers to visit them again. Just look at how brands will attract more
-          customers. Caliburger franchise in Pasadena showcasing a burger.</p>
+          <!-- Main paragraphs -->
+          <p>
+            <span class="first-letter">T</span>he restaurant industry has
+            experienced a significant paradigm shift over the past decade. In
+            addition to providing excellent food, restaurants strive to provide
+            a pleasant customer experience to encourage their customers to visit
+            them again. Just look at how brands will attract more customers.
+            Caliburger franchise in Pasadena showcasing a burger.
+          </p>
 
-        <p>But they have tons of cash to burn on such gimmicks, right? How can a smaller restaurant compete with that?
-          That’s true, but AI in restaurants isn’t about fancy gimmicks or eye-catching technologies alone. Today, AI is
-          accessible to everyone, and there are smaller ways to use it to your advantage.</p>
+          <p>
+            But they have tons of cash to burn on such gimmicks, right? How can
+            a smaller restaurant compete with that? That’s true, but AI in
+            restaurants isn’t about fancy gimmicks or eye-catching technologies
+            alone. Today, AI is accessible to everyone, and there are smaller
+            ways to use it to your advantage.
+          </p>
 
-        <!-- Supporting Image -->
-        <img src="../assets/images/blogpage-details/pizza.png" alt="Neon sign saying PIZZA">
+          <!-- Supporting Image -->
+          <img
+            src="../assets/images/blogpage-details/pizza.png"
+            alt="Neon sign saying PIZZA"
+          />
 
-        <!-- Highlighted Quote Block -->
-        <blockquote class="blog-quote">
-          <p>“Ding* Your order is being prepared by Chef Bot 19 and will be delivered to your table in approximately 19
-            minutes. To get a receipt for your order, reply with H. We hope you enjoy your dining experience with us. –
-            Team Bots”</p>
-        </blockquote>
+          <!-- Highlighted Quote Block -->
+          <blockquote class="blog-quote">
+            <p>
+              “Ding* Your order is being prepared by Chef Bot 19 and will be
+              delivered to your table in approximately 19 minutes. To get a
+              receipt for your order, reply with H. We hope you enjoy your
+              dining experience with us. – Team Bots”
+            </p>
+          </blockquote>
 
-        <!-- Subsection -->
-        <h2>How The Role Of Restaurants Is Increasing</h2>
-        <p>Integrating inventory with your point of sale (POS) system is an essential AI capability that every
-          restaurant needs. Restaurant owners can track inventory purchase data, which can help them buy ingredients
-          more efficiently. In addition, it helps them ensure that they limit waste and that food costs remain under
-          control.</p>
+          <!-- Subsection -->
+          <h2>How The Role Of Restaurants Is Increasing</h2>
+          <p>
+            Integrating inventory with your point of sale (POS) system is an
+            essential AI capability that every restaurant needs. Restaurant
+            owners can track inventory purchase data, which can help them buy
+            ingredients more efficiently. In addition, it helps them ensure that
+            they limit waste and that food costs remain under control.
+          </p>
 
-        <!-- List of AI applications -->
-        <ul>
-          <li><strong>Automated Marketing:</strong> As discussed above, restaurant owners need a reliable digital
-            marketing plan to stay a step ahead of the competition. AI today enables them to create better marketing
-            strategies, including click-through rates, and run effective targeting campaigns to bring in more people to
-            the restaurant. In addition.</li>
-          <li><strong>Hiring and Staff Management:</strong> Staffing is a significant challenge for any food and
-            beverage business. AI can assist in hiring, training, and staffing to optimize the number of staff members
-            needed during each shift.</li>
-        </ul>
-      </section>
+          <!-- List of AI applications -->
+          <ul>
+            <li>
+              <strong>Automated Marketing:</strong> As discussed above,
+              restaurant owners need a reliable digital marketing plan to stay a
+              step ahead of the competition. AI today enables them to create
+              better marketing strategies, including click-through rates, and
+              run effective targeting campaigns to bring in more people to the
+              restaurant. In addition.
+            </li>
+            <li>
+              <strong>Hiring and Staff Management:</strong> Staffing is a
+              significant challenge for any food and beverage business. AI can
+              assist in hiring, training, and staffing to optimize the number of
+              staff members needed during each shift.
+            </li>
+          </ul>
+        </section>
 
       <!-- ====== Blog Grid Section (Related Posts) ====== -->
       <section class="blog-grid stagger-children" id="blog-grid">
@@ -150,9 +183,11 @@
     </main>
   </div>
 
-  <!-- ========== 3. FOOTER ========== -->
-  <div data-include="/partials/footer.html"></div>
-  <script type="module" src="../assets/script/lang-toggle.js" defer></script>
-</body>
+    <!-- ========== 3. FOOTER ========== -->
+    <div data-include="/partials/footer.html"></div>
 
+    <script type="module" src="../assets/script/header-features.js" defer></script>
+    <div data-include="../partials/back-to-top.html"></div>
+    <script src="../assets/script/back-to-top.js"></script>
+  </body>
 </html>

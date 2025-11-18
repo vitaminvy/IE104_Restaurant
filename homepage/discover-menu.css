@@ -46,7 +46,7 @@
 
 .discover__desc {
   margin-bottom: 1.75rem;
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--text-secondary);
   font-family: var(--font-body);
   line-height: 1.6;
   font-size: 14px
@@ -145,8 +145,7 @@
 
   .discover__desc {
     font-size: 0.8rem;
-    line-height: 1.6;
-    color: rgba(255, 255, 255, 0.85);
+color: var(--text-secondary);
   }
 }
 
@@ -154,7 +153,7 @@
 @media (min-width: 64rem) {
   #discover {
     text-align: left;
-    padding: 0rem 3rem;
+    padding: 6rem 3rem;
     margin-top: 6rem;
   }
 
@@ -174,7 +173,7 @@
 /* xl (≥1280px): large desktop */
 @media (min-width: 80rem) {
   #discover {
-    padding: 0rem 4rem;
+    padding: 6rem 4rem;
     margin-top: 7rem;
   }
 
@@ -187,3 +186,4 @@
     font-size: 3.8rem;
   }
 }
+

@@ -1,55 +1,74 @@
 <!DOCTYPE html>
 <html lang="vi">
+  <head>
+    <script src="../assets/script/theme-init.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-i18n="not_found_page.title">404 Not Found - WowWraps</title>
+    <link rel="icon" href="../assets/icons/icon-header/nav-vect.svg" type="image/svg+xml">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 - Không tìm thấy trang</title>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
-        integrity="sha512-NmLkDIU1C/C88wi324HBc+S2kLhi08PN5GDeUVrVC/BVt/9Izdsc9SsqaiKPMxSSjykVz1OdKQLDINea2vjXQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
+      integrity="sha512-NmLkDIU1C/C88wi324HBc+S2kLhi08PN5GDeUVrVC/BVt/9Izdsc9SsqaiKPMxSSjykVz1OdKQLDINea2vjXQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
 
     <link rel="stylesheet" href="../style/reset.css" />
     <link rel="stylesheet" href="../style/style.css" />
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
 
-      <link rel="stylesheet" href="../partials/header.css" />
-      <link rel="stylesheet" href="../partials/footer.css" />
-</head>
+    <link rel="stylesheet" href="../partials/header.css" />
+    <link rel="stylesheet" href="../partials/footer.css" />
+    <link rel="stylesheet" href="../style/back-to-top.css" />
+    <link rel="stylesheet" href="../homepage/back-to-top.css" />
+    
+    <!-- Font Awesome CDN -->
+    <script
+      src="https://kit.fontawesome.com/eef96f1e29.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
 
-<body>
+  <body>
+
     <!-- ========== 1. HEADER ========== -->
     <!-- logic for header and footer -->
     <script src="../assets/script/include-partials.js" defer></script>
     <script type="module" src="../assets/script/header.js" defer></script>
     <div data-include="/partials/header.html"></div>
+
     <!-- open sidebar in mobile view -->
 
     <!-- ========== 2. MAIN CONTENT ========== -->
     <main class="error-page">
-        <div class="error-page__container">
+      <div class="error-page__container">
+        <img
+          src="../assets/images/not-found-page/404.png"
+          alt="404 Not Found"
+          class="error-page__image"
+        />
 
-            <img src="../assets/images/not-found-page/404.png" alt="404 Not Found" class="error-page__image">
+        <p class="error-page__message">
+          Sorry, the page you're looking for doesn't exist. If you think
+          something is broken, report a problem.
+        </p>
 
-            <p class="error-page__message">
-                Sorry, the page you're looking for doesn't exist. If you think
-                something is broken, report a problem.
-            </p>
-
-            <div class="error-page__cta">
-                <a href="/" class="btn">Go To Home</a>
-            </div>
-
+        <div class="error-page__cta">
+          <a href="/" class="btn">Go To Home</a>
         </div>
+      </div>
     </main>
 
     <!-- ========== 3. FOOTER ========== -->
     <div class="footer-wrapper" data-include="/partials/footer.html"></div>
 
-    <script src="script.js"></script>
-    <script src="../assets/script/lang-toggle.js" defer></script>
-</body>
 
+
+    <script type="module" src="../assets/script/header-features.js" defer></script>
+    <div data-include="../partials/back-to-top.html"></div>
+    <script src="../assets/script/back-to-top.js"></script>
+  </body>
 </html>

@@ -4,7 +4,12 @@
     <script src="../assets/script/theme-init.js"></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About Us - Restaurant Website</title>
+    <title data-i18n="about_page.title">About Us - WowWraps</title>
+    <link
+      rel="icon"
+      href="../assets/icons/icon-header/nav-vect.svg"
+      type="image/svg+xml"
+    />
     <!-- Font Awesome CDN -->
     <link
       rel="stylesheet"
@@ -25,8 +30,8 @@
       href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="../style/back-to-top.css" />
     <link rel="stylesheet" href="../assets/features/theme-toggle.css" />
-    <link rel="stylesheet" href="../homepage/back-to-top.css" />
 
     <!-- Global Animation System -->
     <link rel="stylesheet" href="../style/animations.css" />
@@ -36,7 +41,7 @@
     <!-- logic for header and footer -->
     <script src="../assets/script/include-partials.js" defer></script>
     <script type="module" src="../assets/script/header.js" defer></script>
-    
+
     <!-- ========== 1. HEADER ========== -->
     <div data-include="/partials/header.html"></div>
 
@@ -63,19 +68,25 @@
           aria-hidden="true"
         ></div>
         <div class="about-intro__grid stagger-children">
-          <figure class="about-intro__photo about-intro__photo--a animate-scale">
+          <figure
+            class="about-intro__photo about-intro__photo--a animate-scale"
+          >
             <img
               src="../assets/images/about-page/table-1.png"
               alt="Restaurant window"
             />
           </figure>
-          <figure class="about-intro__photo about-intro__photo--b animate-scale">
+          <figure
+            class="about-intro__photo about-intro__photo--b animate-scale"
+          >
             <img
               src="../assets/images/about-page/table-2.png"
               alt="Indoor dining"
             />
           </figure>
-          <figure class="about-intro__photo about-intro__photo--c animate-scale">
+          <figure
+            class="about-intro__photo about-intro__photo--c animate-scale"
+          >
             <img
               src="../assets/images/about-page/view.png"
               alt="Chalkboard and table"
@@ -87,7 +98,6 @@
               class="about-intro__story-title"
               data-i18n="about_page.intro.story_title"
             >
-
               The Story Of Our<br />
               First Restaurant<br />
               Branch
@@ -107,8 +117,13 @@
     <section class="vision" id="vision">
       <div class="vision__container">
         <header class="vision__header animate-slide-up">
-          <h2 class="vision__title" data-i18n="about_page.vision_mission.title">Our Vision &amp; Mission</h2>
-          <p class="vision__subtitle" data-i18n="about_page.vision_mission.subtitle">
+          <h2 class="vision__title" data-i18n="about_page.vision_mission.title">
+            Our Vision &amp; Mission
+          </h2>
+          <p
+            class="vision__subtitle"
+            data-i18n="about_page.vision_mission.subtitle"
+          >
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
             aliquam amet, cursus tellus non consequat laoreet eget ornare.
             Vulputate tellus, a lobortis eu nisl. Quisque vulputate eget et,
@@ -251,8 +266,12 @@
 
     <!-- ========== 15. FOOTER ========== -->
     <div data-include="/partials/footer.html"></div>
-    
-    <script type="module" src="../assets/script/header-features.js" defer></script>
+
+    <script
+      type="module"
+      src="../assets/script/header-features.js"
+      defer
+    ></script>
     <script type="module">
       import i18nService from "../assets/script/i18n-service.js";
       (async () => {

@@ -32,6 +32,7 @@
 /* Hover effect */
 .back-to-top:hover {
   transform: translateY(-4px);
+  cursor: pointer;
 }
 
 /* Mobile */

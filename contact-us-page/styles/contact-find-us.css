@@ -148,7 +148,6 @@
 #find-us .btn:hover {
   transform: translateY(-3px) scale(1.01);
   box-shadow: 0 28px 55px rgba(255, 147, 56, 0.45);
-  filter: var(--icon-filter);
 }
 
 /* =============================

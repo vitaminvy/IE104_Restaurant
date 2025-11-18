@@ -44,7 +44,7 @@
 }
 
 .about__title {
-  color: var(--color-white);
+  color: var(--text-primary);
   font-family: var(--font-heading);
   font-weight: 500;
   line-height: 1.2;
@@ -53,7 +53,7 @@
 }
 
 .about__text {
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--text-secondary);
   font-family: var(--font-body);
   font-size: 1rem; /* 16px */
   line-height: 1.6;
@@ -64,9 +64,9 @@
   display: inline-block;
   margin-top: 1.5rem;
   padding: 0.5rem 1rem;
-  border: 2px solid var(--color-white);
+  border: 2px solid var(--border-color);
   border-radius: 9999px;
-  color: var(--color-white);
+  color: var(--text-primary);
   text-decoration: none;
   font-family: var(--font-body);
   font-size: 0.875rem;
@@ -180,3 +180,5 @@
     max-width: 36rem;
   }
 }
+
+

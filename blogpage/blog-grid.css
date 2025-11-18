@@ -29,7 +29,7 @@
 }
 
 .blog-filters__actions {
-  flex: 1 1 ;
+  flex: 1 1;
   display: flex;
   gap: 0.75rem;
   justify-content: flex-end;
@@ -118,7 +118,7 @@
   left: 1.25rem;
   top: 0.25rem;
   bottom: 1rem;
-  width: 2px;
+  width: 3px;
   background: linear-gradient(
     180deg,
     rgba(255, 255, 255, 0.2),
@@ -354,4 +354,79 @@
   .blog-filters {
     flex-direction: column;
   }
+}
+/* =========================================================
+   LIGHT MODE OVERRIDES
+========================================================= */
+html[data-theme="light"] .blog-filters {
+  background: var(--bg-primary);
+  backdrop-filter: none;
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+html[data-theme="light"] .blog-filter-pill {
+  background: var(--bg-secondary);
+  border-color: rgba(0, 0, 0, 0.15);
+  color: var(--text-primary);
+}
+
+html[data-theme="light"] .blog-filter-pill:hover {
+  background: #e9ecef; /* Slightly darker gray on hover */
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+html[data-theme="light"] .blog-filter-pill.is-active {
+  background: var(--accent-color); /* Keep accent color */
+  border-color: var(--accent-color);
+  color: #ffffff; /* White text on accent color */
+}
+
+/* Also need to adjust the select and button */
+html[data-theme="light"] .blog-filters__select {
+  background-color: #f8f9fa;
+  border-color: rgba(0, 0, 0, 0.15);
+  color: var(--text-primary);
+}
+
+html[data-theme="light"] .blog-filters__select:focus {
+  border-color: var(--accent-color);
+}
+
+html[data-theme="light"] .blog-filters__clear {
+  background-color: #f8f9fa;
+  border-color: rgba(0, 0, 0, 0.15);
+  color: var(--text-primary);
+}
+
+html[data-theme="light"] .blog-filters__clear:hover {
+  background-color: #e9ecef;
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+html[data-theme="light"] .timeline-entry__dot {
+  background: #ffffff;
+  border-color: #ff8c00;
+  box-shadow: 0 0 0 4px rgba(255, 140, 0, 0.3);
+}
+
+html[data-theme="light"] .timeline-entry__date {
+  color: var(--text-secondary);
+}
+
+html[data-theme="light"] .timeline-entry__heading {
+  color: var(--text-primary);
+}
+
+html[data-theme="light"] .timeline-entry__tag {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+/* Also adjust the timeline track line */
+html[data-theme="light"] .blog-timeline::before {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.1),
+    rgba(255, 140, 0, 0.5)
+  ); /* Adjusting the orange part */
 }

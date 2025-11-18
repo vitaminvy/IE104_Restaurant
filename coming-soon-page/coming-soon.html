@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script src="../assets/script/theme-init.js"></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Coming Soon | WowWraps</title>
@@ -32,11 +33,11 @@
     <!-- link html footer and header -->
     <script src="../assets/script/include-partials.js" defer></script>
     <script type="module" src="../assets/script/header.js" defer></script>
+    <link rel="stylesheet" href="../assets/features/theme-toggle.css" />
   </head>
-  <body>
+  <body class="coming-soon-body">
     <!-- ========== 1. HEADER ========== -->
     <div data-include="/partials/header.html"></div>
-    <script type="module" src="../assets/script/lang-toggle.js" defer></script>
 
     <!-- Coming Soon -->
     <main>
@@ -136,7 +137,9 @@
                 src="../assets/images/home-page/highlight-banner/self_service.svg"
                 alt="Self Services"
               />
-              <span data-i18n="home.highlight_banner.self_services">Self Services</span>
+              <span data-i18n="home.highlight_banner.self_services"
+                >Self Services</span
+              >
             </div>
 
             <div class="highlight-banner__item">
@@ -152,7 +155,9 @@
                 src="../assets/images/home-page/highlight-banner/fast_delivery.svg"
                 alt="Fast Delivery"
               />
-              <span data-i18n="home.highlight_banner.fast_delivery">Fast Delivery</span>
+              <span data-i18n="home.highlight_banner.fast_delivery"
+                >Fast Delivery</span
+              >
             </div>
 
             <div class="highlight-banner__item">
@@ -160,7 +165,9 @@
                 src="../assets/images/home-page/highlight-banner/super_taste.svg"
                 alt="Super Taste"
               />
-              <span data-i18n="home.highlight_banner.super_taste">Super Taste</span>
+              <span data-i18n="home.highlight_banner.super_taste"
+                >Super Taste</span
+              >
             </div>
 
             <!-- Duplicate set for infinite loop -->
@@ -169,7 +176,9 @@
                 src="../assets/images/home-page/highlight-banner/self_service.svg"
                 alt="Self Services"
               />
-              <span data-i18n="home.highlight_banner.self_services">Self Services</span>
+              <span data-i18n="home.highlight_banner.self_services"
+                >Self Services</span
+              >
             </div>
 
             <div class="highlight-banner__item">
@@ -185,7 +194,9 @@
                 src="../assets/images/home-page/highlight-banner/fast_delivery.svg"
                 alt="Fast Delivery"
               />
-              <span data-i18n="home.highlight_banner.fast_delivery">Fast Delivery</span>
+              <span data-i18n="home.highlight_banner.fast_delivery"
+                >Fast Delivery</span
+              >
             </div>
 
             <div class="highlight-banner__item">
@@ -193,7 +204,9 @@
                 src="../assets/images/home-page/highlight-banner/super_taste.svg"
                 alt="Super Taste"
               />
-              <span data-i18n="home.highlight_banner.super_taste">Super Taste</span>
+              <span data-i18n="home.highlight_banner.super_taste"
+                >Super Taste</span
+              >
             </div>
           </div>
         </div>
@@ -204,6 +217,11 @@
 
     <!-- ========== 13. FOOTER ========== -->
     <div data-include="/partials/footer.html"></div>
-    <script src="../assets/script/lang-toggle.js" defer></script>
+
+    <script
+      type="module"
+      src="../assets/script/header-features.js"
+      defer
+    ></script>
   </body>
 </html>

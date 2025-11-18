@@ -31,7 +31,7 @@
   font-weight: 700;
   line-height: 1.15;
   margin-bottom: 20px;
-  color: var(--color-white);
+  color: var(--text-primary);
 }
 
 .comingsoon__desc {
@@ -45,7 +45,7 @@
   align-items: center;
   gap: 8px;
   margin-bottom: 110px;
-  border-bottom: 1px solid var(--color-white);
+  border-bottom: 1px solid var(--border-color);
   padding-bottom: 5px;
 }
 
@@ -53,7 +53,7 @@
   background: transparent;
   border: none;
   outline: none;
-  color: var(--color-white);
+  color: var(--text-primary);
   width: 100%;
   padding: 8px 0;
   font-family: var(--font-body);
@@ -63,19 +63,19 @@
 }
 
 .comingsoon__input::placeholder {
-  color: var(--color-white-80);
+  color: var(--text-secondary);
 }
 
 .comingsoon__button {
   background: none;
   border: none;
-  color: #fff;
+  color: var(--text-primary);
   cursor: pointer;
   transition: 0.3s;
 }
 
 .comingsoon__button:hover {
-  color: var(--color-dark-orange);
+  color: var(--accent-color);
 }
 
 /* ===== Timer ===== */
@@ -91,10 +91,10 @@
 }
 
 .comingsoon__number {
-  color: var(--color-dark-orange);
+  color: var(--accent-color);
   display: block;
   -webkit-text-stroke-width: 1.15px;
-  -webkit-text-stroke-color: var(--color-dark-orange);
+  -webkit-text-stroke-color: var(--accent-color);
   font-family: Playball;
   font-size: 58px;
   font-weight: 500;
@@ -271,3 +271,32 @@
 #footer {
   margin-top: 0;
 }
+
+/* === OVERRIDES FOR LIGHT MODE === */
+/* Keep the comingsoon section and the header dark */
+html[data-theme="light"] .coming-soon-body .comingsoon,
+html[data-theme="light"] .coming-soon-body #header {
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.8);
+  --text-muted: rgba(255, 255, 255, 0.6);
+  --border-color: rgba(255, 255, 255, 0.2);
+  --icon-filter: brightness(0) invert(1);
+}
+
+/* Force the form button's arrow icon to be white */
+html[data-theme="light"] .coming-soon-body .comingsoon__button path {
+    stroke: white;
+}
+
+/* Force the header's scrolled state to have a dark background */
+html[data-theme="light"] .coming-soon-body .header--scrolled {
+  background: rgba(18, 18, 18, 0.85);
+}
+
+/* Force the mobile navigation panel to have a dark background */
+@media (max-width: 63.9rem) {
+  html[data-theme="light"] .coming-soon-body .header__nav {
+    background: rgba(18, 18, 18, 0.98);
+  }
+}
+

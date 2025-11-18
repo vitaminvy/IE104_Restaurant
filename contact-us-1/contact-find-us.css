@@ -10,7 +10,7 @@
   display: flex;
   align-items: center;
   gap: 4rem;
-  padding: clamp(3rem, 6vw, 6rem);
+  padding: clamp(3rem, 6vw, 5rem);
   margin-top: 4rem;
   border-radius: 36px;
   overflow: hidden;
@@ -78,7 +78,7 @@
   /* Box model */
   display: grid;
   gap: 1rem;
-  margin: 2.5rem 0;
+  margin: 2rem 0;
 }
 
 /* Individual Contact Item */
@@ -287,18 +287,32 @@
 /* =============================
  * Responsive Design
  * ============================= */
+ 
+/* lg breakpoint (≤780px) */
+@media (max-width: 780px) {
+  .contact-item {
+    padding: 1rem 0.5rem;
+  }
+
+  .contact-item span {
+    font-size: 14px;
+  }
+
+  .contact-icon {
+    /* Box model */
+    width: 36px;
+    height: 36px;
+    padding: 6px;
+  }
+
+  #find-us {
+    /* Box model */
+    padding: 1rem;
+  }
+}
 
 /* lg breakpoint (≤1024px) */
 @media (max-width: 64rem) {
-  #find-us {
-    /* Box model */
-    flex-direction: column-reverse;
-    align-items: unset;
-    gap: 2.5rem;
-    margin: 2.5rem 0 0;
-    padding: 3rem;
-  }
-
   .find-us__image-container {
     /* Box model */
     width: 100%;
@@ -317,10 +331,23 @@
   }
 }
 
+/* xl breakpoint (≤1280px) */
+@media (max-width: 1280px) {
+  #find-us {
+    /* Box model */
+    flex-direction: column;
+    align-items: unset;
+    gap: 2.5rem;
+    margin: 2.5rem 0 0;
+    padding: 3rem;
+  }
+}
+
+
 /* sm breakpoint (≤640px) — small mobile */
 @media (max-width: 40rem) {
   #find-us {
-    padding: 2rem;
+    padding: 1rem;
   }
 
   .find-us__content {

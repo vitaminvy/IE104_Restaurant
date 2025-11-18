@@ -104,7 +104,7 @@
   }
 
   .hero__description {
-    min-width: none;
+    min-width: 0;
     margin-left: 0;
   }
 
@@ -156,7 +156,7 @@
   }
 
   .hero__description {
-    min-width: none;
+    min-width: 0;
     margin-left: 0;
   }
 

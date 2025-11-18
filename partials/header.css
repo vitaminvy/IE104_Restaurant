@@ -30,7 +30,7 @@ html[data-theme="light"] .header--scrolled {
   justify-content: center;
   width: 100%;
   /* limit width */
-  max-width: 1536px; /* 2xl max-widhth */
+  max-width: 1536px; /* 2xl max-width */
   margin: 0 auto;
   padding: 1rem 1.5rem; /* mobile default: 16–24px */
   /* transition for smooth padding change */
@@ -131,18 +131,6 @@ html[data-theme="light"] .header__nav {
 }
 
 /* Nav list items */
-.header__nav-list {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2rem;
-  list-style: none;
-}
-
-.header__nav--open {
-  left: 0;
-}
-
 .header__nav-list {
   display: flex;
   flex-direction: column;

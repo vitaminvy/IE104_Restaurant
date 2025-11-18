@@ -31,7 +31,7 @@
   /* scale */
   transform: scale(1.05); 
   /* organe shadow */
-  box-shadow: 0 8px 25px rgba(251, 143, 44, 0.2); 
+  box-shadow: 0 8px 25px rgba(218, 109, 6, 0.6); 
 }
 
 .stats__icon {

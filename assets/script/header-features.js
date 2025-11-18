@@ -73,7 +73,7 @@ function updateAllLanguageFlags(lang) {
 function initHeaderFeatures() {
   const headerRight = document.querySelector('.header__right');
   if (!headerRight) {
-    console.error('Header right container not found.');
+    // console.error('Header right container not found.');
     return;
   }
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <script src="../assets/script/theme-init.js"></script>
+    <script src="../assets/script/theme-init.js" defer></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title data-i18n="home_page.title">WowWraps</title>
@@ -83,11 +83,11 @@
     <noscript><link rel="stylesheet" href="./menupage/styles/notification-system.css" /></noscript>
 
     <!-- Global Loading System -->
-    <script src="./assets/script/global-loader.js"></script>
+    <script src="./assets/script/global-loader.js" defer></script>
     <link rel="stylesheet" href="./style/back-to-top.css" />
-    <script src="./assets/script/scroll-animations.js"></script>
-    <script src="./assets/script/form-validator.js"></script>
-    <script src="./menupage/scripts/notification-system.js"></script>
+    <script src="./assets/script/scroll-animations.js" defer></script>
+    <script src="./assets/script/form-validator.js" defer></script>
+    <script src="./menupage/scripts/notification-system.js" defer></script>
   </head>
   <body>
     <!-- logic for header and footer -->
@@ -116,6 +116,7 @@
             height="693"
             fetchpriority="high"
             class="hero__image"
+            loading="lazy"
           />
         </div>
 
@@ -150,6 +151,7 @@
             height="693"
             fetchpriority="high"
             class="hero__image"
+            loading="lazy"
           />
         </div>
       </div>
@@ -165,6 +167,7 @@
               src="./assets/images/home-page/highlight-banner/self_service.svg"
               alt="Self Services"
               loading="lazy"
+              width="40" height="40"
             />
             <span data-i18n="home.highlight_banner.self_services"
               >Self Services</span
@@ -176,6 +179,7 @@
               src="./assets/images/home-page/highlight-banner/best_food.svg"
               alt="Best Food"
               loading="lazy"
+              width="40" height="40"
             />
             <span data-i18n="home.highlight_banner.best_food">Best Food</span>
           </div>
@@ -185,6 +189,7 @@
               src="./assets/images/home-page/highlight-banner/fast_delivery.svg"
               alt="Fast Delivery"
               loading="lazy"
+              width="40" height="40"
             />
             <span data-i18n="home.highlight_banner.fast_delivery"
               >Fast Delivery</span
@@ -196,6 +201,7 @@
               src="./assets/images/home-page/highlight-banner/super_taste.svg"
               alt="Super Taste"
               loading="lazy"
+              width="40" height="40"
             />
             <span data-i18n="home.highlight_banner.super_taste"
               >Super Taste</span
@@ -208,6 +214,7 @@
               src="./assets/images/home-page/highlight-banner/self_service.svg"
               alt="Self Services"
               loading="lazy"
+              width="40" height="40"
             />
             <span data-i18n="home.highlight_banner.self_services"
               >Self Services</span
@@ -218,6 +225,8 @@
             <img
               src="./assets/images/home-page/highlight-banner/best_food.svg"
               alt="Best Food"
+              width="40" height="40"
+              loading="lazy"
             />
             <span data-i18n="home.highlight_banner.best_food">Best Food</span>
           </div>
@@ -226,6 +235,8 @@
             <img
               src="../assets/images/home-page/highlight-banner/fast_delivery.svg"
               alt="Fast Delivery"
+              width="40" height="40"
+              loading="lazy"
             />
             <span data-i18n="home.highlight_banner.fast_delivery"
               >Fast Delivery</span
@@ -236,6 +247,8 @@
             <img
               src="../assets/images/home-page/highlight-banner/super_taste.svg"
               alt="Super Taste"
+              width="40" height="40"
+              loading="lazy"
             />
             <span data-i18n="home.highlight_banner.super_taste"
               >Super Taste</span
@@ -254,17 +267,18 @@
           <img
             src="./assets/images/home-page/about-section/about-banner.png"
             alt="Restaurant interior"
-            width="448"
-            height="560"
+            width="535"
+            height="620"
             loading="lazy"
           />
           <img
             class="about__frameRect"
             src="./assets/images/home-page/about-section/about-frame.png"
-            alt="Decor Frame"
-            width="448"
-            height="560"
+            alt=""
+            width="537"
+            height="622"
             loading="lazy"
+            aria-hidden="true"
           />
         </div>
 
@@ -297,6 +311,7 @@
             alt="Door Delivery"
             class="features__icon"
             loading="lazy"
+            width="40" height="40"
           />
           <h3
             class="features__title"
@@ -320,6 +335,7 @@
             alt="Outdoor Catering"
             class="features__icon"
             loading="lazy"
+            width="40" height="40"
           />
           <h3
             class="features__title"
@@ -345,6 +361,7 @@
           width="676"
           height="858"
           fetchpriority="high"
+          loading="lazy"
         />
       </div>
 
@@ -354,6 +371,8 @@
             src="./assets/icons/home-page/service-section/fine-dining.svg"
             alt="Fine Dining"
             class="features__icon"
+            width="40" height="40"
+            loading="lazy"
           />
           <h3
             class="features__title"
@@ -377,6 +396,7 @@
             alt="Banquets Hall"
             class="features__icon"
             loading="lazy"
+            width="40" height="40"
           />
           <h3
             class="features__title"
@@ -534,6 +554,7 @@
           <img
             src="./assets/icons/home-page//menu-section/arrown-left.svg"
             alt="Previous"
+            width="24" height="24"
           />
         </button>
 
@@ -545,6 +566,7 @@
           <img
             src="./assets/icons/home-page//menu-section/arrown-right.svg"
             alt="Next"
+            width="24" height="24"
           />
         </button>
 
@@ -554,45 +576,49 @@
           role="tablist"
           aria-label="Menu slides navigation"
         >
-          <!--active dot -->
           <button
             class="menu__dot menu__dot--active"
             role="tab"
             aria-label="Slide 1"
-            aria-current="true"
+            aria-selected="true"
           >
             <img
               src="./assets/icons/home-page/menu-section//active-dot.svg"
-              alt="Active"
+              alt="Current Slide"
               loading="lazy"
+              width="10" height="10"
             />
           </button>
-          <button class="menu__dot" role="tab" aria-label="Slide 2">
+          <button class="menu__dot" role="tab" aria-label="Slide 2" aria-selected="false">
             <img
               src="./assets/icons/home-page/menu-section/dot.svg"
-              alt="Inactive"
+              alt="Go to Slide 2"
               loading="lazy"
+              width="10" height="10"
             />
           </button>
-          <button class="menu__dot" role="tab" aria-label="Slide 3">
+          <button class="menu__dot" role="tab" aria-label="Slide 3" aria-selected="false">
             <img
               src="./assets/icons/home-page/menu-section/dot.svg"
-              alt="Inactive"
+              alt="Go to Slide 3"
               loading="lazy"
+              width="10" height="10"
             />
           </button>
-          <button class="menu__dot" role="tab" aria-label="Slide 4">
+          <button class="menu__dot" role="tab" aria-label="Slide 4" aria-selected="false">
             <img
               src="./assets/icons/home-page/menu-section/dot.svg"
-              alt="Inactive"
+              alt="Go to Slide 4"
               loading="lazy"
+              width="10" height="10"
             />
           </button>
-          <button class="menu__dot" role="tab" aria-label="Slide 5">
+          <button class="menu__dot" role="tab" aria-label="Slide 5" aria-selected="false">
             <img
               src="./assets/icons/home-page/menu-section/dot.svg"
-              alt="Inactive"
+              alt="Go to Slide 5"
               loading="lazy"
+              width="10" height="10"
             />
           </button>
         </div>
@@ -600,7 +626,7 @@
     </section>
 
     <!-- 7.MENU SECTION: navigate menu  -->
-    <script type="module" src="./assets/script/navigate-menu.js"></script>
+    <script type="module" src="./assets/script/navigate-menu.js" defer></script>
 
     <!-- ========== 8.  STATISTICS / ACHIEVEMENTS ========== -->
     <section id="stats" class="stats">
@@ -612,6 +638,7 @@
             alt="Happy Customers"
             class="stats__icon"
             loading="lazy"
+            width="40" height="40"
           />
           <div class="stats__info">
             <h3 class="stats__number">7500+</h3>
@@ -628,6 +655,7 @@
             alt="Passionate Chefs"
             class="stats__icon"
             loading="lazy"
+            width="40" height="40"
           />
           <div class="stats__info">
             <h3 class="stats__number">39</h3>
@@ -644,6 +672,7 @@
             alt="Dishes"
             class="stats__icon"
             loading="lazy"
+            width="40" height="40"
           />
           <div class="stats__info">
             <h3 class="stats__number">286</h3>
@@ -660,6 +689,7 @@
             alt="Custom Rating"
             class="stats__icon"
             loading="lazy"
+            width="40" height="40"
           />
           <div class="stats__info">
             <h3 class="stats__number">4.5</h3>
@@ -680,6 +710,7 @@
             src="./assets/images/home-page/chef-intro-section/aaliyah.png"
             alt="Đầu bếp đang tỉ mỉ chuẩn bị món ăn dưới ánh đèn ấm áp."
             loading="lazy"
+            width="500" height="450"
           />
         </div>
         <!-- Introduction content -->
@@ -734,12 +765,14 @@
             src="./assets/images/home-page/discover-menu-section/discover-menu-dish.png"
             alt="Michelin Sandwich"
             loading="lazy"
+            width="600" height="440"
           />
           <img
             src="./assets/images/home-page/discover-menu-section/discover-menu-flower.png"
             alt="Flower"
             class="discover__icon"
             loading="lazy"
+            width="100" height="100"
           />
         </div>
       </div>
@@ -768,6 +801,7 @@
                 alt="Lunch Time 30% Off"
                 class="daily-offers__promo-img"
                 loading="lazy"
+                width="400" height="250"
               />
             </a>
 
@@ -781,6 +815,7 @@
                   alt="Spicy Club"
                   class="daily-offers__item-img"
                   loading="lazy"
+                  width="100" height="100"
                 />
                 <div class="daily-offers__item-info">
                   <h3
@@ -808,6 +843,7 @@
                   alt="Almond Baked Brie"
                   class="daily-offers__item-img"
                   loading="lazy"
+                  width="100" height="100"
                 />
                 <div class="daily-offers__item-info">
                   <h3
@@ -835,6 +871,7 @@
                   alt="Tuscan Flatbread"
                   class="daily-offers__item-img"
                   loading="lazy"
+                  width="100" height="100"
                 />
                 <div class="daily-offers__item-info">
                   <h3
@@ -1059,6 +1096,7 @@
                   src="./assets/images/home-page/explore-section/blog-restaurant.png"
                   alt="Restaurant interior"
                   loading="lazy"
+                  width="400" height="300"
                 />
               </div>
               <div class="blog-hero-card__body">
@@ -1103,6 +1141,7 @@
                   src="./assets/images/home-page/explore-section/blog-drink.png"
                   alt="Summer cocktail"
                   loading="lazy"
+                  width="200" height="150"
                 />
               </div>
               <div class="blog-mini-card__body">
@@ -1223,14 +1262,14 @@
     <div data-include="/partials/footer.html"></div>
     <!-- Back to top -->
     <div data-include="partials/back-to-top.html"></div>
-    <script src="assets/script/back-to-top.js"></script>
+    <script src="assets/script/back-to-top.js" defer></script>
     <!-- commit for deploy -->
 
     <!-- Reservation Form Handler -->
-    <script src="./homepage/reservation-handler.js"></script>
+    <script src="./homepage/reservation-handler.js" defer></script>
 
     <!-- Newsletter Form Handler -->
-    <script src="./homepage/newsletter-handler.js"></script>
+    <script src="./homepage/newsletter-handler.js" defer></script>
 
     <script type="module" src="assets/script/header-features.js" defer></script>
     <script src="./assets/script/newsletter.js" defer></script>

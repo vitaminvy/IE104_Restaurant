@@ -161,7 +161,7 @@ import i18nService from "../../assets/script/i18n-service.js";
 
     // Card template with badges
   const cardTemplate = (item) => `
-    <article class="menu__card animate-scale" data-item-id="${item.id}" data-item-title="${
+    <a class="menu__card animate-scale" data-item-id="${item.id}" data-item-title="${
     item.title
   }" data-item-price="${item.price}" data-item-image="${
     item.image
@@ -223,7 +223,7 @@ import i18nService from "../../assets/script/i18n-service.js";
           </button>
         </div>
       </div>
-    </article>`;
+    </a>`;
 
     // Show empty state if no items match
     if (filteredItems.length === 0) {

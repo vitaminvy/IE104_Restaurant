@@ -94,6 +94,41 @@
   white-space: nowrap;
 }
 
+/* Theme-aware base styles */
+html[data-theme="light"] .dietary-badge {
+  background: rgba(15, 23, 42, 0.05);
+  border-color: rgba(15, 23, 42, 0.08);
+  box-shadow: inset 0 0 0 1px rgba(15, 23, 42, 0.04);
+}
+
+html[data-theme="dark"] .dietary-badge {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+}
+
+html[data-theme="light"] .dietary-badge:hover {
+  background: rgba(15, 23, 42, 0.1);
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.12);
+}
+
+html[data-theme="dark"] .dietary-badge:hover {
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45);
+}
+
+html[data-theme="light"] .dietary-badge--active {
+  background: rgba(251, 143, 44, 0.12);
+  border-color: #fb8f2c;
+  box-shadow: 0 0 18px rgba(251, 143, 44, 0.25);
+}
+
+html[data-theme="dark"] .dietary-badge--active {
+  background: rgba(251, 143, 44, 0.2);
+  border-color: #fb8f2c;
+  box-shadow: 0 0 24px rgba(251, 143, 44, 0.35);
+}
+
 /* Color variants for different dietary types */
 .dietary-badge--vegan {
   color: #10b981;

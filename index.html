@@ -298,12 +298,12 @@
             class="features__icon"
             loading="lazy"
           />
-          <h4
+          <h3
             class="features__title"
             data-i18n="home.service_features.door_delivery.title"
           >
             Door Delivery
-          </h4>
+          </h3>
           <p
             class="features__desc"
             data-i18n="home.service_features.door_delivery.description"
@@ -321,12 +321,12 @@
             class="features__icon"
             loading="lazy"
           />
-          <h4
+          <h3
             class="features__title"
             data-i18n="home.service_features.outdoor_catering.title"
           >
             Outdoor Catering
-          </h4>
+          </h3>
           <p
             class="features__desc"
             data-i18n="home.service_features.outdoor_catering.description"
@@ -355,12 +355,12 @@
             alt="Fine Dining"
             class="features__icon"
           />
-          <h4
+          <h3
             class="features__title"
             data-i18n="home.service_features.fine_dining.title"
           >
             Fine Dining
-          </h4>
+          </h3>
           <p
             class="features__desc"
             data-i18n="home.service_features.fine_dining.description"
@@ -378,12 +378,12 @@
             class="features__icon"
             loading="lazy"
           />
-          <h4
+          <h3
             class="features__title"
             data-i18n="home.service_features.banquets_hall.title"
           >
             Banquets Hall
-          </h4>
+          </h3>
           <p
             class="features__desc"
             data-i18n="home.service_features.banquets_hall.description"
@@ -557,6 +557,7 @@
           <!--active dot -->
           <button
             class="menu__dot menu__dot--active"
+            role="tab"
             aria-label="Slide 1"
             aria-current="true"
           >
@@ -566,28 +567,28 @@
               loading="lazy"
             />
           </button>
-          <button class="menu__dot" aria-label="Slide 2">
+          <button class="menu__dot" role="tab" aria-label="Slide 2">
             <img
               src="./assets/icons/home-page/menu-section/dot.svg"
               alt="Inactive"
               loading="lazy"
             />
           </button>
-          <button class="menu__dot" aria-label="Slide 3">
+          <button class="menu__dot" role="tab" aria-label="Slide 3">
             <img
               src="./assets/icons/home-page/menu-section/dot.svg"
               alt="Inactive"
               loading="lazy"
             />
           </button>
-          <button class="menu__dot" aria-label="Slide 4">
+          <button class="menu__dot" role="tab" aria-label="Slide 4">
             <img
               src="./assets/icons/home-page/menu-section/dot.svg"
               alt="Inactive"
               loading="lazy"
             />
           </button>
-          <button class="menu__dot" aria-label="Slide 5">
+          <button class="menu__dot" role="tab" aria-label="Slide 5">
             <img
               src="./assets/icons/home-page/menu-section/dot.svg"
               alt="Inactive"
@@ -886,8 +887,10 @@
             <div class="reservation__row">
               <!-- customer name -->
               <div class="reservation__field">
+                <label for="res-name" class="visually-hidden">Your Name</label>
                 <input
                   type="text"
+                  id="res-name"
                   name="name"
                   placeholder="Your name"
                   required
@@ -898,14 +901,15 @@
                 />
                 <img
                   src="./assets/icons/home-page/resvervation-section/profile.svg"
-                  alt="profile icon"
-                  class="reservation__icon"
+                  alt="" class="reservation__icon" aria-hidden="true"
                 />
               </div>
               <!-- phone number -->
               <div class="reservation__field">
+                <label for="res-phone" class="visually-hidden">Phone Number</label>
                 <input
                   type="tel"
+                  id="res-phone"
                   name="phone"
                   placeholder="Phone number"
                   required
@@ -915,14 +919,15 @@
                 />
                 <img
                   src="./assets/icons/home-page/resvervation-section/phone.svg"
-                  alt="phone icon"
-                  class="reservation__icon"
+                  alt="" class="reservation__icon" aria-hidden="true"
                 />
               </div>
               <!-- email -->
               <div class="reservation__field">
+                <label for="res-email" class="visually-hidden">Email Address</label>
                 <input
                   type="email"
+                  id="res-email"
                   name="email"
                   placeholder="Email address"
                   required
@@ -932,8 +937,7 @@
                 />
                 <img
                   src="./assets/icons/home-page/resvervation-section/message.svg"
-                  alt="email icon"
-                  class="reservation__icon"
+                  alt="" class="reservation__icon" aria-hidden="true"
                 />
               </div>
             </div>
@@ -941,8 +945,9 @@
             <!-- time for reservating -->
             <div class="reservation__row">
               <div class="reservation__field">
+                <label for="res-people" class="visually-hidden">Number of People</label>
                 <!-- person - maximum is 5 person -->
-                <select required>
+                <select id="res-people" name="people" required>
                   <option value="" data-i18n="home.reservation.option_1_person">
                     1 Person
                   </option>
@@ -973,14 +978,15 @@
                 </select>
                 <img
                   src="./assets/icons/home-page/resvervation-section/arrow-down.svg"
-                  alt="arrow down"
-                  class="reservation__icon"
+                  alt="" class="reservation__icon" aria-hidden="true"
                 />
               </div>
               <!-- date -->
               <div class="reservation__field">
+                <label for="res-date" class="visually-hidden">Date</label>
                 <input
                   type="date"
+                  id="res-date"
                   name="date"
                   required
                   data-error-required="Please select a date"
@@ -988,14 +994,15 @@
                 />
                 <img
                   src="./assets/icons/home-page/resvervation-section/calendar.svg"
-                  alt="calendar icon"
-                  class="reservation__icon"
+                  alt="" class="reservation__icon" aria-hidden="true"
                 />
               </div>
               <!-- time -->
               <div class="reservation__field">
+                <label for="res-time" class="visually-hidden">Time</label>
                 <input
                   type="time"
+                  id="res-time"
                   name="time"
                   required
                   data-error-required="Please select a time"
@@ -1003,8 +1010,7 @@
                 />
                 <img
                   src="./assets/icons/home-page/resvervation-section/clock.svg"
-                  alt="clock icon"
-                  class="reservation__icon"
+                  alt="" class="reservation__icon" aria-hidden="true"
                 />
               </div>
             </div>

@@ -579,7 +579,7 @@ import i18nService from "../../assets/script/i18n-service.js";
             ${quantity}x ${itemTitle}
           </div>
         </div>
-        <a href="../cartpage/index.html" style="
+        <a href="../cartpage/" style="
           padding: 8px 16px;
           background: white;
           color: #4CAF50;

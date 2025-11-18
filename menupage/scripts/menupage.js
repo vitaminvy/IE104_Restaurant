@@ -34,7 +34,7 @@ import i18nService from '../../assets/script/i18n-service.js';
     const cartIcon = document.getElementById('cart-icon');
     if (cartIcon) {
       cartIcon.addEventListener('click', () => {
-        window.location.href = '/cartpage/index.html';
+        window.location.href = '/cartpage/';
       });
     }
   }
@@ -223,7 +223,7 @@ import i18nService from '../../assets/script/i18n-service.js';
 
     // Navigate to cart page
     setTimeout(() => {
-      window.location.href = '/cartpage/index.html';
+      window.location.href = '/cartpage/';
     }, 500);
   }
 

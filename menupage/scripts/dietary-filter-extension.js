@@ -314,7 +314,7 @@ import i18nService from "../../assets/script/i18n-service.js";
     }
 
     setTimeout(() => {
-      window.location.href = "/cartpage/index.html";
+      window.location.href = "/cartpage/";
     }, 500);
   }
 

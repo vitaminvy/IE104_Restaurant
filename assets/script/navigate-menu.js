@@ -140,7 +140,7 @@ import i18nService from "./i18n-service.js";
 
     // Navigate to cart page after delay
     setTimeout(() => {
-      window.location.href = "/cartpage/index.html";
+      window.location.href = "/cartpage/";
     }, 500);
   }
 

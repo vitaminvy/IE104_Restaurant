@@ -243,7 +243,7 @@
             window.GlobalLoader.show('Redirecting to cart...');
           }
           setTimeout(() => {
-            window.location.href = '/cartpage/index.html';
+            window.location.href = '/cartpage/';
           }, 300);
         } else {
           // Reset button

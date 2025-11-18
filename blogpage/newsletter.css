@@ -56,7 +56,7 @@
 }
 
 .newsletter__subtitle {
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--text-secondary);
   font-size: 1rem;
   line-height: 1.6;
   margin-bottom: 3rem;
@@ -68,7 +68,7 @@
   align-items: center;
   justify-content: center;
   gap: 12px;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.6);
+  border-bottom: 2px solid var(--border-color);
   padding-bottom: 8px;
   margin-top: 2rem;
 }
@@ -77,20 +77,20 @@
   flex: 1;
   background: none;
   border: none;
-  color: #fff;
+  color: var(--text-primary);
   font-size: 1rem;
   outline: none;
   /* min-width: 0; */
 }
 
 .newsletter__form input::placeholder {
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--text-muted);
 }
 
 .newsletter__submit {
   background: none;
   border: none;
-  color: #fff;
+  color: var(--text-primary);
   font-size: 1.2rem;
   cursor: pointer;
   transition: transform 0.25s ease, opacity 0.25s ease;
@@ -196,3 +196,5 @@
     margin-bottom: 7rem;
   }
 }
+
+

@@ -7,7 +7,8 @@ html {
 #footer {
   padding: 0;
   margin-top: 50px;
-  background-color: var(--vanilla-dark);
+  background-color: var(--bg-secondary);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 .footer__container {
@@ -33,7 +34,7 @@ html {
   font-weight: 500;
   margin-bottom: 24px;
   line-height: 1.3;
-  color: var(--color-white);
+  color: var(--text-primary);
 }
 
 .footer__list {
@@ -52,15 +53,15 @@ html {
   font-size: 16px;
   line-height: 1.6;
   font-weight: 400;
-  color: var(--color-white-80);
+  color: var(--text-secondary);
   text-decoration: none;
   border-bottom: 1px solid transparent;
   transition: color 0.2s, border-color 0.2s, transform 0.2s;
 }
 .footer__link:hover,
 .footer__link:focus-visible {
-  color: var(--color-white);
-  border-color: rgba(255, 255, 255, 0.35);
+  color: var(--text-primary);
+  border-color: var(--color-dark-orange);
   transform: translateY(-1px);
 }
 .footer__link--accent:hover {
@@ -90,7 +91,7 @@ html {
 
 .footer__app-copy {
   max-width: 211px;
-  color: var(--color-white-80);
+  color: var(--text-secondary);
 }
 
 .footer__badges {
@@ -256,5 +257,59 @@ html {
   }
   #footer {
     padding: 0;
+  }
+}
+
+/* ================== LANGUAGE SELECTOR ================== */
+.footer__language-selector {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+}
+
+.footer__language-link {
+  display: inline-block;
+  line-height: 1; /* Remove extra space below image */
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.footer__language-link:not(.footer__language-link--active) {
+  opacity: 0.6;
+}
+
+.footer__language-link:hover:not(.footer__language-link--active) {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.footer__language-flag {
+  width: 28px;
+  height: 28px;
+  object-fit: cover;
+  border: 1px solid var(--color-white-20);
+}
+
+.footer__language-separator {
+  margin: 0 10px;
+  color: var(--color-white-60);
+  font-size: 14px;
+}
+
+/* Default to show mobile, hide desktop */
+.footer__language-selector--desktop {
+  display: none;
+}
+.footer__language-selector--mobile {
+  display: flex; /* Use flex for alignment */
+}
+
+/* On medium screens and up, show desktop and hide mobile */
+@media (min-width: 768px) {
+  .footer__language-selector--desktop {
+    display: flex; /* Use flex for alignment */
+    margin-top: 24px; /* Add space above */
+  }
+  .footer__language-selector--mobile {
+    display: none;
   }
 }

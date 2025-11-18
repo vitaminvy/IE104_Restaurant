@@ -9,7 +9,7 @@
   align-items: center;
   margin-bottom: 50px;
   padding-bottom: 50px;
-  border-bottom: 1px solid #fff;
+  border-bottom: 1px solid var(--border-color);
   flex-wrap: wrap;
 }
 
@@ -41,7 +41,7 @@
   font-size: clamp(1.8rem, 4vw, 2.75rem);
   font-weight: 500;
   line-height: 1.2;
-  color: var(--color-white);
+  color: var(--text-primary);
 
   /* Box model */
   margin-bottom: 20px;
@@ -52,7 +52,7 @@
   /* Typography */
   font-size: clamp(0.9rem, 1.5vw, 1rem);
   line-height: 1.6;
-  color: var(--color-white-80);
+  color: var(--text-secondary);
 
   /* Box model */
   margin-bottom: 25px;
@@ -66,7 +66,7 @@
   padding-bottom: 8px; 
 
   /* Typography */
-  color: #ffffff;
+  color: var(--text-primary);
   font-weight: 500;
   text-decoration: none;
   font-family: var(--font-body);
@@ -123,3 +123,5 @@
     gap: 30px;
   }
 }
+
+

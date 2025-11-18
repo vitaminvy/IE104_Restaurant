@@ -2,7 +2,7 @@
 .hero {
   position: relative;
   width: 100%;
-  color: var(--color-white);
+  color: var(--text-primary);
   overflow: visible;
   padding-top: 6rem;
 }
@@ -46,7 +46,7 @@
 .hero__subtitle {
   font-family: var(--font-body);
   font-size: 1rem;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--text-secondary);
   margin-bottom: 0.75rem;
 }
 
@@ -62,7 +62,7 @@
 .hero__description {
   font-family: var(--font-body);
   font-size: 1rem;
-  color: rgba(255, 255, 255, 0.75);
+  color: var(--text-secondary);
   line-height: 1.6;
   margin-bottom: 1.5rem;
   min-width: 22rem;
@@ -208,3 +208,5 @@
     max-width: 44rem;
   }
 }
+
+

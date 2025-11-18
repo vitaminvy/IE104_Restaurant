@@ -1,7 +1,7 @@
 /* ===================== HEADER SECTION ===================== */
 .header {
   width: 100%;
-  color: var(--color-white);
+  color: var(--text-primary);
   /* sticky header */
   position: fixed;
   top: 0;
@@ -17,6 +17,9 @@
   background: rgba(18, 18, 18, 0.85);
   backdrop-filter: blur(10px);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+html[data-theme="light"] .header--scrolled {
+  background: rgba(255, 255, 255, 0.85);
 }
 
 /* ========== Container layout ========== */
@@ -57,10 +60,10 @@
 .header__menu-icon {
   width: 1.75rem;
   height: 1.75rem;
-  /* make icon white */
-  filter: brightness(0) invert(1);
+  /* make icon white in dark, black in light */
+  filter: var(--icon-filter);
   /* hover to scale */
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 .header__menu-btn:hover .header__menu-icon {
@@ -93,6 +96,12 @@
   gap: 1rem;
 }
 
+.header__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 /* ========== Nav list ========== */
 .header__nav {
   position: fixed;
@@ -106,9 +115,12 @@
   align-items: center;
   justify-content: center;
   transition: left 0.5s ease-in-out;
-  z-index: 100;
+  z-index: 9999;
   opacity: 0; /* initially will hide */
   pointer-events: none; /* unenable to click */
+}
+
+html[data-theme="light"] .header__nav {
 }
 
 /* mobile nave effect: JS add this class when click hamburger btn */
@@ -142,26 +154,26 @@
 .header__nav-link {
   font-family: var(--font-body);
   font-size: 1.125rem;
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--text-secondary);
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .header__nav-link:hover,
 .header__nav-link--active {
-  color: var(--color-dark-orange);
+  color: var(--accent-color);
 }
 
 /* ========== Status & Button ========== */
 .header__status {
   font-size: 0.875rem;
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--text-muted);
   display: none;
 }
 
 .header__btn {
-  color: var(--color-white);
-  border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+  color: var(--text-primary);
+  border-bottom: 2px solid var(--text-muted);
   font-family: var(--font-body);
   font-size: 0.9rem;
   text-decoration: none;
@@ -170,8 +182,8 @@
 }
 
 .header__btn:hover {
-  color: var(--color-dark-orange);
-  border-bottom-color: var(--color-dark-orange);
+  color: var(--accent-color);
+  border-bottom-color: var(--accent-color);
 }
 
 /* ========== Responsive (Tailwind-style) ========== */
@@ -253,4 +265,69 @@
   .header--scrolled .header__container {
     padding: 1.5rem 3rem;
   }
+}
+
+/* ========== HEADER ACTION BUTTONS (THEME, LANG) ========== */
+.header-action-btn {
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  position: relative; /* For icon positioning */
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.header-action-btn:hover {
+  background-color: var(--bg-secondary);
+  border-color: var(--border-color);
+}
+
+/* Specific styles for theme toggle */
+.theme-toggle-btn svg {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.4s ease, opacity 0.3s ease;
+  position: absolute; /* Positioned relative to .header-action-btn */
+  stroke: var(--accent-color);
+}
+
+/* Hide moon in light mode, sun in dark mode */
+html[data-theme="light"] .theme-toggle-btn .moon-icon {
+  transform: scale(0);
+  opacity: 0;
+}
+html[data-theme="dark"] .theme-toggle-btn .sun-icon {
+  transform: scale(0);
+  opacity: 0;
+}
+
+html[data-theme="light"] .theme-toggle-btn .sun-icon {
+  transform: scale(1);
+  opacity: 1;
+}
+html[data-theme="dark"] .theme-toggle-btn .moon-icon {
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* Specific styles for language toggle */
+.language-toggle__flag {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* When mobile nav is open, hide other floating UI elements */
+body.mobile-nav-open .allergy-settings-trigger,
+body.mobile-nav-open .cart-icon-wrapper {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
 }

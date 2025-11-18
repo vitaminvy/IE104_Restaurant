@@ -1,21 +1,41 @@
 /* ========================================
  * BLOG PAGE DYNAMIC LOADER
- * Renders blog list with pagination
+ * Timeline layout with filters + load more
  * ======================================== */
 
-import { 
-  getFeaturedPost, 
-  getPaginatedPosts 
+import {
+  blogPosts,
+  getFeaturedPost,
+  getAllCategories,
+  getAllTags,
 } from '../../assets/data/blogdata.js';
+import i18nService from '../../assets/script/i18n-service.js';
 
-/* ========================================
- * CONFIGURATION
- * ======================================== */
-const POSTS_PER_PAGE = 6;
+const POSTS_PER_PAGE = 4;
 let currentPage = 1;
+let filteredPosts = [...blogPosts];
+let selectedCategory = 'all';
+let selectedTag = null;
+let timelineObserver = null;
+
+function getLocalizedReadTime(readTimeValue) {
+  if (!readTimeValue) {
+    const fallback = i18nService.t('blog_page.read_time.na');
+    return fallback && fallback !== 'blog_page.read_time.na' ? fallback : 'Read time N/A';
+  }
+  const minutes = parseInt(readTimeValue, 10);
+  if (Number.isNaN(minutes)) {
+    return readTimeValue;
+  }
+  const template = i18nService.t('blog_page.read_time.template');
+  if (template && template !== 'blog_page.read_time.template') {
+    return template.replace('{minutes}', minutes);
+  }
+  return `${minutes} min read`;
+}
 
 /* ========================================
- * RENDER FEATURED POST
+ * FEATURED POST
  * ======================================== */
 function renderFeaturedPost() {
   const featuredContainer = document.getElementById('featured-post');
@@ -27,29 +47,27 @@ function renderFeaturedPost() {
     return;
   }
 
+  const title = i18nService.t(post.title);
+  const description = i18nService.t(post.description);
+
   featuredContainer.innerHTML = `
     <div class="post-image">
-      <img src="${post.image}" alt="${post.title}" loading="lazy">
+      <img src="${post.image}" alt="${title}" loading="lazy">
     </div>
     <div class="post-content">
-      <h2>${post.title}</h2>
-      <p>${post.description}</p>
-      <a href="../blogpage-details/index.html?id=${post.id}" class="read-more">Read more</a>
+      <h2>${title}</h2>
+      <p>${description}</p>
+      <a href="../blogpage-details/index.html?id=${post.id}" class="read-more">${i18nService.t('blog_page.read_more')}</a>
     </div>
   `;
 
-  // Add click handler to featured post link
   const featuredLink = featuredContainer.querySelector('.read-more');
   if (featuredLink) {
     featuredLink.addEventListener('click', (e) => {
       e.preventDefault();
-      
-      // Show global loader
       if (window.GlobalLoader) {
-        window.GlobalLoader.show('Loading article...');
+        window.GlobalLoader.show(i18nService.t('blog_page.loading_article'));
       }
-      
-      // Navigate after brief delay
       setTimeout(() => {
         window.location.href = featuredLink.href;
       }, 200);
@@ -58,230 +76,324 @@ function renderFeaturedPost() {
 }
 
 /* ========================================
- * RENDER BLOG GRID
+ * FILTERS
  * ======================================== */
-function renderBlogGrid(page = 1) {
+function setupFilters() {
+  renderTagFilters();
+  renderCategoryOptions();
+
+  const categorySelect = document.getElementById('category-filter');
+  const clearBtn = document.getElementById('clear-filters');
+
+  if (categorySelect) {
+    categorySelect.addEventListener('change', (event) => {
+      selectedCategory = event.target.value;
+      applyFilters();
+    });
+  }
+
+  if (clearBtn) {
+    clearBtn.addEventListener('click', () => {
+      selectedCategory = 'all';
+      selectedTag = null;
+      syncFilterUI();
+      applyFilters();
+    });
+  }
+}
+
+function renderTagFilters() {
+  const container = document.getElementById('tag-filter');
+  if (!container) return;
+
+  container.innerHTML = '';
+  const fragment = document.createDocumentFragment();
+  const tagTranslations = i18nService.getTranslations()?.blog?.tags || {};
+
+  getAllTags().forEach((tag) => {
+    const pill = document.createElement('button');
+    pill.type = 'button';
+    pill.className = 'blog-filter-pill';
+    pill.dataset.tag = tag;
+    pill.textContent = tagTranslations[tag] || tag;
+    pill.addEventListener('click', () => {
+      selectedTag = selectedTag === tag ? null : tag;
+      syncFilterUI();
+      applyFilters();
+    });
+    fragment.appendChild(pill);
+  });
+
+  container.appendChild(fragment);
+}
+
+function renderCategoryOptions() {
+  const select = document.getElementById('category-filter');
+  if (!select) return;
+
+  select.innerHTML = '';
+  const defaultOption = document.createElement('option');
+  defaultOption.value = 'all';
+  defaultOption.textContent = 'All categories';
+  select.appendChild(defaultOption);
+
+  getAllCategories().forEach((category) => {
+    const option = document.createElement('option');
+    option.value = category;
+    option.textContent = category;
+    select.appendChild(option);
+  });
+}
+
+function syncFilterUI() {
+  const select = document.getElementById('category-filter');
+  if (select) {
+    select.value = selectedCategory;
+  }
+
+  document.querySelectorAll('.blog-filter-pill').forEach((pill) => {
+    const tag = pill.dataset.tag;
+    pill.classList.toggle('is-active', tag === selectedTag);
+  });
+}
+
+function applyFilters() {
+  filteredPosts = blogPosts.filter((post) => {
+    const categoryMatch =
+      selectedCategory === 'all' || post.category === selectedCategory;
+    const tags = post.tags || [];
+    const tagMatch = !selectedTag || tags.includes(selectedTag);
+    return categoryMatch && tagMatch;
+  });
+
+  currentPage = 1;
+  renderBlogTimeline(1, false);
+}
+
+/* ========================================
+ * TIMELINE RENDERING
+ * ======================================== */
+function initObserver() {
+  timelineObserver = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.2 }
+  );
+}
+
+function renderBlogTimeline(page = 1, append = false) {
   const blogGrid = document.getElementById('blog-grid');
   if (!blogGrid) return;
 
-  // Get paginated posts
-  const { posts, currentPage: pageNum, totalPages, hasNext, hasPrev } = getPaginatedPosts(page, POSTS_PER_PAGE);
+  const start = (page - 1) * POSTS_PER_PAGE;
+  const end = start + POSTS_PER_PAGE;
+  const postsToRender = filteredPosts.slice(start, end);
 
-  // Clear existing content
-  blogGrid.innerHTML = '';
+  if (!append) {
+    blogGrid.innerHTML = '';
+  }
 
-  // Check if there are posts
-  if (posts.length === 0) {
-    blogGrid.innerHTML = '<p class="no-posts">No blog posts available.</p>';
+  if (postsToRender.length === 0 && page === 1) {
+    blogGrid.innerHTML = `<p class="no-posts">${i18nService.t('blog_page.filter_empty')}</p>`;
+    updateLoadMoreState(false);
     return;
   }
 
-  // Render each post
-  posts.forEach(post => {
+  const tagTranslations = i18nService.getTranslations()?.blog?.tags || {};
+
+  postsToRender.forEach((post) => {
+    const readTime = getLocalizedReadTime(post.readTime);
+    const title = i18nService.t(post.title);
+    const excerpt = i18nService.t(post.excerpt) || i18nService.t(post.description) || '';
+    const postDate = i18nService.t(post.date);
+    const readMoreText = i18nService.t('blog_page.read_more');
+    const authorLabel = `${i18nService.t('blog_page.by_author')} ${post.author}`;
+
     const article = document.createElement('article');
-    article.className = 'post';
+    article.className = 'timeline-entry';
     article.innerHTML = `
-      <div class="post-image">
-        <img src="${post.image}" alt="${post.title}" loading="lazy">
+      <div class="timeline-entry__marker">
+        <span class="timeline-entry__dot" aria-hidden="true"></span>
+        <span class="timeline-entry__date">${postDate}</span>
       </div>
-      <div class="post-content">
-        <h3>${post.title}</h3>
-        <p class="post-meta">${post.date} • By ${post.author}</p>
-        <a href="../blogpage-details/index.html?id=${post.id}" class="read-more">Read more</a>
+      <div class="timeline-entry__card">
+        <div>
+          <div class="timeline-entry__meta">
+            <span class="timeline-entry__category">${post.category}</span>
+            <span>${authorLabel}</span>
+            <span class="timeline-entry__readtime">${readTime}</span>
+          </div>
+          <h3 class="timeline-entry__heading">${title}</h3>
+          <p class="timeline-entry__excerpt">${excerpt}</p>
+          <div class="timeline-entry__tags">
+            ${(post.tags || [])
+              .map((tag) => {
+                const label = tagTranslations[tag] || tag;
+                return `<span class="timeline-entry__tag">${label}</span>`;
+              })
+              .join('')}
+          </div>
+          <div class="timeline-entry__actions">
+            <a href="../blogpage-details/index.html?id=${post.id}" class="read-more">${readMoreText}</a>
+          </div>
+        </div>
+        <div class="timeline-entry__image">
+          <img src="${post.image}" alt="${title}" loading="lazy">
+        </div>
       </div>
     `;
-    
-    // Add click handler for smooth navigation
+
     const readMoreLink = article.querySelector('.read-more');
     if (readMoreLink) {
       readMoreLink.addEventListener('click', (e) => {
         e.preventDefault();
-        
-        // Show global loader
         if (window.GlobalLoader) {
-          window.GlobalLoader.show('Loading article...');
+          window.GlobalLoader.show(i18nService.t('blog_page.loading_article'));
         }
-        
-        // Navigate after brief delay
         setTimeout(() => {
           window.location.href = readMoreLink.href;
         }, 200);
       });
     }
-    
+
     blogGrid.appendChild(article);
+
+    if (timelineObserver) {
+      timelineObserver.observe(article);
+    }
   });
 
-  // Update pagination
-  renderPagination(pageNum, totalPages, hasNext, hasPrev);
-  
-  // Update current page
-  currentPage = pageNum;
+  currentPage = page;
+  const hasNext = end < filteredPosts.length;
+  updateLoadMoreState(hasNext);
 }
 
-/* ========================================
- * RENDER PAGINATION
- * ======================================== */
-function renderPagination(page, totalPages, hasNext, hasPrev) {
-  const paginationContainer = document.getElementById('pagination');
-  if (!paginationContainer || totalPages <= 1) {
-    if (paginationContainer) paginationContainer.innerHTML = '';
+function updateLoadMoreState(hasNext) {
+  const loadMoreBtn = document.getElementById('load-more');
+  const status = document.getElementById('timeline-status');
+
+  if (!loadMoreBtn || !status) return;
+
+  if (filteredPosts.length === 0) {
+    loadMoreBtn.style.display = 'none';
+    status.textContent = i18nService.t('blog_page.no_stories');
     return;
   }
 
-  // Clear existing content
-  paginationContainer.innerHTML = '';
-
-  // Previous button
-  const prevLink = document.createElement('a');
-  prevLink.href = '#';
-  prevLink.className = 'prev';
-  prevLink.textContent = '← Previous';
-  prevLink.setAttribute('data-page', page - 1);
-  if (!hasPrev) {
-    prevLink.style.opacity = '0.5';
-    prevLink.style.pointerEvents = 'none';
-  }
-  paginationContainer.appendChild(prevLink);
-
-  // Page numbers container
-  const pageContainer = document.createElement('div');
-  pageContainer.className = 'page-numbers-container';
-
-  // Determine page range to display
-  const maxVisiblePages = 6;
-  
-  if (totalPages <= maxVisiblePages) {
-    // Show all pages if total is small
-    for (let i = 1; i <= totalPages; i++) {
-      pageContainer.appendChild(createPageNumber(i, page));
-    }
+  loadMoreBtn.style.display = 'inline-flex';
+  if (hasNext) {
+    loadMoreBtn.disabled = false;
+    loadMoreBtn.textContent = i18nService.t('blog_page.load_more');
   } else {
-    // Show smart pagination with ellipsis
-    let start = Math.max(page - 1, 2);
-    let end = Math.min(page + 1, totalPages - 1);
-
-    // Always show first page
-    pageContainer.appendChild(createPageNumber(1, page));
-
-    // Add ellipsis if needed
-    if (start > 2) {
-      const ellipsis = document.createElement('span');
-      ellipsis.className = 'ellipsis';
-      ellipsis.textContent = '...';
-      pageContainer.appendChild(ellipsis);
-    }
-
-    // Show middle pages
-    for (let i = start; i <= end; i++) {
-      pageContainer.appendChild(createPageNumber(i, page));
-    }
-
-    // Add ellipsis if needed
-    if (end < totalPages - 1) {
-      const ellipsis = document.createElement('span');
-      ellipsis.className = 'ellipsis';
-      ellipsis.textContent = '...';
-      pageContainer.appendChild(ellipsis);
-    }
-
-    // Always show last page
-    pageContainer.appendChild(createPageNumber(totalPages, page));
+    loadMoreBtn.disabled = true;
+    loadMoreBtn.textContent = i18nService.t('blog_page.caught_up');
   }
 
-  paginationContainer.appendChild(pageContainer);
-
-  // Next button
-  const nextLink = document.createElement('a');
-  nextLink.href = '#';
-  nextLink.className = 'next';
-  nextLink.textContent = 'Next →';
-  nextLink.setAttribute('data-page', page + 1);
-  if (!hasNext) {
-    nextLink.style.opacity = '0.5';
-    nextLink.style.pointerEvents = 'none';
+  const shown = Math.min(currentPage * POSTS_PER_PAGE, filteredPosts.length);
+  const statusTemplate = i18nService.t('blog_page.showing_count');
+  if (statusTemplate && statusTemplate !== 'blog_page.showing_count') {
+    status.textContent = statusTemplate
+      .replace('{current}', shown)
+      .replace('{total}', filteredPosts.length);
+  } else {
+    status.textContent = `Showing ${shown} of ${filteredPosts.length} stories`;
   }
-  paginationContainer.appendChild(nextLink);
+}
 
-  // Attach event listeners
-  attachPaginationListeners();
+function handleLoadMoreClick() {
+  const nextPage = currentPage + 1;
+  renderBlogTimeline(nextPage, true);
 }
 
 /* ========================================
- * CREATE PAGE NUMBER ELEMENT
+ * NEWSLETTER FORM HANDLER
  * ======================================== */
-function createPageNumber(num, currentPage) {
-  const pageLink = document.createElement('a');
-  pageLink.href = '#';
-  pageLink.className = 'page-numbers';
-  if (num === currentPage) {
-    pageLink.classList.add('current');
-    pageLink.setAttribute('aria-current', 'page');
-  }
-  pageLink.textContent = num;
-  pageLink.setAttribute('data-page', num);
-  return pageLink;
-}
+function setupNewsletterForm() {
+  const form = document.querySelector('.newsletter__form');
+  const successMessage = document.getElementById('newsletter-success');
+  if (!form || !successMessage) return;
 
-/* ========================================
- * PAGINATION EVENT LISTENERS
- * ======================================== */
-function attachPaginationListeners() {
-  // Get all pagination links (prev, next, and page numbers)
-  const allLinks = document.querySelectorAll('.prev, .next, .page-numbers');
-  
-  allLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-      e.preventDefault();
-      
-      // Skip if disabled
-      if (link.style.pointerEvents === 'none') return;
-      
-      const page = parseInt(link.getAttribute('data-page'));
-      
-      if (page && page !== currentPage && page >= 1) {
-        // Scroll to top of blog grid smoothly
-        const blogGrid = document.getElementById('blog-grid');
-        if (blogGrid) {
-          blogGrid.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-        
-        // Small delay for smooth scroll, then render new page
-        setTimeout(() => {
-          renderBlogGrid(page);
-        }, 100);
-      }
-    });
+  const emailInput = form.querySelector('input[type="email"]');
+  const submitBtn = form.querySelector('.newsletter__submit');
+
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    if (!emailInput || !emailInput.value.trim()) {
+      emailInput?.focus();
+      emailInput?.reportValidity?.();
+      return;
+    }
+
+    submitBtn.disabled = true;
+    successMessage.classList.remove('is-visible');
+    successMessage.textContent = '';
+
+    setTimeout(() => {
+      const nameHint = emailInput.value.split('@')[0] || 'friend';
+      successMessage.textContent = `Thanks, ${nameHint}! Check your inbox for our latest stories.`;
+      successMessage.classList.add('is-visible');
+      form.reset();
+      submitBtn.disabled = false;
+    }, 600);
+  });
+
+  emailInput?.addEventListener('input', () => {
+    successMessage.classList.remove('is-visible');
+    successMessage.textContent = '';
   });
 }
 
 /* ========================================
  * INITIALIZATION
  * ======================================== */
-function init() {
-  // Show loader immediately
-  if (window.GlobalLoader) {
-    window.GlobalLoader.show('Loading blog posts...');
-  }
+let langInitialized = false;
 
-  // Use setTimeout for rendering
-  setTimeout(() => {
-    // Render featured post
-    renderFeaturedPost();
-    
-    // Render blog grid with first page
-    renderBlogGrid(1);
-    
-    // Hide loader
-    if (window.GlobalLoader) {
-      window.GlobalLoader.hide(300);
-    }
-    
-    console.log('📰 Blog page loaded successfully');
-  }, 100);
+async function init() {
+  if (!langInitialized) {
+    await i18nService.init();
+    langInitialized = true;
+  }
+  renderPage();
 }
 
-// Initialize when DOM is ready
+function renderPage() {
+  if (window.GlobalLoader) {
+    window.GlobalLoader.show(i18nService.t('blog_page.loading_posts'));
+  }
+
+  if (!timelineObserver) {
+    initObserver();
+  }
+
+  renderFeaturedPost();
+  setupFilters();
+  syncFilterUI();
+  renderBlogTimeline(1, false);
+  setupNewsletterForm();
+
+  const loadMoreBtn = document.getElementById('load-more');
+  if (loadMoreBtn) {
+    loadMoreBtn.removeEventListener('click', handleLoadMoreClick);
+    loadMoreBtn.addEventListener('click', handleLoadMoreClick);
+  }
+
+  if (window.GlobalLoader) {
+    setTimeout(() => window.GlobalLoader.hide(300), 200);
+  }
+
+  console.log('📰 Blog timeline initialized');
+}
+
+document.addEventListener('language-changed', () => {
+  renderPage();
+});
+
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', init);
 } else {

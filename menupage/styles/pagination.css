@@ -22,7 +22,7 @@
 .pagination .prev,
 .pagination .next {
   /* Typography */
-  color: var(--color-white);
+  color: var(--text-primary);
   font-weight: 500;
   font-size: 16px;
   text-decoration: none;
@@ -66,7 +66,7 @@
   padding: 0 8px;
 
   /* Typography */
-  color: var(--color-white);
+  color: var(--text-primary);
   font-size: 0.95rem;
   text-decoration: none;
 
@@ -79,8 +79,8 @@
 }
 
 .pagination .page-numbers.current {
-  background-color: var(--color-dark-orange);
-  color: #fff;
+  background-color: var(--accent-color);
+  color: #ffffff;
   font-weight: 600;
 }
 
@@ -91,7 +91,7 @@
   justify-content: center;
   min-width: 12px;
   height: 32px;
-  color: var(--color-white);
+  color: var(--text-primary);
   font-size: 0.95rem;
 }
 
@@ -116,3 +116,5 @@
     padding: 0 2rem 2rem 2rem;
   }
 }
+
+

@@ -1,16 +1,44 @@
+html[data-theme="dark"] {
+  --bg-primary: #111114;
+  --bg-secondary: #18181b;
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.8);
+  --text-muted: rgba(255, 255, 255, 0.6);
+  --accent-color: #fb8f2c;
+  --border-color: rgba(255, 255, 255, 0.3);
+  --icon-filter: brightness(0) invert(1);
+}
+
+html[data-theme="light"] {
+  --bg-primary: #f1f1df;
+  --bg-secondary: #f9f9f9;
+  --text-primary: #1e293b;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+  --accent-color: #fb8f2c;
+  --border-color: #0b0b0b;
+  --icon-filter: brightness(0) invert(0);
+}
+
 body {
   margin: 0;
   overflow-x: hidden;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 * {
   box-sizing: border-box;
+  transition: background-color 0.3s ease, color 0.3s ease,
+    border-color 0.3s ease, filter 0.3s ease, box-shadow 0.3s ease;
 }
 
 #statistics {
   background-color: #0d0d0d;
   padding: 40px 20px;
-  color: #fff;
+  color: var(--text-primary);
 }
 
 .stats-container {
@@ -72,28 +100,9 @@ html {
 
   /* Colors */
   --color-white: #ffffff;
-  --color-white-80: rgba(255, 255, 255, 0.8);
+  --color-white-80: var(--text-secondary);
   --color-dark-orange: #fb8f2c;
   --vanilla-dark: #000;
-  --bg-box: #18181b;
-  --color-white-60: rgba(255, 255, 255, 0.6);
-  --color-white-45: rgba(255, 255, 255, 0.45);
-  --color-white-10: rgba(255, 255, 255, 0.1);
-  --line: rgba(255, 255, 255, 0.08);
-
-  /* Sizing */
-  --radius: 12px;
-  --radius-lg: 16px;
-  --space-1: 6px;
-  --space-2: 10px;
-  --space-3: 14px;
-  --space-4: 20px;
-  --space-6: 28px;
-  --space-8: 36px;
-
-  --input-h: 44px;
-  --container: min(1120px, 92vw);
-  --shadow: 0 0 0 1px var(--line), 0 8px 24px rgba(0, 0, 0, 0.35); /* Colors */
   --bg-box: #18181b;
   --color-white-60: rgba(255, 255, 255, 0.6);
   --color-white-45: rgba(255, 255, 255, 0.45);
@@ -115,10 +124,6 @@ html {
   --shadow: 0 0 0 1px var(--line), 0 8px 24px rgba(0, 0, 0, 0.35);
 }
 
-body {
-  background: var(--Dark, #111114);
-}
-
 a {
   all: unset;
   cursor: pointer;
@@ -136,7 +141,7 @@ p {
   font-size: var(--font-size-body);
   line-height: var(--line-height-body);
   font-weight: var(--font-weight-body);
-  color: var(--color-white-80);
+  color: var(--text-secondary);
 }
 
 /* Heading h2 */
@@ -145,14 +150,14 @@ h2 {
   font-size: var(--font-size-h2);
   line-height: var(--line-height-h2);
   font-weight: var(--font-weight-h2);
-  color: var(--color-white);
+  color: var(--text-primary);
 }
 h4 {
   font-family: var(--font-heading);
   font-size: var(--font-size-h4);
   line-height: var(--line-height-h4);
   font-weight: var(--font-weight-h4);
-  color: var(--color-white);
+  color: var(--text-primary);
 }
 
 /* =========================================================
@@ -163,7 +168,7 @@ h4 {
   position: relative;
   display: inline-block;
   padding-bottom: 4px;
-  color: #ffffff;
+  color: var(--text-primary);
   font-weight: 300;
   text-decoration: none;
   font-family: var(--font-body);
@@ -177,14 +182,14 @@ h4 {
   left: 0;
   height: 2px;
   width: 100%;
-  background-color: #fb8f2c;
+  background-color: var(--accent-color);
   transition: width 0.3s ease;
   content: "";
 }
 
 /* Hover: change text + draw underline 40% */
 .link-underline:hover {
-  color: #fb8f2c;
+  color: var(--accent-color);
 }
 
 .link-underline:hover::after {
@@ -205,17 +210,17 @@ h4 {
   font-size: 16px;
   text-align: center;
   text-decoration: none;
-  color: var(--color-white);
+  color: #ffffff; /* Force white text on accent color */
 
   /* Background / Others */
-  background-color: var(--color-dark-orange);
+  background-color: var(--accent-color);
 
   cursor: pointer;
   transform: translateY(0);
 
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-  transition: background-color 0.3s ease, color 0.3s ease,
-              transform 0.2s ease, box-shadow 0.2s ease;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 /* Hover gradient overlay */
@@ -245,21 +250,64 @@ h4 {
 
 .btn:hover {
   /* Box model */
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(251, 143, 44, 0.3);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 10px 30px rgba(251, 143, 44, 0.4);
 
   /* Background / Others */
-  background-color: var(--color-dark-orange);
-  border-color: var(--color-dark-orange);
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
   color: #000;
 }
 
 /* Active / click effect */
 .btn:active {
   /* Box model */
-  transform: translateY(0);
+  transform: translateY(-1px) scale(0.98);
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
 
   /* Background / Others */
   background-color: #e67e22;
+}
+
+/* Focus state for accessibility */
+.btn:focus {
+  outline: 2px solid rgba(251, 143, 44, 0.5);
+  outline-offset: 2px;
+}
+
+/* =============================
+ * Input Field Animations
+ * ============================= */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+input[type="time"],
+input[type="number"],
+select,
+textarea {
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="date"]:focus,
+input[type="time"]:focus,
+input[type="number"]:focus,
+select:focus,
+textarea:focus {
+  transform: translateY(-2px);
+  outline: none;
+}
+
+/* Placeholder animation */
+input::placeholder,
+textarea::placeholder {
+  transition: opacity 0.3s ease;
+}
+
+input:focus::placeholder,
+textarea:focus::placeholder {
+  opacity: 0.5;
 }

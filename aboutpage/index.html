@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <script src="../assets/script/theme-init.js"></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Restaurant Website</title>
+    <title>About Us - Restaurant Website</title>
     <!-- Font Awesome CDN -->
     <link
       rel="stylesheet"
@@ -14,9 +15,9 @@
     <link rel="stylesheet" href="../style/style.css" />
 
     <!-- header section -->
-      <link rel="stylesheet" href="../partials/header.css" />
+    <link rel="stylesheet" href="../partials/header.css" />
     <!-- footer-->
-      <link rel="stylesheet" href="../partials/footer.css" />
+    <link rel="stylesheet" href="../partials/footer.css" />
     <!--about page section css-->
     <link rel="stylesheet" href="./aboutpage.css" />
 
@@ -24,27 +25,35 @@
       href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="../assets/features/theme-toggle.css" />
+    <link rel="stylesheet" href="../homepage/back-to-top.css" />
+
+    <!-- Global Animation System -->
+    <link rel="stylesheet" href="../style/animations.css" />
+    <script src="../assets/script/scroll-animations.js"></script>
   </head>
   <body>
     <!-- logic for header and footer -->
     <script src="../assets/script/include-partials.js" defer></script>
-    <script src="../assets/script/header.js"></script>
+    <script type="module" src="../assets/script/header.js" defer></script>
+    
     <!-- ========== 1. HEADER ========== -->
     <div data-include="/partials/header.html"></div>
+
     <!-- About intro section-->
     <section class="about-intro" id="about-intro">
       <div class="about-intro__container">
-        <header class="about-intro__header">
+        <header class="about-intro__header animate-slide-up">
           <h2 class="about-intro__title">
             We Are A Mexican Restaurant<br />
             Makes Delicious.
           </h2>
-          <p class="about-intro__lead">
+          <p class="about-intro__lead" data-i18n="about_page.intro.lead">
             From handmade tortillas pressed fresh each morning to slow-cooked
             carnitas and bright salsas, we cook with seasonal ingredients from
             local farmers. Our kitchen blends family recipes with modern
             techniques, keeping flavors bold and honest. Whether you crave
-            something spicy, smoky, or vegetarian, there’s a plate here made
+            something spicy, smoky, or vegetarian, there's a plate here made
             with care—and a team ready to welcome you like familia.
           </p>
         </header>
@@ -53,62 +62,62 @@
           role="separator"
           aria-hidden="true"
         ></div>
-
-        <div class="about-intro__grid">
-          <figure class="about-intro__photo about-intro__photo--a">
+        <div class="about-intro__grid stagger-children">
+          <figure class="about-intro__photo about-intro__photo--a animate-scale">
             <img
               src="../assets/images/about-page/table-1.png"
               alt="Restaurant window"
             />
           </figure>
-
-          <figure class="about-intro__photo about-intro__photo--b">
+          <figure class="about-intro__photo about-intro__photo--b animate-scale">
             <img
               src="../assets/images/about-page/table-2.png"
               alt="Indoor dining"
             />
           </figure>
-
-          <figure class="about-intro__photo about-intro__photo--c">
+          <figure class="about-intro__photo about-intro__photo--c animate-scale">
             <img
               src="../assets/images/about-page/view.png"
               alt="Chalkboard and table"
             />
           </figure>
 
-          <article class="about-intro__story">
-            <h3 class="about-intro__story-title">
+          <article class="about-intro__story animate-slide-right">
+            <h3
+              class="about-intro__story-title"
+              data-i18n="about_page.intro.story_title"
+            >
+
               The Story Of Our<br />
               First Restaurant<br />
               Branch
             </h3>
-            <p class="about-intro__story-text">
-              At vero eos et accusamus et iusto odio dignissimos ducimus qui
-              blanditiis praesentium voluptatum deleniti atque corrupti quos
-              dolores et quas molestias excepturi sint occaecati cupiditate non
-              provident.
+            <p
+              class="about-intro__story-text"
+              data-i18n="about_page.intro.story_text"
+            >
+              Placeholder text for the story of the first restaurant branch.
             </p>
           </article>
         </div>
       </div>
     </section>
+
     <!-- ========== VISION & MISSION ========== -->
     <section class="vision" id="vision">
       <div class="vision__container">
-        <header class="vision__header">
-          <h2 class="vision__title">Our Vision &amp; Mission</h2>
-          <p class="vision__subtitle">
+        <header class="vision__header animate-slide-up">
+          <h2 class="vision__title" data-i18n="about_page.vision_mission.title">Our Vision &amp; Mission</h2>
+          <p class="vision__subtitle" data-i18n="about_page.vision_mission.subtitle">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
             aliquam amet, cursus tellus non consequat laoreet eget ornare.
             Vulputate tellus, a lobortis eu nisl. Quisque vulputate eget et,
             aliquet libero.
           </p>
         </header>
-
         <div class="vision__grid">
-          <!-- left: feature list -->
-          <ul class="vision__features">
-            <li class="vision__feature">
+          <ul class="vision__features stagger-children">
+            <li class="vision__feature animate-slide-left">
               <span class="vision__badge">
                 <img
                   src="../assets/icons/about-page/food-icon.svg"
@@ -116,14 +125,20 @@
                 />
               </span>
               <div class="vision__content">
-                <h4 class="vision__feature-title">Delicious Cuisine</h4>
-                <p class="vision__feature-desc">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit at
-                  aliquam amet.
+                <h4
+                  class="vision__feature-title"
+                  data-i18n="about_page.vision_mission.delicious_cuisine.title"
+                >
+                  Delicious Cuisine
+                </h4>
+                <p
+                  class="vision__feature-desc"
+                  data-i18n="about_page.vision_mission.delicious_cuisine.description"
+                >
+                  Placeholder text for delicious cuisine.
                 </p>
               </div>
             </li>
-
             <li class="vision__feature">
               <span class="vision__badge"
                 ><img
@@ -131,29 +146,40 @@
                   alt="fast-delivery"
               /></span>
               <div class="vision__content">
-                <h4 class="vision__feature-title">Fast Delivery</h4>
-                <p class="vision__feature-desc">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit at
-                  aliquam amet.
+                <h4
+                  class="vision__feature-title"
+                  data-i18n="about_page.vision_mission.fast_delivery.title"
+                >
+                  Fast Delivery
+                </h4>
+                <p
+                  class="vision__feature-desc"
+                  data-i18n="about_page.vision_mission.fast_delivery.description"
+                >
+                  Placeholder text for fast delivery.
                 </p>
               </div>
             </li>
-
             <li class="vision__feature">
               <span class="vision__badge"
                 ><img src="../assets/icons/about-page/chef-icon.svg" alt="chef"
               /></span>
               <div class="vision__content">
-                <h4 class="vision__feature-title">Professional Chef</h4>
-                <p class="vision__feature-desc">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit at
-                  aliquam amet.
+                <h4
+                  class="vision__feature-title"
+                  data-i18n="about_page.vision_mission.professional_chef.title"
+                >
+                  Professional Chef
+                </h4>
+                <p
+                  class="vision__feature-desc"
+                  data-i18n="about_page.vision_mission.professional_chef.description"
+                >
+                  Placeholder text for professional chef.
                 </p>
               </div>
             </li>
           </ul>
-
-          <!-- right: big photo -->
           <figure class="vision__photo">
             <img
               src="../assets/images/about-page/vison-banner.png"
@@ -168,15 +194,14 @@
     <section class="team" id="team">
       <div class="team__container">
         <header class="team__header">
-          <h2 class="team__title">They Will Cook For You</h2>
-          <p class="team__subtitle">
+          <h2 class="team__title" data-i18n="about_page.team.title">
+            They Will Cook For You
+          </h2>
+          <p class="team__subtitle" data-i18n="about_page.team.subtitle">
             Our Diners can enjoy cooking for themselves, or visiting a curated
-            selection of restaurants in the area.<br />
-            They will cook for you and make sure you have a home away from home
-            at all times.
+            selection of restaurants in the area.
           </p>
         </header>
-
         <div class="team__grid">
           <article class="team-card">
             <figure class="team-card__media">
@@ -185,10 +210,13 @@
                 alt="Jubed Ahmed"
               />
             </figure>
-            <h4 class="team-card__name">Jubed Ahmed</h4>
-            <p class="team-card__role">Chef</p>
+            <h4 class="team-card__name" data-i18n="about_page.team.chef_1.name">
+              Jubed Ahmed
+            </h4>
+            <p class="team-card__role" data-i18n="about_page.team.chef_1.role">
+              Chef
+            </p>
           </article>
-
           <article class="team-card">
             <figure class="team-card__media">
               <img
@@ -196,10 +224,13 @@
                 alt="Delwar Hussen"
               />
             </figure>
-            <h4 class="team-card__name">Delwar hussen</h4>
-            <p class="team-card__role">Assisten chef</p>
+            <h4 class="team-card__name" data-i18n="about_page.team.chef_2.name">
+              Delwar Hussen
+            </h4>
+            <p class="team-card__role" data-i18n="about_page.team.chef_2.role">
+              Assisten chef
+            </p>
           </article>
-
           <article class="team-card">
             <figure class="team-card__media">
               <img
@@ -207,8 +238,12 @@
                 alt="Tajul Islam"
               />
             </figure>
-            <h4 class="team-card__name">Tajul Islam</h4>
-            <p class="team-card__role">Chef</p>
+            <h4 class="team-card__name" data-i18n="about_page.team.chef_3.name">
+              Tajul Islam
+            </h4>
+            <p class="team-card__role" data-i18n="about_page.team.chef_3.role">
+              Chef
+            </p>
           </article>
         </div>
       </div>
@@ -216,5 +251,16 @@
 
     <!-- ========== 15. FOOTER ========== -->
     <div data-include="/partials/footer.html"></div>
+    
+    <script type="module" src="../assets/script/header-features.js" defer></script>
+    <script type="module">
+      import i18nService from "../assets/script/i18n-service.js";
+      (async () => {
+        await i18nService.init();
+        document.dispatchEvent(new CustomEvent("language-changed"));
+      })();
+    </script>
+    <div data-include="../partials/back-to-top.html"></div>
+    <script src="../assets/script/back-to-top.js"></script>
   </body>
 </html>

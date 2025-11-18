@@ -1,0 +1,61 @@
+/* ========================================
+ * FORM VALIDATION STYLES
+ * Minimal, clean validation feedback
+ * ======================================== */
+
+/* ========================================
+ * FIELD WRAPPER
+ * ======================================== */
+
+.form-field-validated {
+  position: relative;
+  margin-bottom: 24px;
+}
+
+/* ========================================
+ * INPUT STATES
+ * ======================================== */
+
+/* Invalid state - simple red border */
+.form-field-invalid {
+  border-color: #ef4444 !important;
+}
+
+/* ========================================
+ * ERROR MESSAGE
+ * ======================================== */
+
+.form-field-error {
+  /* Position below input */
+  display: none;
+  margin-top: 6px;
+  padding: 6px 0;
+
+  /* Typography */
+  font-size: 0.875rem;
+  color: #ef4444;
+  line-height: 1.4;
+  font-family: var(--font-body, "Plus Jakarta Sans", sans-serif);
+}
+
+/* ========================================
+ * FOCUS ENHANCEMENTS
+ * ======================================== */
+
+/* Remove default browser validation styles */
+.form-field-validated input:invalid,
+.form-field-validated textarea:invalid,
+.form-field-validated select:invalid {
+  box-shadow: none;
+}
+
+/* ========================================
+ * MOBILE ADJUSTMENTS
+ * ======================================== */
+
+@media (max-width: 48rem) {
+  .form-field-error {
+    font-size: 0.8125rem;
+    padding: 4px 0;
+  }
+}

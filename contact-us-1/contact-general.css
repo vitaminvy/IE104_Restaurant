@@ -21,7 +21,7 @@
   margin-bottom: 20px;
 
   /* Typography */
-  color: var(--color-white-80);
+  color: var(--text-secondary);
   line-height: 1.6;
 }
 
@@ -48,26 +48,28 @@
   font-size: 16px;
   text-align: center;
   text-decoration: none;
-  color: var(--color-white);
+  color: var(--text-primary);
 
   /* Background / Others */
   background-color: var(--color-dark-orange);
   cursor: pointer;
   transform: translateY(0);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-  transition: background-color 0.3s ease, color 0.3s ease,
-              transform 0.2s ease, box-shadow 0.2s ease;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 /* Text Links */
 .link {
-  display: inline-block;
+  display: inline-flex; /* Change to inline-flex */
+  align-items: center; /* Center the text vertically */
   font-family: var(--font-body);
-  color: #ffffff;
+  color: var(--text-primary);
   font-weight: 500;
   text-decoration: none;
   position: relative;
   transition: color 0.3s ease;
+  width: 60%;
 }
 
 .link::after {
@@ -75,10 +77,12 @@
   position: absolute;
   bottom: -6px;
   left: 0;
-  width: 100%;
+  width: 100%; /* Set width to 100% */
   height: 2px;
   background-color: #fb8f2c;
-  transition: width 0.3s ease;
+  transform-origin: left center;
+  transform: scaleX(1);
+  transition: transform 0.3s ease;
 }
 
 .link:hover {
@@ -86,14 +90,14 @@
 }
 
 .link:hover::after {
-  width: 40%;
+  transform: scaleX(0.5);
 }
 
 textarea {
   /* Box model */
   width: 100%;
   padding: 12px 14px;
-  border: 2px solid color(--color-white:);
+  border: 2px solid var(--color-white);
   border-radius: 6px;
   resize: vertical;
 
@@ -120,7 +124,7 @@ textarea:focus {
   /* Box model */
   max-width: 1536px; /* 2xl max-widhth */
   margin: 0 auto;
-  padding: 1rem 1.5rem; /* mobile default: 16–24px */
+  padding: 4rem 1.5rem; /* mobile default: 16–24px */
 }
 
 /* =============================
@@ -130,25 +134,58 @@ textarea:focus {
 /* sm (≥640px) */
 @media (min-width: 40rem) {
   .container {
-    padding: 1.5rem 2rem;
+    padding: 4rem 2rem;
   }
 }
 
 /* md (≥768px) */
 @media (min-width: 48rem) {
   .container {
-    padding: 1.75rem 3rem;
+    padding: 6rem 3rem;
   }
 
   .section-title {
     /* Typography */
     font-size: 3rem;
   }
+  .link::after {
+    width: 55%;
+  }
+}
+
+@media (min-width: 64rem) {
+  .link {
+    width: 39%;
+  }
+  .link::after {
+    width: 85%;
+  }
 }
 
 /* 2xl (≥1536px) */
 @media (min-width: 96rem) {
   .container {
-    padding: 2rem 3rem;
+    padding: 6rem 3rem;
   }
+}
+
+/* =====================
+   LIGHT MODE OVERRIDES
+===================== */
+
+html[data-theme="light"] .section-title {
+  color: #111114;
+}
+
+html[data-theme="light"] .section-text {
+  color: #333333;
+}
+
+html[data-theme="light"] .link {
+  color: #111114;
+}
+
+html[data-theme="light"] textarea {
+  border-color: #cccccc;
+  color: #111114;
 }

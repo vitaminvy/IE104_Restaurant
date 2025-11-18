@@ -7,45 +7,45 @@ export const blogPosts = [
   {
     id: 1,
     slug: 'ai-role-in-restaurants',
-    title: 'Everything You Need To Know About The Growth Of AI In Restaurant',
-    excerpt: 'You are sitting in your favorite restaurant and have ordered on a tablet on your table. A few seconds after placing the order, a notification will appear in your messaging app.',
-    description: 'You are sitting in your favorite restaurant and have just ordered a meal. You took out your phone, scanned a QR code on your table, placed your order, and the food will appear in a few minutes, piping hot.',
+    title: 'blog.post1.title',
+    excerpt: 'blog.post1.excerpt',
+    description: 'blog.post1.description',
     image: '../assets/images/blog-page/featured-post.png',
     category: 'Technology',
     tags: ['AI', 'Innovation', 'Restaurant Tech', 'Automation'],
     author: 'Admin',
-    date: 'August 6, 2025',
+    date: 'blog.date.august_28_2025',
     readTime: '8 min read',
     featured: true,
     content: {
-      intro: 'The restaurant industry has experienced a significant paradigm shift over the past decade. In addition to providing excellent food, restaurants strive to provide a pleasant customer experience to encourage their customers to visit them again. Just look at how brands will attract more customers. Caliburger franchise in Pasadena showcasing a burger.',
+      intro: 'blog.post1.content.intro',
       sections: [
         {
-          heading: 'How The Role Of Restaurants Is Increasing',
+          heading: 'blog.post1.content.sections.0.heading',
           paragraphs: [
-            'The restaurant industry has experienced a significant paradigm shift over the past decade. In addition to providing excellent food, restaurants strive to provide a pleasant customer experience to encourage their customers to visit them again. Just look at how brands will attract more customers. Caliburger franchise in Pasadena showcasing a burger.',
-            'But they have tons of cash to burn on such gimmicks, right? How can a smaller restaurant compete with that? That\'s true, but AI in restaurants isn\'t about fancy gimmicks or eye-catching technologies alone. Today, AI is accessible to everyone, and there are smaller ways to use it to your advantage.'
+            'blog.post1.content.sections.0.paragraphs.0',
+            'blog.post1.content.sections.0.paragraphs.1'
           ],
           image: '../assets/images/blogpage-details/pizza.png'
         },
         {
-          heading: 'AI Applications in Modern Restaurants',
+          heading: 'blog.post1.content.sections.1.heading',
           paragraphs: [
-            'Integrating inventory with your point of sale (POS) system is an essential AI capability that every restaurant needs. Restaurant owners can track inventory purchase data, which can help them buy ingredients more efficiently. In addition, it helps them ensure that they limit waste and that food costs remain under control.'
+            'blog.post1.content.sections.1.paragraphs.0'
           ],
           list: [
             {
-              title: 'Automated Marketing',
-              description: 'As discussed above, restaurant owners need a reliable digital marketing plan to stay a step ahead of the competition. AI today enables them to create better marketing strategies, including click-through rates, and run effective targeting campaigns to bring in more people to the restaurant.'
+              title: 'blog.post1.content.sections.1.list.0.title',
+              description: 'blog.post1.content.sections.1.list.0.description'
             },
             {
-              title: 'Hiring and Staff Management',
-              description: 'Staffing is a significant challenge for any food and beverage business. AI can assist in hiring, training, and staffing to optimize the number of staff members needed during each shift.'
+              title: 'blog.post1.content.sections.1.list.1.title',
+              description: 'blog.post1.content.sections.1.list.1.description'
             }
           ]
         }
       ],
-      quote: 'Ding* Your order is being prepared by Chef Bot 19 and will be delivered to your table in approximately 19 minutes. To get a receipt for your order, reply with H. We hope you enjoy your dining experience with us. – Team Bots',
+      quote: 'blog.post1.content.quote',
       mainImage: '../assets/images/blogpage-details/interior-of-restaurant.png'
     },
     relatedPosts: [2, 5]
@@ -53,35 +53,35 @@ export const blogPosts = [
   {
     id: 2,
     slug: 'breakfast-forecast',
-    title: 'Is The Breakfast Forecast Partly Sunny Or Partly Cloudy?',
-    excerpt: 'Breakfast trends are evolving rapidly. Discover what\'s hot and what\'s not in the morning dining scene.',
-    description: 'Analysis of current breakfast trends and predictions for the future of morning dining experiences in restaurants.',
+    title: 'blog.post2.title',
+    excerpt: 'blog.post2.excerpt',
+    description: 'blog.post2.description',
     image: '../assets/images/blog-page/blog-post/blog-post-1.png',
     category: 'Trends',
-    tags: ['Breakfast', 'Trends', 'Menu Planning', 'Customer Preferences'],
+    tags: ['Breakfast Trends', 'Morning Menu', 'Brunch Ideas', 'Healthy Dining'],
     author: 'Admin',
-    date: 'August 4, 2024',
+    date: 'blog.date.august_26_2025',
     readTime: '5 min read',
     featured: false,
     content: {
-      intro: 'The breakfast segment has always been a crucial part of restaurant operations, but recent years have seen dramatic shifts in consumer preferences and dining patterns. Understanding these trends is essential for restaurant success.',
+      intro: 'blog.post2.content.intro',
       sections: [
         {
-          heading: 'The Evolution of Breakfast Dining',
+          heading: 'blog.post2.content.sections.0.heading',
           paragraphs: [
-            'Traditional breakfast items are being reimagined with modern twists. Health-conscious consumers are driving demand for nutritious, protein-rich options that fuel their day without compromising on taste.',
-            'The rise of all-day breakfast has changed the game entirely. Restaurants that once closed their breakfast menu at 11 AM are now serving eggs and pancakes around the clock, responding to changing work schedules and lifestyle patterns.'
+            'blog.post2.content.sections.0.paragraphs.0',
+            'blog.post2.content.sections.0.paragraphs.1'
           ]
         },
         {
-          heading: 'Key Breakfast Trends to Watch',
+          heading: 'blog.post2.content.sections.1.heading',
           paragraphs: [
-            'Plant-based breakfast options are no longer niche – they\'re mainstream. From tofu scrambles to vegan pancakes, restaurants are expanding their morning menus to cater to diverse dietary preferences.',
-            'Beverage innovation is also driving breakfast traffic. Specialty coffee drinks, fresh-pressed juices, and smoothie bowls have become destinations in themselves, often determining where customers choose to dine.'
+            'blog.post2.content.sections.1.paragraphs.0',
+            'blog.post2.content.sections.1.paragraphs.1'
           ]
         }
       ],
-      quote: 'Breakfast is no longer just the most important meal of the day – it\'s becoming the most innovative.',
+      quote: 'blog.post2.content.quote',
       mainImage: '../assets/images/blog-page/blog-post/blog-post-1.png'
     },
     relatedPosts: [3, 6]
@@ -89,35 +89,35 @@ export const blogPosts = [
   {
     id: 3,
     slug: 'hiring-safely-dining-demand',
-    title: 'Hiring Quickly (But Safely) As Dining Demand Picks Up',
-    excerpt: 'As restaurants rebound, finding quality staff quickly while maintaining safety standards is crucial.',
-    description: 'Strategic approaches to rapid hiring while ensuring workplace safety and employee quality in the post-pandemic restaurant landscape.',
+    title: 'blog.post3.title',
+    excerpt: 'blog.post3.excerpt',
+    description: 'blog.post3.description',
     image: '../assets/images/blog-page/blog-post/blog-post-2.png',
     category: 'Management',
-    tags: ['Hiring', 'Staff Management', 'Safety', 'HR'],
+    tags: ['Restaurant Staffing', 'Kitchen Team', 'Safety Training', 'Service Culture'],
     author: 'Admin',
-    date: 'August 4, 2025',
+    date: 'blog.date.august_24_2025',
     readTime: '6 min read',
     featured: false,
     content: {
-      intro: 'The restaurant industry is experiencing unprecedented demand, but finding qualified staff remains one of the biggest challenges facing operators today. This guide provides practical strategies for rapid, safe hiring.',
+      intro: 'blog.post3.content.intro',
       sections: [
         {
-          heading: 'Streamlining the Hiring Process',
+          heading: 'blog.post3.content.sections.0.heading',
           paragraphs: [
-            'Modern technology has transformed recruitment. Online application systems, video interviews, and digital onboarding can cut hiring time from weeks to days while maintaining quality standards.',
-            'Employee referral programs have proven to be one of the most effective hiring tools. Current staff members understand your culture and standards, making their recommendations particularly valuable.'
+            'blog.post3.content.sections.0.paragraphs.0',
+            'blog.post3.content.sections.0.paragraphs.1'
           ]
         },
         {
-          heading: 'Safety Protocols in Hiring',
+          heading: 'blog.post3.content.sections.1.heading',
           paragraphs: [
-            'Background checks and food safety certifications remain non-negotiable, but these processes can be accelerated with digital verification systems. Many providers now offer same-day results.',
-            'Training programs should emphasize both operational excellence and safety protocols from day one. Well-trained staff are not only more effective but also safer for both customers and colleagues.'
+            'blog.post3.content.sections.1.paragraphs.0',
+            'blog.post3.content.sections.1.paragraphs.1'
           ]
         }
       ],
-      quote: 'Quality staff are the foundation of every successful restaurant. Rush the hiring, risk the business.',
+      quote: 'blog.post3.content.quote',
       mainImage: '../assets/images/blog-page/blog-post/blog-post-2.png'
     },
     relatedPosts: [4, 6]
@@ -125,42 +125,42 @@ export const blogPosts = [
   {
     id: 4,
     slug: 'restaurant-technology-makes-breaks',
-    title: '5 Ways Restaurant Technology Makes Or Breaks Business',
-    excerpt: 'Technology can be your greatest asset or biggest liability. Learn how to leverage it effectively.',
-    description: 'Critical technology decisions that determine restaurant success, from POS systems to customer engagement tools.',
+    title: 'blog.post4.title',
+    excerpt: 'blog.post4.excerpt',
+    description: 'blog.post4.description',
     image: '../assets/images/blog-page/blog-post/blog-post-3.png',
     category: 'Technology',
     tags: ['Technology', 'POS Systems', 'Digital Transformation', 'Operations'],
     author: 'Admin',
-    date: 'August 4, 2025',
+    date: 'blog.date.august_23_2025',
     readTime: '7 min read',
     featured: false,
     content: {
-      intro: 'In today\'s competitive restaurant landscape, technology is no longer optional – it\'s essential. But choosing the wrong systems or implementing them poorly can do more harm than good.',
+      intro: 'blog.post4.content.intro',
       sections: [
         {
-          heading: '1. Point of Sale Systems: The Restaurant\'s Central Nervous System',
+          heading: 'blog.post4.content.sections.0.heading',
           paragraphs: [
-            'Your POS system touches every aspect of your operation. From order taking to inventory management, payment processing to customer data collection, a robust POS is foundational to success.',
-            'Cloud-based systems offer flexibility and real-time data access, enabling better decision-making and remote management capabilities that traditional systems simply can\'t match.'
+            'blog.post4.content.sections.0.paragraphs.0',
+            'blog.post4.content.sections.0.paragraphs.1'
           ]
         },
         {
-          heading: '2. Online Ordering and Delivery Integration',
+          heading: 'blog.post4.content.sections.1.heading',
           paragraphs: [
-            'Third-party delivery platforms are now essential sales channels, but high commission fees can erode profits. Smart operators are building direct ordering capabilities to maintain margins.',
-            'Mobile apps and online ordering systems that integrate with your POS create seamless operations and capture valuable customer data for marketing purposes.'
+            'blog.post4.content.sections.1.paragraphs.0',
+            'blog.post4.content.sections.1.paragraphs.1'
           ]
         },
         {
-          heading: '3. Customer Relationship Management',
+          heading: 'blog.post4.content.sections.2.heading',
           paragraphs: [
-            'Understanding your customers is key to building loyalty. Modern CRM systems track preferences, visit frequency, and spending patterns, enabling targeted marketing and personalized experiences.',
-            'Email and SMS marketing integrated with your POS and reservation systems can drive repeat visits and increase average check sizes through strategic promotions.'
+            'blog.post4.content.sections.2.paragraphs.0',
+            'blog.post4.content.sections.2.paragraphs.1'
           ]
         }
       ],
-      quote: 'Technology should enhance the human experience, not replace it. The best systems work invisibly in the background.',
+      quote: 'blog.post4.content.quote',
       mainImage: '../assets/images/blog-page/blog-post/blog-post-3.png'
     },
     relatedPosts: [1, 5]
@@ -168,42 +168,42 @@ export const blogPosts = [
   {
     id: 5,
     slug: 'iot-saves-inventory-costs',
-    title: 'Save Inventory, Time And Labor Cost With IoT',
-    excerpt: 'Internet of Things technology is revolutionizing restaurant inventory management and cost control.',
-    description: 'How IoT sensors and smart systems can dramatically reduce waste, optimize inventory, and lower labor costs in restaurants.',
+    title: 'blog.post5.title',
+    excerpt: 'blog.post5.excerpt',
+    description: 'blog.post5.description',
     image: '../assets/images/blog-page/blog-post/blog-post-4.png',
     category: 'Technology',
     tags: ['IoT', 'Inventory', 'Cost Control', 'Efficiency'],
     author: 'Admin',
-    date: 'August 4, 2025',
+    date: 'blog.date.august_22_2025',
     readTime: '6 min read',
     featured: false,
     content: {
-      intro: 'The Internet of Things is transforming how restaurants manage inventory, monitor equipment, and control costs. Smart sensors and connected systems provide real-time data that drives better decisions.',
+      intro: 'blog.post5.content.intro',
       sections: [
         {
-          heading: 'Smart Inventory Management',
+          heading: 'blog.post5.content.sections.0.heading',
           paragraphs: [
-            'IoT-enabled scales and sensors can automatically track inventory levels, alerting managers when items are running low and even generating purchase orders automatically based on historical usage patterns.',
-            'Temperature sensors in refrigerators and freezers not only ensure food safety but also prevent costly spoilage by alerting staff immediately when conditions drift outside acceptable ranges.'
+            'blog.post5.content.sections.0.paragraphs.0',
+            'blog.post5.content.sections.0.paragraphs.1'
           ]
         },
         {
-          heading: 'Equipment Monitoring and Predictive Maintenance',
+          heading: 'blog.post5.content.sections.1.heading',
           paragraphs: [
-            'Connected kitchen equipment can predict failures before they occur, allowing for scheduled maintenance that prevents costly emergency repairs and operational disruptions.',
-            'Energy monitoring systems identify inefficient equipment and usage patterns, helping restaurants reduce utility costs while supporting sustainability goals.'
+            'blog.post5.content.sections.1.paragraphs.0',
+            'blog.post5.content.sections.1.paragraphs.1'
           ]
         },
         {
-          heading: 'Labor Optimization',
+          heading: 'blog.post5.content.sections.2.heading',
           paragraphs: [
-            'Real-time data on customer traffic, order patterns, and kitchen throughput enables more accurate staff scheduling, reducing labor costs while maintaining service quality.',
-            'Automated inventory counts eliminate hours of manual labor, freeing staff to focus on customer service and food preparation rather than paperwork.'
+            'blog.post5.content.sections.2.paragraphs.0',
+            'blog.post5.content.sections.2.paragraphs.1'
           ]
         }
       ],
-      quote: 'IoT turns your restaurant into a smart business, making data-driven decisions automatic and effortless.',
+      quote: 'blog.post5.content.quote',
       mainImage: '../assets/images/blog-page/blog-post/blog-post-4.png'
     },
     relatedPosts: [1, 4]
@@ -211,42 +211,42 @@ export const blogPosts = [
   {
     id: 6,
     slug: 'live-video-showcase-restaurant',
-    title: 'Using Live Video To Showcase Your Restaurant',
-    excerpt: 'Live streaming is a powerful marketing tool that brings your restaurant experience directly to potential customers.',
-    description: 'Strategies for leveraging live video to showcase your restaurant, engage customers, and drive traffic through social media platforms.',
+    title: 'blog.post6.title',
+    excerpt: 'blog.post6.excerpt',
+    description: 'blog.post6.description',
     image: '../assets/images/blog-page/blog-post/blog-post-5.png',
     category: 'Marketing',
     tags: ['Marketing', 'Social Media', 'Live Video', 'Customer Engagement'],
     author: 'Admin',
-    date: 'August 4, 2024',
+    date: 'blog.date.august_20_2025',
     readTime: '5 min read',
     featured: false,
     content: {
-      intro: 'Live video streaming has become one of the most engaging forms of social media content. For restaurants, it offers a unique opportunity to showcase your food, atmosphere, and team in an authentic, immediate way.',
+      intro: 'blog.post6.content.intro',
       sections: [
         {
-          heading: 'Behind the Scenes Content',
+          heading: 'blog.post6.content.sections.0.heading',
           paragraphs: [
-            'Customers love seeing how their food is prepared. Live kitchen streams featuring your chefs at work not only build trust but also create entertainment value that keeps viewers engaged.',
-            'Special events like wine tastings, chef demonstrations, or new menu item debuts make perfect live streaming content that generates excitement and drives reservations.'
+            'blog.post6.content.sections.0.paragraphs.0',
+            'blog.post6.content.sections.0.paragraphs.1'
           ]
         },
         {
-          heading: 'Interactive Customer Engagement',
+          heading: 'blog.post6.content.sections.1.heading',
           paragraphs: [
-            'Live streams allow real-time interaction with your audience. Answering questions, taking suggestions, and responding to comments builds community and loyalty.',
-            'Consider hosting regular live Q&A sessions with your chef or mixologist, creating recurring events that customers look forward to and plan around.'
+            'blog.post6.content.sections.1.paragraphs.0',
+            'blog.post6.content.sections.1.paragraphs.1'
           ]
         },
         {
-          heading: 'Technical Tips for Success',
+          heading: 'blog.post6.content.sections.2.heading',
           paragraphs: [
-            'Good lighting and stable internet are essential. Invest in basic equipment like a smartphone tripod and ring light to ensure professional-looking streams.',
-            'Promote your live streams in advance through email and social media. Build anticipation and ensure you have an audience when you go live.'
+            'blog.post6.content.sections.2.paragraphs.0',
+            'blog.post6.content.sections.2.paragraphs.1'
           ]
         }
       ],
-      quote: 'Live video removes the barrier between your restaurant and potential customers, inviting them into your world in real-time.',
+      quote: 'blog.post6.content.quote',
       mainImage: '../assets/images/blogpage-details/post-image-1.png'
     },
     relatedPosts: [2, 7]
@@ -254,42 +254,42 @@ export const blogPosts = [
   {
     id: 7,
     slug: 'financial-wellbeing-programs',
-    title: 'Financial Well-Being Programs For Restaurants',
-    excerpt: 'Supporting employee financial health improves retention, satisfaction, and overall restaurant performance.',
-    description: 'How implementing financial wellness programs for restaurant staff can reduce turnover and boost morale.',
+    title: 'blog.post7.title',
+    excerpt: 'blog.post7.excerpt',
+    description: 'blog.post7.description',
     image: '../assets/images/blog-page/blog-post/blog-post-6.png',
     category: 'Management',
     tags: ['Employee Benefits', 'Financial Wellness', 'Staff Retention', 'HR'],
     author: 'Admin',
-    date: 'August 4, 2025',
+    date: 'blog.date.august_18_2025',
     readTime: '6 min read',
     featured: false,
     content: {
-      intro: 'The restaurant industry faces chronic staffing challenges, and financial stress is a major factor in employee turnover. Forward-thinking operators are implementing financial wellness programs to support their teams.',
+      intro: 'blog.post7.content.intro',
       sections: [
         {
-          heading: 'The Cost of Financial Stress',
+          heading: 'blog.post7.content.sections.0.heading',
           paragraphs: [
-            'Financially stressed employees are less productive, more likely to call in sick, and at higher risk of leaving for small pay increases elsewhere. The cost of replacing trained staff far exceeds investment in financial wellness.',
-            'Many restaurant workers live paycheck to paycheck, making unexpected expenses genuine crises. This stress affects job performance and customer service quality.'
+            'blog.post7.content.sections.0.paragraphs.0',
+            'blog.post7.content.sections.0.paragraphs.1'
           ]
         },
         {
-          heading: 'Implementing Financial Wellness Programs',
+          heading: 'blog.post7.content.sections.1.heading',
           paragraphs: [
-            'Earned wage access programs allow employees to access earned wages before payday, reducing reliance on expensive payday loans and overdraft fees.',
-            'Financial education workshops covering budgeting, saving, and debt management provide employees with tools to improve their financial situations long-term.'
+            'blog.post7.content.sections.1.paragraphs.0',
+            'blog.post7.content.sections.1.paragraphs.1'
           ]
         },
         {
-          heading: 'Benefits for Employers',
+          heading: 'blog.post7.content.sections.2.heading',
           paragraphs: [
-            'Restaurants with comprehensive financial wellness programs report lower turnover rates, reduced absenteeism, and higher employee satisfaction scores.',
-            'These programs also enhance your reputation as an employer of choice, making recruitment easier in a competitive labor market.'
+            'blog.post7.content.sections.2.paragraphs.0',
+            'blog.post7.content.sections.2.paragraphs.1'
           ]
         }
       ],
-      quote: 'Invest in your people\'s financial wellness, and they\'ll invest their energy and loyalty in your restaurant.',
+      quote: 'blog.post7.content.quote',
       mainImage: '../assets/images/blogpage-details/post-image-2.png'
     },
     relatedPosts: [3, 6]

@@ -10,12 +10,14 @@
   align-items: center;
   flex-wrap: wrap;
   gap: 0.75rem;
-  margin: 2rem auto 3rem;
+  margin: 2rem auto 1rem;
+  padding: 1.5rem 1.5rem 1rem;
+  margin: 8rem auto 3rem;
   padding: 1.5rem;
   max-width: 1200px;
 
   /* Background / Others */
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--bg-secondary);
   border-radius: var(--radius);
   backdrop-filter: blur(10px);
 }
@@ -30,7 +32,7 @@
   font-size: 0.875rem;
   font-weight: 500;
   text-align: center;
-  color: var(--color-white-60);
+  color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
@@ -52,10 +54,9 @@
   font-family: var(--font-body);
   font-size: 0.875rem;
   font-weight: 500;
-  color: var(--color-white);
+  color: var(--text-primary);
 
   /* Background / Others */
-  background: rgba(255, 255, 255, 0.1);
   cursor: pointer;
   transition: all 0.3s ease;
   user-select: none;
@@ -141,7 +142,7 @@
   font-family: var(--font-body);
   font-size: 0.75rem;
   font-weight: 500;
-  color: #ffffff;
+  color: var(--text-primary);
 
   /* Background / Others */
   background: rgba(255, 255, 255, 0.15);
@@ -212,7 +213,7 @@
 
   .dietary-filter {
     /* Box model */
-    padding: 2.5rem 0 1.5rem;
+    padding: 1.5rem 0 1.5rem;
   }
 
   .dietary-badge {
@@ -224,7 +225,7 @@
 @media (min-width: 1280px) {
   .dietary-filter {
     /* Box model */
-    padding: 3rem 0 1.5rem;
+    padding: 1.5rem 0 1.5rem;
   }
 
   .dietary-badge {

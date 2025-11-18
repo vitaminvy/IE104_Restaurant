@@ -4,6 +4,7 @@
  * ======================================== */
 
 import { menuItems, dietaryBadges } from "../assets/data/mockdata.js";
+import i18nService from "../assets/script/i18n-service.js";
 
 /* ========================================
  * PRODUCT DETAIL DYNAMIC LOADER
@@ -234,7 +235,9 @@ import { menuItems, dietaryBadges } from "../assets/data/mockdata.js";
    * ======================================== */
 
   function updatePageTitle(item) {
-    document.title = `${item.title} - Menu`;
+    document.title = `${i18nService.t(item.title)} - ${i18nService.t(
+      "product_detail_page.title"
+    )}`;
   }
 
   /* ========================================
@@ -246,17 +249,17 @@ import { menuItems, dietaryBadges } from "../assets/data/mockdata.js";
     if (imgElement) {
       // Add loading shimmer
       imgElement.classList.add("loading-shimmer");
-      
+
       // Create new image to preload
       const newImg = new Image();
       newImg.src = item.image;
-      
+
       newImg.onload = () => {
         imgElement.src = item.image;
-        imgElement.alt = item.title;
+        imgElement.alt = i18nService.t(item.title);
         imgElement.classList.remove("loading-shimmer");
         imgElement.classList.add("animate-in");
-        
+
         // Remove animation class after completion
         setTimeout(() => {
           imgElement.classList.remove("animate-in");
@@ -272,11 +275,11 @@ import { menuItems, dietaryBadges } from "../assets/data/mockdata.js";
   function updateProductInfo(item) {
     // Get content wrapper
     const contentElement = document.querySelector(".product-detail__content");
-    
+
     // Update title
     const titleElement = document.querySelector(".product-detail__title");
     if (titleElement) {
-      titleElement.textContent = item.title;
+      titleElement.textContent = i18nService.t(item.title);
     }
 
     // Update price
@@ -288,7 +291,7 @@ import { menuItems, dietaryBadges } from "../assets/data/mockdata.js";
     // Update description
     const descElement = document.querySelector(".product-detail__desc");
     if (descElement) {
-      descElement.textContent = item.desc;
+      descElement.textContent = i18nService.t(item.desc);
     }
 
     // Add subtle entrance animation to content
@@ -313,33 +316,43 @@ import { menuItems, dietaryBadges } from "../assets/data/mockdata.js";
    * ======================================== */
 
   function updateMetaInfo(item) {
+    console.log("  --- updateMetaInfo called ---");
     const metaList = document.querySelector(".product-detail__meta");
     if (!metaList) return;
 
     // Generate SKU based on ID
     const sku = `PT${String(item.id).padStart(3, "0")}`;
 
-    // Capitalize category
-    const category =
-      item.category.charAt(0).toUpperCase() + item.category.slice(1);
+    // Capitalize and translate category
+    const categoryKey = `home.menu.filter.${item.category}`;
+    const category = i18nService.t(categoryKey);
+    console.log(`    Category Key: ${categoryKey}, Translated: ${category}`);
 
-    // Generate tags from badges
-    let tags = "Food, Restaurant";
+    // Generate tags from badges and translate
+    let tags = i18nService.t("product_detail_page.meta.default_tags"); // Default tags
     if (item.badges && item.badges.length > 0) {
       const badgeLabels = item.badges
-        .map((badgeKey) => dietaryBadges[badgeKey]?.label)
+        .map((badgeKey) => {
+          const labelKey = dietaryBadges[badgeKey]?.label;
+          const translatedLabel = i18nService.t(labelKey);
+          console.log(
+            `      Badge Label Key: ${labelKey}, Translated: ${translatedLabel}`
+          );
+          return translatedLabel;
+        })
         .filter(Boolean)
         .join(", ");
       if (badgeLabels) {
         tags = badgeLabels;
       }
     }
+    console.log(`    Tags: ${tags}`);
 
-    // Update meta HTML
+    // Update meta HTML, relying on data-i18n for labels
     metaList.innerHTML = `
-      <li><strong>SKU:</strong> ${sku}</li>
-      <li><strong>CATEGORY:</strong> ${category}</li>
-      <li><strong>TAGS:</strong> ${tags}</li>
+      <li><strong data-i18n="product_detail_page.meta.sku">SKU:</strong> ${sku}</li>
+      <li><strong data-i18n="product_detail_page.meta.category">CATEGORY:</strong> ${category}</li>
+      <li><strong data-i18n="product_detail_page.meta.tags">TAGS:</strong> ${tags}</li>
     `;
   }
 
@@ -348,6 +361,7 @@ import { menuItems, dietaryBadges } from "../assets/data/mockdata.js";
    * ======================================== */
 
   function addDietaryBadges(item) {
+    console.log("  --- addDietaryBadges called ---");
     if (!item.badges || item.badges.length === 0) return;
 
     const infoSection = document.querySelector(".product-detail__info");
@@ -371,11 +385,21 @@ import { menuItems, dietaryBadges } from "../assets/data/mockdata.js";
     // Add each badge
     item.badges.forEach((badgeKey) => {
       const badge = dietaryBadges[badgeKey];
-      if (!badge) return;
+      if (!badge) {
+        console.warn(`    Dietary badge key not found: ${badgeKey}`);
+        return;
+      }
 
       const badgeEl = document.createElement("span");
       badgeEl.className = `product-badge product-badge--${badgeKey}`;
-      badgeEl.title = badge.description;
+
+      const descriptionKey = badge.description;
+      const translatedDescription = i18nService.t(descriptionKey);
+      badgeEl.title = translatedDescription;
+      console.log(
+        `      Badge Description Key: ${descriptionKey}, Translated: ${translatedDescription}`
+      );
+
       badgeEl.style.cssText = `
         display: inline-flex;
         align-items: center;
@@ -385,8 +409,6 @@ import { menuItems, dietaryBadges } from "../assets/data/mockdata.js";
         font-family: var(--font-body);
         font-size: 0.875rem;
         font-weight: 500;
-        color: #ffffff;
-        background: rgba(255, 255, 255, 0.15);
         border: 1px solid ${badge.color};
       `;
 
@@ -394,8 +416,13 @@ import { menuItems, dietaryBadges } from "../assets/data/mockdata.js";
       icon.textContent = badge.icon;
       icon.style.fontSize = "1rem";
 
+      const labelKey = badge.label;
+      const translatedLabel = i18nService.t(labelKey);
       const label = document.createElement("span");
-      label.textContent = badge.label;
+      label.textContent = translatedLabel;
+      console.log(
+        `      Badge Label Key: ${labelKey}, Translated: ${translatedLabel}`
+      );
 
       badgeEl.appendChild(icon);
       badgeEl.appendChild(label);
@@ -417,16 +444,16 @@ import { menuItems, dietaryBadges } from "../assets/data/mockdata.js";
     if (addToCartBtn) {
       // Store item data for cart functionality
       addToCartBtn.dataset.itemId = item.id;
-      addToCartBtn.dataset.itemTitle = item.title;
+      addToCartBtn.dataset.itemTitle = i18nService.t(item.title);
       addToCartBtn.dataset.itemPrice = item.price;
       addToCartBtn.dataset.itemImage = item.image;
-      
+
       // Remove any existing listeners by cloning the button
       const newBtn = addToCartBtn.cloneNode(true);
       addToCartBtn.parentNode.replaceChild(newBtn, addToCartBtn);
-      
+
       // Add click handler
-      newBtn.addEventListener('click', (e) => {
+      newBtn.addEventListener("click", (e) => {
         e.preventDefault();
         handleAddToCart(item);
       });
@@ -440,26 +467,34 @@ import { menuItems, dietaryBadges } from "../assets/data/mockdata.js";
 
   function handleAddToCart(item) {
     // Get quantity
-    const quantityInput = document.querySelector('.qty-input');
+    const quantityInput = document.querySelector(".qty-input");
     const quantity = quantityInput ? parseInt(quantityInput.value) || 1 : 1;
+
+    // Get title from the DOM to avoid race condition
+    const title =
+      document.querySelector(".product-detail__title")?.textContent ||
+      i18nService.t(item.title);
 
     // Prepare cart item
     const cartItem = {
       id: item.id,
-      title: item.title,
+      title: title, // Already translated from DOM
       price: item.price,
       image: item.image,
-      quantity: quantity
+      quantity: quantity,
     };
 
     // Add to cart using CartManager API (if available)
-    if (window.CartManager && typeof window.CartManager.addItem === 'function') {
+    if (
+      window.CartManager &&
+      typeof window.CartManager.addItem === "function"
+    ) {
       window.CartManager.addItem(cartItem);
-      showAddToCartNotification(item.title, quantity, true);
+      showAddToCartNotification(title, quantity, true);
     } else {
       // Fallback: Save to localStorage directly
       addToCartFallback(cartItem);
-      showAddToCartNotification(item.title, quantity, false);
+      showAddToCartNotification(title, quantity, false);
     }
 
     // Reset quantity to 1
@@ -475,9 +510,9 @@ import { menuItems, dietaryBadges } from "../assets/data/mockdata.js";
 
   function addToCartFallback(cartItem) {
     try {
-      const cartKey = 'restaurantCart';
+      const cartKey = "restaurantCart";
       let items = [];
-      
+
       // Get existing cart
       const existingCart = localStorage.getItem(cartKey);
       if (existingCart) {
@@ -485,8 +520,8 @@ import { menuItems, dietaryBadges } from "../assets/data/mockdata.js";
       }
 
       // Check if item already exists
-      const existingIndex = items.findIndex(i => i.id === cartItem.id);
-      
+      const existingIndex = items.findIndex((i) => i.id === cartItem.id);
+
       if (existingIndex >= 0) {
         // Update quantity
         items[existingIndex].quantity += cartItem.quantity;
@@ -497,10 +532,10 @@ import { menuItems, dietaryBadges } from "../assets/data/mockdata.js";
 
       // Save to localStorage
       localStorage.setItem(cartKey, JSON.stringify(items));
-      
-      console.log('✅ Item added to cart (fallback):', cartItem);
+
+      console.log("✅ Item added to cart (fallback):", cartItem);
     } catch (error) {
-      console.error('❌ Error adding to cart:', error);
+      console.error("❌ Error adding to cart:", error);
     }
   }
 
@@ -511,14 +546,14 @@ import { menuItems, dietaryBadges } from "../assets/data/mockdata.js";
 
   function showAddToCartNotification(itemTitle, quantity, hasCartManager) {
     // Remove existing notification
-    const existing = document.querySelector('.add-to-cart-notification');
+    const existing = document.querySelector(".add-to-cart-notification");
     if (existing) {
       existing.remove();
     }
 
     // Create notification
-    const notification = document.createElement('div');
-    notification.className = 'add-to-cart-notification';
+    const notification = document.createElement("div");
+    notification.className = "add-to-cart-notification";
     notification.innerHTML = `
       <div style="display: flex; align-items: center; gap: 12px;">
         <div style="
@@ -537,7 +572,7 @@ import { menuItems, dietaryBadges } from "../assets/data/mockdata.js";
           </svg>
         </div>
         <div style="flex: 1;">
-          <div style="font-weight: 600; margin-bottom: 4px; color: white;">
+          <div style="font-weight: 600; margin-bottom: 4px; color: white;" data-i18n="product_detail_page.notification.added_to_cart">
             Added to cart!
           </div>
           <div style="font-size: 13px; opacity: 0.9; color: rgba(255,255,255,0.8);">
@@ -554,12 +589,12 @@ import { menuItems, dietaryBadges } from "../assets/data/mockdata.js";
           font-size: 13px;
           transition: all 0.2s ease;
         " onmouseover="this.style.background='rgba(255,255,255,0.9)'" 
-           onmouseout="this.style.background='white'">
+           onmouseout="this.style.background='white'" data-i18n="product_detail_page.notification.view_cart">
           View Cart
         </a>
       </div>
     `;
-    
+
     notification.style.cssText = `
       position: fixed;
       top: 100px;
@@ -579,9 +614,9 @@ import { menuItems, dietaryBadges } from "../assets/data/mockdata.js";
     `;
 
     // Add animation keyframes if not exists
-    if (!document.getElementById('add-to-cart-animations')) {
-      const style = document.createElement('style');
-      style.id = 'add-to-cart-animations';
+    if (!document.getElementById("add-to-cart-animations")) {
+      const style = document.createElement("style");
+      style.id = "add-to-cart-animations";
       style.textContent = `
         @keyframes slideInRight {
           from {
@@ -611,14 +646,16 @@ import { menuItems, dietaryBadges } from "../assets/data/mockdata.js";
 
     // Auto remove after 4 seconds
     setTimeout(() => {
-      notification.style.animation = 'slideOutRight 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards';
+      notification.style.animation =
+        "slideOutRight 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards";
       setTimeout(() => notification.remove(), 300);
     }, 4000);
 
     // Add close on click
-    notification.addEventListener('click', (e) => {
-      if (e.target.tagName !== 'A') {
-        notification.style.animation = 'slideOutRight 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards';
+    notification.addEventListener("click", (e) => {
+      if (e.target.tagName !== "A") {
+        notification.style.animation =
+          "slideOutRight 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards";
         setTimeout(() => notification.remove(), 300);
       }
     });
@@ -633,12 +670,12 @@ import { menuItems, dietaryBadges } from "../assets/data/mockdata.js";
 
   function determinePairingReason(currentItem, pairedItem) {
     const reasons = {
-      sameCategory: "Complements the same meal type perfectly",
-      spiceBalance: "Balances the spice level nicely",
-      dietaryMatch: "Shares similar dietary preferences",
-      contrastTexture: "Offers contrasting textures for variety",
-      chefPick: "Recommended pairing by our chef",
-      popularCombo: "A customer favorite combination",
+      sameCategory: "product_detail_page.pairing_reasons.same_category",
+      spiceBalance: "product_detail_page.pairing_reasons.spice_balance",
+      dietaryMatch: "product_detail_page.pairing_reasons.dietary_match",
+      contrastTexture: "product_detail_page.pairing_reasons.contrast_texture",
+      chefPick: "product_detail_page.pairing_reasons.chef_pick",
+      popularCombo: "product_detail_page.pairing_reasons.popular_combo",
     };
 
     // Check if both are chef's specials
@@ -687,8 +724,10 @@ import { menuItems, dietaryBadges } from "../assets/data/mockdata.js";
    * ======================================== */
 
   function createMealPairingSection(item) {
+    console.log("  --- createMealPairingSection called ---");
     // Check if item has pairing suggestions
     if (!item.pairsWith || item.pairsWith.length === 0) {
+      console.log("    No pairing suggestions for this item.");
       return;
     }
 
@@ -696,7 +735,10 @@ import { menuItems, dietaryBadges } from "../assets/data/mockdata.js";
     const pairingItems = item.pairsWith
       .map((pairId) => {
         const pairedItem = findItemById(pairId);
-        if (!pairedItem) return null;
+        if (!pairedItem) {
+          console.warn(`    Paired item with ID ${pairId} not found.`);
+          return null;
+        }
 
         return {
           ...pairedItem,
@@ -706,7 +748,10 @@ import { menuItems, dietaryBadges } from "../assets/data/mockdata.js";
       .filter(Boolean);
 
     // If no valid pairings, return
-    if (pairingItems.length === 0) return;
+    if (pairingItems.length === 0) {
+      console.log("    No valid pairing items found.");
+      return;
+    }
 
     // Find where to insert (after badges or description)
     const descElement = document.querySelector(".product-detail__container");
@@ -721,14 +766,6 @@ import { menuItems, dietaryBadges } from "../assets/data/mockdata.js";
     // Create pairing section
     const pairingSection = document.createElement("div");
     pairingSection.className = "meal-pairing";
-    pairingSection.style.cssText = `
-      max-width: 1280px; 
-      margin: 3rem auto;
-      padding: 1.5rem;
-      background: rgba(255, 255, 255, 0.03);
-      border-radius: var(--radius);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-    `;
 
     // Create header
     const header = document.createElement("div");
@@ -737,21 +774,26 @@ import { menuItems, dietaryBadges } from "../assets/data/mockdata.js";
       margin-bottom: 1.5rem;
       text-align: center;
     `;
+    const pairingTitleKey = "product_detail_page.pairing_section.title";
+    const pairingSubtitleKey = "product_detail_page.pairing_section.subtitle";
     header.innerHTML = `
-      <h3 style="
-        font-family: var(--font-heading);
-        font-size: 1.5rem;
-        font-weight: 600;
-        color: var(--color-white);
-        margin: 0 0 0.5rem 0;
-      ">Pairs Well With</h3>
-      <p style="
-        font-family: var(--font-body);
-        font-size: 0.875rem;
-        color: var(--color-white-60);
-        margin: 0;
-      ">Enhance your meal with these perfect combinations</p>
+      <h3 data-i18n="product_detail_page.pairing_section.title">${i18nService.t(
+        pairingTitleKey
+      )}</h3>
+      <p data-i18n="product_detail_page.pairing_section.subtitle">${i18nService.t(
+        pairingSubtitleKey
+      )}</p>
     `;
+    console.log(
+      `    Pairing Section Title Key: ${pairingTitleKey}, Translated: ${i18nService.t(
+        pairingTitleKey
+      )}`
+    );
+    console.log(
+      `    Pairing Section Subtitle Key: ${pairingSubtitleKey}, Translated: ${i18nService.t(
+        pairingSubtitleKey
+      )}`
+    );
 
     // Create grid
     const grid = document.createElement("div");
@@ -792,46 +834,26 @@ import { menuItems, dietaryBadges } from "../assets/data/mockdata.js";
    * ======================================== */
 
   function createPairingCard(item) {
+    console.log("  --- createPairingCard called ---");
     const card = document.createElement("article");
     card.className = "pairing-card";
-    card.style.cssText = `
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      padding: 1rem;
-      border-radius: var(--radius);
-      border: 2px solid rgba(255, 255, 255, 0.1);
-      background: rgba(255, 255, 255, 0.05);
-      cursor: pointer;
-      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-      overflow: hidden;
-      will-change: transform;
-      backface-visibility: hidden;
-      transform: translateZ(0);
-    `;
-
-    // Add ultra-smooth hover effect
-    card.addEventListener("mouseenter", () => {
-      card.style.transform = "translateY(-12px) scale(1.05) perspective(1000px) rotateX(2deg)";
-      card.style.borderColor = "var(--color-dark-orange)";
-      card.style.boxShadow = "0 20px 60px rgba(251, 143, 44, 0.5), 0 10px 25px rgba(0, 0, 0, 0.3), inset 0 0 20px rgba(251, 143, 44, 0.1)";
-      card.style.filter = "brightness(1.1)";
-    });
-
-    card.addEventListener("mouseleave", () => {
-      card.style.transform = "translateY(0) scale(1) perspective(1000px) rotateX(0)";
-      card.style.borderColor = "rgba(255, 255, 255, 0.1)";
-      card.style.boxShadow = "none";
-      card.style.filter = "brightness(1)";
-    });
 
     // Add click handler with global loader transition
     card.addEventListener("click", (e) => {
       e.preventDefault();
-      
+
       // Show global loader with item name
       if (window.GlobalLoader) {
-        window.GlobalLoader.show(`Loading ${item.title}...`);
+        const loadingProductKey = "product_detail_page.loading_product";
+        const itemTitleKey = item.title;
+        const translatedLoadingProduct = i18nService.t(loadingProductKey);
+        const translatedItemTitle = i18nService.t(itemTitleKey);
+        window.GlobalLoader.show(
+          `${translatedLoadingProduct} ${translatedItemTitle}...`
+        );
+        console.log(
+          `    Loading Product Message: ${translatedLoadingProduct} ${translatedItemTitle}...`
+        );
       }
 
       // Navigate after brief delay
@@ -842,17 +864,16 @@ import { menuItems, dietaryBadges } from "../assets/data/mockdata.js";
 
     // Image
     const imgWrapper = document.createElement("div");
-    imgWrapper.style.cssText = `
-      width: 100%;
-      height: 300px;
-      margin-bottom: 0.75rem;
-      border-radius: var(--radius);
-      overflow: hidden;
-    `;
+    imgWrapper.className = "pairing-card__img-wrapper";
 
     const img = document.createElement("img");
     img.src = item.image;
-    img.alt = item.title;
+    const itemTitleKey = item.title;
+    const translatedItemTitle = i18nService.t(itemTitleKey);
+    img.alt = translatedItemTitle;
+    console.log(
+      `    Pairing Card Image Alt Key: ${itemTitleKey}, Translated: ${translatedItemTitle}`
+    );
     img.style.cssText = `
       width: 100%;
       height: 100%;
@@ -876,12 +897,16 @@ import { menuItems, dietaryBadges } from "../assets/data/mockdata.js";
 
     // Title
     const title = document.createElement("h4");
-    title.textContent = item.title;
+    const cardTitleKey = item.title;
+    const translatedCardTitle = i18nService.t(cardTitleKey);
+    title.textContent = translatedCardTitle;
+    console.log(
+      `    Pairing Card Title Key: ${cardTitleKey}, Translated: ${translatedCardTitle}`
+    );
     title.style.cssText = `
       font-family: var(--font-heading);
       font-size: 1rem;
       font-weight: 500;
-      color: var(--color-white);
       margin: 0 0 0.5rem 0;
       transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
       transform-origin: left center;
@@ -894,50 +919,48 @@ import { menuItems, dietaryBadges } from "../assets/data/mockdata.js";
     });
 
     card.addEventListener("mouseleave", () => {
-      title.style.color = "var(--color-white)";
+      title.style.color = ""; // Reset to default or CSS defined
       title.style.transform = "translateX(0)";
       title.style.textShadow = "none";
     });
 
     // Description (truncated)
     const desc = document.createElement("p");
+    const descKey = item.desc;
+    const translatedDesc = i18nService.t(descKey);
     desc.textContent =
-      item.desc.length > 50 ? item.desc.substring(0, 50) + "..." : item.desc;
+      translatedDesc.length > 50
+        ? translatedDesc.substring(0, 50) + "..."
+        : translatedDesc;
+    console.log(
+      `    Pairing Card Description Key: ${descKey}, Translated: ${translatedDesc}`
+    );
     desc.style.cssText = `
       font-family: var(--font-body);
       font-size: 0.75rem;
-      color: var(--color-white-80);
       margin: 0 0 0.75rem 0;
       line-height: 1.4;
     `;
 
     // Pairing reason
     const reason = document.createElement("div");
-    reason.style.cssText = `
-      display: flex;
-      align-items: flex-start;
-      gap: 0.5rem;
-      padding: 0.5rem;
-      margin-bottom: 0.75rem;
-      background: rgba(251, 143, 44, 0.1);
-      border-radius: var(--radius);
-      border: 1px solid rgba(251, 143, 44, 0.2);
-    `;
+    reason.className = "pairing-card__reason";
 
     const reasonIcon = document.createElement("span");
     reasonIcon.textContent = "💡";
-    reasonIcon.style.cssText = `
-      flex-shrink: 0;
-      font-size: 1rem;
-    `;
+    reasonIcon.className = "pairing-card__reason-icon";
 
     const reasonText = document.createElement("p");
-    reasonText.textContent = item.pairingReason;
+    const pairingReasonKey = item.pairingReason;
+    const translatedPairingReason = i18nService.t(pairingReasonKey);
+    reasonText.textContent = translatedPairingReason;
+    console.log(
+      `    Pairing Reason Key: ${pairingReasonKey}, Translated: ${translatedPairingReason}`
+    );
     reasonText.style.cssText = `
       font-family: var(--font-body);
       font-size: 0.7rem;
       font-style: italic;
-      color: var(--color-white-80);
       margin: 0;
       line-height: 1.3;
     `;
@@ -948,13 +971,7 @@ import { menuItems, dietaryBadges } from "../assets/data/mockdata.js";
     // Price
     const price = document.createElement("span");
     price.textContent = formatPrice(item.price);
-    price.style.cssText = `
-      font-family: var(--font-heading);
-      font-size: 1.125rem;
-      font-weight: 600;
-      color: var(--color-dark-orange);
-      margin-top: auto;
-    `;
+    price.className = "pairing-card__price";
 
     // Assemble card
     card.appendChild(imgWrapper);
@@ -989,11 +1006,11 @@ import { menuItems, dietaryBadges } from "../assets/data/mockdata.js";
           font-size: 2rem;
           color: var(--color-white);
           margin-bottom: 1rem;
-        ">Product Not Found</h2>
-        <p style="margin-bottom: 2rem;">
+        " data-i18n="product_detail_page.error_message.title">Product Not Found</h2>
+        <p style="margin-bottom: 2rem;" data-i18n="product_detail_page.error_message.description">
           The product you're looking for doesn't exist or has been removed.
         </p>
-        <a href="../menupage/index.html" class="btn btn--primary">
+        <a href="../menupage/index.html" class="btn btn--primary" data-i18n="product_detail_page.error_message.back_to_menu">
           Back to Menu
         </a>
       </div>
@@ -1005,6 +1022,14 @@ import { menuItems, dietaryBadges } from "../assets/data/mockdata.js";
    * ======================================== */
 
   function loadProductDetails() {
+    console.log("--- loadProductDetails called ---");
+    console.log(
+      "i18nService translations state:",
+      Object.keys(i18nService.getTranslations()).length > 0
+        ? "Loaded"
+        : "Not Loaded"
+    );
+
     // Get item ID from URL
     const itemId = getUrlParameter("id");
 
@@ -1042,15 +1067,12 @@ import { menuItems, dietaryBadges } from "../assets/data/mockdata.js";
    * INITIALIZATION
    * ======================================== */
 
-  function init() {
-    // Wait for DOM to be ready
-    if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", loadProductDetails);
-    } else {
-      loadProductDetails();
-    }
-  }
+  // Listen for language changes to re-render the UI
+  document.addEventListener("language-changed", loadProductDetails);
 
-  // Start initialization
-  init();
+  // Handle initial load
+  (async () => {
+    await i18nService.init();
+    loadProductDetails();
+  })();
 })();

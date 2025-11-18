@@ -3,8 +3,8 @@
  * Loads product details based on URL parameter ?id=X
  * ======================================== */
 
-import { menuItems, dietaryBadges } from "../assets/data/mockdata.js";
-import i18nService from "../assets/script/i18n-service.js";
+import { menuItems, dietaryBadges } from "../../assets/data/mockdata.js";
+import i18nService from "../../assets/script/i18n-service.js";
 
 /* ========================================
  * PRODUCT DETAIL DYNAMIC LOADER
@@ -579,7 +579,7 @@ import i18nService from "../assets/script/i18n-service.js";
             ${quantity}x ${itemTitle}
           </div>
         </div>
-        <a href="../cartpage/cart.html" style="
+        <a href="../cartpage/" style="
           padding: 8px 16px;
           background: white;
           color: #4CAF50;

@@ -6,8 +6,8 @@
 import { 
   getBlogById, 
   getRelatedPosts 
-} from '../assets/data/blogdata.js';
-import i18nService from '../assets/script/i18n-service.js';
+} from '../../assets/data/blogdata.js';
+import i18nService from '../../assets/script/i18n-service.js';
 
 /* ========================================
  * URL PARAMETER HELPERS

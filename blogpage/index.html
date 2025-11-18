@@ -6,74 +6,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Stay updated with the latest news, articles, and insights on restaurant management and growth from WowWraps.">
     <title data-i18n="blog_page.title">Blog - WowWraps</title>
-    <link
-      rel="icon"
-      href="../assets/icons/icon-header/nav-vect.svg"
-      type="image/svg+xml"
-    />
+    <link rel="icon" href="../assets/icons/icon-header/nav-vect.svg" type="image/svg+xml" />
 
-    <!-- Font Awesome CDN -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    />
+    <!-- Preload critical assets -->
+    <link rel="preload" href="../assets/images/blog-page/featured-post.webp" as="image" type="image/webp">
 
-    <!-- Global / Main styles -->
-    <link rel="stylesheet" href="./styles/main.css" />
+    <!-- Preload non-critical CSS -->
+    <link rel="preload" href="./styles/main.css" as="style">
+    <link rel="preload" href="../partials/header.css" as="style">
+    <link rel="preload" href="../partials/footer.css" as="style">
+    <link rel="preload" href="./styles/blog-grid.css" as="style">
+    <link rel="preload" href="../style/newsletter.css" as="style">
+    <link rel="preload" href="../style/animations.css" as="style">
+    <link rel="preload" href="../style/page-enhancements.css" as="style">
 
-    <!-- Header Section styles -->
-    <link rel="stylesheet" href="../partials/header.css" />
-
-    <!-- Footer Section styles -->
-    <link rel="stylesheet" href="../partials/footer.css" />
-
-    <!-- Page Header Section styles -->
-    <link rel="stylesheet" href="./styles/page-header.css" />
-
-    <!-- Featured Post Section styles -->
-    <link rel="stylesheet" href="./styles/featured-post.css" />
-
-    <!-- Blog Grid Section styles -->
-    <link rel="stylesheet" href="./styles/blog-grid.css" />
-
-    <!-- Pagination Section styles -->
-    <link rel="stylesheet" href="./styles/pagination.css" />
-
-    <!-- Newsletter styles -->
-    <link rel="stylesheet" href="../style/newsletter.css" />
-
-    <!-- Reset and global styles -->
-    <link rel="stylesheet" href="../style/reset.css" />
-    <link rel="stylesheet" href="../style/style.css" />
+    <!-- Font Awesome (defer loading) -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"></noscript>
 
     <!-- Google Fonts -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <!-- Global Animation System -->
-    <link rel="stylesheet" href="../style/animations.css" />
-    <link rel="stylesheet" href="../style/page-enhancements.css" />
-
-    <!-- Global Loading System -->
-    <script src="../assets/script/global-loader.js"></script>
-    <script src="../assets/script/scroll-animations.js"></script>
-
-    <!-- Main JS module - Dynamic Blog Loader -->
-    <script type="module" src="./scripts/blog-loader.js"></script>
-    <link rel="stylesheet" href="../style/back-to-top.css" />
-
+    <!-- Non-critical CSS (loaded asynchronously) -->
+    <link rel="stylesheet" href="../style/reset.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="./styles/main.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="../partials/header.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="../partials/footer.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="./styles/page-header.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="./styles/featured-post.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="./styles/blog-grid.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="./styles/pagination.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="../style/newsletter.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="../style/style.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="../style/animations.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="../style/page-enhancements.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="../style/back-to-top.css" media="print" onload="this.media='all'">
   </head>
 
   <body>
     <!-- ========== 1. HEADER ========== -->
-    <!-- logic for header and footer -->
-    <script src="../assets/script/include-partials.js" defer></script>
-    <script type="module" src="../assets/script/header.js"></script>
     <div data-include="/partials/header.html"></div>
-
-    <!-- open sidebar in mobile view -->
 
     <!-- ========== 2. MAIN CONTENT AREA ========== -->
     <main class="container">
@@ -86,7 +59,22 @@
 
       <!-- ========== 2.2 FEATURED POST SECTION ========== -->
       <section id="featured-post" class="featured-post animate-scale">
-        <!-- Featured posts will be rendered here by JS -->
+        <!-- Static LCP and CLS fix -->
+        <div class="post-image">
+          <img 
+            src="../assets/images/blog-page/featured-post.webp" 
+            srcset="../assets/images/blog-page/featured-post-400w.webp 400w, ../assets/images/blog-page/featured-post-800w.webp 800w, ../assets/images/blog-page/featured-post-1200w.webp 1200w"
+            sizes="(max-width: 80rem) 100vw, 50vw"
+            alt="Featured post" 
+            width="800" 
+            height="450"
+            loading="eager">
+        </div>
+        <div class="post-content">
+          <h2 data-i18n="blog_page.featured_post.title_placeholder">The Secret to a 5-Star Restaurant Experience</h2>
+          <p data-i18n="blog_page.featured_post.description_placeholder">Discover the key ingredients to creating an unforgettable dining experience that keeps customers coming back.</p>
+          <a href="../blogpage-details/index.html?id=fp1" class="read-more" aria-label="Read more about The Secret to a 5-Star Restaurant Experience" data-i18n="blog_page.read_more_placeholder">Read More</a>
+        </div>
       </section>
 
       <!-- ========== 2.3 FILTERS & CONTROLS ========== -->
@@ -152,10 +140,17 @@
 
     <!-- ========== 2.6 FOOTER PLACEHOLDER ========== -->
     <div data-include="/partials/footer.html"></div>
+    
+    <div data-include="../partials/back-to-top.html"></div>
 
+    <!-- Deferred Scripts -->
+    <script src="../assets/script/include-partials.js" defer></script>
+    <script src="../assets/script/global-loader.js" defer></script>
+    <script src="../assets/script/scroll-animations.js" defer></script>
+    <script type="module" src="./scripts/blog-loader.js"></script>
+    <script type="module" src="../assets/script/header.js"></script>
     <script type="module" src="../assets/script/header-features.js"></script>
     <script src="../assets/script/newsletter.js" defer></script>
-    <div data-include="../partials/back-to-top.html"></div>
-    <script src="../assets/script/back-to-top.js"></script>
+    <script src="../assets/script/back-to-top.js" defer></script>
   </body>
 </html>

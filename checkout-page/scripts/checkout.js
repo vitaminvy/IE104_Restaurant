@@ -186,7 +186,7 @@ import i18nService from '../../assets/script/i18n-service.js';
     showNotification(i18nService.t('checkout_page.notifications.cart_empty_redirect'), 'info');
     
     setTimeout(() => {
-      window.location.href = '../cartpage/cart.html';
+      window.location.href = '../cartpage/index.html';
     }, 2000);
   }
 

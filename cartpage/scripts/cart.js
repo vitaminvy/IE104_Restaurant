@@ -513,7 +513,7 @@ import i18nService from '../../assets/script/i18n-service.js';
     }
 
     // Navigate to checkout page
-    window.location.href = '../checkout-page/checkout.html';
+    window.location.href = '../checkout-page/index.html';
   }
 
   /* ========================================

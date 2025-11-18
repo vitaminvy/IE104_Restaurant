@@ -119,6 +119,15 @@
             >
             <select id="country" class="form__select" required>
               <option
+                value=""
+                disabled
+                selected
+                hidden
+                data-i18n="checkout_page.billing_details.country_options.placeholder"
+              >
+                Select country
+              </option>
+              <option
                 value="au"
                 data-i18n="checkout_page.billing_details.country_options.au"
               >
@@ -172,6 +181,7 @@
               class="form__input"
               type="text"
               placeholder="Apartment, suite, etc. (optional)"
+              data-i18n-placeholder="checkout_page.billing_details.street2_placeholder"
             />
           </div>
 

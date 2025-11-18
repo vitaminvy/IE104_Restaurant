@@ -4,11 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Restaurant Website</title>
-    <!-- Font Awesome CDN -->
+    <!-- Font Awesome CDN - Deferred -->
     <link
-      rel="stylesheet"
+      rel="preload"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
     />
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" /></noscript>
 
     <link rel="stylesheet" href="./style/reset.css" />
     <link rel="stylesheet" href="./style/style.css" />
@@ -28,45 +31,50 @@
     <link rel="stylesheet" href="./homepage/statistic.css" />
     <!-- menu section-->
     <link rel="stylesheet" href="./homepage/menu.css" />
-    <!-- reservation section -->
-    <link rel="stylesheet" href="./homepage/reservation.css" />
+    <!-- reservation section - Deferred -->
+    <link rel="preload" href="./homepage/reservation.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="./homepage/reservation.css" /></noscript>
     <!-- service-means section -->
     <link rel="stylesheet" href="./homepage/service-means.css" />
-    <!-- chef intro section -->
-    <link rel="stylesheet" href="./homepage/chef-intro.css" />
-    <!--discover menu section-->
-    <link rel="stylesheet" href="./homepage/discover-menu.css" />
-    <!-- newsletter section -->
-    <link rel="stylesheet" href="./style/newsletter.css" />
+    <!-- chef intro section - Deferred -->
+    <link rel="preload" href="./homepage/chef-intro.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="./homepage/chef-intro.css" /></noscript>
+    <!--discover menu section - Deferred -->
+    <link rel="preload" href="./homepage/discover-menu.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="./homepage/discover-menu.css" /></noscript>
+    <!-- newsletter section - Deferred -->
+    <link rel="preload" href="./style/newsletter.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="./style/newsletter.css" /></noscript>
     <!-- highlight banner -->
     <link rel="stylesheet" href="./homepage/highlight-banner.css" />
-    <!-- daily  offer -->
-    <link rel="stylesheet" href="./homepage/daily-offer.css" />
-    <!-- explore blog -->
-    <link rel="stylesheet" href="./homepage/explore-blog.css" />
+    <!-- daily  offer - Deferred -->
+    <link rel="preload" href="./homepage/daily-offer.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="./homepage/daily-offer.css" /></noscript>
+    <!-- explore blog - Deferred -->
+    <link rel="preload" href="./homepage/explore-blog.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="./homepage/explore-blog.css" /></noscript>
 
     <!-- Preconnect to Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-    <!-- Preload critical hero images -->
-    <link rel="preload" as="image" href="./assets/images/home-page/hero-section/right-hero-banner-1.webp" fetchpriority="high" />
+    <!-- Preload critical images -->
+    <link rel="preload" as="image" href="./assets/images/home-page/service-section/service-banner.png" fetchpriority="high" />
+    <link rel="preload" as="image" href="./assets/images/home-page/hero-section/right-hero-banner-1.webp" />
     <link rel="preload" as="image" href="./assets/images/home-page/hero-section/left-hero-banner-1.webp" />
-
-    <link
-      href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
-      rel="stylesheet"
-    />
 
     <!-- Global Features Stylesheets -->
     <link rel="stylesheet" href="./assets/features/allergy-alert.css" />
 
-    <!-- Global Animation System -->
-    <link rel="stylesheet" href="../style/animations.css" />
+    <!-- Global Animation System - Deferred -->
+    <link rel="preload" href="../style/animations.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="../style/animations.css" /></noscript>
 
-    <!-- Form Validation & Notification System -->
-    <link rel="stylesheet" href="../style/form-validation.css" />
-    <link rel="stylesheet" href="../style/notification-system.css" />
+    <!-- Form Validation & Notification System - Deferred -->
+    <link rel="preload" href="../style/form-validation.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="../style/form-validation.css" /></noscript>
+    <link rel="preload" href="../style/notification-system.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="../style/notification-system.css" /></noscript>
 
     <!-- Global Loading System -->
     <script src="../assets/script/global-loader.js" defer></script>
@@ -145,6 +153,7 @@
             <img
               src="./assets/images/home-page/highlight-banner/self_service.svg"
               alt="Self Services"
+              loading="lazy"
             />
             <span data-i18n="home.highlight_banner.self_services"
               >Self Services</span
@@ -155,6 +164,7 @@
             <img
               src="./assets/images/home-page/highlight-banner/best_food.svg"
               alt="Best Food"
+              loading="lazy"
             />
             <span data-i18n="home.highlight_banner.best_food">Best Food</span>
           </div>
@@ -163,6 +173,7 @@
             <img
               src="./assets/images/home-page/highlight-banner/fast_delivery.svg"
               alt="Fast Delivery"
+              loading="lazy"
             />
             <span data-i18n="home.highlight_banner.fast_delivery"
               >Fast Delivery</span
@@ -173,6 +184,7 @@
             <img
               src="./assets/images/home-page/highlight-banner/super_taste.svg"
               alt="Super Taste"
+              loading="lazy"
             />
             <span data-i18n="home.highlight_banner.super_taste"
               >Super Taste</span
@@ -184,6 +196,7 @@
             <img
               src="./assets/images/home-page/highlight-banner/self_service.svg"
               alt="Self Services"
+              loading="lazy"
             />
             <span data-i18n="home.highlight_banner.self_services"
               >Self Services</span
@@ -230,12 +243,16 @@
           <img
             src="./assets/images/home-page/about-section/about-banner.png"
             alt="Restaurant interior"
+            width="448"
+            height="560"
             loading="lazy"
           />
           <img
             class="about__frameRect"
             src="./assets/images/home-page/about-section/about-frame.png"
             alt="Decor Frame"
+            width="448"
+            height="560"
             loading="lazy"
           />
         </div>
@@ -265,6 +282,7 @@
             src="./assets/icons/home-page/service-section/door-delivery.svg"
             alt="Door Delivery"
             class="features__icon"
+            loading="lazy"
           />
           <h4
             class="features__title"
@@ -287,6 +305,7 @@
             src="./assets/icons/home-page/service-section/outdoor-catering.svg"
             alt="Outdoor Catering"
             class="features__icon"
+            loading="lazy"
           />
           <h4
             class="features__title"
@@ -309,7 +328,9 @@
         <img
           src="./assets/images/home-page/service-section/service-banner.png"
           alt="Dish"
-          loading="lazy"
+          width="676"
+          height="858"
+          fetchpriority="high"
         />
       </div>
 
@@ -341,6 +362,7 @@
             src="./assets/icons/home-page/service-section/banquets-hall.svg"
             alt="Banquets Hall"
             class="features__icon"
+            loading="lazy"
           />
           <h4
             class="features__title"
@@ -384,6 +406,8 @@
               class="service__image"
               src="./assets/images/home-page/service-mean-section/service-dish.png"
               alt="Signature nachos with sauce"
+              width="600"
+              height="600"
               loading="lazy"
             />
           </div>
@@ -510,30 +534,35 @@
             <img
               src="./assets/icons/home-page/menu-section//active-dot.svg"
               alt="Active"
+              loading="lazy"
             />
           </button>
           <button class="menu__dot" aria-label="Slide 2">
             <img
               src="./assets/icons/home-page/menu-section/dot.svg"
               alt="Inactive"
+              loading="lazy"
             />
           </button>
           <button class="menu__dot" aria-label="Slide 3">
             <img
               src="./assets/icons/home-page/menu-section/dot.svg"
               alt="Inactive"
+              loading="lazy"
             />
           </button>
           <button class="menu__dot" aria-label="Slide 4">
             <img
               src="./assets/icons/home-page/menu-section/dot.svg"
               alt="Inactive"
+              loading="lazy"
             />
           </button>
           <button class="menu__dot" aria-label="Slide 5">
             <img
               src="./assets/icons/home-page/menu-section/dot.svg"
               alt="Inactive"
+              loading="lazy"
             />
           </button>
         </div>
@@ -552,6 +581,7 @@
             src="./assets/icons/home-page/statitics-section/happy-customer.svg"
             alt="Happy Customers"
             class="stats__icon"
+            loading="lazy"
           />
           <div class="stats__info">
             <h3 class="stats__number">7500+</h3>
@@ -567,6 +597,7 @@
             src="./assets/icons/home-page/statitics-section/passionate-chef.svg"
             alt="Passionate Chefs"
             class="stats__icon"
+            loading="lazy"
           />
           <div class="stats__info">
             <h3 class="stats__number">39</h3>
@@ -582,6 +613,7 @@
             src="./assets/icons/home-page/statitics-section/dishes.svg"
             alt="Dishes"
             class="stats__icon"
+            loading="lazy"
           />
           <div class="stats__info">
             <h3 class="stats__number">286</h3>
@@ -597,6 +629,7 @@
             src="./assets/icons/home-page/statitics-section/custom-rating.svg"
             alt="Custom Rating"
             class="stats__icon"
+            loading="lazy"
           />
           <div class="stats__info">
             <h3 class="stats__number">4.5</h3>

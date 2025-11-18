@@ -19,6 +19,10 @@ import i18nService from './i18n-service.js';
 
   let totalCards = 0;
 
+  // Cache layout values to prevent forced reflows
+  let cachedCardWidth = 0;
+  let cachedGap = 0;
+
   // CREATE CARD HTML
   function createCardHTML(item) {
     return `
@@ -147,6 +151,7 @@ import i18nService from './i18n-service.js';
 
     // Reset slider to first page on resize
     currentIndex = 0;
+    updateLayoutCache(); // Update cache before slider
     updateSlider();
     updateDots();
   }
@@ -158,6 +163,15 @@ import i18nService from './i18n-service.js';
     return Math.ceil(totalCards / cardsPerView);
   }
 
+  // UPDATE LAYOUT CACHE
+  // Separate read operations to prevent forced reflows
+  function updateLayoutCache() {
+    if (!cards.length) return;
+    // Batch all layout reads together
+    cachedCardWidth = cards[0].offsetWidth;
+    cachedGap = parseFloat(getComputedStyle(menuGrid).gap) || 0;
+  }
+
   // UPDATE SLIDER POSITION
   // move the grid using translateX
   function updateSlider() {
@@ -166,8 +180,10 @@ import i18nService from './i18n-service.js';
       updateArrowStates();
       return;
     }
-    const cardWidth = cards[0].offsetWidth; // Actual rendered width
-    const gap = parseFloat(getComputedStyle(menuGrid).gap) || 0;
+
+    // Use cached values to avoid forced reflow
+    const cardWidth = cachedCardWidth;
+    const gap = cachedGap;
 
     // Each page translates by (cardsPerView * (cardWidth + gap))
     const translateX = -(currentIndex * cardsPerView * (cardWidth + gap));
@@ -264,6 +280,7 @@ import i18nService from './i18n-service.js';
       renderMenu(category);
       updateCardsPerView();
       updateDots();
+      updateLayoutCache(); // Update cache before slider
       updateSlider();
     });
   });
@@ -334,6 +351,7 @@ import i18nService from './i18n-service.js';
   renderMenu(defaultCategory);
   updateCardsPerView();
   updateDots();
+  updateLayoutCache(); // Update cache before slider
   updateSlider();
 
   document.addEventListener('language-changed', () => {
@@ -342,6 +360,7 @@ import i18nService from './i18n-service.js';
     renderMenu(category);
     updateCardsPerView();
     updateDots();
+    updateLayoutCache(); // Update cache before slider
     updateSlider();
   });
 })();

@@ -1,3 +1,9 @@
+/* Font display optimization for faster text rendering */
+@font-face {
+  font-family: 'Font Awesome 6 Free';
+  font-display: swap;
+}
+
 body {
   margin: 0;
   overflow-x: hidden;
@@ -49,6 +55,40 @@ body {
 
 html {
   font-size: 16px;
+}
+
+/* Libre Bodoni (Heading) */
+@font-face {
+  font-family: 'Libre Bodoni';
+  font-style: normal;
+  font-weight: 400; /* Regular */
+  font-display: swap; 
+  src: url('../assets/fonts/libre-bodoni-regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Libre Bodoni';
+  font-style: normal;
+  font-weight: 700; /* Bold */
+  font-display: swap; 
+  src: url('../assets/fonts/libre-bodoni-700.woff2') format('woff2');
+}
+
+/* Plus Jakarta Sans (Body) */
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../assets/fonts/plus-jakarta-sans-regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../assets/fonts/plus-jakarta-sans-700.woff2') format('woff2');
 }
 
 :root {

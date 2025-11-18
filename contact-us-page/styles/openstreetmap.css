@@ -1,0 +1,359 @@
+/* =============================
+ * OpenStreetMap Viewer Container
+ * ============================= */
+
+/* Map Container - matches .find-us__image-container styling */
+.map-viewer-container {
+  /* Position */
+  position: relative;
+
+  /* Box model */
+  display: none; /* Hidden by default */
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 600px;
+  height: 450px;
+
+  /* Visual */
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #f0f0f0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.map-viewer-container:hover {
+  transform: scale(1.01);
+}
+
+/* Map Element */
+.map-element {
+  /* Box model */
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  z-index: 1;
+}
+
+/* Override Leaflet default styles for consistency */
+.map-element .leaflet-container {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* =============================
+ * Close Button
+ * ============================= */
+
+.map-close-btn {
+  /* Position */
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 1000;
+
+  /* Box model */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  padding: 0;
+
+  /* Typography */
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-white, #f5f5f5);
+
+  /* Visual */
+  background-color: rgba(34, 34, 34, 0.85);
+  backdrop-filter: blur(4px);
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.map-close-btn:hover {
+  background-color: rgba(251, 143, 44, 0.95);
+  transform: scale(1.1) rotate(90deg);
+  box-shadow: 0 4px 12px rgba(251, 143, 44, 0.4);
+}
+
+.map-close-btn:active {
+  transform: scale(0.95) rotate(90deg);
+}
+
+/* =============================
+ * Directional Control Buttons
+ * ============================= */
+
+/* Controls Container */
+.map-directional-controls {
+  /* Position */
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+
+  /* Box model */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 6px;
+  width: 140px;
+  height: 140px;
+
+  /* Visual */
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+  padding: 10px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Individual Control Button */
+.map-control-btn {
+  /* Box model */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  padding: 0;
+
+  /* Typography */
+  font-size: 20px;
+  color: #333;
+
+  /* Visual */
+  background: linear-gradient(135deg, #ffffff 0%, #f8f8f8 100%);
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.map-control-btn:hover {
+  background: linear-gradient(135deg, #fff8f3 0%, #ffe8d6 100%);
+  border-color: rgba(251, 143, 44, 0.5);
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(251, 143, 44, 0.3);
+  color: var(--accent-color, #fb8f2c);
+}
+
+.map-control-btn:active,
+.map-control-active {
+  background: linear-gradient(135deg, #fb8f2c 0%, #e8803c 100%);
+  border-color: #fb8f2c;
+  transform: scale(0.95);
+  color: white;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Position buttons in 3x3 grid */
+.map-control-up {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.map-control-left {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.map-control-right {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+.map-control-down {
+  grid-column: 2;
+  grid-row: 3;
+}
+
+/* Center cell (grid-column: 2, grid-row: 2) is intentionally left empty */
+
+/* =============================
+ * Loading State (Optional)
+ * ============================= */
+
+.map-loading {
+  /* Box model */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  width: 100%;
+  height: 100%;
+
+  /* Typography */
+  color: #666;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.map-loading-spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid #e0e0e0;
+  border-top-color: var(--accent-color, #fb8f2c);
+  border-radius: 50%;
+  animation: mapSpinnerRotate 0.8s linear infinite;
+}
+
+@keyframes mapSpinnerRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =============================
+ * Responsive Design
+ * ============================= */
+
+/* lg breakpoint (≤1024px) - Tablet */
+@media (max-width: 64rem) {
+  .map-viewer-container {
+    /* Box model */
+    max-width: 100%;
+    height: 400px;
+  }
+
+  .map-directional-controls {
+    /* Box model */
+    width: 120px;
+    height: 120px;
+    gap: 5px;
+    padding: 8px;
+  }
+
+  .map-control-btn {
+    /* Typography */
+    font-size: 18px;
+  }
+}
+
+/* sm breakpoint (≤640px) - Mobile */
+@media (max-width: 40rem) {
+  .map-viewer-container {
+    /* Box model */
+    height: 350px;
+    border-radius: 8px;
+  }
+
+  .map-directional-controls {
+    /* Position */
+    bottom: 16px;
+
+    /* Box model */
+    width: 100px;
+    height: 100px;
+    gap: 4px;
+    padding: 6px;
+  }
+
+  .map-control-btn {
+    /* Typography */
+    font-size: 16px;
+    border-radius: 6px;
+  }
+
+  .map-close-btn {
+    /* Box model */
+    width: 32px;
+    height: 32px;
+
+    /* Typography */
+    font-size: 18px;
+  }
+}
+
+/* xs breakpoint (≤480px) - Small Mobile */
+@media (max-width: 30rem) {
+  .map-viewer-container {
+    /* Box model */
+    height: 300px;
+  }
+
+  .map-directional-controls {
+    /* Box model */
+    width: 90px;
+    height: 90px;
+    gap: 3px;
+    padding: 5px;
+  }
+
+  .map-control-btn {
+    /* Typography */
+    font-size: 14px;
+  }
+}
+
+/* =============================
+ * Accessibility Enhancements
+ * ============================= */
+
+/* Focus states for keyboard navigation */
+.map-control-btn:focus,
+.map-close-btn:focus {
+  outline: 3px solid rgba(251, 143, 44, 0.5);
+  outline-offset: 2px;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  .map-viewer-container,
+  .map-control-btn,
+  .map-close-btn {
+    transition: none;
+  }
+
+  .map-close-btn:hover {
+    transform: scale(1.1);
+  }
+
+  .map-control-btn:hover {
+    transform: scale(1.05);
+  }
+}
+
+/* =============================
+ * Custom Leaflet Popup Styling
+ * ============================= */
+
+/* Style the Leaflet popup to match app design */
+.leaflet-popup-content-wrapper {
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.leaflet-popup-tip {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* =============================
+ * Animation for Map Container
+ * ============================= */
+
+@keyframes mapFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.map-viewer-container[style*='display: block'] {
+  animation: mapFadeIn 0.4s ease-out;
+}

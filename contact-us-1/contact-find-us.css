@@ -386,14 +386,11 @@ html[data-theme="light"] .contact-item:hover {
 }
 
 html[data-theme="light"] .contact-icon {
-  background: linear-gradient(
-    135deg,
-    rgba(11, 11, 11, 0.1),
-    rgba(0, 0, 0, 0.05)
-  ); /* Lighter gradient */
+  background: rgba(0, 0, 0, 0.05); /* Very light grey background */
   border: 1px solid rgba(0, 0, 0, 0.1); /* Lighter border */
-  box-shadow: inset 0 1px 6px rgba(0, 0, 0, 0.05),
-    0 10px 25px rgba(255, 173, 90, 0.05); /* Lighter shadow */
+  box-shadow: inset 0 1px 6px rgba(0, 0, 0, 0.02),
+    0 10px 25px rgba(0, 0, 0, 0.02); /* Lighter shadow */
+  filter: brightness(0) invert(0); /* Make the SVG black */
 }
 
 html[data-theme="light"] #find-us .btn:hover {

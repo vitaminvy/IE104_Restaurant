@@ -226,7 +226,6 @@ function showError(message) {
     <div style="
       text-align: center;
       padding: 80px 20px;
-      color: rgba(255, 255, 255, 0.8);
     ">
       <i class="fas fa-exclamation-triangle" style="
         font-size: 64px;
@@ -236,12 +235,10 @@ function showError(message) {
       <h2 style="
         font-size: 32px;
         margin-bottom: 16px;
-        color: white;
       ">${message}</h2>
       <p style="
         font-size: 18px;
         margin-bottom: 32px;
-        opacity: 0.7;
       ">${i18nService.t('blog_details_page.error.description')}</p>
       <a href="../blogpage/index.html" style="
         display: inline-block;

@@ -49,7 +49,7 @@
 .features__desc {
   font-family: var(--font-body);
   font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--text-secondary);
   line-height: 1.5;
   text-align: center;
 }
@@ -109,3 +109,5 @@
     max-width: 24rem; /* 384px */
   }
 }
+
+

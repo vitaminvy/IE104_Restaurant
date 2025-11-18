@@ -15,39 +15,18 @@
   font-size: clamp(2.5rem, 5vw, 69px);
   font-weight: 500;
   line-height: 1.2;
-  color: var(--color-white);
+  color: var(--text-primary);
   letter-spacing: 0.5px;
   word-break: break-word;
   text-align: center;
 
   /* Box model */
+  margin-bottom: 50px;
+  border-bottom: 1px solid var(--border-color);
+  border-top: 1px solid var(--border-color);
   margin: 0 auto 50px;
   max-width: 100%;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-  border-top: 1px solid rgba(255, 255, 255, 0.3);
   padding: 20px 0;
-
-  /* Visual */
-  position: relative;
-}
-
-.page-header h1::before,
-.page-header h1::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60px;
-  height: 3px;
-  background: linear-gradient(90deg, var(--color-dark-orange), #ffcb46);
-}
-
-.page-header h1::before {
-  top: 0;
-}
-
-.page-header h1::after {
-  bottom: 0;
 }
 
 /* ===============================

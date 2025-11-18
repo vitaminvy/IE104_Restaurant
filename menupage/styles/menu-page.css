@@ -677,6 +677,44 @@ html[data-theme="light"] .menu__card:hover {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Adjust hover shadow */
 }
 
+html[data-theme="light"] .banner {
+  background: linear-gradient(
+      115deg,
+      rgba(255, 255, 255, 0.2),
+      rgba(255, 255, 255, 0.35)
+    ),
+    url("../../assets/images/menu-page/menu-page-banner-light-mode_2.jpg")
+      center/cover no-repeat;
+  color: #111114;
+}
+
+html[data-theme="light"] .menu-banner__content h2,
+html[data-theme="light"] .menu-banner__content p,
+html[data-theme="light"] .menu-banner__eyebrow,
+html[data-theme="light"] .menu-banner__btn--ghost,
+html[data-theme="light"] .menu-banner__stats strong,
+html[data-theme="light"] .menu-banner__stats span {
+  color: #111114;
+}
+
+html[data-theme="light"] .menu-banner__eyebrow {
+  border-color: rgba(0, 0, 0, 0.9);
+}
+
+html[data-theme="light"] .menu-banner__btn--ghost {
+  border-color: rgba(0, 0, 0, 0.9);
+}
+
+html[data-theme="light"] .menu-banner__btn--ghost:hover {
+  background: rgba(0, 0, 0, 0.08);
+  color: #111114;
+}
+
+html[data-theme="light"] .menu-banner__stats li {
+  border-color: rgba(0, 0, 0, 0.12);
+  background: rgba(255, 255, 255, 0.25);
+}
+
 /* =======================
    RESPONSIVE
 ======================= */

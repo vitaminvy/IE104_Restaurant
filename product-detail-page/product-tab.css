@@ -1,5 +1,5 @@
 .container {
-    max-width: 1280px;
+  max-width: 1280px;
 }
 .product-tab {
   font-family: "Plus Jakarta Sans", sans-serif;
@@ -248,5 +248,27 @@
   }
 }
 
+/* =====================
+   LIGHT MODE OVERRIDES
+===================== */
 
+html[data-theme="light"] .product-tab__btn {
+  color: #777777;
+}
 
+html[data-theme="light"] .product-tab__btn--active {
+  color: #111114;
+}
+
+html[data-theme="light"] .review__date {
+  color: #777777;
+}
+
+html[data-theme="light"] .review-form__note {
+  color: #777777;
+}
+
+html[data-theme="light"] .review-form__field input,
+html[data-theme="light"] .review-form__field textarea {
+  border-bottom-color: #cccccc;
+}

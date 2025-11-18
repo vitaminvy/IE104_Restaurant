@@ -208,4 +208,11 @@
   }
 }
 
+/* =====================
+   LIGHT MODE OVERRIDES
+===================== */
 
+html[data-theme="light"] .product-detail__meta,
+html[data-theme="light"] .product-detail__meta strong {
+  color: #555555;
+}

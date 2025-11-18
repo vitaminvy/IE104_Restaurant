@@ -1,4 +1,3 @@
-// product-detail.js
 (function () {
   const minus = document.querySelector(".qty-btn.minus");
   const plus = document.querySelector(".qty-btn.plus");

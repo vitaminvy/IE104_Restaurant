@@ -1,19 +1,14 @@
 /* ========================================
  * DYNAMIC PRODUCT DETAIL LOADER
- * Loads product details based on URL parameter ?id=X
  * ======================================== */
 
 import { menuItems, dietaryBadges } from "../../assets/data/mockdata.js";
 import i18nService from "../../assets/script/i18n-service.js";
 
-/* ========================================
- * PRODUCT DETAIL DYNAMIC LOADER
- * ======================================== */
+/*  PRODUCT DETAIL DYNAMIC LOADER */
 
 (function productDetailLoader() {
-  /* ========================================
-   * ANIMATION STYLES INJECTION
-   * ======================================== */
+  /* ANIMATION STYLES INJECTION */
 
   function injectAnimationStyles() {
     // Check if styles already exist

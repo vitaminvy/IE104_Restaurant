@@ -1,13 +1,4 @@
-/* ========================================
- * PAGE-SPECIFIC ANIMATION ENHANCEMENTS
- * Additional polished animations for blog and contact pages
- * ======================================== */
-
-/* ========================================
- * BLOG PAGE ENHANCEMENTS
- * ======================================== */
-
-/* ========== Blog Card Hover Enhancements ========== */
+/* ========== Blog Card Hover ========== */
 
 .post {
   transition: transform 0.3s var(--ease-smooth),

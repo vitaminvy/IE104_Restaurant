@@ -50,19 +50,19 @@
     "service_features": {
       "door_delivery": {
         "title": "Door Delivery",
-        "description": "Desire that they all cannot foresee the pain and trouble that are bound to ensue."
+        "description": "Enjoy the convenience of having your favorite meals delivered right to your doorstep, fresh and hot."
       },
       "outdoor_catering": {
         "title": "Outdoor Catering",
-        "description": "Obligations of business it will frequently occur that pleasures have to be repudiated."
+        "description": "We provide exceptional catering services for all your outdoor events, ensuring a memorable culinary experience."
       },
       "fine_dining": {
         "title": "Fine Dining",
-        "description": "Explain you how this mistakens denouncing pleasure & praising pain will give you complete."
+        "description": "Indulge in an exquisite fine dining experience with our meticulously crafted dishes and elegant ambiance."
       },
       "banquets_hall": {
         "title": "Banquets Hall",
-        "description": "The wise man therefore always holds in these matters this principles of selection greater."
+        "description": "Our spacious banquet halls are perfect for hosting grand celebrations, corporate events, and special gatherings."
       }
     },
     "service_quality": {
@@ -222,7 +222,7 @@
     },
     "coming_soon": {
       "title": "Subscribe Newsletter & Get Latest News",
-      "description": "Our being able to do what we like best, every pleasure is to be welcomed and every pain avoided certain.",
+      "description": "We are working hard to bring you something amazing! Stay tuned for our grand launch, where new flavors and experiences await.",
       "placeholder_email": "Enter your email address",
       "timer": {
         "days": "Days",
@@ -959,22 +959,22 @@
       "title": "We Are A Mexican Restaurant Makes Delicious.",
       "lead": "From handmade tortillas pressed fresh each morning to slow-cooked carnitas and bright salsas, we cook with seasonal ingredients from local farmers. Our kitchen blends family recipes with modern techniques, keeping flavors bold and honest. Whether you crave something spicy, smoky, or vegetarian, there's a plate here made with care—and a team ready to welcome you like familia.",
       "story_title": "The Story Of Our<br/>First Restaurant<br/>Branch",
-      "story_text": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident."
+      "story_text": "Our journey began with a simple passion for authentic flavors and a desire to share them with our community. From a small family-run eatery, we've grown into a beloved culinary destination, always staying true to our roots."
     },
     "vision_mission": {
       "title": "Our Vision & Mission",
-      "subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam aliquam amet, cursus tellus non consequat laoreet eget ornare. Vulputate tellus, a lobortis eu nisl. Quisque vulputate eget et, aliquet libero.",
+      "subtitle": "Our vision is to be the leading culinary destination, renowned for exceptional food, unparalleled service, and a welcoming atmosphere. Our mission is to delight every guest with innovative dishes and a memorable dining experience.",
       "delicious_cuisine": {
         "title": "Delicious Cuisine",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit at aliquam amet."
+        "description": "We are committed to serving delicious cuisine prepared with the freshest ingredients and culinary expertise."
       },
       "fast_delivery": {
         "title": "Fast Delivery",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit at aliquam amet."
+        "description": "Experience prompt and efficient delivery services, bringing our gourmet meals directly to you."
       },
       "professional_chef": {
         "title": "Professional Chef",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit at aliquam amet."
+        "description": "Our team of professional chefs brings passion and expertise to every dish, ensuring a delightful culinary journey."
       }
     },
     "team": {

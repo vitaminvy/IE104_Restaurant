@@ -27,7 +27,7 @@
 }
 
 .service__content .service__subtitle {
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--text-secondary);
   text-align: center;
   font-size: 16px;
   font-weight: 400;
@@ -66,8 +66,8 @@
   position: relative;
   padding-bottom: 20px;
   margin-bottom: 8px;
-  border-bottom: 1px solid var(--color-white);
-  color: white;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-primary);
 }
 
 .service__satisfy .service__item {
@@ -207,3 +207,5 @@
     max-width: 570px;
   }
 }
+
+

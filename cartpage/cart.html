@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="vi">
   <head>
+    <script src="../assets/script/theme-init.js"></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title data-i18n="cart_page.title">Cart Page | IE104 Restaurant</title>
@@ -40,11 +41,11 @@
     <!-- link header and footer -->
     <script src="../assets/script/include-partials.js" defer></script>
     <script type="module" src="../assets/script/header.js" defer></script>
+    <link rel="stylesheet" href="../assets/features/theme-toggle.css" />
   </head>
   <body>
     <!-- ========== 1. HEADER ========== -->
     <div data-include="/partials/header.html"></div>
-    <script type="module" src="../assets/script/lang-toggle.js" defer></script>
 
     <main class="cart__container">
       <!-- ================= LEFT: CART TABLE ================= -->
@@ -208,6 +209,11 @@
 
     <!-- ========== 15. FOOTER ========== -->
     <div data-include="/partials/footer.html"></div>
-    <script src="../assets/script/lang-toggle.js" defer></script>
+
+    <script
+      type="module"
+      src="../assets/script/header-features.js"
+      defer
+    ></script>
   </body>
 </html>

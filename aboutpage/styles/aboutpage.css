@@ -111,6 +111,21 @@
 
 .vision {
   margin-top: 1rem;
+  --vision-card-bg: rgba(14, 17, 24, 0.92);
+  --vision-card-hover-bg: rgba(18, 21, 30, 0.96);
+  --vision-card-border: rgba(255, 255, 255, 0.08);
+  --vision-card-shadow: 0 25px 70px rgba(0, 0, 0, 0.45);
+  --vision-card-hover-shadow: 0 35px 90px rgba(0, 0, 0, 0.55);
+  --vision-photo-shadow: 0 45px 90px rgba(0, 0, 0, 0.55);
+}
+
+html[data-theme="light"] .vision {
+  --vision-card-bg: rgba(255, 255, 255, 0.9);
+  --vision-card-hover-bg: rgba(255, 255, 255, 0.95);
+  --vision-card-border: rgba(15, 23, 42, 0.08);
+  --vision-card-shadow: 0 25px 50px rgba(15, 23, 42, 0.18);
+  --vision-card-hover-shadow: 0 45px 70px rgba(15, 23, 42, 0.25);
+  --vision-photo-shadow: 0 45px 90px rgba(15, 23, 42, 0.25);
 }
 .vision__container {
   width: min(1180px, 92vw);
@@ -151,8 +166,18 @@
 .vision__feature {
   display: grid;
   grid-template-columns: 56px 1fr;
-  gap: 50px;
+  gap: 32px;
   align-items: start;
+  position: relative;
+  cursor: pointer;
+  border-radius: var(--radius-lg);
+  background: var(--vision-card-bg);
+  border: 1px solid var(--vision-card-border);
+  padding: clamp(16px, 2.6vw, 24px);
+  box-shadow: var(--vision-card-shadow);
+  transition: transform 0.3s ease, background-color 0.3s ease,
+    box-shadow 0.3s ease;
+  backdrop-filter: blur(8px);
 }
 
 .vision__badge {
@@ -182,18 +207,10 @@
 /* =======================
    VISION HOVER EFFECTS
 ======================= */
-.vision__feature {
-  position: relative;
-  cursor: pointer;
-  transition: transform 0.3s ease, background-color 0.3s ease;
-  border-radius: 10px;
-  padding: 0.5rem 0.75rem;
-}
-
-/* Khi hover toàn dòng */
 .vision__feature:hover {
-  background: rgba(255, 255, 255, 0.05);
-  transform: translateX(6px);
+  background: var(--vision-card-hover-bg);
+  box-shadow: var(--vision-card-hover-shadow);
+  transform: translateY(-6px);
 }
 
 /* Badge icon: ánh sáng và xoay nhẹ */
@@ -219,8 +236,12 @@
   filter: brightness(1.08);
 }
 .vision__photo {
-  border-radius: 14px;
+  border-radius: 20px;
   overflow: hidden;
+  box-shadow: var(--vision-photo-shadow);
+  position: relative;
+  background: var(--bg-secondary);
+  border: 1px solid var(--vision-card-border);
 }
 .vision__photo img {
   width: 100%;
@@ -409,6 +430,7 @@
 
   .vision__grid {
     grid-template-columns: 1.1fr 1fr;
+    align-items: center;
   }
   .vision__header {
     text-align: center;
@@ -431,7 +453,8 @@
     grid-template-columns: 64px 1fr;
   }
   .vision__features {
-    margin-top: 8rem;
+    margin-top: 0;
+    align-self: center;
   }
   .team__grid {
     grid-template-columns: repeat(3, 1fr);
@@ -466,5 +489,3 @@
     z-index: 1;
   }
 }
-
-

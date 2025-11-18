@@ -129,6 +129,34 @@ function initHeaderFeatures() {
   headerRight.prepend(actionsContainer);
 }
 
+function runAfterPartials() {
+  initHeaderFeatures();
+  setupFooterLanguageToggles(); // Setup footer language toggles
+  updateFooterLogo(); // Initial call to update footer logo
+  updateHeaderLogo(); // Initial call to update header logo
+  applyStaticTranslations();
+}
+
+function arePartialsReady() {
+  return document.getElementById('header') && document.getElementById('footer');
+}
+
+function waitForPartials(callback) {
+  if (arePartialsReady()) {
+    callback();
+    return;
+  }
+
+  const handler = () => {
+    if (arePartialsReady()) {
+      document.removeEventListener('partials:loaded', handler);
+      callback();
+    }
+  };
+
+  document.addEventListener('partials:loaded', handler);
+}
+
 // --- FOOTER LANGUAGE TOGGLES ---
 function setupFooterLanguageToggles() {
   document.querySelectorAll('.footer__language-link').forEach(link => {
@@ -187,19 +215,13 @@ function updateHeaderLogo() {
 
 // --- MAIN INITIALIZATION LOGIC ---
 async function initialize() {
-  // 1. Wait for header/footer to be loaded
-  document.addEventListener('includeLoaded', () => {
-    initHeaderFeatures();
-    setupFooterLanguageToggles(); // Setup footer language toggles
-    updateFooterLogo(); // Initial call to update footer logo
-    updateHeaderLogo(); // Initial call to update header logo
-  });
-  
-  // 2. Initialize i18n service and apply translations
+  waitForPartials(runAfterPartials);
+
+  // Initialize i18n service and apply translations
   await i18nService.init();
   applyStaticTranslations();
 
-  // 3. Listen for language changes to re-apply translations
+  // Listen for language changes to re-apply translations
   document.addEventListener('language-changed', applyStaticTranslations);
 }
 

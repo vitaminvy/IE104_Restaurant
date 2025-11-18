@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-/* Font display optimization for faster text rendering */
-@font-face {
-  font-family: 'Font Awesome 6 Free';
-  font-display: swap;
-=======
 html[data-theme="dark"] {
   --bg-primary: #111114;
   --bg-secondary: #18181b;
@@ -24,7 +18,6 @@ html[data-theme="light"] {
   --accent-color: #fb8f2c;
   --border-color: #0b0b0b;
   --icon-filter: brightness(0) invert(0);
->>>>>>> origin/main
 }
 
 body {
@@ -92,7 +85,7 @@ html {
   font-style: normal;
   font-weight: 400; /* Regular */
   font-display: swap; 
-  src: url('../assets/fonts/libre-bodoni-regular.woff2') format('woff2');
+  src: url('../assets/fonts/libre-bodoni-v9-latin_vietnamese-regular.woff2') format('woff2');
 }
 
 @font-face {
@@ -100,7 +93,7 @@ html {
   font-style: normal;
   font-weight: 700; /* Bold */
   font-display: swap; 
-  src: url('../assets/fonts/libre-bodoni-700.woff2') format('woff2');
+  src: url('../assets/fonts/libre-bodoni-v9-latin_vietnamese-700.woff2') format('woff2');
 }
 
 /* Plus Jakarta Sans (Body) */
@@ -109,7 +102,7 @@ html {
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url('../assets/fonts/plus-jakarta-sans-regular.woff2') format('woff2');
+  src: url('../assets/fonts/plus-jakarta-sans-v12-latin_vietnamese-regular.woff2') format('woff2');
 }
 
 @font-face {
@@ -117,7 +110,7 @@ html {
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url('../assets/fonts/plus-jakarta-sans-700.woff2') format('woff2');
+  src: url('../assets/fonts/plus-jakarta-sans-v12-latin_vietnamese-700.woff2') format('woff2');
 }
 
 :root {

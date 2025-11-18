@@ -5,6 +5,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title data-i18n="home_page.title">WowWraps</title>
+    <meta
+      name="description"
+      content="Welcome to WowWraps! Discover delicious meals from our experienced chefs, read our latest blog posts, and easily book your table online. Explore our menu of breakfast, lunch, and dinner options."
+    />
     <link rel="icon" href="./assets/icons/icon-header/nav-vect.svg" type="image/svg+xml">
     <!-- Font Awesome CDN -->
     <link
@@ -69,21 +73,21 @@
     <link rel="stylesheet" href="./assets/features/allergy-alert.css" />
 
     <!-- Global Animation System - Deferred -->
-    <link rel="preload" href="../style/animations.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-    <noscript><link rel="stylesheet" href="../style/animations.css" /></noscript>
+    <link rel="preload" href="./style/animations.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="./style/animations.css" /></noscript>
 
     <!-- Form Validation & Notification System - Deferred -->
-    <link rel="preload" href="../style/form-validation.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-    <noscript><link rel="stylesheet" href="../style/form-validation.css" /></noscript>
-    <link rel="preload" href="../style/notification-system.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-    <noscript><link rel="stylesheet" href="../style/notification-system.css" /></noscript>
+    <link rel="preload" href="./style/form-validation.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="./style/form-validation.css" /></noscript>
+    <link rel="preload" href="./menupage/styles/notification-system.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="./menupage/styles/notification-system.css" /></noscript>
 
     <!-- Global Loading System -->
-    <script src="../assets/script/global-loader.js"></script>
-    <link rel="stylesheet" href="../style/back-to-top.css" />
-    <script src="../assets/script/scroll-animations.js"></script>
-    <script src="../assets/script/form-validator.js"></script>
-    <script src="../assets/script/notification-system.js"></script>
+    <script src="./assets/script/global-loader.js"></script>
+    <link rel="stylesheet" href="./style/back-to-top.css" />
+    <script src="./assets/script/scroll-animations.js"></script>
+    <script src="./assets/script/form-validator.js"></script>
+    <script src="./menupage/scripts/notification-system.js"></script>
   </head>
   <body>
     <!-- logic for header and footer -->
@@ -1078,11 +1082,11 @@
                   <span data-i18n="home.blogs.card1.author">By Admin</span>
                 </div>
                 <a
-                  href="./blogpage-details/index.html"
+                  href="./blogpage-details/index.html?post=new-restaurant-in-town"
                   class="blog-hero-card__cta"
-                  data-i18n="home.blogs.read_more"
+                  aria-label="Read more about the new restaurant in town"
                 >
-                  Read more
+                  Read more about the new restaurant in town
                 </a>
               </div>
             </article>
@@ -1110,10 +1114,10 @@
                   glows like sunset.
                 </p>
                 <a
-                  href="./blogpage-details/index.html"
+                  href="./blogpage-details/index.html?post=summer-drink-special"
                   class="blog-mini-card__cta link-underline"
-                  data-i18n="home.blogs.read_more"
-                  >Read more</a
+                  aria-label="Read more about our summer drink special"
+                  >Read more about our summer drink special</a
                 >
               </div>
             </article>
@@ -1143,9 +1147,10 @@
                     with dimension.
                   </p>
                   <a
-                    href="./blogpage-details/index.html"
+                    href="./blogpage-details/index.html?post=5-plating-secrets"
                     class="blogs__timeline-link link-underline"
-                    >Read more</a
+                    aria-label="Read more about 5 plating secrets you can borrow"
+                    >Read more about 5 plating secrets</a
                   >
                 </div>
               </div>
@@ -1166,9 +1171,10 @@
                     dressings, and dessert sauces.
                   </p>
                   <a
-                    href="./blogpage-details/index.html"
+                    href="./blogpage-details/index.html?post=ferment-pantry-starters"
                     class="blogs__timeline-link link-underline"
-                    >Read more</a
+                    aria-label="Read more about fermenting pantry starters"
+                    >Read more about fermenting pantry starters</a
                   >
                 </div>
               </div>
@@ -1189,9 +1195,10 @@
                     caramelized depth.
                   </p>
                   <a
-                    href="./blogpage-details/index.html"
+                    href="./blogpage-details/index.html?post=zero-waste-desserts"
                     class="blogs__timeline-link link-underline"
-                    >Read more</a
+                    aria-label="Read more about zero-waste desserts"
+                    >Read more about zero-waste desserts</a
                   >
                 </div>
               </div>
@@ -1214,10 +1221,10 @@
     <!-- commit for deploy -->
 
     <!-- Reservation Form Handler -->
-    <script src="./reservation-handler.js"></script>
+    <script src="./homepage/reservation-handler.js"></script>
 
     <!-- Newsletter Form Handler -->
-    <script src="./newsletter-handler.js"></script>
+    <script src="./homepage/newsletter-handler.js"></script>
 
     <script type="module" src="assets/script/header-features.js" defer></script>
     <script src="./assets/script/newsletter.js" defer></script>

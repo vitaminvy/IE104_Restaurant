@@ -68,7 +68,7 @@
   <body>
     <!-- logic for header and footer -->
     <script src="../assets/script/include-partials.js" defer></script>
-    <script type="module" src="../assets/script/header.js" defer></script>
+    <script type="module" src="../assets/script/header.js"></script>
 
     <!-- ========== 1. HEADER ========== -->
     <div data-include="/partials/header.html"></div>
@@ -195,6 +195,8 @@
     <div
       class="cart-icon-wrapper icon-bounce"
       id="cart-icon"
+      role="button"
+      tabindex="0"
       aria-label="View cart"
       title="View cart"
       data-i18n-attrs="aria-label:menu_page.cart_icon.aria_label,title:menu_page.cart_icon.title"
@@ -209,28 +211,19 @@
     <!-- Page scripts -->
 
     <!-- navigate menu  -->
-    <script
-      type="module"
-      src="../assets/script/navigate-menu.js"
-      defer
-    ></script>
-    <script type="module" src="./scripts/menupage.js" defer></script>
+    <script type="module" src="../assets/script/navigate-menu.js"></script>
+    <script type="module" src="./scripts/menupage.js"></script>
 
     <!-- dietary filter extension - NEW FEATURE (does not modify existing code) -->
     <script
       type="module"
       src="./scripts/dietary-filter-extension.js"
-      defer
     ></script>
 
     <!-- Global Features Scripts -->
     <script type="module" src="../assets/features/allergy-alert.js"></script>
 
-    <script
-      type="module"
-      src="../assets/script/header-features.js"
-      defer
-    ></script>
+    <script type="module" src="../assets/script/header-features.js"></script>
     <div data-include="../partials/back-to-top.html"></div>
     <script src="../assets/script/back-to-top.js"></script>
   </body>

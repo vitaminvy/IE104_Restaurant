@@ -17,7 +17,6 @@
 
   /* Visual */
   background: radial-gradient(circle at top right, #1d223b, #0c0c0f 60%);
-  box-shadow: 0 40px 80px rgba(6, 8, 20, 0.6);
 }
 
 #find-us::before,
@@ -286,7 +285,7 @@
 /* =============================
  * Responsive Design
  * ============================= */
- 
+
 /* lg breakpoint (≤780px) */
 @media (max-width: 780px) {
   .contact-item {
@@ -341,7 +340,6 @@
     padding: 3rem;
   }
 }
-
 
 /* sm breakpoint (≤640px) — small mobile */
 @media (max-width: 40rem) {

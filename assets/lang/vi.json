@@ -907,10 +907,12 @@
       "phone": "Số điện thoại *",
       "email": "Địa chỉ email *",
       "country_options": {
+        "placeholder": "Chọn quốc gia",
         "au": "Úc",
         "us": "Hoa Kỳ",
         "vn": "Việt Nam"
-      }
+      },
+      "street2_placeholder": "Căn hộ, dãy phòng, v.v. (tùy chọn)"
     },
     "payment": {
       "direct_bank_transfer": "Chuyển khoản ngân hàng trực tiếp",

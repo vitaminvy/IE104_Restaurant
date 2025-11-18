@@ -177,7 +177,7 @@
     }
   },
   "menu_page": {
-    "title": "Thực Đơn",
+    "title": "Thực Đơn - WowWraps",
     "banner": {
       "eyebrow": "Trải Nghiệm Chef's Table",
       "title1": "Thức Ăn Không Chỉ Là",
@@ -216,6 +216,9 @@
     "add_to_cart_aria_label": "Thêm vào giỏ hàng",
     "add_to_cart_title": "Thêm vào giỏ hàng"
   },
+  "coming_soon_page": {
+    "title": "Sắp Ra Mắt | WowWraps"
+  },
   "coming_soon": {
     "title": "Đăng ký nhận bản tin & nhận tin tức mới",
     "description": "Việc chúng ta có thể làm những gì chúng ta thích nhất, mọi niềm vui đều được chào đón và mọi nỗi đau đều được tránh khỏi.",
@@ -227,6 +230,9 @@
       "seconds": "Giây"
     },
     "go_to_home": "Về trang chủ"
+  },
+  "contact_us_page": {
+    "title": "Liên Hệ - WowWraps"
   },
   "contact_us": {
     "find_us": {
@@ -810,7 +816,7 @@
     }
   },
   "blog_page": {
-    "title": "Blog Quản lý & Tăng trưởng Nhà hàng",
+    "title": "Bài Viết - WowWraps",
     "header": "Blog Quản lý & Tăng trưởng Nhà hàng",
     "read_more": "Đọc thêm",
     "loading_article": "Đang tải bài viết...",

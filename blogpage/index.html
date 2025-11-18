@@ -4,9 +4,12 @@
     <script src="../assets/script/theme-init.js"></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title data-i18n="blog_page.title">
-      Restaurant Management & Growth Blog
-    </title>
+    <title data-i18n="blog_page.title">Blog - WowWraps</title>
+    <link
+      rel="icon"
+      href="../assets/icons/icon-header/nav-vect.svg"
+      type="image/svg+xml"
+    />
 
     <!-- Font Awesome CDN -->
     <link
@@ -35,8 +38,8 @@
     <!-- Pagination Section styles -->
     <link rel="stylesheet" href="./pagination.css" />
 
-  <!-- Newsletter styles -->
-  <link rel="stylesheet" href="../style/newsletter.css">
+    <!-- Newsletter styles -->
+    <link rel="stylesheet" href="../style/newsletter.css" />
 
     <!-- Reset and global styles -->
     <link rel="stylesheet" href="../style/reset.css" />
@@ -48,13 +51,13 @@
       rel="stylesheet"
     />
 
-  <!-- Global Animation System -->
-  <link rel="stylesheet" href="../style/animations.css" />
-  <link rel="stylesheet" href="../style/page-enhancements.css" />
+    <!-- Global Animation System -->
+    <link rel="stylesheet" href="../style/animations.css" />
+    <link rel="stylesheet" href="../style/page-enhancements.css" />
 
     <!-- Global Loading System -->
     <script src="../assets/script/global-loader.js"></script>
-  <script src="../assets/script/scroll-animations.js"></script>
+    <script src="../assets/script/scroll-animations.js"></script>
 
     <!-- Main JS module - Dynamic Blog Loader -->
     <script type="module" src="./scripts/blog-loader.js"></script>
@@ -62,7 +65,6 @@
   </head>
 
   <body>
-
     <!-- ========== 1. HEADER ========== -->
     <!-- logic for header and footer -->
     <script src="../assets/script/include-partials.js" defer></script>
@@ -80,45 +82,79 @@
         </h1>
       </div>
 
-    <!-- ========== 2.2 FEATURED POST SECTION ========== -->
-    <section id="featured-post" class="featured-post animate-scale">
-      <!-- Featured posts will be rendered here by JS -->
-    </section>
+      <!-- ========== 2.2 FEATURED POST SECTION ========== -->
+      <section id="featured-post" class="featured-post animate-scale">
+        <!-- Featured posts will be rendered here by JS -->
+      </section>
 
-    <!-- ========== 2.3 FILTERS & CONTROLS ========== -->
-    <section class="blog-filters" aria-label="Blog filters">
-      <div class="blog-filters__left">
-        <p class="blog-filters__label" data-i18n="blog_page.filters.browse_topics">Browse topics</p>
-        <div id="tag-filter" class="blog-filters__pills" role="list"></div>
+      <!-- ========== 2.3 FILTERS & CONTROLS ========== -->
+      <section class="blog-filters" aria-label="Blog filters">
+        <div class="blog-filters__left">
+          <p
+            class="blog-filters__label"
+            data-i18n="blog_page.filters.browse_topics"
+          >
+            Browse topics
+          </p>
+          <div id="tag-filter" class="blog-filters__pills" role="list"></div>
+        </div>
+        <div class="blog-filters__actions">
+          <label
+            for="category-filter"
+            data-i18n="blog_page.filters.category_label"
+            >Category</label
+          >
+          <select
+            id="category-filter"
+            class="blog-filters__select"
+            aria-label="Filter by category"
+          ></select>
+          <button
+            type="button"
+            id="clear-filters"
+            class="blog-filters__clear"
+            data-i18n="blog_page.filters.reset"
+          >
+            Reset
+          </button>
+        </div>
+      </section>
+
+      <!-- ========== 2.3 BLOG GRID SECTION ========== -->
+      <section
+        id="blog-grid"
+        class="blog-grid blog-timeline"
+        aria-live="polite"
+      >
+        <!-- Blog posts will be rendered here by JS -->
+      </section>
+
+      <!-- ========== 2.4 TIMELINE FOOTER / LOAD MORE ========== -->
+      <div id="timeline-footer" class="timeline-footer">
+        <button
+          type="button"
+          id="load-more"
+          class="btn timeline-footer__btn"
+          data-i18n="blog_page.load_more"
+        >
+          Load more stories
+        </button>
       </div>
-      <div class="blog-filters__actions">
-        <label for="category-filter" data-i18n="blog_page.filters.category_label">Category</label>
-        <select id="category-filter" class="blog-filters__select" aria-label="Filter by category"></select>
-        <button type="button" id="clear-filters" class="blog-filters__clear" data-i18n="blog_page.filters.reset">Reset</button>
-      </div>
+    </main>
+
+    <!-- ========== 2.5 NEWSLETTER SECTION ========== -->
+    <section class="newsletter-shell">
+      <div data-include="/partials/newsletter.html"></div>
     </section>
-
-    <!-- ========== 2.3 BLOG GRID SECTION ========== -->
-    <section id="blog-grid" class="blog-grid blog-timeline" aria-live="polite">
-      <!-- Blog posts will be rendered here by JS -->
-    </section>
-
-    <!-- ========== 2.4 TIMELINE FOOTER / LOAD MORE ========== -->
-    <div id="timeline-footer" class="timeline-footer">
-      <button type="button" id="load-more" class="btn timeline-footer__btn" data-i18n="blog_page.load_more">Load more stories</button>
-    </div>
-
-  </main>
-
-  <!-- ========== 2.5 NEWSLETTER SECTION ========== -->
-  <section class="newsletter-shell">
-    <div data-include="/partials/newsletter.html"></div>
-  </section>
 
     <!-- ========== 2.6 FOOTER PLACEHOLDER ========== -->
     <div data-include="/partials/footer.html"></div>
 
-    <script type="module" src="../assets/script/header-features.js" defer></script>
+    <script
+      type="module"
+      src="../assets/script/header-features.js"
+      defer
+    ></script>
     <script src="../assets/script/newsletter.js" defer></script>
-</body>
+  </body>
 </html>

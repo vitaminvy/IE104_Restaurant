@@ -24,12 +24,11 @@
       transparent 55%
     );
   pointer-events: none;
-  animation: driftGlow 18s ease-in-out infinite;
 }
 
 .daily-offers__container {
   max-width: 1280px;
-  margin: 0 auto;
+  margin: 1.5rem auto 3rem;
   position: relative;
 }
 
@@ -39,7 +38,7 @@
   font-family: var(--font-heading);
   font-size: 2rem;
   font-weight: 700;
-  margin-bottom: 3.5rem;
+  margin-bottom: 1.5rem;
 }
 
 /* Layout */
@@ -69,16 +68,15 @@
 .daily-offers__surface::after {
   content: "";
   position: absolute;
-  inset: -40%;
+  inset: 0;
   border-radius: inherit;
   background: radial-gradient(
-    circle,
-    rgba(255, 143, 44, 0.08),
-    transparent 45%
+    circle at 50% 50%,
+    rgba(255, 143, 44, 0.06),
+    transparent 60%
   );
-  filter: blur(80px);
-  opacity: 0.6;
-  animation: surfacePulse 12s ease-in-out infinite;
+  filter: blur(60px);
+  opacity: 0.5;
   pointer-events: none;
   z-index: -1;
 }
@@ -91,6 +89,7 @@
 
 /* ========== LEFT BANNER ========== */
 .daily-offers__promo-link {
+  flex: 1;
   position: relative;
   display: block;
   width: 100%;
@@ -126,7 +125,7 @@
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0));
+  /* background: linear-gradient(135deg, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0)); */
   z-index: 1;
 }
 
@@ -135,11 +134,12 @@
   bottom: 1.5rem;
   right: 1.5rem;
   z-index: 2;
-  padding: 0.65rem 1.5rem;
+  padding: 0.65rem 1rem;
   border-radius: 999px;
   background: linear-gradient(130deg, #ffb347, #ff7c35 70%, #ffd062);
   color: #111;
   font-weight: 700;
+  font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   font-size: 0.8rem;
@@ -225,19 +225,34 @@
   .daily-offers__content {
     align-items: stretch;
   }
+  .daily-offers__promo-cta {
+    font-size: 16px;
+  }
 }
 
 /* Desktop ≥1024px */
+@media (min-width: 64rem) and (max-width: 79.99rem) {
+  .daily-offers__promo-link {
+    max-width: 100%;
+  }
+
+  .daily-offers__promo-img {
+    width: 100%;
+    height: clamp(300px, 40vw, 450px);
+    object-fit: cover;
+  }
+}
+
 @media (min-width: 64rem) {
   .daily-offers__container {
-    margin-top: 5rem;
+    margin-top: 2.5rem;
   }
   .daily-offers__title {
     font-size: 3rem;
   }
 
-  .daily-offers__promo-link {
-    max-width: 620px;
+  .daily-offers__title {
+    margin-bottom: 2rem;
   }
 
   .daily-offers__item-img {
@@ -261,7 +276,7 @@
 @media (min-width: 80rem) {
   .daily-offers__container {
     max-width: 1400px;
-    margin-top: 8rem;
+    margin-top: 3rem;
   }
 
   .daily-offers__content {
@@ -269,11 +284,21 @@
     gap: 6rem;
   }
 
+  .daily-offers__promo-link {
+    max-width: 100%;
+  }
+
+  .daily-offers__promo-img {
+    width: 100%;
+    height: auto;
+  }
+
+  .daily-offers__title {
+    margin-bottom: 2rem;
+  }
+
   .daily-offers__title {
     font-size: 4rem;
-  }
-  .daily-offers__list {
-    gap: 6rem;
   }
 }
 
@@ -292,7 +317,6 @@
   }
 
   .daily-offers__promo-cta {
-    position: static;
     display: inline-flex;
     margin: 1rem 0 0;
   }
@@ -312,6 +336,10 @@
 
   .daily-offers__item-price {
     align-self: flex-end;
+  }
+
+  .daily-offers__title {
+    margin-bottom: 1.5rem;
   }
 }
 

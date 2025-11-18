@@ -44,6 +44,15 @@
     <link rel="stylesheet" href="./homepage/daily-offer.css" />
     <!-- explore blog -->
     <link rel="stylesheet" href="./homepage/explore-blog.css" />
+
+    <!-- Preconnect to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Preload critical hero images -->
+    <link rel="preload" as="image" href="./assets/images/home-page/hero-section/right-hero-banner-1.webp" fetchpriority="high" />
+    <link rel="preload" as="image" href="./assets/images/home-page/hero-section/left-hero-banner-1.webp" />
+
     <link
       href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
       rel="stylesheet"
@@ -60,10 +69,10 @@
     <link rel="stylesheet" href="../style/notification-system.css" />
 
     <!-- Global Loading System -->
-    <script src="../assets/script/global-loader.js"></script>
-    <script src="../assets/script/scroll-animations.js"></script>
-    <script src="../assets/script/form-validator.js"></script>
-    <script src="../assets/script/notification-system.js"></script>
+    <script src="../assets/script/global-loader.js" defer></script>
+    <script src="../assets/script/scroll-animations.js" defer></script>
+    <script src="../assets/script/form-validator.js" defer></script>
+    <script src="../assets/script/notification-system.js" defer></script>
   </head>
   <body>
     <!-- logic for header and footer -->
@@ -84,8 +93,11 @@
         <!-- Left image -->
         <div class="hero__image-wrapper hero__image-wrapper--left animate-slide-left">
           <img
-            src="./assets/images/home-page/hero-section/left-hero-banner-1.png"
+            src="./assets/images/home-page/hero-section/left-hero-banner-1.webp"
             alt="Pasta Dish"
+            width="520"
+            height="693"
+            fetchpriority="high"
             class="hero__image"
           />
         </div>
@@ -113,8 +125,11 @@
         <!-- Right image -->
         <div class="hero__image-wrapper hero__image-wrapper--right animate-slide-right">
           <img
-            src="./assets/images/home-page/hero-section/right-hero-banner-1.png"
+            src="./assets/images/home-page/hero-section/right-hero-banner-1.webp"
             alt="Steak Dish"
+            width="520"
+            height="693"
+            fetchpriority="high"
             class="hero__image"
           />
         </div>
@@ -215,11 +230,13 @@
           <img
             src="./assets/images/home-page/about-section/about-banner.png"
             alt="Restaurant interior"
+            loading="lazy"
           />
           <img
             class="about__frameRect"
             src="./assets/images/home-page/about-section/about-frame.png"
             alt="Decor Frame"
+            loading="lazy"
           />
         </div>
 
@@ -292,6 +309,7 @@
         <img
           src="./assets/images/home-page/service-section/service-banner.png"
           alt="Dish"
+          loading="lazy"
         />
       </div>
 
@@ -366,6 +384,7 @@
               class="service__image"
               src="./assets/images/home-page/service-mean-section/service-dish.png"
               alt="Signature nachos with sauce"
+              loading="lazy"
             />
           </div>
 
@@ -597,6 +616,7 @@
           <img
             src="./assets/images/home-page/chef-intro-section/aaliyah.png"
             alt="Đầu bếp đang tỉ mỉ chuẩn bị món ăn dưới ánh đèn ấm áp."
+            loading="lazy"
           />
         </div>
         <!-- Introduction content -->
@@ -650,11 +670,13 @@
           <img
             src="./assets/images/home-page/discover-menu-section/discover-menu-dish.png"
             alt="Michelin Sandwich"
+            loading="lazy"
           />
           <img
             src="./assets/images/home-page/discover-menu-section/discover-menu-flower.png"
             alt="Flower"
             class="discover__icon"
+            loading="lazy"
           />
         </div>
       </div>
@@ -682,6 +704,7 @@
                 src="./assets/images/home-page/daily-offer/daily-offer-banner.png"
                 alt="Lunch Time 30% Off"
                 class="daily-offers__promo-img"
+                loading="lazy"
               />
               <span
                 class="daily-offers__promo-cta"
@@ -699,6 +722,7 @@
                   src="./assets/images/home-page/daily-offer/spicy-club.png"
                   alt="Spicy Club"
                   class="daily-offers__item-img"
+                  loading="lazy"
                 />
                 <div class="daily-offers__item-info">
                   <h3
@@ -725,6 +749,7 @@
                   src="./assets/images/home-page/daily-offer/baked-brie.png"
                   alt="Almond Baked Brie"
                   class="daily-offers__item-img"
+                  loading="lazy"
                 />
                 <div class="daily-offers__item-info">
                   <h3
@@ -751,6 +776,7 @@
                   src="./assets/images/home-page/daily-offer/flat-bread.png"
                   alt="Tuscan Flatbread"
                   class="daily-offers__item-img"
+                  loading="lazy"
                 />
                 <div class="daily-offers__item-info">
                   <h3
@@ -969,6 +995,7 @@
                 <img
                   src="./assets/images/home-page/explore-section/blog-restaurant.png"
                   alt="Restaurant interior"
+                  loading="lazy"
                 />
               </div>
               <div class="blog-hero-card__body">
@@ -1012,6 +1039,7 @@
                 <img
                   src="./assets/images/home-page/explore-section/blog-drink.png"
                   alt="Summer cocktail"
+                  loading="lazy"
                 />
               </div>
               <div class="blog-mini-card__body">

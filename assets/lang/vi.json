@@ -27,7 +27,7 @@
     "legal": "Pháp Lý",
     "legal_website": "Website bởi UIT.com",
     "legal_copyright": "©2025. Mọi Quyền Được Bảo Hộ",
-    "get_latest_news": "Nhận Tin Tức Mới Nhất"
+    "comming_soon": "Định Hướng"
   },
   "home": {
     "hero": {
@@ -952,6 +952,11 @@
     "4": "Thứ Năm",
     "5": "Thứ Sáu",
     "6": "Thứ Bảy"
+  },
+  "not_found_page": {
+    "title": "404 Không Tìm Thấy - WowWraps",
+    "message": "Xin lỗi, trang bạn đang tìm không tồn tại. Nếu bạn nghĩ có lỗi, hãy báo cáo sự cố.",
+    "go_to_home": "Về Trang Chủ"
   },
   "about_page": {
     "title": "Về chúng tôi",

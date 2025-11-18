@@ -57,18 +57,17 @@
     <link rel="stylesheet" href="./assets/features/allergy-alert.css" />
 
     <!-- Global Animation System -->
-    <link rel="stylesheet" href="../style/animations.css" />
+    <link rel="stylesheet" href="./style/animations.css" />
 
     <!-- Form Validation & Notification System -->
-    <link rel="stylesheet" href="../style/form-validation.css" />
-    <link rel="stylesheet" href="../style/notification-system.css" />
+    <link rel="stylesheet" href="./style/form-validation.css" />
+    <link rel="stylesheet" href="./style/notification-system.css" />
 
     <!-- Global Loading System -->
-    <script src="../assets/script/global-loader.js"></script>
-    <link rel="stylesheet" href="../style/back-to-top.css" />
-    <script src="../assets/script/scroll-animations.js"></script>
-    <script src="../assets/script/form-validator.js"></script>
-    <script src="../assets/script/notification-system.js"></script>
+    <script src="./assets/script/global-loader.js"></script>
+    <script src="./assets/script/scroll-animations.js"></script>
+    <script src="./assets/script/form-validator.js"></script>
+    <script src="./assets/script/notification-system.js"></script>
   </head>
   <body>
     <!-- logic for header and footer -->
@@ -194,7 +193,7 @@
 
           <div class="highlight-banner__item">
             <img
-              src="../assets/images/home-page/highlight-banner/fast_delivery.svg"
+              src="./assets/images/home-page/highlight-banner/fast_delivery.svg"
               alt="Fast Delivery"
             />
             <span data-i18n="home.highlight_banner.fast_delivery"
@@ -204,7 +203,7 @@
 
           <div class="highlight-banner__item">
             <img
-              src="../assets/images/home-page/highlight-banner/super_taste.svg"
+              src="./assets/images/home-page/highlight-banner/super_taste.svg"
               alt="Super Taste"
             />
             <span data-i18n="home.highlight_banner.super_taste"
@@ -881,7 +880,7 @@
             <div class="reservation__row">
               <div class="reservation__field">
                 <!-- person - maximum is 5 person -->
-                <select required>
+                <select name="persons" required>
                   <option value="" data-i18n="home.reservation.option_1_person">
                     1 Person
                   </option>
@@ -1151,8 +1150,7 @@
     <div data-include="/partials/footer.html"></div>
     <!-- Back to top -->
     <div data-include="partials/back-to-top.html"></div>
-    <script src="assets/script/back-to-top.js"></script>
-    <!-- commit for deploy -->
+    <script src="./assets/script/back-to-top.js"></script>
 
     <!-- Reservation Form Handler -->
     <script src="./homepage/scripts/reservation-handler.js"></script>
@@ -1160,7 +1158,7 @@
     <!-- Newsletter Form Handler -->
     <script src="./homepage/scripts/newsletter-handler.js"></script>
 
-    <script type="module" src="assets/script/header-features.js" defer></script>
+    <script type="module" src="./assets/script/header-features.js" defer></script>
     <script src="./assets/script/newsletter.js" defer></script>
   </body>
 </html>

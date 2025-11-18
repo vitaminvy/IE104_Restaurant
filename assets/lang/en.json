@@ -27,7 +27,7 @@
     "legal": "Legal",
     "legal_website": "Website by UIT.com",
     "legal_copyright": "©2025. All Rights Reserved",
-    "get_latest_news": "Get Latest News"
+    "comming_soon": "Comming Soon"
   },
   "home": {
     "hero": {
@@ -952,6 +952,11 @@
     "4": "Thursday",
     "5": "Friday",
     "6": "Saturday"
+  },
+  "not_found_page": {
+    "title": "404 Not Found - WowWraps",
+    "message": "Sorry, the page you're looking for doesn't exist. If you think something is broken, report a problem.",
+    "go_to_home": "Go To Home"
   },
   "about_page": {
     "title": "About Us",

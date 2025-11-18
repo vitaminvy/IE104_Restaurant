@@ -3,10 +3,14 @@
   <head>
     <script src="../assets/script/theme-init.js"></script>
     <!-- ====== Meta Configuration ====== -->
-    <meta charset="UTF-8" frame-rectangular />
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title data-i18n="blog_details_page.title">Blog Details - WowWraps</title>
-    <link rel="icon" href="../assets/icons/icon-header/nav-vect.svg" type="image/svg+xml">
+    <link
+      rel="icon"
+      href="../assets/icons/icon-header/nav-vect.svg"
+      type="image/svg+xml"
+    />
 
     <!-- ====== Global Styles ====== -->
     <link rel="stylesheet" href="../style/reset.css" />
@@ -33,13 +37,13 @@
       rel="stylesheet"
     />
 
-  <!-- Global Animation System -->
-  <link rel="stylesheet" href="../style/animations.css" />
-  <link rel="stylesheet" href="../style/page-enhancements.css" />
+    <!-- Global Animation System -->
+    <link rel="stylesheet" href="../style/animations.css" />
+    <link rel="stylesheet" href="../style/page-enhancements.css" />
 
     <!-- Global Loading System -->
     <script src="../assets/script/global-loader.js"></script>
-  <script src="../assets/script/scroll-animations.js"></script>
+    <script src="../assets/script/scroll-animations.js"></script>
 
     <!-- Dynamic Blog Details Loader -->
     <script type="module" src="./blog-details-loader.js"></script>
@@ -48,46 +52,56 @@
   </head>
 
   <body>
-
     <!-- ========== 1. HEADER ========== -->
     <!-- logic for header and footer -->
     <script src="../assets/script/include-partials.js" defer></script>
-    <script type="module" src="../assets/script/header.js" defer></script>
+    <script type="module" src="../assets/script/header.js"></script>
     <div data-include="/partials/header.html"></div>
 
     <!-- open sidebar in mobile view -->
 
-  <!-- ========== 2. MAIN CONTENT ========== -->
-  <div class="container">
-    <main>
-      <!-- ====== Blog Header Section ====== -->
-      <header class="blog-header animate-slide-up">
-        <h1>Everything You Need To Know About The Growth Of AI In Restaurant</h1>
-        <p>You are sitting in your favorite restaurant and have ordered on a tablet on your table. A few seconds after
-          placing the order, a notification will appear in your messaging app.</p>
-      </header>
-      <!-- ====== Featured Image + Decorative Icon ====== -->
-      <div class="main-blog-image animate-scale">
-        <img src="../assets/images/blogpage-details/interior-of-restaurant.png" alt="Interior of a modern restaurant">
-      </div>
-
-      <!-- ====== Meta Information (Date, Author, Social Links) ====== -->
-      <div class="meta-info animate-fade">
-        <span>August 6, 2025 • By Admin</span>
-        <div class="social-links">
-          <!-- Copy link button -->
-          <button class="copy-link"><i class="fas fa-link"></i><span data-i18n="blog_details_page.copy_link"> Copy link</span></button>
-          <!-- Social sharing icons -->
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
-          <a href="#"><i class="fab fa-twitter"></i></a>
-          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+    <!-- ========== 2. MAIN CONTENT ========== -->
+    <div class="container">
+      <main>
+        <!-- ====== Blog Header Section ====== -->
+        <header class="blog-header animate-slide-up">
+          <h1>
+            Everything You Need To Know About The Growth Of AI In Restaurant
+          </h1>
+          <p>
+            You are sitting in your favorite restaurant and have ordered on a
+            tablet on your table. A few seconds after placing the order, a
+            notification will appear in your messaging app.
+          </p>
+        </header>
+        <!-- ====== Featured Image + Decorative Icon ====== -->
+        <div class="main-blog-image animate-scale">
+          <img
+            src="../assets/images/blogpage-details/interior-of-restaurant.png"
+            alt="Interior of a modern restaurant"
+          />
         </div>
-      </div>
 
-      <!-- ====== Blog Content Section ====== -->
-      <section class="content-section animate-fade">
-        <!-- Section Heading -->
-        <h2>How The Role Of Restaurants Is Increasing</h2>
+        <!-- ====== Meta Information (Date, Author, Social Links) ====== -->
+        <div class="meta-info animate-fade">
+          <span>August 6, 2025 • By Admin</span>
+          <div class="social-links">
+            <!-- Copy link button -->
+            <button class="copy-link">
+              <i class="fas fa-link"></i
+              ><span data-i18n="blog_details_page.copy_link"> Copy link</span>
+            </button>
+            <!-- Social sharing icons -->
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+
+        <!-- ====== Blog Content Section ====== -->
+        <section class="content-section animate-fade">
+          <!-- Section Heading -->
+          <h2>How The Role Of Restaurants Is Increasing</h2>
 
           <!-- Main paragraphs -->
           <p>
@@ -152,41 +166,49 @@
           </ul>
         </section>
 
-      <!-- ====== Blog Grid Section (Related Posts) ====== -->
-      <section class="blog-grid stagger-children" id="blog-grid">
-        <!-- Post 1 -->
-        <article class="post animate-scale">
-          <div class="post-image">
-            <img src="../assets/images/blogpage-details/post-image-1.png" alt="The Beauty of the Ocean">
-          </div>
-          <div class="post-content">
-            <h3>Using Live Video to Showcase Your Restaurant
+        <!-- ====== Blog Grid Section (Related Posts) ====== -->
+        <section class="blog-grid stagger-children" id="blog-grid">
+          <!-- Post 1 -->
+          <article class="post animate-scale">
+            <div class="post-image">
+              <img
+                src="../assets/images/blogpage-details/post-image-1.png"
+                alt="The Beauty of the Ocean"
+              />
+            </div>
+            <div class="post-content">
+              <h3>Using Live Video to Showcase Your Restaurant</h3>
+              <p class="post-meta">August 6, 2025 • By Admin</p>
+              <a href="#" class="read-more" data-i18n="blog_page.read_more"
+                >Read more</a
+              >
+            </div>
+          </article>
 
-            </h3>
-            <p class="post-meta">August 6, 2025 • By Admin</p>
-            <a href="#" class="read-more" data-i18n="blog_page.read_more">Read more</a>
-          </div>
-        </article>
-
-        <!-- Post 2 -->
-        <article class="post animate-scale">
-          <div class="post-image">
-            <img src="../assets/images/blogpage-details/post-image-2.png" alt="Exploring the Mountains">
-          </div>
-          <div class="post-content">
-            <h3>Financial Well-Being Programs for Restaurants</h3>
-            <p class="post-meta">August 6, 2025 • By Admin</p>
-            <a href="#" class="read-more" data-i18n="blog_page.read_more">Read more</a>
-          </div>
-        </article>
-      </section>
-    </main>
-  </div>
+          <!-- Post 2 -->
+          <article class="post animate-scale">
+            <div class="post-image">
+              <img
+                src="../assets/images/blogpage-details/post-image-2.png"
+                alt="Exploring the Mountains"
+              />
+            </div>
+            <div class="post-content">
+              <h3>Financial Well-Being Programs for Restaurants</h3>
+              <p class="post-meta">August 6, 2025 • By Admin</p>
+              <a href="#" class="read-more" data-i18n="blog_page.read_more"
+                >Read more</a
+              >
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
 
     <!-- ========== 3. FOOTER ========== -->
     <div data-include="/partials/footer.html"></div>
 
-    <script type="module" src="../assets/script/header-features.js" defer></script>
+    <script type="module" src="../assets/script/header-features.js"></script>
     <div data-include="../partials/back-to-top.html"></div>
     <script src="../assets/script/back-to-top.js"></script>
   </body>

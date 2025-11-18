@@ -45,7 +45,14 @@
     <script src="./hint.js" defer></script>
     <!-- Enhanced checkout logic with dynamic cart loading -->
     <script type="module" src="./checkout.js" defer></script>
-    <link rel="stylesheet" href="../assets/features/theme-toggle.css" />
+    <link rel="stylesheet" href="../style/back-to-top.css" />
+    <link rel="stylesheet" href="../homepage/back-to-top.css" />
+
+    <!-- Font Awesome CDN -->
+    <script
+      src="https://kit.fontawesome.com/eef96f1e29.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body class="page">
     <!-- Header -->
@@ -401,5 +408,7 @@
 
     <!-- Checkout Form Handler -->
     <script src="./checkout-handler.js"></script>
+    <div data-include="../partials/back-to-top.html"></div>
+    <script src="../assets/script/back-to-top.js"></script>
   </body>
 </html>

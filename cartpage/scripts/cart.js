@@ -32,7 +32,7 @@ import i18nService from '../../assets/script/i18n-service.js';
       const items = localStorage.getItem(CART_STORAGE_KEY);
       return items ? JSON.parse(items) : [];
     } catch (error) {
-      console.error('Error loading cart:', error);
+      // console.error('Error loading cart:', error);
       return [];
     }
   }
@@ -45,7 +45,7 @@ import i18nService from '../../assets/script/i18n-service.js';
     try {
       localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(items));
     } catch (error) {
-      console.error('Error saving cart:', error);
+      // console.error('Error saving cart:', error);
     }
   }
 
@@ -58,7 +58,7 @@ import i18nService from '../../assets/script/i18n-service.js';
       const coupon = localStorage.getItem(COUPON_STORAGE_KEY);
       return coupon ? JSON.parse(coupon) : null;
     } catch (error) {
-      console.error('Error loading coupon:', error);
+      // console.error('Error loading coupon:', error);
       return null;
     }
   }
@@ -71,7 +71,7 @@ import i18nService from '../../assets/script/i18n-service.js';
     try {
       localStorage.setItem(COUPON_STORAGE_KEY, JSON.stringify(coupon));
     } catch (error) {
-      console.error('Error saving coupon:', error);
+      // console.error('Error saving coupon:', error);
     }
   }
 
@@ -601,7 +601,7 @@ import i18nService from '../../assets/script/i18n-service.js';
    * Initialize cart page
    */
   async function init() {
-    console.log('🛒 Initializing cart page...');
+    // console.log('Initializing cart page...');
 
     // Show loader while initializing
     if (window.GlobalLoader) {
@@ -614,7 +614,7 @@ import i18nService from '../../assets/script/i18n-service.js';
     setTimeout(() => {
       // Load and render cart items
       const items = getCartItems();
-      console.log('📦 Cart items loaded:', items);
+      // console.log('Cart items loaded:', items);
 
       renderCartItems(items);
 
@@ -629,8 +629,8 @@ import i18nService from '../../assets/script/i18n-service.js';
         window.GlobalLoader.hide(300);
       }
 
-      console.log('✅ Cart initialized with', items.length, 'items');
-      console.log('🎟️ Available coupons:', Object.keys(COUPONS).join(', '));
+      // console.log('Cart initialized with', items.length, 'items');
+      // console.log('Available coupons:', Object.keys(COUPONS).join(', '));
     }, 100);
   }
 

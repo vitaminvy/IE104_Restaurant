@@ -388,7 +388,7 @@ function renderPage() {
     setTimeout(() => window.GlobalLoader.hide(300), 200);
   }
 
-  console.log('📰 Blog timeline initialized');
+  // console.log('Blog timeline initialized');
 }
 
 document.addEventListener('language-changed', () => {

@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const htmlElement = document.documentElement;
 
   if (!themeToggleButton) {
-    console.error('Floating theme toggle button not found.');
+    // console.error('Floating theme toggle button not found.');
     return;
   }
 

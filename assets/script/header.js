@@ -117,7 +117,7 @@ import i18nService from './i18n-service.js';
     if (!header) return;
 
     // Batch all layout reads together first
-    const headerHeight = header.offsetHeight; console.log("lan 1", headerHeight);
+    const headerHeight = header.offsetHeight;
     const menuFilterHeight = menuFilter ? menuFilter.offsetHeight : 0;
     const cartIconHeight = cartIconWrapper ? cartIconWrapper.offsetHeight : 0;
 

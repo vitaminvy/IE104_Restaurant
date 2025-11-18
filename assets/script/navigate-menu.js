@@ -105,7 +105,7 @@ import i18nService from "./i18n-service.js";
         cart = JSON.parse(cartData);
       }
     } catch (e) {
-      console.error("Error reading cart:", e);
+      // console.error("Error reading cart:", e);
     }
 
     // Check if item already in cart
@@ -132,10 +132,10 @@ import i18nService from "./i18n-service.js";
     // Save to localStorage
     try {
       localStorage.setItem("restaurantCart", JSON.stringify(cart));
-      console.log("✅ Item added to cart:", item.title);
-    } catch (e) {
-      console.error("Error saving cart:", e);
-    }
+    // console.log("Item added to cart:", item.title);
+  } catch (e) {
+    // console.error("Error saving cart:", e);
+  }
 
     // Update loader message
     if (window.GlobalLoader) {

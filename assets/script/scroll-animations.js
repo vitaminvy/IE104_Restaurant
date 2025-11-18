@@ -29,7 +29,7 @@
   function init() {
     // Check for IntersectionObserver support
     if (!('IntersectionObserver' in window)) {
-      console.warn('IntersectionObserver not supported, animations disabled');
+    // console.warn('IntersectionObserver not supported, animations disabled');
       fallbackShowAll();
       return;
     }

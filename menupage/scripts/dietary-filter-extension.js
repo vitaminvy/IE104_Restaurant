@@ -269,7 +269,6 @@ import i18nService from "../../assets/script/i18n-service.js";
   // Add to cart and navigate
   function addToCartAndNavigate(item) {
     const title = i18nService.t(item.title);
-    console.log("🛒 Adding to cart (from filter):", title);
 
     if (window.GlobalLoader) {
       window.GlobalLoader.show("Adding to cart...");
@@ -282,7 +281,7 @@ import i18nService from "../../assets/script/i18n-service.js";
         cart = JSON.parse(cartData);
       }
     } catch (e) {
-      console.error("Error reading cart:", e);
+      // console.error("Error reading cart:", e);
     }
 
     const existingItemIndex = cart.findIndex(
@@ -306,7 +305,7 @@ import i18nService from "../../assets/script/i18n-service.js";
     try {
       localStorage.setItem("restaurantCart", JSON.stringify(cart));
     } catch (e) {
-      console.error("❌ Error saving cart:", e);
+      // console.error("Error saving cart:", e);
     }
 
     if (window.GlobalLoader) {
@@ -366,8 +365,6 @@ import i18nService from "../../assets/script/i18n-service.js";
         const title = card.querySelector('.menu__card-title')?.textContent || i18nService.t(item.title);
         const desc = card.querySelector('.menu__card-desc')?.textContent || i18nService.t(item.desc);
 
-        console.log("🛒 Adding to cart via cart icon (from filter):", title);
-
         button.style.transform = "scale(0.85)";
         setTimeout(() => {
           button.style.transform = "";
@@ -380,7 +377,7 @@ import i18nService from "../../assets/script/i18n-service.js";
             cart = JSON.parse(cartData);
           }
         } catch (e) {
-          console.error("Error reading cart:", e);
+          // console.error("Error reading cart:", e);
         }
 
         const existingItemIndex = cart.findIndex(
@@ -404,7 +401,7 @@ import i18nService from "../../assets/script/i18n-service.js";
         try {
           localStorage.setItem("restaurantCart", JSON.stringify(cart));
         } catch (e) {
-          console.error("❌ Error saving cart:", e);
+          // console.error("Error saving cart:", e);
         }
 
         if (window.showToast) {

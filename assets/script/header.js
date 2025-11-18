@@ -44,7 +44,6 @@ import i18nService from './i18n-service.js';
     menuInited = true;
   }
 
-  // ----- SCROLL STYLE (blur/bg mờ khi cuộn) -----
   function initScrollStyle() {
     if (scrollInited) return;
     const header = document.getElementById("header");
@@ -53,11 +52,42 @@ import i18nService from './i18n-service.js';
     let scrollTicking = false;
     let resizeTimer;
 
+    const animateStickyTransition = (duration) => {
+      const startTime = performance.now();
+
+      const step = (currentTime) => {
+        const elapsed = currentTime - startTime;
+
+        adjustStickyElementsPosition();
+
+        if (elapsed < duration) {
+          requestAnimationFrame(step);
+        } else {
+          adjustStickyElementsPosition();
+        }
+      };
+
+      requestAnimationFrame(step);
+    };
+
     const onScroll = () => {
       if (!scrollTicking) {
         requestAnimationFrame(() => {
-          if (window.scrollY > 50) header.classList.add("header--scrolled");
-          else header.classList.remove("header--scrolled");
+          const currentScrollY = window.scrollY;
+          const isScrolled = currentScrollY > 50;
+
+          const hasClass = header.classList.contains("header--scrolled");
+
+          if (isScrolled !== hasClass) {
+            if (isScrolled) {
+              header.classList.add("header--scrolled");
+            } else {
+              header.classList.remove("header--scrolled");
+            }
+
+            animateStickyTransition(310);
+          }
+
           scrollTicking = false;
         });
         scrollTicking = true;
@@ -87,13 +117,14 @@ import i18nService from './i18n-service.js';
     if (!header) return;
 
     // Batch all layout reads together first
-    const headerHeight = header.offsetHeight;
+    const headerHeight = header.offsetHeight; console.log("lan 1", headerHeight);
     const menuFilterHeight = menuFilter ? menuFilter.offsetHeight : 0;
     const cartIconHeight = cartIconWrapper ? cartIconWrapper.offsetHeight : 0;
 
     // Then perform all writes
     if (menuFilter) {
       menuFilter.style.top = `${headerHeight}px`;
+
     }
     if (cartIconWrapper && menuFilter) {
       // Calculate top position to vertically center cart icon with menu filter
@@ -122,7 +153,7 @@ import i18nService from './i18n-service.js';
     const el = document.getElementById("current-time");
     if (!el) return;
     clockStarted = true;
-    
+
     i18nService.init().then(() => {
       updateTime();
       setInterval(updateTime, 60_000);

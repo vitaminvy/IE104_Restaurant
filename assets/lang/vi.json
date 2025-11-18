@@ -900,6 +900,7 @@
       "last_name": "Họ *",
       "country": "Quốc gia / Khu vực *",
       "street_address": "Địa chỉ đường *",
+      "street_address_optional": "Căn hộ, Dãy phòng, etc. (tùy chọn)",
       "town_city": "Thị trấn / Thành phố *",
       "district": "Quận / Huyện *",
       "postcode_zip": "Mã bưu điện / ZIP (tùy chọn)",
@@ -941,8 +942,39 @@
       "order_placed_success": "Đặt hàng thành công! ID đơn hàng: #{orderId}",
       "redirecting_homepage": "Đang chuyển hướng đến trang chủ...",
       "free_shipping": "MIỄN PHÍ",
-      "coupon_applied": "Đã áp dụng phiếu giảm giá"
+      "coupon_applied": "Đã áp dụng phiếu giảm giá",
+      "processing": "Đang xử lý..."
     }
+  },
+  "form_errors": {
+    "name_required": "Vui lòng nhập họ tên của bạn",
+    "name_min": "Họ tên phải có ít nhất 2 ký tự",
+    "phone_required": "Vui lòng nhập số điện thoại",
+    "phone_invalid": "Vui lòng nhập số điện thoại hợp lệ",
+    "email_required": "Vui lòng nhập địa chỉ email",
+    "email_invalid": "Vui lòng nhập địa chỉ email hợp lệ",
+    "date_required": "Vui lòng chọn ngày",
+    "date_invalid": "Vui lòng chọn ngày hợp lệ",
+    "time_required": "Vui lòng chọn giờ",
+    "time_invalid": "Vui lòng chọn giờ hợp lệ",
+    "first_name_required": "Vui lòng nhập tên",
+    "first_name_min": "Tên phải có ít nhất 2 ký tự",
+    "last_name_required": "Vui lòng nhập họ",
+    "last_name_min": "Họ phải có ít nhất 2 ký tự",
+    "street_required": "Vui lòng nhập địa chỉ",
+    "street_min": "Địa chỉ phải có ít nhất 5 ký tự",
+    "zip_pattern": "Mã bưu điện phải gồm 5-6 chữ số"
+  },
+  "form_validator": {
+    "required": "Trường này là bắt buộc",
+    "email": "Vui lòng nhập một địa chỉ email hợp lệ",
+    "phone": "Vui lòng nhập một số điện thoại hợp lệ",
+    "minLength": "Yêu cầu tối thiểu {min} ký tự",
+    "maxLength": "Cho phép tối đa {max} ký tự",
+    "number": "Vui lòng nhập một số hợp lệ",
+    "date": "Vui lòng nhập một ngày hợp lệ",
+    "time": "Vui lòng nhập một thời gian hợp lệ",
+    "pattern": "Định dạng không hợp lệ"
   },
   "weekdays": {
     "0": "Chủ Nhật",

@@ -80,7 +80,6 @@
 }
 
 span.dietary-badge__label {
-  color: #000; /* hoặc #fff nếu nền tối */
   font-weight: 600; /* giúp đọc rõ hơn */
 }
 

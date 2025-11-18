@@ -5,16 +5,6 @@
  * ============================= */
 
 /* =============================
- * CSS VARIABLES
- * ============================= */
-:root {
-  --panel: #1a1a1a;
-  --line: #2a2a2a;
-  --line-2: #3a3a3a;
-  --shadow: 0 2px 0 0 rgba(255, 255, 255, 0.05) inset;
-}
-
-/* =============================
  * CART CONTAINER LAYOUT
  * ============================= */
 .cart__container {
@@ -34,11 +24,11 @@
   /* Box model */
   width: 100%;
   max-width: 1170px;
-  border: 1px solid var(--line);
+  border: 1px solid var(--border-color);
   overflow: hidden;
 
   /* Background */
-  background: var(--panel);
+  background: var(--bg-secondary);
 }
 
 .cart__table table {
@@ -84,10 +74,10 @@
 .cart__table thead th {
   /* Box model */
   padding: 18px 10px;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid var(--border-color);
 
   /* Typography */
-  color: var(--color-white);
+  color: var(--text-primary);
   font-family: var(--font-body);
   font-size: 18px;
   font-style: normal;
@@ -102,7 +92,7 @@
 .cart__table tbody td {
   /* Box model */
   padding: 28px 10px;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid var(--border-color);
   vertical-align: middle;
 }
 
@@ -130,7 +120,7 @@
 
   /* Visual */
   object-fit: cover;
-  box-shadow: var(--shadow);
+  box-shadow: 0 2px 0 0 rgba(255, 255, 255, 0.05) inset;
 }
 
 /* =============================
@@ -146,7 +136,7 @@
   font-weight: 400;
   line-height: 1.62;
   white-space: nowrap;
-  color: white;
+  color: var(--text-primary);
 }
 
 /* =============================
@@ -158,7 +148,7 @@
   grid-template-columns: 40px 56px 40px;
   height: 40px;
   margin: 0 auto;
-  border: 1px solid var(--line-2);
+  border: 1px solid var(--border-color);
   border-radius: 2px;
   overflow: hidden;
 
@@ -175,7 +165,7 @@
 
   /* Typography */
   font-size: 18px;
-  color: var(--color-white);
+  color: var(--text-primary);
 
   /* Background */
   background: transparent;
@@ -189,18 +179,18 @@
 }
 
 .qty__btn:first-child {
-  border-right: 1px solid var(--line-2);
+  border-right: 1px solid var(--border-color);
 }
 
 .qty__btn:last-child {
-  border-left: 1px solid var(--line-2);
+  border-left: 1px solid var(--border-color);
 }
 
 .qty__btn:hover {
   /* Background */
   background: rgba(251, 143, 44, 0.2);
-  border-color: var(--color-dark-orange, #fb8f2c);
-  color: var(--color-dark-orange, #fb8f2c);
+  border-color: var(--accent-color, #fb8f2c);
+  color: var(--accent-color, #fb8f2c);
 }
 
 .qty__btn:active {
@@ -227,7 +217,7 @@
 
 .qty__input:focus {
   /* Box model */
-  outline: 2px solid var(--color-dark-orange, #fb8f2c);
+  outline: 2px solid var(--accent-color, #fb8f2c);
   outline-offset: 2px;
 }
 
@@ -262,7 +252,7 @@
   border-radius: 6px;
 
   /* Typography */
-  color: var(--color-white);
+  color: var(--text-primary);
 
   /* Background */
   background: transparent;
@@ -299,10 +289,10 @@
   flex-direction: column;
   gap: 16px;
   padding: 24px;
-  border-top: 1px solid var(--line);
+  border-top: 1px solid var(--border-color);
 
   /* Background */
-  background: var(--panel);
+  background: var(--bg-secondary);
 }
 
 /* =============================
@@ -322,17 +312,17 @@
   padding: 7px 30px 7px 12px;
   align-items: center;
   gap: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--border-color);
 
   /* Typography */
   font-family: var(--font-body);
   font-size: 16px;
   font-weight: 400;
   line-height: 1.6;
-  color: var(--color-white);
+  color: var(--text-primary);
 
   /* Background */
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--bg-secondary);
 
   /* Transition */
   transition: all 0.2s ease;
@@ -341,10 +331,10 @@
 .coupon__input:focus {
   /* Box model */
   outline: none;
-  border-color: var(--color-dark-orange, #fb8f2c);
+  border-color: var(--accent-color, #fb8f2c);
 
   /* Background */
-  background: rgba(255, 255, 255, 0.08);
+  background: var(--bg-primary);
 }
 
 .coupon__input:disabled {
@@ -368,7 +358,7 @@
   margin-bottom: 30px;
 
   /* Typography */
-  color: var(--color-white);
+  color: var(--text-primary);
   font-family: var(--font-heading);
   font-size: 30px;
   font-weight: 500;
@@ -381,22 +371,22 @@
 .totals__table {
   /* Box model */
   width: 100%;
-  border: 1px solid #333;
+  border: 1px solid var(--border-color);
   border-collapse: collapse;
 
   /* Background */
-  background-color: #1a1a1a;
+  background-color: var(--bg-secondary);
 }
 
 .totals__table th,
 .totals__table td {
   /* Box model */
   padding: 28px 20px 28px 28px;
-  border-bottom: 1px solid #333;
+  border-bottom: 1px solid var(--border-color);
   vertical-align: top;
 
   /* Typography */
-  color: var(--color-white);
+  color: var(--text-primary);
   font-family: var(--font-body);
   font-size: 16px;
   font-weight: 400;
@@ -430,13 +420,13 @@
  * ============================= */
 .totals__discount .totals__right {
   /* Typography */
-  color: var(--color-dark-orange, #fb8f2c);
+  color: var(--accent-color, #fb8f2c);
   font-weight: 600;
 }
 
 .totals__discount .totals__left {
   /* Typography */
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--text-secondary);
 }
 
 /* =============================
@@ -452,7 +442,7 @@
   /* Typography */
   font-size: 24px;
   font-weight: 700;
-  color: var(--color-dark-orange, #fb8f2c);
+  color: var(--accent-color, #fb8f2c);
 }
 
 /* =============================
@@ -471,7 +461,7 @@
   margin-bottom: 32px;
 
   /* Typography */
-  color: var(--color-white);
+  color: var(--text-primary);
   font-style: italic;
   font-weight: bold;
 }
@@ -495,10 +485,10 @@
   width: 100%;
   padding: 8px 0;
   border: none;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  border-bottom: 1px solid var(--border-color);
 
   /* Typography */
-  color: var(--color-white);
+  color: var(--text-primary);
   font-family: var(--font-body);
   font-size: 16px;
   font-weight: 400;
@@ -522,24 +512,28 @@
   cursor: pointer;
 }
 
+html[data-theme="light"] .addrForm__select {
+  background-image: url("data:image/svg+xml;charset=UTF-8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'><path d='M1 1L6 6L11 1' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+}
+
 .addrForm__select option {
   /* Background */
-  background-color: var(--panel);
-  color: var(--color-white);
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
 }
 
 .addrForm__select:focus,
 .addrForm__field:focus {
   /* Box model */
-  border-bottom-color: var(--color-dark-orange);
+  border-bottom-color: var(--accent-color);
 
   /* Typography */
-  color: var(--color-white);
+  color: var(--text-primary);
 }
 
 .addrForm__field::placeholder {
   /* Typography */
-  color: rgba(255, 255, 255, 0.4);
+  color: var(--text-muted);
 }
 
 .addrForm__update {
@@ -553,22 +547,32 @@
 
   /* Typography */
   font-weight: 600;
-  color: #000;
+  color: var(--bg-primary);
 
   /* Background */
-  background-color: var(--color-white);
+  background-color: var(--text-primary);
   cursor: pointer;
 }
 
 /* Fix Chrome autofill styles */
-.addrForm__field:-webkit-autofill,
-.addrForm__field:-webkit-autofill:hover,
-.addrForm__field:-webkit-autofill:focus,
-.addrForm__field:-webkit-autofill:active {
-  -webkit-box-shadow: 0 0 0px 1000px #1a1a1a inset !important;
-  -webkit-text-fill-color: #fff !important;
-  caret-color: #fff;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
+html[data-theme="dark"] .addrForm__field:-webkit-autofill,
+html[data-theme="dark"] .addrForm__field:-webkit-autofill:hover,
+html[data-theme="dark"] .addrForm__field:-webkit-autofill:focus,
+html[data-theme="dark"] .addrForm__field:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0px 1000px var(--bg-secondary, #1a1a1a) inset !important;
+  -webkit-text-fill-color: var(--text-primary, #fff) !important;
+  caret-color: #fff !important;
+  border-bottom: 1px solid var(--border-color) !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+html[data-theme="light"] .addrForm__field:-webkit-autofill,
+html[data-theme="light"] .addrForm__field:-webkit-autofill:hover,
+html[data-theme="light"] .addrForm__field:-webkit-autofill:focus,
+html[data-theme="light"] .addrForm__field:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0px 1000px var(--bg-secondary) inset !important;
+  -webkit-text-fill-color: var(--text-primary, #111) !important;
+  caret-color: #111 !important;
+  border-bottom: 1px solid var(--border-color) !important;
   transition: background-color 5000s ease-in-out 0s;
 }
 
@@ -590,7 +594,7 @@
 
   /* Typography */
   text-align: center;
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--text-muted);
   font-family: var(--font-body, "Plus Jakarta Sans", sans-serif);
 }
 
@@ -645,14 +649,14 @@
 .coupon__input:focus-visible,
 .qty__input:focus-visible {
   /* Box model */
-  outline: 3px solid var(--color-dark-orange, #fb8f2c);
+  outline: 3px solid var(--accent-color, #fb8f2c);
   outline-offset: 2px;
 }
 
 .remove__btn:focus-visible,
 .qty__btn:focus-visible {
   /* Box model */
-  outline: 2px solid var(--color-white, #fff);
+  outline: 2px solid var(--text-primary, #fff);
   outline-offset: 2px;
 }
 
@@ -734,10 +738,10 @@
     display: grid;
     grid-template-rows: 1fr;
     padding: 16px;
-    border: 1px solid var(--line);
+    border: 1px solid var(--border-color);
 
     /* Background */
-    background: var(--panel);
+    background: var(--bg-secondary);
   }
 
   .cart__item-media,
@@ -762,7 +766,7 @@
 
     /* Typography */
     font-size: 18px;
-    color: var(--color-white);
+    color: var(--text-primary);
 
     /* Background */
     background: transparent;
@@ -775,7 +779,7 @@
     border: none;
 
     /* Typography */
-    color: #fff;
+    color: var(--text-primary);
     font-family: var(--font-body);
     font-size: 15px;
   }
@@ -820,7 +824,7 @@
     /* Typography */
     content: attr(data-label);
     font-weight: 600;
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--text-secondary);
   }
 
   .cart__qty {
@@ -1073,4 +1077,52 @@
     /* Background */
     background: transparent;
   }
+}
+
+/* =========================================================
+   LIGHT MODE OVERRIDES
+========================================================= */
+
+html[data-theme="light"] .cart__table,
+html[data-theme="light"] .totals__table,
+html[data-theme="light"] .cart__actions {
+  background: var(--bg-primary);
+}
+
+html[data-theme="light"] .qty__btn:hover {
+  background: rgba(251, 143, 44, 0.1);
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+}
+
+html[data-theme="light"] .remove__btn:hover {
+  background: rgba(244, 67, 54, 0.1);
+  border-color: #f44336;
+  color: #f44336;
+}
+
+html[data-theme="light"] .coupon__input {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.1);
+  color: var(--text-primary);
+}
+
+html[data-theme="light"] .coupon__input:focus {
+  background: #ffffff; /* White background on focus */
+}
+
+html[data-theme="light"] .coupon__input:disabled {
+  background: rgba(0, 0, 0, 0.05); /* Light disabled background */
+}
+
+/* Add transitions for smooth theme switching */
+.cart__container,
+.cart__table,
+.totals__table,
+.cart__qty,
+.qty__btn,
+.remove__btn,
+.coupon__input {
+  transition: background-color 0.3s ease, border-color 0.3s ease,
+    color 0.3s ease, box-shadow 0.3s ease;
 }

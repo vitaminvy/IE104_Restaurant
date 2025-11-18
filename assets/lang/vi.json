@@ -14,7 +14,7 @@
     "download_app": "Tải ứng dụng WowWraps ngay hôm nay.",
     "useful_links": "Liên Kết",
     "link_home": "Trang Chủ",
-    "link_about": "Về Chúng Tôi",
+    "link_about": "Giới Thiệu",
     "link_blogs": "Bài Viết",
     "link_booking": "Đặt Chỗ",
     "link_menu": "Thực Đơn",
@@ -45,7 +45,7 @@
     "about": {
       "title": "Chúng tôi là một nhà hàng Mexico làm món ăn ngon.",
       "description": "Chào! Nhà hàng của chúng tôi đã có mặt trên thị trường hơn 20 năm. Chúng tôi phục vụ tốt nhất cho tất cả khách hàng của mình.",
-      "link": "Về chúng tôi"
+      "link": "Giới thiệu"
     },
     "service_features": {
       "door_delivery": {
@@ -959,7 +959,7 @@
     "go_to_home": "Về Trang Chủ"
   },
   "about_page": {
-    "title": "Về chúng tôi",
+    "title": "Giới thiệu",
     "intro": {
       "title": "Chúng tôi là một nhà hàng Mexico tạo ra những món ăn ngon.",
       "lead": "Từ những chiếc bánh tortilla thủ công được ép tươi mỗi sáng đến món carnitas hầm chậm và nước sốt tươi sáng, chúng tôi nấu ăn bằng nguyên liệu theo mùa từ nông dân địa phương. Nhà bếp của chúng tôi kết hợp các công thức gia đình với kỹ thuật hiện đại, giữ cho hương vị đậm đà và chân thực. Cho dù bạn thèm một món cay, hun khói hay chay, luôn có một món ăn được chế biến cẩn thận—và một đội ngũ sẵn sàng chào đón bạn như gia đình.",

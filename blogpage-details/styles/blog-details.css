@@ -61,7 +61,7 @@
   margin-top: 20px;
   padding-bottom: 20px;
 
-  color: var(--text-secondary) !important;
+  color: var(--text-secondary);
   font-family: var(--font-body);
 }
 
@@ -90,7 +90,7 @@
   padding: 0.375rem 0.75rem;
 
   /* Typography */
-  color: var(--text-secondary, var(--text-secondary));
+  color: var(--text-secondary);
   font-family: var(--font-body);
   font-weight: 500;
   /* Mobile-specific */
@@ -261,7 +261,7 @@
   margin-bottom: 1rem;
   padding-left: 1.25rem;
 
-  color: var(--text-secondary) !important;
+  color: var(--text-secondary);
   line-height: 1.6;
   font-family: var(--font-body);
 }
@@ -388,21 +388,8 @@
     max-width: 64rem;
   }
   
-  /* Reset styles from previous media queries back to desktop-base */
-  .blog-header {
-     margin-bottom: inherit; /* Reset to value of (min-width: 80rem) */
-  }
-
   .blog-header h1 {
     font-size: 3.6rem;
-  }
-  
-  .content-section {
-     margin-top: 40px; /* Added from base-desktop */
-     margin-bottom: 80px; /* Added from base-desktop */
-  }
-  .blog-quote {
-    margin: 40px 0; /* Added from base-desktop */
   }
 }
 

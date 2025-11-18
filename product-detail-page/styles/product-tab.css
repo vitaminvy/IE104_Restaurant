@@ -233,8 +233,6 @@
 /* ========== Responsive ========== */
 @media (min-width: 48rem) {
   .review-form__row {
-    flex-direction: row;
-    gap: 2rem;
   }
 }
 

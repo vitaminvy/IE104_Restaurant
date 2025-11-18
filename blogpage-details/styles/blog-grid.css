@@ -161,7 +161,7 @@
   }
 
   .blog-grid .post-content h3 {
-    font-size: 2.5rem; /* mobile default */
+    font-size: 1.75rem;
   }
   .blog-grid {
     gap: 3rem 2.5rem;

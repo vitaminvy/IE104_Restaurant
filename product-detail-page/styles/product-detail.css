@@ -185,9 +185,6 @@
   }
   .product-detail__container {
     grid-template-columns: 1fr 1fr;
-    gap: clamp(2rem, 3vw, 4rem);
-  }
-  .product-detail__container {
     gap: 3rem;
   }
   .product-detail__img {

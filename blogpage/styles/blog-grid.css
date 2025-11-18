@@ -55,7 +55,7 @@
   font-size: 0.9rem;
   color: var(--color-white);
   cursor: pointer;
-  transition: all 0.25s ease;
+  transition: border-color 0.25s ease, color 0.25s ease, background-color 0.25s ease;
 }
 
 .blog-filter-pill:hover {
@@ -91,7 +91,7 @@
   padding: 0.4rem 0.9rem;
   border-radius: 10px;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: border-color 0.2s ease, color 0.2s ease;
 }
 
 .blog-filters__clear:hover {

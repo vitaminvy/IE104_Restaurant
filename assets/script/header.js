@@ -44,22 +44,63 @@ import i18nService from './i18n-service.js';
     menuInited = true;
   }
 
-  // ----- SCROLL STYLE (blur/bg mờ khi cuộn) -----
   function initScrollStyle() {
     if (scrollInited) return;
     const header = document.getElementById("header");
     if (!header) return;
 
-    const onScroll = () => {
-      if (window.scrollY > 50) header.classList.add("header--scrolled");
-      else header.classList.remove("header--scrolled");
+    let scrollTicking = false;
+    let resizeTimer;
 
-      // Allow CSS transitions to complete before adjusting sticky elements
-      setTimeout(adjustStickyElementsPosition, 100);
+    const animateStickyTransition = (duration) => {
+      const startTime = performance.now();
+
+      const step = (currentTime) => {
+        const elapsed = currentTime - startTime;
+
+        adjustStickyElementsPosition();
+
+        if (elapsed < duration) {
+          requestAnimationFrame(step);
+        } else {
+          adjustStickyElementsPosition();
+        }
+      };
+
+      requestAnimationFrame(step);
     };
 
-    window.addEventListener("scroll", onScroll);
-    window.addEventListener("resize", adjustStickyElementsPosition); // Adjust position on resize
+    const onScroll = () => {
+      if (!scrollTicking) {
+        requestAnimationFrame(() => {
+          const currentScrollY = window.scrollY;
+          const isScrolled = currentScrollY > 50;
+
+          const hasClass = header.classList.contains("header--scrolled");
+
+          if (isScrolled !== hasClass) {
+            if (isScrolled) {
+              header.classList.add("header--scrolled");
+            } else {
+              header.classList.remove("header--scrolled");
+            }
+
+            animateStickyTransition(310);
+          }
+
+          scrollTicking = false;
+        });
+        scrollTicking = true;
+      }
+    };
+
+    const onResize = () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(adjustStickyElementsPosition, 150);
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onResize);
     onScroll();
     adjustStickyElementsPosition(); // Initial adjustment
 
@@ -67,6 +108,7 @@ import i18nService from './i18n-service.js';
   }
 
   // Function to adjust the top position of sticky elements (menu filter and cart icon)
+  // Optimized to batch layout reads before writes to prevent forced reflows
   const adjustStickyElementsPosition = () => {
     const header = document.getElementById("header");
     const menuFilter = q(".menu__filter");
@@ -74,16 +116,20 @@ import i18nService from './i18n-service.js';
 
     if (!header) return;
 
-    const headerHeight = header.offsetHeight; // Get computed height of the header
+    // Batch all layout reads together first
+    const headerHeight = header.offsetHeight; console.log("lan 1", headerHeight);
+    const menuFilterHeight = menuFilter ? menuFilter.offsetHeight : 0;
+    const cartIconHeight = cartIconWrapper ? cartIconWrapper.offsetHeight : 0;
 
+    // Then perform all writes
     if (menuFilter) {
       menuFilter.style.top = `${headerHeight}px`;
+
     }
     if (cartIconWrapper && menuFilter) {
       // Calculate top position to vertically center cart icon with menu filter
-      const menuFilterCenter = headerHeight + menuFilter.offsetHeight / 2;
-      const cartIconTop =
-        menuFilterCenter - cartIconWrapper.offsetHeight / 2 + 3;
+      const menuFilterCenter = headerHeight + menuFilterHeight / 2;
+      const cartIconTop = menuFilterCenter - cartIconHeight / 2 + 3;
       cartIconWrapper.style.top = `${cartIconTop}px`;
     } else if (cartIconWrapper) {
       // Fallback if menuFilter is not found, position below header with a default offset
@@ -107,7 +153,7 @@ import i18nService from './i18n-service.js';
     const el = document.getElementById("current-time");
     if (!el) return;
     clockStarted = true;
-    
+
     i18nService.init().then(() => {
       updateTime();
       setInterval(updateTime, 60_000);

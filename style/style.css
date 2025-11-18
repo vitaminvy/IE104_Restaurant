@@ -136,6 +136,7 @@ html {
   --color-white: #ffffff;
   --color-white-80: var(--text-secondary);
   --color-dark-orange: #fb8f2c;
+  --color-dark-orange-glow: rgba(251, 143, 44, 0.35);
   --vanilla-dark: #000;
   --bg-box: #18181b;
   --color-white-60: rgba(255, 255, 255, 0.6);

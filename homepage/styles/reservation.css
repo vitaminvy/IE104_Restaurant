@@ -28,12 +28,6 @@
   color: var(--color-white);
 }
 
-.reservation__content {
-  text-align: center;
-  max-width: 64rem; /* ~1024px */
-  color: var(--color-white);
-}
-
 .reservation__title {
   font-family: var(--font-heading);
   font-weight: 600;

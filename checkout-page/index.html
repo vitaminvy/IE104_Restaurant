@@ -46,7 +46,6 @@
     <!-- Enhanced checkout logic with dynamic cart loading -->
     <script type="module" src="./scripts/checkout.js" defer></script>
     <link rel="stylesheet" href="../style/back-to-top.css" />
-    <link rel="stylesheet" href="../homepage/back-to-top.css" />
 
     <!-- Font Awesome CDN -->
     <script
@@ -117,7 +116,7 @@
               data-i18n="checkout_page.billing_details.country"
               >Country / Region *</label
             >
-            <select id="country" class="form__select" required>
+            <select id="country" name="country" class="form__select" required>
               <option
                 value="au"
                 data-i18n="checkout_page.billing_details.country_options.au"
@@ -163,8 +162,8 @@
             <label
               class="form__label"
               for="street2"
-              data-i18n="checkout_page.billing_details.street_address"
-              >Street address *</label
+              data-i18n="checkout_page.billing_details.street_address_optional"
+              >Street address (optional)</label
             >
             <input
               id="street2"
@@ -183,7 +182,7 @@
                 data-i18n="checkout_page.billing_details.town_city"
                 >Town / City *</label
               >
-              <input id="city" class="form__input" type="text" required />
+              <input id="city" name="city" class="form__input" type="text" required />
             </div>
             <div class="form__group">
               <label
@@ -192,7 +191,7 @@
                 data-i18n="checkout_page.billing_details.district"
                 >District *</label
               >
-              <input id="district" class="form__input" type="text" required />
+              <input id="district" name="district" class="form__input" type="text" required />
             </div>
           </div>
 
@@ -220,7 +219,7 @@
                 data-i18n="checkout_page.billing_details.phone"
                 >Phone *</label
               >
-              <input id="phone" class="form__input" type="tel" required />
+              <input id="phone" name="phone" class="form__input" type="tel" required />
             </div>
           </div>
 
@@ -231,7 +230,7 @@
               data-i18n="checkout_page.billing_details.email"
               >Email address *</label
             >
-            <input id="email" class="form__input" type="email" required />
+            <input id="email" name="email" class="form__input" type="email" required />
           </div>
 
           <!-- PAYMENT METHODS -->

@@ -145,7 +145,6 @@
 
   .discover__desc {
     font-size: 0.8rem;
-color: var(--text-secondary);
   }
 }
 
@@ -183,7 +182,7 @@ color: var(--text-secondary);
   }
 
   .discover__title {
-    font-size: 3.8rem;
+    font-size: 4rem;
   }
 }
 

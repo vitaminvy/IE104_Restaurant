@@ -255,10 +255,6 @@
     margin-bottom: 40px;
   }
 
-  .comingsoon__timebox {
-    text-align: center;
-  }
-
   .comingsoon__link {
     font-size: 14px;
     border-bottom: 1px solid var(--color-dark-orange);

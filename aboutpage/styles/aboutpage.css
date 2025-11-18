@@ -89,13 +89,10 @@
 }
 
 /* khối story */
-.about-intro__story {
-  /* pull the story block up to sit snug under image B */
-  margin-top: 2rem;
-  position: relative;
-  z-index: 1;
-}
-
+  .about-intro__story {
+    /* pull the story block up to sit snug under image B */
+    margin-top: 2rem;
+  }
 .about-intro__story-title {
   font-weight: 800;
   line-height: 1.15;
@@ -407,7 +404,6 @@ html[data-theme="light"] .vision {
 
   .about-intro__title {
     font-size: 4rem;
-    margin: 0 0 1rem;
   }
   .about-intro__lead {
     font-size: 1rem;
@@ -433,12 +429,10 @@ html[data-theme="light"] .vision {
     align-items: center;
   }
   .vision__header {
-    text-align: center;
     margin-bottom: clamp(28px, 5.8vw, 60px);
   }
   .vision__title {
     font-size: 4rem;
-    margin: 0 0 12px;
   }
   .vision__badge {
     width: 64px;

@@ -298,10 +298,16 @@
     setupRippleEffects();
   });
 
-  observer.observe(document.body, {
-    childList: true,
-    subtree: true,
-  });
+  // IMPORTANT: Add a defensive check to ensure document.body exists before observing.
+  // This prevents errors in unusual loading scenarios.
+  if (document.body) {
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true,
+    });
+  } else {
+    console.warn('add-to-cart-buttons.js: Could not find document.body to observe. Dynamic ripple effects may not apply.');
+  }
 
   // Export for external use
   window.AddToCartButton = AddToCartButton;

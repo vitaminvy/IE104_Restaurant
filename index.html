@@ -1,16 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <script src="../assets/script/theme-init.js"></script>
+    <script src="../assets/script/theme-init.js" defer></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title data-i18n="home_page.title">WowWraps</title>
+    <meta
+      name="description"
+      content="Welcome to WowWraps! Discover delicious meals from our experienced chefs, read our latest blog posts, and easily book your table online. Explore our menu of breakfast, lunch, and dinner options."
+    />
     <link rel="icon" href="./assets/icons/icon-header/nav-vect.svg" type="image/svg+xml">
     <!-- Font Awesome CDN -->
     <link
-      rel="stylesheet"
+      rel="preload"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
     />
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" /></noscript>
 
     <link rel="stylesheet" href="./style/reset.css" />
     <link rel="stylesheet" href="./style/style.css" />
@@ -30,44 +37,57 @@
     <link rel="stylesheet" href="./homepage/styles/statistic.css" />
     <!-- menu section-->
     <link rel="stylesheet" href="./homepage/styles/menu.css" />
-    <!-- reservation section -->
-    <link rel="stylesheet" href="./homepage/styles/reservation.css" />
+    <!-- reservation section - Deferred -->
+    <link rel="preload" href="./homepage/styles/reservation.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="./homepage/styles/reservation.css" /></noscript>
     <!-- service-means section -->
     <link rel="stylesheet" href="./homepage/styles/service-means.css" />
-    <!-- chef intro section -->
-    <link rel="stylesheet" href="./homepage/styles/chef-intro.css" />
-    <!--discover menu section-->
-    <link rel="stylesheet" href="./homepage/styles/discover-menu.css" />
-    <!-- newsletter section -->
-    <link rel="stylesheet" href="../style/newsletter.css" />
+    <!-- chef intro section - Deferred -->
+    <link rel="preload" href="./homepage/styles/chef-intro.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="./homepage/styles/chef-intro.css" /></noscript>
+    <!--discover menu section - Deferred -->
+    <link rel="preload" href="./homepage/styles/discover-menu.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="./homepage/styles/discover-menu.css" /></noscript>
+    <!-- newsletter section - Deferred -->
+    <link rel="preload" href="./style/newsletter.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="./style/newsletter.css" /></noscript>
     <!-- highlight banner -->
     <link rel="stylesheet" href="./homepage/styles/highlight-banner.css" />
-    <!-- daily  offer -->
-    <link rel="stylesheet" href="./homepage/styles/daily-offer.css" />
-    <!-- explore blog -->
-    <link rel="stylesheet" href="./homepage/styles/explore-blog.css" />
-    <!-- back to top -->
-    <link rel="stylesheet" href="./style/back-to-top.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
-      rel="stylesheet"
-    />
+    <!-- daily  offer - Deferred -->
+    <link rel="preload" href="./homepage/styles/daily-offer.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="./homepage/styles/daily-offer.css" /></noscript>
+    <!-- explore blog - Deferred -->
+    <link rel="preload" href="./homepage/styles/explore-blog.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="./homepage/styles/explore-blog.css" /></noscript>
+
+    <!-- Preconnect to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Preload critical images -->
+    <link rel="preload" as="image" href="./assets/images/home-page/service-section/service-banner.png" fetchpriority="high" />
+    <link rel="preload" as="image" href="./assets/images/home-page/hero-section/right-hero-banner-1.webp" />
+    <link rel="preload" as="image" href="./assets/images/home-page/hero-section/left-hero-banner-1.webp" />
 
     <!-- Global Features Stylesheets -->
     <link rel="stylesheet" href="./assets/features/allergy-alert.css" />
 
-    <!-- Global Animation System -->
-    <link rel="stylesheet" href="./style/animations.css" />
+    <!-- Global Animation System - Deferred -->
+    <link rel="preload" href="./style/animations.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="./style/animations.css" /></noscript>
 
-    <!-- Form Validation & Notification System -->
-    <link rel="stylesheet" href="./style/form-validation.css" />
-    <link rel="stylesheet" href="./style/notification-system.css" />
+    <!-- Form Validation & Notification System - Deferred -->
+    <link rel="preload" href="./style/form-validation.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="./style/form-validation.css" /></noscript>
+    <link rel="preload" href="./menupage/styles/notification-system.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="./menupage/styles/notification-system.css" /></noscript>
 
     <!-- Global Loading System -->
-    <script src="./assets/script/global-loader.js"></script>
-    <script src="./assets/script/scroll-animations.js"></script>
-    <script src="./assets/script/form-validator.js"></script>
-    <script src="./assets/script/notification-system.js"></script>
+    <script src="./assets/script/global-loader.js" defer></script>
+    <link rel="stylesheet" href="./style/back-to-top.css" />
+    <script src="./assets/script/scroll-animations.js" defer></script>
+    <script src="./assets/script/form-validator.js" defer></script>
+    <script src="./menupage/scripts/notification-system.js" defer></script>
   </head>
   <body>
     <!-- logic for header and footer -->
@@ -90,9 +110,13 @@
           class="hero__image-wrapper hero__image-wrapper--left animate-slide-left"
         >
           <img
-            src="./assets/images/home-page/hero-section/left-hero-banner-1.png"
+            src="./assets/images/home-page/hero-section/left-hero-banner-1.webp"
             alt="Pasta Dish"
+            width="520"
+            height="693"
+            fetchpriority="high"
             class="hero__image"
+            loading="lazy"
           />
         </div>
 
@@ -121,9 +145,13 @@
           class="hero__image-wrapper hero__image-wrapper--right animate-slide-right"
         >
           <img
-            src="./assets/images/home-page/hero-section/right-hero-banner-1.png"
+            src="./assets/images/home-page/hero-section/right-hero-banner-1.webp"
             alt="Steak Dish"
+            width="520"
+            height="693"
+            fetchpriority="high"
             class="hero__image"
+            loading="lazy"
           />
         </div>
       </div>
@@ -138,6 +166,8 @@
             <img
               src="./assets/images/home-page/highlight-banner/self_service.svg"
               alt="Self Services"
+              loading="lazy"
+              width="40" height="40"
             />
             <span data-i18n="home.highlight_banner.self_services"
               >Self Services</span
@@ -148,6 +178,8 @@
             <img
               src="./assets/images/home-page/highlight-banner/best_food.svg"
               alt="Best Food"
+              loading="lazy"
+              width="40" height="40"
             />
             <span data-i18n="home.highlight_banner.best_food">Best Food</span>
           </div>
@@ -156,6 +188,8 @@
             <img
               src="./assets/images/home-page/highlight-banner/fast_delivery.svg"
               alt="Fast Delivery"
+              loading="lazy"
+              width="40" height="40"
             />
             <span data-i18n="home.highlight_banner.fast_delivery"
               >Fast Delivery</span
@@ -166,6 +200,8 @@
             <img
               src="./assets/images/home-page/highlight-banner/super_taste.svg"
               alt="Super Taste"
+              loading="lazy"
+              width="40" height="40"
             />
             <span data-i18n="home.highlight_banner.super_taste"
               >Super Taste</span
@@ -177,6 +213,8 @@
             <img
               src="./assets/images/home-page/highlight-banner/self_service.svg"
               alt="Self Services"
+              loading="lazy"
+              width="40" height="40"
             />
             <span data-i18n="home.highlight_banner.self_services"
               >Self Services</span
@@ -187,6 +225,8 @@
             <img
               src="./assets/images/home-page/highlight-banner/best_food.svg"
               alt="Best Food"
+              width="40" height="40"
+              loading="lazy"
             />
             <span data-i18n="home.highlight_banner.best_food">Best Food</span>
           </div>
@@ -195,6 +235,8 @@
             <img
               src="./assets/images/home-page/highlight-banner/fast_delivery.svg"
               alt="Fast Delivery"
+              width="40" height="40"
+              loading="lazy"
             />
             <span data-i18n="home.highlight_banner.fast_delivery"
               >Fast Delivery</span
@@ -205,6 +247,8 @@
             <img
               src="./assets/images/home-page/highlight-banner/super_taste.svg"
               alt="Super Taste"
+              width="40" height="40"
+              loading="lazy"
             />
             <span data-i18n="home.highlight_banner.super_taste"
               >Super Taste</span
@@ -223,11 +267,18 @@
           <img
             src="./assets/images/home-page/about-section/about-banner.png"
             alt="Restaurant interior"
+            width="535"
+            height="620"
+            loading="lazy"
           />
           <img
             class="about__frameRect"
             src="./assets/images/home-page/about-section/about-frame.png"
-            alt="Decor Frame"
+            alt=""
+            width="537"
+            height="622"
+            loading="lazy"
+            aria-hidden="true"
           />
         </div>
 
@@ -259,13 +310,15 @@
             src="./assets/icons/home-page/service-section/door-delivery.svg"
             alt="Door Delivery"
             class="features__icon"
+            loading="lazy"
+            width="40" height="40"
           />
-          <h4
+          <h3
             class="features__title"
             data-i18n="home.service_features.door_delivery.title"
           >
             Door Delivery
-          </h4>
+          </h3>
           <p
             class="features__desc"
             data-i18n="home.service_features.door_delivery.description"
@@ -281,13 +334,15 @@
             src="./assets/icons/home-page/service-section/outdoor-catering.svg"
             alt="Outdoor Catering"
             class="features__icon"
+            loading="lazy"
+            width="40" height="40"
           />
-          <h4
+          <h3
             class="features__title"
             data-i18n="home.service_features.outdoor_catering.title"
           >
             Outdoor Catering
-          </h4>
+          </h3>
           <p
             class="features__desc"
             data-i18n="home.service_features.outdoor_catering.description"
@@ -303,6 +358,10 @@
         <img
           src="./assets/images/home-page/service-section/service-banner.png"
           alt="Dish"
+          width="676"
+          height="858"
+          fetchpriority="high"
+          loading="lazy"
         />
       </div>
 
@@ -312,13 +371,15 @@
             src="./assets/icons/home-page/service-section/fine-dining.svg"
             alt="Fine Dining"
             class="features__icon"
+            width="40" height="40"
+            loading="lazy"
           />
-          <h4
+          <h3
             class="features__title"
             data-i18n="home.service_features.fine_dining.title"
           >
             Fine Dining
-          </h4>
+          </h3>
           <p
             class="features__desc"
             data-i18n="home.service_features.fine_dining.description"
@@ -334,13 +395,15 @@
             src="./assets/icons/home-page/service-section/banquets-hall.svg"
             alt="Banquets Hall"
             class="features__icon"
+            loading="lazy"
+            width="40" height="40"
           />
-          <h4
+          <h3
             class="features__title"
             data-i18n="home.service_features.banquets_hall.title"
           >
             Banquets Hall
-          </h4>
+          </h3>
           <p
             class="features__desc"
             data-i18n="home.service_features.banquets_hall.description"
@@ -377,6 +440,9 @@
               class="service__image"
               src="./assets/images/home-page/service-mean-section/service-dish.png"
               alt="Signature nachos with sauce"
+              width="600"
+              height="600"
+              loading="lazy"
             />
           </div>
 
@@ -488,6 +554,7 @@
           <img
             src="./assets/icons/home-page//menu-section/arrown-left.svg"
             alt="Previous"
+            width="24" height="24"
           />
         </button>
 
@@ -499,6 +566,7 @@
           <img
             src="./assets/icons/home-page//menu-section/arrown-right.svg"
             alt="Next"
+            width="24" height="24"
           />
         </button>
 
@@ -508,39 +576,49 @@
           role="tablist"
           aria-label="Menu slides navigation"
         >
-          <!--active dot -->
           <button
             class="menu__dot menu__dot--active"
+            role="tab"
             aria-label="Slide 1"
-            aria-current="true"
+            aria-selected="true"
           >
             <img
               src="./assets/icons/home-page/menu-section//active-dot.svg"
-              alt="Active"
+              alt="Current Slide"
+              loading="lazy"
+              width="10" height="10"
             />
           </button>
-          <button class="menu__dot" aria-label="Slide 2">
+          <button class="menu__dot" role="tab" aria-label="Slide 2" aria-selected="false">
             <img
               src="./assets/icons/home-page/menu-section/dot.svg"
-              alt="Inactive"
+              alt="Go to Slide 2"
+              loading="lazy"
+              width="10" height="10"
             />
           </button>
-          <button class="menu__dot" aria-label="Slide 3">
+          <button class="menu__dot" role="tab" aria-label="Slide 3" aria-selected="false">
             <img
               src="./assets/icons/home-page/menu-section/dot.svg"
-              alt="Inactive"
+              alt="Go to Slide 3"
+              loading="lazy"
+              width="10" height="10"
             />
           </button>
-          <button class="menu__dot" aria-label="Slide 4">
+          <button class="menu__dot" role="tab" aria-label="Slide 4" aria-selected="false">
             <img
               src="./assets/icons/home-page/menu-section/dot.svg"
-              alt="Inactive"
+              alt="Go to Slide 4"
+              loading="lazy"
+              width="10" height="10"
             />
           </button>
-          <button class="menu__dot" aria-label="Slide 5">
+          <button class="menu__dot" role="tab" aria-label="Slide 5" aria-selected="false">
             <img
               src="./assets/icons/home-page/menu-section/dot.svg"
-              alt="Inactive"
+              alt="Go to Slide 5"
+              loading="lazy"
+              width="10" height="10"
             />
           </button>
         </div>
@@ -548,7 +626,7 @@
     </section>
 
     <!-- 7.MENU SECTION: navigate menu  -->
-    <script type="module" src="./assets/script/navigate-menu.js"></script>
+    <script type="module" src="./assets/script/navigate-menu.js" defer></script>
 
     <!-- ========== 8.  STATISTICS / ACHIEVEMENTS ========== -->
     <section id="stats" class="stats">
@@ -559,6 +637,8 @@
             src="./assets/icons/home-page/statitics-section/happy-customer.svg"
             alt="Happy Customers"
             class="stats__icon"
+            loading="lazy"
+            width="40" height="40"
           />
           <div class="stats__info">
             <h3 class="stats__number">7500+</h3>
@@ -574,6 +654,8 @@
             src="./assets/icons/home-page/statitics-section/passionate-chef.svg"
             alt="Passionate Chefs"
             class="stats__icon"
+            loading="lazy"
+            width="40" height="40"
           />
           <div class="stats__info">
             <h3 class="stats__number">39</h3>
@@ -589,6 +671,8 @@
             src="./assets/icons/home-page/statitics-section/dishes.svg"
             alt="Dishes"
             class="stats__icon"
+            loading="lazy"
+            width="40" height="40"
           />
           <div class="stats__info">
             <h3 class="stats__number">286</h3>
@@ -604,6 +688,8 @@
             src="./assets/icons/home-page/statitics-section/custom-rating.svg"
             alt="Custom Rating"
             class="stats__icon"
+            loading="lazy"
+            width="40" height="40"
           />
           <div class="stats__info">
             <h3 class="stats__number">4.5</h3>
@@ -623,6 +709,8 @@
           <img
             src="./assets/images/home-page/chef-intro-section/aaliyah.png"
             alt="Đầu bếp đang tỉ mỉ chuẩn bị món ăn dưới ánh đèn ấm áp."
+            loading="lazy"
+            width="500" height="450"
           />
         </div>
         <!-- Introduction content -->
@@ -676,11 +764,15 @@
           <img
             src="./assets/images/home-page/discover-menu-section/discover-menu-dish.png"
             alt="Michelin Sandwich"
+            loading="lazy"
+            width="600" height="440"
           />
           <img
             src="./assets/images/home-page/discover-menu-section/discover-menu-flower.png"
             alt="Flower"
             class="discover__icon"
+            loading="lazy"
+            width="100" height="100"
           />
         </div>
       </div>
@@ -708,6 +800,8 @@
                 src="./assets/images/home-page/daily-offer/daily-offer-banner.png"
                 alt="Lunch Time 30% Off"
                 class="daily-offers__promo-img"
+                loading="lazy"
+                width="400" height="250"
               />
             </a>
 
@@ -720,6 +814,8 @@
                   src="./assets/images/home-page/daily-offer/spicy-club.png"
                   alt="Spicy Club"
                   class="daily-offers__item-img"
+                  loading="lazy"
+                  width="100" height="100"
                 />
                 <div class="daily-offers__item-info">
                   <h3
@@ -746,6 +842,8 @@
                   src="./assets/images/home-page/daily-offer/baked-brie.png"
                   alt="Almond Baked Brie"
                   class="daily-offers__item-img"
+                  loading="lazy"
+                  width="100" height="100"
                 />
                 <div class="daily-offers__item-info">
                   <h3
@@ -772,6 +870,8 @@
                   src="./assets/images/home-page/daily-offer/flat-bread.png"
                   alt="Tuscan Flatbread"
                   class="daily-offers__item-img"
+                  loading="lazy"
+                  width="100" height="100"
                 />
                 <div class="daily-offers__item-info">
                   <h3
@@ -824,8 +924,10 @@
             <div class="reservation__row">
               <!-- customer name -->
               <div class="reservation__field">
+                <label for="res-name" class="visually-hidden">Your Name</label>
                 <input
                   type="text"
+                  id="res-name"
                   name="name"
                   placeholder="Your name"
                   required
@@ -836,14 +938,15 @@
                 />
                 <img
                   src="./assets/icons/home-page/resvervation-section/profile.svg"
-                  alt="profile icon"
-                  class="reservation__icon"
+                  alt="" class="reservation__icon" aria-hidden="true"
                 />
               </div>
               <!-- phone number -->
               <div class="reservation__field">
+                <label for="res-phone" class="visually-hidden">Phone Number</label>
                 <input
                   type="tel"
+                  id="res-phone"
                   name="phone"
                   placeholder="Phone number"
                   required
@@ -853,14 +956,15 @@
                 />
                 <img
                   src="./assets/icons/home-page/resvervation-section/phone.svg"
-                  alt="phone icon"
-                  class="reservation__icon"
+                  alt="" class="reservation__icon" aria-hidden="true"
                 />
               </div>
               <!-- email -->
               <div class="reservation__field">
+                <label for="res-email" class="visually-hidden">Email Address</label>
                 <input
                   type="email"
+                  id="res-email"
                   name="email"
                   placeholder="Email address"
                   required
@@ -870,8 +974,7 @@
                 />
                 <img
                   src="./assets/icons/home-page/resvervation-section/message.svg"
-                  alt="email icon"
-                  class="reservation__icon"
+                  alt="" class="reservation__icon" aria-hidden="true"
                 />
               </div>
             </div>
@@ -879,8 +982,9 @@
             <!-- time for reservating -->
             <div class="reservation__row">
               <div class="reservation__field">
+                <label for="res-people" class="visually-hidden">Number of People</label>
                 <!-- person - maximum is 5 person -->
-                <select name="persons" required>
+                <select id="res-people" name="people" required>
                   <option value="" data-i18n="home.reservation.option_1_person">
                     1 Person
                   </option>
@@ -911,14 +1015,15 @@
                 </select>
                 <img
                   src="./assets/icons/home-page/resvervation-section/arrow-down.svg"
-                  alt="arrow down"
-                  class="reservation__icon"
+                  alt="" class="reservation__icon" aria-hidden="true"
                 />
               </div>
               <!-- date -->
               <div class="reservation__field">
+                <label for="res-date" class="visually-hidden">Date</label>
                 <input
                   type="date"
+                  id="res-date"
                   name="date"
                   required
                   data-error-required="Please select a date"
@@ -926,14 +1031,15 @@
                 />
                 <img
                   src="./assets/icons/home-page/resvervation-section/calendar.svg"
-                  alt="calendar icon"
-                  class="reservation__icon"
+                  alt="" class="reservation__icon" aria-hidden="true"
                 />
               </div>
               <!-- time -->
               <div class="reservation__field">
+                <label for="res-time" class="visually-hidden">Time</label>
                 <input
                   type="time"
+                  id="res-time"
                   name="time"
                   required
                   data-error-required="Please select a time"
@@ -941,8 +1047,7 @@
                 />
                 <img
                   src="./assets/icons/home-page/resvervation-section/clock.svg"
-                  alt="clock icon"
-                  class="reservation__icon"
+                  alt="" class="reservation__icon" aria-hidden="true"
                 />
               </div>
             </div>
@@ -990,6 +1095,8 @@
                 <img
                   src="./assets/images/home-page/explore-section/blog-restaurant.png"
                   alt="Restaurant interior"
+                  loading="lazy"
+                  width="400" height="300"
                 />
               </div>
               <div class="blog-hero-card__body">
@@ -1021,9 +1128,9 @@
                 <a
                   href="./blogpage-details/index.html?id=1"
                   class="blog-hero-card__cta"
-                  data-i18n="home.blogs.read_more"
+                  aria-label="Read more about the new restaurant in town"
                 >
-                  Read more
+                  Read more about the new restaurant in town
                 </a>
               </div>
             </article>
@@ -1033,6 +1140,8 @@
                 <img
                   src="./assets/images/home-page/explore-section/blog-drink.png"
                   alt="Summer cocktail"
+                  loading="lazy"
+                  width="200" height="150"
                 />
               </div>
               <div class="blog-mini-card__body">
@@ -1052,8 +1161,8 @@
                 <a
                   href="./blogpage-details/index.html?id=2"
                   class="blog-mini-card__cta link-underline"
-                  data-i18n="home.blogs.read_more"
-                  >Read more</a
+                  aria-label="Read more about our summer drink special"
+                  >Read more about our summer drink special</a
                 >
               </div>
             </article>
@@ -1085,7 +1194,8 @@
                   <a
                     href="./blogpage-details/index.html?id=3"
                     class="blogs__timeline-link link-underline"
-                    >Read more</a
+                    aria-label="Read more about 5 plating secrets you can borrow"
+                    >Read more about 5 plating secrets</a
                   >
                 </div>
               </div>
@@ -1108,7 +1218,8 @@
                   <a
                     href="./blogpage-details/index.html?id=4"
                     class="blogs__timeline-link link-underline"
-                    >Read more</a
+                    aria-label="Read more about fermenting pantry starters"
+                    >Read more about fermenting pantry starters</a
                   >
                 </div>
               </div>
@@ -1131,7 +1242,8 @@
                   <a
                     href="./blogpage-details/index.html?id=5"
                     class="blogs__timeline-link link-underline"
-                    >Read more</a
+                    aria-label="Read more about zero-waste desserts"
+                    >Read more about zero-waste desserts</a
                   >
                 </div>
               </div>
@@ -1150,13 +1262,14 @@
     <div data-include="/partials/footer.html"></div>
     <!-- Back to top -->
     <div data-include="partials/back-to-top.html"></div>
-    <script src="./assets/script/back-to-top.js"></script>
+    <script src="./assets/script/back-to-top.js" defer></script>
+    <!-- commit for deploy -->
 
     <!-- Reservation Form Handler -->
-    <script src="./homepage/scripts/reservation-handler.js"></script>
+    <script src="./homepage/scripts/reservation-handler.js" defer></script>
 
     <!-- Newsletter Form Handler -->
-    <script src="./homepage/scripts/newsletter-handler.js"></script>
+    <script src="./homepage/scripts/newsletter-handler.js" defer></script>
 
     <script type="module" src="./assets/script/header-features.js" defer></script>
     <script src="./assets/script/newsletter.js" defer></script>

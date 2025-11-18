@@ -7,7 +7,7 @@
 /* ===== comingsoon ===== */
 .comingsoon {
   position: relative;
-  background: url("../assets/images/comming-soon-page/bg-coming-soon.png")
+  background: url("../../assets/images/comming-soon-page/bg-coming-soon.png")
     center/cover no-repeat;
   display: flex;
   justify-content: center;

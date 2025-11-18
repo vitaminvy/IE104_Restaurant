@@ -16,7 +16,6 @@
     <!-- footer section-->
     <link rel="stylesheet" href="../partials/footer.css" />
     <!-- menu section-->
-    <link rel="stylesheet" href="../homepage/menu.css" />
 
     <!-- product detail section css -->
     <link rel="stylesheet" href="./styles/product-detail.css" />
@@ -45,7 +44,6 @@
     <!-- Global Features Stylesheets -->
     <link rel="stylesheet" href="../assets/features/allergy-alert.css" />
     <link rel="stylesheet" href="../style/back-to-top.css" />
-    <link rel="stylesheet" href="../homepage/back-to-top.css" />
 
     <!-- Font Awesome CDN -->
     <script
@@ -258,6 +256,7 @@
             <div class="review-form__field">
               <input
                 type="text"
+                name="reviewer_name"
                 placeholder="Your name *"
                 required
                 data-i18n-placeholder="product_detail_page.review_form.placeholder_name"
@@ -271,6 +270,7 @@
             <div class="review-form__field">
               <input
                 type="email"
+                name="reviewer_email"
                 placeholder="Email address *"
                 required
                 data-i18n-placeholder="product_detail_page.review_form.placeholder_email"
@@ -286,6 +286,7 @@
           <div class="review-form__field">
             <input
               type="url"
+              name="reviewer_website"
               placeholder="Website *"
               required
               data-i18n-placeholder="product_detail_page.review_form.placeholder_website"
@@ -322,6 +323,7 @@
 
           <div class="review-form__field">
             <textarea
+              name="review_text"
               placeholder="Write review *"
               rows="5"
               required

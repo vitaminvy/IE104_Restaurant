@@ -225,7 +225,7 @@ html[data-theme="light"] .header__nav {
 
   .header__nav-list {
     flex-direction: row;
-    gap: 2.5rem;
+    gap: 2rem;
   }
 
   .header__menu-btn {

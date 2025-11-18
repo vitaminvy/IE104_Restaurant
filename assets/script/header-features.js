@@ -25,6 +25,29 @@ function applyStaticTranslations() {
     if (val !== undefined) el.setAttribute('placeholder', val);
   });
 
+  const errorAttrMap = [
+    { key: 'required', target: 'data-error-required' },
+    { key: 'minLength', target: 'data-error-minLength' },
+    { key: 'maxLength', target: 'data-error-maxLength' },
+    { key: 'email', target: 'data-error-email' },
+    { key: 'phone', target: 'data-error-phone' },
+    { key: 'date', target: 'data-error-date' },
+    { key: 'time', target: 'data-error-time' },
+    { key: 'pattern', target: 'data-error-pattern' },
+    { key: 'number', target: 'data-error-number' }
+  ];
+
+  errorAttrMap.forEach(({ key, target }) => {
+    document.querySelectorAll(`[data-i18n-error-${key}]`).forEach(el => {
+      const attrName = `data-i18n-error-${key}`;
+      const translationKey = el.getAttribute(attrName);
+      const val = getByPath(translations, translationKey);
+      if (val !== undefined) {
+        el.setAttribute(target, val);
+      }
+    });
+  });
+
   document.documentElement.setAttribute('lang', lang);
 }
 

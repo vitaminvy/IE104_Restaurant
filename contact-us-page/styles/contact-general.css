@@ -53,7 +53,6 @@
   /* Background / Others */
   background-color: var(--color-dark-orange);
   cursor: pointer;
-  transform: translateY(0);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
   transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease,
     box-shadow 0.2s ease;
@@ -63,34 +62,18 @@
 .link {
   display: inline-flex; /* Change to inline-flex */
   align-items: center; /* Center the text vertically */
+  align-self: flex-start;
   font-family: var(--font-body);
   color: var(--text-primary);
   font-weight: 500;
   text-decoration: none;
-  position: relative;
   transition: color 0.3s ease;
-  width: 60%;
-}
-
-.link::after {
-  content: "";
-  position: absolute;
-  bottom: -6px;
-  left: 0;
-  width: 100%; /* Set width to 100% */
-  height: 2px;
-  background-color: #fb8f2c;
-  transform-origin: left center;
-  transform: scaleX(1);
-  transition: transform 0.3s ease;
+  padding-bottom: 4px;
+  border-bottom: 2px solid #fb8f2c;
 }
 
 .link:hover {
   color: #fb8f2c;
-}
-
-.link:hover::after {
-  transform: scaleX(0.5);
 }
 
 textarea {
@@ -147,18 +130,6 @@ textarea:focus {
   .section-title {
     /* Typography */
     font-size: 3rem;
-  }
-  .link::after {
-    width: 55%;
-  }
-}
-
-@media (min-width: 64rem) {
-  .link {
-    width: 39%;
-  }
-  .link::after {
-    width: 85%;
   }
 }
 

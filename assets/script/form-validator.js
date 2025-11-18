@@ -27,16 +27,32 @@
   // ================================
 
   const errorMessages = {
-    required: 'This field is required',
-    email: 'Please enter a valid email address',
-    phone: 'Please enter a valid phone number',
-    minLength: 'Minimum {min} characters required',
-    maxLength: 'Maximum {max} characters allowed',
-    number: 'Please enter a valid number',
-    date: 'Please enter a valid date',
-    time: 'Please enter a valid time',
-    pattern: 'Invalid format',
+    required: 'form_validator.required',
+    email: 'form_validator.email',
+    phone: 'form_validator.phone',
+    minLength: 'form_validator.minLength',
+    maxLength: 'form_validator.maxLength',
+    number: 'form_validator.number',
+    date: 'form_validator.date',
+    time: 'form_validator.time',
+    pattern: 'form_validator.pattern',
   };
+
+  function translateMessage(key, params = {}) {
+    if (!key) return '';
+    const svc = window.i18nService;
+    let message = key;
+    if (svc && typeof svc.t === 'function') {
+      message = svc.t(key) || key;
+    }
+    if (typeof message === 'string') {
+      Object.entries(params).forEach(([token, value]) => {
+        const regex = new RegExp(`\\{${token}\\}`, 'g');
+        message = message.replace(regex, value);
+      });
+    }
+    return message;
+  }
 
   // ================================
   // VALIDATOR CLASS
@@ -77,6 +93,15 @@
 
       // Setup form submission
       this.form.addEventListener('submit', (e) => this.handleSubmit(e));
+
+      // Re-validate on language change
+      document.addEventListener('language-changed', () => {
+        this.fields.forEach((field) => {
+          if (field.errorElement.style.display === 'block') {
+            this.validateField(field);
+          }
+        });
+      });
     }
 
     // ================================
@@ -192,54 +217,62 @@
       // Validate each rule
       for (const rule of rules) {
         let isValid = false;
+        let errorMsgKey = '';
         let errorMsg = '';
 
         switch (rule.type) {
           case 'required':
             isValid = validationRules.required(value);
-            errorMsg = element.getAttribute('data-error-required') || errorMessages.required;
+            errorMsgKey = element.getAttribute('data-error-required') || errorMessages.required;
+            errorMsg = translateMessage(errorMsgKey);
             break;
 
           case 'email':
             isValid = validationRules.email(value);
-            errorMsg = element.getAttribute('data-error-email') || errorMessages.email;
+            errorMsgKey = element.getAttribute('data-error-email') || errorMessages.email;
+            errorMsg = translateMessage(errorMsgKey);
             break;
 
           case 'phone':
             isValid = validationRules.phone(value);
-            errorMsg = element.getAttribute('data-error-phone') || errorMessages.phone;
+            errorMsgKey = element.getAttribute('data-error-phone') || errorMessages.phone;
+            errorMsg = translateMessage(errorMsgKey);
             break;
 
           case 'minLength':
             isValid = validationRules.minLength(value, rule.value);
-            errorMsg = element.getAttribute('data-error-minLength') ||
-                      errorMessages.minLength.replace('{min}', rule.value);
+            errorMsgKey = element.getAttribute('data-error-minLength') || errorMessages.minLength;
+            errorMsg = translateMessage(errorMsgKey, { min: rule.value });
             break;
 
           case 'maxLength':
             isValid = validationRules.maxLength(value, rule.value);
-            errorMsg = element.getAttribute('data-error-maxLength') ||
-                      errorMessages.maxLength.replace('{max}', rule.value);
+            errorMsgKey = element.getAttribute('data-error-maxLength') || errorMessages.maxLength;
+            errorMsg = translateMessage(errorMsgKey, { max: rule.value });
             break;
 
           case 'number':
             isValid = validationRules.number(value);
-            errorMsg = element.getAttribute('data-error-number') || errorMessages.number;
+            errorMsgKey = element.getAttribute('data-error-number') || errorMessages.number;
+            errorMsg = translateMessage(errorMsgKey);
             break;
 
           case 'date':
             isValid = validationRules.date(value);
-            errorMsg = element.getAttribute('data-error-date') || errorMessages.date;
+            errorMsgKey = element.getAttribute('data-error-date') || errorMessages.date;
+            errorMsg = translateMessage(errorMsgKey);
             break;
 
           case 'time':
             isValid = validationRules.time(value);
-            errorMsg = element.getAttribute('data-error-time') || errorMessages.time;
+            errorMsgKey = element.getAttribute('data-error-time') || errorMessages.time;
+            errorMsg = translateMessage(errorMsgKey);
             break;
 
           case 'pattern':
             isValid = validationRules.pattern(value, rule.value);
-            errorMsg = element.getAttribute('data-error-pattern') || errorMessages.pattern;
+            errorMsgKey = element.getAttribute('data-error-pattern') || errorMessages.pattern;
+            errorMsg = translateMessage(errorMsgKey);
             break;
         }
 

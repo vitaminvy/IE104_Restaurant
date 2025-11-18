@@ -66,7 +66,6 @@
 }
 
 .form__input:focus {
-  outline: none;
   border-color: var(--accent-color);
   box-shadow: 0 1px 0 0 var(--accent-color);
 }
@@ -340,7 +339,7 @@ textarea:-webkit-autofill:focus,
 select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
-  border: none;
+  border-bottom: 1px solid var(--border-color);
   /* text color  */
   -webkit-text-fill-color: var(--text-secondary);
   transition: background-color 5000s ease-in-out 0s;

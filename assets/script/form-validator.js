@@ -38,6 +38,22 @@
     pattern: 'form_validator.pattern',
   };
 
+  function translateMessage(key, params = {}) {
+    if (!key) return '';
+    const svc = window.i18nService;
+    let message = key;
+    if (svc && typeof svc.t === 'function') {
+      message = svc.t(key) || key;
+    }
+    if (typeof message === 'string') {
+      Object.entries(params).forEach(([token, value]) => {
+        const regex = new RegExp(`\\{${token}\\}`, 'g');
+        message = message.replace(regex, value);
+      });
+    }
+    return message;
+  }
+
   // ================================
   // VALIDATOR CLASS
   // ================================
@@ -208,55 +224,55 @@
           case 'required':
             isValid = validationRules.required(value);
             errorMsgKey = element.getAttribute('data-error-required') || errorMessages.required;
-            errorMsg = i18nService.t(errorMsgKey);
+            errorMsg = translateMessage(errorMsgKey);
             break;
 
           case 'email':
             isValid = validationRules.email(value);
             errorMsgKey = element.getAttribute('data-error-email') || errorMessages.email;
-            errorMsg = i18nService.t(errorMsgKey);
+            errorMsg = translateMessage(errorMsgKey);
             break;
 
           case 'phone':
             isValid = validationRules.phone(value);
             errorMsgKey = element.getAttribute('data-error-phone') || errorMessages.phone;
-            errorMsg = i18nService.t(errorMsgKey);
+            errorMsg = translateMessage(errorMsgKey);
             break;
 
           case 'minLength':
             isValid = validationRules.minLength(value, rule.value);
             errorMsgKey = element.getAttribute('data-error-minLength') || errorMessages.minLength;
-            errorMsg = i18nService.t(errorMsgKey, { min: rule.value });
+            errorMsg = translateMessage(errorMsgKey, { min: rule.value });
             break;
 
           case 'maxLength':
             isValid = validationRules.maxLength(value, rule.value);
             errorMsgKey = element.getAttribute('data-error-maxLength') || errorMessages.maxLength;
-            errorMsg = i18nService.t(errorMsgKey, { max: rule.value });
+            errorMsg = translateMessage(errorMsgKey, { max: rule.value });
             break;
 
           case 'number':
             isValid = validationRules.number(value);
             errorMsgKey = element.getAttribute('data-error-number') || errorMessages.number;
-            errorMsg = i18nService.t(errorMsgKey);
+            errorMsg = translateMessage(errorMsgKey);
             break;
 
           case 'date':
             isValid = validationRules.date(value);
             errorMsgKey = element.getAttribute('data-error-date') || errorMessages.date;
-            errorMsg = i18nService.t(errorMsgKey);
+            errorMsg = translateMessage(errorMsgKey);
             break;
 
           case 'time':
             isValid = validationRules.time(value);
             errorMsgKey = element.getAttribute('data-error-time') || errorMessages.time;
-            errorMsg = i18nService.t(errorMsgKey);
+            errorMsg = translateMessage(errorMsgKey);
             break;
 
           case 'pattern':
             isValid = validationRules.pattern(value, rule.value);
             errorMsgKey = element.getAttribute('data-error-pattern') || errorMessages.pattern;
-            errorMsg = i18nService.t(errorMsgKey);
+            errorMsg = translateMessage(errorMsgKey);
             break;
         }
 

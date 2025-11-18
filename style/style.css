@@ -79,6 +79,40 @@ html {
   font-size: 16px;
 }
 
+/* Libre Bodoni (Heading) */
+@font-face {
+  font-family: 'Libre Bodoni';
+  font-style: normal;
+  font-weight: 400; /* Regular */
+  font-display: swap; 
+  src: url('../assets/fonts/libre-bodoni-v9-latin_vietnamese-regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Libre Bodoni';
+  font-style: normal;
+  font-weight: 700; /* Bold */
+  font-display: swap; 
+  src: url('../assets/fonts/libre-bodoni-v9-latin_vietnamese-700.woff2') format('woff2');
+}
+
+/* Plus Jakarta Sans (Body) */
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../assets/fonts/plus-jakarta-sans-v12-latin_vietnamese-regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../assets/fonts/plus-jakarta-sans-v12-latin_vietnamese-700.woff2') format('woff2');
+}
+
 :root {
   /* Font family */
   --font-body: "Plus Jakarta Sans", sans-serif;
@@ -310,4 +344,34 @@ textarea::placeholder {
 input:focus::placeholder,
 textarea:focus::placeholder {
   opacity: 0.5;
+}
+
+/* =========================================================
+   ACCESSIBILITY UTILITIES
+========================================================= */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* =========================================================
+   ACCESSIBILITY UTILITIES
+========================================================= */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }

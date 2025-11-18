@@ -151,8 +151,6 @@
 @media (min-width: 1024px) {
   .newsletter__container {
     gap: 6rem;
-    /* min-height: 650px; */
-    /* padding: 0 16px; */
   }
   .newsletter__title {
     font-size: 3rem;
@@ -198,5 +196,3 @@
     margin-bottom: 7rem;
   }
 }
-
-

@@ -3,7 +3,7 @@
     "home": "Home",
     "menu": "Menu",
     "blog": "Blog",
-    "order": "Order",
+    "about": "About Us",
     "contact": "Contact"
   },
   "header": {
@@ -14,7 +14,7 @@
     "download_app": "Download the WowWraps app today.",
     "useful_links": "Useful Links",
     "link_home": "Home",
-    "link_about": "About Us",
+    "link_about": "Orders",
     "link_blogs": "Blogs",
     "link_booking": "Booking",
     "link_menu": "Menu",

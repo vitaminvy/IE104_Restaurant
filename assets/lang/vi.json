@@ -26,7 +26,8 @@
     "social_tw": "Twitter",
     "legal": "Pháp Lý",
     "legal_website": "Website bởi UIT.com",
-    "legal_copyright": "©2025. Mọi Quyền Được Bảo Hộ"
+    "legal_copyright": "©2025. Mọi Quyền Được Bảo Hộ",
+    "comming_soon": "Định Hướng"
   },
   "home": {
     "hero": {
@@ -49,19 +50,19 @@
     "service_features": {
       "door_delivery": {
         "title": "Giao hàng tận nơi",
-        "description": "Mong muốn rằng tất cả họ không thể lường trước được nỗi đau và rắc rối sắp xảy ra."
+        "description": "Tận hưởng sự tiện lợi khi các món ăn yêu thích của bạn được giao tận nơi, tươi ngon và nóng hổi."
       },
       "outdoor_catering": {
         "title": "Tiệc ngoài trời",
-        "description": "Nghĩa vụ kinh doanh thường xuyên xảy ra rằng những thú vui phải bị từ bỏ."
+        "description": "Chúng tôi cung cấp dịch vụ tiệc ngoài trời đặc biệt cho tất cả các sự kiện của bạn, đảm bảo trải nghiệm ẩm thực đáng nhớ."
       },
       "fine_dining": {
         "title": "Ăn uống cao cấp",
-        "description": "Giải thích cho bạn cách sai lầm này lên án niềm vui và ca ngợi nỗi đau sẽ mang lại cho bạn sự hoàn chỉnh."
+        "description": "Thưởng thức trải nghiệm ẩm thực cao cấp tinh tế với các món ăn được chế biến tỉ mỉ và không gian sang trọng của chúng tôi."
       },
       "banquets_hall": {
         "title": "Phòng tiệc",
-        "description": "Người khôn ngoan do đó luôn giữ trong những vấn đề này các nguyên tắc lựa chọn lớn hơn."
+        "description": "Các sảnh tiệc rộng rãi của chúng tôi hoàn hảo để tổ chức các buổi lễ kỷ niệm lớn, sự kiện công ty và các buổi họp mặt đặc biệt."
       }
     },
     "service_quality": {
@@ -219,10 +220,9 @@
   "coming_soon_page": {
     "title": "Sắp Ra Mắt | WowWraps"
   },
-  "coming_soon": {
-    "title": "Đăng ký nhận bản tin & nhận tin tức mới",
-    "description": "Việc chúng ta có thể làm những gì chúng ta thích nhất, mọi niềm vui đều được chào đón và mọi nỗi đau đều được tránh khỏi.",
-    "placeholder_email": "Nhập địa chỉ email của bạn",
+      "coming_soon": {
+        "title": "Đăng ký nhận bản tin & nhận tin tức mới",
+        "description": "Chúng tôi đang nỗ lực để mang đến cho bạn những điều tuyệt vời! Hãy theo dõi để biết ngày ra mắt chính thức, nơi những hương vị và trải nghiệm mới đang chờ đón.",    "placeholder_email": "Nhập địa chỉ email của bạn",
     "timer": {
       "days": "Ngày",
       "hour": "Giờ",
@@ -955,28 +955,33 @@
     "5": "Thứ Sáu",
     "6": "Thứ Bảy"
   },
+  "not_found_page": {
+    "title": "404 Không Tìm Thấy - WowWraps",
+    "message": "Xin lỗi, trang bạn đang tìm không tồn tại. Nếu bạn nghĩ có lỗi, hãy báo cáo sự cố.",
+    "go_to_home": "Về Trang Chủ"
+  },
   "about_page": {
     "title": "Về chúng tôi",
     "intro": {
       "title": "Chúng tôi là một nhà hàng Mexico tạo ra những món ăn ngon.",
       "lead": "Từ những chiếc bánh tortilla thủ công được ép tươi mỗi sáng đến món carnitas hầm chậm và nước sốt tươi sáng, chúng tôi nấu ăn bằng nguyên liệu theo mùa từ nông dân địa phương. Nhà bếp của chúng tôi kết hợp các công thức gia đình với kỹ thuật hiện đại, giữ cho hương vị đậm đà và chân thực. Cho dù bạn thèm một món cay, hun khói hay chay, luôn có một món ăn được chế biến cẩn thận—và một đội ngũ sẵn sàng chào đón bạn như gia đình.",
-      "story_title": "Câu chuyện về<br/>Chi nhánh nhà hàng<br/>đầu tiên của chúng tôi",
-      "story_text": "Tại vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident."
+      "story_title": "Câu chuyện về<br/>chi nhánh nhà hàng<br/>đầu tiên",
+      "story_text": "Hành trình của chúng tôi bắt đầu từ niềm đam mê đơn giản với hương vị đích thực và mong muốn chia sẻ chúng với cộng đồng. Từ một quán ăn nhỏ do gia đình điều hành, chúng tôi đã phát triển thành một điểm đến ẩm thực được yêu thích, luôn giữ vững giá trị cốt lõi của mình."
     },
     "vision_mission": {
-      "title": "Tầm nhìn & Sứ mệnh của chúng tôi",
-      "subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam aliquam amet, cursus tellus non consequat laoreet eget ornare. Vulputate tellus, a lobortis eu nisl. Quisque vulputate eget et, aliquet libero.",
+      "title": "Tầm nhìn & Sứ mệnh",
+      "subtitle": "Tầm nhìn của chúng tôi là trở thành điểm đến ẩm thực hàng đầu, nổi tiếng với các món ăn đặc sắc, dịch vụ vượt trội và không gian ấm cúng. Sứ mệnh của chúng tôi là làm hài lòng mọi khách hàng với những món ăn sáng tạo và trải nghiệm ăn uống đáng nhớ.",
       "delicious_cuisine": {
         "title": "Ẩm thực ngon",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit at aliquam amet."
+        "description": "Chúng tôi cam kết phục vụ ẩm thực ngon được chế biến từ những nguyên liệu tươi ngon nhất và chuyên môn ẩm thực."
       },
       "fast_delivery": {
         "title": "Giao hàng nhanh",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit at aliquam amet."
+        "description": "Trải nghiệm dịch vụ giao hàng nhanh chóng và hiệu quả, mang những bữa ăn ngon của chúng tôi trực tiếp đến bạn."
       },
       "professional_chef": {
         "title": "Đầu bếp chuyên nghiệp",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit at aliquam amet."
+        "description": "Đội ngũ đầu bếp chuyên nghiệp của chúng tôi mang niềm đam mê và chuyên môn vào từng món ăn, đảm bảo một hành trình ẩm thực thú vị."
       }
     },
     "team": {

@@ -283,26 +283,27 @@ function updateLoadMoreState(hasNext) {
   if (filteredPosts.length === 0) {
     loadMoreBtn.style.display = 'none';
     status.textContent = i18nService.t('blog_page.no_stories');
+    status.style.display = 'block';
     return;
   }
 
-  loadMoreBtn.style.display = 'inline-flex';
   if (hasNext) {
+    loadMoreBtn.style.display = 'inline-flex';
     loadMoreBtn.disabled = false;
-    loadMoreBtn.textContent = i18nService.t('blog_page.load_more');
+    const shown = currentPage * POSTS_PER_PAGE;
+    const statusTemplate = i18nService.t('blog_page.showing_count');
+    if (statusTemplate && statusTemplate !== 'blog_page.showing_count') {
+      status.textContent = statusTemplate
+        .replace('{current}', shown)
+        .replace('{total}', filteredPosts.length);
+    } else {
+      status.textContent = `Showing ${shown} of ${filteredPosts.length} stories`;
+    }
+    status.style.display = 'block';
   } else {
-    loadMoreBtn.disabled = true;
-    loadMoreBtn.textContent = i18nService.t('blog_page.caught_up');
-  }
-
-  const shown = Math.min(currentPage * POSTS_PER_PAGE, filteredPosts.length);
-  const statusTemplate = i18nService.t('blog_page.showing_count');
-  if (statusTemplate && statusTemplate !== 'blog_page.showing_count') {
-    status.textContent = statusTemplate
-      .replace('{current}', shown)
-      .replace('{total}', filteredPosts.length);
-  } else {
-    status.textContent = `Showing ${shown} of ${filteredPosts.length} stories`;
+    loadMoreBtn.style.display = 'none';
+    status.textContent = i18nService.t('blog_page.caught_up');
+    status.style.display = 'block';
   }
 }
 

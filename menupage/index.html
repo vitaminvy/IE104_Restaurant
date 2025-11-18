@@ -49,7 +49,19 @@
       crossorigin="anonymous"
     ></script>
 
-    <!-- Global Loading + scroll animations -->
+    <!-- Global Features Stylesheets -->
+    <link rel="stylesheet" href="../assets/features/allergy-alert.css" />
+
+    <!-- Global Animation System -->
+    <link rel="stylesheet" href="../style/animations.css" />
+
+    <!-- Add to Cart Button System -->
+    <link rel="stylesheet" href="./styles/add-to-cart-buttons.css" />
+    <link rel="stylesheet" href="./styles/notification-system.css" />
+    <script src="./scripts/notification-system.js"></script>
+    <script src="./scripts/add-to-cart-buttons.js"></script>
+
+    <!-- Global Loading System -->
     <script src="../assets/script/global-loader.js"></script>
     <script src="../assets/script/scroll-animations.js"></script>
   </head>
@@ -63,11 +75,14 @@
     <div data-include="/partials/header.html"></div>
 
     <!-- ========== FILTER FIELD ========== -->
-    <nav class="menu__filter animate-fade" aria-label="Menu categories">
+    <nav
+      class="menu__filter animate-slide-down stagger-children"
+      aria-label="Menu categories"
+    >
       <!-- breakfast -->
       <a
         href="#"
-        class="menu__filter-item menu__filter-item--active"
+        class="menu__filter-item menu__filter-item--active animate-fade"
         data-category="breakfast"
         role="button"
         aria-current="true"
@@ -77,7 +92,7 @@
       <!-- lunch -->
       <a
         href="#"
-        class="menu__filter-item"
+        class="menu__filter-item animate-fade"
         data-category="lunch"
         role="button"
         data-i18n="home.menu.filter.lunch"
@@ -86,7 +101,7 @@
       <!-- dinner -->
       <a
         href="#"
-        class="menu__filter-item"
+        class="menu__filter-item animate-fade"
         data-category="dinner"
         role="button"
         data-i18n="home.menu.filter.dinner"
@@ -95,7 +110,7 @@
       <!-- starters -->
       <a
         href="#"
-        class="menu__filter-item"
+        class="menu__filter-item animate-fade"
         data-category="starters"
         role="button"
         data-i18n="home.menu.filter.starters"
@@ -113,17 +128,26 @@
     <nav id="pagination" class="pagination animate-fade"></nav>
 
     <!-- BANNER MID -->
-    <section class="banner" aria-label="Signature dining highlight">
-      <div class="menu-banner__content animate-scale">
-        <span class="menu-banner__eyebrow" data-i18n="menu_page.banner.eyebrow"
+    <section
+      class="banner animate-fade"
+      aria-label="Signature dining highlight"
+    >
+      <div class="menu-banner__content">
+        <span
+          class="menu-banner__eyebrow animate-fade"
+          data-i18n="menu_page.banner.eyebrow"
           >Chef's Table Experience</span
         >
-        <h2 data-i18n="menu_page.banner.title1">Food Is Not Just</h2>
-        <h2 data-i18n="menu_page.banner.title2">Eating Energy</h2>
-        <p data-i18n="menu_page.banner.description">
-          It’s an Experience crafted by fire, smoke, and seasonal ingredients.
+        <h2 class="animate-slide-up" data-i18n="menu_page.banner.title1">
+          Food Is Not Just
+        </h2>
+        <h2 class="animate-slide-up" data-i18n="menu_page.banner.title2">
+          Eating Energy
+        </h2>
+        <p class="animate-fade" data-i18n="menu_page.banner.description">
+          It's an Experience crafted by fire, smoke, and seasonal ingredients.
         </p>
-        <div class="menu-banner__cta">
+        <div class="menu-banner__cta animate-scale stagger-children">
           <a
             href="../index.html#reservation"
             class="btn menu-banner__btn"
@@ -132,17 +156,17 @@
           >
           <a
             href="#"
-            class="btn menu-banner__btn menu-banner__btn--ghost"
+            class="btn menu-banner__btn menu-banner__btn--ghost btn-interactive animate-fade"
             data-i18n="menu_page.banner.order_now"
             >Order now</a
           >
         </div>
         <ul
-          class="menu-banner__stats"
+          class="menu-banner__stats animate-slide-up stagger-children"
           aria-label="Experience highlights"
           data-i18n-attrs="aria-label:menu_page.banner.stats.aria_label"
         >
-          <li>
+          <li class="animate-scale">
             <strong data-i18n="menu_page.banner.stats.item1.value"
               >12-course</strong
             >
@@ -150,7 +174,7 @@
               >seasonal tasting</span
             >
           </li>
-          <li>
+          <li class="animate-scale">
             <strong data-i18n="menu_page.banner.stats.item2.value"
               >3 chefs</strong
             >
@@ -158,7 +182,7 @@
               >live behind the pass</span
             >
           </li>
-          <li>
+          <li class="animate-scale">
             <strong data-i18n="menu_page.banner.stats.item3.value">92%</strong>
             <span data-i18n="menu_page.banner.stats.item3.label"
               >organic produce</span
@@ -170,7 +194,7 @@
 
     <!-- Floating cart icon (single version) -->
     <div
-      class="cart-icon-wrapper"
+      class="cart-icon-wrapper animate-scale icon-bounce"
       id="cart-icon"
       aria-label="View cart"
       title="View cart"
@@ -201,10 +225,14 @@
       src="./scripts/dietary-filter-extension.js"
       defer
     ></script>
+    <script
+      type="module"
+      src="./scripts/dietary-filter-extension.js"
+      defer
+    ></script>
 
     <!-- Global Features Scripts -->
     <script type="module" src="../assets/features/allergy-alert.js"></script>
-    <script type="module" src="../assets/features/social-proof.js"></script>
 
     <script
       type="module"

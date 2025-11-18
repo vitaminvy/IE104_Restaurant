@@ -43,12 +43,10 @@
 
     <!-- Global Features Stylesheets -->
     <link rel="stylesheet" href="../assets/features/allergy-alert.css" />
-    <link rel="stylesheet" href="../assets/features/social-proof.css" />
     <link rel="stylesheet" href="../assets/features/theme-toggle.css" />
   </head>
 
   <body>
-
     <!-- logic for header and footer -->
     <script src="../assets/script/include-partials.js" defer></script>
     <script type="module" src="../assets/script/header.js" defer></script>
@@ -61,25 +59,25 @@
     <section id="product-detail" class="product-detail section">
       <div class="product-detail__container">
         <!-- IMAGE -->
-        <div class="product-detail__image">
+        <div class="product-detail__image animate-on-scroll animate-fade">
           <img
             src="../assets/images/product-detail-page/product-image.png"
             alt="Crispy Chicken Breasts"
             class="product-detail__img"
           />
           <!-- Meta Info -->
-          <ul class="product-detail__meta">
-            <li>
+          <ul class="product-detail__meta stagger-children">
+            <li class="animate-on-scroll">
               <strong data-i18n="product_detail_page.meta.sku">SKU:</strong>
               PT322
             </li>
-            <li>
+            <li class="animate-on-scroll">
               <strong data-i18n="product_detail_page.meta.category"
                 >CATEGORY:</strong
               >
               Lunch
             </li>
-            <li>
+            <li class="animate-on-scroll">
               <strong data-i18n="product_detail_page.meta.tags">TAGS:</strong>
               Sweets, Ghevar
             </li>
@@ -87,7 +85,7 @@
         </div>
 
         <!-- INFO -->
-        <div class="product-detail__info">
+        <div class="product-detail__info animate-on-scroll animate-slide-up">
           <h1 class="product-detail__title">Crispy Chicken Breasts</h1>
 
           <!-- Rating -->
@@ -154,7 +152,7 @@
     </section>
 
     <!-- ========== 2. PRODUCT TAB SECTION ========== -->
-    <section class="product-tab container">
+    <section class="product-tab container animate-on-scroll animate-fade">
       <div class="product-tab__header">
         <button
           class="product-tab__btn product-tab__btn--active"
@@ -349,7 +347,7 @@
     <!-- ========== 3.RELATED SECTION (reuse MENU SECION in homepage) ========== -->
     <section id="menu ">
       <!-- ========== HEADER ========== -->
-      <div class="menu__header">
+      <div class="menu__header animate-on-scroll animate-slide-up">
         <div class="menu__header-text">
           <!-- title -->
           <h2
@@ -362,7 +360,10 @@
       </div>
 
       <!-- ========== SLIDER FIELD ========== -->
-      <div class="menu__slider container" style="margin-top: 0">
+      <div
+        class="menu__slider container animate-on-scroll animate-fade"
+        style="margin-top: 0"
+      >
         <!--menu grid-->
         <div class="menu__grid"></div>
 
@@ -423,6 +424,10 @@
     <script type="module" src="../assets/features/allergy-alert.js"></script>
     <script type="module" src="../assets/features/social-proof.js"></script>
 
-    <script type="module" src="../assets/script/header-features.js" defer></script>
+    <script
+      type="module"
+      src="../assets/script/header-features.js"
+      defer
+    ></script>
   </body>
 </html>

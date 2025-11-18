@@ -37,13 +37,13 @@
   align-items: center;
   padding: 0 1rem;
   max-width: 600px;
-  overflow: hidden; /* Ensures zoomed image does not overflow */
 }
 
 .chef-image-wrapper img {
   /* Box model */
   width: 100%;
   max-width: 500px;
+  border-radius: 14px;
 
   /* Background / Others */
   object-fit: cover;

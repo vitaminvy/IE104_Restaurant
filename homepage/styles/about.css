@@ -19,6 +19,7 @@
 
 .about__image img:first-child {
   width: 100%;
+  height: auto; /* Maintain aspect ratio */
   border-radius: 0.75rem;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease;
@@ -36,6 +37,12 @@
   left: 1rem;
   width: 100%;
   border-radius: 0.5rem;
+}
+
+.about__frameRect {
+  max-height: 300px;
+  width: 100%;
+  height: auto;
 }
 
 .about__content {
@@ -116,6 +123,9 @@
   .about__title {
     font-size: 2.5rem; /* 40px */
   }
+  .about__frameRect {
+    max-height: 400px
+  }
 }
 
 /* md (≥768px) */
@@ -139,6 +149,9 @@
   .about__text {
     text-align: left;
     max-width: 28rem;
+  }
+  .about__frameRect {
+    max-height: 450px
   }
 }
 

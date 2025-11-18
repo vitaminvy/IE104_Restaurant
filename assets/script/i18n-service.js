@@ -60,3 +60,7 @@ const i18nService = (() => {
 })();
 
 export default i18nService;
+
+if (typeof window !== 'undefined') {
+  window.i18nService = i18nService;
+}

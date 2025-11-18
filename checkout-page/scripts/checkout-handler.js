@@ -1,3 +1,5 @@
+import i18nService from '../../assets/script/i18n-service.js';
+
 // ================================
 // CHECKOUT FORM HANDLER
 // Initialize validation and handle order submission
@@ -17,9 +19,12 @@
     const form = document.getElementById('checkout-form');
     if (!form) return;
 
-    // Initialize form validator
-    const validator = new FormValidator(form, {
-      onSubmit: handleCheckoutSubmit,
+    // Wait for i18nService to be initialized
+    i18nService.init().then(() => {
+      // Initialize form validator
+      const validator = new FormValidator(form, {
+        onSubmit: handleCheckoutSubmit,
+      });
     });
   }
 
@@ -33,7 +38,7 @@
     // Validate payment method selection
     const paymentMethod = form.querySelector('input[name="payment"]:checked');
     if (!paymentMethod) {
-      NotificationSystem.error('Please select a payment method', {
+      NotificationSystem.error(i18nService.t('checkout_page.notifications.select_payment'), {
         duration: 4000,
       });
 
@@ -51,13 +56,14 @@
     // Disable button and show loading state
     submitButton.disabled = true;
     const originalText = submitButton.textContent;
-    submitButton.textContent = 'Processing...';
+    submitButton.textContent = i18nService.t('checkout_page.notifications.processing');
 
     // Simulate API call (replace with actual backend call)
     setTimeout(() => {
       // Success
+      const orderId = Math.floor(Math.random() * 100000);
       NotificationSystem.success(
-        `Order placed successfully! Your order will be ${getPaymentMethodText(paymentMethod.value)}.`,
+        i18nService.t('checkout_page.notifications.order_placed_success', { orderId }),
         {
           duration: 6000,
         }

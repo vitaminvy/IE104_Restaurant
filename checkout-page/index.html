@@ -5,7 +5,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title data-i18n="checkout_page.title">Checkout • WowWraps</title>
-    <link rel="icon" href="../assets/icons/icon-header/nav-vect.svg" type="image/svg+xml">
+    <link
+      rel="icon"
+      href="../assets/icons/icon-header/nav-vect.svg"
+      type="image/svg+xml"
+    />
 
     <!-- link style CSS global -->
     <link rel="stylesheet" href="../style/reset.css" />
@@ -46,7 +50,6 @@
     <!-- Enhanced checkout logic with dynamic cart loading -->
     <script type="module" src="./scripts/checkout.js" defer></script>
     <link rel="stylesheet" href="../style/back-to-top.css" />
-    <link rel="stylesheet" href="../homepage/back-to-top.css" />
 
     <!-- Font Awesome CDN -->
     <script
@@ -75,19 +78,21 @@
                 class="form__label"
                 for="firstName"
                 data-i18n="checkout_page.billing_details.first_name"
-                >Your name *</label
+                >First name *</label
               >
               <input
                 id="firstName"
                 name="firstName"
                 class="form__input"
                 type="text"
-                placeholder=""
-                required
-                minlength="2"
-                data-error-required="Please enter your first name"
-                data-error-minLength="First name must be at least 2 characters"
-              />
+              placeholder=""
+              required
+              minlength="2"
+              data-error-required="Please enter your first name"
+              data-error-minLength="First name must be at least 2 characters"
+              data-i18n-error-required="form_errors.first_name_required"
+              data-i18n-error-minLength="form_errors.first_name_min"
+            />
             </div>
             <div class="form__group">
               <label
@@ -101,12 +106,14 @@
                 name="lastName"
                 class="form__input"
                 type="text"
-                placeholder=""
-                required
-                minlength="2"
-                data-error-required="Please enter your last name"
-                data-error-minLength="Last name must be at least 2 characters"
-              />
+              placeholder=""
+              required
+              minlength="2"
+              data-error-required="Please enter your last name"
+              data-error-minLength="Last name must be at least 2 characters"
+              data-i18n-error-required="form_errors.last_name_required"
+              data-i18n-error-minLength="form_errors.last_name_min"
+            />
             </div>
           </div>
 
@@ -117,7 +124,7 @@
               data-i18n="checkout_page.billing_details.country"
               >Country / Region *</label
             >
-            <select id="country" class="form__select" required>
+            <select id="country" name="country" class="form__select" required>
               <option
                 value=""
                 disabled
@@ -165,6 +172,8 @@
               minlength="5"
               data-error-required="Please enter your street address"
               data-error-minLength="Street address must be at least 5 characters"
+              data-i18n-error-required="form_errors.street_required"
+              data-i18n-error-minLength="form_errors.street_min"
             />
           </div>
 
@@ -173,13 +182,14 @@
               class="form__label"
               for="street2"
               data-i18n="checkout_page.billing_details.street_address"
-              >Street address *</label
+              >Street address (optional)</label
             >
             <input
               id="street2"
               name="street2"
               class="form__input"
               type="text"
+              data-i18n-placeholder="checkout_page.billing_details.street_address_optional"
               placeholder="Apartment, suite, etc. (optional)"
               data-i18n-placeholder="checkout_page.billing_details.street2_placeholder"
             />
@@ -193,7 +203,7 @@
                 data-i18n="checkout_page.billing_details.town_city"
                 >Town / City *</label
               >
-              <input id="city" class="form__input" type="text" required />
+              <input id="city" name="city" class="form__input" type="text" required />
             </div>
             <div class="form__group">
               <label
@@ -202,7 +212,7 @@
                 data-i18n="checkout_page.billing_details.district"
                 >District *</label
               >
-              <input id="district" class="form__input" type="text" required />
+              <input id="district" name="district" class="form__input" type="text" required />
             </div>
           </div>
 
@@ -218,10 +228,11 @@
                 id="zip"
                 name="zip"
                 class="form__input"
-                type="text"
-                pattern="[0-9]{5,6}"
-                data-error-pattern="Postcode must be 5-6 digits"
-              />
+              type="text"
+              pattern="[0-9]{5,6}"
+              data-error-pattern="Postcode must be 5-6 digits"
+              data-i18n-error-pattern="form_errors.zip_pattern"
+            />
             </div>
             <div class="form__group">
               <label
@@ -230,7 +241,7 @@
                 data-i18n="checkout_page.billing_details.phone"
                 >Phone *</label
               >
-              <input id="phone" class="form__input" type="tel" required />
+              <input id="phone" name="phone" class="form__input" type="tel" required />
             </div>
           </div>
 
@@ -241,7 +252,7 @@
               data-i18n="checkout_page.billing_details.email"
               >Email address *</label
             >
-            <input id="email" class="form__input" type="email" required />
+            <input id="email" name="email" class="form__input" type="email" required />
           </div>
 
           <!-- PAYMENT METHODS -->
@@ -417,7 +428,7 @@
     ></script>
 
     <!-- Checkout Form Handler -->
-    <script src="./scripts/checkout-handler.js"></script>
+    <script type="module" src="./scripts/checkout-handler.js"></script>
     <div data-include="../partials/back-to-top.html"></div>
     <script src="../assets/script/back-to-top.js"></script>
   </body>

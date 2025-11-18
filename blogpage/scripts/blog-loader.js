@@ -57,7 +57,7 @@ function renderFeaturedPost() {
     <div class="post-content">
       <h2>${title}</h2>
       <p>${description}</p>
-      <a href="../blogpage-details/index.html?id=${post.id}" class="read-more">${i18nService.t('blog_page.read_more')}</a>
+      <a href="../blogpage-details/index.html?id=${post.id}" class="read-more" aria-label="${title}">${title}</a>
     </div>
   `;
 
@@ -240,7 +240,7 @@ function renderBlogTimeline(page = 1, append = false) {
               .join('')}
           </div>
           <div class="timeline-entry__actions">
-            <a href="../blogpage-details/index.html?id=${post.id}" class="read-more">${readMoreText}</a>
+            <a href="../blogpage-details/index.html?id=${post.id}" class="read-more" aria-label="${title}">${title}</a>
           </div>
         </div>
         <div class="timeline-entry__image">

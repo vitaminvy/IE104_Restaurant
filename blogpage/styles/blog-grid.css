@@ -151,7 +151,7 @@
 
 .timeline-entry__dot {
   position: absolute;
-  left: -2.15rem;
+  left: -2.1rem;
   top: 0.75rem;
   width: 14px;
   height: 14px;
@@ -159,10 +159,28 @@
   background: #0b0b0b;
   border: 3px solid var(--color-dark-orange);
   box-shadow: 0 0 0 4px rgba(251, 143, 44, 0.15);
+  transition: transform 0.3s ease; /* Added transition for animation */
+  animation: pulse-dot 1.5s infinite alternate; /* Added pulsing animation */
+}
+
+.timeline-entry__dot:hover {
+  transform: scale(1.2); /* Subtle pulse effect on hover */
+}
+
+@keyframes pulse-dot {
+  from {
+    transform: scale(1);
+    box-shadow: 0 0 0 0px rgba(251, 143, 44, 0.15);
+  }
+  to {
+    transform: scale(1.1);
+    box-shadow: 0 0 0 8px rgba(251, 143, 44, 0.4);
+  }
 }
 
 .timeline-entry__date {
-  font-size: 0.9rem;
+  font-size: 1rem;
+  padding-top: 10px;
   color: var(--color-white-60, rgba(255, 255, 255, 0.6));
 }
 
@@ -308,7 +326,7 @@
   Responsive adjustments
 =============================== */
 
-@media (max-width: 64rem) {
+@media (max-width: 1025px) {
   .blog-timeline {
     padding-left: 1.75rem;
   }
@@ -329,6 +347,9 @@
   .blog-filters__select {
     width: 100%;
   }
+  .timeline-entry__dot {
+    left: -0.8rem;
+  }
 }
 
 @media (max-width: 48rem) {
@@ -348,13 +369,14 @@
   }
 
   .timeline-entry__dot {
-    left: -1rem;
+    left: -1.6rem;
   }
 
   .blog-filters {
     flex-direction: column;
   }
 }
+
 /* =========================================================
    LIGHT MODE OVERRIDES
 ========================================================= */

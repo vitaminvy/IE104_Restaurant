@@ -39,6 +39,7 @@
 .blog-filters__actions label {
   font-size: 0.95rem;
   color: var(--color-dark-orange);
+  white-space: nowrap;
 }
 
 .blog-filters__pills {
@@ -92,6 +93,7 @@
   border-radius: 10px;
   cursor: pointer;
   transition: border-color 0.2s ease, color 0.2s ease;
+  white-space: nowrap;
 }
 
 .blog-filters__clear:hover {

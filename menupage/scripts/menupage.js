@@ -25,7 +25,7 @@ import i18nService from '../../assets/script/i18n-service.js';
       const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
       cartCountEl.textContent = totalItems;
     } catch (e) {
-      console.error('Error reading cart for count update:', e);
+      // console.error('Error reading cart for count update:', e);
       cartCountEl.textContent = '0';
     }
   }
@@ -169,7 +169,6 @@ import i18nService from '../../assets/script/i18n-service.js';
 
   // Add to cart and navigate
   function addToCartAndNavigate(item) {
-    console.log('🛒 Adding to cart:', item.title);
 
     // Show loader
     if (window.GlobalLoader) {
@@ -184,7 +183,7 @@ import i18nService from '../../assets/script/i18n-service.js';
         cart = JSON.parse(cartData);
       }
     } catch (e) {
-      console.error('Error reading cart:', e);
+      // console.error('Error reading cart:', e);
     }
 
     // Check if item already exists in cart
@@ -213,7 +212,7 @@ import i18nService from '../../assets/script/i18n-service.js';
     try {
       localStorage.setItem('restaurantCart', JSON.stringify(cart));
     } catch (e) {
-      console.error('❌ Error saving cart:', e);
+      // console.error('Error saving cart:', e);
     }
 
     // Update loader message
@@ -252,7 +251,6 @@ import i18nService from '../../assets/script/i18n-service.js';
         const title = card.querySelector('.menu__card-title')?.textContent || i18nService.t(item.title);
         const desc = card.querySelector('.menu__card-desc')?.textContent || i18nService.t(item.desc);
 
-        console.log('🛒 Adding to cart via cart icon:', title);
         const preparedItem = { ...item, title, desc };
 
         // Use enhanced add to cart with animations (no navigation)
@@ -273,7 +271,7 @@ import i18nService from '../../assets/script/i18n-service.js';
               cart = JSON.parse(cartData);
             }
           } catch (e) {
-            console.error('Error reading cart:', e);
+            // console.error('Error reading cart:', e);
           }
 
           // Check if item already exists in cart
@@ -285,12 +283,12 @@ import i18nService from '../../assets/script/i18n-service.js';
             // Item exists, increase quantity
             cart[existingItemIndex].quantity =
               (cart[existingItemIndex].quantity || 1) + 1;
-            console.log(
-              '📈 Increased quantity for:',
-              preparedItem.title,
-              'to',
-              cart[existingItemIndex].quantity
-            );
+            // console.log(
+            //   'Increased quantity for:',
+            //   preparedItem.title,
+            //   'to',
+            //   cart[existingItemIndex].quantity
+            // );
           } else {
             // Add new item to cart
             const cartEntry = {
@@ -302,16 +300,16 @@ import i18nService from '../../assets/script/i18n-service.js';
               quantity: 1,
             };
             cart.push(cartEntry);
-            console.log('➕ Added new item to cart:', preparedItem.title);
+            // console.log('Added new item to cart:', preparedItem.title);
           }
 
           // Save to localStorage
           try {
             localStorage.setItem('restaurantCart', JSON.stringify(cart));
-            console.log('✅ Cart saved to localStorage');
-            console.log('📦 Cart now has', cart.length, 'unique items');
+            // console.log('Cart saved to localStorage');
+            // console.log('Cart now has', cart.length, 'unique items');
           } catch (e) {
-            console.error('❌ Error saving cart:', e);
+            // console.error('Error saving cart:', e);
           }
 
           // Show toast notification

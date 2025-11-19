@@ -150,7 +150,7 @@
       const event = new CustomEvent('cart:updated', { detail: { items: cart } });
       document.dispatchEvent(event);
     } catch (err) {
-      console.warn('Unable to dispatch cart update event:', err);
+      // console.warn('Unable to dispatch cart update event:', err);
     }
 
     const cartCountEl = document.getElementById('cart-count');
@@ -187,7 +187,7 @@
         cart = JSON.parse(cartData);
       }
     } catch (e) {
-      console.error('Error reading cart:', e);
+      // console.error('Error reading cart:', e);
     }
 
     // Check if item already exists in cart
@@ -213,7 +213,7 @@
     try {
       localStorage.setItem('restaurantCart', JSON.stringify(cart));
     } catch (e) {
-      console.error('Error saving cart:', e);
+      // console.error('Error saving cart:', e);
       btnManager.reset();
       return;
     }
@@ -306,7 +306,7 @@
       subtree: true,
     });
   } else {
-    console.warn('add-to-cart-buttons.js: Could not find document.body to observe. Dynamic ripple effects may not apply.');
+  // console.warn('add-to-cart-buttons.js: Could not find document.body to observe. Dynamic ripple effects may not apply.');
   }
 
   // Export for external use

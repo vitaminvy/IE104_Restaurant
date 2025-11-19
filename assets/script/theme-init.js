@@ -14,6 +14,6 @@
   } catch (e) {
     // localStorage might be disabled
     setTheme('light');
-    console.error("Could not access localStorage to set theme.", e);
+    // console.error("Could not access localStorage to set theme.", e);
   }
 })();

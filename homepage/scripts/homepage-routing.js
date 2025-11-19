@@ -37,7 +37,6 @@
     // Blog card read more links
     setupLinks('.blog-card__readmore', 'Loading Article...');
 
-    console.log('✅ Homepage navigation with loaders initialized');
   }
 
   /* ========================================
@@ -100,7 +99,5 @@
    * INITIALIZE
    * ======================================== */
   setupHomepageNavigation();
-
-  console.log('🏠 Homepage routing system loaded');
 
 })();

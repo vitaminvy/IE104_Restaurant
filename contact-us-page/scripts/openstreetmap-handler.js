@@ -43,7 +43,7 @@
     const closeMapBtn = document.getElementById('closeMapBtn');
 
     if (!openMapBtn) {
-      console.warn('Open map button not found');
+      // console.warn('Open map button not found');
       return;
     }
 
@@ -66,7 +66,7 @@
     const mapContainer = document.getElementById('map-viewer-container');
 
     if (!imageContainer || !mapContainer) {
-      console.error('Required containers not found');
+      // console.error('Required containers not found');
       return;
     }
 
@@ -113,13 +113,13 @@
     const mapElement = document.getElementById('map');
 
     if (!mapElement) {
-      console.error('Map element not found');
+      // console.error('Map element not found');
       return;
     }
 
     // Check if Leaflet is loaded
     if (typeof L === 'undefined') {
-      console.error('Leaflet library not loaded');
+      // console.error('Leaflet library not loaded');
       return;
     }
 
@@ -159,9 +159,9 @@
       // Setup directional controls
       setupDirectionalControls();
 
-      console.log('✅ OpenStreetMap initialized successfully');
+      // console.log('OpenStreetMap initialized successfully');
     } catch (error) {
-      console.error('Error initializing map:', error);
+      // console.error('Error initializing map:', error);
     }
   }
 
@@ -198,7 +198,7 @@
 
   function panMap(direction) {
     if (!map) {
-      console.warn('Map not initialized');
+      // console.warn('Map not initialized');
       return;
     }
 
@@ -222,7 +222,7 @@
         offsetX = -panDistance; // Pan right (negative X)
         break;
       default:
-        console.warn('Unknown direction:', direction);
+        // console.warn('Unknown direction:', direction);
         return;
     }
 

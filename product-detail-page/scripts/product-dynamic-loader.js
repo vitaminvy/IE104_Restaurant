@@ -316,7 +316,7 @@ import i18nService from "../../assets/script/i18n-service.js";
    * ======================================== */
 
   function updateMetaInfo(item) {
-    console.log("  --- updateMetaInfo called ---");
+    // console.log("  --- updateMetaInfo called ---");
     const metaList = document.querySelector(".product-detail__meta");
     if (!metaList) return;
 
@@ -326,7 +326,7 @@ import i18nService from "../../assets/script/i18n-service.js";
     // Capitalize and translate category
     const categoryKey = `home.menu.filter.${item.category}`;
     const category = i18nService.t(categoryKey);
-    console.log(`    Category Key: ${categoryKey}, Translated: ${category}`);
+    // console.log(`    Category Key: ${categoryKey}, Translated: ${category}`);
 
     // Generate tags from badges and translate
     let tags = i18nService.t("product_detail_page.meta.default_tags"); // Default tags
@@ -335,9 +335,9 @@ import i18nService from "../../assets/script/i18n-service.js";
         .map((badgeKey) => {
           const labelKey = dietaryBadges[badgeKey]?.label;
           const translatedLabel = i18nService.t(labelKey);
-          console.log(
-            `      Badge Label Key: ${labelKey}, Translated: ${translatedLabel}`
-          );
+          // console.log(
+          //   `      Badge Label Key: ${labelKey}, Translated: ${translatedLabel}`
+          // );
           return translatedLabel;
         })
         .filter(Boolean)
@@ -346,7 +346,7 @@ import i18nService from "../../assets/script/i18n-service.js";
         tags = badgeLabels;
       }
     }
-    console.log(`    Tags: ${tags}`);
+    // console.log(`    Tags: ${tags}`);
 
     // Update meta HTML, relying on data-i18n for labels
     metaList.innerHTML = `
@@ -361,7 +361,7 @@ import i18nService from "../../assets/script/i18n-service.js";
    * ======================================== */
 
   function addDietaryBadges(item) {
-    console.log("  --- addDietaryBadges called ---");
+    // console.log("  --- addDietaryBadges called ---");
     if (!item.badges || item.badges.length === 0) return;
 
     const infoSection = document.querySelector(".product-detail__info");
@@ -386,7 +386,7 @@ import i18nService from "../../assets/script/i18n-service.js";
     item.badges.forEach((badgeKey) => {
       const badge = dietaryBadges[badgeKey];
       if (!badge) {
-        console.warn(`    Dietary badge key not found: ${badgeKey}`);
+        // console.warn(`    Dietary badge key not found: ${badgeKey}`);
         return;
       }
 
@@ -396,9 +396,9 @@ import i18nService from "../../assets/script/i18n-service.js";
       const descriptionKey = badge.description;
       const translatedDescription = i18nService.t(descriptionKey);
       badgeEl.title = translatedDescription;
-      console.log(
-        `      Badge Description Key: ${descriptionKey}, Translated: ${translatedDescription}`
-      );
+      // console.log(
+      //   `      Badge Description Key: ${descriptionKey}, Translated: ${translatedDescription}`
+      // );
 
       badgeEl.style.cssText = `
         display: inline-flex;
@@ -420,9 +420,9 @@ import i18nService from "../../assets/script/i18n-service.js";
       const translatedLabel = i18nService.t(labelKey);
       const label = document.createElement("span");
       label.textContent = translatedLabel;
-      console.log(
-        `      Badge Label Key: ${labelKey}, Translated: ${translatedLabel}`
-      );
+      // console.log(
+      //   `      Badge Label Key: ${labelKey}, Translated: ${translatedLabel}`
+      // );
 
       badgeEl.appendChild(icon);
       badgeEl.appendChild(label);
@@ -533,9 +533,9 @@ import i18nService from "../../assets/script/i18n-service.js";
       // Save to localStorage
       localStorage.setItem(cartKey, JSON.stringify(items));
 
-      console.log("✅ Item added to cart (fallback):", cartItem);
+      // console.log("Item added to cart (fallback):", cartItem);
     } catch (error) {
-      console.error("❌ Error adding to cart:", error);
+      // console.error("Error adding to cart:", error);
     }
   }
 
@@ -660,7 +660,7 @@ import i18nService from "../../assets/script/i18n-service.js";
       }
     });
 
-    console.log(`✅ Added ${quantity}x "${itemTitle}" to cart`);
+    // console.log(`Added ${quantity}x "${itemTitle}" to cart`);
   }
 
   /* ========================================
@@ -724,10 +724,10 @@ import i18nService from "../../assets/script/i18n-service.js";
    * ======================================== */
 
   function createMealPairingSection(item) {
-    console.log("  --- createMealPairingSection called ---");
+    // console.log("  --- createMealPairingSection called ---");
     // Check if item has pairing suggestions
     if (!item.pairsWith || item.pairsWith.length === 0) {
-      console.log("    No pairing suggestions for this item.");
+      // console.log("    No pairing suggestions for this item.");
       return;
     }
 
@@ -736,7 +736,7 @@ import i18nService from "../../assets/script/i18n-service.js";
       .map((pairId) => {
         const pairedItem = findItemById(pairId);
         if (!pairedItem) {
-          console.warn(`    Paired item with ID ${pairId} not found.`);
+          // console.warn(`    Paired item with ID ${pairId} not found.`);
           return null;
         }
 
@@ -749,7 +749,7 @@ import i18nService from "../../assets/script/i18n-service.js";
 
     // If no valid pairings, return
     if (pairingItems.length === 0) {
-      console.log("    No valid pairing items found.");
+      // console.log("    No valid pairing items found.");
       return;
     }
 
@@ -784,16 +784,16 @@ import i18nService from "../../assets/script/i18n-service.js";
         pairingSubtitleKey
       )}</p>
     `;
-    console.log(
-      `    Pairing Section Title Key: ${pairingTitleKey}, Translated: ${i18nService.t(
-        pairingTitleKey
-      )}`
-    );
-    console.log(
-      `    Pairing Section Subtitle Key: ${pairingSubtitleKey}, Translated: ${i18nService.t(
-        pairingSubtitleKey
-      )}`
-    );
+    // console.log(
+    //   `    Pairing Section Title Key: ${pairingTitleKey}, Translated: ${i18nService.t(
+    //     pairingTitleKey
+    //   )}`
+    // );
+    // console.log(
+    //   `    Pairing Section Subtitle Key: ${pairingSubtitleKey}, Translated: ${i18nService.t(
+    //     pairingSubtitleKey
+    //   )}`
+    // );
 
     // Create grid
     const grid = document.createElement("div");
@@ -834,7 +834,7 @@ import i18nService from "../../assets/script/i18n-service.js";
    * ======================================== */
 
   function createPairingCard(item) {
-    console.log("  --- createPairingCard called ---");
+    // console.log("  --- createPairingCard called ---");
     const card = document.createElement("article");
     card.className = "pairing-card";
 
@@ -851,9 +851,9 @@ import i18nService from "../../assets/script/i18n-service.js";
         window.GlobalLoader.show(
           `${translatedLoadingProduct} ${translatedItemTitle}...`
         );
-        console.log(
-          `    Loading Product Message: ${translatedLoadingProduct} ${translatedItemTitle}...`
-        );
+        // console.log(
+        //   `    Loading Product Message: ${translatedLoadingProduct} ${translatedItemTitle}...`
+        // );
       }
 
       // Navigate after brief delay
@@ -871,9 +871,9 @@ import i18nService from "../../assets/script/i18n-service.js";
     const itemTitleKey = item.title;
     const translatedItemTitle = i18nService.t(itemTitleKey);
     img.alt = translatedItemTitle;
-    console.log(
-      `    Pairing Card Image Alt Key: ${itemTitleKey}, Translated: ${translatedItemTitle}`
-    );
+    // console.log(
+    //   `    Pairing Card Image Alt Key: ${itemTitleKey}, Translated: ${translatedItemTitle}`
+    // );
     img.style.cssText = `
       width: 100%;
       height: 100%;
@@ -900,9 +900,9 @@ import i18nService from "../../assets/script/i18n-service.js";
     const cardTitleKey = item.title;
     const translatedCardTitle = i18nService.t(cardTitleKey);
     title.textContent = translatedCardTitle;
-    console.log(
-      `    Pairing Card Title Key: ${cardTitleKey}, Translated: ${translatedCardTitle}`
-    );
+    // console.log(
+    //   `    Pairing Card Title Key: ${cardTitleKey}, Translated: ${translatedCardTitle}`
+    // );
     title.style.cssText = `
       font-family: var(--font-heading);
       font-size: 1rem;
@@ -932,9 +932,9 @@ import i18nService from "../../assets/script/i18n-service.js";
       translatedDesc.length > 50
         ? translatedDesc.substring(0, 50) + "..."
         : translatedDesc;
-    console.log(
-      `    Pairing Card Description Key: ${descKey}, Translated: ${translatedDesc}`
-    );
+    // console.log(
+    //   `    Pairing Card Description Key: ${descKey}, Translated: ${translatedDesc}`
+    // );
     desc.style.cssText = `
       font-family: var(--font-body);
       font-size: 0.75rem;
@@ -954,9 +954,9 @@ import i18nService from "../../assets/script/i18n-service.js";
     const pairingReasonKey = item.pairingReason;
     const translatedPairingReason = i18nService.t(pairingReasonKey);
     reasonText.textContent = translatedPairingReason;
-    console.log(
-      `    Pairing Reason Key: ${pairingReasonKey}, Translated: ${translatedPairingReason}`
-    );
+    // console.log(
+    //   `    Pairing Reason Key: ${pairingReasonKey}, Translated: ${translatedPairingReason}`
+    // );
     reasonText.style.cssText = `
       font-family: var(--font-body);
       font-size: 0.7rem;
@@ -1022,20 +1022,20 @@ import i18nService from "../../assets/script/i18n-service.js";
    * ======================================== */
 
   function loadProductDetails() {
-    console.log("--- loadProductDetails called ---");
-    console.log(
-      "i18nService translations state:",
-      Object.keys(i18nService.getTranslations()).length > 0
-        ? "Loaded"
-        : "Not Loaded"
-    );
+    // console.log("--- loadProductDetails called ---");
+    // console.log(
+    //   "i18nService translations state:",
+    //   Object.keys(i18nService.getTranslations()).length > 0
+    //     ? "Loaded"
+    //     : "Not Loaded"
+    // );
 
     // Get item ID from URL
     const itemId = getUrlParameter("id");
 
     // If no ID provided, show default or first item
     if (!itemId) {
-      console.warn("No product ID provided, showing default product");
+      // console.warn("No product ID provided, showing default product");
       // You could redirect to menu or show first item
       // For now, we'll just keep the static content
       return;
@@ -1046,7 +1046,7 @@ import i18nService from "../../assets/script/i18n-service.js";
 
     // If item not found, show error
     if (!item) {
-      console.error(`Product with ID ${itemId} not found`);
+      // console.error(`Product with ID ${itemId} not found`);
       showErrorMessage();
       return;
     }
@@ -1060,7 +1060,7 @@ import i18nService from "../../assets/script/i18n-service.js";
     createMealPairingSection(item); // Add meal pairing suggestions
     updateAddToCartButton(item);
 
-    console.log(`Loaded product: ${item.title} (ID: ${item.id})`);
+    // console.log(`Loaded product: ${item.title} (ID: ${item.id})`);
   }
 
   /* ========================================

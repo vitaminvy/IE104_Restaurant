@@ -55,7 +55,7 @@
   font-size: 0.9rem;
   color: var(--color-white);
   cursor: pointer;
-  transition: border-color 0.25s ease, color 0.25s ease, background-color 0.25s ease;
+  transition: all 0.25s ease;
 }
 
 .blog-filter-pill:hover {
@@ -91,7 +91,7 @@
   padding: 0.4rem 0.9rem;
   border-radius: 10px;
   cursor: pointer;
-  transition: border-color 0.2s ease, color 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 .blog-filters__clear:hover {
@@ -151,7 +151,7 @@
 
 .timeline-entry__dot {
   position: absolute;
-  left: -2.1rem;
+  left: -2.15rem;
   top: 0.75rem;
   width: 14px;
   height: 14px;
@@ -159,28 +159,10 @@
   background: #0b0b0b;
   border: 3px solid var(--color-dark-orange);
   box-shadow: 0 0 0 4px rgba(251, 143, 44, 0.15);
-  transition: transform 0.3s ease; /* Added transition for animation */
-  animation: pulse-dot 1.5s infinite alternate; /* Added pulsing animation */
-}
-
-.timeline-entry__dot:hover {
-  transform: scale(1.2); /* Subtle pulse effect on hover */
-}
-
-@keyframes pulse-dot {
-  from {
-    transform: scale(1);
-    box-shadow: 0 0 0 0px rgba(251, 143, 44, 0.15);
-  }
-  to {
-    transform: scale(1.1);
-    box-shadow: 0 0 0 8px rgba(251, 143, 44, 0.4);
-  }
 }
 
 .timeline-entry__date {
-  font-size: 1rem;
-  padding-top: 10px;
+  font-size: 0.9rem;
   color: var(--color-white-60, rgba(255, 255, 255, 0.6));
 }
 
@@ -285,7 +267,7 @@
   align-items: center;
   gap: 0.5rem;
   width: 100%;
-  margin-bottom: -1.5rem;
+  margin-bottom: 2rem;
 }
 
 .timeline-footer__btn {
@@ -312,10 +294,6 @@
   color: var(--color-white-60, rgba(255, 255, 255, 0.6));
 }
 
-html[data-theme="light"] .timeline-footer__status {
-  color: #1c1c1c;
-}
-
 .no-posts {
   width: 100%;
   text-align: center;
@@ -330,7 +308,7 @@ html[data-theme="light"] .timeline-footer__status {
   Responsive adjustments
 =============================== */
 
-@media (max-width: 1025px) {
+@media (max-width: 64rem) {
   .blog-timeline {
     padding-left: 1.75rem;
   }
@@ -351,9 +329,6 @@ html[data-theme="light"] .timeline-footer__status {
   .blog-filters__select {
     width: 100%;
   }
-  .timeline-entry__dot {
-    left: -0.8rem;
-  }
 }
 
 @media (max-width: 48rem) {
@@ -373,14 +348,13 @@ html[data-theme="light"] .timeline-footer__status {
   }
 
   .timeline-entry__dot {
-    left: -1.6rem;
+    left: -1rem;
   }
 
   .blog-filters {
     flex-direction: column;
   }
 }
-
 /* =========================================================
    LIGHT MODE OVERRIDES
 ========================================================= */

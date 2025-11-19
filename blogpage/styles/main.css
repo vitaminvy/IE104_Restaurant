@@ -1,15 +1,15 @@
 /* =============================
  * Layout / Container Section
  * ============================= */
-.container {
+main.container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 2rem;
   width: min(90rem, 100%);
-  margin: 0 auto;
-  padding: 7rem 1.5rem 0 1.5rem;
+  margin: 6rem auto 0;
+  padding: 4rem 1.5rem 1rem 1.5rem;
   box-sizing: border-box;
 }
 
@@ -19,24 +19,23 @@
 
 /* md (≥768px) */
 @media (min-width: 48rem) {
-  .container {
-    padding: 7rem 2rem 0 2rem;
+  main.container {
+    padding: 4rem 2rem 1.5rem 2rem;
   }
 }
 
 /* lg (≥1024px): desktop */
 @media (min-width: 64rem) {
-  .container {
-    padding: 7rem 3rem 0 3rem;
+  main.container {
+    padding: 4rem 3rem 2rem 3rem;
     width: min(100%, 85rem);
   }
 }
 
 /* xl (≥1280px): large desktop */
 @media (min-width: 80rem) {
-  .container {
-    padding: 8rem 4rem 0 4rem;
+  main.container {
+    padding: 5rem 4rem 2.5rem 4rem;
   }
 }
-
 

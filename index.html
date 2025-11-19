@@ -930,6 +930,7 @@
                   id="res-name"
                   name="name"
                   placeholder="Your name"
+                  autocomplete="name"
                   required
                   minlength="2"
                   data-error-required="Please enter your name"
@@ -951,6 +952,7 @@
                   id="res-phone"
                   name="phone"
                   placeholder="Phone number"
+                  autocomplete="tel"
                   required
                   data-error-required="Please enter your phone number"
                   data-error-phone="Please enter a valid phone number"
@@ -971,6 +973,7 @@
                   id="res-email"
                   name="email"
                   placeholder="Email address"
+                  autocomplete="email"
                   required
                   data-error-required="Please enter your email address"
                   data-error-email="Please enter a valid email address"
@@ -990,7 +993,7 @@
               <div class="reservation__field">
                 <label for="res-people" class="visually-hidden">Number of People</label>
                 <!-- person - maximum is 5 person -->
-                <select id="res-people" name="people" required>
+                <select id="res-people" name="people" autocomplete="off" required>
                   <option value="1" data-i18n="home.reservation.option_1_person">
                     1 Person
                   </option>
@@ -1031,6 +1034,7 @@
                   type="date"
                   id="res-date"
                   name="date"
+                  autocomplete="off"
                   required
                   data-error-required="Please select a date"
                   data-error-date="Please select a valid date"
@@ -1049,6 +1053,7 @@
                   type="time"
                   id="res-time"
                   name="time"
+                  autocomplete="off"
                   required
                   data-error-required="Please select a time"
                   data-error-time="Please select a valid time"

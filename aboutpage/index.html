@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script src="../assets/script/theme-init.js"></script>
+    <script src="../assets/script/theme-init.js" defer></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Learn about WowWraps, a Mexican restaurant serving fresh handmade tortillas, slow-cooked carnitas, and bold, seasonal flavors.">
     <title data-i18n="about_page.title">About Us - WowWraps</title>
     <link
       rel="icon"
@@ -24,12 +25,9 @@
     <!-- footer-->
     <link rel="stylesheet" href="../partials/footer.css" />
     <!--about page section css-->
-    <link rel="stylesheet" href="./styles/aboutpage.css" />
+    <link rel="preload" href="./styles/aboutpage.css" as="style" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="./styles/aboutpage.css"></noscript>
 
-    <link
-      href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
-      rel="stylesheet"
-    />
     <link rel="stylesheet" href="../style/back-to-top.css" />
     <link rel="stylesheet" href="../assets/features/theme-toggle.css" />
 
@@ -74,6 +72,10 @@
             <img
               src="../assets/images/about-page/table-1.png"
               alt="Restaurant window"
+              width="923" 
+              height="811"
+              fetchpriority="high"
+              decoding="async"
             />
           </figure>
           <figure
@@ -82,14 +84,22 @@
             <img
               src="../assets/images/about-page/table-2.png"
               alt="Indoor dining"
+              width="923" 
+              height="811"
+              fetchpriority="high"
+              decoding="async"
             />
           </figure>
           <figure
             class="about-intro__photo about-intro__photo--c animate-scale"
           >
             <img
-              src="../assets/images/about-page/view.png"
+              src="../assets/images/about-page/view.webp"
               alt="Chalkboard and table"
+              width="923" 
+              height="811"
+              fetchpriority="high"
+              decoding="async"
             />
           </figure>
 
@@ -137,15 +147,16 @@
                 <img
                   src="../assets/icons/about-page/food-icon.svg"
                   alt="food icon"
+                  loading="lazy"
                 />
               </span>
               <div class="vision__content">
-                <h4
+                <h3
                   class="vision__feature-title"
                   data-i18n="about_page.vision_mission.delicious_cuisine.title"
                 >
                   Delicious Cuisine
-                </h4>
+                </h3>
                 <p
                   class="vision__feature-desc"
                   data-i18n="about_page.vision_mission.delicious_cuisine.description"
@@ -159,14 +170,15 @@
                 ><img
                   src="../assets/icons/about-page/ship-icon.svg"
                   alt="fast-delivery"
+                  loading="lazy"
               /></span>
               <div class="vision__content">
-                <h4
+                <h3
                   class="vision__feature-title"
                   data-i18n="about_page.vision_mission.fast_delivery.title"
                 >
                   Fast Delivery
-                </h4>
+                </h3>
                 <p
                   class="vision__feature-desc"
                   data-i18n="about_page.vision_mission.fast_delivery.description"
@@ -177,15 +189,15 @@
             </li>
             <li class="vision__feature">
               <span class="vision__badge"
-                ><img src="../assets/icons/about-page/chef-icon.svg" alt="chef"
+                ><img src="../assets/icons/about-page/chef-icon.svg" alt="chef" loading="lazy"
               /></span>
               <div class="vision__content">
-                <h4
+                <h3
                   class="vision__feature-title"
                   data-i18n="about_page.vision_mission.professional_chef.title"
                 >
                   Professional Chef
-                </h4>
+                </h3>
                 <p
                   class="vision__feature-desc"
                   data-i18n="about_page.vision_mission.professional_chef.description"
@@ -199,6 +211,7 @@
             <img
               src="../assets/images/about-page/vison-banner.png"
               alt="Bar & dining"
+              loading="lazy"
             />
           </figure>
         </div>
@@ -223,11 +236,12 @@
               <img
                 src="../assets/images/about-page/chef-1.png"
                 alt="Jubed Ahmed"
+                loading="lazy"
               />
             </figure>
-            <h4 class="team-card__name" data-i18n="about_page.team.chef_1.name">
+            <h3 class="team-card__name" data-i18n="about_page.team.chef_1.name">
               Jubed Ahmed
-            </h4>
+            </h3>
             <p class="team-card__role" data-i18n="about_page.team.chef_1.role">
               Chef
             </p>
@@ -237,11 +251,12 @@
               <img
                 src="../assets/images/about-page/chef-2.png"
                 alt="Delwar Hussen"
+                loading="lazy"
               />
             </figure>
-            <h4 class="team-card__name" data-i18n="about_page.team.chef_2.name">
+            <h3 class="team-card__name" data-i18n="about_page.team.chef_2.name">
               Delwar Hussen
-            </h4>
+            </h3>
             <p class="team-card__role" data-i18n="about_page.team.chef_2.role">
               Assisten chef
             </p>
@@ -251,11 +266,12 @@
               <img
                 src="../assets/images/about-page/chef-3.png"
                 alt="Tajul Islam"
+                loading="lazy"
               />
             </figure>
-            <h4 class="team-card__name" data-i18n="about_page.team.chef_3.name">
+            <h3 class="team-card__name" data-i18n="about_page.team.chef_3.name">
               Tajul Islam
-            </h4>
+            </h3>
             <p class="team-card__role" data-i18n="about_page.team.chef_3.role">
               Chef
             </p>
@@ -276,6 +292,6 @@
       })();
     </script>
     <div data-include="../partials/back-to-top.html"></div>
-    <script src="../assets/script/back-to-top.js"></script>
+    <script src="../assets/script/back-to-top.js" defer></script>
   </body>
 </html>

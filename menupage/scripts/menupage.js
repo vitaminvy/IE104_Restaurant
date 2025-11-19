@@ -1,5 +1,5 @@
 import { initPagination } from "./pagination.js";
-import { menuItems } from "../../assets/data/mockdata.js";
+import { menuItems, dietaryBadges } from "../../assets/data/mockdata.js";
 import i18nService from "../../assets/script/i18n-service.js";
 
 (function () {
@@ -13,7 +13,27 @@ import i18nService from "../../assets/script/i18n-service.js";
   const itemsPerPage = 8;
 
   const formatPrice = (p) =>
-    p.toLocaleString("en-US", { style: "currency", currency: "USD" });
+    p.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+
+  // Render badges for a menu item
+  const renderBadges = (badges) => {
+    if (!badges || badges.length === 0) return "";
+
+    return `
+      <div class="menu__card-badges">
+        ${badges
+          .map((badgeKey) => {
+            const badge = dietaryBadges[badgeKey];
+            if (!badge) return "";
+            return `<span class="menu__card-badge menu__card-badge--${badgeKey}" title="${i18nService.t(badge.description)}">
+            <span class="menu__card-badge-icon">${badge.icon}</span>
+            <span>${i18nService.t(badge.label)}</span>
+          </span>`;
+          })
+          .join("")}
+      </div>
+    `;
+  };
 
   function updateCartCount() {
     const cartCountEl = document.getElementById("cart-count");
@@ -57,6 +77,7 @@ import i18nService from "../../assets/script/i18n-service.js";
       <div class="menu__card-content">
         <h3 class="menu__card-title">${title}</h3>
         <p class="menu__card-desc">${desc}</p>
+        ${renderBadges(item.badges)}
         <div class="menu__card-meta">
           <span class="menu__card-price">${formatPrice(item.price)}</span>
           <div class="menu__card-actions">
@@ -154,6 +175,10 @@ import i18nService from "../../assets/script/i18n-service.js";
     // Setup cart icon handlers
     setupCartIconHandlers();
   }
+
+  // Expose render function for dietary filter extension to use
+  window.menuPageRender = render;
+  window.menuPageCardTemplate = cardTemplate;
 
   // Setup Order Now button click handlers
   function setupOrderButtonHandlers() {

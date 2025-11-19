@@ -70,14 +70,27 @@
       return;
     }
 
+    // Show loader when initializing map for the first time
+    if (!mapInitialized && window.GlobalLoader) {
+      window.GlobalLoader.show('Loading map...');
+    }
+
     // Hide image, show map
     imageContainer.style.display = 'none';
     mapContainer.style.display = 'block';
 
     // Initialize map on first open (lazy loading)
     if (!mapInitialized) {
-      initializeMap();
-      mapInitialized = true;
+      // Delay to show loader briefly
+      setTimeout(() => {
+        initializeMap();
+        mapInitialized = true;
+        
+        // Hide loader after map is initialized
+        if (window.GlobalLoader) {
+          window.GlobalLoader.hide(300);
+        }
+      }, 300);
     } else {
       // Refresh map size if already initialized
       if (map) {

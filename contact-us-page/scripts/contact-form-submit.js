@@ -8,28 +8,41 @@ document.addEventListener("DOMContentLoaded", () => {
   contactForm.addEventListener("submit", (event) => {
     event.preventDefault();
 
-    contactForm.reset();
-
-    if (!statusMessage) {
-      statusMessage = document.createElement("p");
-      statusMessage.className = "form-status";
-      statusMessage.setAttribute("role", "status");
-      statusMessage.setAttribute("aria-live", "polite");
-      contactForm.appendChild(statusMessage);
+    // Show loader
+    if (window.GlobalLoader) {
+      window.GlobalLoader.show('Submitting your message...');
     }
 
-    statusMessage.hidden = false;
-    statusMessage.dataset.i18n = "contact_us.form.success_message";
-    statusMessage.textContent = getTranslatedMessage();
+    // Simulate form submission delay
+    setTimeout(() => {
+      contactForm.reset();
 
-    window.clearTimeout(hideStatusTimeout);
-    hideStatusTimeout = window.setTimeout(() => {
-      if (!statusMessage) return;
-      statusMessage.hidden = true;
-      statusMessage.textContent = "";
-      statusMessage.remove();
-      statusMessage = null;
-    }, 4000);
+      if (!statusMessage) {
+        statusMessage = document.createElement("p");
+        statusMessage.className = "form-status";
+        statusMessage.setAttribute("role", "status");
+        statusMessage.setAttribute("aria-live", "polite");
+        contactForm.appendChild(statusMessage);
+      }
+
+      statusMessage.hidden = false;
+      statusMessage.dataset.i18n = "contact_us.form.success_message";
+      statusMessage.textContent = getTranslatedMessage();
+
+      // Hide loader
+      if (window.GlobalLoader) {
+        window.GlobalLoader.hide(300);
+      }
+
+      window.clearTimeout(hideStatusTimeout);
+      hideStatusTimeout = window.setTimeout(() => {
+        if (!statusMessage) return;
+        statusMessage.hidden = true;
+        statusMessage.textContent = "";
+        statusMessage.remove();
+        statusMessage = null;
+      }, 4000);
+    }, 800);
   });
 
   document.addEventListener("languageChange", () => {

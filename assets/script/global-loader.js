@@ -341,6 +341,4 @@
     init: initLoader
   };
 
-  console.log('🔄 Global Loader initialized');
-
 })();

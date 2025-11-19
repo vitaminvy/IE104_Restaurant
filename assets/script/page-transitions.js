@@ -209,5 +209,5 @@
     setupEventListeners();
   }
 
-  console.log('🔄 Page transitions initialized');
+  // console.log('Page transitions initialized');
 })();

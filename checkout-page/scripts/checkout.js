@@ -23,7 +23,7 @@ import i18nService from '../../assets/script/i18n-service.js';
       const items = localStorage.getItem(CART_STORAGE_KEY);
       return items ? JSON.parse(items) : [];
     } catch (error) {
-      console.error('Error loading cart:', error);
+      // console.error('Error loading cart:', error);
       return [];
     }
   }
@@ -33,7 +33,7 @@ import i18nService from '../../assets/script/i18n-service.js';
       const coupon = localStorage.getItem(COUPON_STORAGE_KEY);
       return coupon ? JSON.parse(coupon) : null;
     } catch (error) {
-      console.error('Error loading coupon:', error);
+      // console.error('Error loading coupon:', error);
       return null;
     }
   }
@@ -283,7 +283,7 @@ import i18nService from '../../assets/script/i18n-service.js';
       orderDate: new Date().toISOString()
     };
 
-    console.log('Order placed:', formData);
+    // console.log('Order placed:', formData);
 
     const orderId = Math.floor(Math.random() * 100000);
     const successMsg = i18nService.t('checkout_page.notifications.order_placed_success').replace('#{orderId}', orderId);
@@ -348,7 +348,7 @@ import i18nService from '../../assets/script/i18n-service.js';
       });
     });
 
-    console.log('Checkout initialized with', getCartItems().length, 'item(s)');
+    // console.log('Checkout initialized with', getCartItems().length, 'item(s)');
   }
 
   /* ========================================

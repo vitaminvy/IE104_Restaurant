@@ -39,7 +39,7 @@ document.head.appendChild(style);
       const stored = localStorage.getItem(STORAGE_KEY);
       return stored ? JSON.parse(stored) : [];
     } catch (error) {
-      console.error("Error loading allergens:", error);
+      // console.error("Error loading allergens:", error);
       return [];
     }
   }
@@ -53,7 +53,7 @@ document.head.appendChild(style);
       localStorage.setItem(STORAGE_KEY, JSON.stringify(allergens));
       userAllergens = allergens;
     } catch (error) {
-      console.error("Error saving allergens:", error);
+      // console.error("Error saving allergens:", error);
     }
   }
 
@@ -196,10 +196,10 @@ document.head.appendChild(style);
       
       if (input.checked) {
         label.classList.add("allergen-checkbox--selected");
-        console.log(`✅ Selected: ${allergen.name}`);
+        // console.log(`Selected: ${allergen.name}`);
       } else {
         label.classList.remove("allergen-checkbox--selected");
-        console.log(`❌ Deselected: ${allergen.name}`);
+        // console.log(`Deselected: ${allergen.name}`);
       }
     });
 
@@ -238,7 +238,7 @@ document.head.appendChild(style);
       overlay.classList.add("allergy-modal-overlay--active");
       document.body.style.overflow = "hidden";
       
-      console.log('📋 Modal opened. Current allergies:', userAllergens);
+      // console.log('Modal opened. Current allergies:', userAllergens);
     }
   }
 
@@ -266,7 +266,7 @@ document.head.appendChild(style);
       }
     });
     
-    console.log('🔄 Checkbox states refreshed');
+    // console.log('Checkbox states refreshed');
   }
 
   /* ========================================
@@ -292,14 +292,14 @@ document.head.appendChild(style);
     );
     const selectedAllergens = Array.from(checkedInputs).map((input) => input.value);
 
-    console.log('💾 Saving allergy settings:', selectedAllergens);
+    // console.log('Saving allergy settings:', selectedAllergens);
 
     // Save to localStorage
     saveUserAllergens(selectedAllergens);
 
     // Verify save
     const saved = loadUserAllergens();
-    console.log('✅ Verified saved allergies:', saved);
+    // console.log('Verified saved allergies:', saved);
 
     // Show confirmation
     if (selectedAllergens.length > 0) {
@@ -325,7 +325,7 @@ document.head.appendChild(style);
    * ======================================== */
 
   function clearAllAllergens() {
-    console.log('🗑️ Clearing all allergens...');
+    // console.log('Clearing all allergens...');
     
     // Uncheck all
     const checkboxes = document.querySelectorAll(".allergen-checkbox");
@@ -344,7 +344,7 @@ document.head.appendChild(style);
     // Clear from storage
     saveUserAllergens([]);
 
-    console.log('✅ All allergens cleared from storage');
+    // console.log('All allergens cleared from storage');
 
     showToast(i18nService.t("allergy_settings.toast.all_cleared"));
 
@@ -388,7 +388,7 @@ document.head.appendChild(style);
             }
           })
           .catch(err => {
-            console.log('Could not load menu data for allergen check:', err);
+          // console.log('Could not load menu data for allergen check:', err);
           });
       }
     }

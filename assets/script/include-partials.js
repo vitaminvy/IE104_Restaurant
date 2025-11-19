@@ -13,7 +13,7 @@
       const html = await res.text();
       a.outerHTML = html;
     } catch (err) {
-      console.error("Include failed:", url, err);
+      // console.error("Include failed:", url, err);
     } finally {
       loaded++;
       // create new signal for events

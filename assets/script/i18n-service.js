@@ -10,11 +10,11 @@ const i18nService = (() => {
         throw new Error(`Failed to load ${lang}.json`);
       }
       translations = await response.json();
-      console.log(`Translations for ${lang} loaded.`);
+      // console.log(`Translations for ${lang} loaded.`);
       // Dispatch event after loading any translation
       document.dispatchEvent(new CustomEvent('language-changed'));
     } catch (error) {
-      console.error('Error loading translations:', error);
+      // console.error('Error loading translations:', error);
       // Fallback to English if loading fails
       if (lang !== 'en') {
         await loadTranslations('en');

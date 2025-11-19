@@ -210,7 +210,7 @@ window.copyBlogUrl = function() {
       }, 2000);
     }
   }).catch(err => {
-    console.error('Failed to copy URL:', err);
+    // console.error('Failed to copy URL:', err);
     alert(i18nService.t('blog_details_page.copy_failed'));
   });
 };
@@ -266,7 +266,7 @@ async function loadBlogPost() {
   // Check if ID is provided
   if (!blogId) {
     showError(i18nService.t('blog_details_page.error.not_found'));
-    console.error('No blog ID provided in URL');
+    // console.error('No blog ID provided in URL');
     return;
   }
 
@@ -276,7 +276,7 @@ async function loadBlogPost() {
   // Check if post exists
   if (!post) {
     showError(i18nService.t('blog_details_page.error.not_found'));
-    console.error(`Blog post with ID ${blogId} not found`);
+    // console.error(`Blog post with ID ${blogId} not found`);
     return;
   }
 
@@ -289,9 +289,9 @@ async function loadBlogPost() {
     renderBlogContent(post);
     renderRelatedPosts(post.id);
 
-    console.log('📰 Blog post loaded successfully:', i18nService.t(post.title));
+    // console.log('Blog post loaded successfully:', i18nService.t(post.title));
   } catch (error) {
-    console.error('Error rendering blog post:', error);
+    // console.error('Error rendering blog post:', error);
     showError(i18nService.t('blog_details_page.error.loading_error'));
   }
 }

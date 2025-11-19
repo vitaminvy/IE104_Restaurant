@@ -1,13 +1,8 @@
-/* ========================================
- * BLOG PAGE DYNAMIC LOADER
- * Timeline layout with filters + load more
- * ======================================== */
-
 import {
   blogPosts,
   getFeaturedPost,
   getAllCategories,
-  getAllTags,
+  getAllTags
 } from '../../assets/data/blogdata.js';
 import i18nService from '../../assets/script/i18n-service.js';
 
@@ -21,22 +16,22 @@ let timelineObserver = null;
 function getLocalizedReadTime(readTimeValue) {
   if (!readTimeValue) {
     const fallback = i18nService.t('blog_page.read_time.na');
-    return fallback && fallback !== 'blog_page.read_time.na' ? fallback : 'Read time N/A';
+    return fallback && fallback !== 'blog_page.read_time.na'
+      ? fallback
+      : 'Read time N/A';
   }
+
   const minutes = parseInt(readTimeValue, 10);
-  if (Number.isNaN(minutes)) {
-    return readTimeValue;
-  }
+  if (Number.isNaN(minutes)) return readTimeValue;
+
   const template = i18nService.t('blog_page.read_time.template');
   if (template && template !== 'blog_page.read_time.template') {
     return template.replace('{minutes}', minutes);
   }
+
   return `${minutes} min read`;
 }
 
-/* ========================================
- * FEATURED POST
- * ======================================== */
 function renderFeaturedPost() {
   const featuredContainer = document.getElementById('featured-post');
   if (!featuredContainer) return;
@@ -69,15 +64,12 @@ function renderFeaturedPost() {
         window.GlobalLoader.show(i18nService.t('blog_page.loading_article'));
       }
       setTimeout(() => {
-        window.location.href = featuredLink.href;
+        window.location.href = a.href;
       }, 200);
     });
   }
 }
 
-/* ========================================
- * FILTERS
- * ======================================== */
 function setupFilters() {
   renderTagFilters();
   renderCategoryOptions();
@@ -107,25 +99,26 @@ function renderTagFilters() {
   if (!container) return;
 
   container.innerHTML = '';
-  const fragment = document.createDocumentFragment();
   const tagTranslations = i18nService.getTranslations()?.blog?.tags || {};
 
   getAllTags().forEach((tag) => {
-    const pill = document.createElement('button');
-    pill.type = 'button';
-    pill.className = 'blog-filter-pill';
-    pill.dataset.tag = tag;
-    pill.textContent = tagTranslations[tag] || tag;
-    pill.addEventListener('click', () => {
+    const li = document.createElement('li');
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'blog-filter-pill';
+    button.dataset.tag = tag;
+    button.textContent = tagTranslations[tag] || tag;
+    button.addEventListener('click', () => {
       selectedTag = selectedTag === tag ? null : tag;
       syncFilterUI();
       applyFilters();
     });
-    fragment.appendChild(pill);
-  });
 
-  container.appendChild(fragment);
+    li.appendChild(button);
+    container.appendChild(li);
+  });
 }
+
 
 function renderCategoryOptions() {
   const select = document.getElementById('category-filter');
@@ -147,9 +140,7 @@ function renderCategoryOptions() {
 
 function syncFilterUI() {
   const select = document.getElementById('category-filter');
-  if (select) {
-    select.value = selectedCategory;
-  }
+  if (select) select.value = selectedCategory;
 
   document.querySelectorAll('.blog-filter-pill').forEach((pill) => {
     const tag = pill.dataset.tag;
@@ -159,8 +150,7 @@ function syncFilterUI() {
 
 function applyFilters() {
   filteredPosts = blogPosts.filter((post) => {
-    const categoryMatch =
-      selectedCategory === 'all' || post.category === selectedCategory;
+    const categoryMatch = selectedCategory === 'all' || post.category === selectedCategory;
     const tags = post.tags || [];
     const tagMatch = !selectedTag || tags.includes(selectedTag);
     return categoryMatch && tagMatch;
@@ -170,9 +160,6 @@ function applyFilters() {
   renderBlogTimeline(1, false);
 }
 
-/* ========================================
- * TIMELINE RENDERING
- * ======================================== */
 function initObserver() {
   timelineObserver = new IntersectionObserver(
     (entries, observer) => {
@@ -195,11 +182,9 @@ function renderBlogTimeline(page = 1, append = false) {
   const end = start + POSTS_PER_PAGE;
   const postsToRender = filteredPosts.slice(start, end);
 
-  if (!append) {
-    blogGrid.innerHTML = '';
-  }
+  if (!append) blogGrid.innerHTML = '';
 
-  if (postsToRender.length === 0 && page === 1) {
+  if (!postsToRender.length && page === 1) {
     blogGrid.innerHTML = `<p class="no-posts">${i18nService.t('blog_page.filter_empty')}</p>`;
     updateLoadMoreState(false);
     return;
@@ -212,7 +197,6 @@ function renderBlogTimeline(page = 1, append = false) {
     const title = i18nService.t(post.title);
     const excerpt = i18nService.t(post.excerpt) || i18nService.t(post.description) || '';
     const postDate = i18nService.t(post.date);
-    const readMoreText = i18nService.t('blog_page.read_more');
     const authorLabel = `${i18nService.t('blog_page.by_author')} ${post.author}`;
 
     const article = document.createElement('article');
@@ -232,12 +216,10 @@ function renderBlogTimeline(page = 1, append = false) {
           <h3 class="timeline-entry__heading">${title}</h3>
           <p class="timeline-entry__excerpt">${excerpt}</p>
           <div class="timeline-entry__tags">
-            ${(post.tags || [])
-              .map((tag) => {
-                const label = tagTranslations[tag] || tag;
-                return `<span class="timeline-entry__tag">${label}</span>`;
-              })
-              .join('')}
+            ${(post.tags || []).map((tag) => {
+              const label = tagTranslations[tag] || tag;
+              return `<span class="timeline-entry__tag">${label}</span>`;
+            }).join('')}
           </div>
           <div class="timeline-entry__actions">
             <a href="../blogpage-details/index.html?id=${post.id}" class="read-more" aria-label="${title}">${title}</a>
@@ -263,10 +245,7 @@ function renderBlogTimeline(page = 1, append = false) {
     }
 
     blogGrid.appendChild(article);
-
-    if (timelineObserver) {
-      timelineObserver.observe(article);
-    }
+    if (timelineObserver) timelineObserver.observe(article);
   });
 
   currentPage = page;
@@ -277,7 +256,6 @@ function renderBlogTimeline(page = 1, append = false) {
 function updateLoadMoreState(hasNext) {
   const loadMoreBtn = document.getElementById('load-more');
   const status = document.getElementById('timeline-status');
-
   if (!loadMoreBtn || !status) return;
 
   if (filteredPosts.length === 0) {
@@ -292,13 +270,10 @@ function updateLoadMoreState(hasNext) {
     loadMoreBtn.disabled = false;
     const shown = currentPage * POSTS_PER_PAGE;
     const statusTemplate = i18nService.t('blog_page.showing_count');
-    if (statusTemplate && statusTemplate !== 'blog_page.showing_count') {
-      status.textContent = statusTemplate
-        .replace('{current}', shown)
-        .replace('{total}', filteredPosts.length);
-    } else {
-      status.textContent = `Showing ${shown} of ${filteredPosts.length} stories`;
-    }
+    status.textContent =
+      statusTemplate && statusTemplate !== 'blog_page.showing_count'
+        ? statusTemplate.replace('{current}', shown).replace('{total}', filteredPosts.length)
+        : `Showing ${shown} of ${filteredPosts.length} stories`;
     status.style.display = 'block';
   } else {
     loadMoreBtn.style.display = 'none';
@@ -308,13 +283,9 @@ function updateLoadMoreState(hasNext) {
 }
 
 function handleLoadMoreClick() {
-  const nextPage = currentPage + 1;
-  renderBlogTimeline(nextPage, true);
+  renderBlogTimeline(currentPage + 1, true);
 }
 
-/* ========================================
- * NEWSLETTER FORM HANDLER
- * ======================================== */
 function setupNewsletterForm() {
   const form = document.querySelector('.newsletter__form');
   const successMessage = document.getElementById('newsletter-success');
@@ -350,9 +321,6 @@ function setupNewsletterForm() {
   });
 }
 
-/* ========================================
- * INITIALIZATION
- * ======================================== */
 let langInitialized = false;
 
 async function init() {
@@ -368,9 +336,7 @@ function renderPage() {
     window.GlobalLoader.show(i18nService.t('blog_page.loading_posts'));
   }
 
-  if (!timelineObserver) {
-    initObserver();
-  }
+  if (!timelineObserver) initObserver();
 
   renderFeaturedPost();
   setupFilters();
@@ -387,8 +353,6 @@ function renderPage() {
   if (window.GlobalLoader) {
     setTimeout(() => window.GlobalLoader.hide(300), 200);
   }
-
-  // console.log('Blog timeline initialized');
 }
 
 document.addEventListener('language-changed', () => {

@@ -195,6 +195,7 @@ import { initPagination } from './pagination.js';
       <div class="menu__card-content">
         <h3 class="menu__card-title">${title}</h3>
         <p class="menu__card-desc">${desc}</p>
+        ${renderBadges(item.badges)}
         <div class="menu__card-meta">
           <span class="menu__card-price">${formatPrice(item.price)}</span>
           <div class="menu__card-actions">

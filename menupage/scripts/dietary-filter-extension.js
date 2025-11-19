@@ -44,15 +44,15 @@ import { initPagination } from './pagination.js';
       badgeBtn.dataset.dietaryType = key;
       badgeBtn.setAttribute("role", "button");
       badgeBtn.setAttribute("aria-pressed", "false");
-            badgeBtn.title = i18nService.t(badge.description);
-            // Badge icon
-            const icon = document.createElement("span");
-            icon.className = "dietary-badge__icon";
-            icon.textContent = badge.icon;
-            // Badge label
-            const label = document.createElement("span");
-            label.className = "dietary-badge__label";
-            label.textContent = i18nService.t(badge.label);
+      badgeBtn.title = i18nService.t(badge.description);
+      // Badge icon
+      const icon = document.createElement("span");
+      icon.className = "dietary-badge__icon";
+      icon.textContent = badge.icon;
+      // Badge label
+      const label = document.createElement("span");
+      label.className = "dietary-badge__label";
+      label.textContent = i18nService.t(badge.label);
 
       // Append icon and label
       badgeBtn.appendChild(icon);
@@ -130,7 +130,7 @@ import { initPagination } from './pagination.js';
     const start = (currentPage - 1) * itemsPerPage;
     const end = start + itemsPerPage;
     const pageData = filteredItems.slice(start, end);
-    
+
     // Re-render cards with filtered items
     renderFilteredCards(pageData);
 
@@ -184,58 +184,46 @@ import { initPagination } from './pagination.js';
     };
 
     // Card template with badges
-  const cardTemplate = (item) => `
-    <a class="menu__card animate-scale" data-item-id="${item.id}" data-item-title="${
-    item.title
-  }" data-item-price="${item.price}" data-item-image="${
-    item.image
-  }" data-item-desc="${item.desc || ''}">
+    const cardTemplate = (item) => {
+      const title = i18nService.t(item.title);
+      const desc = i18nService.t(item.desc);
+      return `
+    <a class="menu__card card-hover-enhanced animate-scale" role="listitem" data-item-id="${item.id}" data-item-title="${title}" data-item-price="${item.price}" data-item-image="${item.image}" data-item-desc="${desc || ''}">
       <div class="menu__card-img-wrapper">
-        <img src="${item.image}" alt="${i18nService.t(
-      item.title
-    )}" class="menu__card-image" loading="lazy"/>
+        <img src="${item.image.replace('.png', '.webp')}" alt="${title}" class="menu__card-image" loading="lazy" width="298" height="224"/>
       </div>
       <div class="menu__card-content">
-        <h3 class="menu__card-title">${i18nService.t(item.title)}</h3>
-        <p class="menu__card-desc">${i18nService.t(item.desc)}</p>
-        ${renderBadges(item.badges)}
+        <h3 class="menu__card-title">${title}</h3>
+        <p class="menu__card-desc">${desc}</p>
         <div class="menu__card-meta">
           <span class="menu__card-price">${formatPrice(item.price)}</span>
           <div class="menu__card-actions">
-            <button class="menu__card-cart-btn" data-item-id="${item.id}" aria-label="${i18nService.t("menu_page.add_to_cart_aria_label")}" title="${i18nService.t("menu_page.add_to_cart_title")}">
+            <button class="menu__card-cart-btn icon-bounce" data-item-id="${item.id}" aria-label="${i18nService.t("menu_page.add_to_cart_aria_label")}" title="${i18nService.t("menu_page.add_to_cart_title")}">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <circle cx="9" cy="21" r="1"/>
                 <circle cx="20" cy="21" r="1"/>
                 <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
               </svg>
             </button>
-            <button class="menu__card-btn btn" data-item-id="${
-              item.id
-            }">Order Now +</button>
+            <button class="menu__card-btn btn btn-interactive" data-item-id="${item.id}">${i18nService.t("menu_page.order_now_button")}</button>
           </div>
         </div>
         <!-- Dropdown menu (hidden by default) -->
         <div class="menu__card-dropdown" style="display: none;">
-          <button class="menu__card-dropdown-item view-details" data-item-id="${
-            item.id
-          }">
+          <button class="menu__card-dropdown-item view-details" data-item-id="${item.id}">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
               <circle cx="12" cy="12" r="3"/>
             </svg>
             View Details
           </button>
-          <button class="menu__card-dropdown-item add-to-favorites" data-item-id="${
-            item.id
-          }">
+          <button class="menu__card-dropdown-item add-to-favorites" data-item-id="${item.id}">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
             </svg>
             Add to Favorites
           </button>
-          <button class="menu__card-dropdown-item share-item" data-item-id="${
-            item.id
-          }">
+          <button class="menu__card-dropdown-item share-item" data-item-id="${item.id}">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <circle cx="18" cy="5" r="3"/>
               <circle cx="6" cy="12" r="3"/>
@@ -248,6 +236,7 @@ import { initPagination } from './pagination.js';
         </div>
       </div>
     </a>`;
+    }
 
     // Show empty state if no items match
     if (filteredItems.length === 0) {

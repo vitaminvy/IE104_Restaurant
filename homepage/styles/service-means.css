@@ -84,7 +84,7 @@
   opacity: 1;
   color: var(--color-dark-orange);
   list-style: disc;
-  cursor: pointer;
+  cursor: default;
 }
 
 /* ================== Breakpoints ================== */
@@ -207,5 +207,3 @@
     max-width: 570px;
   }
 }
-
-

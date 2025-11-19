@@ -18,6 +18,15 @@ let selectedCategory = 'all';
 let selectedTag = null;
 let timelineObserver = null;
 
+function getCategoryLabel(category) {
+  const translations = i18nService.getTranslations();
+  return (
+    translations?.blog?.categories?.[category] ||
+    translations?.blog_page?.categories?.[category] ||
+    category
+  );
+}
+
 function getLocalizedReadTime(readTimeValue) {
   if (!readTimeValue) {
     const fallback = i18nService.t('blog_page.read_time.na');
@@ -134,13 +143,18 @@ function renderCategoryOptions() {
   select.innerHTML = '';
   const defaultOption = document.createElement('option');
   defaultOption.value = 'all';
-  defaultOption.textContent = 'All categories';
+  const allCategoriesLabel =
+    i18nService.t('blog_page.filters.all_categories');
+  defaultOption.textContent =
+    allCategoriesLabel && allCategoriesLabel !== 'blog_page.filters.all_categories'
+      ? allCategoriesLabel
+      : 'All categories';
   select.appendChild(defaultOption);
 
   getAllCategories().forEach((category) => {
     const option = document.createElement('option');
     option.value = category;
-    option.textContent = category;
+    option.textContent = getCategoryLabel(category);
     select.appendChild(option);
   });
 }
@@ -206,6 +220,7 @@ function renderBlogTimeline(page = 1, append = false) {
   }
 
   const tagTranslations = i18nService.getTranslations()?.blog?.tags || {};
+  const categoryTranslations = i18nService.getTranslations()?.blog?.categories || {};
 
   postsToRender.forEach((post) => {
     const readTime = getLocalizedReadTime(post.readTime);
@@ -214,6 +229,7 @@ function renderBlogTimeline(page = 1, append = false) {
     const postDate = i18nService.t(post.date);
     const readMoreText = i18nService.t('blog_page.read_more');
     const authorLabel = `${i18nService.t('blog_page.by_author')} ${post.author}`;
+    const categoryLabel = categoryTranslations[post.category] || getCategoryLabel(post.category);
 
     const article = document.createElement('article');
     article.className = 'timeline-entry';
@@ -225,7 +241,7 @@ function renderBlogTimeline(page = 1, append = false) {
       <div class="timeline-entry__card">
         <div>
           <div class="timeline-entry__meta">
-            <span class="timeline-entry__category">${post.category}</span>
+            <span class="timeline-entry__category">${categoryLabel}</span>
             <span>${authorLabel}</span>
             <span class="timeline-entry__readtime">${readTime}</span>
           </div>

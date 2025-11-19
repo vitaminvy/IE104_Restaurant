@@ -312,6 +312,10 @@
   color: var(--color-white-60, rgba(255, 255, 255, 0.6));
 }
 
+html[data-theme="light"] .timeline-footer__status {
+  color: #1c1c1c;
+}
+
 .no-posts {
   width: 100%;
   text-align: center;

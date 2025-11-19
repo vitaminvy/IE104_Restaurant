@@ -47,7 +47,7 @@ function renderFeaturedPost() {
 
   featuredContainer.innerHTML = `
     <div class="post-image">
-      <img src="${post.image}" alt="${title}" loading="lazy">
+      <img src="${post.image}" alt="${title}" loading="lazy" width="800" height="450">
     </div>
     <div class="post-content">
       <h2>${title}</h2>
@@ -226,7 +226,7 @@ function renderBlogTimeline(page = 1, append = false) {
           </div>
         </div>
         <div class="timeline-entry__image">
-          <img src="${post.image}" alt="${title}" loading="lazy">
+          <img src="${post.image}" alt="${title}" loading="lazy" width="400" height="225">
         </div>
       </div>
     `;

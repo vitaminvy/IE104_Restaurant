@@ -128,7 +128,7 @@ import i18nService from "./i18n-service.js";
     // Save to localStorage
     try {
       localStorage.setItem("restaurantCart", JSON.stringify(cart));
-      console.log("✅ Item added to cart:", item.title);
+      console.log("Item added to cart:", item.title);
     } catch (e) {
       console.error("Error saving cart:", e);
     }

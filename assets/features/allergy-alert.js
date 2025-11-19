@@ -196,10 +196,10 @@ document.head.appendChild(style);
       
       if (input.checked) {
         label.classList.add("allergen-checkbox--selected");
-        console.log(`✅ Selected: ${allergen.name}`);
+        console.log(`Selected: ${allergen.name}`);
       } else {
         label.classList.remove("allergen-checkbox--selected");
-        console.log(`❌ Deselected: ${allergen.name}`);
+        console.log(`Deselected: ${allergen.name}`);
       }
     });
 
@@ -299,7 +299,7 @@ document.head.appendChild(style);
 
     // Verify save
     const saved = loadUserAllergens();
-    console.log('✅ Verified saved allergies:', saved);
+    console.log('Verified saved allergies:', saved);
 
     // Show confirmation
     if (selectedAllergens.length > 0) {
@@ -344,7 +344,7 @@ document.head.appendChild(style);
     // Clear from storage
     saveUserAllergens([]);
 
-    console.log('✅ All allergens cleared from storage');
+    console.log('All allergens cleared from storage');
 
     showToast(i18nService.t("allergy_settings.toast.all_cleared"));
 

@@ -213,7 +213,7 @@ import i18nService from '../../assets/script/i18n-service.js';
     try {
       localStorage.setItem('restaurantCart', JSON.stringify(cart));
     } catch (e) {
-      console.error('❌ Error saving cart:', e);
+      console.error('Error saving cart:', e);
     }
 
     // Update loader message
@@ -308,10 +308,10 @@ import i18nService from '../../assets/script/i18n-service.js';
           // Save to localStorage
           try {
             localStorage.setItem('restaurantCart', JSON.stringify(cart));
-            console.log('✅ Cart saved to localStorage');
+            console.log('Cart saved to localStorage');
             console.log('📦 Cart now has', cart.length, 'unique items');
           } catch (e) {
-            console.error('❌ Error saving cart:', e);
+            console.error('Error saving cart:', e);
           }
 
           // Show toast notification

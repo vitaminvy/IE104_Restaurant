@@ -159,7 +159,7 @@
       // Setup directional controls
       setupDirectionalControls();
 
-      console.log('✅ OpenStreetMap initialized successfully');
+      console.log('OpenStreetMap initialized successfully');
     } catch (error) {
       console.error('Error initializing map:', error);
     }

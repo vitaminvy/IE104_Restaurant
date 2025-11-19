@@ -629,7 +629,7 @@ import i18nService from '../../assets/script/i18n-service.js';
         window.GlobalLoader.hide(300);
       }
 
-      console.log('✅ Cart initialized with', items.length, 'items');
+      console.log('Cart initialized with', items.length, 'items');
       console.log('🎟️ Available coupons:', Object.keys(COUPONS).join(', '));
     }, 100);
   }

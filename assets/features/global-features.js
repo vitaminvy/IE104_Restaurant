@@ -84,18 +84,18 @@
         loadStylesheet(`${basePath}allergy-alert.css`),
       ]);
 
-      console.log('✅ Feature stylesheets loaded');
+      console.log('Feature stylesheets loaded');
 
       // Load scripts (parallel)
       await Promise.all([
         loadScript(`${basePath}allergy-alert.js`),
       ]);
 
-      console.log('✅ Feature scripts loaded');
+      console.log('Feature scripts loaded');
       console.log('🎉 All global features initialized');
 
     } catch (error) {
-      console.error('❌ Error loading features:', error);
+      console.error('Error loading features:', error);
     }
   }
 

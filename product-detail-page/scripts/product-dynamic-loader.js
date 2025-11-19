@@ -528,9 +528,9 @@ import i18nService from "../../assets/script/i18n-service.js";
       // Save to localStorage
       localStorage.setItem(cartKey, JSON.stringify(items));
 
-      console.log("✅ Item added to cart (fallback):", cartItem);
+      console.log("Item added to cart (fallback):", cartItem);
     } catch (error) {
-      console.error("❌ Error adding to cart:", error);
+      console.error("Error adding to cart:", error);
     }
   }
 
@@ -655,7 +655,7 @@ import i18nService from "../../assets/script/i18n-service.js";
       }
     });
 
-    console.log(`✅ Added ${quantity}x "${itemTitle}" to cart`);
+    console.log(`Added ${quantity}x "${itemTitle}" to cart`);
   }
 
   /* ========================================

@@ -306,7 +306,7 @@ import i18nService from "../../assets/script/i18n-service.js";
     try {
       localStorage.setItem("restaurantCart", JSON.stringify(cart));
     } catch (e) {
-      console.error("❌ Error saving cart:", e);
+      console.error("Error saving cart:", e);
     }
 
     if (window.GlobalLoader) {
@@ -404,7 +404,7 @@ import i18nService from "../../assets/script/i18n-service.js";
         try {
           localStorage.setItem("restaurantCart", JSON.stringify(cart));
         } catch (e) {
-          console.error("❌ Error saving cart:", e);
+          console.error("Error saving cart:", e);
         }
 
         if (window.showToast) {

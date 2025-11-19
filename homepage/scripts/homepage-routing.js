@@ -37,7 +37,7 @@
     // Blog card read more links
     setupLinks('.blog-card__readmore', 'Loading Article...');
 
-    console.log('✅ Homepage navigation with loaders initialized');
+    console.log('Homepage navigation with loaders initialized');
   }
 
   /* ========================================

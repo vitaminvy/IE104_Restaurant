@@ -169,7 +169,7 @@ import i18nService from './i18n-service.js';
     navLinks.forEach((link) => {
       // Skip hash links (same page)
       const href = link.getAttribute("href");
-      if (!href || href.startsWith("#")) return;
+      if (!href || href.startsWith("#") || href.includes("#")) return;
 
       link.addEventListener("click", (e) => {
         e.preventDefault();

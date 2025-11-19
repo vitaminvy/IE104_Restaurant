@@ -33,7 +33,7 @@
     // Disable button and show loading state
     submitButton.disabled = true;
     const originalText = submitButton.textContent;
-    submitButton.textContent = 'Sending...';
+    submitButton.textContent = window.i18nService.t('contact_us.form.sending');
 
     // Simulate API call (replace with actual backend call)
     setTimeout(() => {

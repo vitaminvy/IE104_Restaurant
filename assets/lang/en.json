@@ -258,6 +258,7 @@
       "placeholder_subject": "Subject",
       "placeholder_review": "Write review *",
       "submit": "Submit",
+      "sending": "Sending...",
       "success_message": "Thanks for reaching out! We'll get back to you shortly."
     }
   },

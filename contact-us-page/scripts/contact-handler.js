@@ -14,7 +14,7 @@
   }
 
   function init() {
-    const form = document.getElementById('contact-form');
+    const form = document.querySelector('.contact-form__form');
     if (!form) return;
 
     // Initialize form validator

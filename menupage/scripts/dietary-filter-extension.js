@@ -6,6 +6,7 @@
 
 import { menuItems, dietaryBadges } from "../../assets/data/mockdata.js";
 import i18nService from "../../assets/script/i18n-service.js";
+import { initPagination } from './pagination.js';
 /* ========================================
  * DIETARY FILTER EXTENSION SYSTEM
  * ======================================== */
@@ -123,8 +124,31 @@ import i18nService from "../../assets/script/i18n-service.js";
       });
     }
 
+    let itemsPerPage = 8;
+    let currentPage = 1;
+    const totalPages = Math.ceil(filteredItems.length / 8);
+    const start = (currentPage - 1) * itemsPerPage;
+    const end = start + itemsPerPage;
+    const pageData = filteredItems.slice(start, end);
+    
     // Re-render cards with filtered items
-    renderFilteredCards(filteredItems);
+    renderFilteredCards(pageData);
+
+    // Trigger scroll animations for newly rendered cards
+    if (window.ScrollAnimations && window.ScrollAnimations.observe) {
+      // Re-observe all animated elements
+      const animatedElements = container.querySelectorAll('[class*="animate-"]');
+      animatedElements.forEach(el => {
+        window.ScrollAnimations.observe(el);
+      });
+    }
+
+    // Initialize pagination
+    initPagination(totalPages, currentPage, (page) => {
+      currentPage = page;
+      render();
+      window.scrollTo({ top: container.offsetTop - 160, behavior: 'smooth' });
+    });
   }
 
   /* ========================================

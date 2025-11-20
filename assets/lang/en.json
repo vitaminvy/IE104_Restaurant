@@ -1109,5 +1109,10 @@
       "name": "Molluscs",
       "description": "Contains molluscs (clams, mussels, oysters, etc.)"
     }
+  },
+  "notifications": {
+    "addedToCart": "{itemTitle} added to cart!",
+    "updatedCart": "{itemTitle} quantity updated!",
+    "contactSuccess": "Thank you, {name}! Your message has been sent. We'll get back to you soon."
   }
 }

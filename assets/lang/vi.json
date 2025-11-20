@@ -1110,5 +1110,10 @@
       "name": "Nhuyễn Thể",
       "description": "Chứa nhuyễn thể (nghêu, trai, hàu, v.v.)"
     }
+  },
+  "notifications": {
+    "addedToCart": "Đã thêm {itemTitle} vào giỏ hàng!",
+    "updatedCart": "Đã cập nhật số lượng {itemTitle}!",
+    "contactSuccess": "Cảm ơn, {name}! Tin nhắn của bạn đã được gửi. Chúng tôi sẽ sớm liên hệ lại với bạn."
   }
 }

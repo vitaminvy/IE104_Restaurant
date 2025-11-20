@@ -225,10 +225,13 @@
       btnManager.showSuccess();
 
       // Show notification if available
-      if (window.NotificationSystem) {
+      if (window.NotificationSystem && window.i18nService) {
         const qty = toQuantity(cart[existingItemIndex > -1 ? existingItemIndex : cart.length - 1].quantity);
+        const messageKey = existingItemIndex > -1 ? 'notifications.updatedCart' : 'notifications.addedToCart';
+        const translatedMessage = window.i18nService.t(messageKey).replace('{itemTitle}', item.title);
+        
         window.NotificationSystem.success(
-          `${item.title} ${existingItemIndex > -1 ? 'quantity updated' : 'added to cart'}! (${qty}x)`,
+          `${translatedMessage} (${qty}x)`,
           {
             duration: 3000,
           }

@@ -104,7 +104,7 @@
 }
 
 .qty-input[type="number"] {
-  -moz-appearance: textfield; /* ẩn cho Firefox */
+  -moz-appearance: textfield; /* hide default indicator in Firefox */
 }
 .qty-btn {
   background: transparent;
@@ -155,11 +155,11 @@
    RESPONSIVE — Tailwind convention
 ===================== */
 
-/* sm (≥640px): tăng spacing, size text */
+/* sm (≥640px): increase spacing and text size */
 @media (min-width: 640px) {
 }
 
-/* md (≥768px): chia 2 cột */
+/* md (≥768px): split into two columns */
 @media (min-width: 768px) {
   #product-detail {
     padding-left: 2rem;
@@ -167,7 +167,7 @@
   }
 }
 
-/* lg (≥1024px): tinh chỉnh font và padding */
+/* lg (≥1024px): refine font sizes and padding */
 @media (min-width: 1024px) {
   #product-detail {
     padding-left: 3rem;
@@ -178,7 +178,7 @@
   }
 }
 
-/* xl (≥1280px): full layout centered, tăng gap */
+/* xl (≥1280px): center the layout and increase gaps */
 @media (min-width: 1280px) {
   #product-detail {
     margin-top: 10rem;
@@ -198,7 +198,7 @@
   }
 }
 
-/* 2xl (≥1536px): giới hạn max width */
+/* 2xl (≥1536px): cap the maximum width */
 @media (min-width: 1536px) {
   .product-detail__container {
     max-width: 1440px;

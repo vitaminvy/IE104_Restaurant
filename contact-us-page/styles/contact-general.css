@@ -93,11 +93,11 @@ textarea {
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Khi người dùng click vào textarea */
+/* When the user clicks the textarea */
 textarea:focus {
-  border-color: var(--color-dark-orange); /* Màu chủ đạo của bạn */
-  box-shadow: 0 0 6px rgba(255, 140, 0, 0.4); /* hiệu ứng ánh sáng */
-  outline: none; /* bỏ viền xanh mặc định */
+  border-color: var(--color-dark-orange); /* primary color */
+  box-shadow: 0 0 6px rgba(255, 140, 0, 0.4); /* light effect */
+  outline: none; 
 }
 
 /* =============================

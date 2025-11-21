@@ -1,40 +1,60 @@
-import { initPagination } from './pagination.js';
-import { menuItems } from '../../assets/data/mockdata.js';
-import i18nService from '../../assets/script/i18n-service.js';
+import { initPagination } from "./pagination.js";
+import { menuItems, dietaryBadges } from "../../assets/data/mockdata.js";
+import i18nService from "../../assets/script/i18n-service.js";
 
 (function () {
-  const container = document.getElementById('menu-card-container');
-  const tabs = document.querySelectorAll('.menu__filter-item');
+  const container = document.getElementById("menu-card-container");
+  const tabs = document.querySelectorAll(".menu__filter-item");
 
   let currentCategory =
-    document.querySelector('.menu__filter-item--active')?.dataset.category ||
-    'breakfast';
+    document.querySelector(".menu__filter-item--active")?.dataset.category ||
+    "breakfast";
   let currentPage = 1;
-  const itemsPerPage = 8; 
+  const itemsPerPage = 8;
 
   const formatPrice = (p) =>
     p.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
 
+  // Render badges for a menu item
+  const renderBadges = (badges) => {
+    if (!badges || badges.length === 0) return "";
+
+    return `
+      <div class="menu__card-badges">
+        ${badges
+          .map((badgeKey) => {
+            const badge = dietaryBadges[badgeKey];
+            if (!badge) return "";
+            return `<span class="menu__card-badge menu__card-badge--${badgeKey}" title="${i18nService.t(badge.description)}">
+            <span class="menu__card-badge-icon">${badge.icon}</span>
+            <span>${i18nService.t(badge.label)}</span>
+          </span>`;
+          })
+          .join("")}
+      </div>
+    `;
+  };
+
   function updateCartCount() {
-    const cartCountEl = document.getElementById('cart-count');
+    const cartCountEl = document.getElementById("cart-count");
     if (!cartCountEl) return;
 
     try {
-      const cartData = localStorage.getItem('restaurantCart');
+      const cartData = localStorage.getItem("restaurantCart");
       const cart = cartData ? JSON.parse(cartData) : [];
       const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
       cartCountEl.textContent = totalItems;
     } catch (e) {
       // console.error('Error reading cart for count update:', e);
-      cartCountEl.textContent = '0';
+      cartCountEl.textContent = "0";
     }
   }
 
   function setupFloatingCartIcon() {
-    const cartIcon = document.getElementById('cart-icon');
+    const cartIcon = document.getElementById("cart-icon");
     if (cartIcon) {
-      cartIcon.addEventListener('click', () => {
-        window.location.href = '/cartpage/';
+      cartIcon.addEventListener("click", () => {
+        window.location.href = "/cartpage/";
       });
     }
   }
@@ -43,42 +63,62 @@ import i18nService from '../../assets/script/i18n-service.js';
     const title = i18nService.t(item.title);
     const desc = i18nService.t(item.desc);
     return `
-    <a class="menu__card card-hover-enhanced animate-scale" role="listitem" data-item-id="${item.id}" data-item-title="${title}" data-item-price="${item.price}" data-item-image="${item.image}" data-item-desc="${desc || ''}">
+    <a class="menu__card card-hover-enhanced animate-scale" role="listitem" data-item-id="${
+      item.id
+    }" data-item-title="${title}" data-item-price="${
+      item.price
+    }" data-item-image="${item.image}" data-item-desc="${desc || ""}">
       <div class="menu__card-img-wrapper">
-        <img src="${item.image.replace('.png', '.webp')}" alt="${title}" class="menu__card-image" loading="lazy" width="298" height="224"/>
+        <img src="${item.image.replace(
+          ".png",
+          ".webp"
+        )}" alt="${title}" class="menu__card-image" loading="lazy" width="298" height="224"/>
       </div>
       <div class="menu__card-content">
         <h3 class="menu__card-title">${title}</h3>
         <p class="menu__card-desc">${desc}</p>
+        ${renderBadges(item.badges)}
         <div class="menu__card-meta">
           <span class="menu__card-price">${formatPrice(item.price)}</span>
           <div class="menu__card-actions">
-            <button class="menu__card-cart-btn icon-bounce" data-item-id="${item.id}" aria-label="${i18nService.t("menu_page.add_to_cart_aria_label")}" title="${i18nService.t("menu_page.add_to_cart_title")}">
+            <button class="menu__card-cart-btn icon-bounce" data-item-id="${
+              item.id
+            }" aria-label="${i18nService.t(
+      "menu_page.add_to_cart_aria_label"
+    )}" title="${i18nService.t("menu_page.add_to_cart_title")}">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <circle cx="9" cy="21" r="1"/>
                 <circle cx="20" cy="21" r="1"/>
                 <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
               </svg>
             </button>
-            <button class="menu__card-btn btn btn-interactive" data-item-id="${item.id}">${i18nService.t("menu_page.order_now_button")}</button>
+            <button class="menu__card-btn btn btn-interactive" data-item-id="${
+              item.id
+            }">${i18nService.t("menu_page.order_now_button")}</button>
           </div>
         </div>
         <!-- Dropdown menu (hidden by default) -->
         <div class="menu__card-dropdown" style="display: none;">
-          <button class="menu__card-dropdown-item view-details" data-item-id="${item.id}">
+          <button class="menu__card-dropdown-item view-details" data-item-id="${
+            item.id
+          }">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
               <circle cx="12" cy="12" r="3"/>
             </svg>
             View Details
           </button>
-          <button class="menu__card-dropdown-item add-to-favorites" data-item-id="${item.id}">
+          <button class="menu__card-dropdown-item add-to-favorites" data-item-id="${
+            item.id
+          }">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
             </svg>
             Add to Favorites
           </button>
-          <button class="menu__card-dropdown-item share-item" data-item-id="${item.id}">
+          <button class="menu__card-dropdown-item share-item" data-item-id="${
+            item.id
+          }">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <circle cx="18" cy="5" r="3"/>
               <circle cx="6" cy="12" r="3"/>
@@ -91,10 +131,10 @@ import i18nService from '../../assets/script/i18n-service.js';
         </div>
       </div>
     </a>`;
-  }
+  };
 
   function getFilteredData() {
-    return currentCategory === 'all'
+    return currentCategory === "all"
       ? menuItems
       : menuItems.filter((x) => x.category === currentCategory);
   }
@@ -106,13 +146,15 @@ import i18nService from '../../assets/script/i18n-service.js';
     const end = start + itemsPerPage;
     const pageData = data.slice(start, end);
 
-    container.innerHTML = pageData.map(cardTemplate).join('');
+    container.innerHTML = pageData.map(cardTemplate).join("");
 
     // Trigger scroll animations for newly rendered cards
     if (window.ScrollAnimations && window.ScrollAnimations.observe) {
       // Re-observe all animated elements
-      const animatedElements = container.querySelectorAll('[class*="animate-"]');
-      animatedElements.forEach(el => {
+      const animatedElements = container.querySelectorAll(
+        '[class*="animate-"]'
+      );
+      animatedElements.forEach((el) => {
         window.ScrollAnimations.observe(el);
       });
     }
@@ -121,7 +163,7 @@ import i18nService from '../../assets/script/i18n-service.js';
     initPagination(totalPages, currentPage, (page) => {
       currentPage = page;
       render();
-      window.scrollTo({ top: container.offsetTop - 160, behavior: 'smooth' });
+      window.scrollTo({ top: container.offsetTop - 160, behavior: "smooth" });
     });
 
     // Setup Order Now button handlers
@@ -134,16 +176,20 @@ import i18nService from '../../assets/script/i18n-service.js';
     setupCartIconHandlers();
   }
 
+  // Expose render function for dietary filter extension to use
+  window.menuPageRender = render;
+  window.menuPageCardTemplate = cardTemplate;
+
   // Setup Order Now button click handlers
   function setupOrderButtonHandlers() {
-    const orderButtons = container.querySelectorAll('.menu__card-btn');
+    const orderButtons = container.querySelectorAll(".menu__card-btn");
 
     orderButtons.forEach((button) => {
-      button.addEventListener('click', (e) => {
+      button.addEventListener("click", (e) => {
         e.preventDefault();
         e.stopPropagation();
 
-        const card = e.target.closest('.menu__card');
+        const card = e.target.closest(".menu__card");
         if (!card) return;
 
         const itemId = Number(card.dataset.itemId);
@@ -151,8 +197,12 @@ import i18nService from '../../assets/script/i18n-service.js';
         if (!item) return;
 
         // Get title and desc from the DOM to avoid race condition
-        const title = card.querySelector('.menu__card-title')?.textContent || i18nService.t(item.title);
-        const desc = card.querySelector('.menu__card-desc')?.textContent || i18nService.t(item.desc);
+        const title =
+          card.querySelector(".menu__card-title")?.textContent ||
+          i18nService.t(item.title);
+        const desc =
+          card.querySelector(".menu__card-desc")?.textContent ||
+          i18nService.t(item.desc);
 
         const cartItem = { ...item, title, desc };
 
@@ -169,16 +219,15 @@ import i18nService from '../../assets/script/i18n-service.js';
 
   // Add to cart and navigate
   function addToCartAndNavigate(item) {
-
     // Show loader
     if (window.GlobalLoader) {
-      window.GlobalLoader.show('Adding to cart...');
+      window.GlobalLoader.show("Adding to cart...");
     }
 
     // Get existing cart from localStorage
     let cart = [];
     try {
-      const cartData = localStorage.getItem('restaurantCart');
+      const cartData = localStorage.getItem("restaurantCart");
       if (cartData) {
         cart = JSON.parse(cartData);
       }
@@ -202,7 +251,7 @@ import i18nService from '../../assets/script/i18n-service.js';
         title: item.title, // Already translated from DOM
         price: item.price,
         image: item.image,
-        desc: item.desc || '', // Already translated from DOM
+        desc: item.desc || "", // Already translated from DOM
         quantity: 1,
       };
       cart.push(cartItem);
@@ -210,19 +259,19 @@ import i18nService from '../../assets/script/i18n-service.js';
 
     // Save to localStorage
     try {
-      localStorage.setItem('restaurantCart', JSON.stringify(cart));
+      localStorage.setItem("restaurantCart", JSON.stringify(cart));
     } catch (e) {
       // console.error('Error saving cart:', e);
     }
 
     // Update loader message
     if (window.GlobalLoader) {
-      window.GlobalLoader.updateMessage('Redirecting to cart...');
+      window.GlobalLoader.updateMessage("Redirecting to cart...");
     }
 
     // Navigate to cart page
     setTimeout(() => {
-      window.location.href = '/cartpage/';
+      window.location.href = "/cartpage/";
     }, 500);
   }
 
@@ -233,14 +282,14 @@ import i18nService from '../../assets/script/i18n-service.js';
 
   // Setup cart icon button handlers
   function setupCartIconHandlers() {
-    const cartButtons = container.querySelectorAll('.menu__card-cart-btn');
+    const cartButtons = container.querySelectorAll(".menu__card-cart-btn");
 
     cartButtons.forEach((button) => {
-      button.addEventListener('click', (e) => {
+      button.addEventListener("click", (e) => {
         e.preventDefault();
         e.stopPropagation();
 
-        const card = e.target.closest('.menu__card');
+        const card = e.target.closest(".menu__card");
         if (!card) return;
 
         const itemId = Number(card.dataset.itemId);
@@ -248,8 +297,12 @@ import i18nService from '../../assets/script/i18n-service.js';
         if (!item) return;
 
         // Get title and desc from the DOM to avoid race condition
-        const title = card.querySelector('.menu__card-title')?.textContent || i18nService.t(item.title);
-        const desc = card.querySelector('.menu__card-desc')?.textContent || i18nService.t(item.desc);
+        const title =
+          card.querySelector(".menu__card-title")?.textContent ||
+          i18nService.t(item.title);
+        const desc =
+          card.querySelector(".menu__card-desc")?.textContent ||
+          i18nService.t(item.desc);
 
         const preparedItem = { ...item, title, desc };
 
@@ -258,15 +311,15 @@ import i18nService from '../../assets/script/i18n-service.js';
           window.enhancedAddToCart(preparedItem, button, false);
         } else {
           // Fallback to basic animation
-          button.style.transform = 'scale(0.85)';
+          button.style.transform = "scale(0.85)";
           setTimeout(() => {
-            button.style.transform = '';
+            button.style.transform = "";
           }, 200);
 
           // Get existing cart from localStorage
           let cart = [];
           try {
-            const cartData = localStorage.getItem('restaurantCart');
+            const cartData = localStorage.getItem("restaurantCart");
             if (cartData) {
               cart = JSON.parse(cartData);
             }
@@ -296,7 +349,7 @@ import i18nService from '../../assets/script/i18n-service.js';
               title: preparedItem.title,
               price: preparedItem.price,
               image: preparedItem.image,
-              desc: preparedItem.desc || '',
+              desc: preparedItem.desc || "",
               quantity: 1,
             };
             cart.push(cartEntry);
@@ -305,7 +358,7 @@ import i18nService from '../../assets/script/i18n-service.js';
 
           // Save to localStorage
           try {
-            localStorage.setItem('restaurantCart', JSON.stringify(cart));
+            localStorage.setItem("restaurantCart", JSON.stringify(cart));
             // console.log('Cart saved to localStorage');
             // console.log('Cart now has', cart.length, 'unique items');
           } catch (e) {
@@ -317,25 +370,29 @@ import i18nService from '../../assets/script/i18n-service.js';
             const totalQty = cart[existingItemIndex]?.quantity || 1;
             window.showToast(
               `${preparedItem.title} added to cart (Qty: ${totalQty})`,
-              'success',
+              "success",
               2000
             );
           }
 
           // Update cart count in header (if exists)
-          const cartCountEl = document.getElementById('cart-count');
+          const cartCountEl = document.getElementById("cart-count");
           if (cartCountEl) {
-            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            const totalItems = cart.reduce(
+              (sum, item) => sum + item.quantity,
+              0
+            );
             cartCountEl.textContent = totalItems;
           }
 
           // Trigger fly animation (if function exists)
-          const card = button.closest('.menu__card');
-          const imgEl = card?.querySelector('.menu__card-image');
+          const card = button.closest(".menu__card");
+          const imgEl = card?.querySelector(".menu__card-image");
           const src =
-            imgEl?.src || '../assets/images/home-page/menu-section/noodles.png';
+            imgEl?.src ||
+            "../assets/images/home-page/menu-section/noodles.webp";
 
-          if (typeof animateToCart === 'function') {
+          if (typeof animateToCart === "function") {
             animateToCart(src, e.clientX, e.clientY);
           }
         }
@@ -344,18 +401,18 @@ import i18nService from '../../assets/script/i18n-service.js';
   }
 
   tabs.forEach((t) =>
-    t.addEventListener('click', (e) => {
+    t.addEventListener("click", (e) => {
       e.preventDefault();
-      tabs.forEach((x) => x.classList.remove('menu__filter-item--active'));
-      t.classList.add('menu__filter-item--active');
-      currentCategory = t.dataset.category || 'breakfast';
+      tabs.forEach((x) => x.classList.remove("menu__filter-item--active"));
+      t.classList.add("menu__filter-item--active");
+      currentCategory = t.dataset.category || "breakfast";
       currentPage = 1;
       render();
     })
   );
 
   // Initial render and re-render on language change
-  document.addEventListener('language-changed', render);
+  document.addEventListener("language-changed", render);
 
   // Initialize translations and then render
   (async () => {
@@ -368,46 +425,46 @@ import i18nService from '../../assets/script/i18n-service.js';
 
 // Other IIFEs can remain as they are
 (function rippleOnClick() {
-  const root = document.getElementById('menu-card-container');
+  const root = document.getElementById("menu-card-container");
   if (!root) return;
-  root.addEventListener('click', (e) => {
-    const btn = e.target.closest('.menu__card-btn');
+  root.addEventListener("click", (e) => {
+    const btn = e.target.closest(".menu__card-btn");
     if (!btn) return;
     const rect = btn.getBoundingClientRect();
-    const r = document.createElement('span');
-    r.className = 'ripple';
+    const r = document.createElement("span");
+    r.className = "ripple";
     const size = Math.max(rect.width, rect.height);
-    r.style.width = r.style.height = size + 'px';
-    r.style.left = e.clientX - rect.left - size / 2 + 'px';
-    r.style.top = e.clientY - rect.top - size / 2 + 'px';
+    r.style.width = r.style.height = size + "px";
+    r.style.left = e.clientX - rect.left - size / 2 + "px";
+    r.style.top = e.clientY - rect.top - size / 2 + "px";
     btn.appendChild(r);
-    r.addEventListener('animationend', () => r.remove());
+    r.addEventListener("animationend", () => r.remove());
   });
 })();
 
 (function setupToast() {
-  let root = document.getElementById('toast-root');
+  let root = document.getElementById("toast-root");
   if (!root) {
-    root = document.createElement('div');
-    root.id = 'toast-root';
+    root = document.createElement("div");
+    root.id = "toast-root";
     document.body.appendChild(root);
   }
-  window.showToast = function (message, type = 'success', duration = 1800) {
-    const el = document.createElement('div');
+  window.showToast = function (message, type = "success", duration = 1800) {
+    const el = document.createElement("div");
     el.className = `toast toast--${type}`;
-    const msg = document.createElement('span');
+    const msg = document.createElement("span");
     msg.textContent = message;
-    const close = document.createElement('span');
-    close.className = 'toast__close';
-    close.setAttribute('role', 'button');
-    close.setAttribute('aria-label', 'Close');
-    close.textContent = '×';
+    const close = document.createElement("span");
+    close.className = "toast__close";
+    close.setAttribute("role", "button");
+    close.setAttribute("aria-label", "Close");
+    close.textContent = "×";
     close.onclick = () => dismiss();
     el.appendChild(close);
     el.appendChild(msg);
     root.appendChild(el);
 
-    requestAnimationFrame(() => el.classList.add('is-visible'));
+    requestAnimationFrame(() => el.classList.add("is-visible"));
 
     const t = setTimeout(dismiss, duration);
     function dismiss() {
@@ -433,7 +490,7 @@ import i18nService from '../../assets/script/i18n-service.js';
     if (!itemId) return;
 
     if (window.GlobalLoader) {
-      window.GlobalLoader.show('Loading product...');
+      window.GlobalLoader.show("Loading product...");
     }
 
     setTimeout(() => {

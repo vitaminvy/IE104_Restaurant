@@ -4,6 +4,10 @@
 
 Thực hiện bởi nhóm 5
 
+## Giảng viên hướng dẫn
+
+Thạc sĩ Võ Tấn Khoa
+
 ## Thành viên nhóm
 
 - 23521827 – Hồ Vương Tường Vy

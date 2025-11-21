@@ -85,14 +85,14 @@
                 name="firstName"
                 class="form__input"
                 type="text"
-              placeholder=""
-              required
-              minlength="2"
-              data-error-required="Please enter your first name"
-              data-error-minLength="First name must be at least 2 characters"
-              data-i18n-error-required="form_errors.first_name_required"
-              data-i18n-error-minLength="form_errors.first_name_min"
-            />
+                placeholder=""
+                required
+                minlength="2"
+                data-error-required="Please enter your first name"
+                data-error-minLength="First name must be at least 2 characters"
+                data-i18n-error-required="form_errors.first_name_required"
+                data-i18n-error-minLength="form_errors.first_name_min"
+              />
             </div>
             <div class="form__group">
               <label
@@ -106,14 +106,14 @@
                 name="lastName"
                 class="form__input"
                 type="text"
-              placeholder=""
-              required
-              minlength="2"
-              data-error-required="Please enter your last name"
-              data-error-minLength="Last name must be at least 2 characters"
-              data-i18n-error-required="form_errors.last_name_required"
-              data-i18n-error-minLength="form_errors.last_name_min"
-            />
+                placeholder=""
+                required
+                minlength="2"
+                data-error-required="Please enter your last name"
+                data-error-minLength="Last name must be at least 2 characters"
+                data-i18n-error-required="form_errors.last_name_required"
+                data-i18n-error-minLength="form_errors.last_name_min"
+              />
             </div>
           </div>
 
@@ -154,43 +154,21 @@
               </option>
             </select>
           </div>
-
-          <div class="form__group">
-            <label
-              class="form__label"
-              for="street1"
-              data-i18n="checkout_page.billing_details.street_address"
-              >Street address *</label
-            >
-            <input
-              id="street1"
-              name="street1"
-              class="form__input"
-              type="text"
-              placeholder=""
-              required
-              minlength="5"
-              data-error-required="Please enter your street address"
-              data-error-minLength="Street address must be at least 5 characters"
-              data-i18n-error-required="form_errors.street_required"
-              data-i18n-error-minLength="form_errors.street_min"
-            />
-          </div>
-
           <div class="form__group">
             <label
               class="form__label"
               for="street2"
               data-i18n="checkout_page.billing_details.street_address"
-              >Street address (optional)</label
+              >Street address *</label
             >
+
             <input
               id="street2"
               name="street2"
               class="form__input"
               type="text"
-              data-i18n-placeholder="checkout_page.billing_details.street_address_optional"
-              placeholder="Apartment, suite, etc. (optional)"
+              placeholder="Apartment, suite, etc."
+              required
               data-i18n-placeholder="checkout_page.billing_details.street2_placeholder"
             />
           </div>
@@ -203,7 +181,13 @@
                 data-i18n="checkout_page.billing_details.town_city"
                 >Town / City *</label
               >
-              <input id="city" name="city" class="form__input" type="text" required />
+              <input
+                id="city"
+                name="city"
+                class="form__input"
+                type="text"
+                required
+              />
             </div>
             <div class="form__group">
               <label
@@ -212,7 +196,13 @@
                 data-i18n="checkout_page.billing_details.district"
                 >District *</label
               >
-              <input id="district" name="district" class="form__input" type="text" required />
+              <input
+                id="district"
+                name="district"
+                class="form__input"
+                type="text"
+                required
+              />
             </div>
           </div>
 
@@ -228,11 +218,11 @@
                 id="zip"
                 name="zip"
                 class="form__input"
-              type="text"
-              pattern="[0-9]{5,6}"
-              data-error-pattern="Postcode must be 5-6 digits"
-              data-i18n-error-pattern="form_errors.zip_pattern"
-            />
+                type="text"
+                pattern="[0-9]{5,6}"
+                data-error-pattern="Postcode must be 5-6 digits"
+                data-i18n-error-pattern="form_errors.zip_pattern"
+              />
             </div>
             <div class="form__group">
               <label
@@ -241,7 +231,13 @@
                 data-i18n="checkout_page.billing_details.phone"
                 >Phone *</label
               >
-              <input id="phone" name="phone" class="form__input" type="tel" required />
+              <input
+                id="phone"
+                name="phone"
+                class="form__input"
+                type="tel"
+                required
+              />
             </div>
           </div>
 
@@ -252,7 +248,13 @@
               data-i18n="checkout_page.billing_details.email"
               >Email address *</label
             >
-            <input id="email" name="email" class="form__input" type="email" required />
+            <input
+              id="email"
+              name="email"
+              class="form__input"
+              type="email"
+              required
+            />
           </div>
 
           <!-- PAYMENT METHODS -->

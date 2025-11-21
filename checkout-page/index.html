@@ -169,6 +169,11 @@
               type="text"
               placeholder="Apartment, suite, etc."
               required
+              minlength="5"
+              data-error-required="Please enter your street address"
+              data-error-minLength="Street address must be at least 5 characters"
+              data-i18n-error-required="form_errors.street_required"
+              data-i18n-error-minLength="form_errors.street_min"
               data-i18n-placeholder="checkout_page.billing_details.street_address_placeholder"
             />
           </div>

@@ -249,7 +249,7 @@
 
   .contact-form__form {
     width: 100%;
-    flex: unset; /* reset flex để chiếm toàn bộ chiều ngang */
+    flex: unset; /* reset flex so it spans the full width*/
   }
 }
 

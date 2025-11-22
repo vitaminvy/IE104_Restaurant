@@ -113,6 +113,12 @@ html {
   src: url('../assets/fonts/plus-jakarta-sans-v12-latin_vietnamese-700.woff2') format('woff2');
 }
 
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('fa-solid-900.woff2') format('woff2');
+  font-display: swap;
+}
+
 :root {
   /* Font family */
   --font-body: "Plus Jakarta Sans", sans-serif;

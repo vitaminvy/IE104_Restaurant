@@ -5,5 +5,5 @@ import { initPagination } from './pagination.js';
 document.addEventListener('DOMContentLoaded', () => {
     renderFeaturedPost();
     renderBlogGrid();
-    initPagination(9); // hoặc lấy tổng số trang từ server
+    initPagination(9); // or get from sever
 });

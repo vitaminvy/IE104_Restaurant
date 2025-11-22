@@ -259,21 +259,21 @@ import i18nService from './i18n-service.js';
     }
   }
 
-  // ----- OBSERVER: chờ header partial được inject -----
+  // ----- OBSERVER: wait header partial inject -----
   const observer = new MutationObserver(() => {
     if (!hasHeader()) return;
-    // Khi header xuất hiện, init tất cả rồi có thể ngắt observer
+    // when header appear, init all then stop observer
     initMenu();
     initScrollStyle();
     startClockIfReady();
     setActiveNavLink();
     setupNavigationLoader();
-    // nếu cả 3 đã sẵn sàng thì disconnect
+    // if 3 was ready then  disconnect
     if (menuInited && scrollInited && clockStarted) observer.disconnect();
   });
 
   function boot() {
-    // thử init ngay nếu header đã có
+    // try init  if header already
     if (hasHeader()) {
       initMenu();
       initScrollStyle();
@@ -281,8 +281,8 @@ import i18nService from './i18n-service.js';
       setActiveNavLink();
       setupNavigationLoader();
     }
-    // nếu chưa đủ thì quan sát DOM để chờ partial
-    if (!(menuInited && scrollInited && clockStarted)) {
+      // “If these three aren’t fully initialized, keep watching the DOM for the partial to load.”
+      if (!(menuInited && scrollInited && clockStarted)) {
       observer.observe(document.body, { childList: true, subtree: true });
     }
   }
@@ -294,7 +294,7 @@ import i18nService from './i18n-service.js';
     boot();
   }
 
-  // Nếu include-partials.js có bắn sự kiện này, mình cũng bắt vào cho chắc
+  // if include-partials.js emits this event, catch it too
   document.addEventListener("partials:loaded", () => {
     initMenu();
     initScrollStyle();

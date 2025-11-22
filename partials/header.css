@@ -335,13 +335,13 @@ body.mobile-nav-open .cart-icon-wrapper {
 /* md (≥768px) */
 @media (min-width: 48rem) {
   .header-action-btn {
-    padding: 0 1rem;
+    margin: 0 1rem;
   }
 }
 
 /* 2xl (≥1536px) */
 @media (min-width: 96rem) {
   .header-action-btn {
-    padding: 0 2rem;
+    margin: 0 2rem;
   }
 }

@@ -901,18 +901,19 @@
       "first_name": "First name *",
       "last_name": "Last name *",
       "country": "Country / Region *",
+      "country_options": {
+        "placeholder": "Select country",
+        "au": "Australia",
+        "us": "United States",
+        "vn": "Viet Nam"
+      },
       "street_address": "Street address *",
-      "street_address_optional": "Apartment, suite, etc. (optional)",
+      "street_address_placeholder": "Apartment, suite, etc.",
       "town_city": "Town / City *",
       "district": "District *",
       "postcode_zip": "Postcode / ZIP (optional)",
       "phone": "Phone *",
-      "email": "Email address *",
-      "country_options": {
-        "au": "Australia",
-        "us": "United States",
-        "vn": "Viet Nam"
-      }
+      "email": "Email address *"
     },
     "payment": {
       "direct_bank_transfer": "Direct bank transfer",

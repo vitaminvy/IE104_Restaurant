@@ -901,7 +901,6 @@
       "last_name": "Họ *",
       "country": "Quốc gia / Khu vực *",
       "street_address": "Địa chỉ đường *",
-      "street_address_optional": "Căn hộ, Dãy phòng, etc. (tùy chọn)",
       "town_city": "Thị trấn / Thành phố *",
       "district": "Quận / Huyện *",
       "postcode_zip": "Mã bưu điện / ZIP (tùy chọn)",
@@ -913,7 +912,7 @@
         "us": "Hoa Kỳ",
         "vn": "Việt Nam"
       },
-      "street2_placeholder": "Căn hộ, dãy phòng, v.v. (tùy chọn)"
+      "street_address_placeholder": "Căn hộ, dãy phòng, v.v."
     },
     "payment": {
       "direct_bank_transfer": "Chuyển khoản ngân hàng trực tiếp",

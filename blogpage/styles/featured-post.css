@@ -75,7 +75,7 @@
   transition: color 0.3s ease;
 }
 
-/* Pseudo-element để tạo border-bottom */
+/* Pseudo-element create border-bottom */
 .read-more::after {
   content: "";
   position: absolute;

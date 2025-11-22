@@ -38,12 +38,10 @@
     // Simulate API call (replace with actual backend call)
     setTimeout(() => {
       // Success
-      NotificationSystem.success(
-        `Thank you ${formData.name}! Your message has been sent successfully. We'll get back to you soon.`,
-        {
-          duration: 5000,
-        }
-      );
+      const successMessage = window.i18nService.t('notifications.contactSuccess').replace('{name}', formData.name);
+      NotificationSystem.success(successMessage, {
+        duration: 5000,
+      });
 
       // Reset form
       form.reset();

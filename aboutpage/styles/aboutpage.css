@@ -29,7 +29,7 @@
   background: var(--border-color);
   margin: 0.5rem auto 4rem;
 }
-/* ===== Lưới hình & story ===== */
+/* ===== grid & story ===== */
 .about-intro__story {
 }
 
@@ -38,7 +38,7 @@
   max-width: 1536px;
   margin: 6rem auto 0;
   display: grid;
-  grid-template-columns: 1fr; /* 1 cột mặc định */
+  grid-template-columns: 1fr; /* 1 column */
   grid-template-areas:
     "story"
     "imgA"
@@ -69,30 +69,30 @@
   object-fit: cover;
 }
 
-/* tỉ lệ ảnh (bám gần kích thước Figma) */
+/* Image ratios (close to the intended Figma sizes) */
 .about-intro__photo--a {
   /* ~570x501 */
   aspect-ratio: 570 / 501;
   align-self: start;
 }
 .about-intro__photo--b {
-  /* ~570x670 (cao hơn) */
+  /* ~570x670 (higher) */
   aspect-ratio: 570 / 670;
   align-self: start;
 }
 .about-intro__photo--c {
-  /* ~470x590 (hẹp hơn, đặt lệch trái) */
+  /* ~470x590 (narrower, aligned to the left) */
   aspect-ratio: 470 / 590;
-  justify-self: end; /* co nhỏ so với cột, canh trái để tạo nhịp độ */
+  justify-self: end; /*slightly smaller than the column, left-aligned to create rhythm */
   margin-left: clamp(6px, 1.2vw, 18px);
   align-self: start;
 }
 
-/* khối story */
-  .about-intro__story {
-    /* pull the story block up to sit snug under image B */
-    margin-top: 2rem;
-  }
+/* story */
+.about-intro__story {
+  /* pull the story block up to sit snug under image B */
+  margin-top: 2rem;
+}
 .about-intro__story-title {
   font-weight: 800;
   line-height: 1.15;
@@ -210,7 +210,7 @@ html[data-theme="light"] .vision {
   transform: translateY(-6px);
 }
 
-/* Badge icon: ánh sáng và xoay nhẹ */
+/* Badge icon: light and slight rotation */
 .vision__badge {
   transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
@@ -218,13 +218,13 @@ html[data-theme="light"] .vision {
   transform: scale(1.08) rotate(8deg);
 }
 
-/* Text highlight nhẹ */
+/* Text light highlight  */
 .vision__feature:hover .vision__feature-title {
   color: var(--accent-color);
   transition: color 0.3s ease;
 }
 
-/* Ảnh lớn bên phải: zoom in mượt */
+/* Right-side large image: smooth zoom-in*/
 .vision__photo img {
   transition: transform 0.6s ease, filter 0.4s ease;
 }

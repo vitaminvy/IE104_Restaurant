@@ -196,6 +196,7 @@ function renderBlogTimeline(page = 1, append = false) {
     const readTime = getLocalizedReadTime(post.readTime);
     const title = i18nService.t(post.title);
     const excerpt = i18nService.t(post.excerpt) || i18nService.t(post.description) || '';
+    const readMoreText = i18nService.t('blog_page.read_more');
     const postDate = i18nService.t(post.date);
     const authorLabel = `${i18nService.t('blog_page.by_author')} ${post.author}`;
 
@@ -222,7 +223,7 @@ function renderBlogTimeline(page = 1, append = false) {
             }).join('')}
           </div>
           <div class="timeline-entry__actions">
-            <a href="../blogpage-details/index.html?id=${post.id}" class="read-more" aria-label="${title}">${title}</a>
+            <a href="../blogpage-details/index.html?id=${post.id}" class="read-more" aria-label="${title}">${readMoreText}</a>
           </div>
         </div>
         <div class="timeline-entry__image">

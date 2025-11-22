@@ -8,7 +8,7 @@
 
   // Configuration
   const CONFIG = {
-    // UIT - Đại học Công nghệ Thông tin coordinates
+    // UIT  coordinates
     location: {
       lat: 10.870014,
       lng: 106.803180,

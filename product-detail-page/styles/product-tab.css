@@ -102,15 +102,15 @@
 
 /* ========== FORM LAYOUT FIX ========== */
 
-/* input row chia 2 cột cân bằng full width */
-/* đảm bảo mỗi field là khối định vị được */
+/* input row split into two balanced full-width columns */
+/* ensure each field is a distinct, positionable block*/
 .review-form__field {
   position: relative;
   width: 100%;
   margin-bottom: 1.25rem;
 }
 
-/* input + textarea full width, chừa chỗ cho icon bên phải */
+/* input + textarea full width,leave space for the right-side icon */
 .review-form__field input,
 .review-form__field textarea {
   width: 100%;
@@ -118,12 +118,12 @@
   border: none;
   border-bottom: 1px solid var(--border-color);
   color: var(--text-primary);
-  padding: 0.75rem 2.3rem 0.5rem 0; /* chừa ~2.3rem cho icon */
+  padding: 0.75rem 2.3rem 0.5rem 0; /* reserve ~2.3rem for the icon */
   font: inherit;
   outline: none;
 }
 
-/* icon phải nằm đè lên input */
+/* icon should overlay the input*/
 .review-form__field .review-form__icon {
   position: absolute;
   right: 0;
@@ -135,12 +135,12 @@
   filter: var(--icon-filter);
 }
 
-/* nếu có img reset khác ở global thì ép lại */
+/* force override if a global img reset exists */
 .review-form__field .review-form__icon img {
   display: block;
 }
 
-/* hàng name + email vẫn chia đều */
+/* name + email row remains evenly split */
 .review-form__row {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -171,8 +171,8 @@
   cursor: pointer;
   display: inline-block;
   position: relative;
-  flex-shrink: 0; /* không co lại khi text dài */
-  transform: translateY(1px); /* chỉnh nhỏ để cân đường baseline */
+  flex-shrink: 0; /* don’t shrink when the text is long */
+  transform: translateY(1px); /* scale down to align the baseline */
 }
 
 .review-form__checkbox input[type="checkbox"]:checked {
@@ -201,8 +201,8 @@
 
 .review-form__rating {
   display: flex;
-  align-items: center; /* căn giữa theo trục dọc */
-  gap: 1rem; /* khoảng cách giữa text và sao */
+  align-items: center; /* center vertically */
+  gap: 1rem; /* spacing between text and the start */
   margin-bottom: 1.25rem;
 }
 
@@ -210,12 +210,12 @@
   font-size: 0.95rem;
   color: var(--text-secondary);
   font-weight: 500;
-  white-space: nowrap; /* giữ label không xuống dòng */
+  white-space: nowrap; /* keep label on a single line */
 }
 
 .review-form__rating .stars {
   display: flex;
-  align-items: center; /* căn giữa icon theo chiều dọc */
+  align-items: center; /* vertically center icons */
   gap: 0.3rem;
 }
 

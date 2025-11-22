@@ -14,7 +14,7 @@
   }
 
   function init() {
-    const form = document.getElementById('contact-form');
+    const form = document.querySelector('.contact-form__form');
     if (!form) return;
 
     // Initialize form validator
@@ -28,22 +28,20 @@
   // ================================
 
   function handleContactSubmit(form, formData) {
-    const submitButton = form.querySelector('.contact-form__btn');
+    const submitButton = form.querySelector('button[type="submit"]');
 
     // Disable button and show loading state
     submitButton.disabled = true;
     const originalText = submitButton.textContent;
-    submitButton.textContent = 'Sending...';
+    submitButton.textContent = window.i18nService.t('contact_us.form.sending');
 
     // Simulate API call (replace with actual backend call)
     setTimeout(() => {
       // Success
-      NotificationSystem.success(
-        `Thank you ${formData.name}! Your message has been sent successfully. We'll get back to you soon.`,
-        {
-          duration: 5000,
-        }
-      );
+      const successMessage = window.i18nService.t('notifications.contactSuccess').replace('{name}', formData.name);
+      NotificationSystem.success(successMessage, {
+        duration: 5000,
+      });
 
       // Reset form
       form.reset();

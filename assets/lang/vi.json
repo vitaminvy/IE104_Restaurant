@@ -257,6 +257,7 @@
       "placeholder_subject": "Chủ đề",
       "placeholder_review": "Viết đánh giá *",
       "submit": "Gửi",
+      "sending": "Đang gửi...",
       "success_message": "Cảm ơn bạn đã liên hệ! Chúng tôi sẽ phản hồi sớm."
     }
   },
@@ -900,7 +901,6 @@
       "last_name": "Họ *",
       "country": "Quốc gia / Khu vực *",
       "street_address": "Địa chỉ đường *",
-      "street_address_optional": "Căn hộ, Dãy phòng, etc. (tùy chọn)",
       "town_city": "Thị trấn / Thành phố *",
       "district": "Quận / Huyện *",
       "postcode_zip": "Mã bưu điện / ZIP (tùy chọn)",
@@ -912,7 +912,7 @@
         "us": "Hoa Kỳ",
         "vn": "Việt Nam"
       },
-      "street2_placeholder": "Căn hộ, dãy phòng, v.v. (tùy chọn)"
+      "street_address_placeholder": "Căn hộ, dãy phòng, v.v."
     },
     "payment": {
       "direct_bank_transfer": "Chuyển khoản ngân hàng trực tiếp",
@@ -1109,5 +1109,10 @@
       "name": "Nhuyễn Thể",
       "description": "Chứa nhuyễn thể (nghêu, trai, hàu, v.v.)"
     }
+  },
+  "notifications": {
+    "addedToCart": "Đã thêm {itemTitle} vào giỏ hàng!",
+    "updatedCart": "Đã cập nhật số lượng {itemTitle}!",
+    "contactSuccess": "Cảm ơn, {name}! Tin nhắn của bạn đã được gửi. Chúng tôi sẽ sớm liên hệ lại với bạn."
   }
 }

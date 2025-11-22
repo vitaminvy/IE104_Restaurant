@@ -80,7 +80,7 @@
 }
 
 span.dietary-badge__label {
-  font-weight: 600; /* giúp đọc rõ hơn */
+  font-weight: 600; /* improve readability */
 }
 
 /* =======================
@@ -782,8 +782,8 @@ html[data-theme="light"] .menu-banner__stats li {
   }
   .menu__grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    max-width: 1536px;
-    gap: 4rem 4rem;
+    max-width: 1336px;
+    gap: 2rem 2rem;
     padding: 2rem 4rem;
   }
   .menu__card-img-wrapper {

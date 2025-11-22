@@ -79,15 +79,15 @@
     <!-- Form Validation & Notification System - Deferred -->
     <link rel="preload" href="./style/form-validation.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
     <noscript><link rel="stylesheet" href="./style/form-validation.css" /></noscript>
-    <link rel="preload" href="./menupage/styles/notification-system.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-    <noscript><link rel="stylesheet" href="./menupage/styles/notification-system.css" /></noscript>
+    <link rel="preload" href="./style/notification-system.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="./style/notification-system.css" /></noscript>
 
     <!-- Global Loading System -->
     <script src="./assets/script/global-loader.js" defer></script>
     <link rel="stylesheet" href="./style/back-to-top.css" />
     <script src="./assets/script/scroll-animations.js" defer></script>
     <script src="./assets/script/form-validator.js" defer></script>
-    <script src="./menupage/scripts/notification-system.js" defer></script>
+    <script src="./assets/script/notification-system.js" defer></script>
   </head>
   <body>
     <!-- logic for header and footer -->
@@ -807,89 +807,95 @@
 
             <!-- RIGHT: Offer List -->
             <div class="daily-offers__list stagger-children">
-              <div
-                class="daily-offers__item animate-on-scroll animate-slide-right"
-              >
-                <img
-                  src="./assets/images/home-page/daily-offer/spicy-club.png"
-                  alt="Spicy Club"
-                  class="daily-offers__item-img"
-                  loading="lazy"
-                  width="100" height="100"
-                />
-                <div class="daily-offers__item-info">
-                  <h3
-                    class="daily-offers__item-title"
-                    data-i18n="home.daily_offers.item1.title"
-                  >
-                    Spicy Club
-                  </h3>
-                  <p
-                    class="daily-offers__item-desc"
-                    data-i18n="home.daily_offers.item1.description"
-                  >
-                    Pork, chicken and vegetable fried rolls served with lettuce
-                    wraps
-                  </p>
+              <a href="/product-detail-page/index.html?id=1" class="daily-offers__link">
+                <div
+                  class="daily-offers__item animate-on-scroll animate-slide-right"
+                >
+                  <img
+                    src="./assets/images/home-page/daily-offer/spicy-club.png"
+                    alt="Spicy Club"
+                    class="daily-offers__item-img"
+                    loading="lazy"
+                    width="100" height="100"
+                  />
+                  <div class="daily-offers__item-info">
+                    <h3
+                      class="daily-offers__item-title"
+                      data-i18n="home.daily_offers.item1.title"
+                    >
+                      Spicy Club
+                    </h3>
+                    <p
+                      class="daily-offers__item-desc"
+                      data-i18n="home.daily_offers.item1.description"
+                    >
+                      Pork, chicken and vegetable fried rolls served with lettuce
+                      wraps
+                    </p>
+                  </div>
+                  <span class="daily-offers__item-price">$42</span>
                 </div>
-                <span class="daily-offers__item-price">$42</span>
-              </div>
+              </a>
 
-              <div
-                class="daily-offers__item animate-on-scroll animate-slide-right"
-              >
-                <img
-                  src="./assets/images/home-page/daily-offer/baked-brie.png"
-                  alt="Almond Baked Brie"
-                  class="daily-offers__item-img"
-                  loading="lazy"
-                  width="100" height="100"
-                />
-                <div class="daily-offers__item-info">
-                  <h3
-                    class="daily-offers__item-title"
-                    data-i18n="home.daily_offers.item2.title"
-                  >
-                    Almond Baked Brie
-                  </h3>
-                  <p
-                    class="daily-offers__item-desc"
-                    data-i18n="home.daily_offers.item2.description"
-                  >
-                    Pork, chicken and vegetable fried rolls served with lettuce
-                    wraps
-                  </p>
+              <a href="/product-detail-page/index.html?id=2" class="daily-offers__link">
+                <div
+                  class="daily-offers__item animate-on-scroll animate-slide-right"
+                >
+                  <img
+                    src="./assets/images/home-page/daily-offer/baked-brie.png"
+                    alt="Almond Baked Brie"
+                    class="daily-offers__item-img"
+                    loading="lazy"
+                    width="100" height="100"
+                  />
+                  <div class="daily-offers__item-info">
+                    <h3
+                      class="daily-offers__item-title"
+                      data-i18n="home.daily_offers.item2.title"
+                    >
+                      Almond Baked Brie
+                    </h3>
+                    <p
+                      class="daily-offers__item-desc"
+                      data-i18n="home.daily_offers.item2.description"
+                    >
+                      Pork, chicken and vegetable fried rolls served with lettuce
+                      wraps
+                    </p>
+                  </div>
+                  <span class="daily-offers__item-price">$38</span>
                 </div>
-                <span class="daily-offers__item-price">$38</span>
-              </div>
+              </a>
 
-              <div
-                class="daily-offers__item animate-on-scroll animate-slide-right"
-              >
-                <img
-                  src="./assets/images/home-page/daily-offer/flat-bread.png"
-                  alt="Tuscan Flatbread"
-                  class="daily-offers__item-img"
-                  loading="lazy"
-                  width="100" height="100"
-                />
-                <div class="daily-offers__item-info">
-                  <h3
-                    class="daily-offers__item-title"
-                    data-i18n="home.daily_offers.item3.title"
-                  >
-                    Tuscan Flatbread
-                  </h3>
-                  <p
-                    class="daily-offers__item-desc"
-                    data-i18n="home.daily_offers.item3.description"
-                  >
-                    Pork, chicken and vegetable fried rolls served with lettuce
-                    wraps
-                  </p>
+              <a href="/product-detail-page/index.html?id=3" class="daily-offers__link">
+                <div
+                  class="daily-offers__item animate-on-scroll animate-slide-right"
+                >
+                  <img
+                    src="./assets/images/home-page/daily-offer/flat-bread.png"
+                    alt="Tuscan Flatbread"
+                    class="daily-offers__item-img"
+                    loading="lazy"
+                    width="100" height="100"
+                  />
+                  <div class="daily-offers__item-info">
+                    <h3
+                      class="daily-offers__item-title"
+                      data-i18n="home.daily_offers.item3.title"
+                    >
+                      Tuscan Flatbread
+                    </h3>
+                    <p
+                      class="daily-offers__item-desc"
+                      data-i18n="home.daily_offers.item3.description"
+                    >
+                      Pork, chicken and vegetable fried rolls served with lettuce
+                      wraps
+                    </p>
+                  </div>
+                  <span class="daily-offers__item-price">$49</span>
                 </div>
-                <span class="daily-offers__item-price">$49</span>
-              </div>
+              </a>
             </div>
           </div>
         </div>

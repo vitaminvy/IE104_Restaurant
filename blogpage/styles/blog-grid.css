@@ -39,6 +39,7 @@
 .blog-filters__actions label {
   font-size: 0.95rem;
   color: var(--color-dark-orange);
+  white-space: nowrap;
 }
 
 .blog-filters__pills {
@@ -92,6 +93,7 @@
   border-radius: 10px;
   cursor: pointer;
   transition: border-color 0.2s ease, color 0.2s ease;
+  white-space: nowrap;
 }
 
 .blog-filters__clear:hover {
@@ -285,7 +287,7 @@
   align-items: center;
   gap: 0.5rem;
   width: 100%;
-  margin-bottom: 3.5rem;
+  margin-bottom: -1.5rem;
 }
 
 .timeline-footer__btn {
@@ -310,6 +312,10 @@
 .timeline-footer__status {
   font-size: 0.85rem;
   color: var(--color-white-60, rgba(255, 255, 255, 0.6));
+}
+
+html[data-theme="light"] .timeline-footer__status {
+  color: #1c1c1c;
 }
 
 .no-posts {

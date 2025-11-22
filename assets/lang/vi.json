@@ -765,6 +765,12 @@
       "Financial Wellness": "Sức khỏe tài chính",
       "Staff Retention": "Giữ chân nhân viên",
       "HR": "Nhân sự"
+    },
+    "categories": {
+      "Technology": "Công nghệ",
+      "Trends": "Xu hướng",
+      "Management": "Quản lý",
+      "Marketing": "Tiếp thị"
     }
   },
   "product_detail_page": {
@@ -826,7 +832,8 @@
     "filters": {
       "browse_topics": "Duyệt chủ đề",
       "category_label": "Danh mục",
-      "reset": "Đặt lại"
+      "reset": "Đặt lại",
+      "all_categories": "Tất cả danh mục"
     },
     "loading_posts": "Đang tải các bài viết...",
     "filter_empty": "Không có câu chuyện nào phù hợp với bộ lọc của bạn. Hãy thử thẻ khác.",

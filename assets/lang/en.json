@@ -766,6 +766,12 @@
       "Financial Wellness": "Financial Wellness",
       "Staff Retention": "Staff Retention",
       "HR": "HR"
+    },
+    "categories": {
+      "Technology": "Technology",
+      "Trends": "Trends",
+      "Management": "Management",
+      "Marketing": "Marketing"
     }
   },
   "product_detail_page": {
@@ -827,7 +833,8 @@
     "filters": {
       "browse_topics": "Browse topics",
       "category_label": "Category",
-      "reset": "Reset"
+      "reset": "Reset",
+      "all_categories": "All categories"
     },
     "loading_posts": "Loading blog posts...",
     "filter_empty": "No stories match your filters. Try another tag.",

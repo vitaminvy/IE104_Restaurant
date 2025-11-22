@@ -14,7 +14,7 @@
   }
 
   function init() {
-    const form = document.getElementById('contact-form');
+    const form = document.querySelector('.contact-form__form');
     if (!form) return;
 
     // Initialize form validator
@@ -28,12 +28,12 @@
   // ================================
 
   function handleContactSubmit(form, formData) {
-    const submitButton = form.querySelector('.contact-form__btn');
+    const submitButton = form.querySelector('button[type="submit"]');
 
     // Disable button and show loading state
     submitButton.disabled = true;
     const originalText = submitButton.textContent;
-    submitButton.textContent = 'Sending...';
+    submitButton.textContent = window.i18nService.t('contact_us.form.sending');
 
     // Simulate API call (replace with actual backend call)
     setTimeout(() => {

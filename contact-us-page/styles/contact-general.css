@@ -155,6 +155,9 @@ html[data-theme="light"] .section-text {
 html[data-theme="light"] .link {
   color: #111114;
 }
+html[data-theme="light"] .link:hover {
+  color: #fb8f2c;
+}
 
 html[data-theme="light"] textarea {
   border-color: #cccccc;

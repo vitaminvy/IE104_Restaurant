@@ -1,15 +1,5 @@
 /**
  * Language Animation Module
- *
- * Provides smooth, professional text transitions for language switching
- * that prevent layout shifts, jitter, and flickering.
- *
- * Key Features:
- * - Fade + transform animations for elegant transitions
- * - Layout stability: prevents container resizing during animation
- * - Staggered animations for visual polish
- * - Performance-optimized using RAF and batch DOM operations
- * - Graceful fallback for browsers without animation support
  */
 
 const LanguageAnimation = (() => {
@@ -19,7 +9,7 @@ const LanguageAnimation = (() => {
     staggerDelay: 30,            // Delay between each nav item animation (ms)
     transformDistance: 8,        // Distance for slide effect (px)
     useStagger: true,            // Enable staggered animations
-    preCalculateWidth: false     // DISABLED: Don't manipulate dimensions to avoid UI changes
+    preCalculateWidth: false    
   };
 
   // Cache for element measurements to prevent layout thrashing
@@ -68,7 +58,6 @@ const LanguageAnimation = (() => {
 
   /**
    * Restores element to natural dimensions after animation
-   * COMPLETELY removes inline dimension styles to prevent accumulation
    */
   function restoreElementDimensions(element, delay = 0) {
     if (!CONFIG.preCalculateWidth) return;
@@ -93,13 +82,6 @@ const LanguageAnimation = (() => {
 
   /**
    * Animates a single element's text change with fade + slide effect
-   * IMPORTANT: This function is completely self-contained and cleans up all
-   * inline styles to ensure no UI changes persist after animation
-   *
-   * @param {HTMLElement} element - The element whose text will change
-   * @param {string} newText - The new text content
-   * @param {number} delay - Delay before starting animation (for stagger effect)
-   * @returns {Promise} - Resolves when animation completes
    */
   function animateTextChange(element, newText, delay = 0) {
     return new Promise((resolve) => {
@@ -163,9 +145,6 @@ const LanguageAnimation = (() => {
   /**
    * Animates multiple elements with optional stagger effect
    *
-   * @param {NodeList|Array} elements - Elements to animate
-   * @param {Function} getNewText - Function that returns new text for each element
-   * @returns {Promise} - Resolves when all animations complete
    */
   async function animateElements(elements, getNewText) {
     // Clear any stale cache entries first to prevent dimension accumulation
@@ -193,8 +172,6 @@ const LanguageAnimation = (() => {
    * Main function to animate translation changes
    * Automatically finds and animates all [data-i18n] elements
    *
-   * @param {Function} getTranslation - Function that takes a key and returns translated text
-   * @returns {Promise} - Resolves when all animations complete
    */
   async function animateTranslations(getTranslation) {
     // Find all elements with translation keys

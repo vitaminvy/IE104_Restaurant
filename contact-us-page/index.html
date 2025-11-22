@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <script src="../assets/script/theme-init.js"></script>
+    <script src="../assets/script/theme-init.js" defer></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title data-i18n="contact_us_page.title">Contact Us - WowWraps</title>
+    <meta
+      name="description"
+      content="Contact WowWraps, a Mexican restaurant in London. Find our location, opening hours, and get in touch via email or phone."
+    />
+
     <link
       rel="icon"
       href="../assets/icons/icon-header/nav-vect.svg"
@@ -34,11 +39,6 @@
     <!-- footer section -->
     <link rel="stylesheet" href="../partials/footer.css" />
 
-    <!-- Fonts -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400;0,700&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap"
-      rel="stylesheet"
-    />
     <link rel="stylesheet" href="../style/back-to-top.css" />
 
     <!-- Global Animation System -->
@@ -49,10 +49,9 @@
     <script src="../assets/script/global-loader.js"></script>
 
     <!-- Form Validation System -->
-    <link rel="stylesheet" href="../style/form-validation.css" />
+    <link rel="stylesheet" href="../style/form-validation.css" defer/>
+    <script src="../assets/script/form-validator.js" defer></script>
     <link rel="stylesheet" href="../style/notification-system.css" />
-    <script src="../assets/script/form-validator.js"></script>
-
 
     <!-- Font Awesome CDN -->
     <script
@@ -125,6 +124,7 @@
             src="../assets/images/contact-us-1/find-us.png"
             alt="Interior of a retro diner"
             class="find-us__image"
+            fetchpriority="high"
           />
         </div>
 
@@ -280,8 +280,9 @@
       src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
       integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
       crossorigin=""
+      defer
     ></script>
-    <script src="./scripts/openstreetmap-handler.js"></script>
+    <script src="./scripts/openstreetmap-handler.js" defer></script>
 
     <!-- Contact Form Handler -->
     <script src="../assets/script/notification-system.js" defer></script>

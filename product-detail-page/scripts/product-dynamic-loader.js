@@ -777,9 +777,9 @@ import i18nService from "../../assets/script/i18n-service.js";
     const pairingTitleKey = "product_detail_page.pairing_section.title";
     const pairingSubtitleKey = "product_detail_page.pairing_section.subtitle";
     header.innerHTML = `
-      <h3 data-i18n="product_detail_page.pairing_section.title">${i18nService.t(
+      <h2 data-i18n="product_detail_page.pairing_section.title">${i18nService.t(
         pairingTitleKey
-      )}</h3>
+      )}</h2>
       <p data-i18n="product_detail_page.pairing_section.subtitle">${i18nService.t(
         pairingSubtitleKey
       )}</p>
@@ -896,7 +896,7 @@ import i18nService from "../../assets/script/i18n-service.js";
     imgWrapper.appendChild(img);
 
     // Title
-    const title = document.createElement("h4");
+    const title = document.createElement("h3");
     const cardTitleKey = item.title;
     const translatedCardTitle = i18nService.t(cardTitleKey);
     title.textContent = translatedCardTitle;

@@ -5,6 +5,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <meta
+      name="description"
+      content="Discover detailed product information, pricing, reviews and related items at WowWraps | Delicious wraps & meals for every taste."
+    />
+
     <title data-i18n="product_detail_page.title">
       Product Detail - WowWraps
     </title>
@@ -141,13 +146,16 @@
           <!-- Quantity + Add to Cart -->
           <div class="product-detail__actions">
             <div class="quantity">
+              <label for="quantity-input" class="sr-only">Quantity</label>
               <button class="qty-btn minus">−</button>
               <input
+                id="quantity-input"
                 type="number"
                 value="1"
                 min="1"
                 max="99"
                 class="qty-input"
+                aria-label="Quantity"
               />
               <button class="qty-btn plus">+</button>
             </div>
@@ -244,12 +252,12 @@
 
         <!-- Add a Review -->
         <form class="review-form">
-          <h3
+          <h2
             class="review-form__title"
             data-i18n="product_detail_page.review_form.title"
           >
             Add A Review
-          </h3>
+          </h2>
           <p
             class="review-form__note"
             data-i18n="product_detail_page.review_form.note"
@@ -391,33 +399,58 @@
           <!--active dot -->
           <button
             class="menu__dot menu__dot--active"
+            role="tab"
             aria-label="Slide 1"
-            aria-current="true"
+            aria-selected="true"
           >
             <img
-              src="../assets/icons/home-page/menu-section//active-dot.svg"
+              src="../assets/icons/home-page/menu-section/active-dot.svg"
               alt="Active"
             />
           </button>
-          <button class="menu__dot" aria-label="Slide 2">
+
+          <button
+            class="menu__dot"
+            role="tab"
+            aria-label="Slide 2"
+            aria-selected="false"
+          >
             <img
               src="../assets/icons/home-page/menu-section/dot.svg"
               alt="Inactive"
             />
           </button>
-          <button class="menu__dot" aria-label="Slide 3">
+
+          <button
+            class="menu__dot"
+            role="tab"
+            aria-label="Slide 3"
+            aria-selected="false"
+          >
             <img
               src="../assets/icons/home-page/menu-section/dot.svg"
               alt="Inactive"
             />
           </button>
-          <button class="menu__dot" aria-label="Slide 4">
+
+          <button
+            class="menu__dot"
+            role="tab"
+            aria-label="Slide 4"
+            aria-selected="false"
+          >
             <img
               src="../assets/icons/home-page/menu-section/dot.svg"
               alt="Inactive"
             />
           </button>
-          <button class="menu__dot" aria-label="Slide 5">
+
+          <button
+            class="menu__dot"
+            role="tab"
+            aria-label="Slide 5"
+            aria-selected="false"
+          >
             <img
               src="../assets/icons/home-page/menu-section/dot.svg"
               alt="Inactive"

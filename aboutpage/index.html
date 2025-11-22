@@ -36,6 +36,9 @@
     <!-- Global Animation System -->
     <link rel="stylesheet" href="../style/animations.css" />
     <script src="../assets/script/scroll-animations.js"></script>
+
+    <!-- Global Loading System -->
+    <script src="../assets/script/global-loader.js"></script>
   </head>
   <body>
     <!-- logic for header and footer -->
@@ -270,9 +273,20 @@
     <script type="module" src="../assets/script/header-features.js"></script>
     <script type="module">
       import i18nService from "../assets/script/i18n-service.js";
+      
+      // Show loader during initialization
+      if (window.GlobalLoader) {
+        window.GlobalLoader.show('Loading content...');
+      }
+      
       (async () => {
         await i18nService.init();
         document.dispatchEvent(new CustomEvent("language-changed"));
+        
+        // Hide loader after content is loaded
+        if (window.GlobalLoader) {
+          setTimeout(() => window.GlobalLoader.hide(300), 200);
+        }
       })();
     </script>
     <div data-include="../partials/back-to-top.html"></div>

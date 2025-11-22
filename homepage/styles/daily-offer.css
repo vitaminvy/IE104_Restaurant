@@ -154,6 +154,12 @@
   width: 100%;
 }
 
+.daily-offers__link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
 .daily-offers__item {
   display: flex;
   align-items: center;

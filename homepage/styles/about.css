@@ -12,7 +12,7 @@
 
 .about__image {
   position: relative;
-  order: 1; /* ảnh xuống dưới ở mobile */
+  order: 1; /* place the image below content on mobile */
   width: 100%;
   max-width: 16rem; /* 256px */
 }
@@ -193,5 +193,4 @@
     max-width: 36rem;
   }
 }
-
 

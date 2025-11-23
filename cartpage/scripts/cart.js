@@ -371,11 +371,6 @@ import i18nService from '../../assets/script/i18n-service.js';
     }
   }
 
-  /**
-   * Handle quantity change
-   * @param {Number} index - Item index
-   * @param {Number} newQuantity - New quantity value
-   */
   function handleQuantityChange(index, newQuantity) {
     const items = getCartItems();
 
@@ -632,6 +627,9 @@ import i18nService from '../../assets/script/i18n-service.js';
     clearCart: function () {
       saveCartItems([]);
       clearAppliedCoupon();
+      if (window.NotificationSystem) {
+        window.NotificationSystem.success(i18nService.t('cart_page.notification.cart_cleared'));
+      }
     }
   };
 

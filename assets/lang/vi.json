@@ -898,7 +898,8 @@
       "invalid_coupon": "Mã giảm giá không hợp lệ",
       "coupon_applied": "Đã áp dụng mã giảm giá: {description}",
       "coupon_removed": "Đã xóa mã giảm giá",
-      "cart_empty_checkout": "Giỏ hàng của bạn trống"
+      "cart_empty_checkout": "Giỏ hàng của bạn trống",
+      "cart_cleared": "Giỏ hàng đã được dọn sạch."
     },
     "loading_cart": "Đang tải giỏ hàng..."
   },

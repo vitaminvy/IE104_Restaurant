@@ -123,7 +123,7 @@ import i18nService from "../../assets/script/i18n-service.js";
       footerHTML += `
         <tr class="discount-row">
           <th>${i18nService.t("cart_page.totals.discount")}</th>
-          <td style="color: #4CAF50; font-weight: 600;">-${formatCurrency(
+          <td>-${formatCurrency(
             discount
           )}</td>
         </tr>
@@ -132,13 +132,11 @@ import i18nService from "../../assets/script/i18n-service.js";
 
     if (coupon && coupon.description) {
       footerHTML += `
-        <tr class="">
-          <th style="color: #4CAF50; font-size: 0.9em;">${i18nService.t(
+        <tr class="coupon-row">
+          <th>${i18nService.t(
             "checkout_page.notifications.coupon_applied"
           )}</th>
-          <td style="color: #4CAF50; font-size: 0.9em;">${coupon.code}: ${
-        coupon.description
-      }</td>
+          <td>${coupon.code}: ${coupon.description}</td>
         </tr>
       `;
     }
@@ -157,55 +155,12 @@ import i18nService from "../../assets/script/i18n-service.js";
     tfoot.innerHTML = footerHTML;
   }
 
-  function showNotification(message, type = "info") {
-    const existing = document.querySelector(".checkout-notification");
-    if (existing) existing.remove();
-
-    const notification = document.createElement("div");
-    notification.className = `checkout-notification checkout-notification--${type}`;
-    notification.textContent = message;
-
-    notification.style.cssText = `
-      position: fixed;
-      top: 100px;
-      right: 24px;
-      z-index: 99999;
-      padding: 16px 20px;
-      background: ${
-        type === "error"
-          ? "#f44336"
-          : type === "success"
-          ? "#4CAF50"
-          : "#2196F3"
-      };
-      color: white;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-      font-size: 14px;
-      font-weight: 500;
-      animation: slideInRight 0.3s ease-out;
-      max-width: 400px;
-      cursor: pointer;
-    `;
-
-    document.body.appendChild(notification);
-
-    setTimeout(() => {
-      notification.style.animation = "slideOutRight 0.3s ease-out";
-      setTimeout(() => notification.remove(), 300);
-    }, 3000);
-
-    notification.addEventListener("click", () => {
-      notification.style.animation = "slideOutRight 0.3s ease-out";
-      setTimeout(() => notification.remove(), 300);
-    });
-  }
-
   function handleEmptyCart() {
-    showNotification(
-      i18nService.t("checkout_page.notifications.cart_empty_redirect"),
-      "info"
-    );
+    if (window.NotificationSystem) {
+      window.NotificationSystem.info(
+        i18nService.t("checkout_page.notifications.cart_empty_redirect")
+      );
+    }
 
     setTimeout(() => {
       window.location.href = "../cartpage/";
@@ -218,53 +173,79 @@ import i18nService from "../../assets/script/i18n-service.js";
 
   function validateForm(form) {
     const requiredFields = form.querySelectorAll("[required]");
-    let isValid = true;
+    let firstInvalidField = null;
 
-    requiredFields.forEach((field) => {
+    // Reset all borders first
+    requiredFields.forEach((field) => (field.style.borderColor = ""));
+
+    // 1. Check for empty required fields
+    for (const field of requiredFields) {
       if (!field.value.trim()) {
         field.style.borderColor = "#f44336";
-        isValid = false;
-      } else {
-        field.style.borderColor = "";
+        if (!firstInvalidField) {
+          firstInvalidField = field;
+        }
       }
-    });
+    }
 
+    if (firstInvalidField) {
+      if (window.NotificationSystem) {
+        window.NotificationSystem.error(
+          i18nService.t("checkout_page.notifications.fill_required_fields")
+        );
+      }
+      firstInvalidField.focus();
+      return false;
+    }
+
+    // 2. Check email format
     const emailField = form.querySelector("#email");
     if (emailField && emailField.value) {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(emailField.value)) {
         emailField.style.borderColor = "#f44336";
-        isValid = false;
-        showNotification(
-          i18nService.t("checkout_page.notifications.invalid_email"),
-          "error"
-        );
+        if (window.NotificationSystem) {
+          window.NotificationSystem.error(
+            i18nService.t("checkout_page.notifications.invalid_email")
+          );
+        }
+        emailField.focus();
+        return false;
       }
     }
 
+    // 3. Check phone format
     const phoneField = form.querySelector("#phone");
     if (phoneField && phoneField.value) {
       const phoneRegex = /^[\d\s\-\+\(\)]+$/;
       if (!phoneRegex.test(phoneField.value) || phoneField.value.length < 10) {
         phoneField.style.borderColor = "#f44336";
-        isValid = false;
-        showNotification(
-          i18nService.t("checkout_page.notifications.invalid_phone"),
-          "error"
-        );
+        if (window.NotificationSystem) {
+          window.NotificationSystem.error(
+            i18nService.t("checkout_page.notifications.invalid_phone")
+          );
+        }
+        phoneField.focus();
+        return false;
       }
     }
 
+    // 4. Check payment method
     const paymentSelected = form.querySelector('input[name="payment"]:checked');
     if (!paymentSelected) {
-      isValid = false;
-      showNotification(
-        i18nService.t("checkout_page.notifications.select_payment"),
-        "error"
-      );
+      if (window.NotificationSystem) {
+        window.NotificationSystem.error(
+          i18nService.t("checkout_page.notifications.select_payment")
+        );
+      }
+      // Optional: scroll to payment section
+      form
+        .querySelector(".payment")
+        .scrollIntoView({ behavior: "smooth", block: "center" });
+      return false;
     }
 
-    return isValid;
+    return true;
   }
 
   function handlePlaceOrder(e) {
@@ -297,7 +278,6 @@ import i18nService from "../../assets/script/i18n-service.js";
       firstName: form.querySelector("#firstName").value,
       lastName: form.querySelector("#lastName").value,
       country: form.querySelector("#country").value,
-      street1: form.querySelector("#street1").value,
       street2: form.querySelector("#street2").value,
       city: form.querySelector("#city").value,
       district: form.querySelector("#district").value,
@@ -314,26 +294,23 @@ import i18nService from "../../assets/script/i18n-service.js";
       orderDate: new Date().toISOString(),
     };
 
-    // console.log('Order placed:', formData);
-
     const orderId = Math.floor(Math.random() * 100000);
-    const successMsg = i18nService
-      .t("checkout_page.notifications.order_placed_success")
-      .replace("#{orderId}", orderId);
-    showNotification(successMsg, "success");
+
+    // Use the new combined message and upgraded i18nService
+    const combinedMsg = i18nService.t(
+      "checkout_page.notifications.order_placed_combined",
+      { orderId: orderId }
+    );
+
+    if (window.NotificationSystem) {
+      window.NotificationSystem.success(combinedMsg, { duration: 4000 });
+    }
 
     setTimeout(() => {
       localStorage.removeItem(CART_STORAGE_KEY);
       localStorage.removeItem(COUPON_STORAGE_KEY);
-
-      showNotification(
-        i18nService.t("checkout_page.notifications.redirecting_homepage"),
-        "info"
-      );
-      setTimeout(() => {
-        window.location.href = "../";
-      }, 2000);
-    }, 2000);
+      window.location.href = "../";
+    }, 3000); // Redirect after 3 seconds
   }
 
   /* ========================================
@@ -383,9 +360,6 @@ import i18nService from "../../assets/script/i18n-service.js";
         }
       });
     });
-
-    // console.log('Checkout initialized with', getCartItems().length, 'item(s)');
-
     initQrCodeModal();
   }
 
@@ -429,7 +403,6 @@ import i18nService from "../../assets/script/i18n-service.js";
   /* ========================================
    * AUTO-INITIALIZE ON DOM READY
    * ======================================== */
-
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", initCheckout);
   } else {
@@ -439,44 +412,4 @@ import i18nService from "../../assets/script/i18n-service.js";
   document.addEventListener("language-changed", () => {
     renderCheckoutSummary();
   });
-
-  /* ========================================
-   * ADD ANIMATION STYLES
-   * ======================================== */
-
-  const style = document.createElement("style");
-  style.textContent = `
-    @keyframes slideInRight {
-      from {
-        transform: translateX(100%);
-        opacity: 0;
-      }
-      to {
-        transform: translateX(0);
-        opacity: 1;
-      }
-    }
-
-    @keyframes slideOutRight {
-      from {
-        transform: translateX(0);
-        opacity: 1;
-      }
-      to {
-        transform: translateX(100%);
-        opacity: 0;
-      }
-    }
-
-    .discount-row th,
-    .discount-row td {
-      color: #4CAF50;
-    }
-
-    .coupon-row {
-      font-size: 0.9em;
-      background: #f0f9ff;
-    }
-  `;
-  document.head.appendChild(style);
 })();

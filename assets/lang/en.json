@@ -128,7 +128,8 @@
       "option_3_persons": "3 Persons",
       "option_4_persons": "4 Persons",
       "option_5_persons": "5 Persons",
-      "button": "Reserve Your Table Now"
+      "button": "Reserve Your Table Now",
+      "success_toast": "Table reserved successfully for {name} on {date} at {time}!"
     },
     "blogs": {
       "title": "Explore Blogs",

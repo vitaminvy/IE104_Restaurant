@@ -1,3 +1,5 @@
+import i18nService from '../../assets/script/i18n-service.js';
+
 // ================================
 // RESERVATION FORM HANDLER
 // Initialize validation and handle submission
@@ -38,8 +40,14 @@
     // Simulate API call (replace with actual backend call)
     setTimeout(() => {
       // Success
+      const successMessageTemplate = i18nService.t('home.reservation.success_toast');
+      const successMessage = successMessageTemplate
+        .replace('{name}', formData.name)
+        .replace('{date}', formatDate(formData.date))
+        .replace('{time}', formatTime(formData.time));
+
       NotificationSystem.success(
-        `Table reserved successfully for ${formData.name} on ${formatDate(formData.date)} at ${formatTime(formData.time)}!`,
+        successMessage,
         {
           duration: 5000,
         }

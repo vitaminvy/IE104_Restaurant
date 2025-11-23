@@ -128,7 +128,8 @@
       "option_3_persons": "3 người",
       "option_4_persons": "4 người",
       "option_5_persons": "5 người",
-      "button": "Đặt bàn ngay"
+      "button": "Đặt bàn ngay",
+      "success_toast": "Đã đặt bàn thành công cho {name} vào ngày {date} lúc {time}!"
     },
     "blogs": {
       "title": "Khám phá Blog",

@@ -544,6 +544,13 @@ import i18nService from '../../assets/script/i18n-service.js';
         handleProceedToCheckout();
       });
     }
+
+    // Listen for language changes to re-render the cart
+    document.addEventListener('language-changed', () => {
+      const items = getCartItems();
+      renderCartItems(items);
+      updateCartTotals();
+    });
   }
 
   /* ========================================

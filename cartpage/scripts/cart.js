@@ -329,7 +329,7 @@ import i18nService from '../../assets/script/i18n-service.js';
       couponInput.style.borderColor = 'var(--color-dark-orange)';
       couponInput.style.color = 'var(--color-dark-orange)';
 
-      applyBtn.textContent = 'Remove';
+      applyBtn.textContent = i18nService.t('cart_page.coupon.remove_button');
       applyBtn.classList.remove('btn--brand');
       applyBtn.classList.add('btn--ghost');
       applyBtn.setAttribute('data-action', 'remove');
@@ -340,69 +340,11 @@ import i18nService from '../../assets/script/i18n-service.js';
       couponInput.style.borderColor = '';
       couponInput.style.color = '';
 
-      applyBtn.textContent = 'Apply coupon';
+      applyBtn.textContent = i18nService.t('cart_page.coupon.apply_button');
       applyBtn.classList.add('btn--brand');
       applyBtn.classList.remove('btn--ghost');
       applyBtn.setAttribute('data-action', 'apply');
     }
-  }
-
-  /**
-   * Show notification message
-   * @param {String} message - Message to display
-   * @param {String} type - Message type ('success' or 'error')
-   */
-  function showNotification(message, type = 'success') {
-    // Remove existing notification
-    const existing = document.querySelector('.cart__notification');
-    if (existing) {
-      existing.remove();
-    }
-
-    // Create notification element
-    const notification = document.createElement('div');
-    notification.className = `cart__notification cart__notification--${type}`;
-    notification.textContent = message;
-    notification.style.cssText = `
-      position: fixed;
-      top: 100px;
-      right: 24px;
-      z-index: 9999;
-      padding: 16px 24px;
-      background: ${type === 'success' ? 'rgba(76, 175, 80, 0.95)' : 'rgba(244, 67, 54, 0.95)'};
-      color: white;
-      border-radius: 8px;
-      font-family: var(--font-body);
-      font-size: 14px;
-      font-weight: 500;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-      animation: slideInRight 0.3s ease-out;
-      max-width: 300px;
-    `;
-
-    // Add animation
-    const style = document.createElement('style');
-    style.textContent = `
-      @keyframes slideInRight {
-        from {
-          transform: translateX(100%);
-          opacity: 0;
-        }
-        to {
-          transform: translateX(0);
-          opacity: 1;
-        }
-      }
-    `;
-    document.head.appendChild(style);
-
-    document.body.appendChild(notification);
-
-    // Auto remove after 3 seconds
-    setTimeout(() => {
-      notification.style.animation = 'slideInRight 0.3s ease-out reverse';
-      setTimeout(() => notification.remove(), 300);
-    }, 3000);
   }
 
   /* ========================================
@@ -423,8 +365,10 @@ import i18nService from '../../assets/script/i18n-service.js';
     renderCartItems(items);
     updateCartTotals();
 
-    const translatedTitle = i18nService.t(removedItem.title);
-    showNotification(`Removed "${translatedTitle}" from cart`, 'success');
+    if (window.NotificationSystem) {
+      const message = i18nService.t('cart_page.notification.removed_item', { itemTitle: i18nService.t(removedItem.title) });
+      window.NotificationSystem.success(message);
+    }
   }
 
   /**
@@ -473,14 +417,14 @@ import i18nService from '../../assets/script/i18n-service.js';
     const couponCode = couponInput.value.trim().toUpperCase();
 
     if (!couponCode) {
-      showNotification('Please enter a coupon code', 'error');
+      if (window.NotificationSystem) window.NotificationSystem.error(i18nService.t('cart_page.notification.enter_coupon'));
       return;
     }
 
     const coupon = COUPONS[couponCode];
 
     if (!coupon) {
-      showNotification('Invalid coupon code', 'error');
+      if (window.NotificationSystem) window.NotificationSystem.error(i18nService.t('cart_page.notification.invalid_coupon'));
       couponInput.value = '';
       return;
     }
@@ -492,16 +436,27 @@ import i18nService from '../../assets/script/i18n-service.js';
     });
 
     updateCartTotals();
-    showNotification(`Coupon applied: ${coupon.description}`, 'success');
+    if (window.NotificationSystem) {
+        const message = i18nService.t('cart_page.notification.coupon_applied', { description: coupon.description });
+        window.NotificationSystem.success(message);
+    }
   }
 
   /**
    * Handle coupon removal
    */
   function handleRemoveCoupon() {
-    clearAppliedCoupon();
-    updateCartTotals();
-    showNotification('Coupon removed', 'success');
+    try {
+      clearAppliedCoupon();
+      updateCartTotals();
+      if (window.NotificationSystem) {
+        window.NotificationSystem.success(i18nService.t('cart_page.notification.coupon_removed'));
+      } else {
+        alert('DEBUG: window.NotificationSystem is not defined.');
+      }
+    } catch (e) {
+      alert('DEBUG: An error occurred in handleRemoveCoupon: ' + e.message);
+    }
   }
 
   /**
@@ -511,7 +466,7 @@ import i18nService from '../../assets/script/i18n-service.js';
     const items = getCartItems();
 
     if (items.length === 0) {
-      showNotification(i18nService.t('cart_page.notification.cart_empty_checkout'), 'error');
+      if (window.NotificationSystem) window.NotificationSystem.error(i18nService.t('cart_page.notification.cart_empty_checkout'));
       return;
     }
 

@@ -951,8 +951,10 @@
       "invalid_email": "Vui lòng nhập một địa chỉ email hợp lệ",
       "invalid_phone": "Vui lòng nhập một số điện thoại hợp lệ",
       "select_payment": "Vui lòng chọn một phương thức thanh toán",
+      "fill_required_fields": "Vui lòng điền đầy đủ các trường bắt buộc.",
       "order_placed_success": "Đặt hàng thành công! ID đơn hàng: #{orderId}",
       "redirecting_homepage": "Đang chuyển hướng đến trang chủ...",
+      "order_placed_combined": "<strong>Đặt hàng thành công!</strong><br>ID đơn hàng của bạn là #{orderId}. Đang chuyển hướng về trang chủ...",
       "free_shipping": "MIỄN PHÍ",
       "coupon_applied": "Đã áp dụng phiếu giảm giá",
       "processing": "Đang xử lý..."

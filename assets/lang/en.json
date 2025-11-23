@@ -952,8 +952,10 @@
       "invalid_email": "Please enter a valid email address",
       "invalid_phone": "Please enter a valid phone number",
       "select_payment": "Please select a payment method",
+      "fill_required_fields": "Please fill in all required fields.",
       "order_placed_success": "Order placed successfully! Order ID: #{orderId}",
       "redirecting_homepage": "Redirecting to the homepage...",
+      "order_placed_combined": "<strong>Order placed successfully!</strong><br>Your Order ID is #{orderId}. Redirecting to homepage...",
       "free_shipping": "FREE",
       "coupon_applied": "Coupon applied",
       "processing": "Processing..."

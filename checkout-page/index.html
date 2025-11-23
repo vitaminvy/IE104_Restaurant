@@ -271,6 +271,7 @@
                   type="radio"
                   name="payment"
                   value="bank"
+                  id="payment-bank"
                 />
                 <span
                   class="payment__label"
@@ -424,6 +425,21 @@
         </table>
       </aside>
     </main>
+
+    <!-- QR Code Modal -->
+    <div id="qr-code-modal" class="qr-modal-overlay hidden">
+      <div class="qr-modal-content">
+        <span class="qr-modal-close">&times;</span>
+        <h3 data-i18n="checkout_page.payment.qr_code_title">Payment QR Code</h3>
+        <img
+          src="../assets/images/checkout-page/qr-code.png"
+          alt="QR Code for bank transfer"
+        />
+        <p data-i18n="checkout_page.payment.qr_code_instruction">
+          Scan this code with your banking app to transfer.
+        </p>
+      </div>
+    </div>
 
     <!-- Footer -->
     <div data-include="/partials/footer.html"></div>

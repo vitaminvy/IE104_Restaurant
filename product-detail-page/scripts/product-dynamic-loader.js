@@ -545,7 +545,11 @@ import i18nService from "../../assets/script/i18n-service.js";
    * ======================================== */
 
   function showAddToCartNotification(itemTitle, quantity, hasCartManager) {
-    // Remove existing notification
+    // Manually get translated strings
+    const translatedAddedToCart = i18nService.t("product_detail_page.notification.added_to_cart");
+    const translatedViewCart = i18nService.t("product_detail_page.notification.view_cart");
+
+    // Remove existing notification (if any from previous manual system)
     const existing = document.querySelector(".add-to-cart-notification");
     if (existing) {
       existing.remove();
@@ -572,8 +576,8 @@ import i18nService from "../../assets/script/i18n-service.js";
           </svg>
         </div>
         <div style="flex: 1;">
-          <div style="font-weight: 600; margin-bottom: 4px; color: white;" data-i18n="product_detail_page.notification.added_to_cart">
-            Added to cart!
+          <div style="font-weight: 600; margin-bottom: 4px; color: white;">
+            ${translatedAddedToCart}
           </div>
           <div style="font-size: 13px; opacity: 0.9; color: rgba(255,255,255,0.8);">
             ${quantity}x ${itemTitle}
@@ -589,8 +593,8 @@ import i18nService from "../../assets/script/i18n-service.js";
           font-size: 13px;
           transition: all 0.2s ease;
         " onmouseover="this.style.background='rgba(255,255,255,0.9)'" 
-           onmouseout="this.style.background='white'" data-i18n="product_detail_page.notification.view_cart">
-          View Cart
+           onmouseout="this.style.background='white'">
+          ${translatedViewCart}
         </a>
       </div>
     `;

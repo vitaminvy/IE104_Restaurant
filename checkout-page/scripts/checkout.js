@@ -123,7 +123,7 @@ import i18nService from "../../assets/script/i18n-service.js";
       footerHTML += `
         <tr class="discount-row">
           <th>${i18nService.t("cart_page.totals.discount")}</th>
-          <td style="color: #4CAF50; font-weight: 600;">-${formatCurrency(
+          <td>-${formatCurrency(
             discount
           )}</td>
         </tr>
@@ -132,13 +132,11 @@ import i18nService from "../../assets/script/i18n-service.js";
 
     if (coupon && coupon.description) {
       footerHTML += `
-        <tr class="">
-          <th style="color: #4CAF50; font-size: 0.9em;">${i18nService.t(
+        <tr class="coupon-row">
+          <th>${i18nService.t(
             "checkout_page.notifications.coupon_applied"
           )}</th>
-          <td style="color: #4CAF50; font-size: 0.9em;">${coupon.code}: ${
-        coupon.description
-      }</td>
+          <td>${coupon.code}: ${coupon.description}</td>
         </tr>
       `;
     }

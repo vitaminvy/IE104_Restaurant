@@ -413,7 +413,7 @@ html[data-theme="light"] .payment__radio:checked {
   transition: color 0.2s ease;
 }
 
-.qr-modal-close:hover {
+.qr-modal__close:hover {
   color: var(--text-primary);
 }
 
@@ -438,3 +438,16 @@ html[data-theme="light"] .payment__radio:checked {
   font-size: 14px;
   line-height: 1.5;
 }
+
+/* Styling for Discount and Coupon Rows in Order Summary */
+.discount-row td {
+  color: #4CAF50;
+  font-weight: 600;
+}
+
+.coupon-row th,
+.coupon-row td {
+  color: #4CAF50;
+  font-size: 0.9em;
+}
+

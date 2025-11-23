@@ -890,7 +890,8 @@
     },
     "empty_cart": {
       "message": "Your cart is empty",
-      "suggestion": "Add some delicious items to get started!"
+      "suggestion": "Add some delicious items to get started!",
+      "cta": "Browse Menu"
     },
     "notification": {
       "removed_item": "Removed \"{itemTitle}\" from cart",

@@ -889,7 +889,8 @@
     },
     "empty_cart": {
       "message": "Giỏ hàng của bạn trống",
-      "suggestion": "Thêm một vài món ăn ngon để bắt đầu!"
+      "suggestion": "Thêm một vài món ăn ngon để bắt đầu!",
+      "cta": "Khám phá thực đơn"
     },
     "notification": {
       "removed_item": "Đã xóa \"{itemTitle}\" khỏi giỏ hàng",

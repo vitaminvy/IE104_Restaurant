@@ -160,8 +160,11 @@ import i18nService from '../../assets/script/i18n-service.js';
           ">
           <i class="fa-solid fa-cart-shopping" 
              style="font-size: 48px; margin-bottom: 16px; opacity: 0.3;"></i>
-          <p style="font-size: 18px; margin-bottom: 8px;">Your cart is empty</p>
-          <p style="font-size: 14px; opacity: 0.8;">Add some delicious items to get started!</p>
+          <p style="font-size: 18px; margin-bottom: 8px;">${i18nService.t('cart_page.empty_cart.message')}</p>
+          <p style="font-size: 14px; opacity: 0.8;">${i18nService.t('cart_page.empty_cart.suggestion')}</p>
+          <a href="../menupage/" class="cart__btn link-underline" style="margin-top: 24px;">
+            ${i18nService.t('cart_page.empty_cart.cta')}
+          </a>
         </div>
       </td>
     </tr>
@@ -508,7 +511,7 @@ import i18nService from '../../assets/script/i18n-service.js';
     const items = getCartItems();
 
     if (items.length === 0) {
-      showNotification('Your cart is empty', 'error');
+      showNotification(i18nService.t('cart_page.notification.cart_empty_checkout'), 'error');
       return;
     }
 

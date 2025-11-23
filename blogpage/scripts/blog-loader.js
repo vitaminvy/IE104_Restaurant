@@ -73,7 +73,7 @@ function renderFeaturedPost() {
         window.GlobalLoader.show(i18nService.t('blog_page.loading_article'));
       }
       setTimeout(() => {
-        window.location.href = a.href;
+        window.location.href = featuredLink.href;
       }, 200);
     });
   }

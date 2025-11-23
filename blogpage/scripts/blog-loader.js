@@ -348,8 +348,12 @@ async function init() {
   renderPage();
 }
 
-function renderPage() {
-  if (window.GlobalLoader) {
+function renderPage(isLanguageChange = false) {
+  const blogGrid = document.getElementById('blog-grid');
+  
+  if (isLanguageChange && window.GlobalLoader && blogGrid) {
+    window.GlobalLoader.setContentLoading(blogGrid, true);
+  } else if (window.GlobalLoader) {
     window.GlobalLoader.show(i18nService.t('blog_page.loading_posts'));
   }
 
@@ -367,13 +371,17 @@ function renderPage() {
     loadMoreBtn.addEventListener('click', handleLoadMoreClick);
   }
 
-  if (window.GlobalLoader) {
+  if (isLanguageChange && window.GlobalLoader && blogGrid) {
+    setTimeout(() => {
+      window.GlobalLoader.setContentLoading(blogGrid, false);
+    }, 200);
+  } else if (window.GlobalLoader) {
     setTimeout(() => window.GlobalLoader.hide(300), 200);
   }
 }
 
 document.addEventListener('language-changed', () => {
-  renderPage();
+  renderPage(true);
 });
 
 if (document.readyState === 'loading') {

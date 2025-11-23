@@ -178,34 +178,38 @@ import i18nService from "../../assets/script/i18n-service.js";
     let firstInvalidField = null;
 
     // Reset all borders first
-    requiredFields.forEach(field => field.style.borderColor = '');
+    requiredFields.forEach((field) => (field.style.borderColor = ""));
 
     // 1. Check for empty required fields
     for (const field of requiredFields) {
       if (!field.value.trim()) {
-        field.style.borderColor = '#f44336';
+        field.style.borderColor = "#f44336";
         if (!firstInvalidField) {
-            firstInvalidField = field;
+          firstInvalidField = field;
         }
       }
     }
-    
+
     if (firstInvalidField) {
-        if (window.NotificationSystem) {
-            window.NotificationSystem.error(i18nService.t('checkout_page.notifications.fill_required_fields'));
-        }
-        firstInvalidField.focus();
-        return false;
+      if (window.NotificationSystem) {
+        window.NotificationSystem.error(
+          i18nService.t("checkout_page.notifications.fill_required_fields")
+        );
+      }
+      firstInvalidField.focus();
+      return false;
     }
 
     // 2. Check email format
-    const emailField = form.querySelector('#email');
+    const emailField = form.querySelector("#email");
     if (emailField && emailField.value) {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(emailField.value)) {
-        emailField.style.borderColor = '#f44336';
+        emailField.style.borderColor = "#f44336";
         if (window.NotificationSystem) {
-          window.NotificationSystem.error(i18nService.t('checkout_page.notifications.invalid_email'));
+          window.NotificationSystem.error(
+            i18nService.t("checkout_page.notifications.invalid_email")
+          );
         }
         emailField.focus();
         return false;
@@ -213,13 +217,15 @@ import i18nService from "../../assets/script/i18n-service.js";
     }
 
     // 3. Check phone format
-    const phoneField = form.querySelector('#phone');
+    const phoneField = form.querySelector("#phone");
     if (phoneField && phoneField.value) {
       const phoneRegex = /^[\d\s\-\+\(\)]+$/;
       if (!phoneRegex.test(phoneField.value) || phoneField.value.length < 10) {
-        phoneField.style.borderColor = '#f44336';
+        phoneField.style.borderColor = "#f44336";
         if (window.NotificationSystem) {
-          window.NotificationSystem.error(i18nService.t('checkout_page.notifications.invalid_phone'));
+          window.NotificationSystem.error(
+            i18nService.t("checkout_page.notifications.invalid_phone")
+          );
         }
         phoneField.focus();
         return false;
@@ -230,10 +236,14 @@ import i18nService from "../../assets/script/i18n-service.js";
     const paymentSelected = form.querySelector('input[name="payment"]:checked');
     if (!paymentSelected) {
       if (window.NotificationSystem) {
-        window.NotificationSystem.error(i18nService.t('checkout_page.notifications.select_payment'));
+        window.NotificationSystem.error(
+          i18nService.t("checkout_page.notifications.select_payment")
+        );
       }
       // Optional: scroll to payment section
-      form.querySelector('.payment').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      form
+        .querySelector(".payment")
+        .scrollIntoView({ behavior: "smooth", block: "center" });
       return false;
     }
 
@@ -302,7 +312,7 @@ import i18nService from "../../assets/script/i18n-service.js";
       localStorage.removeItem(CART_STORAGE_KEY);
       localStorage.removeItem(COUPON_STORAGE_KEY);
       window.location.href = "../";
-    }, 3000); // Redirect after 4 seconds
+    }, 3000); // Redirect after 3 seconds
   }
 
   /* ========================================
@@ -395,7 +405,6 @@ import i18nService from "../../assets/script/i18n-service.js";
   /* ========================================
    * AUTO-INITIALIZE ON DOM READY
    * ======================================== */
-
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", initCheckout);
   } else {

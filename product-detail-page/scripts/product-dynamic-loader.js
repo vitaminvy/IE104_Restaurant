@@ -546,8 +546,12 @@ import i18nService from "../../assets/script/i18n-service.js";
 
   function showAddToCartNotification(itemTitle, quantity, hasCartManager) {
     // Manually get translated strings
-    const translatedAddedToCart = i18nService.t("product_detail_page.notification.added_to_cart");
-    const translatedViewCart = i18nService.t("product_detail_page.notification.view_cart");
+    const translatedAddedToCart = i18nService.t(
+      "product_detail_page.notification.added_to_cart"
+    );
+    const translatedViewCart = i18nService.t(
+      "product_detail_page.notification.view_cart"
+    );
 
     // Remove existing notification (if any from previous manual system)
     const existing = document.querySelector(".add-to-cart-notification");
@@ -560,42 +564,42 @@ import i18nService from "../../assets/script/i18n-service.js";
     notification.className = "add-to-cart-notification";
     notification.innerHTML = `
       <div style="display: flex; align-items: center; gap: 12px;">
-        <div style="
-          width: 40px;
-          height: 40px;
-          border-radius: 50%;
-          background: rgba(76, 175, 80, 0.2);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-shrink: 0;
-        ">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" style="display: block;">
-            <path d="M7 10L9 12L13 8M19 10C19 14.9706 14.9706 19 10 19C5.02944 19 1 14.9706 1 10C1 5.02944 5.02944 1 10 1C14.9706 1 19 5.02944 19 10Z" 
-              stroke="#4CAF50" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
+      <div style="
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.08);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      ">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" style="display: block;">
+        <path d="M7 10L9 12L13 8M19 10C19 14.9706 14.9706 19 10 19C5.02944 19 1 14.9706 1 10C1 5.02944 5.02944 1 10 1C14.9706 1 19 5.02944 19 10Z" 
+          stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div style="flex: 1;">
+        <div style="font-weight: 600; margin-bottom: 4px; color: white;">
+        ${translatedAddedToCart}
         </div>
-        <div style="flex: 1;">
-          <div style="font-weight: 600; margin-bottom: 4px; color: white;">
-            ${translatedAddedToCart}
-          </div>
-          <div style="font-size: 13px; opacity: 0.9; color: rgba(255,255,255,0.8);">
-            ${quantity}x ${itemTitle}
-          </div>
+        <div style="font-size: 13px; opacity: 0.9; color: rgba(255,255,255,0.8);">
+        ${quantity}x ${itemTitle}
         </div>
-        <a href="../cartpage/" style="
-          padding: 8px 16px;
-          background: white;
-          color: #4CAF50;
-          text-decoration: none;
-          border-radius: 6px;
-          font-weight: 600;
-          font-size: 13px;
-          transition: all 0.2s ease;
-        " onmouseover="this.style.background='rgba(255,255,255,0.9)'" 
-           onmouseout="this.style.background='white'">
-          ${translatedViewCart}
-        </a>
+      </div>
+      <a href="../cartpage/" style="
+        padding: 8px 16px;
+        background: white;
+        color: #4CAF50;
+        text-decoration: none;
+        border-radius: 6px;
+        font-weight: 600;
+        font-size: 13px;
+        transition: all 0.2s ease;
+      " onmouseover="this.style.background='rgba(255,255,255,0.9)'" 
+         onmouseout="this.style.background='white'">
+        ${translatedViewCart}
+      </a>
       </div>
     `;
 

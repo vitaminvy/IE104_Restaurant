@@ -899,8 +899,7 @@
       "invalid_coupon": "Invalid coupon code",
       "coupon_applied": "Coupon applied: {description}",
       "coupon_removed": "Coupon removed",
-      "cart_empty_checkout": "Your cart is empty",
-      "cart_cleared": "Cart has been cleared."
+      "cart_empty_checkout": "Your cart is empty"
     },
     "loading_cart": "Loading cart..."
   },

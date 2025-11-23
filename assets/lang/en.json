@@ -933,7 +933,9 @@
       "paypal_hint": "You will be redirected to PayPal to complete your purchase securely.",
       "privacy_text": "Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our",
       "privacy_policy_link": "privacy policy",
-      "place_order_button": "Place order"
+      "place_order_button": "Place order",
+      "qr_code_title": "Payment QR Code",
+      "qr_code_instruction": "Scan this code with your banking app to complete the payment."
     },
     "order_summary": {
       "title": "Your order",

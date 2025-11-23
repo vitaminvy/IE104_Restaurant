@@ -932,7 +932,9 @@
       "paypal_hint": "Bạn sẽ được chuyển hướng đến PayPal để hoàn tất giao dịch một cách an toàn.",
       "privacy_text": "Dữ liệu cá nhân của bạn sẽ được sử dụng để xử lý đơn hàng, hỗ trợ trải nghiệm của bạn trên trang web này và cho các mục đích khác được mô tả trong",
       "privacy_policy_link": "chính sách bảo mật",
-      "place_order_button": "Đặt hàng"
+      "place_order_button": "Đặt hàng",
+      "qr_code_title": "Mã QR Thanh toán",
+      "qr_code_instruction": "Quét mã này bằng ứng dụng ngân hàng của bạn để hoàn tất thanh toán."
     },
     "order_summary": {
       "title": "Đơn hàng của bạn",

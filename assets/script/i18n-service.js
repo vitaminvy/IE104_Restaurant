@@ -28,7 +28,7 @@ const i18nService = (() => {
     
     if (typeof translation === 'string' && replacements) {
       Object.keys(replacements).forEach(placeholder => {
-        const regex = new RegExp(`#{${placeholder}}`, 'g');
+        const regex = new RegExp(`#?\\{${placeholder}\\}`, 'g');
         translation = translation.replace(regex, replacements[placeholder]);
       });
     }

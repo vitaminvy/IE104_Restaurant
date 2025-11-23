@@ -363,7 +363,7 @@ html[data-theme="light"] .payment__radio:checked {
 }
 
 /* QR Code Modal */
-.qr-modal-overlay {
+.qr-modal {
   position: fixed;
   top: 0;
   left: 0;
@@ -379,13 +379,13 @@ html[data-theme="light"] .payment__radio:checked {
   transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-.qr-modal-overlay.hidden {
+.qr-modal.hidden {
   opacity: 0;
   visibility: hidden;
   pointer-events: none; /* Important for preventing interaction when hidden */
 }
 
-.qr-modal-content {
+.qr-modal__content {
   background-color: var(--bg-secondary);
   padding: 30px;
   border-radius: 8px;
@@ -398,11 +398,11 @@ html[data-theme="light"] .payment__radio:checked {
   transition: transform 0.3s ease;
 }
 
-.qr-modal-overlay.hidden .qr-modal-content {
+.qr-modal.hidden .qr-modal__content {
   transform: scale(0.9);
 }
 
-.qr-modal-close {
+.qr-modal__close {
   position: absolute;
   top: 10px;
   right: 15px;
@@ -417,14 +417,14 @@ html[data-theme="light"] .payment__radio:checked {
   color: var(--text-primary);
 }
 
-.qr-modal-content h3 {
+.qr-modal__title {
   font-family: var(--font-heading);
   color: var(--text-primary);
   font-size: 24px;
   margin-bottom: 15px;
 }
 
-.qr-modal-content img {
+.qr-modal__image {
   max-width: 100%;
   height: auto;
   border-radius: 4px;
@@ -432,7 +432,7 @@ html[data-theme="light"] .payment__radio:checked {
   border: 1px solid var(--border-color);
 }
 
-.qr-modal-content p {
+.qr-modal__instruction {
   font-family: var(--font-body);
   color: var(--text-secondary);
   font-size: 14px;

@@ -395,7 +395,7 @@ import i18nService from "../../assets/script/i18n-service.js";
 
   function initQrCodeModal() {
     const qrModal = document.getElementById("qr-code-modal");
-    const closeModalButton = document.querySelector(".qr-modal-close");
+    const closeModalButton = document.querySelector(".qr-modal__close");
     const paymentOptionsContainer = document.querySelector(".payment");
 
     if (!qrModal || !closeModalButton || !paymentOptionsContainer) {

@@ -56,7 +56,8 @@
   font-size: 0.9rem;
   color: var(--color-white);
   cursor: pointer;
-  transition: border-color 0.25s ease, color 0.25s ease, background-color 0.25s ease;
+  transition: border-color 0.25s ease, color 0.25s ease,
+    background-color 0.25s ease;
 }
 
 .blog-filter-pill:hover {
@@ -83,6 +84,11 @@
 
 .blog-filters__select:focus {
   outline: 2px solid var(--color-dark-orange);
+}
+
+.blog-filters__select option {
+  background: var(--bg-primary);
+  color: var(--text-primary);
 }
 
 .blog-filters__clear {

@@ -1,30 +1,57 @@
 // assets/script/header-features.js
 import i18nService from './i18n-service.js';
+import LanguageAnimation from './language-animation.js';
 
-// --- TRANSLATION LOGIC (from lang-toggle.js) ---
+// --- TRANSLATION LOGIC WITH SMOOTH ANIMATIONS ---
+
+/**
+ * Helper function to get nested object property by dot-notation path
+ */
 function getByPath(obj, path) {
   if (!path) return undefined;
   return path.split('.').reduce((o, k) => (o && o[k] !== undefined ? o[k] : undefined), obj);
 }
 
-function applyStaticTranslations() {
+/**
+ * Flag to track if this is the initial load (skip animation on first load)
+ */
+let isInitialLoad = true;
+
+/**
+ * Applies translations to all elements with smooth animations
+ * This is the enhanced version that prevents layout shifts and provides
+ * professional fade/slide transitions during language switching
+ */
+async function applyStaticTranslations() {
   const lang = i18nService.getLanguage();
   const translations = i18nService.getTranslations();
 
   if (Object.keys(translations).length === 0) return;
 
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const key = el.getAttribute('data-i18n');
-    const val = getByPath(translations, key);
-    if (val !== undefined) el.innerHTML = val;
-  });
+  // --- ANIMATE TEXT ELEMENTS ([data-i18n]) ---
+  // Use animation for visible text content, but skip on initial page load
+  if (!isInitialLoad && LanguageAnimation.supportsAnimations()) {
+    // Animate text changes with smooth transitions
+    await LanguageAnimation.animateTranslations((key) => {
+      return getByPath(translations, key);
+    });
+  } else {
+    // Fallback: instant update (for initial load or unsupported browsers)
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      const val = getByPath(translations, key);
+      if (val !== undefined) el.textContent = val;
+    });
+  }
 
+  // --- UPDATE PLACEHOLDER ATTRIBUTES (no animation needed) ---
   document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
     const key = el.getAttribute('data-i18n-placeholder');
     const val = getByPath(translations, key);
     if (val !== undefined) el.setAttribute('placeholder', val);
   });
 
+  // --- UPDATE ERROR MESSAGE ATTRIBUTES (no animation needed) ---
   const errorAttrMap = [
     { key: 'required', target: 'data-error-required' },
     { key: 'minLength', target: 'data-error-minLength' },
@@ -48,7 +75,13 @@ function applyStaticTranslations() {
     });
   });
 
+  // --- UPDATE DOCUMENT LANGUAGE ---
   document.documentElement.setAttribute('lang', lang);
+
+  // Mark that initial load is complete
+  if (isInitialLoad) {
+    isInitialLoad = false;
+  }
 }
 
 // --- LANGUAGE FLAG UPDATE HELPER ---

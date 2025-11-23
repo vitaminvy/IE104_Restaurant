@@ -128,7 +128,8 @@
       "option_3_persons": "3 Persons",
       "option_4_persons": "4 Persons",
       "option_5_persons": "5 Persons",
-      "button": "Reserve Your Table Now"
+      "button": "Reserve Your Table Now",
+      "success_toast": "Table reserved successfully for {name} on {date} at {time}!"
     },
     "blogs": {
       "title": "Explore Blogs",
@@ -766,6 +767,12 @@
       "Financial Wellness": "Financial Wellness",
       "Staff Retention": "Staff Retention",
       "HR": "HR"
+    },
+    "categories": {
+      "Technology": "Technology",
+      "Trends": "Trends",
+      "Management": "Management",
+      "Marketing": "Marketing"
     }
   },
   "product_detail_page": {
@@ -827,7 +834,8 @@
     "filters": {
       "browse_topics": "Browse topics",
       "category_label": "Category",
-      "reset": "Reset"
+      "reset": "Reset",
+      "all_categories": "All categories"
     },
     "loading_posts": "Loading blog posts...",
     "filter_empty": "No stories match your filters. Try another tag.",
@@ -926,7 +934,9 @@
       "paypal_hint": "You will be redirected to PayPal to complete your purchase securely.",
       "privacy_text": "Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our",
       "privacy_policy_link": "privacy policy",
-      "place_order_button": "Place order"
+      "place_order_button": "Place order",
+      "qr_code_title": "Payment QR Code",
+      "qr_code_instruction": "Scan this code with your banking app to complete the payment."
     },
     "order_summary": {
       "title": "Your order",
@@ -942,8 +952,10 @@
       "invalid_email": "Please enter a valid email address",
       "invalid_phone": "Please enter a valid phone number",
       "select_payment": "Please select a payment method",
+      "fill_required_fields": "Please fill in all required fields.",
       "order_placed_success": "Order placed successfully! Order ID: #{orderId}",
       "redirecting_homepage": "Redirecting to the homepage...",
+      "order_placed_combined": "<strong>Order placed successfully!</strong><br>Your Order ID is #{orderId}. Redirecting to homepage...",
       "free_shipping": "FREE",
       "coupon_applied": "Coupon applied",
       "processing": "Processing..."

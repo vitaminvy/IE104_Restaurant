@@ -2,7 +2,8 @@
 .newsletter-shell {
   width: min(1600px, 96vw);
   margin-inline: auto;
-  margin-block: clamp(4rem, 8vw, 6rem);
+  margin-block-start: clamp(3rem, 6vw, 5rem);
+  margin-block-end: clamp(1.5rem, 4vw, 3rem);
   padding-inline: clamp(1.25rem, 4vw, 3rem);
 }
 

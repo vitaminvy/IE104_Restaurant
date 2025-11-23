@@ -11,6 +11,7 @@ main.container {
   margin: 6rem auto 0;
   padding: 4rem 1.5rem 1rem 1.5rem;
   box-sizing: border-box;
+  max-width: 1536px;
 }
 
 /* =========================================================
@@ -28,7 +29,7 @@ main.container {
 @media (min-width: 64rem) {
   main.container {
     padding: 4rem 3rem 2rem 3rem;
-    width: min(100%, 85rem);
+    width: min(100%, 90rem);
   }
 }
 

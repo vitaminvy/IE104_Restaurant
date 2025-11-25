@@ -13,7 +13,7 @@
 }
 
 .policy-hero__container {
-  max-width: min(800px, 92vw);
+  max-width: min(1280px, 92vw);
   margin: 0 auto;
   padding: 0 clamp(16px, 3vw, 32px);
   text-align: center;
@@ -22,7 +22,7 @@
 .policy-hero__title {
   margin-bottom: 1.5rem;
   font-family: var(--font-heading);
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-size: clamp(2rem, 5vw, 4rem);
   font-weight: 700;
   line-height: 1.2;
   color: var(--text-primary);

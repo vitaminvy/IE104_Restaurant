@@ -27,7 +27,7 @@
     "legal": "Legal",
     "legal_website": "Website by UIT.com",
     "legal_copyright": "©2025. All Rights Reserved",
-    "comming_soon": "Comming Soon"
+    "policy": "Policy"
   },
   "home": {
     "hero": {
@@ -216,7 +216,8 @@
     },
     "order_now_button": "Order Now",
     "add_to_cart_aria_label": "Add to cart",
-    "add_to_cart_title": "Add to cart"
+    "add_to_cart_title": "Add to cart",
+    "add_to_cart_button_success": "Added!"
   },
   "coming_soon_page": {
     "title": "Coming Soon | WowWraps"

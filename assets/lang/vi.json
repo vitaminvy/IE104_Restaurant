@@ -27,7 +27,7 @@
     "legal": "Pháp Lý",
     "legal_website": "Website bởi UIT.com",
     "legal_copyright": "©2025. Mọi Quyền Được Bảo Hộ",
-    "comming_soon": "Định Hướng"
+    "policy": "Chính sách"
   },
   "home": {
     "hero": {
@@ -216,7 +216,8 @@
     },
     "order_now_button": "Đặt Món Ngay",
     "add_to_cart_aria_label": "Thêm vào giỏ hàng",
-    "add_to_cart_title": "Thêm vào giỏ hàng"
+    "add_to_cart_title": "Thêm vào giỏ hàng",
+    "add_to_cart_button_success": "Đã thêm!"
   },
   "coming_soon_page": {
     "title": "Sắp Ra Mắt | WowWraps"

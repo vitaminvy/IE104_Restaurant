@@ -1123,6 +1123,57 @@
       "description": "Chứa nhuyễn thể (nghêu, trai, hàu, v.v.)"
     }
   },
+  "policy_page": {
+    "title": "Quy định & Chính Sách - WowWraps",
+    "main_title": "Quy định & Chính Sách",
+    "intro": "Vui lòng đọc kỹ các quy định bên dưới để đảm bảo trải nghiệm phục vụ nhất quán, rõ ràng và thoải mái tại WowWraps ở mọi khung giờ.",
+    "highlights": {
+      "booking": {
+        "title": "Giữ bàn",
+        "desc": "15 phút linh hoạt"
+      },
+      "support": {
+        "title": "Hỗ trợ",
+        "desc": "Hotline & tại bàn"
+      },
+      "ingredients": {
+        "title": "Nguyên liệu",
+        "desc": "Tươi theo mùa"
+      }
+    },
+    "commitment": {
+      "title": "Cam kết trải nghiệm",
+      "item1": "Đặt bàn nhanh chóng",
+      "item2": "Thông tin minh bạch",
+      "item3": "Ưu tiên an toàn & khẩu vị"
+    },
+    "hotline": {
+      "title": "Hotline:"
+    },
+    "reservation": {
+      "title": "Quy định Đặt Bàn",
+      "summary": "Giữ sự chủ động về thời gian và không gian để bữa ăn diễn ra suôn sẻ.",
+      "rule1": "Quý khách vui lòng đặt bàn trước ít nhất 2 giờ để được phục vụ tốt nhất.",
+      "rule2": "Chúng tôi giữ bàn trong 15 phút so với giờ đã đặt; quá thời gian mà không báo lại, yêu cầu đặt bàn sẽ được điều chỉnh/hủy.",
+      "rule3": "Với nhóm từ 10 người, vui lòng liên hệ hotline để được hỗ trợ sắp xếp và đặt cọc (nếu cần).",
+      "rule4": "Mọi thay đổi về thời gian hoặc số lượng khách, xin báo trước tối thiểu 1 giờ."
+    },
+    "ordering": {
+      "title": "Quy định Đặt Món",
+      "summary": "Linh hoạt theo mùa và khẩu vị, ưu tiên sự an toàn và minh bạch.",
+      "rule1": "Thực đơn có thể thay đổi theo mùa để đảm bảo nguyên liệu luôn tươi ngon.",
+      "rule2": "Nếu có yêu cầu đặc biệt (không cay, ít đường) hoặc dị ứng, vui lòng báo khi đặt món để chúng tôi điều chỉnh.",
+      "rule3": "Với đơn mang về/giao đi, thời gian chuẩn bị khoảng 20-30 phút tùy số lượng món.",
+      "rule4": "Nhà hàng không thể xử lý khiếu nại về món sau khi khách đã rời đi hoặc quá 30 phút kể từ khi nhận hàng giao đi."
+    },
+    "general": {
+      "title": "Quy định Chung",
+      "summary": "Tôn trọng không gian chung giúp mọi trải nghiệm đều dễ chịu.",
+      "rule1": "Vui lòng không mang đồ ăn, thức uống bên ngoài vào nhà hàng.",
+      "rule2": "Giữ gìn vệ sinh chung và hạn chế gây ồn ảnh hưởng đến khách khác.",
+      "rule3": "Nhà hàng có quyền từ chối phục vụ khách không tuân thủ các quy định này."
+    }
+  },
   "notifications": {
     "addedToCart": "Đã thêm {itemTitle} vào giỏ hàng!",
     "updatedCart": "Đã cập nhật số lượng {itemTitle}!",

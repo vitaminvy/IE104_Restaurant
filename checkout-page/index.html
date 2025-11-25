@@ -43,7 +43,7 @@
     <script type="module" src="../assets/script/header.js" defer></script>
 
     <!-- Global Loading System -->
-    <script src="../assets/script/global-loader.js"></script>
+    <script src="../assets/script/global-loader.js" defer></script>
 
     <!-- link script appear hint -->
     <script src="./scripts/hint.js" defer></script>
@@ -71,7 +71,7 @@
           Billing details
         </h1>
 
-        <form class="form" id="checkout-form" method="get" novalidate>
+        <form class="form" id="checkout-form" method="post" novalidate>
           <div class="form__row">
             <div class="form__group">
               <label
@@ -461,6 +461,6 @@
 
     <!-- Checkout Form Handler (removed to prevent duplicate form handling) -->
     <div data-include="../partials/back-to-top.html"></div>
-    <script src="../assets/script/back-to-top.js"></script>
+    <script src="../assets/script/back-to-top.js" defer></script>
   </body>
 </html>

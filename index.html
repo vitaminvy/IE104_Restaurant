@@ -742,7 +742,7 @@
     </section>
 
     <!-- 7.MENU SECTION: navigate menu  -->
-    <script type="module" src="./assets/script/navigate-menu.js" defer></script>
+    <script type="module" src="./assets/script/navigate-menu.js"></script>
 
     <!-- ========== 8.  STATISTICS / ACHIEVEMENTS ========== -->
     <section id="stats" class="stats">
@@ -1071,8 +1071,7 @@
                   type="text"
                   id="res-name"
                   name="no-history-12345"
-                  autocomplete="reservation_name"
-                  autocorrect="off"
+                  autocomplete="name"
                   spellcheck="false"
                   placeholder="Your name"
                   required
@@ -1100,7 +1099,7 @@
                   id="res-phone"
                   name="phone"
                   placeholder="Phone number"
-                  autocomplete="reservation_phone"
+                  autocomplete="tel"
                   required
                   data-error-required="Please enter your phone number"
                   data-error-phone="Please enter a valid phone number"
@@ -1125,7 +1124,7 @@
                   id="res-email"
                   name="email"
                   placeholder="Email address"
-                  autocomplete="reservation_email"
+                  autocomplete="email"
                   required
                   data-error-required="Please enter your email address"
                   data-error-email="Please enter a valid email address"
@@ -1458,16 +1457,15 @@
     <!-- commit for deploy -->
 
     <!-- Reservation Form Handler -->
-    <script type="module" src="./homepage/scripts/reservation-handler.js" defer></script>
+    <script
+      type="module"
+      src="./homepage/scripts/reservation-handler.js"
+    ></script>
 
     <!-- Newsletter Form Handler -->
     <script src="./homepage/scripts/newsletter-handler.js" defer></script>
 
-    <script
-      type="module"
-      src="./assets/script/header-features.js"
-      defer
-    ></script>
+    <script type="module" src="./assets/script/header-features.js"></script>
     <script src="./assets/script/newsletter.js" defer></script>
   </body>
 </html>

@@ -4,7 +4,10 @@
     <script src="../assets/script/theme-init.js" defer></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Learn about WowWraps, a Mexican restaurant serving fresh handmade tortillas, slow-cooked carnitas, and bold, seasonal flavors.">
+    <meta
+      name="description"
+      content="Learn about WowWraps, a Mexican restaurant serving fresh handmade tortillas, slow-cooked carnitas, and bold, seasonal flavors."
+    />
     <title data-i18n="about_page.title">About Us - WowWraps</title>
     <link
       rel="icon"
@@ -25,8 +28,13 @@
     <!-- footer-->
     <link rel="stylesheet" href="../partials/footer.css" />
     <!--about page section css-->
-    <link rel="preload" href="./styles/aboutpage.css" as="style" onload="this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="./styles/aboutpage.css"></noscript>
+    <link
+      rel="preload"
+      href="./styles/aboutpage.css"
+      as="style"
+      onload="this.rel='stylesheet'"
+    />
+    <noscript><link rel="stylesheet" href="./styles/aboutpage.css" /></noscript>
 
     <link rel="stylesheet" href="../style/back-to-top.css" />
     <link rel="stylesheet" href="../assets/features/theme-toggle.css" />
@@ -36,7 +44,7 @@
     <script src="../assets/script/scroll-animations.js"></script>
 
     <!-- Global Loading System -->
-    <script src="../assets/script/global-loader.js"></script>
+    <script src="../assets/script/global-loader.js" defer></script>
   </head>
   <body>
     <!-- logic for header and footer -->
@@ -75,7 +83,7 @@
             <img
               src="../assets/images/about-page/table-1.png"
               alt="Restaurant window"
-              width="923" 
+              width="923"
               height="811"
               fetchpriority="high"
               decoding="async"
@@ -87,7 +95,7 @@
             <img
               src="../assets/images/about-page/table-2.png"
               alt="Indoor dining"
-              width="923" 
+              width="923"
               height="811"
               fetchpriority="high"
               decoding="async"
@@ -99,7 +107,7 @@
             <img
               src="../assets/images/about-page/view.webp"
               alt="Chalkboard and table"
-              width="923" 
+              width="923"
               height="811"
               fetchpriority="high"
               decoding="async"
@@ -192,7 +200,10 @@
             </li>
             <li class="vision__feature">
               <span class="vision__badge"
-                ><img src="../assets/icons/about-page/chef-icon.svg" alt="chef" loading="lazy"
+                ><img
+                  src="../assets/icons/about-page/chef-icon.svg"
+                  alt="chef"
+                  loading="lazy"
               /></span>
               <div class="vision__content">
                 <h3
@@ -287,24 +298,6 @@
     <div data-include="/partials/footer.html"></div>
 
     <script type="module" src="../assets/script/header-features.js"></script>
-    <script type="module">
-      import i18nService from "../assets/script/i18n-service.js";
-      
-      // Show loader during initialization
-      if (window.GlobalLoader) {
-        window.GlobalLoader.show('Loading content...');
-      }
-      
-      (async () => {
-        await i18nService.init();
-        document.dispatchEvent(new CustomEvent("language-changed"));
-        
-        // Hide loader after content is loaded
-        if (window.GlobalLoader) {
-          setTimeout(() => window.GlobalLoader.hide(300), 200);
-        }
-      })();
-    </script>
     <div data-include="../partials/back-to-top.html"></div>
     <script src="../assets/script/back-to-top.js" defer></script>
   </body>

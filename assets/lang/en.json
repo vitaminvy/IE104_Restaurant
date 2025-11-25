@@ -1124,6 +1124,57 @@
       "description": "Contains molluscs (clams, mussels, oysters, etc.)"
     }
   },
+  "policy_page": {
+    "title": "Policy & Guidelines - WowWraps",
+    "main_title": "Policies & Guidelines",
+    "intro": "Please review the policies below to ensure consistent, clear, and comfortable service at WowWraps.",
+    "highlights": {
+      "booking": {
+        "title": "Booking Hold",
+        "desc": "15-minute flexibility"
+      },
+      "support": {
+        "title": "Support",
+        "desc": "Hotline & at table"
+      },
+      "ingredients": {
+        "title": "Ingredients",
+        "desc": "Fresh & seasonal"
+      }
+    },
+    "commitment": {
+      "title": "Our Commitment",
+      "item1": "Quick reservations",
+      "item2": "Transparent information",
+      "item3": "Safety & taste first"
+    },
+    "hotline": {
+      "title": "Hotline:"
+    },
+    "reservation": {
+      "title": "Table Reservation Policy",
+      "summary": "Stay proactive about your time and space to ensure a smooth meal.",
+      "rule1": "Please reserve at least 2 hours in advance for the best service.",
+      "rule2": "We hold tables for 15 minutes from the booked time; without notice beyond that, the reservation may be adjusted or cancelled.",
+      "rule3": "For groups of 10 or more, contact our hotline for arrangements and a deposit if needed.",
+      "rule4": "For any change in time or party size, please inform us at least 1 hour in advance."
+    },
+    "ordering": {
+      "title": "Ordering Policy",
+      "summary": "Flexible by season and taste, prioritizing safety and transparency.",
+      "rule1": "Menu items may change seasonally to ensure ingredients are always fresh.",
+      "rule2": "If you have special requests (non-spicy, less sugar) or allergies, please tell us when ordering so we can adjust.",
+      "rule3": "Takeaway or delivery orders typically need about 20–30 minutes depending on the number of items.",
+      "rule4": "We cannot handle complaints about dishes after guests leave or more than 30 minutes after receiving delivery orders."
+    },
+    "general": {
+      "title": "General Guidelines",
+      "summary": "Respecting shared spaces ensures a pleasant experience for everyone.",
+      "rule1": "Please do not bring outside food or drinks into the restaurant.",
+      "rule2": "Maintain shared hygiene and avoid noise that disturbs other guests.",
+      "rule3": "We may refuse service to guests who do not follow these guidelines."
+    }
+  },
   "notifications": {
     "addedToCart": "{itemTitle} added to cart!",
     "updatedCart": "{itemTitle} quantity updated!",

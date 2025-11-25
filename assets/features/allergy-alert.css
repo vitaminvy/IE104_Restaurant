@@ -29,7 +29,8 @@
   backdrop-filter: blur(10px);
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: none; /* Remove strong shadow for light mode */
+  box-shadow: 0 10px 30px rgba(239, 68, 68, 0.2);
+  animation: pulseWarning 2.5s ease-in-out infinite;
 }
 
 .allergy-settings-trigger:hover {
@@ -423,4 +424,3 @@ html[data-theme="light"] .product-allergen-badge {
     flex-direction: column;
   }
 }
-

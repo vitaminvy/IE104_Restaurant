@@ -1113,6 +1113,11 @@ html[data-theme="light"] .coupon__input:disabled {
   background: rgba(0, 0, 0, 0.05); /* Light disabled background */
 }
 
+html[data-theme="light"] .cart__table tbody tr td[colspan="6"] i {
+  color: #000000; /* Black color for contrast */
+  opacity: 0.6; /* Increased opacity for visibility */
+}
+
 /* Add transitions for smooth theme switching */
 .cart__container,
 .cart__table,

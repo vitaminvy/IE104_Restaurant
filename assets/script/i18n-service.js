@@ -22,9 +22,18 @@ const i18nService = (() => {
     }
   }
 
-  function t(key) {
+  function t(key, replacements = {}) {
     if (!key) return '';
-    return key.split('.').reduce((obj, k) => (obj && obj[k] !== undefined) ? obj[k] : key, translations);
+    let translation = key.split('.').reduce((obj, k) => (obj && obj[k] !== undefined) ? obj[k] : key, translations);
+    
+    if (typeof translation === 'string' && replacements) {
+      Object.keys(replacements).forEach(placeholder => {
+        const regex = new RegExp(`#?\\{${placeholder}\\}`, 'g');
+        translation = translation.replace(regex, replacements[placeholder]);
+      });
+    }
+    
+    return translation;
   }
 
   function getTranslations() {

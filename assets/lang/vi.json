@@ -128,7 +128,8 @@
       "option_3_persons": "3 người",
       "option_4_persons": "4 người",
       "option_5_persons": "5 người",
-      "button": "Đặt bàn ngay"
+      "button": "Đặt bàn ngay",
+      "success_toast": "Đã đặt bàn thành công cho {name} vào ngày {date} lúc {time}!"
     },
     "blogs": {
       "title": "Khám phá Blog",
@@ -888,7 +889,8 @@
     },
     "empty_cart": {
       "message": "Giỏ hàng của bạn trống",
-      "suggestion": "Thêm một vài món ăn ngon để bắt đầu!"
+      "suggestion": "Thêm một vài món ăn ngon để bắt đầu!",
+      "cta": "Khám phá thực đơn"
     },
     "notification": {
       "removed_item": "Đã xóa \"{itemTitle}\" khỏi giỏ hàng",
@@ -932,7 +934,9 @@
       "paypal_hint": "Bạn sẽ được chuyển hướng đến PayPal để hoàn tất giao dịch một cách an toàn.",
       "privacy_text": "Dữ liệu cá nhân của bạn sẽ được sử dụng để xử lý đơn hàng, hỗ trợ trải nghiệm của bạn trên trang web này và cho các mục đích khác được mô tả trong",
       "privacy_policy_link": "chính sách bảo mật",
-      "place_order_button": "Đặt hàng"
+      "place_order_button": "Đặt hàng",
+      "qr_code_title": "Mã QR Thanh toán",
+      "qr_code_instruction": "Quét mã này bằng ứng dụng ngân hàng của bạn để hoàn tất thanh toán."
     },
     "order_summary": {
       "title": "Đơn hàng của bạn",
@@ -948,8 +952,10 @@
       "invalid_email": "Vui lòng nhập một địa chỉ email hợp lệ",
       "invalid_phone": "Vui lòng nhập một số điện thoại hợp lệ",
       "select_payment": "Vui lòng chọn một phương thức thanh toán",
+      "fill_required_fields": "Vui lòng điền đầy đủ các trường bắt buộc.",
       "order_placed_success": "Đặt hàng thành công! ID đơn hàng: #{orderId}",
       "redirecting_homepage": "Đang chuyển hướng đến trang chủ...",
+      "order_placed_combined": "<strong>Đặt hàng thành công!</strong><br>ID đơn hàng của bạn là #{orderId}. Đang chuyển hướng về trang chủ...",
       "free_shipping": "MIỄN PHÍ",
       "coupon_applied": "Đã áp dụng phiếu giảm giá",
       "processing": "Đang xử lý..."

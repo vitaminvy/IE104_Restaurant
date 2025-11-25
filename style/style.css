@@ -35,46 +35,6 @@ body {
     border-color 0.3s ease, filter 0.3s ease, box-shadow 0.3s ease;
 }
 
-#statistics {
-  background-color: #0d0d0d;
-  padding: 40px 20px;
-  color: var(--text-primary);
-}
-
-.stats-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  gap: 40px;
-}
-
-.stat-item {
-  display: flex; /* icon  */
-  align-items: center;
-  gap: 15px; /* space between icon and text */
-  min-width: 220px;
-}
-
-.stat-icon {
-  width: 40px;
-  height: auto;
-}
-
-.stat-text h3 {
-  font-size: 24px;
-  font-weight: 700;
-  color: #f5a623;
-  margin: 0;
-}
-
-.stat-text p {
-  font-size: 15px;
-  color: #aaa;
-  margin: 2px 0 0;
-}
-
 html {
   font-size: 16px;
 }
@@ -177,6 +137,7 @@ a {
   padding: clamp(16px, 3vw, 32px) 0 64px;
   margin: 6rem auto;
 }
+
 p {
   font-family: var(--font-body);
   font-size: var(--font-size-body);

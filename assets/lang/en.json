@@ -27,7 +27,7 @@
     "legal": "Legal",
     "legal_website": "Website by UIT.com",
     "legal_copyright": "©2025. All Rights Reserved",
-    "comming_soon": "Comming Soon"
+    "policy": "Policy"
   },
   "home": {
     "hero": {
@@ -216,7 +216,8 @@
     },
     "order_now_button": "Order Now",
     "add_to_cart_aria_label": "Add to cart",
-    "add_to_cart_title": "Add to cart"
+    "add_to_cart_title": "Add to cart",
+    "add_to_cart_button_success": "Added!"
   },
   "coming_soon_page": {
     "title": "Coming Soon | WowWraps"
@@ -1122,6 +1123,257 @@
     "molluscs": {
       "name": "Molluscs",
       "description": "Contains molluscs (clams, mussels, oysters, etc.)"
+    }
+  },
+  "policy_data": {
+    "meta": {
+      "title": "Privacy Policy & Terms - WowWraps"
+    },
+    "hero": {
+      "title": "Privacy Policy & Terms of Service",
+      "subtitle": "Your trust is important to us. Learn how we protect your information and ensure a safe dining experience.",
+      "last_updated": "Last Updated: November 25, 2025",
+      "version": "Version 2.1"
+    },
+    "toc": {
+      "title": "Quick Navigation",
+      "item1": "Introduction & Commitment",
+      "item2": "Information We Collect",
+      "item3": "How We Use Your Data",
+      "item4": "Cookies & Tracking",
+      "item5": "Your Rights & Choices",
+      "item6": "User Responsibilities",
+      "item7": "Acceptable Use Policy",
+      "item8": "Data Security & Protection",
+      "item9": "Third-Party Services",
+      "item10": "Disclaimers & Limitations",
+      "item11": "Policy Updates",
+      "item12": "Contact Us"
+    },
+    "introduction": {
+      "title": "Introduction & Our Commitment",
+      "p1": "Welcome to WowWraps. We are committed to protecting your privacy and ensuring transparency in how we handle your personal information. This policy explains our practices regarding data collection, usage, and protection when you visit our restaurant, use our website, or engage with our services.",
+      "p2": "At WowWraps, we believe that exceptional food and service go hand in hand with respect for your privacy. We have designed our data practices to be straightforward, secure, and centered on your needs as our valued customer.",
+      "highlight": "By using our website or services, you agree to the terms outlined in this policy. If you have any questions or concerns, please don't hesitate to contact us."
+    },
+    "information": {
+      "title": "Information We Collect",
+      "intro": "We collect information to provide you with the best possible dining experience and to improve our services. The types of information we gather include:",
+      "personal_title": "Personal Information",
+      "personal1": "Contact Details: Name, email address, phone number, and delivery address when you make reservations or place orders.",
+      "personal2": "Account Information: Username, password, and preferences if you create an account on our platform.",
+      "personal3": "Payment Information: Credit card details, billing address, and transaction history processed securely through our payment partners.",
+      "automatic_title": "Automatically Collected Information",
+      "automatic1": "Device Information: IP address, browser type, operating system, and device identifiers.",
+      "automatic2": "Usage Data: Pages viewed, time spent on our website, menu items browsed, and interaction patterns.",
+      "automatic3": "Location Data: Approximate location based on IP address to show relevant restaurant locations and delivery options.",
+      "customer_title": "Customer Feedback & Interactions",
+      "customer1": "Reviews, ratings, and comments you submit about our food and service.",
+      "customer2": "Communications with our customer support team via email, phone, or chat.",
+      "customer3": "Responses to surveys, promotions, or marketing campaigns."
+    },
+    "data_usage": {
+      "title": "How We Use Your Data",
+      "intro": "We use the information we collect to deliver exceptional service and continuously improve your experience. Specifically, we use your data to:",
+      "card1_title": "Process Orders & Reservations",
+      "card1_text": "Fulfill your food orders, confirm table reservations, process payments, and coordinate delivery services.",
+      "card2_title": "Communicate With You",
+      "card2_text": "Send order confirmations, updates about your reservation, respond to inquiries, and provide customer support.",
+      "card3_title": "Personalize Your Experience",
+      "card3_text": "Remember your preferences, suggest menu items you might enjoy, and customize our website based on your interests.",
+      "card4_title": "Improve Our Services",
+      "card4_text": "Analyze trends, understand customer preferences, develop new menu items, and enhance our overall operations.",
+      "card5_title": "Marketing & Promotions",
+      "card5_text": "Share special offers, new menu announcements, and exclusive deals with your consent. You can opt out anytime.",
+      "card6_title": "Security & Fraud Prevention",
+      "card6_text": "Protect against unauthorized access, detect fraudulent activities, and maintain the security of our platform."
+    },
+    "cookies": {
+      "title": "Cookies & Tracking Technologies",
+      "intro": "We use cookies and similar tracking technologies to enhance your browsing experience and understand how you interact with our website. Cookies are small text files stored on your device that help us remember your preferences and improve our services.",
+      "types_title": "Types of Cookies We Use",
+      "table_type": "Cookie Type",
+      "table_purpose": "Purpose",
+      "table_duration": "Duration",
+      "essential": "Essential Cookies",
+      "essential_desc": "Required for basic website functionality, security, and navigation. Cannot be disabled.",
+      "essential_time": "Session",
+      "functional": "Functional Cookies",
+      "functional_desc": "Remember your preferences like language, theme, and location for a personalized experience.",
+      "functional_time": "1 Year",
+      "analytics": "Analytics Cookies",
+      "analytics_desc": "Help us understand how visitors use our website, which pages are popular, and where improvements are needed.",
+      "analytics_time": "2 Years",
+      "marketing": "Marketing Cookies",
+      "marketing_desc": "Track your visit across our website to deliver relevant advertisements and measure campaign effectiveness.",
+      "marketing_time": "90 Days",
+      "control_title": "Managing Your Cookie Preferences",
+      "control_text": "You can control and manage cookies through your browser settings. However, disabling certain cookies may affect your ability to use some features of our website. Most browsers allow you to refuse cookies, delete existing cookies, or alert you when new cookies are being sent."
+    },
+    "user_rights": {
+      "title": "Your Rights & Choices",
+      "intro": "We respect your right to control your personal information. You have the following rights regarding the data we collect and process:",
+      "access_title": "Right to Access",
+      "access_text": "Request a copy of the personal information we hold about you, including details about how we use it and who we share it with.",
+      "correction_title": "Right to Correction",
+      "correction_text": "Update or correct any inaccurate or incomplete information we have about you at any time.",
+      "deletion_title": "Right to Deletion",
+      "deletion_text": "Request that we delete your personal information, subject to certain legal exceptions and business requirements.",
+      "objection_title": "Right to Object",
+      "objection_text": "Object to certain types of data processing, including marketing communications and automated decision-making.",
+      "portability_title": "Right to Data Portability",
+      "portability_text": "Receive your personal data in a structured, commonly used format and transfer it to another service provider.",
+      "opt_out_title": "Right to Opt-Out",
+      "opt_out_text": "Unsubscribe from marketing emails, newsletters, and promotional communications at any time using the unsubscribe link.",
+      "exercise": "To exercise any of these rights, please contact us using the information provided at the end of this policy. We will respond to your request within 30 days."
+    },
+    "responsibilities": {
+      "title": "User Responsibilities",
+      "intro": "When using our website and services, we ask that you maintain certain standards of conduct to ensure a positive experience for all customers. As a user, you agree to:",
+      "account_title": "Account Security",
+      "account1": "Maintain the confidentiality of your account credentials and notify us immediately of any unauthorized access.",
+      "account2": "Ensure all information provided during registration and checkout is accurate, current, and complete.",
+      "account3": "Take responsibility for all activities that occur under your account.",
+      "lawful_title": "Lawful Use",
+      "lawful1": "Use our services only for lawful purposes and in accordance with these terms.",
+      "lawful2": "Not engage in any activity that could harm, disable, or impair our website or services.",
+      "lawful3": "Respect the intellectual property rights of WowWraps and third parties.",
+      "reviews_title": "Reviews & Feedback",
+      "reviews1": "Provide honest, constructive feedback based on your genuine experience.",
+      "reviews2": "Avoid posting offensive, defamatory, or inappropriate content in reviews.",
+      "reviews3": "Understand that we reserve the right to remove reviews that violate our guidelines."
+    },
+    "acceptable_use": {
+      "title": "Acceptable Use Policy",
+      "intro": "To maintain a safe and enjoyable environment for all users, the following activities are strictly prohibited:",
+      "prohibited_title": "Prohibited Activities",
+      "fraud_title": "Fraud & Abuse",
+      "fraud_text": "Fraudulent orders, payment disputes made in bad faith, or abuse of promotional offers.",
+      "harassment_title": "Harassment",
+      "harassment_text": "Harassing, threatening, or abusive behavior toward staff, delivery personnel, or other customers.",
+      "automated_title": "Automated Access",
+      "automated_text": "Use of bots, scrapers, or automated tools to access or extract data from our website.",
+      "malware_title": "Malicious Software",
+      "malware_text": "Distributing viruses, malware, or any code designed to harm or exploit our systems.",
+      "impersonation_title": "Impersonation",
+      "impersonation_text": "Impersonating WowWraps staff, other users, or misrepresenting your affiliation.",
+      "spam_title": "Spam & Solicitation",
+      "spam_text": "Sending unsolicited messages, spam, or commercial communications through our platform.",
+      "violation": "Violation of this Acceptable Use Policy may result in immediate suspension or termination of your account, and we may report illegal activities to appropriate authorities."
+    },
+    "security": {
+      "title": "Data Security & Protection",
+      "intro": "Protecting your personal information is a top priority at WowWraps. We implement industry-standard security measures to safeguard your data from unauthorized access, disclosure, alteration, or destruction.",
+      "measures_title": "Our Security Measures",
+      "measures1": "Encryption: All sensitive data, including payment information, is transmitted using SSL/TLS encryption protocols.",
+      "measures2": "Secure Storage: Personal data is stored on secure servers with restricted access and regular security audits.",
+      "measures3": "Access Controls: Only authorized personnel with legitimate business needs can access your information.",
+      "measures4": "Regular Updates: Our systems are regularly updated with the latest security patches and improvements.",
+      "measures5": "Monitoring: Continuous monitoring for suspicious activities and potential security threats.",
+      "breach_title": "Data Breach Protocol",
+      "breach_text": "In the unlikely event of a data breach that affects your personal information, we will notify you within 72 hours and provide details about the incident, the data affected, and steps we're taking to address the situation. We will also inform relevant regulatory authorities as required by law.",
+      "limitation": "While we strive to protect your information, no security system is impenetrable. We cannot guarantee absolute security, but we are committed to maintaining the highest standards of data protection."
+    },
+    "third_party": {
+      "title": "Third-Party Services & Links",
+      "intro": "We work with trusted third-party service providers to deliver our services effectively. These partners help us process payments, analyze website traffic, deliver orders, and provide customer support.",
+      "partners_title": "Our Third-Party Partners",
+      "partners1": "Payment Processors: We use secure payment gateways to process credit card transactions. Your payment information is never stored on our servers.",
+      "partners2": "Delivery Services: Third-party delivery partners may receive your name, address, and phone number to fulfill orders.",
+      "partners3": "Analytics Providers: We use services like Google Analytics to understand how visitors interact with our website.",
+      "partners4": "Email Services: Our email service providers help us send order confirmations and promotional communications.",
+      "partners5": "Social Media Platforms: Social sharing features may transmit information to third-party platforms.",
+      "links_title": "External Links",
+      "links_text": "Our website may contain links to external websites operated by third parties. We are not responsible for the privacy practices or content of these external sites. We encourage you to review the privacy policies of any third-party websites you visit.",
+      "sharing": "We do not sell, rent, or trade your personal information to third parties for their marketing purposes. Information is only shared with partners necessary to provide our services, and they are contractually obligated to protect your data."
+    },
+    "disclaimers": {
+      "title": "Disclaimers & Limitations",
+      "service_title": "Service Availability",
+      "service_text": "While we strive to provide uninterrupted service, WowWraps does not guarantee that our website or services will always be available, error-free, or secure. We reserve the right to modify, suspend, or discontinue any aspect of our services at any time without prior notice.",
+      "accuracy_title": "Information Accuracy",
+      "accuracy_text": "We make every effort to ensure that menu information, pricing, and promotional offers on our website are accurate and up-to-date. However, errors may occasionally occur. We reserve the right to correct any errors, inaccuracies, or omissions and to change or update information at any time without prior notice.",
+      "allergens_title": "Allergen Information & Dietary Restrictions",
+      "allergens_text": "While we provide allergen and nutritional information to the best of our knowledge, our kitchen handles multiple ingredients and cross-contamination may occur. If you have severe allergies or dietary restrictions, please contact us directly before placing an order to discuss your specific needs.",
+      "liability_title": "Limitation of Liability",
+      "liability_text": "To the fullest extent permitted by law, WowWraps shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of our services, even if we have been advised of the possibility of such damages. Our total liability for any claim arising from your use of our services shall not exceed the amount you paid for the specific order or service in question.",
+      "force_title": "Force Majeure",
+      "force_text": "WowWraps shall not be held responsible for any failure or delay in performance due to circumstances beyond our reasonable control, including but not limited to natural disasters, power outages, internet service disruptions, labor disputes, government actions, or public health emergencies."
+    },
+    "changes": {
+      "title": "Changes to This Policy",
+      "p1": "We may update this Privacy Policy and Terms of Service from time to time to reflect changes in our practices, technology, legal requirements, or other factors. When we make significant changes, we will notify you through one or more of the following methods:",
+      "method1": "Displaying a prominent notice on our website homepage",
+      "method2": "Sending an email to the address associated with your account",
+      "method3": "Updating the \"Last Updated\" date at the top of this policy",
+      "p2": "We encourage you to review this policy periodically to stay informed about how we protect your information. Your continued use of our services after any changes indicates your acceptance of the updated policy.",
+      "material": "For material changes that significantly affect your rights or how we use your data, we will seek your explicit consent before the changes take effect."
+    },
+    "contact": {
+      "title": "Contact Us",
+      "intro": "If you have any questions, concerns, or requests regarding this Privacy Policy, your personal information, or our data practices, please don't hesitate to reach out. We're here to help and value your feedback.",
+      "email_label": "Email",
+      "email_note": "For privacy and data-related inquiries",
+      "phone_label": "Phone",
+      "phone_note": "Monday - Friday, 9:00 AM - 5:00 PM EST",
+      "address_label": "Mailing Address",
+      "response": "Response Time: We aim to respond to all privacy-related inquiries within 2-3 business days. For urgent matters, please call us directly."
+    },
+    "cta": {
+      "title": "Questions About Our Policy?",
+      "text": "We're committed to transparency and protecting your privacy. If you need clarification on any aspect of this policy, our team is ready to assist you.",
+      "button": "Contact Support"
+    }
+  },
+  "policy_reservation": {
+    "title": "Policy & Guidelines - WowWraps",
+    "main_title": "Policies & Guidelines",
+    "intro": "Please review the policies below to ensure consistent, clear, and comfortable service at WowWraps.",
+    "highlights": {
+      "booking": {
+        "title": "Booking Hold",
+        "desc": "15-minute flexibility"
+      },
+      "support": {
+        "title": "Support",
+        "desc": "Hotline & at table"
+      },
+      "ingredients": {
+        "title": "Ingredients",
+        "desc": "Fresh & seasonal"
+      }
+    },
+    "commitment": {
+      "title": "Our Commitment",
+      "item1": "Quick reservations",
+      "item2": "Transparent information",
+      "item3": "Safety & taste first"
+    },
+    "hotline": {
+      "title": "Hotline:"
+    },
+    "reservation": {
+      "title": "Table Reservation Policy",
+      "summary": "Stay proactive about your time and space to ensure a smooth meal.",
+      "rule1": "Please reserve at least 2 hours in advance for the best service.",
+      "rule2": "We hold tables for 15 minutes from the booked time; without notice beyond that, the reservation may be adjusted or cancelled.",
+      "rule3": "For groups of 10 or more, contact our hotline for arrangements and a deposit if needed.",
+      "rule4": "For any change in time or party size, please inform us at least 1 hour in advance."
+    },
+    "ordering": {
+      "title": "Ordering Policy",
+      "summary": "Flexible by season and taste, prioritizing safety and transparency.",
+      "rule1": "Menu items may change seasonally to ensure ingredients are always fresh.",
+      "rule2": "If you have special requests (non-spicy, less sugar) or allergies, please tell us when ordering so we can adjust.",
+      "rule3": "Takeaway or delivery orders typically need about 20–30 minutes depending on the number of items.",
+      "rule4": "We cannot handle complaints about dishes after guests leave or more than 30 minutes after receiving delivery orders."
+    },
+    "general": {
+      "title": "General Guidelines",
+      "summary": "Respecting shared spaces ensures a pleasant experience for everyone.",
+      "rule1": "Please do not bring outside food or drinks into the restaurant.",
+      "rule2": "Maintain shared hygiene and avoid noise that disturbs other guests.",
+      "rule3": "We may refuse service to guests who do not follow these guidelines."
     }
   },
   "notifications": {

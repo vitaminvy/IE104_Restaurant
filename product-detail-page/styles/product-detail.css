@@ -210,11 +210,26 @@
   }
 }
 
-/* 2xl (≥1536px): cap the maximum width */
-@media (min-width: 1536px) {
-  .product-detail__container {
-    max-width: 1440px;
+/* 2xl (≥1536px): large screens  */
+@media (min-width: 96rem) {
+  .product-detail__item {
+    font-size: 2rem;
+    margin: 0 6rem;
   }
+
+  .product-detail__item img {
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+
+  .product-detail__list {
+    animation-duration: 32s; /* slower scroll for wide displays */
+  }
+}
+
+/* Add margin-top to the submit button in the review form */
+.review-form .btn[type="submit"] {
+  margin-top: 20px;
 }
 
 /* =====================

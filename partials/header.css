@@ -157,6 +157,8 @@ html[data-theme="light"] .header__nav {
   color: var(--text-secondary);
   text-decoration: none;
   transition: color 0.3s ease;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 .header__nav-link:hover,

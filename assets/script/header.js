@@ -6,6 +6,7 @@ import i18nService from './i18n-service.js';
   let menuInited = false;
   let scrollInited = false;
   let clockStarted = false;
+  let swRegistered = false;
 
   // ----- HELPERS -----
   function q(sel) {
@@ -13,6 +14,21 @@ import i18nService from './i18n-service.js';
   }
   function hasHeader() {
     return !!document.getElementById("header");
+  }
+
+  // ----- REGISTER SERVICE WORKER FOR 404 FALLBACK -----
+  function registerServiceWorker() {
+    if (swRegistered) return;
+    if (!('serviceWorker' in navigator)) return;
+
+    navigator.serviceWorker
+      .register('/sw.js')
+      .then(() => {
+        swRegistered = true;
+      })
+      .catch(() => {
+        swRegistered = true; // Avoid retry loop on unsupported environments
+      });
   }
 
   // ----- TOGGLE MENU -----
@@ -268,11 +284,15 @@ import i18nService from './i18n-service.js';
     startClockIfReady();
     setActiveNavLink();
     setupNavigationLoader();
+    registerServiceWorker();
     // if 3 was ready then  disconnect
     if (menuInited && scrollInited && clockStarted) observer.disconnect();
   });
 
   function boot() {
+    // Always try to register the service worker early
+    registerServiceWorker();
+
     // try init  if header already
     if (hasHeader()) {
       initMenu();
@@ -301,5 +321,6 @@ import i18nService from './i18n-service.js';
     startClockIfReady();
     setActiveNavLink();
     setupNavigationLoader();
+    registerServiceWorker();
   });
 })();

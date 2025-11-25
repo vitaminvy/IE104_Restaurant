@@ -10,7 +10,6 @@
 .policy-hero {
   position: relative;
   padding: clamp(4rem, 8vw, 8rem) 0 clamp(3rem, 6vw, 6rem);
-  border-bottom: 1px solid var(--border-color);
 }
 
 .policy-hero__container {
@@ -66,9 +65,8 @@
   position: relative;
   padding: clamp(3rem, 6vw, 5rem) 0;
   background-color: var(--bg-secondary);
-  border-bottom: 1px solid var(--border-color);    
-  border-bottom-left-radius: 20px;      
-  border-bottom-right-radius: 20px;
+  border: 1px solid var(--border-color);    
+  border-radius: 20px;      
 }
 
 .policy-toc__container {
@@ -599,6 +597,7 @@
     var(--bg-primary) 100%
   );
   border-top: 1px solid var(--border-color);
+  border-radius: 20px;
 }
 
 .policy-cta__container {

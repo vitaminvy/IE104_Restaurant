@@ -14,14 +14,13 @@
   border: 2px solid var(--accent-color);
   position: sticky;
   margin: 0 auto 4rem auto;
-  padding: 1rem 1rem;
+  padding: 1rem 1.5rem;
   z-index: 25; /* below header if header uses higher z-index */
-  display: flex;
-  justify-content: center; /* divide items equally */
-  align-items: center;
-  gap: 6rem;
-  flex-wrap: wrap;
-  row-gap: 0.75rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  justify-items: start;
+  align-items: start;
+  gap: 0.75rem 2rem;
   min-height: 72px;
   width: 100%;
 }
@@ -34,8 +33,9 @@
   font-family: var(--font-heading);
   font-size: 1.5rem;
   min-width: auto;
-  text-align: center;
+  text-align: left;
   align-items: center;
+  width: 100%;
   text-decoration: none;
   transition: all 0.3s;
   position: relative;
@@ -58,7 +58,28 @@
 }
 .menu__filter-item:hover::after,
 .menu__filter-item--active::after {
-  width: 100%;
+  width: 60%;
+}
+
+/* Tablet and up: revert to centered flex layout */
+@media (min-width: 40rem) {
+  .menu__filter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4.5rem;
+    flex-wrap: wrap;
+    row-gap: 0.75rem;
+    padding: 1rem 4.5rem 1rem 1rem; /* leave space for floating cart */
+  }
+  .menu__filter-item {
+    text-align: center;
+    width: auto;
+  }
+  .menu__filter-item:hover::after,
+  .menu__filter-item--active::after {
+    width: 100%;
+  }
 }
 
 /* Title frame (kept if needed by banner/legacy blocks) */
@@ -151,7 +172,7 @@ span.dietary-badge__label {
   flex-direction: column;
   flex-grow: 1;
   justify-content: space-between;
-  padding: 0 0.75rem;
+  padding: 0.85rem 1rem 1.1rem; /* larger tap targets */
 }
 
 .menu__card-title {
@@ -779,6 +800,7 @@ html[data-theme="light"] .menu-banner__stats li {
   }
   .menu__filter {
     gap: 12rem;
+    padding: 1rem 1rem;
   }
   .menu__grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));

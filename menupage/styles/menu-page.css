@@ -663,13 +663,14 @@ span.dietary-badge__label {
   transform: scale(1.1);
 }
 .cart-icon {
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
   filter: brightness(1.1);
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--accent-color);
+  font-size: 26px;
 }
 .fa-cart-shopping {
   width: 100%;

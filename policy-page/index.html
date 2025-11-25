@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="../assets/script/theme-init.js" defer></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-i18n="policy_page.meta.title">Privacy Policy & Terms - WowWraps</title>
+    <meta
+      name="description"
+      content="Learn about WowWraps' privacy policy, terms of service, data handling practices, and user responsibilities. Your privacy and security are our priority."
+    />
+    <link rel="icon" href="../assets/icons/icon-header/nav-vect.svg" type="image/svg+xml" />
+
+    <!-- Font Awesome CDN -->
+    <link
+      rel="preload"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript
+      ><link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    /></noscript>
+
+    <!-- ========== Global Styles (ORDER MATTERS) ========== -->
+    <link rel="stylesheet" href="../style/reset.css" />
+    <link rel="stylesheet" href="../style/style.css" />
+
+    <!-- ========== Partials ========== -->
+    <link rel="stylesheet" href="../partials/header.css" />
+    <link rel="stylesheet" href="../partials/footer.css" />
+
+    <!-- ========== Page-specific Styles ========== -->
+    <link rel="preload" href="./styles/policy-page.css" as="style" onload="this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="./styles/policy-page.css" /></noscript>
+
+    <!-- ========== Global Features ========== -->
+    <link rel="stylesheet" href="../style/animations.css" />
+    <link rel="stylesheet" href="../style/back-to-top.css" />
+
+    <!-- ========== Scripts ========== -->
+    <script src="../assets/script/scroll-animations.js" defer></script>
+    <script src="../assets/script/global-loader.js" defer></script>
+  </head>
+  <body>
+    <!-- ========== Partials Loader ========== -->
+    <script src="../assets/script/include-partials.js" defer></script>
+    <script type="module" src="../assets/script/header.js"></script>
+
+    <!-- ========== 1. HEADER ========== -->
+    <div data-include="/partials/header.html"></div>
+
+    <!-- ========== 2. MAIN CONTENT ========== -->
+    <main class="container">
+      <!-- ========== Hero Section ========== -->
+      <section id="policy-hero" class="policy-hero">
+        <div class="policy-hero__container animate-fade">
+          <h1 class="policy-hero__title" data-i18n="policy_page.hero.title">
+            Privacy Policy & Terms of Service
+          </h1>
+          <p class="policy-hero__subtitle" data-i18n="policy_page.hero.subtitle">
+            Your trust is important to us. Learn how we protect your information and ensure a safe dining experience.
+          </p>
+          <div class="policy-hero__meta">
+            <span class="policy-hero__updated" data-i18n="policy_page.hero.last_updated">
+              Last Updated: November 25, 2025
+            </span>
+            <span class="policy-hero__divider" aria-hidden="true">•</span>
+            <span class="policy-hero__version" data-i18n="policy_page.hero.version">
+              Version 2.1
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== Table of Contents ========== -->
+      <section id="policy-toc" class="policy-toc">
+        <div class="policy-toc__container animate-slide-up">
+          <h2 class="policy-toc__title" data-i18n="policy_page.toc.title">
+            Quick Navigation
+          </h2>
+          <nav class="policy-toc__nav" role="navigation" aria-label="Policy sections navigation">
+            <ul class="policy-toc__list">
+              <li class="policy-toc__item">
+                <a href="#section-introduction" class="policy-toc__link" data-i18n="policy_page.toc.item1">
+                  Introduction & Commitment
+                </a>
+              </li>
+              <li class="policy-toc__item">
+                <a href="#section-information" class="policy-toc__link" data-i18n="policy_page.toc.item2">
+                  Information We Collect
+                </a>
+              </li>
+              <li class="policy-toc__item">
+                <a href="#section-data-usage" class="policy-toc__link" data-i18n="policy_page.toc.item3">
+                  How We Use Your Data
+                </a>
+              </li>
+              <li class="policy-toc__item">
+                <a href="#section-cookies" class="policy-toc__link" data-i18n="policy_page.toc.item4">
+                  Cookies & Tracking
+                </a>
+              </li>
+              <li class="policy-toc__item">
+                <a href="#section-user-rights" class="policy-toc__link" data-i18n="policy_page.toc.item5">
+                  Your Rights & Choices
+                </a>
+              </li>
+              <li class="policy-toc__item">
+                <a href="#section-responsibilities" class="policy-toc__link" data-i18n="policy_page.toc.item6">
+                  User Responsibilities
+                </a>
+              </li>
+              <li class="policy-toc__item">
+                <a href="#section-acceptable-use" class="policy-toc__link" data-i18n="policy_page.toc.item7">
+                  Acceptable Use Policy
+                </a>
+              </li>
+              <li class="policy-toc__item">
+                <a href="#section-security" class="policy-toc__link" data-i18n="policy_page.toc.item8">
+                  Data Security & Protection
+                </a>
+              </li>
+              <li class="policy-toc__item">
+                <a href="#section-third-party" class="policy-toc__link" data-i18n="policy_page.toc.item9">
+                  Third-Party Services
+                </a>
+              </li>
+              <li class="policy-toc__item">
+                <a href="#section-disclaimers" class="policy-toc__link" data-i18n="policy_page.toc.item10">
+                  Disclaimers & Limitations
+                </a>
+              </li>
+              <li class="policy-toc__item">
+                <a href="#section-changes" class="policy-toc__link" data-i18n="policy_page.toc.item11">
+                  Policy Updates
+                </a>
+              </li>
+              <li class="policy-toc__item">
+                <a href="#section-contact" class="policy-toc__link" data-i18n="policy_page.toc.item12">
+                  Contact Us
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </section>
+
+      <!-- ========== Policy Content ========== -->
+      <div class="policy-content">
+        <!-- ========== 1. Introduction ========== -->
+        <section id="section-introduction" class="policy-section animate-on-scroll">
+          <div class="policy-section__header">
+            <span class="policy-section__number" aria-hidden="true">01</span>
+            <h2 class="policy-section__title" data-i18n="policy_page.introduction.title">
+              Introduction & Our Commitment
+            </h2>
+          </div>
+          <div class="policy-section__content">
+            <p data-i18n="policy_page.introduction.p1">
+              Welcome to WowWraps. We are committed to protecting your privacy and ensuring transparency in how we handle your personal information. This policy explains our practices regarding data collection, usage, and protection when you visit our restaurant, use our website, or engage with our services.
+            </p>
+            <p data-i18n="policy_page.introduction.p2">
+              At WowWraps, we believe that exceptional food and service go hand in hand with respect for your privacy. We have designed our data practices to be straightforward, secure, and centered on your needs as our valued customer.
+            </p>
+            <div class="policy-highlight">
+              <p data-i18n="policy_page.introduction.highlight">
+                By using our website or services, you agree to the terms outlined in this policy. If you have any questions or concerns, please don't hesitate to contact us.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ========== 2. Information We Collect ========== -->
+        <section id="section-information" class="policy-section animate-on-scroll">
+          <div class="policy-section__header">
+            <span class="policy-section__number" aria-hidden="true">02</span>
+            <h2 class="policy-section__title" data-i18n="policy_page.information.title">
+              Information We Collect
+            </h2>
+          </div>
+          <div class="policy-section__content">
+            <p data-i18n="policy_page.information.intro">
+              We collect information to provide you with the best possible dining experience and to improve our services. The types of information we gather include:
+            </p>
+
+            <h3 class="policy-subsection__title" data-i18n="policy_page.information.personal_title">
+              Personal Information
+            </h3>
+            <ul class="policy-list">
+              <li class="policy-list__item" data-i18n="policy_page.information.personal1">
+                <strong>Contact Details:</strong> Name, email address, phone number, and delivery address when you make reservations or place orders.
+              </li>
+              <li class="policy-list__item" data-i18n="policy_page.information.personal2">
+                <strong>Account Information:</strong> Username, password, and preferences if you create an account on our platform.
+              </li>
+              <li class="policy-list__item" data-i18n="policy_page.information.personal3">
+                <strong>Payment Information:</strong> Credit card details, billing address, and transaction history processed securely through our payment partners.
+              </li>
+            </ul>
+
+            <h3 class="policy-subsection__title" data-i18n="policy_page.information.automatic_title">
+              Automatically Collected Information
+            </h3>
+            <ul class="policy-list">
+              <li class="policy-list__item" data-i18n="policy_page.information.automatic1">
+                <strong>Device Information:</strong> IP address, browser type, operating system, and device identifiers.
+              </li>
+              <li class="policy-list__item" data-i18n="policy_page.information.automatic2">
+                <strong>Usage Data:</strong> Pages viewed, time spent on our website, menu items browsed, and interaction patterns.
+              </li>
+              <li class="policy-list__item" data-i18n="policy_page.information.automatic3">
+                <strong>Location Data:</strong> Approximate location based on IP address to show relevant restaurant locations and delivery options.
+              </li>
+            </ul>
+
+            <h3 class="policy-subsection__title" data-i18n="policy_page.information.customer_title">
+              Customer Feedback & Interactions
+            </h3>
+            <ul class="policy-list">
+              <li class="policy-list__item" data-i18n="policy_page.information.customer1">
+                Reviews, ratings, and comments you submit about our food and service.
+              </li>
+              <li class="policy-list__item" data-i18n="policy_page.information.customer2">
+                Communications with our customer support team via email, phone, or chat.
+              </li>
+              <li class="policy-list__item" data-i18n="policy_page.information.customer3">
+                Responses to surveys, promotions, or marketing campaigns.
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- ========== 3. How We Use Your Data ========== -->
+        <section id="section-data-usage" class="policy-section animate-on-scroll">
+          <div class="policy-section__header">
+            <span class="policy-section__number" aria-hidden="true">03</span>
+            <h2 class="policy-section__title" data-i18n="policy_page.data_usage.title">
+              How We Use Your Data
+            </h2>
+          </div>
+          <div class="policy-section__content">
+            <p data-i18n="policy_page.data_usage.intro">
+              We use the information we collect to deliver exceptional service and continuously improve your experience. Specifically, we use your data to:
+            </p>
+
+            <div class="policy-cards">
+              <article class="policy-card">
+                <div class="policy-card__icon" aria-hidden="true"><i class="fa-solid fa-cheese" style="color: #fb8f2c;"></i></div>
+                <h3 class="policy-card__title" data-i18n="policy_page.data_usage.card1_title">
+                  Process Orders & Reservations
+                </h3>
+                <p class="policy-card__text" data-i18n="policy_page.data_usage.card1_text">
+                  Fulfill your food orders, confirm table reservations, process payments, and coordinate delivery services.
+                </p>
+              </article>
+
+              <article class="policy-card">
+                <div class="policy-card__icon" aria-hidden="true"><i class="fa-solid fa-comment-dots" style="color: #fb8f2c;"></i></div>
+                <h3 class="policy-card__title" data-i18n="policy_page.data_usage.card2_title">
+                  Communicate With You
+                </h3>
+                <p class="policy-card__text" data-i18n="policy_page.data_usage.card2_text">
+                  Send order confirmations, updates about your reservation, respond to inquiries, and provide customer support.
+                </p>
+              </article>
+
+              <article class="policy-card">
+                <div class="policy-card__icon" aria-hidden="true"><i class="fa-solid fa-star" style="color: #fb8f2c;"></i></div>
+                <h3 class="policy-card__title" data-i18n="policy_page.data_usage.card3_title">
+                  Personalize Your Experience
+                </h3>
+                <p class="policy-card__text" data-i18n="policy_page.data_usage.card3_text">
+                  Remember your preferences, suggest menu items you might enjoy, and customize our website based on your interests.
+                </p>
+              </article>
+
+              <article class="policy-card">
+                <div class="policy-card__icon" aria-hidden="true"><i class="fa-solid fa-chart-line" style="color: #fb8f2c;"></i></div>
+                <h3 class="policy-card__title" data-i18n="policy_page.data_usage.card4_title">
+                  Improve Our Services
+                </h3>
+                <p class="policy-card__text" data-i18n="policy_page.data_usage.card4_text">
+                  Analyze trends, understand customer preferences, develop new menu items, and enhance our overall operations.
+                </p>
+              </article>
+
+              <article class="policy-card">
+                <div class="policy-card__icon" aria-hidden="true"><i class="fa-solid fa-gift" style="color: #fb8f2c;"></i></div>
+                <h3 class="policy-card__title" data-i18n="policy_page.data_usage.card5_title">
+                  Marketing & Promotions
+                </h3>
+                <p class="policy-card__text" data-i18n="policy_page.data_usage.card5_text">
+                  Share special offers, new menu announcements, and exclusive deals with your consent. You can opt out anytime.
+                </p>
+              </article>
+
+              <article class="policy-card">
+                <div class="policy-card__icon" aria-hidden="true"><i class="fa-solid fa-lock" style="color: #fb8f2c;"></i></div>
+                <h3 class="policy-card__title" data-i18n="policy_page.data_usage.card6_title">
+                  Security & Fraud Prevention
+                </h3>
+                <p class="policy-card__text" data-i18n="policy_page.data_usage.card6_text">
+                  Protect against unauthorized access, detect fraudulent activities, and maintain the security of our platform.
+                </p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <!-- ========== 4. Cookies & Tracking ========== -->
+        <section id="section-cookies" class="policy-section animate-on-scroll">
+          <div class="policy-section__header">
+            <span class="policy-section__number" aria-hidden="true">04</span>
+            <h2 class="policy-section__title" data-i18n="policy_page.cookies.title">
+              Cookies & Tracking Technologies
+            </h2>
+          </div>
+          <div class="policy-section__content">
+            <p data-i18n="policy_page.cookies.intro">
+              We use cookies and similar tracking technologies to enhance your browsing experience and understand how you interact with our website. Cookies are small text files stored on your device that help us remember your preferences and improve our services.
+            </p>
+
+            <h3 class="policy-subsection__title" data-i18n="policy_page.cookies.types_title">
+              Types of Cookies We Use
+            </h3>
+
+            <div class="policy-table-container">
+              <table class="policy-table">
+                <thead>
+                  <tr>
+                    <th data-i18n="policy_page.cookies.table_type">Cookie Type</th>
+                    <th data-i18n="policy_page.cookies.table_purpose">Purpose</th>
+                    <th data-i18n="policy_page.cookies.table_duration">Duration</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td data-i18n="policy_page.cookies.essential">Essential Cookies</td>
+                    <td data-i18n="policy_page.cookies.essential_desc">
+                      Required for basic website functionality, security, and navigation. Cannot be disabled.
+                    </td>
+                    <td data-i18n="policy_page.cookies.essential_time">Session</td>
+                  </tr>
+                  <tr>
+                    <td data-i18n="policy_page.cookies.functional">Functional Cookies</td>
+                    <td data-i18n="policy_page.cookies.functional_desc">
+                      Remember your preferences like language, theme, and location for a personalized experience.
+                    </td>
+                    <td data-i18n="policy_page.cookies.functional_time">1 Year</td>
+                  </tr>
+                  <tr>
+                    <td data-i18n="policy_page.cookies.analytics">Analytics Cookies</td>
+                    <td data-i18n="policy_page.cookies.analytics_desc">
+                      Help us understand how visitors use our website, which pages are popular, and where improvements are needed.
+                    </td>
+                    <td data-i18n="policy_page.cookies.analytics_time">2 Years</td>
+                  </tr>
+                  <tr>
+                    <td data-i18n="policy_page.cookies.marketing">Marketing Cookies</td>
+                    <td data-i18n="policy_page.cookies.marketing_desc">
+                      Track your visit across our website to deliver relevant advertisements and measure campaign effectiveness.
+                    </td>
+                    <td data-i18n="policy_page.cookies.marketing_time">90 Days</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h3 class="policy-subsection__title" data-i18n="policy_page.cookies.control_title">
+              Managing Your Cookie Preferences
+            </h3>
+            <p data-i18n="policy_page.cookies.control_text">
+              You can control and manage cookies through your browser settings. However, disabling certain cookies may affect your ability to use some features of our website. Most browsers allow you to refuse cookies, delete existing cookies, or alert you when new cookies are being sent.
+            </p>
+          </div>
+        </section>
+
+        <!-- ========== 5. Your Rights & Choices ========== -->
+        <section id="section-user-rights" class="policy-section animate-on-scroll">
+          <div class="policy-section__header">
+            <span class="policy-section__number" aria-hidden="true">05</span>
+            <h2 class="policy-section__title" data-i18n="policy_page.user_rights.title">
+              Your Rights & Choices
+            </h2>
+          </div>
+          <div class="policy-section__content">
+            <p data-i18n="policy_page.user_rights.intro">
+              We respect your right to control your personal information. You have the following rights regarding the data we collect and process:
+            </p>
+
+            <ul class="policy-rights-list">
+              <li class="policy-rights-list__item">
+                <div class="policy-rights-list__icon" aria-hidden="true"><i class="fa-solid fa-eye" style="color: #fb8f2c;"></i></div>
+                <div class="policy-rights-list__content">
+                  <h3 class="policy-rights-list__title" data-i18n="policy_page.user_rights.access_title">
+                    Right to Access
+                  </h3>
+                  <p data-i18n="policy_page.user_rights.access_text">
+                    Request a copy of the personal information we hold about you, including details about how we use it and who we share it with.
+                  </p>
+                </div>
+              </li>
+              <li class="policy-rights-list__item">
+                <div class="policy-rights-list__icon" aria-hidden="true"><i class="fa-solid fa-pencil" style="color: #fb8f2c;"></i></div>
+                <div class="policy-rights-list__content">
+                  <h3 class="policy-rights-list__title" data-i18n="policy_page.user_rights.correction_title">
+                    Right to Correction
+                  </h3>
+                  <p data-i18n="policy_page.user_rights.correction_text">
+                    Update or correct any inaccurate or incomplete information we have about you at any time.
+                  </p>
+                </div>
+              </li>
+              <li class="policy-rights-list__item">
+                <div class="policy-rights-list__icon" aria-hidden="true"><i class="fa-solid fa-trash-can" style="color: #fb8f2c;"></i></div>
+                <div class="policy-rights-list__content">
+                  <h3 class="policy-rights-list__title" data-i18n="policy_page.user_rights.deletion_title">
+                    Right to Deletion
+                  </h3>
+                  <p data-i18n="policy_page.user_rights.deletion_text">
+                    Request that we delete your personal information, subject to certain legal exceptions and business requirements.
+                  </p>
+                </div>
+              </li>
+              <li class="policy-rights-list__item">
+                <div class="policy-rights-list__icon" aria-hidden="true"><i class="fa-solid fa-circle-xmark" style="color: #fb8f2c;"></i></div>
+                <div class="policy-rights-list__content">
+                  <h3 class="policy-rights-list__title" data-i18n="policy_page.user_rights.objection_title">
+                    Right to Object
+                  </h3>
+                  <p data-i18n="policy_page.user_rights.objection_text">
+                    Object to certain types of data processing, including marketing communications and automated decision-making.
+                  </p>
+                </div>
+              </li>
+              <li class="policy-rights-list__item">
+                <div class="policy-rights-list__icon" aria-hidden="true"><i class="fa-solid fa-box-open" style="color: #fb8f2c;"></i></div>
+                <div class="policy-rights-list__content">
+                  <h3 class="policy-rights-list__title" data-i18n="policy_page.user_rights.portability_title">
+                    Right to Data Portability
+                  </h3>
+                  <p data-i18n="policy_page.user_rights.portability_text">
+                    Receive your personal data in a structured, commonly used format and transfer it to another service provider.
+                  </p>
+                </div>
+              </li>
+              <li class="policy-rights-list__item">
+                <div class="policy-rights-list__icon" aria-hidden="true"><i class="fa-solid fa-envelope" style="color: #fb8f2c;"></i></div>
+                <div class="policy-rights-list__content">
+                  <h3 class="policy-rights-list__title" data-i18n="policy_page.user_rights.opt_out_title">
+                    Right to Opt-Out
+                  </h3>
+                  <p data-i18n="policy_page.user_rights.opt_out_text">
+                    Unsubscribe from marketing emails, newsletters, and promotional communications at any time using the unsubscribe link.
+                  </p>
+                </div>
+              </li>
+            </ul>
+
+            <div class="policy-highlight">
+              <p data-i18n="policy_page.user_rights.exercise">
+                To exercise any of these rights, please contact us using the information provided at the end of this policy. We will respond to your request within 30 days.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ========== 6. User Responsibilities ========== -->
+        <section id="section-responsibilities" class="policy-section animate-on-scroll">
+          <div class="policy-section__header">
+            <span class="policy-section__number" aria-hidden="true">06</span>
+            <h2 class="policy-section__title" data-i18n="policy_page.responsibilities.title">
+              User Responsibilities
+            </h2>
+          </div>
+          <div class="policy-section__content">
+            <p data-i18n="policy_page.responsibilities.intro">
+              When using our website and services, we ask that you maintain certain standards of conduct to ensure a positive experience for all customers. As a user, you agree to:
+            </p>
+
+            <h3 class="policy-subsection__title" data-i18n="policy_page.responsibilities.account_title">
+              Account Security
+            </h3>
+            <ul class="policy-list">
+              <li class="policy-list__item" data-i18n="policy_page.responsibilities.account1">
+                Maintain the confidentiality of your account credentials and notify us immediately of any unauthorized access.
+              </li>
+              <li class="policy-list__item" data-i18n="policy_page.responsibilities.account2">
+                Ensure all information provided during registration and checkout is accurate, current, and complete.
+              </li>
+              <li class="policy-list__item" data-i18n="policy_page.responsibilities.account3">
+                Take responsibility for all activities that occur under your account.
+              </li>
+            </ul>
+
+            <h3 class="policy-subsection__title" data-i18n="policy_page.responsibilities.lawful_title">
+              Lawful Use
+            </h3>
+            <ul class="policy-list">
+              <li class="policy-list__item" data-i18n="policy_page.responsibilities.lawful1">
+                Use our services only for lawful purposes and in accordance with these terms.
+              </li>
+              <li class="policy-list__item" data-i18n="policy_page.responsibilities.lawful2">
+                Not engage in any activity that could harm, disable, or impair our website or services.
+              </li>
+              <li class="policy-list__item" data-i18n="policy_page.responsibilities.lawful3">
+                Respect the intellectual property rights of WowWraps and third parties.
+              </li>
+            </ul>
+
+            <h3 class="policy-subsection__title" data-i18n="policy_page.responsibilities.reviews_title">
+              Reviews & Feedback
+            </h3>
+            <ul class="policy-list">
+              <li class="policy-list__item" data-i18n="policy_page.responsibilities.reviews1">
+                Provide honest, constructive feedback based on your genuine experience.
+              </li>
+              <li class="policy-list__item" data-i18n="policy_page.responsibilities.reviews2">
+                Avoid posting offensive, defamatory, or inappropriate content in reviews.
+              </li>
+              <li class="policy-list__item" data-i18n="policy_page.responsibilities.reviews3">
+                Understand that we reserve the right to remove reviews that violate our guidelines.
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- ========== 7. Acceptable Use Policy ========== -->
+        <section id="section-acceptable-use" class="policy-section animate-on-scroll">
+          <div class="policy-section__header">
+            <span class="policy-section__number" aria-hidden="true">07</span>
+            <h2 class="policy-section__title" data-i18n="policy_page.acceptable_use.title">
+              Acceptable Use Policy
+            </h2>
+          </div>
+          <div class="policy-section__content">
+            <p data-i18n="policy_page.acceptable_use.intro">
+              To maintain a safe and enjoyable environment for all users, the following activities are strictly prohibited:
+            </p>
+
+            <div class="policy-prohibited">
+              <h3 class="policy-subsection__title" data-i18n="policy_page.acceptable_use.prohibited_title">
+                Prohibited Activities
+              </h3>
+              <div class="policy-prohibited__grid">
+                <div class="policy-prohibited__item">
+                  <div class="policy-prohibited__icon" aria-hidden="true"><i class="fa-solid fa-triangle-exclamation" style="color: #fb8f2c;"></i></div>
+                  <h4 data-i18n="policy_page.acceptable_use.fraud_title">Fraud & Abuse</h4>
+                  <p data-i18n="policy_page.acceptable_use.fraud_text">
+                    Fraudulent orders, payment disputes made in bad faith, or abuse of promotional offers.
+                  </p>
+                </div>
+                <div class="policy-prohibited__item">
+                  <div class="policy-prohibited__icon" aria-hidden="true"><i class="fa-solid fa-bell" style="color: #fb8f2c;"></i></div>
+                  <h4 data-i18n="policy_page.acceptable_use.harassment_title">Harassment</h4>
+                  <p data-i18n="policy_page.acceptable_use.harassment_text">
+                    Harassing, threatening, or abusive behavior toward staff, delivery personnel, or other customers.
+                  </p>
+                </div>
+                <div class="policy-prohibited__item">
+                  <div class="policy-prohibited__icon" aria-hidden="true"><i class="fa-solid fa-robot" style="color: #fb8f2c;"></i></div>
+                  <h4 data-i18n="policy_page.acceptable_use.automated_title">Automated Access</h4>
+                  <p data-i18n="policy_page.acceptable_use.automated_text">
+                    Use of bots, scrapers, or automated tools to access or extract data from our website.
+                  </p>
+                </div>
+                <div class="policy-prohibited__item">
+                  <div class="policy-prohibited__icon" aria-hidden="true"><i class="fa-solid fa-virus" style="color: #fb8f2c;"></i></div>
+                  <h4 data-i18n="policy_page.acceptable_use.malware_title">Malicious Software</h4>
+                  <p data-i18n="policy_page.acceptable_use.malware_text">
+                    Distributing viruses, malware, or any code designed to harm or exploit our systems.
+                  </p>
+                </div>
+                <div class="policy-prohibited__item">
+                  <div class="policy-prohibited__icon" aria-hidden="true"><i class="fa-brands fa-affiliatetheme" style="color: #fb8f2c;"></i></div>
+                  <h4 data-i18n="policy_page.acceptable_use.impersonation_title">Impersonation</h4>
+                  <p data-i18n="policy_page.acceptable_use.impersonation_text">
+                    Impersonating WowWraps staff, other users, or misrepresenting your affiliation.
+                  </p>
+                </div>
+                <div class="policy-prohibited__item">
+                  <div class="policy-prohibited__icon" aria-hidden="true"><i class="fa-solid fa-square-envelope" style="color: #fb8f2c;"></i></div>
+                  <h4 data-i18n="policy_page.acceptable_use.spam_title">Spam & Solicitation</h4>
+                  <p data-i18n="policy_page.acceptable_use.spam_text">
+                    Sending unsolicited messages, spam, or commercial communications through our platform.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="policy-highlight policy-highlight--warning">
+              <p data-i18n="policy_page.acceptable_use.violation">
+                Violation of this Acceptable Use Policy may result in immediate suspension or termination of your account, and we may report illegal activities to appropriate authorities.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ========== 8. Data Security & Protection ========== -->
+        <section id="section-security" class="policy-section animate-on-scroll">
+          <div class="policy-section__header">
+            <span class="policy-section__number" aria-hidden="true">08</span>
+            <h2 class="policy-section__title" data-i18n="policy_page.security.title">
+              Data Security & Protection
+            </h2>
+          </div>
+          <div class="policy-section__content">
+            <p data-i18n="policy_page.security.intro">
+              Protecting your personal information is a top priority at WowWraps. We implement industry-standard security measures to safeguard your data from unauthorized access, disclosure, alteration, or destruction.
+            </p>
+
+            <h3 class="policy-subsection__title" data-i18n="policy_page.security.measures_title">
+              Our Security Measures
+            </h3>
+            <ul class="policy-list">
+              <li class="policy-list__item" data-i18n="policy_page.security.measures1">
+                <strong>Encryption:</strong> All sensitive data, including payment information, is transmitted using SSL/TLS encryption protocols.
+              </li>
+              <li class="policy-list__item" data-i18n="policy_page.security.measures2">
+                <strong>Secure Storage:</strong> Personal data is stored on secure servers with restricted access and regular security audits.
+              </li>
+              <li class="policy-list__item" data-i18n="policy_page.security.measures3">
+                <strong>Access Controls:</strong> Only authorized personnel with legitimate business needs can access your information.
+              </li>
+              <li class="policy-list__item" data-i18n="policy_page.security.measures4">
+                <strong>Regular Updates:</strong> Our systems are regularly updated with the latest security patches and improvements.
+              </li>
+              <li class="policy-list__item" data-i18n="policy_page.security.measures5">
+                <strong>Monitoring:</strong> Continuous monitoring for suspicious activities and potential security threats.
+              </li>
+            </ul>
+
+            <h3 class="policy-subsection__title" data-i18n="policy_page.security.breach_title">
+              Data Breach Protocol
+            </h3>
+            <p data-i18n="policy_page.security.breach_text">
+              In the unlikely event of a data breach that affects your personal information, we will notify you within 72 hours and provide details about the incident, the data affected, and steps we're taking to address the situation. We will also inform relevant regulatory authorities as required by law.
+            </p>
+
+            <div class="policy-highlight">
+              <p data-i18n="policy_page.security.limitation">
+                While we strive to protect your information, no security system is impenetrable. We cannot guarantee absolute security, but we are committed to maintaining the highest standards of data protection.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ========== 9. Third-Party Services ========== -->
+        <section id="section-third-party" class="policy-section animate-on-scroll">
+          <div class="policy-section__header">
+            <span class="policy-section__number" aria-hidden="true">09</span>
+            <h2 class="policy-section__title" data-i18n="policy_page.third_party.title">
+              Third-Party Services & Links
+            </h2>
+          </div>
+          <div class="policy-section__content">
+            <p data-i18n="policy_page.third_party.intro">
+              We work with trusted third-party service providers to deliver our services effectively. These partners help us process payments, analyze website traffic, deliver orders, and provide customer support.
+            </p>
+
+            <h3 class="policy-subsection__title" data-i18n="policy_page.third_party.partners_title">
+              Our Third-Party Partners
+            </h3>
+            <ul class="policy-list">
+              <li class="policy-list__item" data-i18n="policy_page.third_party.partners1">
+                <strong>Payment Processors:</strong> We use secure payment gateways to process credit card transactions. Your payment information is never stored on our servers.
+              </li>
+              <li class="policy-list__item" data-i18n="policy_page.third_party.partners2">
+                <strong>Delivery Services:</strong> Third-party delivery partners may receive your name, address, and phone number to fulfill orders.
+              </li>
+              <li class="policy-list__item" data-i18n="policy_page.third_party.partners3">
+                <strong>Analytics Providers:</strong> We use services like Google Analytics to understand how visitors interact with our website.
+              </li>
+              <li class="policy-list__item" data-i18n="policy_page.third_party.partners4">
+                <strong>Email Services:</strong> Our email service providers help us send order confirmations and promotional communications.
+              </li>
+              <li class="policy-list__item" data-i18n="policy_page.third_party.partners5">
+                <strong>Social Media Platforms:</strong> Social sharing features may transmit information to third-party platforms.
+              </li>
+            </ul>
+
+            <h3 class="policy-subsection__title" data-i18n="policy_page.third_party.links_title">
+              External Links
+            </h3>
+            <p data-i18n="policy_page.third_party.links_text">
+              Our website may contain links to external websites operated by third parties. We are not responsible for the privacy practices or content of these external sites. We encourage you to review the privacy policies of any third-party websites you visit.
+            </p>
+
+            <div class="policy-highlight">
+              <p data-i18n="policy_page.third_party.sharing">
+                We do not sell, rent, or trade your personal information to third parties for their marketing purposes. Information is only shared with partners necessary to provide our services, and they are contractually obligated to protect your data.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ========== 10. Disclaimers & Limitations ========== -->
+        <section id="section-disclaimers" class="policy-section animate-on-scroll">
+          <div class="policy-section__header">
+            <span class="policy-section__number" aria-hidden="true">10</span>
+            <h2 class="policy-section__title" data-i18n="policy_page.disclaimers.title">
+              Disclaimers & Limitations
+            </h2>
+          </div>
+          <div class="policy-section__content">
+            <h3 class="policy-subsection__title" data-i18n="policy_page.disclaimers.service_title">
+              Service Availability
+            </h3>
+            <p data-i18n="policy_page.disclaimers.service_text">
+              While we strive to provide uninterrupted service, WowWraps does not guarantee that our website or services will always be available, error-free, or secure. We reserve the right to modify, suspend, or discontinue any aspect of our services at any time without prior notice.
+            </p>
+
+            <h3 class="policy-subsection__title" data-i18n="policy_page.disclaimers.accuracy_title">
+              Information Accuracy
+            </h3>
+            <p data-i18n="policy_page.disclaimers.accuracy_text">
+              We make every effort to ensure that menu information, pricing, and promotional offers on our website are accurate and up-to-date. However, errors may occasionally occur. We reserve the right to correct any errors, inaccuracies, or omissions and to change or update information at any time without prior notice.
+            </p>
+
+            <h3 class="policy-subsection__title" data-i18n="policy_page.disclaimers.allergens_title">
+              Allergen Information & Dietary Restrictions
+            </h3>
+            <p data-i18n="policy_page.disclaimers.allergens_text">
+              While we provide allergen and nutritional information to the best of our knowledge, our kitchen handles multiple ingredients and cross-contamination may occur. If you have severe allergies or dietary restrictions, please contact us directly before placing an order to discuss your specific needs.
+            </p>
+
+            <h3 class="policy-subsection__title" data-i18n="policy_page.disclaimers.liability_title">
+              Limitation of Liability
+            </h3>
+            <p data-i18n="policy_page.disclaimers.liability_text">
+              To the fullest extent permitted by law, WowWraps shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of our services, even if we have been advised of the possibility of such damages. Our total liability for any claim arising from your use of our services shall not exceed the amount you paid for the specific order or service in question.
+            </p>
+
+            <h3 class="policy-subsection__title" data-i18n="policy_page.disclaimers.force_title">
+              Force Majeure
+            </h3>
+            <p data-i18n="policy_page.disclaimers.force_text">
+              WowWraps shall not be held responsible for any failure or delay in performance due to circumstances beyond our reasonable control, including but not limited to natural disasters, power outages, internet service disruptions, labor disputes, government actions, or public health emergencies.
+            </p>
+          </div>
+        </section>
+
+        <!-- ========== 11. Policy Updates ========== -->
+        <section id="section-changes" class="policy-section animate-on-scroll">
+          <div class="policy-section__header">
+            <span class="policy-section__number" aria-hidden="true">11</span>
+            <h2 class="policy-section__title" data-i18n="policy_page.changes.title">
+              Changes to This Policy
+            </h2>
+          </div>
+          <div class="policy-section__content">
+            <p data-i18n="policy_page.changes.p1">
+              We may update this Privacy Policy and Terms of Service from time to time to reflect changes in our practices, technology, legal requirements, or other factors. When we make significant changes, we will notify you through one or more of the following methods:
+            </p>
+
+            <ul class="policy-list">
+              <li class="policy-list__item" data-i18n="policy_page.changes.method1">
+                Displaying a prominent notice on our website homepage
+              </li>
+              <li class="policy-list__item" data-i18n="policy_page.changes.method2">
+                Sending an email to the address associated with your account
+              </li>
+              <li class="policy-list__item" data-i18n="policy_page.changes.method3">
+                Updating the "Last Updated" date at the top of this policy
+              </li>
+            </ul>
+
+            <p data-i18n="policy_page.changes.p2">
+              We encourage you to review this policy periodically to stay informed about how we protect your information. Your continued use of our services after any changes indicates your acceptance of the updated policy.
+            </p>
+
+            <div class="policy-highlight">
+              <p data-i18n="policy_page.changes.material">
+                For material changes that significantly affect your rights or how we use your data, we will seek your explicit consent before the changes take effect.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ========== 12. Contact Us ========== -->
+        <section id="section-contact" class="policy-section policy-section--last animate-on-scroll">
+          <div class="policy-section__header">
+            <span class="policy-section__number" aria-hidden="true">12</span>
+            <h2 class="policy-section__title" data-i18n="policy_page.contact.title">
+              Contact Us
+            </h2>
+          </div>
+          <div class="policy-section__content">
+            <p data-i18n="policy_page.contact.intro">
+              If you have any questions, concerns, or requests regarding this Privacy Policy, your personal information, or our data practices, please don't hesitate to reach out. We're here to help and value your feedback.
+            </p>
+
+            <div class="policy-contact">
+              <div class="policy-contact__item">
+                <div class="policy-contact__icon" aria-hidden="true"><i class="fa-solid fa-square-envelope" style="color: #fb8f2c;"></i></div>
+                <div class="policy-contact__content">
+                  <h3 class="policy-contact__label" data-i18n="policy_page.contact.email_label">Email</h3>
+                  <p class="policy-contact__value">
+                    <a href="mailto:privacy@wowwraps.com">privacy@wowwraps.com</a>
+                  </p>
+                  <p class="policy-contact__note" data-i18n="policy_page.contact.email_note">
+                    For privacy and data-related inquiries
+                  </p>
+                </div>
+              </div>
+
+              <div class="policy-contact__item">
+                <div class="policy-contact__icon" aria-hidden="true"><i class="fa-solid fa-phone" style="color: #fb8f2c;"></i></div>
+                <div class="policy-contact__content">
+                  <h3 class="policy-contact__label" data-i18n="policy_page.contact.phone_label">Phone</h3>
+                  <p class="policy-contact__value">
+                    <a href="tel:+18005551234">+1 (800) 555-1234</a>
+                  </p>
+                  <p class="policy-contact__note" data-i18n="policy_page.contact.phone_note">
+                    Monday - Friday, 9:00 AM - 5:00 PM EST
+                  </p>
+                </div>
+              </div>
+
+              <div class="policy-contact__item">
+                <div class="policy-contact__icon" aria-hidden="true"><i class="fa-solid fa-location-arrow" style="color: #fb8f2c;"></i></div>
+                <div class="policy-contact__content">
+                  <h3 class="policy-contact__label" data-i18n="policy_page.contact.address_label">Mailing Address</h3>
+                  <address class="policy-contact__value">
+                    WowWraps Privacy Team<br />
+                    123 Restaurant Boulevard<br />
+                    Burlington, VT 05401<br />
+                    United States
+                  </address>
+                </div>
+              </div>
+            </div>
+
+            <div class="policy-response-time">
+              <p data-i18n="policy_page.contact.response">
+                <strong>Response Time:</strong> We aim to respond to all privacy-related inquiries within 2-3 business days. For urgent matters, please call us directly.
+              </p>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- ========== Call to Action ========== -->
+      <section id="policy-cta" class="policy-cta animate-fade">
+        <div class="policy-cta__container">
+          <h2 class="policy-cta__title" data-i18n="policy_page.cta.title">
+            Questions About Our Policy?
+          </h2>
+          <p class="policy-cta__text" data-i18n="policy_page.cta.text">
+            We're committed to transparency and protecting your privacy. If you need clarification on any aspect of this policy, our team is ready to assist you.
+          </p>
+          <a href="../contact-us-page/index.html" class="btn" data-i18n="policy_page.cta.button">
+            Contact Support
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <!-- ========== 3. FOOTER ========== -->
+    <div data-include="/partials/footer.html"></div>
+
+    <!-- ========== Back to Top ========== -->
+    <div data-include="../partials/back-to-top.html"></div>
+    <script src="../assets/script/back-to-top.js" defer></script>
+
+    <!-- ========== Page Scripts ========== -->
+    <script type="module" src="../assets/script/header-features.js"></script>
+  </body>
+</html>

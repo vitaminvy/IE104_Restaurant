@@ -15,6 +15,7 @@
   border-radius: 18px;
   background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(4px);
+  font-family: var(--font-body);
 }
 
 .blog-filters__label {
@@ -54,6 +55,7 @@
   background: transparent;
   padding: 0.35rem 0.9rem;
   font-size: 0.9rem;
+  font-family: var(--font-body);
   color: var(--color-white);
   cursor: pointer;
   transition: border-color 0.25s ease, color 0.25s ease,
@@ -80,6 +82,8 @@
   background: rgba(255, 255, 255, 0.05);
   color: var(--color-white);
   font-size: 0.95rem;
+  font-family: var(--font-body);
+  font-weight: 500;
 }
 
 .blog-filters__select:focus {
@@ -97,6 +101,8 @@
   color: var(--color-white-80);
   padding: 0.4rem 0.9rem;
   border-radius: 10px;
+  font-family: var(--font-body);
+  font-weight: 600;
   cursor: pointer;
   transition: border-color 0.2s ease, color 0.2s ease;
   white-space: nowrap;
@@ -188,6 +194,7 @@
 
 .timeline-entry__date {
   font-size: 1rem;
+  font-family: var(--font-heading);
   padding-top: 10px;
   color: var(--color-white-60, rgba(255, 255, 255, 0.6));
 }
@@ -241,6 +248,7 @@
   flex-wrap: wrap;
   gap: 0.5rem;
   margin-bottom: 1.25rem;
+  font-family: var(--font-body);
 }
 
 .timeline-entry__tag {
@@ -303,6 +311,7 @@
   border-radius: 999px;
   border: 1px solid rgba(251, 143, 44, 0.4);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  font-family: var(--font-body);
 }
 
 .timeline-footer__btn:disabled {

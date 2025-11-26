@@ -466,7 +466,7 @@ document.head.appendChild(style);
     badge.style.cssText = `
       position: absolute;
       top: 8px;
-      right: 8px;
+      left: 8px;
       width: 32px;
       height: 32px;
       background: #dc2626;

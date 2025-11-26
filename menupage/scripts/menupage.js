@@ -59,6 +59,104 @@ import i18nService from "../../assets/script/i18n-service.js";
     }
   }
 
+  /* ========================================
+   * ALLERGEN WARNING BADGE FUNCTIONS
+   * ======================================== */
+
+  function getUserAllergens() {
+    try {
+      const stored = localStorage.getItem('userAllergens');
+      return stored ? JSON.parse(stored) : [];
+    } catch (e) {
+      return [];
+    }
+  }
+
+  function checkMenuCardsForAllergens() {
+    const userAllergens = getUserAllergens();
+    if (userAllergens.length === 0) return;
+
+    const menuCards = container.querySelectorAll('.menu__card');
+
+    menuCards.forEach(card => {
+      const itemId = card.getAttribute('data-item-id');
+      if (!itemId) return;
+
+      const item = menuItems.find(i => i.id === parseInt(itemId));
+
+      if (!item || !item.allergens || item.allergens.length === 0) {
+        removeWarningBadgeFromCard(card);
+        return;
+      }
+
+      const conflicts = item.allergens.filter(allergen =>
+        userAllergens.includes(allergen)
+      );
+
+      if (conflicts.length > 0) {
+        addWarningBadgeToCard(card, conflicts);
+      } else {
+        removeWarningBadgeFromCard(card);
+      }
+    });
+  }
+
+  function addWarningBadgeToCard(card, conflicts) {
+    if (card.querySelector('.allergy-warning-badge')) {
+      return;
+    }
+
+    const badge = document.createElement('div');
+    badge.className = 'allergy-warning-badge';
+
+    const allergenNames = conflicts.map(key => {
+      const translation = i18nService.t(`allergens.${key}.name`);
+      return translation || key;
+    }).join(', ');
+
+    const tooltipText = i18nService.t("allergy_settings.badge_tooltip") || "Contains: {allergens}";
+    badge.setAttribute('title', tooltipText.replace('{allergens}', allergenNames));
+
+    const badgeIcon = document.createElement('img');
+    badgeIcon.src = '../assets/icons/features/warning-sign.png';
+    badgeIcon.alt = 'Warning';
+    badgeIcon.style.width = '16px';
+    badgeIcon.style.height = '16px';
+    badge.appendChild(badgeIcon);
+
+    badge.style.cssText = `
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      width: 32px;
+      height: 32px;
+      background: #dc2626;
+      color: white;
+      border: 2px solid var(--border-color);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      box-shadow: 0 2px 8px rgba(220, 38, 38, 0.5);
+      animation: pulse 2.5s ease-in-out infinite;
+      backdrop-filter: blur(10px);
+      cursor: help;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 30px rgba(239, 68, 68, 0.2);
+    `;
+
+    card.style.position = 'relative';
+    card.appendChild(badge);
+  }
+
+  function removeWarningBadgeFromCard(card) {
+    const badge = card.querySelector('.allergy-warning-badge');
+    if (badge) {
+      badge.remove();
+    }
+  }
+
   const cardTemplate = (item) => {
     const title = i18nService.t(item.title);
     const desc = i18nService.t(item.desc);
@@ -174,11 +272,15 @@ import i18nService from "../../assets/script/i18n-service.js";
 
     // Setup cart icon handlers
     setupCartIconHandlers();
+
+    // Check for allergen warnings
+    checkMenuCardsForAllergens();
   }
 
   // Expose render function for dietary filter extension to use
   window.menuPageRender = render;
   window.menuPageCardTemplate = cardTemplate;
+  window.menuItems = menuItems;
 
   // Setup Order Now button click handlers
   function setupOrderButtonHandlers() {

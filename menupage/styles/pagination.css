@@ -4,9 +4,9 @@
 .pagination {
   /* Box model */
   display: flex;
-  justify-content: space-between; /* prev/next on edges, page numbers centered */
+  justify-content: center; /* keep controls grouped instead of at the edges */
   align-items: center;
-  gap: 20px;
+  gap: 14px;
   width: 100%; /* ensure full width to avoid 50% constraint */
   max-width: 1536px; /* constrain grid like e-commerce page */
   margin: 0 auto; /* center grid */
@@ -46,7 +46,7 @@
   /* Box model */
   display: flex;
   gap: 12px; 
-  flex: 1; /* occupy all space between prev and next */
+  flex: 0; /* avoid stretching so prev/next sit closer */
 
   /* Alignment */
   justify-content: center; /* always center page numbers */
@@ -116,5 +116,4 @@
     padding: 0 2rem 2rem 2rem;
   }
 }
-
 

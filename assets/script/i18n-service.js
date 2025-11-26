@@ -5,7 +5,7 @@ const i18nService = (() => {
 
   async function loadTranslations(lang) {
     try {
-      const response = await fetch(`../assets/lang/${lang}.json`);
+      const response = await fetch(`/assets/lang/${lang}.json`);
       if (!response.ok) {
         throw new Error(`Failed to load ${lang}.json`);
       }

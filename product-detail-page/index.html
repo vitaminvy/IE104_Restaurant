@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <script src="../assets/script/theme-init.js"></script>
+    <script src="../assets/script/base-assets.js"></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -19,15 +20,6 @@
       type="image/svg+xml"
     />
 
-    <link rel="stylesheet" href="../style/reset.css" />
-    <link rel="stylesheet" href="../style/style.css" />
-
-    <!-- header section -->
-    <link rel="stylesheet" href="../partials/header.css" />
-    <!-- footer section-->
-    <link rel="stylesheet" href="../partials/footer.css" />
-    <!-- menu section-->
-
     <!-- product detail section css -->
     <link rel="stylesheet" href="./styles/product-detail.css" />
     <!-- product detail tab css -->
@@ -40,34 +32,14 @@
       rel="stylesheet"
     />
 
-    <!-- Global Animation System -->
-    <link rel="stylesheet" href="../style/animations.css" />
-
-    <!-- Global Loading System -->
-    <script src="../assets/script/global-loader.js" defer></script>
-    <script src="../assets/script/scroll-animations.js"></script>
-
     <!-- Dynamic product loader - NEW FEATURE -->
     <script type="module" src="./scripts/product-dynamic-loader.js"></script>
 
     <script src="./scripts/product-add.js" defer></script>
 
-    <!-- Global Features Stylesheets -->
-    <link rel="stylesheet" href="../assets/features/allergy-alert.css" />
-    <link rel="stylesheet" href="../style/back-to-top.css" />
-
-    <!-- Font Awesome CDN -->
-    <script
-      src="https://kit.fontawesome.com/eef96f1e29.js"
-      crossorigin="anonymous"
-    ></script>
   </head>
 
   <body>
-    <!-- logic for header and footer -->
-    <script src="../assets/script/include-partials.js" defer></script>
-    <script type="module" src="../assets/script/header.js"></script>
-
     <!-- ========== HEADER ========== -->
     <div data-include="/partials/header.html"></div>
 
@@ -470,8 +442,6 @@
     ======================================== -->
     <script type="module" src="../assets/features/allergy-alert.js"></script>
 
-    <script type="module" src="../assets/script/header-features.js"></script>
     <div data-include="../partials/back-to-top.html"></div>
-    <script src="../assets/script/back-to-top.js" defer></script>
   </body>
 </html>

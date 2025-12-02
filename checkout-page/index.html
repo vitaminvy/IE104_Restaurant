@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <script src="../assets/script/theme-init.js"></script>
+    <script src="../assets/script/base-assets.js"></script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title data-i18n="checkout_page.title">Checkout • WowWraps</title>
@@ -11,10 +12,6 @@
       type="image/svg+xml"
     />
 
-    <!-- link style CSS global -->
-    <link rel="stylesheet" href="../style/reset.css" />
-    <link rel="stylesheet" href="../style/style.css" />
-
     <!-- style CSS checkout page -->
     <link rel="stylesheet" href="./styles/checkout.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -23,39 +20,10 @@
       href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-
-    <!-- Global Animation System -->
-    <link rel="stylesheet" href="../style/animations.css" />
-    <script src="../assets/script/scroll-animations.js"></script>
-
-    <!-- Form Validation System -->
-    <link rel="stylesheet" href="../style/form-validation.css" />
-    <link rel="stylesheet" href="../style/notification-system.css" />
-    <script src="../assets/script/form-validator.js"></script>
-    <script src="../assets/script/notification-system.js"></script>
-
-    <!-- Style header and footer -->
-    <link rel="stylesheet" href="../partials/header.css" />
-    <link rel="stylesheet" href="../partials/footer.css" />
-
-    <!-- link header and footer html -->
-    <script src="../assets/script/include-partials.js" defer></script>
-    <script type="module" src="../assets/script/header.js" defer></script>
-
-    <!-- Global Loading System -->
-    <script src="../assets/script/global-loader.js" defer></script>
-
     <!-- link script appear hint -->
     <script src="./scripts/hint.js" defer></script>
     <!-- Enhanced checkout logic with dynamic cart loading -->
     <script type="module" src="./scripts/checkout.js" defer></script>
-    <link rel="stylesheet" href="../style/back-to-top.css" />
-
-    <!-- Font Awesome CDN -->
-    <script
-      src="https://kit.fontawesome.com/eef96f1e29.js"
-      crossorigin="anonymous"
-    ></script>
   </head>
   <body class="page">
     <!-- Header -->
@@ -453,14 +421,7 @@
     <!-- Footer -->
     <div data-include="/partials/footer.html"></div>
 
-    <script
-      type="module"
-      src="../assets/script/header-features.js"
-      defer
-    ></script>
-
     <!-- Checkout Form Handler (removed to prevent duplicate form handling) -->
     <div data-include="../partials/back-to-top.html"></div>
-    <script src="../assets/script/back-to-top.js" defer></script>
   </body>
 </html>

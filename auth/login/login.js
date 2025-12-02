@@ -11,6 +11,7 @@ import {
   clearFieldValidation,
   showAlert,
 } from '../auth-validation.js';
+import i18nService from '../../assets/script/i18n-service.js';
 
 // ========== DOM Elements ==========
 
@@ -25,8 +26,15 @@ const facebookLoginBtn = document.getElementById('facebook-login');
 // ========== Helpers ==========
 
 function getReturnUrl() {
-  const stored = sessionStorage.getItem('loginReturnUrl');
+  // 1. Check query parameter first (highest priority)
+  const urlParams = new URLSearchParams(window.location.search);
+  const redirectParam = urlParams.get('redirect');
+  if (redirectParam) {
+    return redirectParam;
+  }
 
+  // 2. Check session storage (legacy support)
+  const stored = sessionStorage.getItem('loginReturnUrl');
   if (stored) {
     try {
       const url = new URL(stored, window.location.origin);
@@ -42,12 +50,14 @@ function getReturnUrl() {
     }
   }
 
+  // 3. Check referrer (lowest priority)
   const ref = document.referrer;
-  if (ref && ref.startsWith(window.location.origin) && !ref.includes('/auth/login')) {
+  if (ref && ref.startsWith(window.location.origin) && !ref.includes('/auth/login') && !ref.includes('/auth/register')) {
     return ref;
   }
 
-  return '../index.html';
+  // Default to site home
+  return '/';
 }
 
 // ========== Password Toggle ==========
@@ -131,18 +141,9 @@ async function handleLogin(event) {
     rememberMe: document.getElementById('remember-me').checked,
   };
 
-  // Validate form
-  const validation = validateLoginForm(formData);
-
-  if (!validation.valid) {
-    // Show validation errors
-    Object.keys(validation.errors).forEach((fieldName) => {
-      const input = document.getElementsByName(fieldName)[0];
-      if (input) {
-        showFieldError(input, validation.errors[fieldName]);
-      }
-    });
-    showAlert(alertContainer, 'error', 'Please fix the errors in the form');
+  // Basic non-empty check only
+  if (!formData.email || !formData.password) {
+    showAlert(alertContainer, 'error', i18nService.t('auth.messages.login_missing_fields'));
     return;
   }
 
@@ -155,45 +156,23 @@ async function handleLogin(event) {
     </span>
   `;
 
-  try {
-    // ========== API INTEGRATION POINT ==========
-    // Replace this with your actual API call
-    const response = await mockLoginAPI(formData);
-
-    if (response.success) {
-      // Store auth token (example)
-      if (formData.rememberMe) {
-        localStorage.setItem('authToken', response.token);
-        localStorage.setItem('userEmail', formData.email);
-      } else {
-        sessionStorage.setItem('authToken', response.token);
-      }
-
-      // Store user data
-      localStorage.setItem('userData', JSON.stringify(response.user));
-
-      // Show success
-      showAlert(alertContainer, 'success', 'Login successful! Redirecting...');
-
-      // Redirect to home page
-      setTimeout(() => {
-        window.location.href = getReturnUrl();
-      }, 1500);
-    } else {
-      throw new Error(response.message || 'Login failed');
-    }
-  } catch (error) {
-    console.error('Login error:', error);
-    showAlert(
-      alertContainer,
-      'error',
-      error.message || 'Login failed. Please try again.'
-    );
-
-    // Reset button
-    loginBtn.disabled = false;
-    loginBtn.innerHTML = '<span class="btn-text">Login</span>';
+  // Accept any credentials and redirect back
+  if (formData.rememberMe) {
+    localStorage.setItem('authToken', 'mock-token-' + Date.now());
+    localStorage.setItem('userEmail', formData.email);
+  } else {
+    sessionStorage.setItem('authToken', 'mock-token-' + Date.now());
   }
+  localStorage.setItem(
+    'userData',
+    JSON.stringify({ id: Date.now(), name: 'Guest User', email: formData.email })
+  );
+
+  showAlert(alertContainer, 'success', i18nService.t('auth.messages.login_success'));
+
+  setTimeout(() => {
+    window.location.href = getReturnUrl();
+  }, 800);
 }
 
 // ========== Mock API (Replace with real API) ==========
@@ -245,7 +224,7 @@ function setupSocialLogin() {
       // Integrate with Google OAuth here
       // Example: await signInWithGoogle();
 
-      showAlert(alertContainer, 'error', 'Google login not yet configured');
+      showAlert(alertContainer, 'error', i18nService.t('auth.messages.google_not_configured'));
 
       googleLoginBtn.disabled = false;
       googleLoginBtn.innerHTML = `
@@ -259,7 +238,7 @@ function setupSocialLogin() {
       `;
     } catch (error) {
       console.error('Google login error:', error);
-      showAlert(alertContainer, 'error', 'Google login failed');
+      showAlert(alertContainer, 'error', i18nService.t('auth.messages.google_failed'));
       googleLoginBtn.disabled = false;
     }
   });
@@ -278,7 +257,7 @@ function setupSocialLogin() {
       // Integrate with Facebook OAuth here
       // Example: await signInWithFacebook();
 
-      showAlert(alertContainer, 'error', 'Facebook login not yet configured');
+      showAlert(alertContainer, 'error', i18nService.t('auth.messages.facebook_not_configured'));
 
       facebookLoginBtn.disabled = false;
       facebookLoginBtn.innerHTML = `
@@ -289,7 +268,7 @@ function setupSocialLogin() {
       `;
     } catch (error) {
       console.error('Facebook login error:', error);
-      showAlert(alertContainer, 'error', 'Facebook login failed');
+      showAlert(alertContainer, 'error', i18nService.t('auth.messages.facebook_failed'));
       facebookLoginBtn.disabled = false;
     }
   });
@@ -310,6 +289,27 @@ function checkExistingSession() {
   }
 }
 
+// ========== Redirect Parameter Handling ==========
+
+function setupRedirectParams() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const redirect = urlParams.get('redirect');
+
+  if (redirect) {
+    // Preserve redirect param in the "Create Account" link
+    const registerLink = document.querySelector('.auth-footer-text a');
+    if (registerLink) {
+      registerLink.href = `../register/?redirect=${encodeURIComponent(redirect)}`;
+    }
+    
+    // Preserve redirect param in the "Forgot Password" link
+    const forgotLink = document.querySelector('.auth-forgot-password a');
+    if (forgotLink) {
+      forgotLink.href = `../forgot-password/?redirect=${encodeURIComponent(redirect)}`;
+    }
+  }
+}
+
 // ========== Initialize ==========
 
 function init() {
@@ -317,6 +317,7 @@ function init() {
   setupRealtimeValidation();
   setupSocialLogin();
   checkExistingSession();
+  setupRedirectParams(); // Add this
   loginForm.addEventListener('submit', handleLogin);
 }
 

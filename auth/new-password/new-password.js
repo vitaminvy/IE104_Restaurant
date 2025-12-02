@@ -12,6 +12,7 @@ import {
   clearFieldValidation,
   showAlert,
 } from '../auth-validation.js';
+import i18nService from '../../assets/script/i18n-service.js';
 
 // ========== DOM Elements ==========
 
@@ -34,7 +35,7 @@ function verifyResetToken() {
     showAlert(
       alertContainer,
       'error',
-      'Session expired. Please start the password reset process again.'
+      i18nService.t('auth.messages.reset_session_expired')
     );
     setTimeout(() => {
       window.location.href = '../forgot-password/';
@@ -183,7 +184,7 @@ async function handleChangePassword(event) {
         showFieldError(input, validation.errors[fieldName]);
       }
     });
-    showAlert(alertContainer, 'error', 'Please fix the errors in the form');
+    showAlert(alertContainer, 'error', i18nService.t('auth.messages.fix_errors'));
     return;
   }
 
@@ -217,7 +218,7 @@ async function handleChangePassword(event) {
       showAlert(
         alertContainer,
         'success',
-        'Password changed successfully! Redirecting to login...'
+        i18nService.t('auth.messages.new_password_success')
       );
 
       // Redirect to login page
@@ -232,7 +233,7 @@ async function handleChangePassword(event) {
     showAlert(
       alertContainer,
       'error',
-      error.message || 'Failed to change password. Please try again.'
+      error.message || i18nService.t('auth.messages.new_password_failed')
     );
 
     // Reset button

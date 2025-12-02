@@ -5,7 +5,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>OTP Verification | IE104 Restaurant</title>
-
+    <link
+      rel="icon"
+      href="../../assets/icons/icon-header/nav-vect.svg"
+      type="image/svg+xml"
+    />
+    
     <!-- CSS global -->
     <link rel="stylesheet" href="../../style/reset.css" />
     <link rel="stylesheet" href="../../style/style.css" />
@@ -34,7 +39,12 @@
       <div class="auth-container">
         <!-- Back Button -->
         <button class="auth-back-btn" onclick="window.history.back()">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
             <line x1="19" y1="12" x2="5" y2="12"></line>
             <polyline points="12 19 5 12 12 5"></polyline>
           </svg>
@@ -47,7 +57,9 @@
             Enter Verification Code
           </h1>
           <p class="auth-subtitle" id="otp-subtitle">
-            <span data-i18n="auth.otp.subtitle_prefix">We sent a 6-digit code to</span>
+            <span data-i18n="auth.otp.subtitle_prefix"
+              >We sent a 6-digit code to</span
+            >
             <strong id="masked-email"></strong>
           </p>
         </div>
@@ -139,14 +151,18 @@
 
           <!-- Verify Button -->
           <button type="submit" class="auth-btn" id="verify-btn">
-            <span class="btn-text" data-i18n="auth.otp.submit">Verify Code</span>
+            <span class="btn-text" data-i18n="auth.otp.submit"
+              >Verify Code</span
+            >
           </button>
         </form>
 
         <!-- Footer -->
         <div class="auth-footer-text">
           <span data-i18n="auth.otp.footer_text">Wrong email?</span>
-          <a href="../forgot-password/" data-i18n="auth.otp.footer_link">Try another email</a>
+          <a href="../forgot-password/" data-i18n="auth.otp.footer_link"
+            >Try another email</a
+          >
         </div>
       </div>
     </div>

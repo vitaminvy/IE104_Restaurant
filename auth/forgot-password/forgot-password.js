@@ -11,6 +11,7 @@ import {
   clearFieldValidation,
   showAlert,
 } from '../auth-validation.js';
+import i18nService from '../../assets/script/i18n-service.js';
 
 // ========== DOM Elements ==========
 
@@ -79,7 +80,7 @@ async function handleForgotPassword(event) {
         showFieldError(input, validation.errors[fieldName]);
       }
     });
-    showAlert(alertContainer, 'error', 'Please enter a valid email address');
+    showAlert(alertContainer, 'error', i18nService.t('auth.errors.email_invalid'));
     return;
   }
 
@@ -105,7 +106,7 @@ async function handleForgotPassword(event) {
       showAlert(
         alertContainer,
         'success',
-        'Verification code sent! Redirecting...'
+        i18nService.t('auth.messages.forgot_success')
       );
 
       // Redirect to OTP page
@@ -120,7 +121,7 @@ async function handleForgotPassword(event) {
     showAlert(
       alertContainer,
       'error',
-      error.message || 'Failed to send verification code. Please try again.'
+      error.message || i18nService.t('auth.messages.forgot_failed')
     );
 
     // Reset button

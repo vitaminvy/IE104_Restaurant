@@ -4,6 +4,7 @@
  */
 
 import { validateOTP, showAlert } from '../auth-validation.js';
+import i18nService from '../../assets/script/i18n-service.js';
 
 // ========== DOM Elements ==========
 
@@ -50,7 +51,7 @@ function displayEmail() {
     showAlert(
       alertContainer,
       'error',
-      'No email found. Please start the process again.'
+      i18nService.t('auth.messages.otp_no_email')
     );
     setTimeout(() => {
       window.location.href = '../forgot-password/';
@@ -172,7 +173,7 @@ async function handleResendOTP() {
   const email = sessionStorage.getItem('resetEmail');
 
   if (!email) {
-    showAlert(alertContainer, 'error', 'Session expired. Please try again.');
+    showAlert(alertContainer, 'error', i18nService.t('auth.messages.otp_session_expired'));
     setTimeout(() => {
       window.location.href = '../forgot-password/';
     }, 2000);
@@ -187,7 +188,7 @@ async function handleResendOTP() {
     const response = await mockResendOTPAPI({ email });
 
     if (response.success) {
-      showAlert(alertContainer, 'success', 'Verification code resent!');
+      showAlert(alertContainer, 'success', i18nService.t('auth.messages.otp_resend_success'));
 
       // Clear inputs
       otpInputs.forEach((input) => {
@@ -204,7 +205,7 @@ async function handleResendOTP() {
     }
   } catch (error) {
     console.error('Resend OTP error:', error);
-    showAlert(alertContainer, 'error', error.message || 'Failed to resend code');
+    showAlert(alertContainer, 'error', error.message || i18nService.t('auth.messages.otp_resend_failed'));
     resendBtn.disabled = false;
     resendBtn.textContent = 'Resend';
   }
@@ -255,7 +256,7 @@ async function handleVerifyOTP(event) {
       sessionStorage.setItem('resetToken', response.resetToken);
 
       // Show success
-      showAlert(alertContainer, 'success', 'Code verified! Redirecting...');
+      showAlert(alertContainer, 'success', i18nService.t('auth.messages.otp_verified'));
 
       // Redirect to new password page
       setTimeout(() => {
@@ -269,7 +270,7 @@ async function handleVerifyOTP(event) {
     showAlert(
       alertContainer,
       'error',
-      error.message || 'Invalid verification code. Please try again.'
+      error.message || i18nService.t('auth.messages.otp_invalid')
     );
 
     // Clear inputs on error

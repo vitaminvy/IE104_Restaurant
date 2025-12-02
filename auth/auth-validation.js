@@ -5,25 +5,27 @@
 
 // ========== Validation Rules ==========
 
+import i18nService from '../assets/script/i18n-service.js';
+
 const ValidationRules = {
   email: {
     pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-    message: 'Please enter a valid email address',
+    message: 'auth.errors.email_invalid',
   },
   password: {
     minLength: 8,
     pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/,
-    message: 'Password must be at least 8 characters with uppercase, lowercase, and number',
+    message: 'auth.errors.password_pattern',
   },
   name: {
     minLength: 2,
     pattern: /^[\p{L}\s]+$/u, // allow unicode letters (e.g., Vietnamese) and spaces
-    message: 'Name must contain only letters and spaces',
+    message: 'auth.errors.name_pattern',
   },
   otp: {
     length: 6,
     pattern: /^\d{6}$/,
-    message: 'Please enter a valid 6-digit OTP',
+    message: 'auth.errors.otp_pattern',
   },
 };
 
@@ -31,11 +33,11 @@ const ValidationRules = {
 
 export function validateEmail(email) {
   if (!email || email.trim() === '') {
-    return { valid: false, message: 'Email is required' };
+    return { valid: false, message: i18nService.t('auth.errors.email_required') };
   }
 
   if (!ValidationRules.email.pattern.test(email)) {
-    return { valid: false, message: ValidationRules.email.message };
+    return { valid: false, message: i18nService.t(ValidationRules.email.message) };
   }
 
   return { valid: true, message: '' };
@@ -43,15 +45,20 @@ export function validateEmail(email) {
 
 export function validatePassword(password) {
   if (!password || password.trim() === '') {
-    return { valid: false, message: 'Password is required' };
+    return { valid: false, message: i18nService.t('auth.errors.password_required') };
   }
 
   if (password.length < ValidationRules.password.minLength) {
-    return { valid: false, message: `Password must be at least ${ValidationRules.password.minLength} characters` };
+    return {
+      valid: false,
+      message: i18nService.t('auth.errors.password_min', {
+        min: ValidationRules.password.minLength,
+      }),
+    };
   }
 
   if (!ValidationRules.password.pattern.test(password)) {
-    return { valid: false, message: ValidationRules.password.message };
+    return { valid: false, message: i18nService.t(ValidationRules.password.message) };
   }
 
   return { valid: true, message: '' };
@@ -59,11 +66,11 @@ export function validatePassword(password) {
 
 export function validateConfirmPassword(password, confirmPassword) {
   if (!confirmPassword || confirmPassword.trim() === '') {
-    return { valid: false, message: 'Please confirm your password' };
+    return { valid: false, message: i18nService.t('auth.errors.confirm_password_required') };
   }
 
   if (password !== confirmPassword) {
-    return { valid: false, message: 'Passwords do not match' };
+    return { valid: false, message: i18nService.t('auth.errors.password_mismatch') };
   }
 
   return { valid: true, message: '' };
@@ -71,15 +78,18 @@ export function validateConfirmPassword(password, confirmPassword) {
 
 export function validateName(name) {
   if (!name || name.trim() === '') {
-    return { valid: false, message: 'Name is required' };
+    return { valid: false, message: i18nService.t('auth.errors.name_required') };
   }
 
   if (name.length < ValidationRules.name.minLength) {
-    return { valid: false, message: `Name must be at least ${ValidationRules.name.minLength} characters` };
+    return {
+      valid: false,
+      message: i18nService.t('auth.errors.name_min', { min: ValidationRules.name.minLength }),
+    };
   }
 
   if (!ValidationRules.name.pattern.test(name)) {
-    return { valid: false, message: ValidationRules.name.message };
+    return { valid: false, message: i18nService.t(ValidationRules.name.message) };
   }
 
   return { valid: true, message: '' };
@@ -87,15 +97,18 @@ export function validateName(name) {
 
 export function validateOTP(otp) {
   if (!otp || otp.trim() === '') {
-    return { valid: false, message: 'OTP is required' };
+    return { valid: false, message: i18nService.t('auth.errors.otp_required') };
   }
 
   if (otp.length !== ValidationRules.otp.length) {
-    return { valid: false, message: `OTP must be ${ValidationRules.otp.length} digits` };
+    return {
+      valid: false,
+      message: i18nService.t('auth.errors.otp_length', { length: ValidationRules.otp.length }),
+    };
   }
 
   if (!ValidationRules.otp.pattern.test(otp)) {
-    return { valid: false, message: ValidationRules.otp.message };
+    return { valid: false, message: i18nService.t(ValidationRules.otp.message) };
   }
 
   return { valid: true, message: '' };

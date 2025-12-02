@@ -194,6 +194,16 @@ function updateFooterLogo() {
 
 // --- HEADER LOGO LOGIC ---
 function updateHeaderLogo() {
+    // --- AUTH REDIRECT LOGIC ---
+    const authBtn = document.querySelector('.header__auth-btn');
+    if (authBtn) {
+        const currentPath = window.location.pathname + window.location.search; // Capture full path including any existing query params
+        // Only append redirect if we are NOT already in the auth flow to avoid loops
+        if (!currentPath.includes('/auth/')) {
+            authBtn.href = `/auth/login/?redirect=${encodeURIComponent(currentPath)}`;
+        }
+    }
+
     const headerLogo = document.querySelector('.header__logo img');
     if (!headerLogo) return;
 

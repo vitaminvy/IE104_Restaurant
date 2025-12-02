@@ -12,6 +12,7 @@ import {
   clearFieldValidation,
   showAlert,
 } from '../auth-validation.js';
+import i18nService from '../../assets/script/i18n-service.js';
 
 // ========== DOM Elements ==========
 
@@ -28,6 +29,26 @@ const facebookSignupBtn = document.getElementById('facebook-signup');
 const passwordStrengthContainer = document.getElementById('password-strength');
 const passwordStrengthFill = document.getElementById('password-strength-fill');
 const passwordStrengthText = document.getElementById('password-strength-text');
+
+// ========== Helpers ==========
+
+function getReturnUrl() {
+  // 1. Check query parameter first (highest priority)
+  const urlParams = new URLSearchParams(window.location.search);
+  const redirectParam = urlParams.get('redirect');
+  if (redirectParam) {
+    return redirectParam;
+  }
+
+  // 2. Check referrer (lowest priority)
+  const ref = document.referrer;
+  if (ref && ref.startsWith(window.location.origin) && !ref.includes('/auth/login') && !ref.includes('/auth/register')) {
+    return ref;
+  }
+
+  // Default to site home
+  return '/';
+}
 
 // ========== Password Toggle ==========
 
@@ -164,7 +185,7 @@ async function handleRegister(event) {
     showAlert(
       alertContainer,
       'error',
-      'Please accept the Terms & Conditions to continue'
+      i18nService.t('auth.messages.accept_terms')
     );
     return;
   }
@@ -180,7 +201,7 @@ async function handleRegister(event) {
         showFieldError(input, validation.errors[fieldName]);
       }
     });
-    showAlert(alertContainer, 'error', 'Please fix the errors in the form');
+    showAlert(alertContainer, 'error', i18nService.t('auth.messages.fix_errors'));
     return;
   }
 
@@ -193,71 +214,26 @@ async function handleRegister(event) {
     </span>
   `;
 
-  try {
-    // ========== API INTEGRATION POINT ==========
-    // Replace this with your actual API call
-    const response = await mockRegisterAPI(formData);
+  // Simulate registration success
+  showAlert(
+    alertContainer,
+    'success',
+    i18nService.t('auth.messages.register_success')
+  );
 
-    if (response.success) {
-      // Store auth token
-      localStorage.setItem('authToken', response.token);
-      localStorage.setItem('userData', JSON.stringify(response.user));
+  const returnUrl = getReturnUrl();
 
-      // Show success
-      showAlert(
-        alertContainer,
-        'success',
-        'Account created successfully! Redirecting...'
-      );
-
-      // Redirect to home page
-      setTimeout(() => {
-        window.location.href = '../index.html';
-      }, 1500);
-    } else {
-      throw new Error(response.message || 'Registration failed');
-    }
-  } catch (error) {
-    console.error('Registration error:', error);
-    showAlert(
-      alertContainer,
-      'error',
-      error.message || 'Registration failed. Please try again.'
-    );
-
-    // Reset button
-    registerBtn.disabled = false;
-    registerBtn.innerHTML = '<span class="btn-text">Create Account</span>';
-  }
+  setTimeout(() => {
+    window.location.href = `../login/?redirect=${encodeURIComponent(returnUrl)}`;
+  }, 900);
 }
 
 // ========== Mock API (Replace with real API) ==========
 
 async function mockRegisterAPI(formData) {
-  // Simulate API delay
-  await new Promise((resolve) => setTimeout(resolve, 1500));
-
-  // Mock validation - check if email already exists
-  const existingEmails = ['existing@restaurant.com', 'test@example.com'];
-
-  if (existingEmails.includes(formData.email)) {
-    return {
-      success: false,
-      message: 'Email already registered. Please use a different email.',
-    };
-  }
-
-  // Success response
-  return {
-    success: true,
-    token: 'mock-jwt-token-' + Date.now(),
-    user: {
-      id: Date.now(),
-      name: formData.name,
-      email: formData.email,
-      avatar: null,
-    },
-  };
+  // kept for future real API hook; currently unused
+  await new Promise((resolve) => setTimeout(resolve, 300));
+  return { success: true };
 }
 
 // ========== Social Signup ==========
@@ -276,7 +252,7 @@ function setupSocialSignup() {
       // ========== GOOGLE SIGNUP INTEGRATION POINT ==========
       // Integrate with Google OAuth here
 
-      showAlert(alertContainer, 'error', 'Google signup not yet configured');
+      showAlert(alertContainer, 'error', i18nService.t('auth.messages.google_not_configured'));
 
       googleSignupBtn.disabled = false;
       googleSignupBtn.innerHTML = `
@@ -290,7 +266,7 @@ function setupSocialSignup() {
       `;
     } catch (error) {
       console.error('Google signup error:', error);
-      showAlert(alertContainer, 'error', 'Google signup failed');
+      showAlert(alertContainer, 'error', i18nService.t('auth.messages.google_failed'));
       googleSignupBtn.disabled = false;
     }
   });
@@ -308,7 +284,7 @@ function setupSocialSignup() {
       // ========== FACEBOOK SIGNUP INTEGRATION POINT ==========
       // Integrate with Facebook OAuth here
 
-      showAlert(alertContainer, 'error', 'Facebook signup not yet configured');
+      showAlert(alertContainer, 'error', i18nService.t('auth.messages.facebook_not_configured'));
 
       facebookSignupBtn.disabled = false;
       facebookSignupBtn.innerHTML = `
@@ -319,10 +295,25 @@ function setupSocialSignup() {
       `;
     } catch (error) {
       console.error('Facebook signup error:', error);
-      showAlert(alertContainer, 'error', 'Facebook signup failed');
+      showAlert(alertContainer, 'error', i18nService.t('auth.messages.facebook_failed'));
       facebookSignupBtn.disabled = false;
     }
   });
+}
+
+// ========== Redirect Parameter Handling ==========
+
+function setupRedirectParams() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const redirect = urlParams.get('redirect');
+
+  if (redirect) {
+    // Preserve redirect param in the "Login" link
+    const loginLink = document.querySelector('.auth-footer-text a');
+    if (loginLink) {
+      loginLink.href = `../login/?redirect=${encodeURIComponent(redirect)}`;
+    }
+  }
 }
 
 // ========== Initialize ==========
@@ -331,6 +322,7 @@ function init() {
   setupPasswordToggle();
   setupRealtimeValidation();
   setupSocialSignup();
+  setupRedirectParams(); // Add this
   registerForm.addEventListener('submit', handleRegister);
 }
 

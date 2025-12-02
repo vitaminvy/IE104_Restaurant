@@ -1,4 +1,4 @@
-const launchDate = new Date("2025-11-26T00:00:00").getTime();
+const launchDate = new Date("2026-01-01T00:00:00").getTime();
 
 // update countdown second
 const timer = setInterval(() => {
@@ -28,6 +28,6 @@ const timer = setInterval(() => {
   if (distance < 0) {
     clearInterval(timer);
     document.querySelector(".comingsoon__timer").innerHTML =
-      "<p class='comingsoon__expired'>We are now live! 🎉</p>";
+      "<p class='comingsoon__expired'>We are now live!</p>";
   }
 }, 1000);

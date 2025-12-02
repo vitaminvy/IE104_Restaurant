@@ -14,10 +14,10 @@
       "subtitle": "Theo dõi mọi đặt bàn và đặt món trong một nơi."
     },
     "filters": {
-      "type_label": "Loại hoạt động",
-      "status_label": "Trạng thái",
-      "from": "Từ ngày",
-      "to": "Đến ngày",
+      "type_label": "Loại hoạt động:",
+      "status_label": "Trạng thái:",
+      "from": "Từ ngày:",
+      "to": "Đến ngày:",
       "type_all": "Tất cả",
       "type_reservation": "Đặt bàn",
       "type_order": "Đặt món",

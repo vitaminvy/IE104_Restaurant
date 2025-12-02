@@ -14,10 +14,10 @@
       "subtitle": "Track every reservation and order in one place."
     },
     "filters": {
-      "type_label": "Activity type",
-      "status_label": "Status",
-      "from": "From date",
-      "to": "To date",
+      "type_label": "Activity type:",
+      "status_label": "Status:",
+      "from": "From date:",
+      "to": "To date:",
       "type_all": "All",
       "type_reservation": "Reservation",
       "type_order": "Order",

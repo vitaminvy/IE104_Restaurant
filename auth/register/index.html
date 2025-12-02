@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="../../assets/script/theme-init.js" defer></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register | IE104 Restaurant</title>
+    <link
+      rel="icon"
+      href="../../assets/icons/icon-header/nav-vect.svg"
+      type="image/svg+xml"
+    />
+    
+    <!-- CSS global -->
+    <link rel="stylesheet" href="../../style/reset.css" />
+    <link rel="stylesheet" href="../../style/style.css" />
+
+    <!-- Auth styles -->
+    <link rel="stylesheet" href="../auth-styles.css" />
+    <link rel="stylesheet" href="../../partials/header.css" />
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Global Animation System -->
+    <link rel="stylesheet" href="../../style/animations.css" />
+
+    <style>
+      /* Password Strength Indicator */
+      .password-strength {
+        margin-top: 0.5rem;
+        display: none;
+      }
+
+      .password-strength.show {
+        display: block;
+      }
+
+      .password-strength-bar {
+        height: 4px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 2px;
+        overflow: hidden;
+        margin-bottom: 0.5rem;
+      }
+
+      .password-strength-fill {
+        height: 100%;
+        width: 0%;
+        transition: width 0.3s ease, background-color 0.3s ease;
+        border-radius: 2px;
+      }
+
+      .password-strength-text {
+        font-family: var(--font-body);
+        font-size: 0.8125rem;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .password-strength-text svg {
+        width: 14px;
+        height: 14px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <script src="../../assets/script/include-partials.js" defer></script>
+    <script type="module" src="../../assets/script/header.js"></script>
+    <script type="module" src="../../assets/script/header-features.js"></script>
+    <div data-include="/partials/header.html"></div>
+
+    <div class="auth-page">
+      <div class="auth-container">
+        <!-- Header -->
+        <div class="auth-header">
+          <h1 class="auth-title" data-i18n="auth.register.title">
+            Create Account
+          </h1>
+          <p class="auth-subtitle" data-i18n="auth.register.subtitle">
+            Join us for an amazing dining experience
+          </p>
+        </div>
+
+        <!-- Alert Container -->
+        <div id="alert-container"></div>
+
+        <!-- Register Form -->
+        <form class="auth-form" id="register-form">
+          <!-- Name -->
+          <div class="auth-form-group">
+            <label
+              for="name"
+              class="auth-label auth-label--required"
+              data-i18n="auth.common.name_label"
+              >Full Name</label
+            >
+            <input
+              type="text"
+              id="name"
+              name="name"
+              class="auth-input"
+              placeholder="Enter your full name"
+              data-i18n-placeholder="auth.common.name_placeholder"
+              autocomplete="name"
+              required
+            />
+          </div>
+
+          <!-- Email -->
+          <div class="auth-form-group">
+            <label
+              for="email"
+              class="auth-label auth-label--required"
+              data-i18n="auth.common.email_label"
+              >Email Address</label
+            >
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="auth-input"
+              placeholder="Enter your email"
+              data-i18n-placeholder="auth.common.email_placeholder"
+              autocomplete="email"
+              required
+            />
+          </div>
+
+          <!-- Password -->
+          <div class="auth-form-group">
+            <label
+              for="password"
+              class="auth-label auth-label--required"
+              data-i18n="auth.common.password_label"
+              >Password</label
+            >
+            <div class="auth-password-wrapper">
+              <input
+                type="password"
+                id="password"
+                name="password"
+                class="auth-input"
+                placeholder="Enter your password"
+                data-i18n-placeholder="auth.common.password_placeholder"
+                autocomplete="new-password"
+                required
+              />
+              <button
+                type="button"
+                class="auth-password-toggle"
+                aria-label="Toggle password visibility"
+                data-target="password"
+              >
+                <svg
+                  class="eye-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                  <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+                <svg
+                  class="eye-off-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  style="display: none"
+                >
+                  <path
+                    d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"
+                  ></path>
+                  <line x1="1" y1="1" x2="23" y2="23"></line>
+                </svg>
+              </button>
+            </div>
+            <!-- Password Strength Indicator -->
+            <div class="password-strength" id="password-strength">
+              <div class="password-strength-bar">
+                <div
+                  class="password-strength-fill"
+                  id="password-strength-fill"
+                ></div>
+              </div>
+              <div
+                class="password-strength-text"
+                id="password-strength-text"
+              ></div>
+            </div>
+          </div>
+
+          <!-- Confirm Password -->
+          <div class="auth-form-group">
+            <label
+              for="confirm-password"
+              class="auth-label auth-label--required"
+              data-i18n="auth.common.confirm_password_label"
+              >Confirm Password</label
+            >
+            <div class="auth-password-wrapper">
+              <input
+                type="password"
+                id="confirm-password"
+                name="confirmPassword"
+                class="auth-input"
+                placeholder="Re-enter your password"
+                data-i18n-placeholder="auth.common.confirm_password_placeholder"
+                autocomplete="new-password"
+                required
+              />
+              <button
+                type="button"
+                class="auth-password-toggle"
+                aria-label="Toggle password visibility"
+                data-target="confirm-password"
+              >
+                <svg
+                  class="eye-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                  <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+                <svg
+                  class="eye-off-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  style="display: none"
+                >
+                  <path
+                    d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"
+                  ></path>
+                  <line x1="1" y1="1" x2="23" y2="23"></line>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Terms & Conditions -->
+          <div class="auth-checkbox-group">
+            <input
+              type="checkbox"
+              id="terms"
+              name="terms"
+              class="auth-checkbox"
+              required
+            />
+            <label
+              for="terms"
+              class="auth-checkbox-label"
+              data-i18n="auth.common.terms"
+            >
+              I agree to the
+              <a href="#" class="auth-link">Terms & Conditions</a> and
+              <a href="#" class="auth-link">Privacy Policy</a>
+            </label>
+          </div>
+
+          <!-- Register Button -->
+          <button type="submit" class="auth-btn" id="register-btn">
+            <span class="btn-text" data-i18n="auth.register.submit"
+              >Create Account</span
+            >
+          </button>
+        </form>
+
+        <!-- Divider -->
+        <div class="auth-divider">
+          <span data-i18n="auth.common.continue_with">Or sign up with</span>
+        </div>
+
+        <!-- Social Login -->
+        <div class="auth-social-buttons">
+          <button type="button" class="auth-social-btn" id="google-signup">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+                fill="#4285F4"
+              />
+              <path
+                d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+                fill="#34A853"
+              />
+              <path
+                d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
+                fill="#FBBC05"
+              />
+              <path
+                d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
+                fill="#EA4335"
+              />
+            </svg>
+            <span data-i18n="auth.common.google">Google</span>
+          </button>
+          <button type="button" class="auth-social-btn" id="facebook-signup">
+            <svg viewBox="0 0 24 24" fill="#1877F2">
+              <path
+                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+              />
+            </svg>
+            <span data-i18n="auth.common.facebook">Facebook</span>
+          </button>
+        </div>
+
+        <!-- Footer -->
+        <div class="auth-footer-text">
+          <span data-i18n="auth.register.footer_text"
+            >Already have an account?</span
+          >
+          <a href="../login/" data-i18n="auth.register.footer_link">Login</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module" src="./register.js"></script>
+  </body>
+</html>

@@ -8,7 +8,9 @@
   },
   "header": {
     "status_open": "đang mở cửa",
-    "cta": "Đặt Bàn"
+    "cta": "Đặt Bàn",
+    "theme_toggle": "Chủ Đề",
+    "language_toggle": "Ngôn Ngữ"
   },
   "footer": {
     "download_app": "Tải ứng dụng WowWraps ngay hôm nay.",

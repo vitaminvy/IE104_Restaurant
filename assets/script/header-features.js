@@ -55,7 +55,7 @@ function applyStaticTranslations() {
 function updateAllLanguageFlags(lang) {
   const headerFlag = document.querySelector('#language-flag');
   if (headerFlag) {
-    headerFlag.src = lang === 'en' ? '../assets/icons/united-kingdom.png' : '../assets/icons/vietnam.png';
+    headerFlag.src = lang === 'en' ? '/assets/icons/united-kingdom.png' : '/assets/icons/vietnam.png';
     headerFlag.alt = lang === 'en' ? 'English' : 'Vietnamese';
   }
 
@@ -72,14 +72,16 @@ function updateAllLanguageFlags(lang) {
 // --- HEADER FEATURES INITIALIZATION ---
 function initHeaderFeatures() {
   const headerRight = document.querySelector('.header__right');
-  if (!headerRight) {
-    // console.error('Header right container not found.');
+  const headerNavList = document.querySelector('.header__nav-list');
+
+  if (!headerRight || !headerNavList) {
+    // console.error('Header containers not found.');
     return;
   }
 
   const actionsContainer = document.createElement('div');
   actionsContainer.className = 'header__actions';
-  
+
   // --- THEME TOGGLE ---
   function createThemeToggle() {
     const button = document.createElement('button');
@@ -98,7 +100,7 @@ function initHeaderFeatures() {
       updateFooterLogo(); // Call to update footer logo on theme change
       updateHeaderLogo(); // Call to update header logo on theme change
     });
-    
+
     return button;
   }
 
@@ -107,7 +109,7 @@ function initHeaderFeatures() {
     const button = document.createElement('button');
     button.className = 'header-action-btn language-toggle';
     button.setAttribute('aria-label', 'Switch language');
-    
+
     const flagImg = document.createElement('img');
     flagImg.id = 'language-flag';
     flagImg.className = 'language-toggle__flag';
@@ -124,9 +126,102 @@ function initHeaderFeatures() {
     return button;
   }
 
-  actionsContainer.appendChild(createThemeToggle());
-  actionsContainer.appendChild(createHeaderLanguageToggle()); // Use the new header specific function
+  // Create the toggle buttons
+  const themeToggle = createThemeToggle();
+  const languageToggle = createHeaderLanguageToggle();
+
+  // Create list items for mobile nav with text labels
+  const themeToggleNavItem = document.createElement('li');
+  themeToggleNavItem.className = 'header__nav-item header__nav-item--toggle';
+
+  const themeToggleWrapper = document.createElement('div');
+  themeToggleWrapper.className = 'header__toggle-wrapper';
+
+  const themeToggleLabel = document.createElement('span');
+  themeToggleLabel.className = 'header__toggle-label';
+  themeToggleLabel.setAttribute('data-i18n', 'header.theme_toggle');
+  themeToggleLabel.textContent = 'Theme';
+
+  const languageToggleNavItem = document.createElement('li');
+  languageToggleNavItem.className = 'header__nav-item header__nav-item--toggle';
+
+  const languageToggleWrapper = document.createElement('div');
+  languageToggleWrapper.className = 'header__toggle-wrapper';
+
+  const languageToggleLabel = document.createElement('span');
+  languageToggleLabel.className = 'header__toggle-label';
+  languageToggleLabel.setAttribute('data-i18n', 'header.language_toggle');
+  languageToggleLabel.textContent = 'Language';
+
+  // Function to handle responsive toggle placement
+  function handleTogglePlacement() {
+    const isMobile = window.innerWidth < 768; // Below 768px
+
+    if (isMobile) {
+      // Remove toggles from header actions if present
+      if (actionsContainer.contains(themeToggle)) {
+        actionsContainer.removeChild(themeToggle);
+      }
+      if (actionsContainer.contains(languageToggle)) {
+        actionsContainer.removeChild(languageToggle);
+      }
+
+      // Build the wrappers with labels and buttons for mobile
+      if (!headerNavList.contains(themeToggleNavItem)) {
+        // Clear and rebuild theme wrapper
+        themeToggleWrapper.innerHTML = '';
+        themeToggleWrapper.appendChild(themeToggleLabel.cloneNode(true));
+        themeToggleWrapper.appendChild(themeToggle);
+
+        // Clear and rebuild language wrapper
+        languageToggleWrapper.innerHTML = '';
+        languageToggleWrapper.appendChild(languageToggleLabel.cloneNode(true));
+        languageToggleWrapper.appendChild(languageToggle);
+
+        // Clear nav items and add wrappers
+        themeToggleNavItem.innerHTML = '';
+        themeToggleNavItem.appendChild(themeToggleWrapper);
+
+        languageToggleNavItem.innerHTML = '';
+        languageToggleNavItem.appendChild(languageToggleWrapper);
+
+        // Append to nav list
+        headerNavList.appendChild(themeToggleNavItem);
+        headerNavList.appendChild(languageToggleNavItem);
+      }
+    } else {
+      // Remove from nav if present
+      if (headerNavList.contains(themeToggleNavItem)) {
+        headerNavList.removeChild(themeToggleNavItem);
+      }
+      if (headerNavList.contains(languageToggleNavItem)) {
+        headerNavList.removeChild(languageToggleNavItem);
+      }
+
+      // Move toggles back to header actions
+      if (!actionsContainer.contains(themeToggle)) {
+        actionsContainer.innerHTML = '';
+        actionsContainer.appendChild(themeToggle);
+        actionsContainer.appendChild(languageToggle);
+      }
+    }
+  }
+
+  // Initialize actions container in header
   headerRight.prepend(actionsContainer);
+
+  // Initial placement
+  handleTogglePlacement();
+
+  // Apply translations to the toggle labels after placement
+  setTimeout(() => applyStaticTranslations(), 0);
+
+  // Listen for window resize
+  window.addEventListener('resize', () => {
+    handleTogglePlacement();
+    // Reapply translations after resize placement
+    setTimeout(() => applyStaticTranslations(), 0);
+  });
 }
 
 function runAfterPartials() {
@@ -138,7 +233,7 @@ function runAfterPartials() {
 }
 
 function arePartialsReady() {
-  return document.getElementById('header') && document.getElementById('footer');
+  return !!document.getElementById('header'); // footer is optional for auth pages
 }
 
 function waitForPartials(callback) {
@@ -184,16 +279,26 @@ function updateFooterLogo() {
 
   const currentTheme = document.documentElement.getAttribute('data-theme');
   if (currentTheme === 'light') {
-    footerLogo.src = '../assets/icons/logo_bg_dark.png';
+    footerLogo.src = '/assets/icons/logo_bg_dark.png';
     footerLogo.alt = 'WowWraps logo (Light Mode)';
   } else {
-    footerLogo.src = '../assets/images/home-page/footer-section/logo-wow-wraps.svg';
+    footerLogo.src = '/assets/images/home-page/footer-section/logo-wow-wraps.svg';
     footerLogo.alt = 'WowWraps logo';
   }
 }
 
 // --- HEADER LOGO LOGIC ---
 function updateHeaderLogo() {
+    // --- AUTH REDIRECT LOGIC ---
+    const authBtn = document.querySelector('.header__auth-btn');
+    if (authBtn) {
+        const currentPath = window.location.pathname + window.location.search; // Capture full path including any existing query params
+        // Only append redirect if we are NOT already in the auth flow to avoid loops
+        if (!currentPath.includes('/auth/')) {
+            authBtn.href = `/auth/login/?redirect=${encodeURIComponent(currentPath)}`;
+        }
+    }
+
     const headerLogo = document.querySelector('.header__logo img');
     if (!headerLogo) return;
 
@@ -202,13 +307,13 @@ function updateHeaderLogo() {
 
     if (isComingSoonPage) {
         // On coming soon page, always use the dark mode logo
-        headerLogo.src = '../assets/icons/icon-header/nav-vect.svg';
+        headerLogo.src = '/assets/icons/icon-header/nav-vect.svg';
         headerLogo.alt = 'Restaurant Logo'; // Ensure alt text is consistent
     } else if (currentTheme === 'light') {
-        headerLogo.src = '../assets/icons/icon-header/logo_bg_dark_no_text.png';
+        headerLogo.src = '/assets/icons/icon-header/logo_bg_dark_no_text.png';
         headerLogo.alt = 'Restaurant Logo (Light Mode)';
     } else {
-        headerLogo.src = '../assets/icons/icon-header/nav-vect.svg';
+        headerLogo.src = '/assets/icons/icon-header/nav-vect.svg';
         headerLogo.alt = 'Restaurant Logo';
     }
 }

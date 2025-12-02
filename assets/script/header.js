@@ -180,7 +180,15 @@ import i18nService from './i18n-service.js';
   // ----- SETUP NAVIGATION WITH LOADER -----
   function setupNavigationLoader() {
     const navLinks = document.querySelectorAll(".header__nav-link");
+    const authLink = document.querySelector(".header__auth-btn");
     if (!navLinks.length) return;
+
+    // Capture where user was before going to auth pages
+    if (authLink) {
+      authLink.addEventListener("click", () => {
+        sessionStorage.setItem("loginReturnUrl", window.location.href);
+      });
+    }
 
     navLinks.forEach((link) => {
       // Skip hash links (same page)

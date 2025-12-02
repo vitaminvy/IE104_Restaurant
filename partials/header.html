@@ -40,13 +40,18 @@
               >Contact</a
             >
           </li>
+          <li class="header__nav-item">
+            <a href="/auth/login/" class="header__nav-link header__nav-link--auth-mobile">
+              <span data-i18n="nav.signup">Sign up</span>
+            </a>
+          </li>
         </ul>
       </nav>
     </div>
 
     <!-- Center (Logo) -->
     <div class="header__center">
-      <a href="../" class="header__logo">
+      <a href="/" class="header__logo">
         <img
           src="/assets/icons/icon-header/nav-vect.svg"
           alt="Restaurant Logo"
@@ -57,13 +62,13 @@
     <!-- Right (Nav links + Status + CTA) -->
     <div class="header__right">
       <div class="header__status">
-        <span id="current-time"></span>
-        <span data-i18n="header.status_open">we're open</span>
+        <!-- <span id="current-time"></span> -->
+        <!-- <span data-i18n="header.status_open">we're open</span> -->
       </div>
-
       <a href="/#reservation" class="header__btn" data-i18n="header.cta"
         >Table Reservation</a
       >
+      <a href="/auth/login/" class="header__auth-btn">Sign up</a>
     </div>
   </div>
 </header>

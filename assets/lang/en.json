@@ -8,7 +8,9 @@
   },
   "header": {
     "status_open": "we're open",
-    "cta": "Table Reservation"
+    "cta": "Table Reservation",
+    "theme_toggle": "Theme",
+    "language_toggle": "Language"
   },
   "footer": {
     "download_app": "Download the WowWraps app today.",
@@ -1374,6 +1376,97 @@
       "rule1": "Please do not bring outside food or drinks into the restaurant.",
       "rule2": "Maintain shared hygiene and avoid noise that disturbs other guests.",
       "rule3": "We may refuse service to guests who do not follow these guidelines."
+    }
+  },
+  "auth": {
+    "common": {
+      "back": "Back",
+      "email_label": "Email Address",
+      "email_placeholder": "Enter your email",
+      "registered_email_placeholder": "Enter your registered email",
+      "password_label": "Password",
+      "password_placeholder": "Enter your password",
+      "confirm_password_label": "Confirm Password",
+      "confirm_password_placeholder": "Re-enter your password",
+      "name_label": "Full Name",
+      "name_placeholder": "Enter your full name",
+      "remember_me": "Remember me",
+      "forgot_password": "Forgot Password?",
+      "continue_with": "Or continue with",
+      "google": "Google",
+      "facebook": "Facebook",
+      "terms": "I agree to the Terms & Conditions"
+    },
+    "login": {
+      "title": "Welcome Back",
+      "subtitle": "Login to access your account",
+      "submit": "Login",
+      "footer_text": "Don't have an account?",
+      "footer_link": "Create Account"
+    },
+    "register": {
+      "title": "Create Account",
+      "subtitle": "Join us for an amazing dining experience",
+      "submit": "Create Account",
+      "footer_text": "Already have an account?",
+      "footer_link": "Login"
+    },
+    "errors": {
+      "email_required": "Email is required",
+      "email_invalid": "Please enter a valid email address",
+      "password_required": "Password is required",
+      "password_min": "Password must be at least {min} characters",
+      "password_pattern": "Password must include uppercase, lowercase, and a number",
+      "confirm_password_required": "Please confirm your password",
+      "password_mismatch": "Passwords do not match",
+      "name_required": "Name is required",
+      "name_min": "Name must be at least {min} characters",
+      "name_pattern": "Name must contain only letters and spaces",
+      "otp_required": "OTP is required",
+      "otp_length": "OTP must be {length} digits",
+      "otp_pattern": "Please enter a valid 6-digit OTP"
+    },
+    "messages": {
+      "login_missing_fields": "Please enter email and password",
+      "login_success": "Login successful! Redirecting...",
+      "register_success": "Account created successfully! Redirecting to login...",
+      "accept_terms": "Please accept the Terms & Conditions to continue",
+      "fix_errors": "Please fix the errors in the form",
+      "forgot_success": "Verification code sent! Redirecting...",
+      "forgot_failed": "Failed to send verification code. Please try again.",
+      "otp_no_email": "No email found. Please start the process again.",
+      "otp_session_expired": "Session expired. Please try again.",
+      "otp_resend_success": "Verification code resent!",
+      "otp_resend_failed": "Failed to resend code",
+      "otp_invalid": "Invalid verification code. Please try again.",
+      "otp_verified": "Code verified! Redirecting...",
+      "reset_session_expired": "Session expired. Please start the password reset process again.",
+      "new_password_success": "Password changed successfully! Redirecting to login...",
+      "new_password_failed": "Failed to change password. Please try again.",
+      "google_not_configured": "Google login not yet configured",
+      "google_failed": "Google login failed",
+      "facebook_not_configured": "Facebook login not yet configured",
+      "facebook_failed": "Facebook login failed"
+    },
+    "forgot": {
+      "title": "Forgot Password?",
+      "subtitle": "No worries! Enter your email and we'll send you a verification code",
+      "submit": "Send Verification Code",
+      "footer_text": "Remember your password?",
+      "footer_link": "Back to Login"
+    },
+    "otp": {
+      "title": "Enter Verification Code",
+      "subtitle_prefix": "We sent a 6-digit code to",
+      "submit": "Verify Code",
+      "resend": "Resend",
+      "footer_text": "Wrong email?",
+      "footer_link": "Try another email"
+    },
+    "new_password": {
+      "title": "Set New Password",
+      "subtitle": "Create a strong password for your account",
+      "submit": "Change Password"
     }
   },
   "notifications": {

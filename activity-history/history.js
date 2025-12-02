@@ -1,3 +1,5 @@
+import i18nService from "../assets/script/i18n-service.js";
+
 const HISTORY_STORAGE_KEY = "activityHistory";
 let latestRendered = [];
 let lastDetailTrigger = null;
@@ -15,14 +17,14 @@ const demoActivities = [
   },
 ];
 
-const statusLabels = {
+const statusFallback = {
   pending: "Chờ xác nhận",
   confirmed: "Đã xác nhận",
   completed: "Hoàn tất",
   cancelled: "Đã hủy",
 };
 
-const typeLabels = {
+const typeFallback = {
   reservation: "Đặt bàn",
   order: "Đặt món",
 };
@@ -31,6 +33,20 @@ const typeIcons = {
   reservation: "🪑",
   order: "🍽",
 };
+
+function t(key, fallback = "") {
+  const val = i18nService.t(key);
+  if (val && val !== key) return val;
+  return fallback || key;
+}
+
+function getStatusLabel(code) {
+  return t(`history.status.${code}`, statusFallback[code] || code);
+}
+
+function getTypeLabel(code) {
+  return t(`history.types.${code}`, typeFallback[code] || code);
+}
 
 function formatCurrency(value, currency = "USD") {
   if (typeof value !== "number") return value || "-";
@@ -87,7 +103,10 @@ function buildItemsSummary(items = []) {
       const qty = item.qty || item.quantity || 1;
       return `${label} x${qty}`;
     });
-  const hiddenCount = items.length > 3 ? ` +${items.length - 3} món khác` : "";
+  const hiddenCount =
+    items.length > 3
+      ? ` ${t("history.card.more_items", "+{count} món khác").replace("{count}", items.length - 3)}`
+      : "";
   return summary.join(", ") + hiddenCount;
 }
 
@@ -140,8 +159,8 @@ function renderList() {
     article.className = "history-card";
 
     const dateLabel = safeFormatDateTime(item.createdAt);
-    const statusLabel = statusLabels[item.status] || item.status;
-    const typeLabel = typeLabels[item.type] || item.type;
+    const statusLabel = getStatusLabel(item.status);
+    const typeLabel = getTypeLabel(item.type);
     const icon = typeIcons[item.type] || "•";
     const totalDisplay =
       typeof item.total === "number"
@@ -151,13 +170,13 @@ function renderList() {
     const primaryDetails =
       item.type === "reservation"
         ? `
-            <div><span class="history-card__label">Ngày/giờ đến: </span>${safeFormatDateTime(item.arrivalAt || item.createdAt)}</div>
-            <div><span class="history-card__label">Số người: </span>${item.people || "-"}</div>
-            <div><span class="history-card__label">Bàn dự kiến: </span>${item.table || "Đang sắp xếp"}</div>
+            <div><span class="history-card__label">${t("history.card.arrival_time", "Ngày/giờ đến: ")}</span>${safeFormatDateTime(item.arrivalAt || item.createdAt)}</div>
+            <div><span class="history-card__label">${t("history.card.people", "Số người: ")}</span>${item.people || "-"}</div>
+            <div><span class="history-card__label">${t("history.card.table", "Bàn dự kiến: ")}</span>${item.table || t("history.card.table_unassigned", "Đang sắp xếp")}</div>
           `
         : `
-            <div><span class="history-card__label">Tổng tiền: </span>${totalDisplay || "-"}</div>
-            <div><span class="history-card__label">Món: </span>${buildItemsSummary(item.items || [])}</div>
+            <div><span class="history-card__label">${t("history.card.total", "Tổng tiền: ")}</span>${totalDisplay || "-"}</div>
+            <div><span class="history-card__label">${t("history.card.items", "Món: ")}</span>${buildItemsSummary(item.items || [])}</div>
           `;
 
     const noteValue =
@@ -165,7 +184,9 @@ function renderList() {
         ? item.address || item.note || ""
         : item.note || "";
     const noteLabel =
-      item.type === "order" && item.address ? "Địa chỉ: " : "Ghi chú: ";
+      item.type === "order" && item.address
+        ? t("history.card.address", "Địa chỉ: ")
+        : t("history.card.note", "Ghi chú: ");
     const noteBlock = noteValue
       ? `<div><span class="history-card__label">${noteLabel}</span>${noteValue}</div>`
       : "";
@@ -186,8 +207,9 @@ function renderList() {
           ${noteBlock}
         </div>
         <div class="history-card__actions">
-          <button class="history-card__btn" type="button" data-detail-idx="${index}" aria-label="Xem chi tiết ${item.id}">Xem chi tiết</button>
-          ${item.status !== "cancelled" ? '<a class="history-card__btn" href="#">Đặt lại</a>' : ""}
+          <button class="history-card__btn" type="button" data-detail-idx="${index}" aria-label="${t("history.actions.view_detail_aria", "Xem chi tiết")} ${item.id}">
+            ${t("history.actions.view_detail", "Xem chi tiết")}
+          </button>
         </div>
       </div>
     `;
@@ -197,14 +219,23 @@ function renderList() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  document.getElementById("filterType").addEventListener("change", renderList);
-  document.getElementById("filterStatus").addEventListener("change", renderList);
-  document.getElementById("filterFrom").addEventListener("change", renderList);
-  document.getElementById("filterTo").addEventListener("change", renderList);
-  document
-    .getElementById("historyList")
-    .addEventListener("click", handleDetailClick);
-  setupDetailModal();
+  const init = async () => {
+    await i18nService.init();
+    document.getElementById("filterType").addEventListener("change", renderList);
+    document.getElementById("filterStatus").addEventListener("change", renderList);
+    document.getElementById("filterFrom").addEventListener("change", renderList);
+    document.getElementById("filterTo").addEventListener("change", renderList);
+    document
+      .getElementById("historyList")
+      .addEventListener("click", handleDetailClick);
+    setupDetailModal();
+    renderList();
+  };
+
+  init();
+});
+
+document.addEventListener("language-changed", () => {
   renderList();
 });
 
@@ -253,27 +284,27 @@ function openDetail(item) {
   if (!detail || !body) return;
   detail.removeAttribute("inert");
 
-  const statusLabel = statusLabels[item.status] || item.status;
-  const typeLabel = typeLabels[item.type] || item.type;
+  const statusLabel = getStatusLabel(item.status);
+  const typeLabel = getTypeLabel(item.type);
   const icon = typeIcons[item.type] || "•";
 
   const paymentLines =
     item.type === "order"
       ? `
         <div class="history-detail__totals">
-          <div><span>Tổng phụ</span><strong>${formatCurrency(item.subtotal, item.currency)}</strong></div>
-          ${item.discount ? `<div><span>Giảm giá</span><strong>-${formatCurrency(item.discount, item.currency)}</strong></div>` : ""}
+          <div><span>${t("history.detail.subtotal", "Tổng phụ")}</span><strong>${formatCurrency(item.subtotal, item.currency)}</strong></div>
+          ${item.discount ? `<div><span>${t("history.detail.discount", "Giảm giá")}</span><strong>-${formatCurrency(item.discount, item.currency)}</strong></div>` : ""}
           ${
             item.shipping !== undefined && item.shipping !== null
-              ? `<div><span>Phí giao</span><strong>${formatCurrency(item.shipping, item.currency)}</strong></div>`
+              ? `<div><span>${t("history.detail.shipping", "Phí giao")}</span><strong>${formatCurrency(item.shipping, item.currency)}</strong></div>`
               : ""
           }
-          <div><span>Tổng cộng</span><strong>${formatCurrency(item.total, item.currency)}</strong></div>
+          <div><span>${t("history.detail.total", "Tổng cộng")}</span><strong>${formatCurrency(item.total, item.currency)}</strong></div>
         </div>
-        <div class="history-detail__row"><span>Thanh toán</span><span class="history-detail__value">${item.paymentMethod || "—"}</span></div>
+        <div class="history-detail__row"><span>${t("history.detail.payment", "Thanh toán")}</span><span class="history-detail__value">${item.paymentMethod || "—"}</span></div>
         ${
           item.coupon
-            ? `<div class="history-detail__row"><span>Mã khuyến mãi</span><span class="history-detail__value">${item.coupon}</span></div>`
+            ? `<div class="history-detail__row"><span>${t("history.detail.coupon", "Mã khuyến mãi")}</span><span class="history-detail__value">${item.coupon}</span></div>`
             : ""
         }
       `
@@ -282,9 +313,9 @@ function openDetail(item) {
   const contactLines =
     item.type === "reservation" && item.contact
       ? `
-        <div class="history-detail__row"><span>Khách</span><span class="history-detail__value">${item.contact.name || "—"}</span></div>
-        <div class="history-detail__row"><span>Điện thoại</span><span class="history-detail__value">${item.contact.phone || "—"}</span></div>
-        <div class="history-detail__row"><span>Email</span><span class="history-detail__value">${item.contact.email || "—"}</span></div>
+        <div class="history-detail__row"><span>${t("history.detail.customer", "Khách")}</span><span class="history-detail__value">${item.contact.name || "—"}</span></div>
+        <div class="history-detail__row"><span>${t("history.detail.phone", "Điện thoại")}</span><span class="history-detail__value">${item.contact.phone || "—"}</span></div>
+        <div class="history-detail__row"><span>${t("history.detail.email", "Email")}</span><span class="history-detail__value">${item.contact.email || "—"}</span></div>
       `
       : "";
 
@@ -307,12 +338,12 @@ function openDetail(item) {
 
   const orderAddressRow =
     item.type === "order" && item.address && item.address.trim()
-      ? `<div class="history-detail__row"><span>Địa chỉ</span><span class="history-detail__value">${item.address}</span></div>`
+      ? `<div class="history-detail__row"><span>${t("history.detail.address", "Địa chỉ")}</span><span class="history-detail__value">${item.address}</span></div>`
       : "";
 
   const detailNoteRow =
     item.note && item.note.trim()
-      ? `<div class="history-detail__row"><span>Ghi chú</span><span class="history-detail__value">${item.note}</span></div>`
+      ? `<div class="history-detail__row"><span>${t("history.detail.note", "Ghi chú")}</span><span class="history-detail__value">${item.note}</span></div>`
       : "";
 
   body.innerHTML = `
@@ -321,10 +352,10 @@ function openDetail(item) {
       <div>
         <p class="history-detail__title">${typeLabel} • ${item.id}</p>
         <div class="history-detail__meta">
-          <span>Đặt lúc ${safeFormatDateTime(item.createdAt)}</span>
+          <span>${t("history.detail.placed_at", "Đặt lúc")} ${safeFormatDateTime(item.createdAt)}</span>
           ${
             item.arrivalAt
-              ? `<span>Thời gian đến ${safeFormatDateTime(item.arrivalAt)}</span>`
+              ? `<span>${t("history.detail.arrive_at", "Thời gian đến")} ${safeFormatDateTime(item.arrivalAt)}</span>`
               : ""
           }
         </div>
@@ -333,16 +364,16 @@ function openDetail(item) {
     </div>
 
     <div class="history-detail__section">
-      <h4>Thông tin chính</h4>
+      <h4>${t("history.detail.main_info", "Thông tin chính")}</h4>
       ${
         item.type === "reservation"
           ? `
-            <div class="history-detail__row"><span>Số người</span><span class="history-detail__value">${item.people || "—"}</span></div>
-            <div class="history-detail__row"><span>Bàn</span><span class="history-detail__value">${item.table || "Đang sắp xếp"}</span></div>
+            <div class="history-detail__row"><span>${t("history.detail.people", "Số người")}</span><span class="history-detail__value">${item.people || "—"}</span></div>
+            <div class="history-detail__row"><span>${t("history.detail.table", "Bàn")}</span><span class="history-detail__value">${item.table || t("history.detail.table_unassigned", "Đang sắp xếp")}</span></div>
             ${contactLines}
           `
           : `
-            <div class="history-detail__row"><span>Số món</span><span class="history-detail__value">${item.items ? item.items.length : 0}</span></div>
+            <div class="history-detail__row"><span>${t("history.detail.items_count", "Số món")}</span><span class="history-detail__value">${item.items ? item.items.length : 0}</span></div>
             ${itemsBlock}
             ${paymentLines}
             ${orderAddressRow}

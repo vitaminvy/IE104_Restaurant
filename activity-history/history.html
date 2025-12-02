@@ -23,6 +23,20 @@
     <link rel="stylesheet" href="../partials/footer.css" />
     <link rel="stylesheet" href="../style/back-to-top.css" />
 
+    <!-- Font Awesome (for back-to-top icon) -->
+    <link
+      rel="preload"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      />
+    </noscript>
+
     <!-- Page specific -->
     <link rel="stylesheet" href="./history.css" />
   </head>
@@ -36,38 +50,72 @@
 
     <main class="container history-page">
       <section class="history-hero animate-fade">
-        <p class="eyebrow">Lịch sử</p>
-        <h1>Trung tâm hoạt động</h1>
-        <p class="hero-subtitle">
+        <p class="eyebrow" data-i18n="history.hero.eyebrow">Lịch sử</p>
+        <h1 data-i18n="history.hero.title">Trung tâm hoạt động</h1>
+        <p class="hero-subtitle" data-i18n="history.hero.subtitle">
           Theo dõi mọi đặt bàn và đặt món trong một nơi, sắp xếp từ mới đến cũ.
         </p>
       </section>
 
       <section class="history-filters animate-scale">
         <div class="filter-field">
-          <label for="filterType">Loại hoạt động</label>
+          <label for="filterType" data-i18n="history.filters.type_label"
+            >Loại hoạt động</label
+          >
           <select id="filterType" class="history-select">
-            <option value="all">Tất cả</option>
-            <option value="reservation">Đặt bàn</option>
-            <option value="order">Đặt món</option>
+            <option value="all" data-i18n="history.filters.type_all">
+              Tất cả
+            </option>
+            <option
+              value="reservation"
+              data-i18n="history.filters.type_reservation"
+            >
+              Đặt bàn
+            </option>
+            <option value="order" data-i18n="history.filters.type_order">
+              Đặt món
+            </option>
           </select>
         </div>
         <div class="filter-field">
-          <label for="filterStatus">Trạng thái</label>
+          <label for="filterStatus" data-i18n="history.filters.status_label"
+            >Trạng thái</label
+          >
           <select id="filterStatus" class="history-select">
-            <option value="all">Tất cả</option>
-            <option value="pending">Chờ xác nhận</option>
-            <option value="confirmed">Đã xác nhận</option>
-            <option value="completed">Hoàn tất</option>
-            <option value="cancelled">Đã hủy</option>
+            <option value="all" data-i18n="history.filters.status_all">
+              Tất cả
+            </option>
+            <option value="pending" data-i18n="history.filters.status_pending">
+              Chờ xác nhận
+            </option>
+            <option
+              value="confirmed"
+              data-i18n="history.filters.status_confirmed"
+            >
+              Đã xác nhận
+            </option>
+            <option
+              value="completed"
+              data-i18n="history.filters.status_completed"
+            >
+              Hoàn tất
+            </option>
+            <option
+              value="cancelled"
+              data-i18n="history.filters.status_cancelled"
+            >
+              Đã hủy
+            </option>
           </select>
         </div>
         <div class="filter-field">
-          <label for="filterFrom">Từ ngày</label>
+          <label for="filterFrom" data-i18n="history.filters.from"
+            >Từ ngày</label
+          >
           <input id="filterFrom" type="date" class="history-input" />
         </div>
         <div class="filter-field">
-          <label for="filterTo">Đến ngày</label>
+          <label for="filterTo" data-i18n="history.filters.to">Đến ngày</label>
           <input id="filterTo" type="date" class="history-input" />
         </div>
       </section>

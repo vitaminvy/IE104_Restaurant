@@ -6,6 +6,72 @@
     "about": "About Us",
     "contact": "Contact"
   },
+  "history": {
+    "hero": {
+      "eyebrow": "History",
+      "title": "Activity Center",
+      "subtitle": "Track every reservation and order in one place."
+    },
+    "filters": {
+      "type_label": "Activity type",
+      "status_label": "Status",
+      "from": "From date",
+      "to": "To date",
+      "type_all": "All",
+      "type_reservation": "Reservation",
+      "type_order": "Order",
+      "status_all": "All",
+      "status_pending": "Pending",
+      "status_confirmed": "Confirmed",
+      "status_completed": "Completed",
+      "status_cancelled": "Cancelled"
+    },
+    "status": {
+      "pending": "Pending",
+      "confirmed": "Confirmed",
+      "completed": "Completed",
+      "cancelled": "Cancelled"
+    },
+    "types": {
+      "reservation": "Reservation",
+      "order": "Order"
+    },
+    "card": {
+      "arrival_time": "Arrival time: ",
+      "people": "Guests: ",
+      "table": "Table: ",
+      "table_unassigned": "Being arranged",
+      "total": "Total: ",
+      "items": "Items: ",
+      "address": "Address: ",
+      "note": "Note: ",
+      "more_items": "+{count} more items"
+    },
+    "detail": {
+      "placed_at": "Placed at",
+      "arrive_at": "Arrival at",
+      "main_info": "Main info",
+      "people": "Guests",
+      "table": "Table",
+      "table_unassigned": "Being arranged",
+      "items_count": "Items",
+      "subtotal": "Subtotal",
+      "discount": "Discount",
+      "shipping": "Shipping",
+      "total": "Total",
+      "payment": "Payment",
+      "coupon": "Coupon",
+      "address": "Address",
+      "note": "Note",
+      "customer": "Customer",
+      "phone": "Phone",
+      "email": "Email"
+    },
+    "actions": {
+      "view_detail": "View details",
+      "view_detail_aria": "View details"
+    }
+  },
   "header": {
     "status_open": "we're open",
     "cta": "Table Reservation"

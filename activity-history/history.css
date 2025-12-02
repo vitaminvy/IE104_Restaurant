@@ -81,12 +81,13 @@
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.14);
   padding: 0.75rem 2.25rem 0.75rem 0.9rem; /* extra right space for arrow while keeping left aligned */
-  background: rgba(255, 255, 255);
-  color: var(--text-primary);
+  background: #ffffff;
+  color: #1f2937;
   font-family: var(--font-body);
   text-align: left;
   text-align-last: left;
   flex: 1;
+  appearance: none;
 }
 
 .history-select:focus,
@@ -96,17 +97,48 @@
 }
 
 .history-select option {
-  background: var(--bg-primary);
-  color: var(--text-primary);
+  background: #ffffff;
+  color: #1f2937;
   text-align: left;
+}
+
+html[data-theme="dark"] .history-select,
+html[data-theme="dark"] .history-input {
+  background: rgba(255, 255, 255, 0.08);
+  color: #f8fafc;
+  border-color: rgba(255, 255, 255, 0.25);
+  caret-color: #f8fafc;
+}
+
+html[data-theme="dark"] .history-select option {
+  background: #0f172a;
+  color: #e5e7eb;
+}
+
+html[data-theme="dark"] .filter-field label {
+  color: #e5e7eb;
+}
+
+html[data-theme="dark"] .history-input::placeholder {
+  color: rgba(248, 250, 252, 0.75);
+}
+
+html[data-theme="dark"] .history-input::-webkit-calendar-picker-indicator {
+  filter: invert(1);
 }
 
  
 
 .history-list {
   width: 100%;
-  display: grid;
-  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--history-border);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--history-shadow);
 }
 
 .history-card {
@@ -114,20 +146,22 @@
   grid-template-columns: auto 1fr;
   gap: 1rem;
   padding: 1.2rem 1.4rem;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid var(--history-border);
-  border-radius: 18px;
-  box-shadow: var(--history-shadow);
+  background: rgba(255, 255, 255, 0.02);
+  border-bottom: 1px solid var(--history-border);
   position: relative;
   overflow: hidden;
   align-items: start;
+}
+
+.history-card:last-child {
+  border-bottom: none;
 }
 
 .history-card::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(120deg, rgba(251, 143, 44, 0.12), transparent 35%);
+  background: linear-gradient(120deg, rgba(251, 143, 44, 0.08), transparent 35%);
   opacity: 0.55;
   pointer-events: none;
 }
@@ -172,25 +206,34 @@
   border-radius: 999px;
   font-size: 0.85rem;
   font-weight: 700;
-  color: #0b0b0b;
+  color: #ffffff;
   background: var(--color-white);
 }
 
 .status-pending {
   background: var(--status-pending);
-  color: #0b0b0b;
+  color: #ffffff;
 }
 .status-confirmed {
   background: var(--status-confirmed);
-  color: #f8fafc;
+  color: #ffffff;
 }
 .status-completed {
   background: var(--status-completed);
-  color: #ecfdf3;
+  color: #ffffff;
 }
 .status-cancelled {
   background: var(--status-cancelled);
-  color: #fff1f2;
+  color: #ffffff;
+}
+
+html[data-theme="dark"] .history-card__status {
+  color: #ffffff;
+}
+
+html[data-theme="dark"] .status-pending {
+  background: var(--status-pending);
+  color: #ffffff;
 }
 
 .history-card__meta {

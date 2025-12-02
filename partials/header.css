@@ -120,9 +120,6 @@ html[data-theme="light"] .header--scrolled {
   pointer-events: none; /* unenable to click */
 }
 
-html[data-theme="light"] .header__nav {
-}
-
 /* mobile nave effect: JS add this class when click hamburger btn */
 .header__nav--open {
   left: 0; /* slide from left to right */
@@ -153,7 +150,7 @@ html[data-theme="light"] .header__nav {
 
 .header__nav-link {
   font-family: var(--font-body);
-  font-size: 1.125rem;
+  font-size: clamp(1rem, 1.2vw, 1.125rem);
   color: var(--text-secondary);
   text-decoration: none;
   transition: color 0.3s ease;
@@ -227,7 +224,7 @@ html[data-theme="light"] .header__nav {
 
   .header__nav-list {
     flex-direction: row;
-    gap: 2rem;
+    gap: clamp(1rem, 2vw, 2.5rem);
   }
 
   .header__menu-btn {
@@ -245,10 +242,6 @@ html[data-theme="light"] .header__nav {
 
 /* xl (≥1280px) */
 @media (min-width: 80rem) {
-  .header__nav-list {
-    gap: 3rem;
-  }
-
   .header__logo img {
     height: 3rem;
   }

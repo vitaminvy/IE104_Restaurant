@@ -193,6 +193,7 @@
       "placeholder_name": "Your name",
       "placeholder_phone": "Phone number",
       "placeholder_email": "Email address",
+      "option_placeholder": "Select guests",
       "option_1_person": "1 Person",
       "option_2_persons": "2 Persons",
       "option_3_persons": "3 Persons",

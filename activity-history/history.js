@@ -35,6 +35,7 @@ const typeIcons = {
   order: "🍽",
 };
 
+// i18n helper with fallback
 function t(key, fallback = "") {
   const val = i18nService.t(key);
   if (val && val !== key) return val;
@@ -49,6 +50,7 @@ function getTypeLabel(code) {
   return t(`history.types.${code}`, typeFallback[code] || code);
 }
 
+// Resolve item label for history entries across locales and legacy records
 function getItemLabel(item) {
   const candidateKeys = [item.titleKey, item.title].filter(Boolean);
   for (const key of candidateKeys) {
@@ -260,6 +262,7 @@ document.addEventListener("language-changed", async () => {
   renderList();
 });
 
+// Map English menu titles to translation keys so old history entries still translate
 async function loadEnMenuMap() {
   if (enMenuTitleMap) return;
   try {

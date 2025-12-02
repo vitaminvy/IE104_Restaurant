@@ -8,16 +8,19 @@
     "contact": "Liên Hệ"
   },
   "history": {
+    "meta": {
+      "title": "Lịch sử hoạt động - WowWraps"
+    },
     "hero": {
       "eyebrow": "Tổng quan",
       "title": "Hoạt động",
       "subtitle": "Theo dõi mọi đặt bàn và đặt món trong một nơi."
     },
     "filters": {
-      "type_label": "Loại hoạt động",
-      "status_label": "Trạng thái",
-      "from": "Từ ngày",
-      "to": "Đến ngày",
+      "type_label": "Loại hoạt động:",
+      "status_label": "Trạng thái:",
+      "from": "Từ ngày:",
+      "to": "Đến ngày:",
       "type_all": "Tất cả",
       "type_reservation": "Đặt bàn",
       "type_order": "Đặt món",
@@ -77,7 +80,12 @@
     "status_open": "đang mở cửa",
     "cta": "Đặt Bàn",
     "theme_toggle": "Chủ Đề",
-    "language_toggle": "Ngôn Ngữ"
+    "language_toggle": "Ngôn Ngữ",
+    "user_menu": {
+      "label": "Tài khoản",
+      "cart": "Giỏ hàng",
+      "logout": "Đăng xuất"
+    }
   },
   "footer": {
     "download_app": "Tải ứng dụng WowWraps ngay hôm nay.",
@@ -193,6 +201,7 @@
       "placeholder_name": "Tên của bạn",
       "placeholder_phone": "Số điện thoại",
       "placeholder_email": "Địa chỉ email",
+      "option_placeholder": "Chọn số khách",
       "option_1_person": "1 người",
       "option_2_persons": "2 người",
       "option_3_persons": "3 người",
@@ -1077,7 +1086,7 @@
     "go_to_home": "Về Trang Chủ"
   },
   "about_page": {
-    "title": "Giới thiệu",
+    "title": "Giới thiệu - WowWraps",
     "intro": {
       "title": "Chúng tôi là một nhà hàng Mexico tạo ra những món ăn ngon.",
       "lead": "Từ những chiếc bánh tortilla thủ công được ép tươi mỗi sáng đến món carnitas hầm chậm và nước sốt tươi sáng, chúng tôi nấu ăn bằng nguyên liệu theo mùa từ nông dân địa phương. Nhà bếp của chúng tôi kết hợp các công thức gia đình với kỹ thuật hiện đại, giữ cho hương vị đậm đà và chân thực. Cho dù bạn thèm một món cay, hun khói hay chay, luôn có một món ăn được chế biến cẩn thận—và một đội ngũ sẵn sàng chào đón bạn như gia đình.",
@@ -1446,6 +1455,13 @@
     }
   },
   "auth": {
+    "meta": {
+      "login_title": "Đăng nhập - WowWraps",
+      "register_title": "Đăng ký - WowWraps",
+      "forgot_title": "Quên mật khẩu - WowWraps",
+      "new_password_title": "Đặt mật khẩu mới - WowWraps",
+      "otp_title": "Xác thực OTP - WowWraps"
+    },
     "common": {
       "back": "Quay lại",
       "email_label": "Địa chỉ email",

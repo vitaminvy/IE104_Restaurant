@@ -8,16 +8,19 @@
     "contact": "Contact"
   },
   "history": {
+    "meta": {
+      "title": "Activity History - WowWraps"
+    },
     "hero": {
       "eyebrow": "Overview",
       "title": "My Dining",
       "subtitle": "Track every reservation and order in one place."
     },
     "filters": {
-      "type_label": "Activity type",
-      "status_label": "Status",
-      "from": "From date",
-      "to": "To date",
+      "type_label": "Activity type:",
+      "status_label": "Status:",
+      "from": "From date:",
+      "to": "To date:",
       "type_all": "All",
       "type_reservation": "Reservation",
       "type_order": "Order",
@@ -77,7 +80,12 @@
     "status_open": "we're open",
     "cta": "Table Reservation",
     "theme_toggle": "Theme",
-    "language_toggle": "Language"
+    "language_toggle": "Language",
+    "user_menu": {
+      "label": "Account",
+      "cart": "Your cart",
+      "logout": "Logout"
+    }
   },
   "footer": {
     "download_app": "Download the WowWraps app today.",
@@ -193,6 +201,7 @@
       "placeholder_name": "Your name",
       "placeholder_phone": "Phone number",
       "placeholder_email": "Email address",
+      "option_placeholder": "Select guests",
       "option_1_person": "1 Person",
       "option_2_persons": "2 Persons",
       "option_3_persons": "3 Persons",
@@ -1078,7 +1087,7 @@
     "go_to_home": "Go To Home"
   },
   "about_page": {
-    "title": "About Us",
+    "title": "About Us - WowWraps",
     "intro": {
       "title": "We Are A Mexican Restaurant Makes Delicious.",
       "lead": "From handmade tortillas pressed fresh each morning to slow-cooked carnitas and bright salsas, we cook with seasonal ingredients from local farmers. Our kitchen blends family recipes with modern techniques, keeping flavors bold and honest. Whether you crave something spicy, smoky, or vegetarian, there's a plate here made with care—and a team ready to welcome you like familia.",
@@ -1447,6 +1456,13 @@
     }
   },
   "auth": {
+    "meta": {
+      "login_title": "Login - WowWraps",
+      "register_title": "Register - WowWraps",
+      "forgot_title": "Forgot Password - WowWraps",
+      "new_password_title": "Set New Password - WowWraps",
+      "otp_title": "OTP Verification - WowWraps"
+    },
     "common": {
       "back": "Back",
       "email_label": "Email Address",

@@ -1,5 +1,9 @@
 :root {
-  --history-bg: linear-gradient(145deg, rgba(251, 143, 44, 0.12), rgba(255, 255, 255, 0.04));
+  --history-bg: linear-gradient(
+    145deg,
+    rgba(251, 143, 44, 0.12),
+    rgba(255, 255, 255, 0.04)
+  );
   --history-surface: rgba(255, 255, 255, 0.04);
   --history-border: rgba(255, 255, 255, 0.12);
   --history-shadow: 0 18px 36px rgba(0, 0, 0, 0.28);
@@ -127,8 +131,6 @@ html[data-theme="dark"] .history-input::-webkit-calendar-picker-indicator {
   filter: invert(1);
 }
 
- 
-
 .history-list {
   width: 100%;
   display: flex;
@@ -147,6 +149,7 @@ html[data-theme="dark"] .history-input::-webkit-calendar-picker-indicator {
   gap: 1rem;
   padding: 1.2rem 1.4rem;
   background: rgba(255, 255, 255, 0.02);
+  font-family: var(--font-body);
   border-bottom: 1px solid var(--history-border);
   position: relative;
   overflow: hidden;
@@ -161,7 +164,11 @@ html[data-theme="dark"] .history-input::-webkit-calendar-picker-indicator {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(120deg, rgba(251, 143, 44, 0.08), transparent 35%);
+  background: linear-gradient(
+    120deg,
+    rgba(251, 143, 44, 0.08),
+    transparent 35%
+  );
   opacity: 0.55;
   pointer-events: none;
 }
@@ -195,9 +202,10 @@ html[data-theme="dark"] .history-input::-webkit-calendar-picker-indicator {
 }
 
 .history-card__id {
+  padding-top: 0.2rem;
   font-weight: 700;
-  font-size: 1.05rem;
-  color: var(--text-primary);
+  font-size: 1.2rem;
+  color: var(--color-dark-orange);
   align-self: flex-start;
 }
 
@@ -252,7 +260,7 @@ html[data-theme="dark"] .status-pending {
   border: 1px solid rgba(255, 255, 255, 0.12);
   color: var(--text-primary);
   font-weight: 600;
-  font-size: 0.85rem;
+  font-size: 1rem;
   display: inline-flex;
   align-items: center;
 }
@@ -260,6 +268,7 @@ html[data-theme="dark"] .status-pending {
 .history-card__details {
   display: grid;
   gap: 0.35rem;
+
   color: var(--text-primary);
   justify-items: start;
 }

@@ -80,7 +80,12 @@
     "status_open": "đang mở cửa",
     "cta": "Đặt Bàn",
     "theme_toggle": "Chủ Đề",
-    "language_toggle": "Ngôn Ngữ"
+    "language_toggle": "Ngôn Ngữ",
+    "user_menu": {
+      "label": "Tài khoản",
+      "cart": "Giỏ hàng",
+      "logout": "Đăng xuất"
+    }
   },
   "footer": {
     "download_app": "Tải ứng dụng WowWraps ngay hôm nay.",

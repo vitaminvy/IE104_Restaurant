@@ -156,6 +156,8 @@ function initHeaderFeatures() {
   // Function to handle responsive toggle placement
   function handleTogglePlacement() {
     const isMobile = window.innerWidth < 768; // Below 768px
+    const loggedIn =
+      !!(localStorage.getItem('authToken') || sessionStorage.getItem('authToken'));
 
     if (isMobile) {
       // Remove toggles from header actions if present
@@ -189,6 +191,19 @@ function initHeaderFeatures() {
         headerNavList.appendChild(themeToggleNavItem);
         headerNavList.appendChild(languageToggleNavItem);
       }
+
+      // Move user menu into nav when logged in
+      if (userMenu && loggedIn) {
+        if (!userMenuNavItem.contains(userMenu)) {
+          userMenuNavItem.innerHTML = '';
+          userMenuNavItem.appendChild(userMenu);
+        }
+        if (!headerNavList.contains(userMenuNavItem)) {
+          headerNavList.appendChild(userMenuNavItem);
+        }
+      } else if (headerNavList.contains(userMenuNavItem)) {
+        headerNavList.removeChild(userMenuNavItem);
+      }
     } else {
       // Remove from nav if present
       if (headerNavList.contains(themeToggleNavItem)) {
@@ -197,6 +212,9 @@ function initHeaderFeatures() {
       if (headerNavList.contains(languageToggleNavItem)) {
         headerNavList.removeChild(languageToggleNavItem);
       }
+      if (headerNavList.contains(userMenuNavItem)) {
+        headerNavList.removeChild(userMenuNavItem);
+      }
 
       // Move toggles back to header actions
       if (!actionsContainer.contains(themeToggle)) {
@@ -204,14 +222,92 @@ function initHeaderFeatures() {
         actionsContainer.appendChild(themeToggle);
         actionsContainer.appendChild(languageToggle);
       }
+
+      // Move user menu back to header actions
+      if (userMenu && !headerRight.contains(userMenu)) {
+        headerRight.appendChild(userMenu);
+      }
     }
   }
 
   // Initialize actions container in header
   headerRight.prepend(actionsContainer);
 
-  // Initial placement
-  handleTogglePlacement();
+  // --- AUTH / USER MENU HANDLING ---
+  const authBtn = document.querySelector('.header__auth-btn');
+  const mobileAuthLink = document.querySelector('.header__nav-link--auth-mobile');
+  const userMenu = document.querySelector('.header__user-menu');
+  const userTrigger = document.querySelector('.header__user-trigger');
+  const userDropdown = document.querySelector('.header__user-dropdown');
+  const logoutBtn = document.querySelector('.header__user-logout');
+  const userMenuNavItem = document.createElement('li');
+  userMenuNavItem.className = 'header__nav-item header__nav-item--user';
+
+  const getAuthToken = () =>
+    localStorage.getItem('authToken') || sessionStorage.getItem('authToken');
+
+  const closeUserMenu = () => {
+    if (!userMenu) return;
+    userMenu.classList.remove('is-open');
+    if (userTrigger) {
+      userTrigger.setAttribute('aria-expanded', 'false');
+    }
+  };
+
+  const updateAuthUI = () => {
+    const loggedIn = !!getAuthToken();
+    if (authBtn) {
+      authBtn.hidden = loggedIn;
+      authBtn.style.display = loggedIn ? 'none' : '';
+    }
+    if (mobileAuthLink) {
+      mobileAuthLink.style.display = loggedIn ? 'none' : '';
+    }
+    if (userMenu) {
+      userMenu.hidden = !loggedIn;
+      if (!loggedIn) {
+        closeUserMenu();
+      }
+    }
+
+    handleTogglePlacement();
+  };
+
+  if (userTrigger && userDropdown) {
+    userTrigger.addEventListener('click', () => {
+      const isOpen = userMenu.classList.toggle('is-open');
+      userTrigger.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    document.addEventListener('click', (event) => {
+      if (!userMenu.contains(event.target)) {
+        closeUserMenu();
+      }
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        closeUserMenu();
+      }
+    });
+  }
+
+  if (logoutBtn) {
+    logoutBtn.addEventListener('click', (event) => {
+      event.preventDefault();
+      ['authToken', 'userEmail', 'userData'].forEach((key) =>
+        localStorage.removeItem(key)
+      );
+      ['authToken', 'loginReturnUrl'].forEach((key) =>
+        sessionStorage.removeItem(key)
+      );
+      closeUserMenu();
+      updateAuthUI();
+      window.location.href = '/auth/login/';
+    });
+  }
+
+  updateAuthUI();
 
   // Apply translations to the toggle labels after placement
   setTimeout(() => applyStaticTranslations(), 0);

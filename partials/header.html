@@ -69,6 +69,33 @@
         >Table Reservation</a
       >
       <a href="/auth/login/" class="header__auth-btn">Sign up</a>
+      <div class="header__user-menu" hidden>
+        <button
+          type="button"
+          class="header__user-trigger"
+          aria-haspopup="true"
+          aria-expanded="false"
+          aria-label="Account menu"
+        >
+          <span class="header__user-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="8" r="4"></circle>
+              <path d="M4 20c0-3.5 3-6 8-6s8 2.5 8 6"></path>
+            </svg>
+          </span>
+          <span class="visually-hidden" data-i18n="header.user_menu.label">Account</span>
+        </button>
+        <div class="header__user-dropdown" role="menu">
+          <a href="/cartpage/" class="header__user-item" aria-label="Your cart">
+            <img src="/assets/icons/icon-header/shopping-cart-1.svg" alt="" aria-hidden="true" />
+            <span data-i18n="header.user_menu.cart">Your cart</span>
+          </a>
+          <a href="#" class="header__user-item header__user-logout" aria-label="Logout" role="button">
+            <img src="/assets/icons/icon-header/log-out.svg" alt="" aria-hidden="true" />
+            <span data-i18n="header.user_menu.logout">Logout</span>
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 </header>

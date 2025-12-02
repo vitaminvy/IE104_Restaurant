@@ -80,7 +80,12 @@
     "status_open": "we're open",
     "cta": "Table Reservation",
     "theme_toggle": "Theme",
-    "language_toggle": "Language"
+    "language_toggle": "Language",
+    "user_menu": {
+      "label": "Account",
+      "cart": "Your cart",
+      "logout": "Logout"
+    }
   },
   "footer": {
     "download_app": "Download the WowWraps app today.",

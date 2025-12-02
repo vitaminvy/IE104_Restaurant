@@ -119,6 +119,9 @@ html[data-theme="light"] .header--scrolled {
   opacity: 0; /* initially will hide */
   pointer-events: none; /* unenable to click */
 }
+html[data-theme="light"] .header__nav {
+  background: rgba(243, 240, 231, 0.9);
+}
 
 /* mobile nave effect: JS add this class when click hamburger btn */
 .header__nav--open {
@@ -220,6 +223,102 @@ html[data-theme="light"] .header--scrolled {
   box-shadow: 0 4px 10px -2px rgba(var(--accent-color-rgb, 212, 163, 115), 0.3);
 }
 
+/* User menu (when logged in) */
+.header__user-menu {
+  position: relative;
+  display: none;
+}
+.header__nav-item--user .header__user-menu {
+  display: flex;
+  width: 100%;
+}
+.header__user-menu[hidden] {
+  display: none !important;
+}
+
+.header__user-trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  background: transparent;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.header__user-trigger:hover {
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+  box-shadow: 0 8px 20px -4px rgba(var(--accent-color-rgb, 212, 163, 115), 0.35);
+}
+
+.header__user-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.header__user-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 180px;
+  padding: 0.5rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+  display: none;
+  z-index: 20;
+}
+
+.header__user-menu.is-open .header__user-dropdown {
+  display: block;
+}
+
+.header__user-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 0.85rem;
+  border-radius: 10px;
+  text-decoration: none;
+  border: none;
+  background: transparent;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  box-sizing: border-box;
+}
+
+.header__user-item:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--accent-color);
+}
+
+.header__user-item img {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  filter: invert(0.9);
+  transition: filter 0.2s ease;
+}
+
+.header__user-item.header__user-logout:hover {
+  color: #ef4444;
+}
+
+html[data-theme="light"] .header__user-item img {
+  filter: invert(0);
+}
+
 .header__nav-link--auth-mobile {
   display: inline-flex;
   align-items: center;
@@ -310,6 +409,10 @@ html[data-theme="light"] .header__nav-link--auth-mobile:hover {
   }
   
   .header__auth-btn {
+    display: inline-flex;
+  }
+
+  .header__user-menu {
     display: inline-flex;
   }
 

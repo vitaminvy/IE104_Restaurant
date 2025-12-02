@@ -127,10 +127,6 @@ html[data-theme="light"] .header--scrolled {
   pointer-events: auto;
 }
 
-html[data-theme="light"] .header__nav {
-  background: rgba(245, 241, 234, 0.92);
-}
-
 /* Nav list items */
 .header__nav-list {
   display: flex;

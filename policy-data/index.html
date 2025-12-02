@@ -1,54 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <script src="../assets/script/theme-init.js" defer></script>
     <meta charset="UTF-8" />
+    <script src="../assets/script/base-assets.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title data-i18n="policy_data.meta.title">Privacy Policy & Terms - WowWraps</title>
     <meta
       name="description"
       content="Learn about WowWraps' privacy policy, terms of service, data handling practices, and user responsibilities. Your privacy and security are our priority."
     />
-    <link rel="icon" href="../assets/icons/icon-header/nav-vect.svg" type="image/svg+xml" />
-
-    <!-- Font Awesome CDN -->
-    <link
-      rel="preload"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-      as="style"
-      onload="this.onload=null;this.rel='stylesheet'"
-    />
-    <noscript
-      ><link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    /></noscript>
-
-    <!-- ========== Global Styles (ORDER MATTERS) ========== -->
-    <link rel="stylesheet" href="../style/reset.css" />
-    <link rel="stylesheet" href="../style/style.css" />
-
-    <!-- ========== Partials ========== -->
-    <link rel="stylesheet" href="../partials/header.css" />
-    <link rel="stylesheet" href="../partials/footer.css" />
-
     <!-- ========== Page-specific Styles ========== -->
     <link rel="preload" href="./styles/policy-page.css" as="style" onload="this.rel='stylesheet'" />
     <noscript><link rel="stylesheet" href="./styles/policy-page.css" /></noscript>
 
-    <!-- ========== Global Features ========== -->
-    <link rel="stylesheet" href="../style/animations.css" />
-    <link rel="stylesheet" href="../style/back-to-top.css" />
-
-    <!-- ========== Scripts ========== -->
-    <script src="../assets/script/scroll-animations.js" defer></script>
-    <script src="../assets/script/global-loader.js" defer></script>
   </head>
   <body>
-    <!-- ========== Partials Loader ========== -->
-    <script src="../assets/script/include-partials.js" defer></script>
-    <script type="module" src="../assets/script/header.js"></script>
-
     <!-- ========== 1. HEADER ========== -->
     <div data-include="/partials/header.html"></div>
 
@@ -864,9 +830,5 @@
 
     <!-- ========== Back to Top ========== -->
     <div data-include="../partials/back-to-top.html"></div>
-    <script src="../assets/script/back-to-top.js" defer></script>
-
-    <!-- ========== Page Scripts ========== -->
-    <script type="module" src="../assets/script/header-features.js"></script>
   </body>
 </html>

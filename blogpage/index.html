@@ -1,47 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <script src="../assets/script/theme-init.js"  type="module" defer></script>
     <meta charset="UTF-8" />
+    <script src="../assets/script/base-assets.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Stay updated with the latest news, articles, and insights on restaurant management and growth from WowWraps.">
     <title data-i18n="blog_page.title">Blog - WowWraps</title>
-    <link rel="icon" href="../assets/icons/icon-header/nav-vect.svg" type="image/svg+xml" />
-
     <!-- Preload critical assets -->
     <link rel="preload" href="../assets/images/blog-page/featured-post.png" as="image" type="image/webp">
 
     <!-- Preload non-critical CSS -->
     <link rel="preload" href="./styles/main.css" as="style">
-    <link rel="preload" href="../partials/header.css" as="style">
-    <link rel="preload" href="../partials/footer.css" as="style">
     <link rel="preload" href="./styles/blog-grid.css" as="style">
     <link rel="preload" href="../style/newsletter.css" as="style">
-    <link rel="preload" href="../style/animations.css" as="style">
     <link rel="preload" href="../style/page-enhancements.css" as="style">
 
-    <!-- Font Awesome (defer loading) -->
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"></noscript>
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
     <!-- Non-critical CSS (loaded asynchronously) -->
-    <link rel="stylesheet" href="../style/reset.css" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="./styles/main.css" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="../partials/header.css" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="../partials/footer.css" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="./styles/page-header.css" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="./styles/featured-post.css" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="./styles/blog-grid.css" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="./styles/pagination.css" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="../style/newsletter.css" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="../style/style.css" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="../style/animations.css" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="../style/page-enhancements.css" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="../style/back-to-top.css" media="print" onload="this.media='all'">
   </head>
 
   <body>
@@ -144,13 +125,7 @@
     <div data-include="../partials/back-to-top.html"></div>
 
     <!-- Deferred Scripts -->
-    <script src="../assets/script/include-partials.js" defer></script>
-    <script src="../assets/script/global-loader.js" defer></script>
-    <script src="../assets/script/scroll-animations.js" defer></script>
     <script type="module" src="./scripts/blog-loader.js"></script>
-    <script type="module" src="../assets/script/header.js"></script>
-    <script type="module" src="../assets/script/header-features.js"></script>
     <script src="../assets/script/newsletter.js" defer></script>
-    <script src="../assets/script/back-to-top.js" defer></script>
   </body>
 </html>

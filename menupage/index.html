@@ -2,20 +2,10 @@
 <html lang="en">
   <head>
     <!-- Theme init must run before paint -->
-    <script src="../assets/script/theme-init.js"></script>
-
     <meta charset="UTF-8" />
+    <script src="../assets/script/base-assets.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title data-i18n="menu_page.title">Menu - WowWraps</title>
-    <link
-      rel="icon"
-      href="../assets/icons/icon-header/nav-vect.svg"
-      type="image/svg+xml"
-    />
-
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://ka-f.fontawesome.com" crossorigin />
-
     <!-- SEO Meta Tags -->
     <meta
       name="description"
@@ -39,11 +29,6 @@
       content="https://www.wowwraps.com/assets/images/menu-page/menu-page-banner-light-mode.jpg"
     />
 
-    <!-- Base styles -->
-    <link rel="stylesheet" href="../style/reset.css" />
-    <link rel="stylesheet" href="../style/style.css" />
-    <link rel="stylesheet" href="../style/animations.css" />
-
     <!-- menu page css -->
     <link rel="stylesheet" href="./styles/menu-page.css" />
 
@@ -55,34 +40,8 @@
 
     <!-- Add to Cart Button System -->
     <link rel="stylesheet" href="./styles/add-to-cart-buttons.css" />
-    <link rel="stylesheet" href="../style/notification-system.css" />
-
-    <!-- header & footer -->
-    <link rel="stylesheet" href="../partials/header.css" />
-    <link rel="stylesheet" href="../partials/footer.css" />
-
-    <!-- Theme toggle -->
-    <link rel="stylesheet" href="../style/back-to-top.css" />
-
-    <!-- Global Features Stylesheets -->
-    <link rel="stylesheet" href="../assets/features/allergy-alert.css" />
-    <link rel="stylesheet" href="../style/back-to-top.css" />
 
     <!-- Fonts -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
-      rel="stylesheet"
-    />
-
-    <!-- Font Awesome CDN -->
-    <script
-      src="https://kit.fontawesome.com/eef96f1e29.js"
-      crossorigin="anonymous"
-    ></script>
-
-    <!-- Global Animation System -->
-    <link rel="stylesheet" href="../style/animations.css" />
-
     <!-- Inline Critical CSS -->
     <style>
       .menu__grid {
@@ -111,19 +70,11 @@
     </style>
 
     <!-- Add to Cart Button System -->
-    <script src="../assets/script/notification-system.js" defer></script>
     <script src="./scripts/add-to-cart-buttons.js" defer></script>
 
-    <!-- Global Loading System -->
-    <script src="../assets/script/global-loader.js"></script>
-    <script src="../assets/script/scroll-animations.js"></script>
   </head>
 
   <body>
-    <!-- logic for header and footer -->
-    <script src="../assets/script/include-partials.js" defer></script>
-    <script type="module" src="../assets/script/header.js"></script>
-
     <!-- ========== 1. HEADER ========== -->
     <div data-include="/partials/header.html"></div>
 
@@ -280,8 +231,6 @@
     <!-- Global Features Scripts -->
     <script type="module" src="../assets/features/allergy-alert.js"></script>
 
-    <script type="module" src="../assets/script/header-features.js"></script>
     <div data-include="../partials/back-to-top.html"></div>
-    <script src="../assets/script/back-to-top.js" defer></script>
   </body>
 </html>

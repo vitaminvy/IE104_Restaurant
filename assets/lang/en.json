@@ -4,12 +4,13 @@
     "menu": "Menu",
     "blog": "Blog",
     "about": "About Us",
+    "history": "My Dining",
     "contact": "Contact"
   },
   "history": {
     "hero": {
-      "eyebrow": "History",
-      "title": "Activity Center",
+      "eyebrow": "Overview",
+      "title": "My Dining",
       "subtitle": "Track every reservation and order in one place."
     },
     "filters": {
@@ -87,6 +88,7 @@
     "link_booking": "Booking",
     "link_menu": "Menu",
     "contact_info": "Contact Info",
+    "contact": "Contact",
     "follow_us": "Follow us",
     "social_fb": "Facebook",
     "social_ig": "Instagram",

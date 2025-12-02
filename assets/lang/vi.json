@@ -4,12 +4,13 @@
     "menu": "Thực Đơn",
     "blog": "Bài Viết",
     "about": "Giới Thiệu",
+    "history": "Hoạt động",
     "contact": "Liên Hệ"
   },
   "history": {
     "hero": {
-      "eyebrow": "Lịch sử",
-      "title": "Trung tâm hoạt động",
+      "eyebrow": "Tổng quan",
+      "title": "Hoạt động",
       "subtitle": "Theo dõi mọi đặt bàn và đặt món trong một nơi."
     },
     "filters": {
@@ -87,6 +88,7 @@
     "link_booking": "Đặt Chỗ",
     "link_menu": "Thực Đơn",
     "contact_info": "Thông Tin Liên Hệ",
+    "contact": "Liên Hệ",
     "follow_us": "Theo Dõi",
     "social_fb": "Facebook",
     "social_ig": "Instagram",

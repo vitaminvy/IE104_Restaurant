@@ -1,4 +1,4 @@
-import i18nService from "../assets/script/i18n-service.js";
+import i18nService from "../../assets/script/i18n-service.js";
 
 const HISTORY_STORAGE_KEY = "activityHistory";
 let latestRendered = [];

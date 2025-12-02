@@ -76,10 +76,7 @@ import i18nService from '../../assets/script/i18n-service.js';
         }
       );
 
-      // Reset form
-      form.reset();
-
-      // Reset button
+      // Reset button (for accessibility in case redirect is blocked)
       submitButton.disabled = false;
       submitButton.textContent = originalText;
 
@@ -88,6 +85,11 @@ import i18nService from '../../assets/script/i18n-service.js';
       fields.forEach((field) => {
         field.classList.remove('form-field-invalid');
       });
+
+      // Redirect to activity history after a short pause for the toast
+      setTimeout(() => {
+        window.location.href = '/activity-history/';
+      }, 1200);
     }, 1500);
   }
 

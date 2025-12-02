@@ -1026,7 +1026,7 @@
       "fill_required_fields": "Vui lòng điền đầy đủ các trường bắt buộc.",
       "order_placed_success": "Đặt hàng thành công! ID đơn hàng: #{orderId}",
       "redirecting_homepage": "Đang chuyển hướng đến trang chủ...",
-      "order_placed_combined": "<strong>Đặt hàng thành công!</strong><br>ID đơn hàng của bạn là #{orderId}. Đang chuyển hướng về trang chủ...",
+      "order_placed_combined": "<strong>Đặt hàng thành công!</strong><br>ID đơn hàng của bạn là #{orderId}. Đang chuyển hướng về trang hoạt động...",
       "free_shipping": "MIỄN PHÍ",
       "coupon_applied": "Đã áp dụng phiếu giảm giá",
       "processing": "Đang xử lý..."

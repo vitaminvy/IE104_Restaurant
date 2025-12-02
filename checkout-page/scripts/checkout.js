@@ -374,7 +374,7 @@ import i18nService from "../../assets/script/i18n-service.js";
     setTimeout(() => {
       localStorage.removeItem(CART_STORAGE_KEY);
       localStorage.removeItem(COUPON_STORAGE_KEY);
-      window.location.href = "../";
+      window.location.href = "/activity-history/";
     }, 3000); // Redirect after 3 seconds
   }
 

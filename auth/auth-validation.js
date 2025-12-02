@@ -17,7 +17,7 @@ const ValidationRules = {
   },
   name: {
     minLength: 2,
-    pattern: /^[a-zA-Z\s]+$/,
+    pattern: /^[\p{L}\s]+$/u, // allow unicode letters (e.g., Vietnamese) and spaces
     message: 'Name must contain only letters and spaces',
   },
   otp: {

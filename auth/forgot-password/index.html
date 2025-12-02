@@ -38,13 +38,13 @@
             <line x1="19" y1="12" x2="5" y2="12"></line>
             <polyline points="12 19 5 12 12 5"></polyline>
           </svg>
-          Back
+          <span data-i18n="auth.common.back">Back</span>
         </button>
 
         <!-- Header -->
         <div class="auth-header">
-          <h1 class="auth-title">Forgot Password?</h1>
-          <p class="auth-subtitle">
+          <h1 class="auth-title" data-i18n="auth.forgot.title">Forgot Password?</h1>
+          <p class="auth-subtitle" data-i18n="auth.forgot.subtitle">
             No worries! Enter your email and we'll send you a verification code
           </p>
         </div>
@@ -56,7 +56,10 @@
         <form class="auth-form" id="forgot-password-form">
           <!-- Email -->
           <div class="auth-form-group">
-            <label for="email" class="auth-label auth-label--required"
+            <label
+              for="email"
+              class="auth-label auth-label--required"
+              data-i18n="auth.common.email_label"
               >Email Address</label
             >
             <input
@@ -65,6 +68,7 @@
               name="email"
               class="auth-input"
               placeholder="Enter your registered email"
+              data-i18n-placeholder="auth.common.registered_email_placeholder"
               autocomplete="email"
               required
             />
@@ -72,14 +76,14 @@
 
           <!-- Submit Button -->
           <button type="submit" class="auth-btn" id="send-otp-btn">
-            <span class="btn-text">Send Verification Code</span>
+            <span class="btn-text" data-i18n="auth.forgot.submit">Send Verification Code</span>
           </button>
         </form>
 
         <!-- Footer -->
         <div class="auth-footer-text">
-          Remember your password?
-          <a href="../login/">Back to Login</a>
+          <span data-i18n="auth.forgot.footer_text">Remember your password?</span>
+          <a href="../login/" data-i18n="auth.forgot.footer_link">Back to Login</a>
         </div>
       </div>
     </div>

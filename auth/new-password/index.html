@@ -75,8 +75,8 @@
       <div class="auth-container">
         <!-- Header -->
         <div class="auth-header">
-          <h1 class="auth-title">Set New Password</h1>
-          <p class="auth-subtitle">
+          <h1 class="auth-title" data-i18n="auth.new_password.title">Set New Password</h1>
+          <p class="auth-subtitle" data-i18n="auth.new_password.subtitle">
             Create a strong password for your account
           </p>
         </div>
@@ -88,7 +88,10 @@
         <form class="auth-form" id="new-password-form">
           <!-- New Password -->
           <div class="auth-form-group">
-            <label for="password" class="auth-label auth-label--required"
+            <label
+              for="password"
+              class="auth-label auth-label--required"
+              data-i18n="auth.common.password_label"
               >New Password</label
             >
             <div class="auth-password-wrapper">
@@ -98,6 +101,7 @@
                 name="password"
                 class="auth-input"
                 placeholder="Enter new password"
+                data-i18n-placeholder="auth.common.password_placeholder"
                 autocomplete="new-password"
                 required
               />
@@ -128,7 +132,10 @@
 
           <!-- Confirm Password -->
           <div class="auth-form-group">
-            <label for="confirm-password" class="auth-label auth-label--required"
+            <label
+              for="confirm-password"
+              class="auth-label auth-label--required"
+              data-i18n="auth.common.confirm_password_label"
               >Confirm Password</label
             >
             <div class="auth-password-wrapper">
@@ -138,6 +145,7 @@
                 name="confirmPassword"
                 class="auth-input"
                 placeholder="Confirm new password"
+                data-i18n-placeholder="auth.common.confirm_password_placeholder"
                 autocomplete="new-password"
                 required
               />
@@ -173,7 +181,7 @@
 
           <!-- Change Password Button -->
           <button type="submit" class="auth-btn" id="change-password-btn">
-            <span class="btn-text">Change Password</span>
+            <span class="btn-text" data-i18n="auth.new_password.submit">Change Password</span>
           </button>
         </form>
       </div>

@@ -296,6 +296,13 @@ html[data-theme='light'] .auth-footer-text a {
   color: rgba(34, 197, 94, 0.9);
 }
 
+.auth-error-message svg,
+.auth-success-message svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
 @keyframes slideInLeft {
   from {
     opacity: 0;

@@ -34,8 +34,10 @@
       <div class="auth-container">
         <!-- Header -->
         <div class="auth-header">
-          <h1 class="auth-title">Welcome Back</h1>
-          <p class="auth-subtitle">Login to access your account</p>
+          <h1 class="auth-title" data-i18n="auth.login.title">Welcome Back</h1>
+          <p class="auth-subtitle" data-i18n="auth.login.subtitle">
+            Login to access your account
+          </p>
         </div>
 
         <!-- Alert Container -->
@@ -45,7 +47,10 @@
         <form class="auth-form" id="login-form">
           <!-- Email -->
           <div class="auth-form-group">
-            <label for="email" class="auth-label auth-label--required"
+            <label
+              for="email"
+              class="auth-label auth-label--required"
+              data-i18n="auth.common.email_label"
               >Email Address</label
             >
             <input
@@ -54,6 +59,7 @@
               name="email"
               class="auth-input"
               placeholder="Enter your email"
+              data-i18n-placeholder="auth.common.email_placeholder"
               autocomplete="email"
               required
             />
@@ -61,7 +67,10 @@
 
           <!-- Password -->
           <div class="auth-form-group">
-            <label for="password" class="auth-label auth-label--required"
+            <label
+              for="password"
+              class="auth-label auth-label--required"
+              data-i18n="auth.common.password_label"
               >Password</label
             >
             <div class="auth-password-wrapper">
@@ -71,6 +80,7 @@
                 name="password"
                 class="auth-input"
                 placeholder="Enter your password"
+                data-i18n-placeholder="auth.common.password_placeholder"
                 autocomplete="current-password"
                 required
               />
@@ -101,24 +111,32 @@
                 name="rememberMe"
                 class="auth-checkbox"
               />
-              <label for="remember-me" class="auth-checkbox-label"
+              <label
+                for="remember-me"
+                class="auth-checkbox-label"
+                data-i18n="auth.common.remember_me"
                 >Remember me</label
               >
             </div>
             <div class="auth-forgot-password">
-              <a href="../forgot-password/" class="auth-link">Forgot Password?</a>
+              <a
+                href="../forgot-password/"
+                class="auth-link"
+                data-i18n="auth.common.forgot_password"
+                >Forgot Password?</a
+              >
             </div>
           </div>
 
           <!-- Login Button -->
           <button type="submit" class="auth-btn" id="login-btn">
-            <span class="btn-text">Login</span>
+            <span class="btn-text" data-i18n="auth.login.submit">Login</span>
           </button>
         </form>
 
         <!-- Divider -->
         <div class="auth-divider">
-          <span>Or continue with</span>
+          <span data-i18n="auth.common.continue_with">Or continue with</span>
         </div>
 
         <!-- Social Login -->
@@ -130,20 +148,20 @@
               <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
               <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
             </svg>
-            Google
+            <span data-i18n="auth.common.google">Google</span>
           </button>
           <button type="button" class="auth-social-btn" id="facebook-login">
             <svg viewBox="0 0 24 24" fill="#1877F2">
               <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
             </svg>
-            Facebook
+            <span data-i18n="auth.common.facebook">Facebook</span>
           </button>
         </div>
 
         <!-- Footer -->
         <div class="auth-footer-text">
-          Don't have an account?
-          <a href="../register/">Create Account</a>
+          <span data-i18n="auth.login.footer_text">Don't have an account?</span>
+          <a href="../register/" data-i18n="auth.login.footer_link">Create Account</a>
         </div>
       </div>
     </div>

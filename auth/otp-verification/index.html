@@ -43,9 +43,12 @@
 
         <!-- Header -->
         <div class="auth-header">
-          <h1 class="auth-title">Enter Verification Code</h1>
+          <h1 class="auth-title" data-i18n="auth.otp.title">
+            Enter Verification Code
+          </h1>
           <p class="auth-subtitle" id="otp-subtitle">
-            We sent a 6-digit code to <strong id="masked-email"></strong>
+            <span data-i18n="auth.otp.subtitle_prefix">We sent a 6-digit code to</span>
+            <strong id="masked-email"></strong>
           </p>
         </div>
 
@@ -128,7 +131,7 @@
                 id="resend-btn"
                 disabled
               >
-                Resend
+                <span data-i18n="auth.otp.resend">Resend</span>
               </button>
               <span class="auth-resend-timer" id="resend-timer">(60s)</span>
             </p>
@@ -136,14 +139,14 @@
 
           <!-- Verify Button -->
           <button type="submit" class="auth-btn" id="verify-btn">
-            <span class="btn-text">Verify Code</span>
+            <span class="btn-text" data-i18n="auth.otp.submit">Verify Code</span>
           </button>
         </form>
 
         <!-- Footer -->
         <div class="auth-footer-text">
-          Wrong email?
-          <a href="../forgot-password/">Try another email</a>
+          <span data-i18n="auth.otp.footer_text">Wrong email?</span>
+          <a href="../forgot-password/" data-i18n="auth.otp.footer_link">Try another email</a>
         </div>
       </div>
     </div>

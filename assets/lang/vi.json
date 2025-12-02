@@ -1375,6 +1375,60 @@
       "rule3": "Nhà hàng có quyền từ chối phục vụ khách không tuân thủ các quy định này."
     }
   },
+  "auth": {
+    "common": {
+      "back": "Quay lại",
+      "email_label": "Địa chỉ email",
+      "email_placeholder": "Nhập email của bạn",
+      "registered_email_placeholder": "Nhập email đã đăng ký",
+      "password_label": "Mật khẩu",
+      "password_placeholder": "Nhập mật khẩu",
+      "confirm_password_label": "Xác nhận mật khẩu",
+      "confirm_password_placeholder": "Nhập lại mật khẩu",
+      "name_label": "Họ và tên",
+      "name_placeholder": "Nhập họ và tên",
+      "remember_me": "Ghi nhớ tôi",
+      "forgot_password": "Quên mật khẩu?",
+      "continue_with": "Hoặc tiếp tục với",
+      "google": "Google",
+      "facebook": "Facebook",
+      "terms": "Tôi đồng ý với Điều khoản & Điều kiện"
+    },
+    "login": {
+      "title": "Chào mừng trở lại",
+      "subtitle": "Đăng nhập để truy cập tài khoản",
+      "submit": "Đăng nhập",
+      "footer_text": "Chưa có tài khoản?",
+      "footer_link": "Tạo tài khoản"
+    },
+    "register": {
+      "title": "Tạo tài khoản",
+      "subtitle": "Tham gia để có trải nghiệm ẩm thực tuyệt vời",
+      "submit": "Tạo tài khoản",
+      "footer_text": "Đã có tài khoản?",
+      "footer_link": "Đăng nhập"
+    },
+    "forgot": {
+      "title": "Quên mật khẩu?",
+      "subtitle": "Đừng lo! Nhập email và chúng tôi sẽ gửi mã xác nhận",
+      "submit": "Gửi mã xác nhận",
+      "footer_text": "Nhớ mật khẩu rồi?",
+      "footer_link": "Quay lại đăng nhập"
+    },
+    "otp": {
+      "title": "Nhập mã xác nhận",
+      "subtitle_prefix": "Chúng tôi đã gửi mã 6 số tới",
+      "submit": "Xác minh mã",
+      "resend": "Gửi lại",
+      "footer_text": "Sai email?",
+      "footer_link": "Thử email khác"
+    },
+    "new_password": {
+      "title": "Đặt mật khẩu mới",
+      "subtitle": "Tạo mật khẩu mạnh cho tài khoản của bạn",
+      "submit": "Đổi mật khẩu"
+    }
+  },
   "notifications": {
     "addedToCart": "Đã thêm {itemTitle} vào giỏ hàng!",
     "updatedCart": "Đã cập nhật số lượng {itemTitle}!",

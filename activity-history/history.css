@@ -267,14 +267,15 @@ html[data-theme="dark"] .status-pending {
 
 .history-card__details {
   display: grid;
-  gap: 0.35rem;
-
+  gap: 0.45rem;
+  line-height: 1.55;
   color: var(--text-primary);
   justify-items: start;
 }
 
 .history-card__label {
   color: var(--text-secondary);
+  margin-right: 6px;
 }
 
 .history-card__actions {

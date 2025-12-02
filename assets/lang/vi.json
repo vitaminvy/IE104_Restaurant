@@ -8,6 +8,9 @@
     "contact": "Liên Hệ"
   },
   "history": {
+    "meta": {
+      "title": "Lịch sử hoạt động - WowWraps"
+    },
     "hero": {
       "eyebrow": "Tổng quan",
       "title": "Hoạt động",
@@ -1078,7 +1081,7 @@
     "go_to_home": "Về Trang Chủ"
   },
   "about_page": {
-    "title": "Giới thiệu",
+    "title": "Giới thiệu - WowWraps",
     "intro": {
       "title": "Chúng tôi là một nhà hàng Mexico tạo ra những món ăn ngon.",
       "lead": "Từ những chiếc bánh tortilla thủ công được ép tươi mỗi sáng đến món carnitas hầm chậm và nước sốt tươi sáng, chúng tôi nấu ăn bằng nguyên liệu theo mùa từ nông dân địa phương. Nhà bếp của chúng tôi kết hợp các công thức gia đình với kỹ thuật hiện đại, giữ cho hương vị đậm đà và chân thực. Cho dù bạn thèm một món cay, hun khói hay chay, luôn có một món ăn được chế biến cẩn thận—và một đội ngũ sẵn sàng chào đón bạn như gia đình.",
@@ -1447,6 +1450,13 @@
     }
   },
   "auth": {
+    "meta": {
+      "login_title": "Đăng nhập - WowWraps",
+      "register_title": "Đăng ký - WowWraps",
+      "forgot_title": "Quên mật khẩu - WowWraps",
+      "new_password_title": "Đặt mật khẩu mới - WowWraps",
+      "otp_title": "Xác thực OTP - WowWraps"
+    },
     "common": {
       "back": "Quay lại",
       "email_label": "Địa chỉ email",

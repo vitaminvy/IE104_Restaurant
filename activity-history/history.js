@@ -3,6 +3,7 @@ import i18nService from "../assets/script/i18n-service.js";
 const HISTORY_STORAGE_KEY = "activityHistory";
 let latestRendered = [];
 let lastDetailTrigger = null;
+let enMenuTitleMap = null;
 
 const demoActivities = [
   {
@@ -46,6 +47,24 @@ function getStatusLabel(code) {
 
 function getTypeLabel(code) {
   return t(`history.types.${code}`, typeFallback[code] || code);
+}
+
+function getItemLabel(item) {
+  const candidateKeys = [item.titleKey, item.title].filter(Boolean);
+  for (const key of candidateKeys) {
+    const translated = i18nService.t(key);
+    if (translated && translated !== key) return translated;
+  }
+
+  if (item.name && enMenuTitleMap && enMenuTitleMap[item.name]) {
+    const mappedKey = enMenuTitleMap[item.name];
+    const translated = i18nService.t(mappedKey);
+    if (translated && translated !== mappedKey) return translated;
+  }
+
+  if (item.name) return item.name;
+  if (candidateKeys.length) return candidateKeys[0];
+  return t("history.detail.items_count", "Món");
 }
 
 function formatCurrency(value, currency = "USD") {
@@ -99,7 +118,7 @@ function buildItemsSummary(items = []) {
   const summary = items
     .slice(0, 3)
     .map((item) => {
-      const label = item.name || item.titleKey || "Món";
+      const label = getItemLabel(item);
       const qty = item.qty || item.quantity || 1;
       return `${label} x${qty}`;
     });
@@ -221,6 +240,7 @@ function renderList() {
 document.addEventListener("DOMContentLoaded", () => {
   const init = async () => {
     await i18nService.init();
+    await loadEnMenuMap();
     document.getElementById("filterType").addEventListener("change", renderList);
     document.getElementById("filterStatus").addEventListener("change", renderList);
     document.getElementById("filterFrom").addEventListener("change", renderList);
@@ -235,9 +255,29 @@ document.addEventListener("DOMContentLoaded", () => {
   init();
 });
 
-document.addEventListener("language-changed", () => {
+document.addEventListener("language-changed", async () => {
+  await loadEnMenuMap();
   renderList();
 });
+
+async function loadEnMenuMap() {
+  if (enMenuTitleMap) return;
+  try {
+    const res = await fetch("/assets/lang/en.json");
+    if (!res.ok) return;
+    const data = await res.json();
+    const menu = data?.menu || {};
+    enMenuTitleMap = {};
+    Object.keys(menu).forEach((key) => {
+      const title = menu[key]?.title;
+      if (title) {
+        enMenuTitleMap[title] = `menu.${key}.title`;
+      }
+    });
+  } catch (error) {
+    enMenuTitleMap = null;
+  }
+}
 
 function handleDetailClick(event) {
   const btn = event.target.closest("[data-detail-idx]");

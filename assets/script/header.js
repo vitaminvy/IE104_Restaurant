@@ -183,6 +183,9 @@ import i18nService from './i18n-service.js';
     const authLink = document.querySelector(".header__auth-btn");
     if (!navLinks.length) return;
 
+    const isLoggedIn = () =>
+      !!(localStorage.getItem("authToken") || sessionStorage.getItem("authToken"));
+
     // Capture where user was before going to auth pages
     if (authLink) {
       authLink.addEventListener("click", () => {
@@ -196,6 +199,21 @@ import i18nService from './i18n-service.js';
       if (!href || href.startsWith("#") || href.includes("#")) return;
 
       link.addEventListener("click", (e) => {
+        const isActivityLink = href.includes("activity-history");
+
+        // Require login before accessing activity history
+        if (isActivityLink && !isLoggedIn()) {
+          e.preventDefault();
+          sessionStorage.setItem("loginReturnUrl", href);
+          const proceed = window.confirm(
+            "Bạn cần đăng nhập để xem lịch sử hoạt động. Đăng nhập ngay?"
+          );
+          if (proceed) {
+            window.location.href = "/auth/login/";
+          }
+          return;
+        }
+
         e.preventDefault();
 
         // Get link text for message

@@ -141,8 +141,17 @@ async function handleLogin(event) {
     rememberMe: document.getElementById('remember-me').checked,
   };
 
-  // Basic non-empty check only
-  if (!formData.email || !formData.password) {
+  // Validate form with regex & length rules
+  const validation = validateLoginForm(formData);
+  if (!validation.valid) {
+    ['email', 'password'].forEach((fieldName) => {
+      if (validation.errors[fieldName]) {
+        const input = document.getElementById(fieldName);
+        if (input) {
+          showFieldError(input, validation.errors[fieldName]);
+        }
+      }
+    });
     showAlert(alertContainer, 'error', i18nService.t('auth.messages.login_missing_fields'));
     return;
   }

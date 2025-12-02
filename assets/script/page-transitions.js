@@ -167,9 +167,8 @@
     // Handle browser back/forward buttons
     window.addEventListener('pageshow', (event) => {
       // If page is loaded from cache (back/forward), ensure it's visible
-      if (event.persisted) {
-        handlePageLoad();
-      }
+      // Always handle page load on pageshow to ensure visibility, especially on back/forward
+      handlePageLoad();
     });
   }
 
@@ -209,5 +208,5 @@
     setupEventListeners();
   }
 
-  console.log('🔄 Page transitions initialized');
+  // console.log('Page transitions initialized');
 })();

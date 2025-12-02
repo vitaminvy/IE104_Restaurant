@@ -3,7 +3,7 @@
     "home": "Trang Chủ",
     "menu": "Thực Đơn",
     "blog": "Bài Viết",
-    "pages": "Trang",
+    "about": "Giới Thiệu",
     "contact": "Liên Hệ"
   },
   "header": {
@@ -14,7 +14,7 @@
     "download_app": "Tải ứng dụng WowWraps ngay hôm nay.",
     "useful_links": "Liên Kết",
     "link_home": "Trang Chủ",
-    "link_about": "Về Chúng Tôi",
+    "link_about": "Đơn Hàng",
     "link_blogs": "Bài Viết",
     "link_booking": "Đặt Chỗ",
     "link_menu": "Thực Đơn",
@@ -26,7 +26,8 @@
     "social_tw": "Twitter",
     "legal": "Pháp Lý",
     "legal_website": "Website bởi UIT.com",
-    "legal_copyright": "©2025. Mọi Quyền Được Bảo Hộ"
+    "legal_copyright": "©2025. Mọi Quyền Được Bảo Hộ",
+    "policy": "Chính sách"
   },
   "home": {
     "hero": {
@@ -44,24 +45,24 @@
     "about": {
       "title": "Chúng tôi là một nhà hàng Mexico làm món ăn ngon.",
       "description": "Chào! Nhà hàng của chúng tôi đã có mặt trên thị trường hơn 20 năm. Chúng tôi phục vụ tốt nhất cho tất cả khách hàng của mình.",
-      "link": "Về chúng tôi"
+      "link": "Giới thiệu"
     },
     "service_features": {
       "door_delivery": {
         "title": "Giao hàng tận nơi",
-        "description": "Mong muốn rằng tất cả họ không thể lường trước được nỗi đau và rắc rối sắp xảy ra."
+        "description": "Tận hưởng sự tiện lợi khi các món ăn yêu thích của bạn được giao tận nơi, tươi ngon và nóng hổi."
       },
       "outdoor_catering": {
         "title": "Tiệc ngoài trời",
-        "description": "Nghĩa vụ kinh doanh thường xuyên xảy ra rằng những thú vui phải bị từ bỏ."
+        "description": "Chúng tôi cung cấp dịch vụ tiệc ngoài trời đặc biệt cho tất cả các sự kiện của bạn, đảm bảo trải nghiệm ẩm thực đáng nhớ."
       },
       "fine_dining": {
         "title": "Ăn uống cao cấp",
-        "description": "Giải thích cho bạn cách sai lầm này lên án niềm vui và ca ngợi nỗi đau sẽ mang lại cho bạn sự hoàn chỉnh."
+        "description": "Thưởng thức trải nghiệm ẩm thực cao cấp tinh tế với các món ăn được chế biến tỉ mỉ và không gian sang trọng của chúng tôi."
       },
       "banquets_hall": {
         "title": "Phòng tiệc",
-        "description": "Người khôn ngoan do đó luôn giữ trong những vấn đề này các nguyên tắc lựa chọn lớn hơn."
+        "description": "Các sảnh tiệc rộng rãi của chúng tôi hoàn hảo để tổ chức các buổi lễ kỷ niệm lớn, sự kiện công ty và các buổi họp mặt đặc biệt."
       }
     },
     "service_quality": {
@@ -127,7 +128,8 @@
       "option_3_persons": "3 người",
       "option_4_persons": "4 người",
       "option_5_persons": "5 người",
-      "button": "Đặt bàn ngay"
+      "button": "Đặt bàn ngay",
+      "success_toast": "Đã đặt bàn thành công cho {name} vào ngày {date} lúc {time}!"
     },
     "blogs": {
       "title": "Khám phá Blog",
@@ -177,7 +179,7 @@
     }
   },
   "menu_page": {
-    "title": "Thực Đơn",
+    "title": "Thực Đơn - WowWraps",
     "banner": {
       "eyebrow": "Trải Nghiệm Chef's Table",
       "title1": "Thức Ăn Không Chỉ Là",
@@ -214,12 +216,15 @@
     },
     "order_now_button": "Đặt Món Ngay",
     "add_to_cart_aria_label": "Thêm vào giỏ hàng",
-    "add_to_cart_title": "Thêm vào giỏ hàng"
+    "add_to_cart_title": "Thêm vào giỏ hàng",
+    "add_to_cart_button_success": "Đã thêm!"
   },
-  "coming_soon": {
-    "title": "Đăng ký nhận bản tin & nhận tin tức mới",
-    "description": "Việc chúng ta có thể làm những gì chúng ta thích nhất, mọi niềm vui đều được chào đón và mọi nỗi đau đều được tránh khỏi.",
-    "placeholder_email": "Nhập địa chỉ email của bạn",
+  "coming_soon_page": {
+    "title": "Sắp Ra Mắt | WowWraps"
+  },
+      "coming_soon": {
+        "title": "Đăng ký nhận bản tin & nhận tin tức mới",
+        "description": "Chúng tôi đang nỗ lực để mang đến cho bạn những điều tuyệt vời! Hãy theo dõi để biết ngày ra mắt chính thức, nơi những hương vị và trải nghiệm mới đang chờ đón.",    "placeholder_email": "Nhập địa chỉ email của bạn",
     "timer": {
       "days": "Ngày",
       "hour": "Giờ",
@@ -228,9 +233,12 @@
     },
     "go_to_home": "Về trang chủ"
   },
+  "contact_us_page": {
+    "title": "Liên Hệ - WowWraps"
+  },
   "contact_us": {
     "find_us": {
-      "title": "Nơi để tìm chúng tôi",
+      "title": "Tìm chúng tôi",
       "description1": "The Patio Time Cafe tọa lạc trên Phố Silk, ở trung tâm thành phố London, ở rìa Soho.",
       "description2": "Thông tin bổ sung về vị trí và phong cách mở cửa.",
       "view_in_map": "Xem trên Google Maps"
@@ -251,6 +259,7 @@
       "placeholder_subject": "Chủ đề",
       "placeholder_review": "Viết đánh giá *",
       "submit": "Gửi",
+      "sending": "Đang gửi...",
       "success_message": "Cảm ơn bạn đã liên hệ! Chúng tôi sẽ phản hồi sớm."
     }
   },
@@ -369,7 +378,7 @@
     },
     "item29": {
       "title": "Bánh Waffles",
-      "desc": "Bánh waffles giòn, vàng được phục vụ với lựa chọnトッピング của bạn: quả mọng tươi, kem tươi, sốt sô cô la hoặc xi-rô cây phong."
+      "desc": "Bánh waffles giòn, vàng được phục vụ với lựa chọn của bạn: quả mọng tươi, kem tươi, sốt sô cô la hoặc xi-rô cây phong."
     },
     "item30": {
       "title": "Sandwich Câu Lạc Bộ",
@@ -758,6 +767,12 @@
       "Financial Wellness": "Sức khỏe tài chính",
       "Staff Retention": "Giữ chân nhân viên",
       "HR": "Nhân sự"
+    },
+    "categories": {
+      "Technology": "Công nghệ",
+      "Trends": "Xu hướng",
+      "Management": "Quản lý",
+      "Marketing": "Tiếp thị"
     }
   },
   "product_detail_page": {
@@ -810,7 +825,7 @@
     }
   },
   "blog_page": {
-    "title": "Blog Quản lý & Tăng trưởng Nhà hàng",
+    "title": "Bài Viết - WowWraps",
     "header": "Blog Quản lý & Tăng trưởng Nhà hàng",
     "read_more": "Đọc thêm",
     "loading_article": "Đang tải bài viết...",
@@ -819,7 +834,8 @@
     "filters": {
       "browse_topics": "Duyệt chủ đề",
       "category_label": "Danh mục",
-      "reset": "Đặt lại"
+      "reset": "Đặt lại",
+      "all_categories": "Tất cả danh mục"
     },
     "loading_posts": "Đang tải các bài viết...",
     "filter_empty": "Không có câu chuyện nào phù hợp với bộ lọc của bạn. Hãy thử thẻ khác.",
@@ -874,7 +890,8 @@
     },
     "empty_cart": {
       "message": "Giỏ hàng của bạn trống",
-      "suggestion": "Thêm một vài món ăn ngon để bắt đầu!"
+      "suggestion": "Thêm một vài món ăn ngon để bắt đầu!",
+      "cta": "Khám phá thực đơn"
     },
     "notification": {
       "removed_item": "Đã xóa \"{itemTitle}\" khỏi giỏ hàng",
@@ -900,10 +917,12 @@
       "phone": "Số điện thoại *",
       "email": "Địa chỉ email *",
       "country_options": {
+        "placeholder": "Chọn quốc gia",
         "au": "Úc",
         "us": "Hoa Kỳ",
         "vn": "Việt Nam"
-      }
+      },
+      "street_address_placeholder": "Căn hộ, dãy phòng, v.v."
     },
     "payment": {
       "direct_bank_transfer": "Chuyển khoản ngân hàng trực tiếp",
@@ -916,7 +935,9 @@
       "paypal_hint": "Bạn sẽ được chuyển hướng đến PayPal để hoàn tất giao dịch một cách an toàn.",
       "privacy_text": "Dữ liệu cá nhân của bạn sẽ được sử dụng để xử lý đơn hàng, hỗ trợ trải nghiệm của bạn trên trang web này và cho các mục đích khác được mô tả trong",
       "privacy_policy_link": "chính sách bảo mật",
-      "place_order_button": "Đặt hàng"
+      "place_order_button": "Đặt hàng",
+      "qr_code_title": "Mã QR Thanh toán",
+      "qr_code_instruction": "Quét mã này bằng ứng dụng ngân hàng của bạn để hoàn tất thanh toán."
     },
     "order_summary": {
       "title": "Đơn hàng của bạn",
@@ -932,34 +953,81 @@
       "invalid_email": "Vui lòng nhập một địa chỉ email hợp lệ",
       "invalid_phone": "Vui lòng nhập một số điện thoại hợp lệ",
       "select_payment": "Vui lòng chọn một phương thức thanh toán",
+      "fill_required_fields": "Vui lòng điền đầy đủ các trường bắt buộc.",
       "order_placed_success": "Đặt hàng thành công! ID đơn hàng: #{orderId}",
       "redirecting_homepage": "Đang chuyển hướng đến trang chủ...",
+      "order_placed_combined": "<strong>Đặt hàng thành công!</strong><br>ID đơn hàng của bạn là #{orderId}. Đang chuyển hướng về trang chủ...",
       "free_shipping": "MIỄN PHÍ",
-      "coupon_applied": "Đã áp dụng phiếu giảm giá"
+      "coupon_applied": "Đã áp dụng phiếu giảm giá",
+      "processing": "Đang xử lý..."
     }
   },
+  "form_errors": {
+    "name_required": "Vui lòng nhập họ tên của bạn",
+    "name_min": "Họ tên phải có ít nhất 2 ký tự",
+    "phone_required": "Vui lòng nhập số điện thoại",
+    "phone_invalid": "Vui lòng nhập số điện thoại hợp lệ",
+    "email_required": "Vui lòng nhập địa chỉ email",
+    "email_invalid": "Vui lòng nhập địa chỉ email hợp lệ",
+    "date_required": "Vui lòng chọn ngày",
+    "date_invalid": "Vui lòng chọn ngày hợp lệ",
+    "time_required": "Vui lòng chọn giờ",
+    "time_invalid": "Vui lòng chọn giờ hợp lệ",
+    "first_name_required": "Vui lòng nhập tên",
+    "first_name_min": "Tên phải có ít nhất 2 ký tự",
+    "last_name_required": "Vui lòng nhập họ",
+    "last_name_min": "Họ phải có ít nhất 2 ký tự",
+    "street_required": "Vui lòng nhập địa chỉ",
+    "street_min": "Địa chỉ phải có ít nhất 5 ký tự",
+    "zip_pattern": "Mã bưu điện phải gồm 5-6 chữ số"
+  },
+  "form_validator": {
+    "required": "Trường này là bắt buộc",
+    "email": "Vui lòng nhập một địa chỉ email hợp lệ",
+    "phone": "Vui lòng nhập một số điện thoại hợp lệ",
+    "minLength": "Yêu cầu tối thiểu {min} ký tự",
+    "maxLength": "Cho phép tối đa {max} ký tự",
+    "number": "Vui lòng nhập một số hợp lệ",
+    "date": "Vui lòng nhập một ngày hợp lệ",
+    "time": "Vui lòng nhập một thời gian hợp lệ",
+    "pattern": "Định dạng không hợp lệ"
+  },
+  "weekdays": {
+    "0": "Chủ Nhật",
+    "1": "Thứ Hai",
+    "2": "Thứ Ba",
+    "3": "Thứ Tư",
+    "4": "Thứ Năm",
+    "5": "Thứ Sáu",
+    "6": "Thứ Bảy"
+  },
+  "not_found_page": {
+    "title": "404 Không Tìm Thấy - WowWraps",
+    "message": "Xin lỗi, trang bạn đang tìm không tồn tại. Nếu bạn nghĩ có lỗi, hãy báo cáo sự cố.",
+    "go_to_home": "Về Trang Chủ"
+  },
   "about_page": {
-    "title": "Về chúng tôi",
+    "title": "Giới thiệu",
     "intro": {
       "title": "Chúng tôi là một nhà hàng Mexico tạo ra những món ăn ngon.",
       "lead": "Từ những chiếc bánh tortilla thủ công được ép tươi mỗi sáng đến món carnitas hầm chậm và nước sốt tươi sáng, chúng tôi nấu ăn bằng nguyên liệu theo mùa từ nông dân địa phương. Nhà bếp của chúng tôi kết hợp các công thức gia đình với kỹ thuật hiện đại, giữ cho hương vị đậm đà và chân thực. Cho dù bạn thèm một món cay, hun khói hay chay, luôn có một món ăn được chế biến cẩn thận—và một đội ngũ sẵn sàng chào đón bạn như gia đình.",
-      "story_title": "Câu chuyện về<br/>Chi nhánh nhà hàng<br/>đầu tiên của chúng tôi",
-      "story_text": "Tại vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident."
+      "story_title": "Câu chuyện về<br/>chi nhánh nhà hàng<br/>đầu tiên",
+      "story_text": "Hành trình của chúng tôi bắt đầu từ niềm đam mê đơn giản với hương vị đích thực và mong muốn chia sẻ chúng với cộng đồng. Từ một quán ăn nhỏ do gia đình điều hành, chúng tôi đã phát triển thành một điểm đến ẩm thực được yêu thích, luôn giữ vững giá trị cốt lõi của mình."
     },
     "vision_mission": {
-      "title": "Tầm nhìn & Sứ mệnh của chúng tôi",
-      "subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam aliquam amet, cursus tellus non consequat laoreet eget ornare. Vulputate tellus, a lobortis eu nisl. Quisque vulputate eget et, aliquet libero.",
+      "title": "Tầm nhìn & Sứ mệnh",
+      "subtitle": "Tầm nhìn của chúng tôi là trở thành điểm đến ẩm thực hàng đầu, nổi tiếng với các món ăn đặc sắc, dịch vụ vượt trội và không gian ấm cúng. Sứ mệnh của chúng tôi là làm hài lòng mọi khách hàng với những món ăn sáng tạo và trải nghiệm ăn uống đáng nhớ.",
       "delicious_cuisine": {
         "title": "Ẩm thực ngon",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit at aliquam amet."
+        "description": "Chúng tôi cam kết phục vụ ẩm thực ngon được chế biến từ những nguyên liệu tươi ngon nhất và chuyên môn ẩm thực."
       },
       "fast_delivery": {
         "title": "Giao hàng nhanh",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit at aliquam amet."
+        "description": "Trải nghiệm dịch vụ giao hàng nhanh chóng và hiệu quả, mang những bữa ăn ngon của chúng tôi trực tiếp đến bạn."
       },
       "professional_chef": {
         "title": "Đầu bếp chuyên nghiệp",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit at aliquam amet."
+        "description": "Đội ngũ đầu bếp chuyên nghiệp của chúng tôi mang niềm đam mê và chuyên môn vào từng món ăn, đảm bảo một hành trình ẩm thực thú vị."
       }
     },
     "team": {
@@ -978,5 +1046,338 @@
         "role": "Đầu bếp"
       }
     }
+  },
+  "allergy_settings": {
+    "trigger_button": "Cài Đặt Dị Ứng",
+    "trigger_aria_label": "Quản lý cài đặt dị ứng",
+    "modal_title": "Quản Lý Dị Ứng",
+    "close_modal": "Đóng hộp thoại",
+    "save_button": "Lưu Cài Đặt",
+    "clear_button": "Xóa Tất Cả",
+    "contains": "Chứa:",
+    "warning": {
+      "title": "Cảnh Báo Dị Ứng:",
+      "message": "Món ăn này chứa {allergens}, mà bạn đã đánh dấu là chất gây dị ứng."
+    },
+    "toast": {
+      "tracking": "Đang theo dõi: {allergens}",
+      "cleared": "Đã xóa theo dõi dị ứng.",
+      "all_cleared": "Đã xóa tất cả theo dõi chất gây dị ứng."
+    },
+    "badge_tooltip": "Chứa: {allergens}"
+  },
+  "allergens": {
+    "gluten": {
+      "name": "Gluten",
+      "description": "Chứa lúa mì, lúa mạch, lúa mạch đen hoặc các loại ngũ cốc liên quan"
+    },
+    "dairy": {
+      "name": "Sữa",
+      "description": "Chứa sữa, pho mát, bơ hoặc các sản phẩm từ sữa"
+    },
+    "eggs": {
+      "name": "Trứng",
+      "description": "Chứa trứng hoặc các thành phần từ trứng"
+    },
+    "nuts": {
+      "name": "Hạt Cây",
+      "description": "Chứa hạt cây (hạnh nhân, óc chó, v.v.)"
+    },
+    "peanuts": {
+      "name": "Đậu Phộng",
+      "description": "Chứa đậu phộng hoặc các thành phần từ đậu phộng"
+    },
+    "soy": {
+      "name": "Đậu Nành",
+      "description": "Chứa đậu nành hoặc các sản phẩm từ đậu nành"
+    },
+    "fish": {
+      "name": "Cá",
+      "description": "Chứa cá hoặc các thành phần từ cá"
+    },
+    "shellfish": {
+      "name": "Hải Sản Có Vỏ",
+      "description": "Chứa hải sản có vỏ (tôm, cua, tôm hùm, v.v.)"
+    },
+    "sesame": {
+      "name": "Mè",
+      "description": "Chứa hạt mè hoặc dầu mè"
+    },
+    "sulfites": {
+      "name": "Sunfit",
+      "description": "Chứa lưu huỳnh dioxide hoặc sunfit"
+    },
+    "celery": {
+      "name": "Cần Tây",
+      "description": "Chứa cần tây hoặc củ cần"
+    },
+    "mustard": {
+      "name": "Mù Tạt",
+      "description": "Chứa hạt mù tạt hoặc các sản phẩm từ mù tạt"
+    },
+    "lupin": {
+      "name": "Lupin",
+      "description": "Chứa bột lupin hoặc đậu lupin"
+    },
+    "molluscs": {
+      "name": "Nhuyễn Thể",
+      "description": "Chứa nhuyễn thể (nghêu, trai, hàu, v.v.)"
+    }
+  },
+  "policy_data": {
+    "meta": {
+      "title": "Chính Sách Bảo Mật & Điều Khoản - WowWraps"
+    },
+    "hero": {
+      "title": "Chính Sách Bảo Mật & Điều Khoản Dịch Vụ",
+      "subtitle": "Sự tin tưởng của bạn rất quan trọng đối với chúng tôi. Tìm hiểu cách chúng tôi bảo vệ thông tin của bạn và đảm bảo trải nghiệm ăn uống an toàn.",
+      "last_updated": "Cập nhật lần cuối: 25 Tháng 11, 2025",
+      "version": "Phiên bản 2.1"
+    },
+    "toc": {
+      "title": "Điều Hướng Nhanh",
+      "item1": "Giới Thiệu & Cam Kết",
+      "item2": "Thông Tin Chúng Tôi Thu Thập",
+      "item3": "Cách Chúng Tôi Sử Dụng Dữ Liệu",
+      "item4": "Cookie & Theo Dõi",
+      "item5": "Quyền & Lựa Chọn Của Bạn",
+      "item6": "Trách Nhiệm Người Dùng",
+      "item7": "Chính Sách Sử Dụng Chấp Nhận",
+      "item8": "Bảo Mật & Bảo Vệ Dữ Liệu",
+      "item9": "Dịch Vụ Bên Thứ Ba",
+      "item10": "Miễn Trừ & Giới Hạn",
+      "item11": "Cập Nhật Chính Sách",
+      "item12": "Liên Hệ Với Chúng Tôi"
+    },
+    "introduction": {
+      "title": "Giới Thiệu & Cam Kết Của Chúng Tôi",
+      "p1": "Chào mừng đến với WowWraps. Chúng tôi cam kết bảo vệ quyền riêng tư của bạn và đảm bảo tính minh bạch trong cách chúng tôi xử lý thông tin cá nhân của bạn. Chính sách này giải thích các thực hành của chúng tôi về thu thập, sử dụng và bảo vệ dữ liệu khi bạn ghé thăm nhà hàng, sử dụng trang web hoặc tương tác với dịch vụ của chúng tôi.",
+      "p2": "Tại WowWraps, chúng tôi tin rằng món ăn và dịch vụ xuất sắc phải đi đôi với sự tôn trọng quyền riêng tư của bạn. Chúng tôi đã thiết kế các thực hành dữ liệu của mình để trở nên đơn giản, an toàn và tập trung vào nhu cầu của bạn với tư cách là khách hàng quý giá.",
+      "highlight": "Bằng cách sử dụng trang web hoặc dịch vụ của chúng tôi, bạn đồng ý với các điều khoản được nêu trong chính sách này. Nếu bạn có bất kỳ câu hỏi hoặc thắc mắc nào, vui lòng liên hệ với chúng tôi."
+    },
+    "information": {
+      "title": "Thông Tin Chúng Tôi Thu Thập",
+      "intro": "Chúng tôi thu thập thông tin để cung cấp cho bạn trải nghiệm ăn uống tốt nhất có thể và cải thiện dịch vụ của chúng tôi. Các loại thông tin chúng tôi thu thập bao gồm:",
+      "personal_title": "Thông Tin Cá Nhân",
+      "personal1": "Thông Tin Liên Hệ: Tên, địa chỉ email, số điện thoại và địa chỉ giao hàng khi bạn đặt bàn hoặc đặt món.",
+      "personal2": "Thông Tin Tài Khoản: Tên người dùng, mật khẩu và tùy chọn nếu bạn tạo tài khoản trên nền tảng của chúng tôi.",
+      "personal3": "Thông Tin Thanh Toán: Chi tiết thẻ tín dụng, địa chỉ thanh toán và lịch sử giao dịch được xử lý an toàn thông qua các đối tác thanh toán của chúng tôi.",
+      "automatic_title": "Thông Tin Thu Thập Tự Động",
+      "automatic1": "Thông Tin Thiết Bị: Địa chỉ IP, loại trình duyệt, hệ điều hành và mã định danh thiết bị.",
+      "automatic2": "Dữ Liệu Sử Dụng: Các trang đã xem, thời gian dành trên trang web của chúng tôi, các món ăn đã duyệt và mô hình tương tác.",
+      "automatic3": "Dữ Liệu Vị Trí: Vị trí gần đúng dựa trên địa chỉ IP để hiển thị các địa điểm nhà hàng và tùy chọn giao hàng phù hợp.",
+      "customer_title": "Phản Hồi & Tương Tác Của Khách Hàng",
+      "customer1": "Đánh giá, xếp hạng và nhận xét bạn gửi về món ăn và dịch vụ của chúng tôi.",
+      "customer2": "Liên lạc với nhóm hỗ trợ khách hàng của chúng tôi qua email, điện thoại hoặc trò chuyện.",
+      "customer3": "Phản hồi cho các khảo sát, chương trình khuyến mãi hoặc chiến dịch tiếp thị."
+    },
+    "data_usage": {
+      "title": "Cách Chúng Tôi Sử Dụng Dữ Liệu Của Bạn",
+      "intro": "Chúng tôi sử dụng thông tin thu thập được để cung cấp dịch vụ xuất sắc và liên tục cải thiện trải nghiệm của bạn. Cụ thể, chúng tôi sử dụng dữ liệu của bạn để:",
+      "card1_title": "Xử Lý Đơn Hàng & Đặt Bàn",
+      "card1_text": "Hoàn thành đơn đặt món ăn của bạn, xác nhận đặt bàn, xử lý thanh toán và điều phối dịch vụ giao hàng.",
+      "card2_title": "Giao Tiếp Với Bạn",
+      "card2_text": "Gửi xác nhận đơn hàng, cập nhật về đặt bàn của bạn, trả lời câu hỏi và cung cấp hỗ trợ khách hàng.",
+      "card3_title": "Cá Nhân Hóa Trải Nghiệm",
+      "card3_text": "Ghi nhớ sở thích của bạn, đề xuất các món ăn bạn có thể thích và tùy chỉnh trang web của chúng tôi dựa trên sở thích của bạn.",
+      "card4_title": "Cải Thiện Dịch Vụ",
+      "card4_text": "Phân tích xu hướng, hiểu sở thích của khách hàng, phát triển các món ăn mới và nâng cao hoạt động tổng thể của chúng tôi.",
+      "card5_title": "Tiếp Thị & Khuyến Mãi",
+      "card5_text": "Chia sẻ các ưu đãi đặc biệt, thông báo thực đơn mới và ưu đãi độc quyền với sự đồng ý của bạn. Bạn có thể từ chối bất cứ lúc nào.",
+      "card6_title": "Bảo Mật & Phòng Chống Gian Lận",
+      "card6_text": "Bảo vệ chống lại truy cập trái phép, phát hiện các hoạt động gian lận và duy trì bảo mật cho nền tảng của chúng tôi."
+    },
+    "cookies": {
+      "title": "Cookie & Công Nghệ Theo Dõi",
+      "intro": "Chúng tôi sử dụng cookie và các công nghệ theo dõi tương tự để nâng cao trải nghiệm duyệt web của bạn và hiểu cách bạn tương tác với trang web của chúng tôi. Cookie là các tệp văn bản nhỏ được lưu trữ trên thiết bị của bạn giúp chúng tôi ghi nhớ sở thích của bạn và cải thiện dịch vụ.",
+      "types_title": "Các Loại Cookie Chúng Tôi Sử Dụng",
+      "table_type": "Loại Cookie",
+      "table_purpose": "Mục Đích",
+      "table_duration": "Thời Hạn",
+      "essential": "Cookie Thiết Yếu",
+      "essential_desc": "Bắt buộc cho chức năng cơ bản của trang web, bảo mật và điều hướng. Không thể vô hiệu hóa.",
+      "essential_time": "Phiên",
+      "functional": "Cookie Chức Năng",
+      "functional_desc": "Ghi nhớ sở thích của bạn như ngôn ngữ, chủ đề và vị trí để có trải nghiệm cá nhân hóa.",
+      "functional_time": "1 Năm",
+      "analytics": "Cookie Phân Tích",
+      "analytics_desc": "Giúp chúng tôi hiểu cách khách truy cập sử dụng trang web của chúng tôi, trang nào phổ biến và cần cải thiện ở đâu.",
+      "analytics_time": "2 Năm",
+      "marketing": "Cookie Tiếp Thị",
+      "marketing_desc": "Theo dõi lượt truy cập của bạn trên trang web để cung cấp quảng cáo phù hợp và đo lường hiệu quả chiến dịch.",
+      "marketing_time": "90 Ngày",
+      "control_title": "Quản Lý Tùy Chọn Cookie Của Bạn",
+      "control_text": "Bạn có thể kiểm soát và quản lý cookie thông qua cài đặt trình duyệt của mình. Tuy nhiên, việc vô hiệu hóa một số cookie nhất định có thể ảnh hưởng đến khả năng sử dụng một số tính năng của trang web. Hầu hết các trình duyệt cho phép bạn từ chối cookie, xóa cookie hiện có hoặc cảnh báo khi cookie mới được gửi."
+    },
+    "user_rights": {
+      "title": "Quyền & Lựa Chọn Của Bạn",
+      "intro": "Chúng tôi tôn trọng quyền của bạn trong việc kiểm soát thông tin cá nhân. Bạn có các quyền sau liên quan đến dữ liệu chúng tôi thu thập và xử lý:",
+      "access_title": "Quyền Truy Cập",
+      "access_text": "Yêu cầu một bản sao thông tin cá nhân chúng tôi lưu giữ về bạn, bao gồm chi tiết về cách chúng tôi sử dụng và chia sẻ với ai.",
+      "correction_title": "Quyền Sửa Đổi",
+      "correction_text": "Cập nhật hoặc sửa bất kỳ thông tin không chính xác hoặc không đầy đủ mà chúng tôi có về bạn bất cứ lúc nào.",
+      "deletion_title": "Quyền Xóa",
+      "deletion_text": "Yêu cầu chúng tôi xóa thông tin cá nhân của bạn, tuân theo một số ngoại lệ pháp lý và yêu cầu kinh doanh nhất định.",
+      "objection_title": "Quyền Phản Đối",
+      "objection_text": "Phản đối một số loại xử lý dữ liệu nhất định, bao gồm thông tin tiếp thị và ra quyết định tự động.",
+      "portability_title": "Quyền Di Chuyển Dữ Liệu",
+      "portability_text": "Nhận dữ liệu cá nhân của bạn ở định dạng có cấu trúc, thường được sử dụng và chuyển nó cho nhà cung cấp dịch vụ khác.",
+      "opt_out_title": "Quyền Từ Chối",
+      "opt_out_text": "Hủy đăng ký email tiếp thị, bản tin và thông tin khuyến mại bất cứ lúc nào bằng liên kết hủy đăng ký.",
+      "exercise": "Để thực hiện bất kỳ quyền nào trong số này, vui lòng liên hệ với chúng tôi bằng thông tin được cung cấp ở cuối chính sách này. Chúng tôi sẽ trả lời yêu cầu của bạn trong vòng 30 ngày."
+    },
+    "responsibilities": {
+      "title": "Trách Nhiệm Người Dùng",
+      "intro": "Khi sử dụng trang web và dịch vụ của chúng tôi, chúng tôi yêu cầu bạn duy trì các tiêu chuẩn hành vi nhất định để đảm bảo trải nghiệm tích cực cho tất cả khách hàng. Là người dùng, bạn đồng ý:",
+      "account_title": "Bảo Mật Tài Khoản",
+      "account1": "Giữ bí mật thông tin đăng nhập tài khoản của bạn và thông báo cho chúng tôi ngay lập tức về bất kỳ truy cập trái phép nào.",
+      "account2": "Đảm bảo tất cả thông tin được cung cấp trong quá trình đăng ký và thanh toán là chính xác, hiện tại và đầy đủ.",
+      "account3": "Chịu trách nhiệm cho tất cả các hoạt động xảy ra dưới tài khoản của bạn.",
+      "lawful_title": "Sử Dụng Hợp Pháp",
+      "lawful1": "Chỉ sử dụng dịch vụ của chúng tôi cho các mục đích hợp pháp và phù hợp với các điều khoản này.",
+      "lawful2": "Không tham gia vào bất kỳ hoạt động nào có thể gây hại, vô hiệu hóa hoặc làm suy yếu trang web hoặc dịch vụ của chúng tôi.",
+      "lawful3": "Tôn trọng quyền sở hữu trí tuệ của WowWraps và bên thứ ba.",
+      "reviews_title": "Đánh Giá & Phản Hồi",
+      "reviews1": "Cung cấp phản hồi trung thực, mang tính xây dựng dựa trên trải nghiệm thực của bạn.",
+      "reviews2": "Tránh đăng nội dung xúc phạm, phỉ báng hoặc không phù hợp trong đánh giá.",
+      "reviews3": "Hiểu rằng chúng tôi có quyền xóa các đánh giá vi phạm hướng dẫn của chúng tôi."
+    },
+    "acceptable_use": {
+      "title": "Chính Sách Sử Dụng Chấp Nhận",
+      "intro": "Để duy trì môi trường an toàn và thú vị cho tất cả người dùng, các hoạt động sau đây bị nghiêm cấm:",
+      "prohibited_title": "Các Hoạt Động Bị Cấm",
+      "fraud_title": "Gian Lận & Lạm Dụng",
+      "fraud_text": "Đơn hàng gian lận, tranh chấp thanh toán với ý định xấu hoặc lạm dụng các ưu đãi khuyến mại.",
+      "harassment_title": "Quấy Rối",
+      "harassment_text": "Hành vi quấy rối, đe dọa hoặc lạm dụng đối với nhân viên, người giao hàng hoặc khách hàng khác.",
+      "automated_title": "Truy Cập Tự Động",
+      "automated_text": "Sử dụng bot, công cụ thu thập dữ liệu hoặc công cụ tự động để truy cập hoặc trích xuất dữ liệu từ trang web của chúng tôi.",
+      "malware_title": "Phần Mềm Độc Hại",
+      "malware_text": "Phân phối virus, phần mềm độc hại hoặc bất kỳ mã nào được thiết kế để gây hại hoặc khai thác hệ thống của chúng tôi.",
+      "impersonation_title": "Mạo Danh",
+      "impersonation_text": "Mạo danh nhân viên WowWraps, người dùng khác hoặc trình bày sai liên kết của bạn.",
+      "spam_title": "Spam & Quảng Cáo",
+      "spam_text": "Gửi tin nhắn không được yêu cầu, thư rác hoặc thông tin thương mại qua nền tảng của chúng tôi.",
+      "violation": "Vi phạm Chính Sách Sử Dụng Chấp Nhận này có thể dẫn đến việc đình chỉ hoặc chấm dứt tài khoản của bạn ngay lập tức và chúng tôi có thể báo cáo các hoạt động bất hợp pháp cho các cơ quan chức năng."
+    },
+    "security": {
+      "title": "Bảo Mật & Bảo Vệ Dữ Liệu",
+      "intro": "Bảo vệ thông tin cá nhân của bạn là ưu tiên hàng đầu tại WowWraps. Chúng tôi thực hiện các biện pháp bảo mật tiêu chuẩn ngành để bảo vệ dữ liệu của bạn khỏi truy cập, tiết lộ, thay đổi hoặc phá hủy trái phép.",
+      "measures_title": "Các Biện Pháp Bảo Mật Của Chúng Tôi",
+      "measures1": "Mã Hóa: Tất cả dữ liệu nhạy cảm, bao gồm thông tin thanh toán, được truyền bằng các giao thức mã hóa SSL/TLS.",
+      "measures2": "Lưu Trữ An Toàn: Dữ liệu cá nhân được lưu trữ trên các máy chủ an toàn với quyền truy cập hạn chế và kiểm tra bảo mật thường xuyên.",
+      "measures3": "Kiểm Soát Truy Cập: Chỉ nhân viên được ủy quyền với nhu cầu kinh doanh hợp pháp mới có thể truy cập thông tin của bạn.",
+      "measures4": "Cập Nhật Thường Xuyên: Hệ thống của chúng tôi được cập nhật thường xuyên với các bản vá bảo mật và cải tiến mới nhất.",
+      "measures5": "Giám Sát: Giám sát liên tục các hoạt động đáng ngờ và mối đe dọa bảo mật tiềm ẩn.",
+      "breach_title": "Quy Trình Vi Phạm Dữ Liệu",
+      "breach_text": "Trong trường hợp không mong muốn xảy ra vi phạm dữ liệu ảnh hưởng đến thông tin cá nhân của bạn, chúng tôi sẽ thông báo cho bạn trong vòng 72 giờ và cung cấp chi tiết về sự cố, dữ liệu bị ảnh hưởng và các bước chúng tôi đang thực hiện để giải quyết tình hình. Chúng tôi cũng sẽ thông báo cho các cơ quan quản lý có liên quan theo yêu cầu của pháp luật.",
+      "limitation": "Mặc dù chúng tôi nỗ lực bảo vệ thông tin của bạn, không có hệ thống bảo mật nào là không thể xuyên thủng. Chúng tôi không thể đảm bảo bảo mật tuyệt đối, nhưng chúng tôi cam kết duy trì các tiêu chuẩn bảo vệ dữ liệu cao nhất."
+    },
+    "third_party": {
+      "title": "Dịch Vụ & Liên Kết Bên Thứ Ba",
+      "intro": "Chúng tôi làm việc với các nhà cung cấp dịch vụ bên thứ ba đáng tin cậy để cung cấp dịch vụ của chúng tôi một cách hiệu quả. Các đối tác này giúp chúng tôi xử lý thanh toán, phân tích lưu lượng truy cập trang web, giao hàng và cung cấp hỗ trợ khách hàng.",
+      "partners_title": "Các Đối Tác Bên Thứ Ba Của Chúng Tôi",
+      "partners1": "Bộ Xử Lý Thanh Toán: Chúng tôi sử dụng cổng thanh toán an toàn để xử lý giao dịch thẻ tín dụng. Thông tin thanh toán của bạn không bao giờ được lưu trữ trên máy chủ của chúng tôi.",
+      "partners2": "Dịch Vụ Giao Hàng: Các đối tác giao hàng bên thứ ba có thể nhận tên, địa chỉ và số điện thoại của bạn để hoàn thành đơn hàng.",
+      "partners3": "Nhà Cung Cấp Phân Tích: Chúng tôi sử dụng các dịch vụ như Google Analytics để hiểu cách khách truy cập tương tác với trang web của chúng tôi.",
+      "partners4": "Dịch Vụ Email: Các nhà cung cấp dịch vụ email của chúng tôi giúp chúng tôi gửi xác nhận đơn hàng và thông tin khuyến mại.",
+      "partners5": "Nền Tảng Mạng Xã Hội: Các tính năng chia sẻ mạng xã hội có thể truyền thông tin đến các nền tảng bên thứ ba.",
+      "links_title": "Liên Kết Bên Ngoài",
+      "links_text": "Trang web của chúng tôi có thể chứa các liên kết đến trang web bên ngoài do bên thứ ba vận hành. Chúng tôi không chịu trách nhiệm về các thực hành bảo mật hoặc nội dung của các trang bên ngoài này. Chúng tôi khuyến khích bạn xem xét chính sách bảo mật của bất kỳ trang web bên thứ ba nào bạn truy cập.",
+      "sharing": "Chúng tôi không bán, cho thuê hoặc trao đổi thông tin cá nhân của bạn cho bên thứ ba cho mục đích tiếp thị của họ. Thông tin chỉ được chia sẻ với các đối tác cần thiết để cung cấp dịch vụ của chúng tôi và họ có nghĩa vụ hợp đồng bảo vệ dữ liệu của bạn."
+    },
+    "disclaimers": {
+      "title": "Miễn Trừ & Giới Hạn",
+      "service_title": "Tính Sẵn Có Của Dịch Vụ",
+      "service_text": "Mặc dù chúng tôi nỗ lực cung cấp dịch vụ không bị gián đoạn, WowWraps không đảm bảo rằng trang web hoặc dịch vụ của chúng tôi sẽ luôn sẵn có, không có lỗi hoặc an toàn. Chúng tôi có quyền sửa đổi, tạm ngừng hoặc ngừng bất kỳ khía cạnh nào của dịch vụ của chúng tôi bất cứ lúc nào mà không cần thông báo trước.",
+      "accuracy_title": "Độ Chính Xác Của Thông Tin",
+      "accuracy_text": "Chúng tôi nỗ lực đảm bảo rằng thông tin thực đơn, giá cả và các ưu đãi khuyến mại trên trang web của chúng tôi là chính xác và cập nhật. Tuy nhiên, đôi khi có thể xảy ra lỗi. Chúng tôi có quyền sửa bất kỳ lỗi, sai sót hoặc thiếu sót nào và thay đổi hoặc cập nhật thông tin bất cứ lúc nào mà không cần thông báo trước.",
+      "allergens_title": "Thông Tin Dị Ứng & Hạn Chế Chế Độ Ăn",
+      "allergens_text": "Mặc dù chúng tôi cung cấp thông tin về chất gây dị ứng và dinh dưỡng theo hiểu biết tốt nhất của mình, nhà bếp của chúng tôi xử lý nhiều nguyên liệu và có thể xảy ra nhiễm chéo. Nếu bạn có dị ứng nghiêm trọng hoặc hạn chế chế độ ăn uống, vui lòng liên hệ trực tiếp với chúng tôi trước khi đặt hàng để thảo luận về nhu cầu cụ thể của bạn.",
+      "liability_title": "Giới Hạn Trách Nhiệm",
+      "liability_text": "Trong phạm vi pháp luật cho phép, WowWraps sẽ không chịu trách nhiệm về bất kỳ thiệt hại gián tiếp, ngẫu nhiên, đặc biệt, hậu quả hoặc trừng phạt nào phát sinh từ việc bạn sử dụng dịch vụ của chúng tôi, ngay cả khi chúng tôi đã được thông báo về khả năng xảy ra những thiệt hại đó. Tổng trách nhiệm của chúng tôi đối với bất kỳ khiếu nại nào phát sinh từ việc bạn sử dụng dịch vụ của chúng tôi sẽ không vượt quá số tiền bạn đã trả cho đơn hàng hoặc dịch vụ cụ thể được đề cập.",
+      "force_title": "Bất Khả Kháng",
+      "force_text": "WowWraps sẽ không chịu trách nhiệm về bất kỳ sự cố hoặc chậm trễ nào trong việc thực hiện do các hoàn cảnh nằm ngoài tầm kiểm soát hợp lý của chúng tôi, bao gồm nhưng không giới hạn ở thiên tai, mất điện, gián đoạn dịch vụ internet, tranh chấp lao động, hành động của chính phủ hoặc tình trạng khẩn cấp về sức khỏe cộng đồng."
+    },
+    "changes": {
+      "title": "Thay Đổi Chính Sách Này",
+      "p1": "Chúng tôi có thể cập nhật Chính Sách Bảo Mật và Điều Khoản Dịch Vụ này theo thời gian để phản ánh các thay đổi trong thực hành, công nghệ, yêu cầu pháp lý hoặc các yếu tố khác của chúng tôi. Khi chúng tôi thực hiện các thay đổi đáng kể, chúng tôi sẽ thông báo cho bạn thông qua một hoặc nhiều phương thức sau:",
+      "method1": "Hiển thị thông báo nổi bật trên trang chủ của trang web chúng tôi",
+      "method2": "Gửi email đến địa chỉ liên kết với tài khoản của bạn",
+      "method3": "Cập nhật ngày \"Cập nhật lần cuối\" ở đầu chính sách này",
+      "p2": "Chúng tôi khuyến khích bạn xem xét chính sách này định kỳ để được thông tin về cách chúng tôi bảo vệ thông tin của bạn. Việc bạn tiếp tục sử dụng dịch vụ của chúng tôi sau bất kỳ thay đổi nào cho thấy bạn chấp nhận chính sách đã cập nhật.",
+      "material": "Đối với những thay đổi quan trọng ảnh hưởng đáng kể đến quyền của bạn hoặc cách chúng tôi sử dụng dữ liệu của bạn, chúng tôi sẽ tìm kiếm sự đồng ý rõ ràng của bạn trước khi các thay đổi có hiệu lực."
+    },
+    "contact": {
+      "title": "Liên Hệ Với Chúng Tôi",
+      "intro": "Nếu bạn có bất kỳ câu hỏi, thắc mắc hoặc yêu cầu nào liên quan đến Chính Sách Bảo Mật này, thông tin cá nhân của bạn hoặc các thực hành dữ liệu của chúng tôi, vui lòng liên hệ. Chúng tôi sẵn sàng hỗ trợ và đánh giá cao phản hồi của bạn.",
+      "email_label": "Email",
+      "email_note": "Cho các yêu cầu liên quan đến quyền riêng tư và dữ liệu",
+      "phone_label": "Điện Thoại",
+      "phone_note": "Thứ Hai - Thứ Sáu, 9:00 SA - 5:00 CH EST",
+      "address_label": "Địa Chỉ Gửi Thư",
+      "response": "Thời Gian Phản Hồi: Chúng tôi nhắm đến việc trả lời tất cả các câu hỏi liên quan đến quyền riêng tư trong vòng 2-3 ngày làm việc. Đối với các vấn đề khẩn cấp, vui lòng gọi trực tiếp cho chúng tôi."
+    },
+    "cta": {
+      "title": "Có Câu Hỏi Về Chính Sách Của Chúng Tôi?",
+      "text": "Chúng tôi cam kết minh bạch và bảo vệ quyền riêng tư của bạn. Nếu bạn cần làm rõ bất kỳ khía cạnh nào của chính sách này, nhóm của chúng tôi sẵn sàng hỗ trợ bạn.",
+      "button": "Liên Hệ Hỗ Trợ"
+    }
+  },
+  "policy_reservation": {
+    "title": "Quy định & Chính Sách - WowWraps",
+    "main_title": "Quy định & Chính Sách",
+    "intro": "Vui lòng đọc kỹ các quy định bên dưới để đảm bảo trải nghiệm phục vụ nhất quán, rõ ràng và thoải mái tại WowWraps ở mọi khung giờ.",
+    "highlights": {
+      "booking": {
+        "title": "Giữ bàn",
+        "desc": "15 phút linh hoạt"
+      },
+      "support": {
+        "title": "Hỗ trợ",
+        "desc": "Hotline & tại bàn"
+      },
+      "ingredients": {
+        "title": "Nguyên liệu",
+        "desc": "Tươi theo mùa"
+      }
+    },
+    "commitment": {
+      "title": "Cam kết trải nghiệm",
+      "item1": "Đặt bàn nhanh chóng",
+      "item2": "Thông tin minh bạch",
+      "item3": "Ưu tiên an toàn & khẩu vị"
+    },
+    "hotline": {
+      "title": "Hotline:"
+    },
+    "reservation": {
+      "title": "Quy định Đặt Bàn",
+      "summary": "Giữ sự chủ động về thời gian và không gian để bữa ăn diễn ra suôn sẻ.",
+      "rule1": "Quý khách vui lòng đặt bàn trước ít nhất 2 giờ để được phục vụ tốt nhất.",
+      "rule2": "Chúng tôi giữ bàn trong 15 phút so với giờ đã đặt; quá thời gian mà không báo lại, yêu cầu đặt bàn sẽ được điều chỉnh/hủy.",
+      "rule3": "Với nhóm từ 10 người, vui lòng liên hệ hotline để được hỗ trợ sắp xếp và đặt cọc (nếu cần).",
+      "rule4": "Mọi thay đổi về thời gian hoặc số lượng khách, xin báo trước tối thiểu 1 giờ."
+    },
+    "ordering": {
+      "title": "Quy định Đặt Món",
+      "summary": "Linh hoạt theo mùa và khẩu vị, ưu tiên sự an toàn và minh bạch.",
+      "rule1": "Thực đơn có thể thay đổi theo mùa để đảm bảo nguyên liệu luôn tươi ngon.",
+      "rule2": "Nếu có yêu cầu đặc biệt (không cay, ít đường) hoặc dị ứng, vui lòng báo khi đặt món để chúng tôi điều chỉnh.",
+      "rule3": "Với đơn mang về/giao đi, thời gian chuẩn bị khoảng 20-30 phút tùy số lượng món.",
+      "rule4": "Nhà hàng không thể xử lý khiếu nại về món sau khi khách đã rời đi hoặc quá 30 phút kể từ khi nhận hàng giao đi."
+    },
+    "general": {
+      "title": "Quy định Chung",
+      "summary": "Tôn trọng không gian chung giúp mọi trải nghiệm đều dễ chịu.",
+      "rule1": "Vui lòng không mang đồ ăn, thức uống bên ngoài vào nhà hàng.",
+      "rule2": "Giữ gìn vệ sinh chung và hạn chế gây ồn ảnh hưởng đến khách khác.",
+      "rule3": "Nhà hàng có quyền từ chối phục vụ khách không tuân thủ các quy định này."
+    }
+  },
+  "notifications": {
+    "addedToCart": "Đã thêm {itemTitle} vào giỏ hàng!",
+    "updatedCart": "Đã cập nhật số lượng {itemTitle}!",
+    "contactSuccess": "Cảm ơn, {name}! Tin nhắn của bạn đã được gửi. Chúng tôi sẽ sớm liên hệ lại với bạn."
   }
 }

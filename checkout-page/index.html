@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="../assets/script/theme-init.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title data-i18n="checkout_page.title">Checkout • WowWraps</title>
+    <link
+      rel="icon"
+      href="../assets/icons/icon-header/nav-vect.svg"
+      type="image/svg+xml"
+    />
+
+    <!-- link style CSS global -->
+    <link rel="stylesheet" href="../style/reset.css" />
+    <link rel="stylesheet" href="../style/style.css" />
+
+    <!-- style CSS checkout page -->
+    <link rel="stylesheet" href="./styles/checkout.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Global Animation System -->
+    <link rel="stylesheet" href="../style/animations.css" />
+    <script src="../assets/script/scroll-animations.js"></script>
+
+    <!-- Form Validation System -->
+    <link rel="stylesheet" href="../style/form-validation.css" />
+    <link rel="stylesheet" href="../style/notification-system.css" />
+    <script src="../assets/script/form-validator.js"></script>
+    <script src="../assets/script/notification-system.js"></script>
+
+    <!-- Style header and footer -->
+    <link rel="stylesheet" href="../partials/header.css" />
+    <link rel="stylesheet" href="../partials/footer.css" />
+
+    <!-- link header and footer html -->
+    <script src="../assets/script/include-partials.js" defer></script>
+    <script type="module" src="../assets/script/header.js" defer></script>
+
+    <!-- Global Loading System -->
+    <script src="../assets/script/global-loader.js" defer></script>
+
+    <!-- link script appear hint -->
+    <script src="./scripts/hint.js" defer></script>
+    <!-- Enhanced checkout logic with dynamic cart loading -->
+    <script type="module" src="./scripts/checkout.js" defer></script>
+    <link rel="stylesheet" href="../style/back-to-top.css" />
+
+    <!-- Font Awesome CDN -->
+    <script
+      src="https://kit.fontawesome.com/eef96f1e29.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body class="page">
+    <!-- Header -->
+    <div data-include="/partials/header.html"></div>
+
+    <main class="checkout container">
+      <!-- LEFT: BILLING FORM -->
+      <section class="billing">
+        <h1
+          class="billing__title"
+          data-i18n="checkout_page.billing_details.title"
+        >
+          Billing details
+        </h1>
+
+        <form class="form" id="checkout-form" method="post" novalidate>
+          <div class="form__row">
+            <div class="form__group">
+              <label
+                class="form__label"
+                for="firstName"
+                data-i18n="checkout_page.billing_details.first_name"
+                >First name *</label
+              >
+              <input
+                id="firstName"
+                name="firstName"
+                class="form__input"
+                type="text"
+                placeholder=""
+                required
+                minlength="2"
+                data-error-required="Please enter your first name"
+                data-error-minLength="First name must be at least 2 characters"
+                data-i18n-error-required="form_errors.first_name_required"
+                data-i18n-error-minLength="form_errors.first_name_min"
+              />
+            </div>
+            <div class="form__group">
+              <label
+                class="form__label"
+                for="lastName"
+                data-i18n="checkout_page.billing_details.last_name"
+                >Last name *</label
+              >
+              <input
+                id="lastName"
+                name="lastName"
+                class="form__input"
+                type="text"
+                placeholder=""
+                required
+                minlength="2"
+                data-error-required="Please enter your last name"
+                data-error-minLength="Last name must be at least 2 characters"
+                data-i18n-error-required="form_errors.last_name_required"
+                data-i18n-error-minLength="form_errors.last_name_min"
+              />
+            </div>
+          </div>
+
+          <div class="form__group">
+            <label
+              class="form__label"
+              for="country"
+              data-i18n="checkout_page.billing_details.country"
+              >Country / Region *</label
+            >
+            <select id="country" name="country" class="form__select" required>
+              <option
+                value=""
+                disabled
+                selected
+                hidden
+                data-i18n="checkout_page.billing_details.country_options.placeholder"
+              >
+                Select country
+              </option>
+              <option
+                value="au"
+                data-i18n="checkout_page.billing_details.country_options.au"
+              >
+                Australia
+              </option>
+              <option
+                value="us"
+                data-i18n="checkout_page.billing_details.country_options.us"
+              >
+                United States
+              </option>
+              <option
+                value="vn"
+                data-i18n="checkout_page.billing_details.country_options.vn"
+              >
+                Viet Nam
+              </option>
+            </select>
+          </div>
+          <div class="form__group">
+            <label
+              class="form__label"
+              for="street2"
+              data-i18n="checkout_page.billing_details.street_address"
+              >Street address *</label
+            >
+
+            <input
+              id="street2"
+              name="street2"
+              class="form__input"
+              type="text"
+              placeholder="Apartment, suite, etc."
+              required
+              minlength="5"
+              data-error-required="Please enter your street address"
+              data-error-minLength="Street address must be at least 5 characters"
+              data-i18n-error-required="form_errors.street_required"
+              data-i18n-error-minLength="form_errors.street_min"
+              data-i18n-placeholder="checkout_page.billing_details.street_address_placeholder"
+            />
+          </div>
+
+          <div class="form__row">
+            <div class="form__group">
+              <label
+                class="form__label"
+                for="city"
+                data-i18n="checkout_page.billing_details.town_city"
+                >Town / City *</label
+              >
+              <input
+                id="city"
+                name="city"
+                class="form__input"
+                type="text"
+                required
+              />
+            </div>
+            <div class="form__group">
+              <label
+                class="form__label"
+                for="district"
+                data-i18n="checkout_page.billing_details.district"
+                >District *</label
+              >
+              <input
+                id="district"
+                name="district"
+                class="form__input"
+                type="text"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="form__row">
+            <div class="form__group">
+              <label
+                class="form__label"
+                for="zip"
+                data-i18n="checkout_page.billing_details.postcode_zip"
+                >Postcode / ZIP (optional)</label
+              >
+              <input
+                id="zip"
+                name="zip"
+                class="form__input"
+                type="text"
+                pattern="[0-9]{5,6}"
+                data-error-pattern="Postcode must be 5-6 digits"
+                data-i18n-error-pattern="form_errors.zip_pattern"
+              />
+            </div>
+            <div class="form__group">
+              <label
+                class="form__label"
+                for="phone"
+                data-i18n="checkout_page.billing_details.phone"
+                >Phone *</label
+              >
+              <input
+                id="phone"
+                name="phone"
+                class="form__input"
+                type="tel"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="form__group">
+            <label
+              class="form__label"
+              for="email"
+              data-i18n="checkout_page.billing_details.email"
+              >Email address *</label
+            >
+            <input
+              id="email"
+              name="email"
+              class="form__input"
+              type="email"
+              required
+            />
+          </div>
+
+          <!-- PAYMENT METHODS -->
+          <fieldset class="payment">
+            <div class="payment__option">
+              <label class="payment__head">
+                <input
+                  class="payment__radio"
+                  type="radio"
+                  name="payment"
+                  value="bank"
+                  id="payment-bank"
+                />
+                <span
+                  class="payment__label"
+                  data-i18n="checkout_page.payment.direct_bank_transfer"
+                  >Direct bank transfer</span
+                >
+              </label>
+              <p
+                class="payment__hint"
+                data-i18n="checkout_page.payment.direct_bank_transfer_hint"
+              >
+                Make your payment directly into our bank account. Please use
+                your Order ID as the payment reference. Your order will not be
+                shipped until the funds have cleared in our account.
+              </p>
+            </div>
+
+            <div class="payment__option">
+              <label class="payment__head">
+                <input
+                  class="payment__radio"
+                  type="radio"
+                  name="payment"
+                  value="check"
+                />
+                <span
+                  class="payment__label"
+                  data-i18n="checkout_page.payment.check_payments"
+                  >Check payments</span
+                >
+              </label>
+              <p
+                class="payment__hint"
+                data-i18n="checkout_page.payment.check_payments_hint"
+              >
+                Pay using check, your order will be processed after
+                verification.
+              </p>
+            </div>
+
+            <div class="payment__option">
+              <label class="payment__head">
+                <input
+                  class="payment__radio"
+                  type="radio"
+                  name="payment"
+                  value="cod"
+                />
+                <span
+                  class="payment__label"
+                  data-i18n="checkout_page.payment.cod"
+                  >Cash on delivery</span
+                >
+              </label>
+              <p
+                class="payment__hint"
+                data-i18n="checkout_page.payment.cod_hint"
+              >
+                Pay with cash when your order is delivered.
+              </p>
+            </div>
+
+            <div class="payment__option">
+              <label class="payment__head">
+                <input
+                  class="payment__radio"
+                  type="radio"
+                  name="payment"
+                  value="paypal"
+                />
+                <span
+                  class="payment__label"
+                  data-i18n="checkout_page.payment.paypal"
+                  >PayPal</span
+                >
+              </label>
+              <p
+                class="payment__hint"
+                data-i18n="checkout_page.payment.paypal_hint"
+              >
+                You will be redirected to PayPal to complete your purchase
+                securely.
+              </p>
+            </div>
+
+            <p class="payment__privacy">
+              <span data-i18n="checkout_page.payment.privacy_text"
+                >Your personal data will be used to process your order, support
+                your experience throughout this website, and for other purposes
+                described in our</span
+              >
+              <a
+                href="../policy-data/"
+                class="link"
+                data-i18n="checkout_page.payment.privacy_policy_link"
+                >privacy policy</a
+              >.
+            </p>
+
+            <button
+              class="btn btn--primary checkout-form__btn"
+              type="submit"
+              data-i18n="checkout_page.payment.place_order_button"
+            >
+              Place order
+            </button>
+          </fieldset>
+        </form>
+      </section>
+
+      <!-- RIGHT: ORDER SUMMARY -->
+      <aside class="summary" aria-label="Order summary">
+        <h2
+          class="summary__title"
+          data-i18n="checkout_page.order_summary.title"
+        >
+          Your order
+        </h2>
+        <table class="order-table">
+          <thead>
+            <tr>
+              <th data-i18n="checkout_page.order_summary.product_header">
+                Food
+              </th>
+              <th data-i18n="checkout_page.order_summary.subtotal_header">
+                Subtotal
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Cart items will be dynamically loaded here -->
+          </tbody>
+          <tfoot>
+            <tr>
+              <th data-i18n="checkout_page.order_summary.subtotal_footer">
+                Subtotal
+              </th>
+              <td>$83.99</td>
+            </tr>
+            <tr>
+              <th data-i18n="checkout_page.order_summary.shipping">Shipping</th>
+              <td data-i18n="checkout_page.order_summary.shipping_rate">
+                Flat rate: $6.00
+              </td>
+            </tr>
+            <tr class="order-table__total">
+              <th data-i18n="checkout_page.order_summary.total">Total</th>
+              <td>$89.99</td>
+            </tr>
+          </tfoot>
+        </table>
+      </aside>
+    </main>
+
+    <!-- QR Code Modal -->
+    <div id="qr-code-modal" class="qr-modal hidden">
+      <div class="qr-modal__content">
+        <span class="qr-modal__close">&times;</span>
+        <h3
+          class="qr-modal__title"
+          data-i18n="checkout_page.payment.qr_code_title"
+        >
+          Payment QR Code
+        </h3>
+        <img
+          class="qr-modal__image"
+          src="../assets/images/checkout-page/qr-code.png"
+          alt="QR Code for bank transfer"
+        />
+        <p
+          class="qr-modal__instruction"
+          data-i18n="checkout_page.payment.qr_code_instruction"
+        >
+          Scan this code with your banking app to transfer.
+        </p>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div data-include="/partials/footer.html"></div>
+
+    <script
+      type="module"
+      src="../assets/script/header-features.js"
+      defer
+    ></script>
+
+    <!-- Checkout Form Handler (removed to prevent duplicate form handling) -->
+    <div data-include="../partials/back-to-top.html"></div>
+    <script src="../assets/script/back-to-top.js" defer></script>
+  </body>
+</html>

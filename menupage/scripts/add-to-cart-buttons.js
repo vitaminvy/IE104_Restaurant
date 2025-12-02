@@ -75,7 +75,8 @@
                   `;
       } else {
         // For text buttons - show checkmark with "Added!"
-          this.button.innerHTML = `
+        const successText = window.i18nService ? window.i18nService.t('menu_page.add_to_cart_button_success') : 'Added!';
+        this.button.innerHTML = `
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="18"
@@ -88,7 +89,7 @@
               <!-- Font Awesome Check -->
               <path d="M530.8 134.1C545.1 144.5 548.3 164.5 537.9 178.8L281.9 530.8C276.4 538.4 267.9 543.1 258.5 543.9C249.1 544.7 240 541.2 233.4 534.6L105.4 406.6C92.9 394.1 92.9 373.8 105.4 361.3C117.9 348.8 138.2 348.8 150.7 361.3L252.2 462.8L486.2 141.1C496.6 126.8 516.6 123.6 530.9 134z"/>
             </svg>
-            <span style="vertical-align: middle;">Added!</span>
+            <span style="vertical-align: middle;">${successText}</span>
           `;
       }
 
@@ -150,7 +151,7 @@
       const event = new CustomEvent('cart:updated', { detail: { items: cart } });
       document.dispatchEvent(event);
     } catch (err) {
-      console.warn('Unable to dispatch cart update event:', err);
+      // console.warn('Unable to dispatch cart update event:', err);
     }
 
     const cartCountEl = document.getElementById('cart-count');
@@ -187,7 +188,7 @@
         cart = JSON.parse(cartData);
       }
     } catch (e) {
-      console.error('Error reading cart:', e);
+      // console.error('Error reading cart:', e);
     }
 
     // Check if item already exists in cart
@@ -213,7 +214,7 @@
     try {
       localStorage.setItem('restaurantCart', JSON.stringify(cart));
     } catch (e) {
-      console.error('Error saving cart:', e);
+      // console.error('Error saving cart:', e);
       btnManager.reset();
       return;
     }
@@ -225,10 +226,13 @@
       btnManager.showSuccess();
 
       // Show notification if available
-      if (window.NotificationSystem) {
+      if (window.NotificationSystem && window.i18nService) {
         const qty = toQuantity(cart[existingItemIndex > -1 ? existingItemIndex : cart.length - 1].quantity);
+        const messageKey = existingItemIndex > -1 ? 'notifications.updatedCart' : 'notifications.addedToCart';
+        const translatedMessage = window.i18nService.t(messageKey).replace('{itemTitle}', item.title);
+        
         window.NotificationSystem.success(
-          `${item.title} ${existingItemIndex > -1 ? 'quantity updated' : 'added to cart'}! (${qty}x)`,
+          `${translatedMessage} (${qty}x)`,
           {
             duration: 3000,
           }
@@ -243,7 +247,7 @@
             window.GlobalLoader.show('Redirecting to cart...');
           }
           setTimeout(() => {
-            window.location.href = '/cartpage/cart.html';
+            window.location.href = '/cartpage/';
           }, 300);
         } else {
           // Reset button
@@ -298,10 +302,16 @@
     setupRippleEffects();
   });
 
-  observer.observe(document.body, {
-    childList: true,
-    subtree: true,
-  });
+  // IMPORTANT: Add a defensive check to ensure document.body exists before observing.
+  // This prevents errors in unusual loading scenarios.
+  if (document.body) {
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true,
+    });
+  } else {
+  // console.warn('add-to-cart-buttons.js: Could not find document.body to observe. Dynamic ripple effects may not apply.');
+  }
 
   // Export for external use
   window.AddToCartButton = AddToCartButton;

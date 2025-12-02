@@ -1,10 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script src="../assets/script/theme-init.js"></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title data-i18n="product_detail_page.title">Product Detail</title>
+    <meta
+      name="description"
+      content="Discover detailed product information, pricing, reviews and related items at WowWraps | Delicious wraps & meals for every taste."
+    />
+
+    <title data-i18n="product_detail_page.title">
+      Product Detail - WowWraps
+    </title>
+    <link
+      rel="icon"
+      href="../assets/icons/icon-header/nav-vect.svg"
+      type="image/svg+xml"
+    />
 
     <link rel="stylesheet" href="../style/reset.css" />
     <link rel="stylesheet" href="../style/style.css" />
@@ -14,13 +27,14 @@
     <!-- footer section-->
     <link rel="stylesheet" href="../partials/footer.css" />
     <!-- menu section-->
-    <link rel="stylesheet" href="../homepage/menu.css" />
 
     <!-- product detail section css -->
-    <link rel="stylesheet" href="./product-detail.css" />
+    <link rel="stylesheet" href="./styles/product-detail.css" />
     <!-- product detail tab css -->
-    <link rel="stylesheet" href="./product-tab.css" />
-
+    <link rel="stylesheet" href="./styles/product-tab.css" />
+    <!-- pairing section css -->
+    <link rel="stylesheet" href="./styles/pairing-section.css" />
+    <link rel="stylesheet" href="../homepage/styles/menu.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
       rel="stylesheet"
@@ -30,48 +44,64 @@
     <link rel="stylesheet" href="../style/animations.css" />
 
     <!-- Global Loading System -->
-    <script src="../assets/script/global-loader.js"></script>
+    <script src="../assets/script/global-loader.js" defer></script>
     <script src="../assets/script/scroll-animations.js"></script>
 
     <!-- Dynamic product loader - NEW FEATURE -->
-    <script type="module" src="./product-dynamic-loader.js" defer></script>
+    <script type="module" src="./scripts/product-dynamic-loader.js"></script>
 
-    <script src="./product-add.js" defer></script>
+    <script src="./scripts/product-add.js" defer></script>
 
     <!-- Global Features Stylesheets -->
     <link rel="stylesheet" href="../assets/features/allergy-alert.css" />
-    <link rel="stylesheet" href="../assets/features/social-proof.css" />
+    <link rel="stylesheet" href="../style/back-to-top.css" />
+
+    <!-- Font Awesome CDN -->
+    <script
+      src="https://kit.fontawesome.com/eef96f1e29.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
 
   <body>
     <!-- logic for header and footer -->
     <script src="../assets/script/include-partials.js" defer></script>
-    <script src="../assets/script/header.js" defer></script>
+    <script type="module" src="../assets/script/header.js"></script>
 
     <!-- ========== HEADER ========== -->
     <div data-include="/partials/header.html"></div>
-    <script type="module" src="../assets/script/lang-toggle.js" defer></script>
 
     <!-- ========== 1. PRODUCT DETAIL SECTION ========== -->
     <section id="product-detail" class="product-detail section">
       <div class="product-detail__container">
         <!-- IMAGE -->
-        <div class="product-detail__image">
+        <div class="product-detail__image animate-on-scroll animate-fade">
           <img
             src="../assets/images/product-detail-page/product-image.png"
             alt="Crispy Chicken Breasts"
             class="product-detail__img"
           />
           <!-- Meta Info -->
-          <ul class="product-detail__meta">
-            <li><strong data-i18n="product_detail_page.meta.sku">SKU:</strong> PT322</li>
-            <li><strong data-i18n="product_detail_page.meta.category">CATEGORY:</strong> Lunch</li>
-            <li><strong data-i18n="product_detail_page.meta.tags">TAGS:</strong> Sweets, Ghevar</li>
+          <ul class="product-detail__meta stagger-children">
+            <li class="animate-on-scroll">
+              <strong data-i18n="product_detail_page.meta.sku">SKU:</strong>
+              PT322
+            </li>
+            <li class="animate-on-scroll">
+              <strong data-i18n="product_detail_page.meta.category"
+                >CATEGORY:</strong
+              >
+              Lunch
+            </li>
+            <li class="animate-on-scroll">
+              <strong data-i18n="product_detail_page.meta.tags">TAGS:</strong>
+              Sweets, Ghevar
+            </li>
           </ul>
         </div>
 
         <!-- INFO -->
-        <div class="product-detail__info">
+        <div class="product-detail__info animate-on-scroll animate-slide-up">
           <h1 class="product-detail__title">Crispy Chicken Breasts</h1>
 
           <!-- Rating -->
@@ -98,7 +128,11 @@
                 alt="Star"
               />
             </div>
-            <span class="review-count" data-i18n="product_detail_page.review_count">(1 customer review)</span>
+            <span
+              class="review-count"
+              data-i18n="product_detail_page.review_count"
+              >(1 customer review)</span
+            >
           </div>
 
           <p class="product-detail__price">$54.00</p>
@@ -112,17 +146,23 @@
           <!-- Quantity + Add to Cart -->
           <div class="product-detail__actions">
             <div class="quantity">
+              <label for="quantity-input" class="sr-only">Quantity</label>
               <button class="qty-btn minus">−</button>
               <input
+                id="quantity-input"
                 type="number"
                 value="1"
                 min="1"
                 max="99"
                 class="qty-input"
+                aria-label="Quantity"
               />
               <button class="qty-btn plus">+</button>
             </div>
-            <a href="/cartpage/cart.html" class="btn btn--primary" data-i18n="product_detail_page.add_to_cart_button"
+            <a
+              href="/cartpage/"
+              class="btn btn--primary"
+              data-i18n="product_detail_page.add_to_cart_button"
               >ADD TO CART</a
             >
           </div>
@@ -131,7 +171,7 @@
     </section>
 
     <!-- ========== 2. PRODUCT TAB SECTION ========== -->
-    <section class="product-tab container">
+    <section class="product-tab container animate-on-scroll animate-fade">
       <div class="product-tab__header">
         <button
           class="product-tab__btn product-tab__btn--active"
@@ -140,7 +180,13 @@
         >
           Description
         </button>
-        <button class="product-tab__btn" data-tab="reviews" data-i18n="product_detail_page.tabs.reviews">Reviews (1)</button>
+        <button
+          class="product-tab__btn"
+          data-tab="reviews"
+          data-i18n="product_detail_page.tabs.reviews"
+        >
+          Reviews (1)
+        </button>
       </div>
 
       <!-- TAB CONTENT -->
@@ -206,15 +252,29 @@
 
         <!-- Add a Review -->
         <form class="review-form">
-          <h3 class="review-form__title" data-i18n="product_detail_page.review_form.title">Add A Review</h3>
-          <p class="review-form__note" data-i18n="product_detail_page.review_form.note">
+          <h2
+            class="review-form__title"
+            data-i18n="product_detail_page.review_form.title"
+          >
+            Add A Review
+          </h2>
+          <p
+            class="review-form__note"
+            data-i18n="product_detail_page.review_form.note"
+          >
             Your email address will not be published. Required fields are marked
             *
           </p>
 
           <div class="review-form__row">
             <div class="review-form__field">
-              <input type="text" placeholder="Your name *" required data-i18n-placeholder="product_detail_page.review_form.placeholder_name" />
+              <input
+                type="text"
+                name="reviewer_name"
+                placeholder="Your name *"
+                required
+                data-i18n-placeholder="product_detail_page.review_form.placeholder_name"
+              />
               <img
                 src="../assets/icons/home-page/resvervation-section/profile.svg"
                 alt="Profile Icon"
@@ -222,7 +282,13 @@
               />
             </div>
             <div class="review-form__field">
-              <input type="email" placeholder="Email address *" required data-i18n-placeholder="product_detail_page.review_form.placeholder_email" />
+              <input
+                type="email"
+                name="reviewer_email"
+                placeholder="Email address *"
+                required
+                data-i18n-placeholder="product_detail_page.review_form.placeholder_email"
+              />
               <img
                 src="../assets/icons/home-page/resvervation-section/message.svg"
                 alt="Email Icon"
@@ -232,11 +298,19 @@
           </div>
 
           <div class="review-form__field">
-            <input type="url" placeholder="Website *" required data-i18n-placeholder="product_detail_page.review_form.placeholder_website" />
+            <input
+              type="url"
+              name="reviewer_website"
+              placeholder="Website *"
+              required
+              data-i18n-placeholder="product_detail_page.review_form.placeholder_website"
+            />
           </div>
 
           <div class="review-form__rating">
-            <label data-i18n="product_detail_page.review_form.your_rating">Your rating</label>
+            <label data-i18n="product_detail_page.review_form.your_rating"
+              >Your rating</label
+            >
             <div class="stars">
               <img
                 src="../assets/icons/product-detail-page/empty-star-icon.svg"
@@ -262,12 +336,20 @@
           </div>
 
           <div class="review-form__field">
-            <textarea placeholder="Write review *" rows="5" required data-i18n-placeholder="product_detail_page.review_form.placeholder_write_review"></textarea>
+            <textarea
+              name="review_text"
+              placeholder="Write review *"
+              rows="5"
+              required
+              data-i18n-placeholder="product_detail_page.review_form.placeholder_write_review"
+            ></textarea>
           </div>
 
           <div class="review-form__checkbox">
             <input type="checkbox" id="save-info" />
-            <label for="save-info" data-i18n="product_detail_page.review_form.save_info"
+            <label
+              for="save-info"
+              data-i18n="product_detail_page.review_form.save_info"
               >Save my name, email, and website in this browser for the next
               time I comment.</label
             >
@@ -276,7 +358,6 @@
           <button
             type="submit"
             class="btn btn--primary"
-            style="margin-top: 20px"
             data-i18n="product_detail_page.review_form.submit_button"
           >
             Submit
@@ -286,17 +367,25 @@
     </section>
 
     <!-- ========== 3.RELATED SECTION (reuse MENU SECION in homepage) ========== -->
-    <section id="menu ">
+    <section id="menu">
       <!-- ========== HEADER ========== -->
-      <div class="menu__header">
+      <div class="menu__header animate-on-scroll animate-slide-up">
         <div class="menu__header-text">
           <!-- title -->
-          <h2 class="menu__title" data-i18n="product_detail_page.related_items_title">Related Items</h2>
+          <h2
+            class="menu__title"
+            data-i18n="product_detail_page.related_items_title"
+          >
+            Related Items
+          </h2>
         </div>
       </div>
 
       <!-- ========== SLIDER FIELD ========== -->
-      <div class="menu__slider container" style="margin-top: 0">
+      <div
+        class="menu__slider container animate-on-scroll animate-fade"
+        style="margin-top: 0"
+      >
         <!--menu grid-->
         <div class="menu__grid"></div>
 
@@ -309,33 +398,58 @@
           <!--active dot -->
           <button
             class="menu__dot menu__dot--active"
+            role="tab"
             aria-label="Slide 1"
-            aria-current="true"
+            aria-selected="true"
           >
             <img
-              src="../assets/icons/home-page/menu-section//active-dot.svg"
+              src="../assets/icons/home-page/menu-section/active-dot.svg"
               alt="Active"
             />
           </button>
-          <button class="menu__dot" aria-label="Slide 2">
+
+          <button
+            class="menu__dot"
+            role="tab"
+            aria-label="Slide 2"
+            aria-selected="false"
+          >
             <img
               src="../assets/icons/home-page/menu-section/dot.svg"
               alt="Inactive"
             />
           </button>
-          <button class="menu__dot" aria-label="Slide 3">
+
+          <button
+            class="menu__dot"
+            role="tab"
+            aria-label="Slide 3"
+            aria-selected="false"
+          >
             <img
               src="../assets/icons/home-page/menu-section/dot.svg"
               alt="Inactive"
             />
           </button>
-          <button class="menu__dot" aria-label="Slide 4">
+
+          <button
+            class="menu__dot"
+            role="tab"
+            aria-label="Slide 4"
+            aria-selected="false"
+          >
             <img
               src="../assets/icons/home-page/menu-section/dot.svg"
               alt="Inactive"
             />
           </button>
-          <button class="menu__dot" aria-label="Slide 5">
+
+          <button
+            class="menu__dot"
+            role="tab"
+            aria-label="Slide 5"
+            aria-selected="false"
+          >
             <img
               src="../assets/icons/home-page/menu-section/dot.svg"
               alt="Inactive"
@@ -355,7 +469,9 @@
          SCRIPTS - NEW FEATURES
     ======================================== -->
     <script type="module" src="../assets/features/allergy-alert.js"></script>
-    <script type="module" src="../assets/features/social-proof.js"></script>
-    <script src="../assets/script/lang-toggle.js" defer></script>
+
+    <script type="module" src="../assets/script/header-features.js"></script>
+    <div data-include="../partials/back-to-top.html"></div>
+    <script src="../assets/script/back-to-top.js" defer></script>
   </body>
 </html>

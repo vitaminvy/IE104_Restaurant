@@ -1,5 +1,5 @@
 import { menuItems } from "../data/mockdata.js";
-import i18nService from './i18n-service.js';
+import i18nService from "./i18n-service.js";
 
 // MENU SLIDER NAVIGATION  (Slide by group: 1–2–3 cards)
 
@@ -19,12 +19,22 @@ import i18nService from './i18n-service.js';
 
   let totalCards = 0;
 
+  // Cache layout values to prevent forced reflows
+  let cachedCardWidth = 0;
+  let cachedGap = 0;
+
   // CREATE CARD HTML
   function createCardHTML(item) {
     return `
-        <article class="menu__card" data-item-id="${item.id}" data-item-title="${i18nService.t(item.title)}" data-item-price="${item.price}" data-item-image="${item.image}" style="cursor: pointer;">
+        <article class="menu__card" data-item-id="${
+          item.id
+        }" data-item-title="${i18nService.t(item.title)}" data-item-price="${
+      item.price
+    }" data-item-image="${item.image}" style="cursor: pointer;">
             <div class="menu__card-img-wrapper">
-                <img src="${item.image}" alt="${i18nService.t(item.title)}" class="menu__card-image" />
+                <img src="${item.image}" alt="${i18nService.t(
+      item.title
+    )}" class="menu__card-image" />
             </div>
             <h3 class="menu__card-title">${i18nService.t(item.title)}</h3>
             <p class="menu__card-desc">${i18nService.t(item.desc)}</p>
@@ -32,7 +42,7 @@ import i18nService from './i18n-service.js';
                 <span class="menu__card-price">$${item.price}</span>
                 <div class="menu__card-btn" style="pointer-events: none;">
                     ${i18nService.t("menu_page.order_now_button")}
-                    <img src="../assets/icons/home-page/menu-section/arrown.svg" alt="" class="menu__card-btn-icon" />
+                    <svg class="menu__card-btn-icon" width="21" height="10" viewBox="0 0 21 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 5H20M20 5C18.5606 4.78667 15.6818 3.688 15.6818 1M20 5C18.5606 5.21333 15.6818 6.312 15.6818 9" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 </div>
             </div>
         </article>`;
@@ -57,18 +67,22 @@ import i18nService from './i18n-service.js';
   // SETUP CARD CLICK HANDLERS
   function setupCardClickHandlers() {
     const cards = menuGrid.querySelectorAll(".menu__card");
-    
-    cards.forEach(card => {
+
+    cards.forEach((card) => {
       card.addEventListener("click", (e) => {
         e.preventDefault();
 
         const itemId = Number(card.dataset.itemId);
-        const item = menuItems.find(menuItem => menuItem.id == itemId);
+        const item = menuItems.find((menuItem) => menuItem.id == itemId);
         if (!item) return;
 
         // Get title and desc from the DOM to avoid race condition
-        const title = card.querySelector('.menu__card-title')?.textContent || i18nService.t(item.title);
-        const desc = card.querySelector('.menu__card-desc')?.textContent || i18nService.t(item.desc);
+        const title =
+          card.querySelector(".menu__card-title")?.textContent ||
+          i18nService.t(item.title);
+        const desc =
+          card.querySelector(".menu__card-desc")?.textContent ||
+          i18nService.t(item.desc);
 
         const cartItem = { ...item, title, desc };
         addToCartAndNavigate(cartItem);
@@ -80,26 +94,29 @@ import i18nService from './i18n-service.js';
   function addToCartAndNavigate(item) {
     // Show loader
     if (window.GlobalLoader) {
-      window.GlobalLoader.show('Adding to cart...');
+      window.GlobalLoader.show("Adding to cart...");
     }
 
     // Get existing cart or create new
     let cart = [];
     try {
-      const cartData = localStorage.getItem('restaurantCart');
+      const cartData = localStorage.getItem("restaurantCart");
       if (cartData) {
         cart = JSON.parse(cartData);
       }
     } catch (e) {
-      console.error('Error reading cart:', e);
+      // console.error("Error reading cart:", e);
     }
 
     // Check if item already in cart
-    const existingItemIndex = cart.findIndex(cartItem => cartItem.id === item.id);
+    const existingItemIndex = cart.findIndex(
+      (cartItem) => cartItem.id === item.id
+    );
 
     if (existingItemIndex > -1) {
       // Item exists, increase quantity
-      cart[existingItemIndex].quantity = (cart[existingItemIndex].quantity || 1) + 1;
+      cart[existingItemIndex].quantity =
+        (cart[existingItemIndex].quantity || 1) + 1;
     } else {
       // Add new item
       cart.push({
@@ -107,27 +124,27 @@ import i18nService from './i18n-service.js';
         title: item.title, // Already translated from DOM
         price: item.price,
         image: item.image,
-        desc: item.desc || '', // Already translated from DOM
-        quantity: 1
+        desc: item.desc || "", // Already translated from DOM
+        quantity: 1,
       });
     }
 
     // Save to localStorage
     try {
-      localStorage.setItem('restaurantCart', JSON.stringify(cart));
-      console.log('✅ Item added to cart:', item.title);
-    } catch (e) {
-      console.error('Error saving cart:', e);
-    }
+      localStorage.setItem("restaurantCart", JSON.stringify(cart));
+    // console.log("Item added to cart:", item.title);
+  } catch (e) {
+    // console.error("Error saving cart:", e);
+  }
 
     // Update loader message
     if (window.GlobalLoader) {
-      window.GlobalLoader.updateMessage('Redirecting to cart...');
+      window.GlobalLoader.updateMessage("Redirecting to cart...");
     }
 
     // Navigate to cart page after delay
     setTimeout(() => {
-      window.location.href = '/cartpage/cart.html';
+      window.location.href = "/cartpage/";
     }, 500);
   }
 
@@ -147,6 +164,7 @@ import i18nService from './i18n-service.js';
 
     // Reset slider to first page on resize
     currentIndex = 0;
+    updateLayoutCache(); // Update cache before slider
     updateSlider();
     updateDots();
   }
@@ -158,6 +176,15 @@ import i18nService from './i18n-service.js';
     return Math.ceil(totalCards / cardsPerView);
   }
 
+  // UPDATE LAYOUT CACHE
+  // Separate read operations to prevent forced reflows
+  function updateLayoutCache() {
+    if (!cards.length) return;
+    // Batch all layout reads together
+    cachedCardWidth = cards[0].offsetWidth;
+    cachedGap = parseFloat(getComputedStyle(menuGrid).gap) || 0;
+  }
+
   // UPDATE SLIDER POSITION
   // move the grid using translateX
   function updateSlider() {
@@ -166,8 +193,10 @@ import i18nService from './i18n-service.js';
       updateArrowStates();
       return;
     }
-    const cardWidth = cards[0].offsetWidth; // Actual rendered width
-    const gap = parseFloat(getComputedStyle(menuGrid).gap) || 0;
+
+    // Use cached values to avoid forced reflow
+    const cardWidth = cachedCardWidth;
+    const gap = cachedGap;
 
     // Each page translates by (cardsPerView * (cardWidth + gap))
     const translateX = -(currentIndex * cardsPerView * (cardWidth + gap));
@@ -264,6 +293,7 @@ import i18nService from './i18n-service.js';
       renderMenu(category);
       updateCardsPerView();
       updateDots();
+      updateLayoutCache(); // Update cache before slider
       updateSlider();
     });
   });
@@ -334,14 +364,16 @@ import i18nService from './i18n-service.js';
   renderMenu(defaultCategory);
   updateCardsPerView();
   updateDots();
+  updateLayoutCache(); // Update cache before slider
   updateSlider();
 
-  document.addEventListener('language-changed', () => {
+  document.addEventListener("language-changed", () => {
     const activeFilter = document.querySelector(".menu__filter-item--active");
     const category = activeFilter?.dataset.category || "breakfast";
     renderMenu(category);
     updateCardsPerView();
     updateDots();
+    updateLayoutCache(); // Update cache before slider
     updateSlider();
   });
 })();

@@ -1,0 +1,235 @@
+/*
+ * ----------------------------------------
+ * Chef Introduction Section 
+ * ----------------------------------------
+ */
+
+#chef-intro {
+  /* Box model */
+  padding: 4rem 1rem 0 1rem;
+
+  /* Typography */
+  text-align: center;
+}
+
+.chef-container {
+  /* Box model */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+/* ----------------------------------------
+ * Chef Image Wrapper
+ * ---------------------------------------- */
+.chef-image-wrapper {
+  /* Position */
+  position: relative;
+
+  /* Box model */
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1rem;
+  max-width: 600px;
+}
+
+.chef-image-wrapper img {
+  /* Box model */
+  width: 100%;
+  max-width: 500px;
+  border-radius: 14px;
+
+  /* Background / Others */
+  object-fit: cover;
+  transition: transform 0.5s ease; /* Smooth scale effect */
+}
+
+/* Hover effect for image */
+.chef-image-wrapper:hover img {
+  transform: scale(1.05); /* Slight zoom on hover */
+}
+
+/* ----------------------------------------
+ * Chef Text Content
+ * ---------------------------------------- */
+.chef-text-content {
+  /* Box model */
+  flex: 1;
+
+  /* Typography */
+  font-size: 0.8rem;
+}
+
+/* ----------------------------------------
+ * Title and Name
+ * ---------------------------------------- */
+.chef-title {
+  /* Typography */
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: 2rem;
+  line-height: 1.3;
+  color: var(--text-primary);
+
+  /* Box model */
+  margin: 0 0 24px 0;
+}
+
+.chef-name {
+  /* Box model */
+  display: block;
+
+  /* Typography */
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+/* ----------------------------------------
+ * Chef Description
+ * ---------------------------------------- */
+.chef-description {
+  /* Box model */
+  margin: 0 0 32px 0;
+  max-width: 480px;
+
+  /* Typography */
+  font-size: 14px;
+  line-height: 1.625;
+  color: var(--text-secondary);
+}
+
+/* ----------------------------------------
+ * "Meet Our Team" Link
+ * ---------------------------------------- */
+.team-link {
+  /* Box model */
+  display: inline-block;
+  position: relative;
+
+  /* Typography */
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 1rem;
+  text-decoration: none;
+}
+
+
+/* =========================================================
+   Responsive Design
+========================================================= */
+
+/* sm (≥640px) */
+@media (min-width: 40rem) {
+  #chef-intro {
+    padding: 5rem 1.5rem 0 1.5rem;
+  }
+
+  .chef-title {
+    font-size: 2.4rem;
+  }
+
+  .chef-container {
+    gap: 3rem;
+  }
+}
+
+/* md (≥768px) */
+@media (min-width: 48rem) {
+  #chef-intro {
+    text-align: left;
+    padding: 6rem 3rem 0 3rem; /* update padding ngang for 2 side */
+  }
+
+  .chef-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between; /* divide into 2 col*/
+    gap: 3rem;
+    margin: 0 auto; 
+  }
+
+  .chef-image-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start; 
+  }
+
+  .chef-text-content {
+    flex: 1;
+    max-width: 520px; 
+    text-align: right; 
+    margin-left: auto; 
+    margin-right: 130px;
+  }
+
+  .chef-title {
+    font-size: 2rem;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+  }
+
+  .chef-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin: 0 0 2rem auto;
+  }
+}
+
+/* lg (≥1024px) - desktop */
+@media (min-width: 64rem) {
+  #chef-intro {
+    padding: 7rem 4rem 0 4rem;
+  }
+
+  .chef-container {
+    gap: 4rem;
+    max-width: 1280px;
+  }
+
+  .chef-title {
+    font-size: 3rem;
+  }
+
+  .chef-name {
+    display: block;
+    font-size: 3.5rem;
+    font-weight: 500;
+  }
+
+  .team-link {
+    font-size: 1rem;
+  }
+}
+/* xl (≥1280px) - large desktop */
+@media (min-width: 80rem) {
+  #chef-intro {
+    padding: 0 4rem;
+    margin-top: 5rem;
+  }
+
+  .chef-container {
+    gap: 6rem;
+    max-width: 1400px;
+  }
+
+  .chef-title {
+    font-size: 4rem;
+  }
+}
+
+/* 2xl (≥1536px) */
+@media (min-width: 96rem) {
+  .chef-image-wrapper {
+    flex: unset;
+  }
+}
+
+

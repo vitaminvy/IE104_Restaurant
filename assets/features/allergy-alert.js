@@ -3,6 +3,7 @@
  * ======================================== */
 
 import { allergenInfo } from "../data/menu-enhanced.js";
+import i18nService from "../script/i18n-service.js";
 
 // Add pulse animation for warning badges
 const style = document.createElement('style');
@@ -38,7 +39,7 @@ document.head.appendChild(style);
       const stored = localStorage.getItem(STORAGE_KEY);
       return stored ? JSON.parse(stored) : [];
     } catch (error) {
-      console.error("Error loading allergens:", error);
+      // console.error("Error loading allergens:", error);
       return [];
     }
   }
@@ -52,7 +53,7 @@ document.head.appendChild(style);
       localStorage.setItem(STORAGE_KEY, JSON.stringify(allergens));
       userAllergens = allergens;
     } catch (error) {
-      console.error("Error saving allergens:", error);
+      // console.error("Error saving allergens:", error);
     }
   }
 
@@ -63,14 +64,17 @@ document.head.appendChild(style);
   function createAllergyTrigger() {
     const trigger = document.createElement("button");
     trigger.className = "allergy-settings-trigger";
-    trigger.setAttribute("aria-label", "Manage allergy settings");
+    trigger.setAttribute("aria-label", i18nService.t("allergy_settings.trigger_aria_label"));
 
-    const icon = document.createElement("span");
+    const icon = document.createElement("img");
     icon.className = "allergy-settings-trigger__icon";
-    icon.textContent = "⚠️";
+    icon.src = "../assets/icons/features/warning-sign.png";
+    icon.alt = "Warning";
+    icon.style.width = "20px";
+    icon.style.height = "20px";
 
     const text = document.createElement("span");
-    text.textContent = "Allergy Settings";
+    text.textContent = i18nService.t("allergy_settings.trigger_button");
 
     trigger.appendChild(icon);
     trigger.appendChild(text);
@@ -101,12 +105,12 @@ document.head.appendChild(style);
 
     const title = document.createElement("h2");
     title.className = "allergy-modal__title";
-    title.textContent = "Manage Allergies";
+    title.textContent = i18nService.t("allergy_settings.modal_title");
 
     const closeBtn = document.createElement("button");
     closeBtn.className = "allergy-modal__close";
     closeBtn.innerHTML = "×";
-    closeBtn.setAttribute("aria-label", "Close modal");
+    closeBtn.setAttribute("aria-label", i18nService.t("allergy_settings.close_modal"));
     closeBtn.addEventListener("click", closeAllergyModal);
 
     header.appendChild(title);
@@ -127,12 +131,12 @@ document.head.appendChild(style);
 
     const saveBtn = document.createElement("button");
     saveBtn.className = "allergy-modal__save-btn";
-    saveBtn.textContent = "Save Settings";
+    saveBtn.textContent = i18nService.t("allergy_settings.save_button");
     saveBtn.addEventListener("click", saveAllergySettings);
 
     const clearBtn = document.createElement("button");
     clearBtn.className = "allergy-modal__clear-btn";
-    clearBtn.textContent = "Clear All";
+    clearBtn.textContent = i18nService.t("allergy_settings.clear_button");
     clearBtn.addEventListener("click", clearAllAllergens);
 
     footer.appendChild(clearBtn);
@@ -181,10 +185,10 @@ document.head.appendChild(style);
     icon.className = "allergen-checkbox__icon";
     icon.textContent = allergen.icon;
 
-    // Name
+    // Name - use i18n translation
     const name = document.createElement("span");
     name.className = "allergen-checkbox__name";
-    name.textContent = allergen.name;
+    name.textContent = i18nService.t(`allergens.${key}.name`);
 
     // Toggle handler - Use input change event instead of label click
     input.addEventListener("change", (e) => {
@@ -192,10 +196,10 @@ document.head.appendChild(style);
       
       if (input.checked) {
         label.classList.add("allergen-checkbox--selected");
-        console.log(`✅ Selected: ${allergen.name}`);
+        // console.log(`Selected: ${allergen.name}`);
       } else {
         label.classList.remove("allergen-checkbox--selected");
-        console.log(`❌ Deselected: ${allergen.name}`);
+        // console.log(`Deselected: ${allergen.name}`);
       }
     });
 
@@ -234,7 +238,7 @@ document.head.appendChild(style);
       overlay.classList.add("allergy-modal-overlay--active");
       document.body.style.overflow = "hidden";
       
-      console.log('📋 Modal opened. Current allergies:', userAllergens);
+      // console.log('Modal opened. Current allergies:', userAllergens);
     }
   }
 
@@ -262,7 +266,7 @@ document.head.appendChild(style);
       }
     });
     
-    console.log('🔄 Checkbox states refreshed');
+    // console.log('Checkbox states refreshed');
   }
 
   /* ========================================
@@ -288,23 +292,23 @@ document.head.appendChild(style);
     );
     const selectedAllergens = Array.from(checkedInputs).map((input) => input.value);
 
-    console.log('💾 Saving allergy settings:', selectedAllergens);
+    // console.log('Saving allergy settings:', selectedAllergens);
 
     // Save to localStorage
     saveUserAllergens(selectedAllergens);
 
     // Verify save
     const saved = loadUserAllergens();
-    console.log('✅ Verified saved allergies:', saved);
+    // console.log('Verified saved allergies:', saved);
 
     // Show confirmation
     if (selectedAllergens.length > 0) {
       const allergenNames = selectedAllergens
-        .map(key => allergenInfo[key]?.name || key)
+        .map(key => i18nService.t(`allergens.${key}.name`) || key)
         .join(', ');
-      showToast(`✓ Tracking: ${allergenNames}`);
+      showToast(i18nService.t("allergy_settings.toast.tracking").replace('{allergens}', allergenNames));
     } else {
-      showToast(`✓ Allergy tracking cleared.`);
+      showToast(i18nService.t("allergy_settings.toast.cleared"));
     }
 
     // Close modal
@@ -321,7 +325,7 @@ document.head.appendChild(style);
    * ======================================== */
 
   function clearAllAllergens() {
-    console.log('🗑️ Clearing all allergens...');
+    // console.log('Clearing all allergens...');
     
     // Uncheck all
     const checkboxes = document.querySelectorAll(".allergen-checkbox");
@@ -339,10 +343,10 @@ document.head.appendChild(style);
 
     // Clear from storage
     saveUserAllergens([]);
-    
-    console.log('✅ All allergens cleared from storage');
 
-    showToast("✓ All allergen tracking cleared.");
+    // console.log('All allergens cleared from storage');
+
+    showToast(i18nService.t("allergy_settings.toast.all_cleared"));
 
     // Re-check current page to remove warnings
     setTimeout(() => {
@@ -384,13 +388,56 @@ document.head.appendChild(style);
             }
           })
           .catch(err => {
-            console.log('Could not load menu data for allergen check:', err);
+          // console.log('Could not load menu data for allergen check:', err);
           });
       }
     }
 
     // Check menu cards on menu page
     checkMenuCardsForAllergens();
+  }
+
+  /* ========================================
+   * CHECK MENU CARDS FOR ALLERGENS
+   * ======================================== */
+
+  function checkMenuCardsForAllergens() {
+    // Only run on menu page
+    if (!document.querySelector('.menu__cards')) {
+      return;
+    }
+
+    // Get all menu cards
+    const menuCards = document.querySelectorAll('.menu__card');
+
+    menuCards.forEach(card => {
+      const itemId = card.getAttribute('data-item-id');
+
+      if (!itemId) return;
+
+      // Try to get item data from window if available
+      let item = null;
+      if (window.menuItems && Array.isArray(window.menuItems)) {
+        item = window.menuItems.find(i => i.id === parseInt(itemId));
+      }
+
+      if (!item || !item.allergens || item.allergens.length === 0) {
+        // No allergens, remove badge if it exists
+        removeWarningBadgeFromCard(card);
+        return;
+      }
+
+      // Check for conflicts with user allergens
+      const conflicts = item.allergens.filter(allergen =>
+        userAllergens.includes(allergen)
+      );
+
+      if (conflicts.length > 0) {
+        addWarningBadgeToCard(card, conflicts);
+      } else {
+        removeWarningBadgeFromCard(card);
+      }
+    });
   }
 
   /* ========================================
@@ -405,14 +452,21 @@ document.head.appendChild(style);
 
     const badge = document.createElement('div');
     badge.className = 'allergy-warning-badge';
-    badge.setAttribute('title', `Contains: ${conflicts.map(key => allergenInfo[key]?.name || key).join(', ')}`);
-    badge.innerHTML = '⚠️';
-    
+    const allergenNames = conflicts.map(key => i18nService.t(`allergens.${key}.name`) || key).join(', ');
+    badge.setAttribute('title', i18nService.t("allergy_settings.badge_tooltip").replace('{allergens}', allergenNames));
+
+    const badgeIcon = document.createElement('img');
+    badgeIcon.src = '../assets/icons/features/warning-sign.png';
+    badgeIcon.alt = 'Warning';
+    badgeIcon.style.width = '16px';
+    badgeIcon.style.height = '16px';
+    badge.appendChild(badgeIcon);
+
     // Style the badge
     badge.style.cssText = `
       position: absolute;
       top: 8px;
-      right: 8px;
+      left: 8px;
       width: 32px;
       height: 32px;
       background: #dc2626;
@@ -421,7 +475,6 @@ document.head.appendChild(style);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 16px;
       z-index: 10;
       box-shadow: 0 2px 8px rgba(220, 38, 38, 0.5);
       animation: pulse 2s infinite;
@@ -462,7 +515,7 @@ document.head.appendChild(style);
 
     const title = document.createElement("p");
     title.className = "product-allergens__title";
-    title.textContent = "Contains:";
+    title.textContent = i18nService.t("allergy_settings.contains");
 
     const list = document.createElement("div");
     list.className = "product-allergens__list";
@@ -484,7 +537,7 @@ document.head.appendChild(style);
       icon.textContent = allergen.icon;
 
       const name = document.createElement("span");
-      name.textContent = allergen.name;
+      name.textContent = i18nService.t(`allergens.${allergenKey}.name`);
 
       badge.appendChild(icon);
       badge.appendChild(name);
@@ -535,18 +588,24 @@ document.head.appendChild(style);
     warning.className = "allergy-warning";
     warning.setAttribute("role", "alert");
 
-    const icon = document.createElement("span");
+    const icon = document.createElement("img");
     icon.className = "allergy-warning__icon";
-    icon.textContent = "⚠️";
+    icon.src = "../assets/icons/features/warning-sign.png";
+    icon.alt = "Warning";
+    icon.style.width = "24px";
+    icon.style.height = "24px";
 
     const text = document.createElement("div");
     text.className = "allergy-warning__text";
 
     const allergenNames = conflicts
-      .map((key) => allergenInfo[key]?.name || key)
+      .map((key) => i18nService.t(`allergens.${key}.name`) || key)
       .join(", ");
 
-    text.innerHTML = `<strong>Allergy Warning:</strong> This item contains ${allergenNames}, which you marked as allergens.`;
+    const warningTitle = i18nService.t("allergy_settings.warning.title");
+    const warningMessage = i18nService.t("allergy_settings.warning.message").replace('{allergens}', allergenNames);
+
+    text.innerHTML = `<strong>${warningTitle}</strong> ${warningMessage}`;
 
     warning.appendChild(icon);
     warning.appendChild(text);
@@ -588,10 +647,67 @@ document.head.appendChild(style);
   }
 
   /* ========================================
+   * UPDATE TEXT ON LANGUAGE CHANGE
+   * ======================================== */
+
+  function updateLanguage() {
+    // Update trigger button text
+    const trigger = document.querySelector(".allergy-settings-trigger");
+    if (trigger) {
+      const text = trigger.querySelector("span");
+      if (text) {
+        text.textContent = i18nService.t("allergy_settings.trigger_button");
+      }
+      trigger.setAttribute("aria-label", i18nService.t("allergy_settings.trigger_aria_label"));
+    }
+
+    // Update modal text if it exists
+    const modal = document.querySelector(".allergy-modal");
+    if (modal) {
+      const title = modal.querySelector(".allergy-modal__title");
+      if (title) {
+        title.textContent = i18nService.t("allergy_settings.modal_title");
+      }
+
+      const closeBtn = modal.querySelector(".allergy-modal__close");
+      if (closeBtn) {
+        closeBtn.setAttribute("aria-label", i18nService.t("allergy_settings.close_modal"));
+      }
+
+      const saveBtn = modal.querySelector(".allergy-modal__save-btn");
+      if (saveBtn) {
+        saveBtn.textContent = i18nService.t("allergy_settings.save_button");
+      }
+
+      const clearBtn = modal.querySelector(".allergy-modal__clear-btn");
+      if (clearBtn) {
+        clearBtn.textContent = i18nService.t("allergy_settings.clear_button");
+      }
+
+      // Update allergen checkbox names
+      const checkboxes = modal.querySelectorAll(".allergen-checkbox");
+      checkboxes.forEach(checkbox => {
+        const input = checkbox.querySelector(".allergen-checkbox__input");
+        const nameSpan = checkbox.querySelector(".allergen-checkbox__name");
+        if (input && nameSpan) {
+          const allergenKey = input.value;
+          nameSpan.textContent = i18nService.t(`allergens.${allergenKey}.name`);
+        }
+      });
+    }
+
+    // Re-check current page to update any displayed warnings/allergens
+    checkCurrentPageAllergens();
+  }
+
+  /* ========================================
    * INITIALIZATION
    * ======================================== */
 
-  function init() {
+  async function init() {
+    // Wait for i18n to be ready
+    await i18nService.init();
+
     // Create trigger button
     createAllergyTrigger();
 
@@ -600,6 +716,9 @@ document.head.appendChild(style);
 
     // Check current page
     checkCurrentPageAllergens();
+
+    // Listen for language changes
+    document.addEventListener('language-changed', updateLanguage);
   }
 
   // Initialize when DOM is ready

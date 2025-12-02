@@ -1,114 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <script src="../assets/script/theme-init.js"  type="module" defer></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Stay updated with the latest news, articles, and insights on restaurant management and growth from WowWraps.">
+    <title data-i18n="blog_page.title">Blog - WowWraps</title>
+    <link rel="icon" href="../assets/icons/icon-header/nav-vect.svg" type="image/svg+xml" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title data-i18n="blog_page.title">Restaurant Management & Growth Blog</title>
+    <!-- Preload critical assets -->
+    <link rel="preload" href="../assets/images/blog-page/featured-post.png" as="image" type="image/webp">
 
-  <!-- Font Awesome CDN -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  
-  <!-- Global / Main styles -->
-  <link rel="stylesheet" href="./main.css">
+    <!-- Preload non-critical CSS -->
+    <link rel="preload" href="./styles/main.css" as="style">
+    <link rel="preload" href="../partials/header.css" as="style">
+    <link rel="preload" href="../partials/footer.css" as="style">
+    <link rel="preload" href="./styles/blog-grid.css" as="style">
+    <link rel="preload" href="../style/newsletter.css" as="style">
+    <link rel="preload" href="../style/animations.css" as="style">
+    <link rel="preload" href="../style/page-enhancements.css" as="style">
 
-  <!-- Header Section styles -->
-    <link rel="stylesheet" href="../partials/header.css" />
+    <!-- Font Awesome (defer loading) -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"></noscript>
 
-  <!-- Footer Section styles -->
-    <link rel="stylesheet" href="../partials/footer.css" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <!-- Page Header Section styles -->
-  <link rel="stylesheet" href="./page-header.css">
+    <!-- Non-critical CSS (loaded asynchronously) -->
+    <link rel="stylesheet" href="../style/reset.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="./styles/main.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="../partials/header.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="../partials/footer.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="./styles/page-header.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="./styles/featured-post.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="./styles/blog-grid.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="./styles/pagination.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="../style/newsletter.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="../style/style.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="../style/animations.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="../style/page-enhancements.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="../style/back-to-top.css" media="print" onload="this.media='all'">
+  </head>
 
-  <!-- Featured Post Section styles -->
-  <link rel="stylesheet" href="./featured-post.css">
+  <body>
+    <!-- ========== 1. HEADER ========== -->
+    <div data-include="/partials/header.html"></div>
 
-  <!-- Blog Grid Section styles -->
-  <link rel="stylesheet" href="./blog-grid.css">
-
-  <!-- Pagination Section styles -->
-  <link rel="stylesheet" href="./pagination.css">
-
-  <!-- Newsletter styles -->
-  <link rel="stylesheet" href="../style/newsletter.css">
-
-  <!-- Reset and global styles -->
-  <link rel="stylesheet" href="../style/reset.css" />
-  <link rel="stylesheet" href="../style/style.css" />
-
-  <!-- Google Fonts -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
-    rel="stylesheet" />
-
-  <!-- Global Animation System -->
-  <link rel="stylesheet" href="../style/animations.css" />
-  <link rel="stylesheet" href="../style/page-enhancements.css" />
-
-  <!-- Global Loading System -->
-  <script src="../assets/script/global-loader.js"></script>
-  <script src="../assets/script/scroll-animations.js"></script>
-
-  <!-- Main JS module - Dynamic Blog Loader -->
-  <script type="module" src="./scripts/blog-loader.js"></script>
-</head>
-
-<body>
-  <!-- ========== 1. HEADER ========== -->
-  <!-- logic for header and footer -->
-  <script src="../assets/script/include-partials.js" defer></script>
-  <script src="../assets/script/header.js"></script>
-  <div data-include="/partials/header.html"></div>
-  <!-- open sidebar in mobile view -->
-
-  <!-- ========== 2. MAIN CONTENT AREA ========== -->
-  <main class="container">
-
-    <!-- ========== 2.1 PAGE HEADER CONTENT ========== -->
-    <div class="page-header animate-fade">
-      <h1 data-i18n="blog_page.header">Restaurant Management & Growth Blog</h1>
-    </div>
-
-    <!-- ========== 2.2 FEATURED POST SECTION ========== -->
-    <section id="featured-post" class="featured-post animate-scale">
-      <!-- Featured posts will be rendered here by JS -->
-    </section>
-
-    <!-- ========== 2.3 FILTERS & CONTROLS ========== -->
-    <section class="blog-filters" aria-label="Blog filters">
-      <div class="blog-filters__left">
-        <p class="blog-filters__label" data-i18n="blog_page.filters.browse_topics">Browse topics</p>
-        <div id="tag-filter" class="blog-filters__pills" role="list"></div>
+    <!-- ========== 2. MAIN CONTENT AREA ========== -->
+    <main class="container">
+      <!-- ========== 2.1 PAGE HEADER CONTENT ========== -->
+      <div class="page-header animate-fade">
+        <h1 data-i18n="blog_page.header">
+          Restaurant Management & Growth Blog
+        </h1>
       </div>
-      <div class="blog-filters__actions">
-        <label for="category-filter" data-i18n="blog_page.filters.category_label">Category</label>
-        <select id="category-filter" class="blog-filters__select" aria-label="Filter by category"></select>
-        <button type="button" id="clear-filters" class="blog-filters__clear" data-i18n="blog_page.filters.reset">Reset</button>
+
+      <!-- ========== 2.2 FEATURED POST SECTION ========== -->
+      <section id="featured-post" class="featured-post animate-scale">
+        <!-- Static LCP and CLS fix -->
+        <div class="post-image">
+          <img 
+            src="../assets/images/blog-page/featured-post.png" 
+            sizes="(max-width: 80rem) 100vw, 50vw"
+            alt="Featured post" 
+            width="800" 
+            height="450"
+            loading="eager"
+            fetchpriority="high">
+        </div>
+        <div class="post-content">
+          <h2 data-i18n="blog_page.featured_post.title_placeholder">The Secret to a 5-Star Restaurant Experience</h2>
+          <p data-i18n="blog_page.featured_post.description_placeholder">Discover the key ingredients to creating an unforgettable dining experience that keeps customers coming back.</p>
+          <a href="../blogpage-details/index.html?id=fp1" class="read-more" aria-label="Read more about The Secret to a 5-Star Restaurant Experience" data-i18n="blog_page.read_more_placeholder">Read More</a>
+        </div>
+      </section>
+
+      <!-- ========== 2.3 FILTERS & CONTROLS ========== -->
+      <section class="blog-filters" aria-label="Blog filters">
+        <div class="blog-filters__left">
+          <p
+            class="blog-filters__label"
+            data-i18n="blog_page.filters.browse_topics"
+          >
+            Browse topics
+          </p>
+          <ul id="tag-filter" class="blog-filters__pills"></ul>
+        </div>
+        <div class="blog-filters__actions">
+          <label
+            for="category-filter"
+            data-i18n="blog_page.filters.category_label"
+            >Category</label
+          >
+          <select
+            id="category-filter"
+            class="blog-filters__select"
+            aria-label="Filter by category"
+          ></select>
+          <button
+            type="button"
+            id="clear-filters"
+            class="blog-filters__clear"
+            data-i18n="blog_page.filters.reset"
+          >
+            Reset
+          </button>
+        </div>
+      </section>
+
+      <!-- ========== 2.3 BLOG GRID SECTION ========== -->
+      <section
+        id="blog-grid"
+        class="blog-grid blog-timeline"
+        aria-live="polite"
+      >
+        <!-- Blog posts will be rendered here by JS -->
+      </section>
+
+      <!-- ========== 2.4 TIMELINE FOOTER / LOAD MORE ========== -->
+      <div id="timeline-footer" class="timeline-footer">
+        <p id="timeline-status" class="timeline-footer__status"></p>
+        <button
+          type="button"
+          id="load-more"
+          class="btn timeline-footer__btn"
+          data-i18n="blog_page.load_more"
+        >
+          Load more stories
+        </button>
       </div>
+    </main>
+
+    <!-- ========== 2.5 NEWSLETTER SECTION ========== -->
+    <section class="newsletter-shell">
+      <div data-include="/partials/newsletter.html"></div>
     </section>
 
-    <!-- ========== 2.3 BLOG GRID SECTION ========== -->
-    <section id="blog-grid" class="blog-grid blog-timeline" aria-live="polite">
-      <!-- Blog posts will be rendered here by JS -->
-    </section>
+    <!-- ========== 2.6 FOOTER PLACEHOLDER ========== -->
+    <div data-include="/partials/footer.html"></div>
+    
+    <div data-include="../partials/back-to-top.html"></div>
 
-    <!-- ========== 2.4 TIMELINE FOOTER / LOAD MORE ========== -->
-    <div id="timeline-footer" class="timeline-footer">
-      <button type="button" id="load-more" class="btn timeline-footer__btn" data-i18n="blog_page.load_more">Load more stories</button>
-    </div>
-
-  </main>
-
-  <!-- ========== 2.5 NEWSLETTER SECTION ========== -->
-  <section class="newsletter-shell">
-    <div data-include="/partials/newsletter.html"></div>
-  </section>
-
-  <!-- ========== 2.6 FOOTER PLACEHOLDER ========== -->
-  <div data-include="/partials/footer.html"></div>
-  <script type="module" src="../assets/script/lang-toggle.js" defer></script>
-  <script src="../assets/script/newsletter.js" defer></script>
-</body>
-
+    <!-- Deferred Scripts -->
+    <script src="../assets/script/include-partials.js" defer></script>
+    <script src="../assets/script/global-loader.js" defer></script>
+    <script src="../assets/script/scroll-animations.js" defer></script>
+    <script type="module" src="./scripts/blog-loader.js"></script>
+    <script type="module" src="../assets/script/header.js"></script>
+    <script type="module" src="../assets/script/header-features.js"></script>
+    <script src="../assets/script/newsletter.js" defer></script>
+    <script src="../assets/script/back-to-top.js" defer></script>
+  </body>
 </html>

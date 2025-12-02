@@ -82,22 +82,20 @@
       // Load stylesheets first (parallel)
       await Promise.all([
         loadStylesheet(`${basePath}allergy-alert.css`),
-        loadStylesheet(`${basePath}social-proof.css`)
       ]);
 
-      console.log('✅ Feature stylesheets loaded');
+      // console.log('Feature stylesheets loaded');
 
       // Load scripts (parallel)
       await Promise.all([
         loadScript(`${basePath}allergy-alert.js`),
-        loadScript(`${basePath}social-proof.js`)
       ]);
 
-      console.log('✅ Feature scripts loaded');
-      console.log('🎉 All global features initialized');
+      // console.log('Feature scripts loaded');
+      // console.log('All global features initialized');
 
     } catch (error) {
-      console.error('❌ Error loading features:', error);
+      // console.error('Error loading features:', error);
     }
   }
 

@@ -10,12 +10,12 @@
   align-items: center;
   flex-wrap: wrap;
   gap: 0.75rem;
-  margin: 2rem auto 3rem;
+  margin: 8rem auto 3rem;
   padding: 1.5rem;
   max-width: 1200px;
 
   /* Background / Others */
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--bg-secondary);
   border-radius: var(--radius);
   backdrop-filter: blur(10px);
 }
@@ -30,7 +30,7 @@
   font-size: 0.875rem;
   font-weight: 500;
   text-align: center;
-  color: var(--color-white-60);
+  color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
@@ -52,10 +52,9 @@
   font-family: var(--font-body);
   font-size: 0.875rem;
   font-weight: 500;
-  color: var(--color-white);
+  color: var(--text-primary);
 
   /* Background / Others */
-  background: rgba(255, 255, 255, 0.1);
   cursor: pointer;
   transition: all 0.3s ease;
   user-select: none;
@@ -141,7 +140,7 @@
   font-family: var(--font-body);
   font-size: 0.75rem;
   font-weight: 500;
-  color: #ffffff;
+  color: var(--text-primary);
 
   /* Background / Others */
   background: rgba(255, 255, 255, 0.15);
@@ -185,6 +184,41 @@
   border: 1px solid #eab308;
 }
 
+/* Theme-aware base styles */
+html[data-theme="light"] .dietary-badge {
+  background: rgba(15, 23, 42, 0.05);
+  border-color: rgba(15, 23, 42, 0.08);
+  box-shadow: inset 0 0 0 1px rgba(15, 23, 42, 0.04);
+}
+
+html[data-theme="dark"] .dietary-badge {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+}
+
+html[data-theme="light"] .dietary-badge:hover {
+  background: rgba(15, 23, 42, 0.1);
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.12);
+}
+
+html[data-theme="dark"] .dietary-badge:hover {
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45);
+}
+
+html[data-theme="light"] .dietary-badge--active {
+  background: rgba(251, 143, 44, 0.12);
+  border-color: #fb8f2c;
+  box-shadow: 0 0 18px rgba(251, 143, 44, 0.25);
+}
+
+html[data-theme="dark"] .dietary-badge--active {
+  background: rgba(251, 143, 44, 0.2);
+  border-color: #fb8f2c;
+  box-shadow: 0 0 24px rgba(251, 143, 44, 0.35);
+}
+
 /* ========== RESPONSIVE DESIGN ========== */
 
 /* Mobile: stack badges vertically */
@@ -212,7 +246,7 @@
 
   .dietary-filter {
     /* Box model */
-    padding: 2.5rem 0 1.5rem;
+    padding: 1.5rem 0 1.5rem;
   }
 
   .dietary-badge {
@@ -224,7 +258,7 @@
 @media (min-width: 1280px) {
   .dietary-filter {
     /* Box model */
-    padding: 3rem 0 1.5rem;
+    padding: 1.5rem 0 1.5rem;
   }
 
   .dietary-badge {

@@ -1,0 +1,42 @@
+/* =============================
+ * Layout / Container Section
+ * ============================= */
+main.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  width: min(90rem, 100%);
+  margin: 6rem auto 0;
+  padding: 4rem 1.5rem 1rem 1.5rem;
+  box-sizing: border-box;
+  max-width: 1536px;
+}
+
+/* =========================================================
+   4. RESPONSIVE DESIGN
+========================================================= */
+
+/* md (≥768px) */
+@media (min-width: 48rem) {
+  main.container {
+    padding: 4rem 2rem 1.5rem 2rem;
+  }
+}
+
+/* lg (≥1024px): desktop */
+@media (min-width: 64rem) {
+  main.container {
+    padding: 4rem 3rem 2rem 3rem;
+    width: min(100%, 90rem);
+  }
+}
+
+/* xl (≥1280px): large desktop */
+@media (min-width: 80rem) {
+  main.container {
+    padding: 5rem 4rem 2.5rem 4rem;
+  }
+}
+

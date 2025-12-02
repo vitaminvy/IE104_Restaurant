@@ -322,6 +322,40 @@
   }
 
   /* ========================================
+   * DETECT BACK/FORWARD NAVIGATION
+   * ======================================== */
+  function isBackOrForwardNavigation(event) {
+    if (event?.persisted) {
+      return true;
+    }
+
+    if (typeof performance !== 'undefined') {
+      if (typeof performance.getEntriesByType === 'function') {
+        const [navigationEntry] = performance.getEntriesByType('navigation');
+        if (navigationEntry && navigationEntry.type === 'back_forward') {
+          return true;
+        }
+      } else if (
+        performance.navigation &&
+        performance.navigation.type === performance.navigation.TYPE_BACK_FORWARD
+      ) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
+  function handlePageShow(event) {
+    if (!isBackOrForwardNavigation(event)) {
+      return;
+    }
+
+    // Force hide loader immediately when returning via browser history
+    hideLoader(0);
+  }
+
+  /* ========================================
    * AUTO-INITIALIZE
    * ======================================== */
   if (document.readyState === 'loading') {
@@ -329,6 +363,8 @@
   } else {
     initLoader();
   }
+
+  window.addEventListener('pageshow', handlePageShow);
 
   /* ========================================
    * PUBLIC API
@@ -340,7 +376,5 @@
     setContentLoading: setContentLoading,
     init: initLoader
   };
-
-  console.log('🔄 Global Loader initialized');
 
 })();

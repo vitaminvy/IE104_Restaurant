@@ -35,19 +35,12 @@
   font-size: 0.875rem;
   color: #ef4444;
   line-height: 1.4;
-  font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
+  font-family: var(--font-body, "Plus Jakarta Sans", sans-serif);
 }
 
 /* ========================================
  * FOCUS ENHANCEMENTS
  * ======================================== */
-
-.form-field-validated input:focus,
-.form-field-validated textarea:focus,
-.form-field-validated select:focus {
-  outline: 2px solid var(--color-dark-orange, #f97316);
-  outline-offset: 1px;
-}
 
 /* Remove default browser validation styles */
 .form-field-validated input:invalid,

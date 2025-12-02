@@ -53,6 +53,7 @@ function renderFeaturedPost() {
 
   const title = i18nService.t(post.title);
   const description = i18nService.t(post.description);
+  const readMoreLabel = i18nService.t('blog_page.read_more');
 
   featuredContainer.innerHTML = `
     <div class="post-image">
@@ -61,7 +62,13 @@ function renderFeaturedPost() {
     <div class="post-content">
       <h2>${title}</h2>
       <p>${description}</p>
-      <a href="../blogpage-details/index.html?id=${post.id}" class="read-more">${i18nService.t('blog_page.read_more')}</a>
+      <a
+        href="../blogpage-details/index.html?id=${post.id}"
+        class="read-more"
+        aria-label="${readMoreLabel}: ${title}"
+      >
+        ${readMoreLabel}
+      </a>
     </div>
   `;
 
@@ -234,12 +241,18 @@ function renderBlogTimeline(page = 1, append = false) {
           <p class="timeline-entry__excerpt">${excerpt}</p>
           <div class="timeline-entry__tags">
             ${(post.tags || []).map((tag) => {
-      const label = tagTranslations[tag] || tag;
-      return `<span class="timeline-entry__tag">${label}</span>`;
-    }).join('')}
+          const label = tagTranslations[tag] || tag;
+          return `<span class="timeline-entry__tag">${label}</span>`;
+        }).join('')}
           </div>
           <div class="timeline-entry__actions">
-            <a href="../blogpage-details/index.html?id=${post.id}" class="read-more" aria-label="${title}">${readMoreText}</a>
+            <a
+              href="../blogpage-details/index.html?id=${post.id}"
+              class="read-more"
+              aria-label="${readMoreText}: ${title}"
+            >
+              ${readMoreText}
+            </a>
           </div>
         </div>
         <div class="timeline-entry__image">

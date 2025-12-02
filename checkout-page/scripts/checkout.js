@@ -13,6 +13,8 @@ import i18nService from "../../assets/script/i18n-service.js";
   const CART_STORAGE_KEY = "restaurantCart";
   const COUPON_STORAGE_KEY = "restaurant_applied_coupon";
   const SHIPPING_COST = 6.0; // Flat rate shipping
+  const HISTORY_STORAGE_KEY = "activityHistory";
+  const HISTORY_LIMIT = 50;
 
   /* ========================================
    * CART STATE MANAGEMENT
@@ -64,6 +66,46 @@ import i18nService from "../../assets/script/i18n-service.js";
 
   function calculateTotal(subtotal, discount, shipping) {
     return Math.max(0, subtotal - discount + shipping);
+  }
+
+  /* ========================================
+   * ORDER HISTORY (for Activity page)
+   * ======================================== */
+
+  function getHistoryItems() {
+    try {
+      const raw = localStorage.getItem(HISTORY_STORAGE_KEY);
+      return raw ? JSON.parse(raw) : [];
+    } catch (error) {
+      return [];
+    }
+  }
+
+  function saveHistoryItems(items) {
+    try {
+      localStorage.setItem(HISTORY_STORAGE_KEY, JSON.stringify(items));
+    } catch (error) {
+      // noop
+    }
+  }
+
+  function appendOrderHistory(entry) {
+    const existing = getHistoryItems();
+    existing.unshift(entry);
+    const trimmed = existing.slice(0, HISTORY_LIMIT);
+    saveHistoryItems(trimmed);
+  }
+
+  function formatAddress(formData) {
+    const parts = [
+      formData.street2,
+      formData.district,
+      formData.city,
+      formData.country,
+    ]
+      .map((part) => (part || "").trim())
+      .filter(Boolean);
+    return parts.join(", ");
   }
 
   /* ========================================
@@ -295,6 +337,29 @@ import i18nService from "../../assets/script/i18n-service.js";
     };
 
     const orderId = Math.floor(Math.random() * 100000);
+    const statusForHistory =
+      formData.paymentMethod === "bank" ? "pending" : "confirmed";
+
+    appendOrderHistory({
+      id: `O${orderId}`,
+      type: "order",
+      status: statusForHistory,
+      createdAt: formData.orderDate,
+      items: items.map((item) => ({
+        name: i18nService.t(item.title),
+        titleKey: item.title,
+        qty: item.quantity,
+        price: item.price,
+      })),
+      subtotal,
+      discount,
+      shipping,
+      total,
+      currency: "USD",
+      paymentMethod: formData.paymentMethod,
+      coupon: formData.coupon,
+      address: formatAddress(formData),
+    });
 
     // Use the new combined message and upgraded i18nService
     const combinedMsg = i18nService.t(
@@ -309,7 +374,7 @@ import i18nService from "../../assets/script/i18n-service.js";
     setTimeout(() => {
       localStorage.removeItem(CART_STORAGE_KEY);
       localStorage.removeItem(COUPON_STORAGE_KEY);
-      window.location.href = "../";
+      window.location.href = "/activity-history/";
     }, 3000); // Redirect after 3 seconds
   }
 

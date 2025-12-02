@@ -4,7 +4,74 @@
     "menu": "Menu",
     "blog": "Blog",
     "about": "About Us",
+    "history": "My Dining",
     "contact": "Contact"
+  },
+  "history": {
+    "hero": {
+      "eyebrow": "Overview",
+      "title": "My Dining",
+      "subtitle": "Track every reservation and order in one place."
+    },
+    "filters": {
+      "type_label": "Activity type",
+      "status_label": "Status",
+      "from": "From date",
+      "to": "To date",
+      "type_all": "All",
+      "type_reservation": "Reservation",
+      "type_order": "Order",
+      "status_all": "All",
+      "status_pending": "Pending",
+      "status_confirmed": "Confirmed",
+      "status_completed": "Completed",
+      "status_cancelled": "Cancelled"
+    },
+    "status": {
+      "pending": "Pending",
+      "confirmed": "Confirmed",
+      "completed": "Completed",
+      "cancelled": "Cancelled"
+    },
+    "types": {
+      "reservation": "Reservation",
+      "order": "Order"
+    },
+    "card": {
+      "arrival_time": "Arrival time: ",
+      "people": "Guests: ",
+      "table": "Table: ",
+      "table_unassigned": "Being arranged",
+      "total": "Total: ",
+      "items": "Items: ",
+      "address": "Address: ",
+      "note": "Note: ",
+      "more_items": "+{count} more items"
+    },
+    "detail": {
+      "placed_at": "Placed at",
+      "arrive_at": "Arrival at",
+      "main_info": "Main info",
+      "people": "Guests",
+      "table": "Table",
+      "table_unassigned": "Being arranged",
+      "items_count": "Items",
+      "subtotal": "Subtotal",
+      "discount": "Discount",
+      "shipping": "Shipping",
+      "total": "Total",
+      "payment": "Payment",
+      "coupon": "Coupon",
+      "address": "Address",
+      "note": "Note",
+      "customer": "Customer",
+      "phone": "Phone",
+      "email": "Email"
+    },
+    "actions": {
+      "view_detail": "View details",
+      "view_detail_aria": "View details"
+    }
   },
   "header": {
     "status_open": "we're open",
@@ -21,6 +88,7 @@
     "link_booking": "Booking",
     "link_menu": "Menu",
     "contact_info": "Contact Info",
+    "contact": "Contact",
     "follow_us": "Follow us",
     "social_fb": "Facebook",
     "social_ig": "Instagram",
@@ -959,7 +1027,7 @@
       "fill_required_fields": "Please fill in all required fields.",
       "order_placed_success": "Order placed successfully! Order ID: #{orderId}",
       "redirecting_homepage": "Redirecting to the homepage...",
-      "order_placed_combined": "<strong>Order placed successfully!</strong><br>Your Order ID is #{orderId}. Redirecting to homepage...",
+      "order_placed_combined": "<strong>Order placed successfully!</strong><br>Your Order ID is #{orderId}. Redirecting to Activity history...",
       "free_shipping": "FREE",
       "coupon_applied": "Coupon applied",
       "processing": "Processing..."

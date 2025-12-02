@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <script src="../assets/script/base-assets.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lịch sử hoạt động - WowWraps</title>
+    <meta
+      name="description"
+      content="Xem lại toàn bộ đặt bàn và đặt món của bạn tại WowWraps, sắp xếp theo thời gian với bộ lọc trạng thái và loại hoạt động."
+    />
+    <link
+      rel="icon"
+      href="../assets/icons/icon-header/nav-vect.svg"
+      type="image/svg+xml"
+    />
+
+    <!-- Page specific -->
+    <link rel="stylesheet" href="./styles/history.css" />
+  </head>
+  <body>
+    <div data-include="/partials/header.html"></div>
+
+    <main class="container history-page">
+      <section class="history-hero animate-fade">
+        <p class="eyebrow" data-i18n="history.hero.eyebrow">Lịch sử</p>
+        <h1 data-i18n="history.hero.title">Trung tâm hoạt động</h1>
+        <p class="hero-subtitle" data-i18n="history.hero.subtitle">
+          Theo dõi mọi đặt bàn và đặt món trong một nơi, sắp xếp từ mới đến cũ.
+        </p>
+      </section>
+
+      <section class="history-filters animate-scale">
+        <div class="filter-field">
+          <label for="filterType" data-i18n="history.filters.type_label"
+            >Loại hoạt động</label
+          >
+          <select id="filterType" class="history-select">
+            <option value="all" data-i18n="history.filters.type_all">
+              Tất cả
+            </option>
+            <option
+              value="reservation"
+              data-i18n="history.filters.type_reservation"
+            >
+              Đặt bàn
+            </option>
+            <option value="order" data-i18n="history.filters.type_order">
+              Đặt món
+            </option>
+          </select>
+        </div>
+        <div class="filter-field">
+          <label for="filterStatus" data-i18n="history.filters.status_label"
+            >Trạng thái</label
+          >
+          <select id="filterStatus" class="history-select">
+            <option value="all" data-i18n="history.filters.status_all">
+              Tất cả
+            </option>
+            <option value="pending" data-i18n="history.filters.status_pending">
+              Chờ xác nhận
+            </option>
+            <option
+              value="confirmed"
+              data-i18n="history.filters.status_confirmed"
+            >
+              Đã xác nhận
+            </option>
+            <option
+              value="completed"
+              data-i18n="history.filters.status_completed"
+            >
+              Hoàn tất
+            </option>
+            <option
+              value="cancelled"
+              data-i18n="history.filters.status_cancelled"
+            >
+              Đã hủy
+            </option>
+          </select>
+        </div>
+        <div class="filter-field">
+          <label for="filterFrom" data-i18n="history.filters.from"
+            >Từ ngày</label
+          >
+          <input id="filterFrom" type="date" class="history-input" />
+        </div>
+        <div class="filter-field">
+          <label for="filterTo" data-i18n="history.filters.to">Đến ngày</label>
+          <input id="filterTo" type="date" class="history-input" />
+        </div>
+      </section>
+
+      <section
+        id="historyList"
+        class="history-list animate-fade"
+        aria-live="polite"
+      ></section>
+      <div id="historyEmpty" class="history-empty" role="status"></div>
+    </main>
+
+    <div
+      id="historyDetail"
+      class="history-detail"
+      role="dialog"
+      aria-modal="true"
+      aria-hidden="true"
+    >
+      <div class="history-detail__overlay"></div>
+      <div class="history-detail__panel">
+        <button
+          type="button"
+          class="history-detail__close"
+          aria-label="Đóng chi tiết"
+        >
+          ×
+        </button>
+        <div id="historyDetailBody" class="history-detail__body"></div>
+      </div>
+    </div>
+
+    <div data-include="/partials/footer.html"></div>
+    <div data-include="../partials/back-to-top.html"></div>
+
+    <script type="module" src="./scripts/history.js"></script>
+  </body>
+</html>

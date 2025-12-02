@@ -4,7 +4,74 @@
     "menu": "Thực Đơn",
     "blog": "Bài Viết",
     "about": "Giới Thiệu",
+    "history": "Hoạt động",
     "contact": "Liên Hệ"
+  },
+  "history": {
+    "hero": {
+      "eyebrow": "Tổng quan",
+      "title": "Hoạt động",
+      "subtitle": "Theo dõi mọi đặt bàn và đặt món trong một nơi."
+    },
+    "filters": {
+      "type_label": "Loại hoạt động",
+      "status_label": "Trạng thái",
+      "from": "Từ ngày",
+      "to": "Đến ngày",
+      "type_all": "Tất cả",
+      "type_reservation": "Đặt bàn",
+      "type_order": "Đặt món",
+      "status_all": "Tất cả",
+      "status_pending": "Chờ xác nhận",
+      "status_confirmed": "Đã xác nhận",
+      "status_completed": "Hoàn tất",
+      "status_cancelled": "Đã hủy"
+    },
+    "status": {
+      "pending": "Chờ xác nhận",
+      "confirmed": "Đã xác nhận",
+      "completed": "Hoàn tất",
+      "cancelled": "Đã hủy"
+    },
+    "types": {
+      "reservation": "Đặt bàn",
+      "order": "Đặt món"
+    },
+    "card": {
+      "arrival_time": "Ngày/giờ đến: ",
+      "people": "Số người: ",
+      "table": "Bàn dự kiến: ",
+      "table_unassigned": "Đang sắp xếp",
+      "total": "Tổng tiền: ",
+      "items": "Món: ",
+      "address": "Địa chỉ: ",
+      "note": "Ghi chú: ",
+      "more_items": "+{count} món khác"
+    },
+    "detail": {
+      "placed_at": "Đặt lúc",
+      "arrive_at": "Thời gian đến",
+      "main_info": "Thông tin chính",
+      "people": "Số người",
+      "table": "Bàn",
+      "table_unassigned": "Đang sắp xếp",
+      "items_count": "Số món",
+      "subtotal": "Tổng phụ",
+      "discount": "Giảm giá",
+      "shipping": "Phí giao",
+      "total": "Tổng cộng",
+      "payment": "Thanh toán",
+      "coupon": "Mã khuyến mãi",
+      "address": "Địa chỉ",
+      "note": "Ghi chú",
+      "customer": "Khách",
+      "phone": "Điện thoại",
+      "email": "Email"
+    },
+    "actions": {
+      "view_detail": "Xem chi tiết",
+      "view_detail_aria": "Xem chi tiết"
+    }
   },
   "header": {
     "status_open": "đang mở cửa",
@@ -21,6 +88,7 @@
     "link_booking": "Đặt Chỗ",
     "link_menu": "Thực Đơn",
     "contact_info": "Thông Tin Liên Hệ",
+    "contact": "Liên Hệ",
     "follow_us": "Theo Dõi",
     "social_fb": "Facebook",
     "social_ig": "Instagram",
@@ -958,7 +1026,7 @@
       "fill_required_fields": "Vui lòng điền đầy đủ các trường bắt buộc.",
       "order_placed_success": "Đặt hàng thành công! ID đơn hàng: #{orderId}",
       "redirecting_homepage": "Đang chuyển hướng đến trang chủ...",
-      "order_placed_combined": "<strong>Đặt hàng thành công!</strong><br>ID đơn hàng của bạn là #{orderId}. Đang chuyển hướng về trang chủ...",
+      "order_placed_combined": "<strong>Đặt hàng thành công!</strong><br>ID đơn hàng của bạn là #{orderId}. Đang chuyển hướng về trang hoạt động...",
       "free_shipping": "MIỄN PHÍ",
       "coupon_applied": "Đã áp dụng phiếu giảm giá",
       "processing": "Đang xử lý..."

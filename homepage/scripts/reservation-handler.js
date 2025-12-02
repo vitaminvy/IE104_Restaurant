@@ -8,6 +8,9 @@ import i18nService from '../../assets/script/i18n-service.js';
 (function () {
   'use strict';
 
+  const HISTORY_STORAGE_KEY = 'activityHistory';
+  const HISTORY_LIMIT = 50;
+
   // Wait for DOM ready
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
@@ -39,10 +42,30 @@ import i18nService from '../../assets/script/i18n-service.js';
 
     // Simulate API call (replace with actual backend call)
     setTimeout(() => {
+      const arrivalAt = buildArrivalDate(formData.date, formData.time);
+      const guestName = formData.name || formData['no-history-12345'] || 'Khách';
+      const reservationId = `R${Math.floor(Math.random() * 100000)}`;
+
+      appendReservationHistory({
+        id: reservationId,
+        type: 'reservation',
+        status: 'pending',
+        createdAt: new Date().toISOString(),
+        arrivalAt,
+        people: Number(formData.people) || 1,
+        table: '',
+        note: '',
+        contact: {
+          name: guestName,
+          phone: formData.phone || '',
+          email: formData.email || '',
+        },
+      });
+
       // Success
       const successMessageTemplate = i18nService.t('home.reservation.success_toast');
       const successMessage = successMessageTemplate
-        .replace('{name}', formData.name)
+        .replace('{name}', guestName)
         .replace('{date}', formatDate(formData.date))
         .replace('{time}', formatTime(formData.time));
 
@@ -53,10 +76,7 @@ import i18nService from '../../assets/script/i18n-service.js';
         }
       );
 
-      // Reset form
-      form.reset();
-
-      // Reset button
+      // Reset button (for accessibility in case redirect is blocked)
       submitButton.disabled = false;
       submitButton.textContent = originalText;
 
@@ -65,12 +85,48 @@ import i18nService from '../../assets/script/i18n-service.js';
       fields.forEach((field) => {
         field.classList.remove('form-field-invalid');
       });
+
+      // Redirect to activity history after a short pause for the toast
+      setTimeout(() => {
+        window.location.href = '/activity-history/';
+      }, 1200);
     }, 1500);
   }
 
   // ================================
   // UTILITY FUNCTIONS
   // ================================
+
+  function loadHistory() {
+    try {
+      const raw = localStorage.getItem(HISTORY_STORAGE_KEY);
+      return raw ? JSON.parse(raw) : [];
+    } catch (error) {
+      return [];
+    }
+  }
+
+  function saveHistory(items) {
+    try {
+      localStorage.setItem(HISTORY_STORAGE_KEY, JSON.stringify(items));
+    } catch (error) {
+      // no-op
+    }
+  }
+
+  function appendReservationHistory(entry) {
+    const existing = loadHistory();
+    existing.unshift(entry);
+    const trimmed = existing.slice(0, HISTORY_LIMIT);
+    saveHistory(trimmed);
+  }
+
+  function buildArrivalDate(dateValue, timeValue) {
+    if (!dateValue || !timeValue) return '';
+    const isoString = `${dateValue}T${timeValue}:00`;
+    const date = new Date(isoString);
+    return date.toISOString();
+  }
 
   function formatDate(dateString) {
     const date = new Date(dateString);

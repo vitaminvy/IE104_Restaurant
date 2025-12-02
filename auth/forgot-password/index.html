@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="../../assets/script/base-assets.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forgot Password | IE104 Restaurant</title>
+    <link
+      rel="icon"
+      href="../../assets/icons/icon-header/nav-vect.svg"
+      type="image/svg+xml"
+    />
+
+    <!-- Auth styles -->
+    <link rel="stylesheet" href="../auth-styles.css" />
+  </head>
+
+  <body>
+    <div data-include="/partials/header.html"></div>
+
+    <div class="auth-page">
+      <div class="auth-container">
+        <!-- Back Button -->
+        <button class="auth-back-btn" onclick="window.history.back()">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          <span data-i18n="auth.common.back">Back</span>
+        </button>
+
+        <!-- Header -->
+        <div class="auth-header">
+          <h1 class="auth-title" data-i18n="auth.forgot.title">
+            Forgot Password?
+          </h1>
+          <p class="auth-subtitle" data-i18n="auth.forgot.subtitle">
+            No worries! Enter your email and we'll send you a verification code
+          </p>
+        </div>
+
+        <!-- Alert Container -->
+        <div id="alert-container"></div>
+
+        <!-- Forgot Password Form -->
+        <form class="auth-form" id="forgot-password-form">
+          <!-- Email -->
+          <div class="auth-form-group">
+            <label
+              for="email"
+              class="auth-label auth-label--required"
+              data-i18n="auth.common.email_label"
+              >Email Address</label
+            >
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="auth-input"
+              placeholder="Enter your registered email"
+              data-i18n-placeholder="auth.common.registered_email_placeholder"
+              autocomplete="email"
+              required
+            />
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" class="auth-btn" id="send-otp-btn">
+            <span class="btn-text" data-i18n="auth.forgot.submit"
+              >Send Verification Code</span
+            >
+          </button>
+        </form>
+
+        <!-- Footer -->
+        <div class="auth-footer-text">
+          <span data-i18n="auth.forgot.footer_text"
+            >Remember your password?</span
+          >
+          <a href="../login/" data-i18n="auth.forgot.footer_link"
+            >Back to Login</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module" src="./forgot-password.js"></script>
+  </body>
+</html>

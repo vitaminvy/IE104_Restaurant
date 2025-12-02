@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <script src="../assets/script/theme-init.js" defer></script>
+    <script src="./assets/script/theme-init.js" defer></script>
+    <script src="./assets/script/base-assets.js"></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title data-i18n="home_page.title">WowWraps</title>
@@ -9,31 +10,6 @@
       name="description"
       content="Welcome to WowWraps! Discover delicious meals from our experienced chefs, read our latest blog posts, and easily book your table online. Explore our menu of breakfast, lunch, and dinner options."
     />
-    <link
-      rel="icon"
-      href="./assets/icons/icon-header/nav-vect.svg"
-      type="image/svg+xml"
-    />
-    <!-- Font Awesome CDN -->
-    <link
-      rel="preload"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-      as="style"
-      onload="this.onload=null;this.rel='stylesheet'"
-    />
-    <noscript
-      ><link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    /></noscript>
-
-    <link rel="stylesheet" href="./style/reset.css" />
-    <link rel="stylesheet" href="./style/style.css" />
-
-    <!-- header section -->
-    <link rel="stylesheet" href="./partials/header.css" />
-    <!-- footer section -->
-    <link rel="stylesheet" href="./partials/footer.css" />
 
     <!-- hero section -->
     <link rel="stylesheet" href="./homepage/styles/hero.css" />
@@ -108,10 +84,6 @@
       ><link rel="stylesheet" href="./homepage/styles/explore-blog.css"
     /></noscript>
 
-    <!-- Preconnect to Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
     <!-- Preload critical images -->
     <link
       rel="preload"
@@ -129,50 +101,9 @@
       as="image"
       href="./assets/images/home-page/hero-section/left-hero-banner-1.webp"
     />
-
-    <!-- Global Features Stylesheets -->
-    <link rel="stylesheet" href="./assets/features/allergy-alert.css" />
-
-    <!-- Global Animation System - Deferred -->
-    <link
-      rel="preload"
-      href="./style/animations.css"
-      as="style"
-      onload="this.onload=null;this.rel='stylesheet'"
-    />
-    <noscript><link rel="stylesheet" href="./style/animations.css" /></noscript>
-
-    <!-- Form Validation & Notification System - Deferred -->
-    <link
-      rel="preload"
-      href="./style/form-validation.css"
-      as="style"
-      onload="this.onload=null;this.rel='stylesheet'"
-    />
-    <noscript
-      ><link rel="stylesheet" href="./style/form-validation.css"
-    /></noscript>
-    <link
-      rel="preload"
-      href="./style/notification-system.css"
-      as="style"
-      onload="this.onload=null;this.rel='stylesheet'"
-    />
-    <noscript
-      ><link rel="stylesheet" href="./style/notification-system.css"
-    /></noscript>
-
-    <!-- Global Loading System -->
-    <script src="./assets/script/global-loader.js" defer></script>
-    <link rel="stylesheet" href="./style/back-to-top.css" />
-    <script src="./assets/script/scroll-animations.js" defer></script>
-    <script src="./assets/script/form-validator.js" defer></script>
-    <script src="./assets/script/notification-system.js" defer></script>
   </head>
   <body>
     <!-- logic for header and footer -->
-    <script src="./assets/script/include-partials.js" defer></script>
-    <script type="module" src="./assets/script/header.js"></script>
 
     <!-- Homepage routing with loaders -->
     <script src="./homepage/scripts/homepage-routing.js" defer></script>
@@ -1453,7 +1384,6 @@
     <div data-include="/partials/footer.html"></div>
     <!-- Back to top -->
     <div data-include="partials/back-to-top.html"></div>
-    <script src="./assets/script/back-to-top.js" defer></script>
     <!-- commit for deploy -->
 
     <!-- Reservation Form Handler -->
@@ -1465,7 +1395,6 @@
     <!-- Newsletter Form Handler -->
     <script src="./homepage/scripts/newsletter-handler.js" defer></script>
 
-    <script type="module" src="./assets/script/header-features.js"></script>
     <script src="./assets/script/newsletter.js" defer></script>
   </body>
 </html>

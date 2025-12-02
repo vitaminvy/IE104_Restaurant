@@ -1,32 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script src="../assets/script/theme-init.js" defer></script>
     <meta charset="UTF-8" />
+    <script src="../assets/script/base-assets.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
       content="Learn about WowWraps, a Mexican restaurant serving fresh handmade tortillas, slow-cooked carnitas, and bold, seasonal flavors."
     />
     <title data-i18n="about_page.title">About Us - WowWraps</title>
-    <link
-      rel="icon"
-      href="../assets/icons/icon-header/nav-vect.svg"
-      type="image/svg+xml"
-    />
-    <!-- Font Awesome CDN -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    />
-
-    <link rel="stylesheet" href="../style/reset.css" />
-    <link rel="stylesheet" href="../style/style.css" />
-
-    <!-- header section -->
-    <link rel="stylesheet" href="../partials/header.css" />
-    <!-- footer-->
-    <link rel="stylesheet" href="../partials/footer.css" />
     <!--about page section css-->
     <link
       rel="preload"
@@ -35,22 +17,8 @@
       onload="this.rel='stylesheet'"
     />
     <noscript><link rel="stylesheet" href="./styles/aboutpage.css" /></noscript>
-
-    <link rel="stylesheet" href="../style/back-to-top.css" />
-    <link rel="stylesheet" href="../assets/features/theme-toggle.css" />
-
-    <!-- Global Animation System -->
-    <link rel="stylesheet" href="../style/animations.css" />
-    <script src="../assets/script/scroll-animations.js"></script>
-
-    <!-- Global Loading System -->
-    <script src="../assets/script/global-loader.js" defer></script>
   </head>
   <body>
-    <!-- logic for header and footer -->
-    <script src="../assets/script/include-partials.js" defer></script>
-    <script type="module" src="../assets/script/header.js"></script>
-
     <!-- ========== 1. HEADER ========== -->
     <div data-include="/partials/header.html"></div>
 
@@ -297,8 +265,6 @@
     <!-- ========== 15. FOOTER ========== -->
     <div data-include="/partials/footer.html"></div>
 
-    <script type="module" src="../assets/script/header-features.js"></script>
     <div data-include="../partials/back-to-top.html"></div>
-    <script src="../assets/script/back-to-top.js" defer></script>
   </body>
 </html>

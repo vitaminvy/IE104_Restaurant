@@ -74,7 +74,9 @@
   },
   "header": {
     "status_open": "đang mở cửa",
-    "cta": "Đặt Bàn"
+    "cta": "Đặt Bàn",
+    "theme_toggle": "Chủ Đề",
+    "language_toggle": "Ngôn Ngữ"
   },
   "footer": {
     "download_app": "Tải ứng dụng WowWraps ngay hôm nay.",
@@ -1439,6 +1441,97 @@
       "rule1": "Vui lòng không mang đồ ăn, thức uống bên ngoài vào nhà hàng.",
       "rule2": "Giữ gìn vệ sinh chung và hạn chế gây ồn ảnh hưởng đến khách khác.",
       "rule3": "Nhà hàng có quyền từ chối phục vụ khách không tuân thủ các quy định này."
+    }
+  },
+  "auth": {
+    "common": {
+      "back": "Quay lại",
+      "email_label": "Địa chỉ email",
+      "email_placeholder": "Nhập email của bạn",
+      "registered_email_placeholder": "Nhập email đã đăng ký",
+      "password_label": "Mật khẩu",
+      "password_placeholder": "Nhập mật khẩu",
+      "confirm_password_label": "Xác nhận mật khẩu",
+      "confirm_password_placeholder": "Nhập lại mật khẩu",
+      "name_label": "Họ và tên",
+      "name_placeholder": "Nhập họ và tên",
+      "remember_me": "Ghi nhớ tôi",
+      "forgot_password": "Quên mật khẩu?",
+      "continue_with": "Hoặc tiếp tục với",
+      "google": "Google",
+      "facebook": "Facebook",
+      "terms": "Tôi đồng ý với Điều khoản & Điều kiện"
+    },
+    "login": {
+      "title": "Chào mừng trở lại",
+      "subtitle": "Đăng nhập để truy cập tài khoản",
+      "submit": "Đăng nhập",
+      "footer_text": "Chưa có tài khoản?",
+      "footer_link": "Tạo tài khoản"
+    },
+    "register": {
+      "title": "Tạo tài khoản",
+      "subtitle": "Tham gia để có trải nghiệm ẩm thực tuyệt vời",
+      "submit": "Tạo tài khoản",
+      "footer_text": "Đã có tài khoản?",
+      "footer_link": "Đăng nhập"
+    },
+    "errors": {
+      "email_required": "Vui lòng nhập email",
+      "email_invalid": "Email không hợp lệ",
+      "password_required": "Vui lòng nhập mật khẩu",
+      "password_min": "Mật khẩu phải dài ít nhất {min} ký tự",
+      "password_pattern": "Mật khẩu cần có chữ hoa, chữ thường và số",
+      "confirm_password_required": "Vui lòng xác nhận mật khẩu",
+      "password_mismatch": "Mật khẩu không khớp",
+      "name_required": "Vui lòng nhập họ và tên",
+      "name_min": "Họ và tên phải có ít nhất {min} ký tự",
+      "name_pattern": "Họ và tên chỉ được chứa chữ cái và khoảng trắng",
+      "otp_required": "Vui lòng nhập mã OTP",
+      "otp_length": "Mã OTP phải gồm {length} số",
+      "otp_pattern": "Vui lòng nhập mã OTP hợp lệ"
+    },
+    "messages": {
+      "login_missing_fields": "Vui lòng nhập email và mật khẩu",
+      "login_success": "Đăng nhập thành công! Đang chuyển hướng...",
+      "register_success": "Tạo tài khoản thành công! Đang chuyển đến đăng nhập...",
+      "accept_terms": "Vui lòng chấp nhận Điều khoản & Điều kiện để tiếp tục",
+      "fix_errors": "Vui lòng kiểm tra và sửa các lỗi trong biểu mẫu",
+      "forgot_success": "Đã gửi mã xác nhận! Đang chuyển hướng...",
+      "forgot_failed": "Gửi mã xác nhận thất bại. Vui lòng thử lại.",
+      "otp_no_email": "Không tìm thấy email. Vui lòng thực hiện lại.",
+      "otp_session_expired": "Phiên đã hết hạn. Vui lòng thử lại.",
+      "otp_resend_success": "Đã gửi lại mã xác nhận!",
+      "otp_resend_failed": "Gửi lại mã thất bại",
+      "otp_invalid": "Mã xác nhận không hợp lệ. Vui lòng thử lại.",
+      "otp_verified": "Xác nhận thành công! Đang chuyển hướng...",
+      "reset_session_expired": "Phiên đã hết hạn. Vui lòng bắt đầu lại quá trình đổi mật khẩu.",
+      "new_password_success": "Đổi mật khẩu thành công! Đang chuyển đến đăng nhập...",
+      "new_password_failed": "Đổi mật khẩu thất bại. Vui lòng thử lại.",
+      "google_not_configured": "Google chưa được cấu hình",
+      "google_failed": "Đăng nhập Google thất bại",
+      "facebook_not_configured": "Facebook chưa được cấu hình",
+      "facebook_failed": "Đăng nhập Facebook thất bại"
+    },
+    "forgot": {
+      "title": "Quên mật khẩu?",
+      "subtitle": "Đừng lo! Nhập email và chúng tôi sẽ gửi mã xác nhận",
+      "submit": "Gửi mã xác nhận",
+      "footer_text": "Nhớ mật khẩu rồi?",
+      "footer_link": "Quay lại đăng nhập"
+    },
+    "otp": {
+      "title": "Nhập mã xác nhận",
+      "subtitle_prefix": "Chúng tôi đã gửi mã 6 số tới",
+      "submit": "Xác minh mã",
+      "resend": "Gửi lại",
+      "footer_text": "Sai email?",
+      "footer_link": "Thử email khác"
+    },
+    "new_password": {
+      "title": "Đặt mật khẩu mới",
+      "subtitle": "Tạo mật khẩu mạnh cho tài khoản của bạn",
+      "submit": "Đổi mật khẩu"
     }
   },
   "notifications": {

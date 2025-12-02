@@ -37,7 +37,7 @@ function verifyResetToken() {
       'Session expired. Please start the password reset process again.'
     );
     setTimeout(() => {
-      window.location.href = './forgot-password.html';
+      window.location.href = '../forgot-password/';
     }, 2000);
     return false;
   }
@@ -222,7 +222,7 @@ async function handleChangePassword(event) {
 
       // Redirect to login page
       setTimeout(() => {
-        window.location.href = './login.html';
+        window.location.href = '../login/';
       }, 2000);
     } else {
       throw new Error(response.message || 'Failed to change password');

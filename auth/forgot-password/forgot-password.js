@@ -110,7 +110,7 @@ async function handleForgotPassword(event) {
 
       // Redirect to OTP page
       setTimeout(() => {
-        window.location.href = './otp-verification.html';
+        window.location.href = '../otp-verification/';
       }, 1500);
     } else {
       throw new Error(response.message || 'Failed to send verification code');

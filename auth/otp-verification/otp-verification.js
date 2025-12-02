@@ -53,7 +53,7 @@ function displayEmail() {
       'No email found. Please start the process again.'
     );
     setTimeout(() => {
-      window.location.href = './forgot-password.html';
+      window.location.href = '../forgot-password/';
     }, 2000);
     return;
   }
@@ -174,7 +174,7 @@ async function handleResendOTP() {
   if (!email) {
     showAlert(alertContainer, 'error', 'Session expired. Please try again.');
     setTimeout(() => {
-      window.location.href = './forgot-password.html';
+      window.location.href = '../forgot-password/';
     }, 2000);
     return;
   }
@@ -259,7 +259,7 @@ async function handleVerifyOTP(event) {
 
       // Redirect to new password page
       setTimeout(() => {
-        window.location.href = './new-password.html';
+        window.location.href = '../new-password/';
       }, 1500);
     } else {
       throw new Error(response.message || 'Invalid verification code');

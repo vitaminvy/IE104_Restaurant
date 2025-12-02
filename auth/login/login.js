@@ -22,6 +22,34 @@ const alertContainer = document.getElementById('alert-container');
 const googleLoginBtn = document.getElementById('google-login');
 const facebookLoginBtn = document.getElementById('facebook-login');
 
+// ========== Helpers ==========
+
+function getReturnUrl() {
+  const stored = sessionStorage.getItem('loginReturnUrl');
+
+  if (stored) {
+    try {
+      const url = new URL(stored, window.location.origin);
+      const isSameOrigin = url.origin === window.location.origin;
+      const isLoginPage = url.pathname.includes('/auth/login');
+
+      if (isSameOrigin && !isLoginPage) {
+        sessionStorage.removeItem('loginReturnUrl');
+        return url.href;
+      }
+    } catch (error) {
+      console.warn('Invalid return URL, falling back to home:', error);
+    }
+  }
+
+  const ref = document.referrer;
+  if (ref && ref.startsWith(window.location.origin) && !ref.includes('/auth/login')) {
+    return ref;
+  }
+
+  return '../index.html';
+}
+
 // ========== Password Toggle ==========
 
 function setupPasswordToggle() {
@@ -149,7 +177,7 @@ async function handleLogin(event) {
 
       // Redirect to home page
       setTimeout(() => {
-        window.location.href = '../index.html';
+        window.location.href = getReturnUrl();
       }, 1500);
     } else {
       throw new Error(response.message || 'Login failed');

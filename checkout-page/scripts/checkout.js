@@ -96,6 +96,18 @@ import i18nService from "../../assets/script/i18n-service.js";
     saveHistoryItems(trimmed);
   }
 
+  function formatAddress(formData) {
+    const parts = [
+      formData.street2,
+      formData.district,
+      formData.city,
+      formData.country,
+    ]
+      .map((part) => (part || "").trim())
+      .filter(Boolean);
+    return parts.join(", ");
+  }
+
   /* ========================================
    * DOM MANIPULATION
    * ======================================== */
@@ -346,7 +358,7 @@ import i18nService from "../../assets/script/i18n-service.js";
       currency: "USD",
       paymentMethod: formData.paymentMethod,
       coupon: formData.coupon,
-      note: formData.street2 || "",
+      address: formatAddress(formData),
     });
 
     // Use the new combined message and upgraded i18nService

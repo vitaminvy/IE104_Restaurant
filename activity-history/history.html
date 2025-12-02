@@ -70,19 +70,6 @@
           <label for="filterTo">Đến ngày</label>
           <input id="filterTo" type="date" class="history-input" />
         </div>
-        <div class="filter-field filter-search">
-          <label for="searchBox">Tìm kiếm</label>
-          <div class="search-wrapper">
-            <span aria-hidden="true">🔍</span>
-            <input
-              id="searchBox"
-              type="text"
-              class="history-input"
-              placeholder="Mã đơn, ghi chú, món ăn..."
-              aria-label="Tìm kiếm lịch sử"
-            />
-          </div>
-        </div>
       </section>
 
       <section
@@ -92,6 +79,26 @@
       ></section>
       <div id="historyEmpty" class="history-empty" role="status"></div>
     </main>
+
+    <div
+      id="historyDetail"
+      class="history-detail"
+      role="dialog"
+      aria-modal="true"
+      aria-hidden="true"
+    >
+      <div class="history-detail__overlay"></div>
+      <div class="history-detail__panel">
+        <button
+          type="button"
+          class="history-detail__close"
+          aria-label="Đóng chi tiết"
+        >
+          ×
+        </button>
+        <div id="historyDetailBody" class="history-detail__body"></div>
+      </div>
+    </div>
 
     <div data-include="/partials/footer.html"></div>
     <div data-include="../partials/back-to-top.html"></div>

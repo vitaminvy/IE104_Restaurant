@@ -1,4 +1,6 @@
 const HISTORY_STORAGE_KEY = "activityHistory";
+let latestRendered = [];
+let lastDetailTrigger = null;
 
 const demoActivities = [
   {
@@ -97,7 +99,6 @@ function renderList() {
   const statusFilter = document.getElementById("filterStatus").value;
   const fromDate = document.getElementById("filterFrom").value;
   const toDate = document.getElementById("filterTo").value;
-  const search = document.getElementById("searchBox").value.trim().toLowerCase();
 
   listDOM.innerHTML = "";
 
@@ -118,20 +119,6 @@ function renderList() {
       }
       return true;
     })
-    .filter((item) => {
-      if (!search) return true;
-      const textStack = [
-        item.id,
-        item.note || "",
-        item.table || "",
-        item.arrivalAt || "",
-        item.total || "",
-        item.items ? buildItemsSummary(item.items) : "",
-      ]
-        .join(" ")
-        .toLowerCase();
-      return textStack.includes(search);
-    })
     .sort(
       (a, b) =>
         new Date(b.createdAt || 0).getTime() -
@@ -146,8 +133,9 @@ function renderList() {
   }
 
   emptyDOM.style.display = "none";
+  latestRendered = filtered;
 
-  filtered.forEach((item) => {
+  filtered.forEach((item, index) => {
     const article = document.createElement("article");
     article.className = "history-card";
 
@@ -172,8 +160,14 @@ function renderList() {
             <div><span class="history-card__label">Món: </span>${buildItemsSummary(item.items || [])}</div>
           `;
 
-    const noteBlock = item.note
-      ? `<div><span class="history-card__label">Ghi chú: </span>${item.note}</div>`
+    const noteValue =
+      item.type === "order"
+        ? item.address || item.note || ""
+        : item.note || "";
+    const noteLabel =
+      item.type === "order" && item.address ? "Địa chỉ: " : "Ghi chú: ";
+    const noteBlock = noteValue
+      ? `<div><span class="history-card__label">${noteLabel}</span>${noteValue}</div>`
       : "";
 
     article.innerHTML = `
@@ -192,7 +186,7 @@ function renderList() {
           ${noteBlock}
         </div>
         <div class="history-card__actions">
-          <a class="history-card__btn" href="#" aria-label="Xem chi tiết ${item.id}">Xem chi tiết</a>
+          <button class="history-card__btn" type="button" data-detail-idx="${index}" aria-label="Xem chi tiết ${item.id}">Xem chi tiết</button>
           ${item.status !== "cancelled" ? '<a class="history-card__btn" href="#">Đặt lại</a>' : ""}
         </div>
       </div>
@@ -207,6 +201,162 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("filterStatus").addEventListener("change", renderList);
   document.getElementById("filterFrom").addEventListener("change", renderList);
   document.getElementById("filterTo").addEventListener("change", renderList);
-  document.getElementById("searchBox").addEventListener("input", renderList);
+  document
+    .getElementById("historyList")
+    .addEventListener("click", handleDetailClick);
+  setupDetailModal();
   renderList();
 });
+
+function handleDetailClick(event) {
+  const btn = event.target.closest("[data-detail-idx]");
+  if (!btn) return;
+  const idx = parseInt(btn.dataset.detailIdx, 10);
+  if (Number.isNaN(idx) || !latestRendered[idx]) return;
+  lastDetailTrigger = btn;
+  openDetail(latestRendered[idx]);
+}
+
+function setupDetailModal() {
+  const detail = document.getElementById("historyDetail");
+  const overlay = document.querySelector(".history-detail__overlay");
+  const closeBtn = document.querySelector(".history-detail__close");
+  if (!detail || !overlay || !closeBtn) return;
+
+  const close = () => {
+    if (detail.contains(document.activeElement)) {
+      if (lastDetailTrigger && typeof lastDetailTrigger.focus === "function") {
+        lastDetailTrigger.focus();
+      } else if (document.activeElement && typeof document.activeElement.blur === "function") {
+        document.activeElement.blur();
+      }
+    }
+    detail.setAttribute("aria-hidden", "true");
+    detail.setAttribute("inert", "");
+    detail.classList.remove("is-open");
+    document.body.style.overflow = "";
+    lastDetailTrigger = null;
+  };
+
+  overlay.addEventListener("click", close);
+  closeBtn.addEventListener("click", close);
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && detail.classList.contains("is-open")) {
+      close();
+    }
+  });
+}
+
+function openDetail(item) {
+  const detail = document.getElementById("historyDetail");
+  const body = document.getElementById("historyDetailBody");
+  if (!detail || !body) return;
+  detail.removeAttribute("inert");
+
+  const statusLabel = statusLabels[item.status] || item.status;
+  const typeLabel = typeLabels[item.type] || item.type;
+  const icon = typeIcons[item.type] || "•";
+
+  const paymentLines =
+    item.type === "order"
+      ? `
+        <div class="history-detail__totals">
+          <div><span>Tổng phụ</span><strong>${formatCurrency(item.subtotal, item.currency)}</strong></div>
+          ${item.discount ? `<div><span>Giảm giá</span><strong>-${formatCurrency(item.discount, item.currency)}</strong></div>` : ""}
+          ${
+            item.shipping !== undefined && item.shipping !== null
+              ? `<div><span>Phí giao</span><strong>${formatCurrency(item.shipping, item.currency)}</strong></div>`
+              : ""
+          }
+          <div><span>Tổng cộng</span><strong>${formatCurrency(item.total, item.currency)}</strong></div>
+        </div>
+        <div class="history-detail__row"><span>Thanh toán</span><span class="history-detail__value">${item.paymentMethod || "—"}</span></div>
+        ${
+          item.coupon
+            ? `<div class="history-detail__row"><span>Mã khuyến mãi</span><span class="history-detail__value">${item.coupon}</span></div>`
+            : ""
+        }
+      `
+      : "";
+
+  const contactLines =
+    item.type === "reservation" && item.contact
+      ? `
+        <div class="history-detail__row"><span>Khách</span><span class="history-detail__value">${item.contact.name || "—"}</span></div>
+        <div class="history-detail__row"><span>Điện thoại</span><span class="history-detail__value">${item.contact.phone || "—"}</span></div>
+        <div class="history-detail__row"><span>Email</span><span class="history-detail__value">${item.contact.email || "—"}</span></div>
+      `
+      : "";
+
+  const itemsBlock =
+    item.type === "order" && Array.isArray(item.items)
+      ? `
+        <div class="history-detail__items">
+          ${item.items
+            .map(
+              (it) => `
+              <div class="history-detail__item">
+                <span>${it.name || it.titleKey || "Món"}</span>
+                <strong>x${it.qty || it.quantity || 1}</strong>
+              </div>`
+            )
+            .join("")}
+        </div>
+      `
+      : "";
+
+  const orderAddressRow =
+    item.type === "order" && item.address && item.address.trim()
+      ? `<div class="history-detail__row"><span>Địa chỉ</span><span class="history-detail__value">${item.address}</span></div>`
+      : "";
+
+  const detailNoteRow =
+    item.note && item.note.trim()
+      ? `<div class="history-detail__row"><span>Ghi chú</span><span class="history-detail__value">${item.note}</span></div>`
+      : "";
+
+  body.innerHTML = `
+    <div class="history-detail__header">
+      <div class="history-card__icon" aria-hidden="true">${icon}</div>
+      <div>
+        <p class="history-detail__title">${typeLabel} • ${item.id}</p>
+        <div class="history-detail__meta">
+          <span>Đặt lúc ${safeFormatDateTime(item.createdAt)}</span>
+          ${
+            item.arrivalAt
+              ? `<span>Thời gian đến ${safeFormatDateTime(item.arrivalAt)}</span>`
+              : ""
+          }
+        </div>
+      </div>
+      <span class="history-detail__status status-${item.status}">${statusLabel}</span>
+    </div>
+
+    <div class="history-detail__section">
+      <h4>Thông tin chính</h4>
+      ${
+        item.type === "reservation"
+          ? `
+            <div class="history-detail__row"><span>Số người</span><span class="history-detail__value">${item.people || "—"}</span></div>
+            <div class="history-detail__row"><span>Bàn</span><span class="history-detail__value">${item.table || "Đang sắp xếp"}</span></div>
+            ${contactLines}
+          `
+          : `
+            <div class="history-detail__row"><span>Số món</span><span class="history-detail__value">${item.items ? item.items.length : 0}</span></div>
+            ${itemsBlock}
+            ${paymentLines}
+            ${orderAddressRow}
+          `
+      }
+      ${detailNoteRow}
+    </div>
+  `;
+
+  detail.setAttribute("aria-hidden", "false");
+  const closeBtn = document.querySelector(".history-detail__close");
+  if (closeBtn && typeof closeBtn.focus === "function") {
+    closeBtn.focus();
+  }
+  detail.classList.add("is-open");
+  document.body.style.overflow = "hidden";
+}

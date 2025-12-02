@@ -90,6 +90,7 @@
   // Shared scripts
   [
     { src: 'assets/script/global-loader.js' },
+    { src: 'assets/script/theme-init.js' },
     { src: 'assets/script/include-partials.js' },
     { src: 'assets/script/scroll-animations.js' },
     { src: 'assets/script/form-validator.js' },

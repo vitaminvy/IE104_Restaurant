@@ -2,7 +2,7 @@
 
 Chào mừng đến với **WowWraps** - Dự án website nhà hàng hiện đại, tập trung vào trải nghiệm người dùng mượt mà và giao diện tương tác cao.
 
-## 👥 Tác giả & Thành viên nhóm 5
+## Tác giả & Thành viên nhóm 5
 
 *   **Giảng viên hướng dẫn:** ThS Võ Tấn Khoa
 *   **Thành viên:**

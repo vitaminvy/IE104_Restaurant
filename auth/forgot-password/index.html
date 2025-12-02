@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script src="../../assets/script/theme-init.js" defer></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Forgot Password | IE104 Restaurant</title>
@@ -11,6 +12,7 @@
 
     <!-- Auth styles -->
     <link rel="stylesheet" href="../auth-styles.css" />
+    <link rel="stylesheet" href="../../partials/header.css" />
 
     <!-- Fonts -->
     <link
@@ -23,6 +25,11 @@
   </head>
 
   <body>
+    <script src="../../assets/script/include-partials.js" defer></script>
+    <script type="module" src="../../assets/script/header.js"></script>
+    <script type="module" src="../../assets/script/header-features.js"></script>
+    <div data-include="/partials/header.html"></div>
+
     <div class="auth-page">
       <div class="auth-container">
         <!-- Back Button -->
@@ -36,13 +43,6 @@
 
         <!-- Header -->
         <div class="auth-header">
-          <a href="../../index.html">
-            <img
-              src="../../assets/icons/icon-header/nav-vect.svg"
-              alt="Restaurant Logo"
-              class="auth-logo"
-            />
-          </a>
           <h1 class="auth-title">Forgot Password?</h1>
           <p class="auth-subtitle">
             No worries! Enter your email and we'll send you a verification code

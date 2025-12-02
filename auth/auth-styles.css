@@ -10,32 +10,36 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #0a0a0a 0%, #18181b 50%, #111114 100%);
   padding: 2rem 1.5rem;
   position: relative;
   overflow: hidden;
+  background: linear-gradient(115deg, rgba(7, 7, 10, 0.9), rgba(10, 8, 6, 0.85)),
+    url('../../assets/images/menu-page/menu-page-banner.webp') center/cover
+      no-repeat;
 }
 
 /* Background decoration matching app style */
 .auth-page::before {
   content: '';
   position: absolute;
-  top: -50%;
-  right: -50%;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle, rgba(251, 143, 44, 0.1) 0%, transparent 70%);
+  top: -40%;
+  right: -35%;
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, rgba(251, 143, 44, 0.28), transparent 65%);
+  filter: blur(10px);
   pointer-events: none;
 }
 
 .auth-page::after {
   content: '';
   position: absolute;
-  bottom: -50%;
-  left: -50%;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle, rgba(251, 143, 44, 0.05) 0%, transparent 70%);
+  bottom: -30%;
+  left: -35%;
+  width: 280px;
+  height: 280px;
+  background: radial-gradient(circle, rgba(255, 214, 124, 0.18), transparent 65%);
+  filter: blur(12px);
   pointer-events: none;
 }
 
@@ -78,6 +82,19 @@
   height: 48px;
   margin-bottom: 1.5rem;
   animation: fadeIn 0.8s ease 0.2s backwards;
+  display: inline-block;
+}
+
+.auth-logo--light {
+  display: none;
+}
+
+html[data-theme='light'] .auth-logo--dark {
+  display: none;
+}
+
+html[data-theme='light'] .auth-logo--light {
+  display: inline-block;
 }
 
 .auth-title {
@@ -162,6 +179,69 @@
 .auth-input.success {
   border-color: rgba(34, 197, 94, 0.5);
   background: rgba(34, 197, 94, 0.05);
+}
+
+/* ========== Light mode overrides (match menu banner) ========== */
+html[data-theme='light'] .auth-page {
+  background: linear-gradient(
+      115deg,
+      rgba(255, 255, 255, 0.88),
+      rgba(253, 249, 240, 0.9)
+    ),
+    url('../../assets/images/menu-page/menu-page-banner-light-mode.jpg')
+      center/cover no-repeat;
+}
+
+html[data-theme='light'] .auth-page::before {
+  background: radial-gradient(circle, rgba(251, 143, 44, 0.18), transparent 60%);
+}
+
+html[data-theme='light'] .auth-page::after {
+  background: radial-gradient(circle, rgba(255, 200, 124, 0.16), transparent 60%);
+}
+
+html[data-theme='light'] .auth-container {
+  background: linear-gradient(135deg, #f8f5ec 0%, #f1eadc 100%);
+  border-color: rgba(17, 17, 20, 0.1);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15),
+    0 0 30px rgba(251, 143, 44, 0.08);
+}
+
+html[data-theme='light'] .auth-title {
+  color: #1e293b;
+}
+
+html[data-theme='light'] .auth-subtitle {
+  color: #334155;
+}
+
+html[data-theme='light'] .auth-label {
+  color: #1f2937;
+}
+
+html[data-theme='light'] .auth-input {
+  background: rgba(0, 0, 0, 0.02);
+  border-color: rgba(0, 0, 0, 0.08);
+  color: #1e293b;
+}
+
+html[data-theme='light'] .auth-input::placeholder {
+  color: #94a3b8;
+}
+
+html[data-theme='light'] .auth-input:focus {
+  background: rgba(0, 0, 0, 0.04);
+  border-color: rgba(251, 143, 44, 0.6);
+  box-shadow: 0 0 0 3px rgba(251, 143, 44, 0.12);
+}
+
+html[data-theme='light'] .auth-footer-text {
+  color: #1f2937;
+}
+
+html[data-theme='light'] .auth-link,
+html[data-theme='light'] .auth-footer-text a {
+  color: #d57d1f;
 }
 
 /* ========== Password Input Wrapper ========== */
@@ -256,6 +336,15 @@
   color: rgba(255, 255, 255, 0.7);
   margin: 0;
   cursor: pointer;
+}
+
+html[data-theme='light'] .auth-checkbox {
+  background: rgba(0, 0, 0, 0.04);
+  border-color: rgba(0, 0, 0, 0.12);
+}
+
+html[data-theme='light'] .auth-checkbox-label {
+  color: #1f2937;
 }
 
 /* ========== Buttons ========== */
@@ -419,6 +508,17 @@
   height: 20px;
 }
 
+html[data-theme='light'] .auth-social-btn {
+  background: rgba(0, 0, 0, 0.03);
+  border-color: rgba(0, 0, 0, 0.08);
+  color: #1f2937;
+}
+
+html[data-theme='light'] .auth-social-btn:hover {
+  background: rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.12);
+}
+
 /* ========== Footer Text ========== */
 
 .auth-footer-text {
@@ -544,6 +644,18 @@
 .auth-back-btn svg {
   width: 18px;
   height: 18px;
+}
+
+html[data-theme='light'] .auth-back-btn {
+  color: #1f2937;
+}
+
+html[data-theme='light'] .auth-back-btn:hover {
+  color: #d57d1f;
+}
+
+html[data-theme='light'] .auth-back-btn svg {
+  stroke: currentColor;
 }
 
 /* ========== Loading State ========== */

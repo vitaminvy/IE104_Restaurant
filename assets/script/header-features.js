@@ -55,7 +55,7 @@ function applyStaticTranslations() {
 function updateAllLanguageFlags(lang) {
   const headerFlag = document.querySelector('#language-flag');
   if (headerFlag) {
-    headerFlag.src = lang === 'en' ? '../assets/icons/united-kingdom.png' : '../assets/icons/vietnam.png';
+    headerFlag.src = lang === 'en' ? '/assets/icons/united-kingdom.png' : '/assets/icons/vietnam.png';
     headerFlag.alt = lang === 'en' ? 'English' : 'Vietnamese';
   }
 
@@ -138,7 +138,7 @@ function runAfterPartials() {
 }
 
 function arePartialsReady() {
-  return document.getElementById('header') && document.getElementById('footer');
+  return !!document.getElementById('header'); // footer is optional for auth pages
 }
 
 function waitForPartials(callback) {
@@ -184,10 +184,10 @@ function updateFooterLogo() {
 
   const currentTheme = document.documentElement.getAttribute('data-theme');
   if (currentTheme === 'light') {
-    footerLogo.src = '../assets/icons/logo_bg_dark.png';
+    footerLogo.src = '/assets/icons/logo_bg_dark.png';
     footerLogo.alt = 'WowWraps logo (Light Mode)';
   } else {
-    footerLogo.src = '../assets/images/home-page/footer-section/logo-wow-wraps.svg';
+    footerLogo.src = '/assets/images/home-page/footer-section/logo-wow-wraps.svg';
     footerLogo.alt = 'WowWraps logo';
   }
 }
@@ -202,13 +202,13 @@ function updateHeaderLogo() {
 
     if (isComingSoonPage) {
         // On coming soon page, always use the dark mode logo
-        headerLogo.src = '../assets/icons/icon-header/nav-vect.svg';
+        headerLogo.src = '/assets/icons/icon-header/nav-vect.svg';
         headerLogo.alt = 'Restaurant Logo'; // Ensure alt text is consistent
     } else if (currentTheme === 'light') {
-        headerLogo.src = '../assets/icons/icon-header/logo_bg_dark_no_text.png';
+        headerLogo.src = '/assets/icons/icon-header/logo_bg_dark_no_text.png';
         headerLogo.alt = 'Restaurant Logo (Light Mode)';
     } else {
-        headerLogo.src = '../assets/icons/icon-header/nav-vect.svg';
+        headerLogo.src = '/assets/icons/icon-header/nav-vect.svg';
         headerLogo.alt = 'Restaurant Logo';
     }
 }

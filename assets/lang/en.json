@@ -8,7 +8,9 @@
   },
   "header": {
     "status_open": "we're open",
-    "cta": "Table Reservation"
+    "cta": "Table Reservation",
+    "theme_toggle": "Theme",
+    "language_toggle": "Language"
   },
   "footer": {
     "download_app": "Download the WowWraps app today.",

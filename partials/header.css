@@ -239,7 +239,7 @@ html[data-theme="light"] .header--scrolled {
     display: inline-block;
   }
 }
-
+ 
 /* xl (≥1280px) */
 @media (min-width: 80rem) {
   .header__logo img {
@@ -325,4 +325,48 @@ body.mobile-nav-open .cart-icon-wrapper {
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s ease;
+}
+
+/* ========== TOGGLE BUTTONS IN MOBILE NAV ========== */
+.header__nav-item--toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.header__toggle-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.header__toggle-label {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
+  min-width: 100px;
+  text-align: left;
+}
+
+/* Add some spacing between toggles when in mobile nav */
+@media (max-width: 47.9375rem) {
+  /* Below 768px */
+
+  .header__nav-item--toggle:first-of-type {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  html[data-theme="light"] .header__nav-item--toggle:first-of-type {
+    border-top-color: rgba(0, 0, 0, 0.1);
+  }
+
+  /* Ensure toggles maintain their button styling in mobile nav */
+  .header__nav-item--toggle .header-action-btn {
+    /* Maintain the same styling as in desktop header */
+  }
 }

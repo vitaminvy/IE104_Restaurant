@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="vi">
   <head>
-    <script src="../assets/script/theme-init.js" defer></script>
     <meta charset="UTF-8" />
+    <script src="../assets/script/base-assets.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lịch sử hoạt động - WowWraps</title>
     <meta
@@ -15,37 +15,10 @@
       type="image/svg+xml"
     />
 
-    <!-- Base styles -->
-    <link rel="stylesheet" href="../style/reset.css" />
-    <link rel="stylesheet" href="../style/style.css" />
-    <link rel="stylesheet" href="../style/animations.css" />
-    <link rel="stylesheet" href="../partials/header.css" />
-    <link rel="stylesheet" href="../partials/footer.css" />
-    <link rel="stylesheet" href="../style/back-to-top.css" />
-
-    <!-- Font Awesome (for back-to-top icon) -->
-    <link
-      rel="preload"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-      as="style"
-      onload="this.onload=null;this.rel='stylesheet'"
-    />
-    <noscript>
-      <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-      />
-    </noscript>
-
     <!-- Page specific -->
-    <link rel="stylesheet" href="./history.css" />
+    <link rel="stylesheet" href="./styles/history.css" />
   </head>
   <body>
-    <!-- Partials loader + header -->
-    <script src="../assets/script/include-partials.js" defer></script>
-    <script type="module" src="../assets/script/header.js"></script>
-    <script type="module" src="../assets/script/header-features.js"></script>
-
     <div data-include="/partials/header.html"></div>
 
     <main class="container history-page">
@@ -151,9 +124,6 @@
     <div data-include="/partials/footer.html"></div>
     <div data-include="../partials/back-to-top.html"></div>
 
-    <script src="../assets/script/global-loader.js" defer></script>
-    <script src="../assets/script/scroll-animations.js" defer></script>
-    <script src="../assets/script/back-to-top.js" defer></script>
-    <script type="module" src="./history.js"></script>
+    <script type="module" src="./scripts/history.js"></script>
   </body>
 </html>

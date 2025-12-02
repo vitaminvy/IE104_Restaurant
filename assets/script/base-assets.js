@@ -50,6 +50,13 @@
     ensureEl('link', { rel, href: resolved });
   };
 
+  const addFavicon = (href, type = 'image/svg+xml') => {
+    const resolved = new URL(href, rootHref).href;
+    if (loaded.has(resolved)) return;
+    loaded.add(resolved);
+    ensureEl('link', { rel: 'icon', href: resolved, type });
+  };
+
   const addScript = (src, { type, defer = true } = {}) => {
     const resolved = new URL(src, rootHref).href;
     if (loaded.has(resolved)) return;
@@ -60,6 +67,9 @@
   // Connection hints
   addPreconnect('https://fonts.googleapis.com');
   addPreconnect('https://fonts.gstatic.com', 'anonymous');
+
+  // Favicon
+  addFavicon('assets/icons/icon-header/nav-vect.svg');
 
   // Shared styles
   [

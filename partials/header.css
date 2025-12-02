@@ -163,13 +163,14 @@ html[data-theme="light"] .header__nav {
 
 .header__nav-link:hover,
 .header__nav-link--active {
-  color: var(--accent-color);
+  color: var(--accent-contrast, var(--accent-color));
 }
 
 /* ========== Status & Button ========== */
 .header__status {
   font-size: 0.875rem;
-  color: var(--text-muted);
+  color: var(--text-secondary);
+  font-weight: 600;
   display: none;
 }
 

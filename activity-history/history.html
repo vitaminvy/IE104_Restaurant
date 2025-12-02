@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <script src="../assets/script/theme-init.js" defer></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lịch sử hoạt động - WowWraps</title>
+    <meta
+      name="description"
+      content="Xem lại toàn bộ đặt bàn và đặt món của bạn tại WowWraps, sắp xếp theo thời gian với bộ lọc trạng thái và loại hoạt động."
+    />
+    <link
+      rel="icon"
+      href="../assets/icons/icon-header/nav-vect.svg"
+      type="image/svg+xml"
+    />
+
+    <!-- Base styles -->
+    <link rel="stylesheet" href="../style/reset.css" />
+    <link rel="stylesheet" href="../style/style.css" />
+    <link rel="stylesheet" href="../style/animations.css" />
+    <link rel="stylesheet" href="../partials/header.css" />
+    <link rel="stylesheet" href="../partials/footer.css" />
+    <link rel="stylesheet" href="../style/back-to-top.css" />
+
+    <!-- Page specific -->
+    <link rel="stylesheet" href="./history.css" />
+  </head>
+  <body>
+    <!-- Partials loader + header -->
+    <script src="../assets/script/include-partials.js" defer></script>
+    <script type="module" src="../assets/script/header.js"></script>
+    <script type="module" src="../assets/script/header-features.js"></script>
+
+    <div data-include="/partials/header.html"></div>
+
+    <main class="container history-page">
+      <section class="history-hero animate-fade">
+        <p class="eyebrow">Lịch sử</p>
+        <h1>Trung tâm hoạt động</h1>
+        <p class="hero-subtitle">
+          Theo dõi mọi đặt bàn và đặt món trong một nơi, sắp xếp từ mới đến cũ.
+        </p>
+      </section>
+
+      <section class="history-filters animate-scale">
+        <div class="filter-field">
+          <label for="filterType">Loại hoạt động</label>
+          <select id="filterType" class="history-select">
+            <option value="all">Tất cả</option>
+            <option value="reservation">Đặt bàn</option>
+            <option value="order">Đặt món</option>
+          </select>
+        </div>
+        <div class="filter-field">
+          <label for="filterStatus">Trạng thái</label>
+          <select id="filterStatus" class="history-select">
+            <option value="all">Tất cả</option>
+            <option value="pending">Chờ xác nhận</option>
+            <option value="confirmed">Đã xác nhận</option>
+            <option value="completed">Hoàn tất</option>
+            <option value="cancelled">Đã hủy</option>
+          </select>
+        </div>
+        <div class="filter-field">
+          <label for="filterFrom">Từ ngày</label>
+          <input id="filterFrom" type="date" class="history-input" />
+        </div>
+        <div class="filter-field">
+          <label for="filterTo">Đến ngày</label>
+          <input id="filterTo" type="date" class="history-input" />
+        </div>
+        <div class="filter-field filter-search">
+          <label for="searchBox">Tìm kiếm</label>
+          <div class="search-wrapper">
+            <span aria-hidden="true">🔍</span>
+            <input
+              id="searchBox"
+              type="text"
+              class="history-input"
+              placeholder="Mã đơn, ghi chú, món ăn..."
+              aria-label="Tìm kiếm lịch sử"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="historyList"
+        class="history-list animate-fade"
+        aria-live="polite"
+      ></section>
+      <div id="historyEmpty" class="history-empty" role="status"></div>
+    </main>
+
+    <div data-include="/partials/footer.html"></div>
+    <div data-include="../partials/back-to-top.html"></div>
+
+    <script src="../assets/script/global-loader.js" defer></script>
+    <script src="../assets/script/scroll-animations.js" defer></script>
+    <script src="../assets/script/back-to-top.js" defer></script>
+    <script type="module" src="./history.js"></script>
+  </body>
+</html>

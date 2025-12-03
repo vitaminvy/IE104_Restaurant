@@ -119,9 +119,10 @@ html[data-theme="light"] .header--scrolled {
   opacity: 0; /* initially will hide */
   pointer-events: none; /* unenable to click */
 }
-html[data-theme="light"] .header__nav {
+
+/* html[data-theme="light"] .header__nav {
   background: rgba(243, 240, 231, 0.9);
-}
+} */
 
 /* mobile nave effect: JS add this class when click hamburger btn */
 .header__nav--open {

@@ -7,6 +7,7 @@ import i18nService from './i18n-service.js';
   let scrollInited = false;
   let clockStarted = false;
   let swRegistered = false;
+  let navLoaderInited = false;
 
   // ----- HELPERS -----
   function q(sel) {
@@ -179,9 +180,11 @@ import i18nService from './i18n-service.js';
 
   // ----- SETUP NAVIGATION WITH LOADER -----
   function setupNavigationLoader() {
+    if (navLoaderInited) return;
     const navLinks = document.querySelectorAll(".header__nav-link");
     const authLink = document.querySelector(".header__auth-btn");
     if (!navLinks.length) return;
+    navLoaderInited = true;
 
     const isLoggedIn = () =>
       !!(localStorage.getItem("authToken") || sessionStorage.getItem("authToken"));
